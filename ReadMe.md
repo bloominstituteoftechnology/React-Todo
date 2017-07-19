@@ -23,8 +23,5 @@
 
 #### Tips and Tricks
   - Be sure to keep your todos in an array on state. Arrays are so awesome to work with.
-  ``` this.state = { 
-      todos: [];
-    }```
   - Feel free to structure your "todo" data however you'd like. i.e. strings, objects etc. 
   - React will give you warnings in the console that urge you to squash React Anti-Patterns. But if something is completely off. You'll get stack trace errors that will force your bundle to freeze up. You can look for these in the Chrome Console, or in the terminal where you're running your webpack-dev-server.
