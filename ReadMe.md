@@ -18,8 +18,10 @@
 ##### You'll need to make sure you have the following installed.
   - node and npm
   - webpack `npm install -g webpack` to install it globally
+  - we'll also be using [ESLint](https://www.npmjs.com/package/eslint-watch)
   - `npm install` will pull in all the node_modules you need
   - `npm start` will start a development server on your localhost at port 8080.
+  - open up new terminal and run `npm run lint` do this often so you can make sure your app is up to date with linting errors.
 
 #### Tips and Tricks
   - Think of your application as an Application Tree. App is the parent, which controlls properties/data needed for the child components. This is how modern applications are built. They're modular, separate pieces of code called components that you 'compose' together to make your app. It's awesome!
