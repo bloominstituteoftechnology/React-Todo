@@ -18,5 +18,5 @@
 ##### You'll need to make sure you have the following installed.
   - node and npm
   - webpack `npm instal -g webpack` to install it globally
-`npm install` will pull in all the node_modules you need
-`npm start` will start a development server on your localhost at port 8080.
+  - `npm install` will pull in all the node_modules you need
+  - `npm start` will start a development server on your localhost at port 8080.
