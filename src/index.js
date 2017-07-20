@@ -1,6 +1,5 @@
 /*eslint no-unused-vars: "off"*/
 
-/* READ THE README!!! */
 import React from 'react';
 import ReactDom from 'react-dom';
 
