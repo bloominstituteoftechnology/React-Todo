@@ -6,15 +6,17 @@ class todoListMain extends Component {
     super(props);
     this.state = {
       term: '',
-      items: ['hello']
+      items: []
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  onChange(event) {
+  handleChange(event) {
     this.setState({ term: event.target.value });
   }
 
-  onSubmit(event) {
+  handleSubmit(event) {
     event.preventDefault();
     this.setState({
       term: '',
@@ -25,8 +27,8 @@ class todoListMain extends Component {
   render() {
     return (
       <div>
-        <form className="App" onSubmit={this.onSubmit}>
-          <input value={this.state.term} onChange={this.onChange} />
+        <form className="App" onSubmit={this.handleSubmit} >
+          <input  value={this.state.term} onChange={this.handleChange} />
           <button>Submit</button>
         </form>
         <ShowTodo items={this.state.items} />
