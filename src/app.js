@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import TodoListMain from './todoListMain';
+import ShowTodo from './showTodo';
 
 class App extends Component {
   render() {
     return (
-      <TodoListMain />
+      <div>
+        <TodoListMain />
+        <ShowTodo />
+      </div>
     );
 
   }
