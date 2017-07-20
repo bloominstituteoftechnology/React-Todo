@@ -7,10 +7,9 @@ class App extends Component {
     return (
       <div>
         <TodoListMain />
-        <ShowTodo />
+        <ShowTodo items={this.state.items} />
       </div>
     );
-
   }
 }
 

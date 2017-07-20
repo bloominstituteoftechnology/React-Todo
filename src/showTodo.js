@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import TodoListMain from './todoListMain';
 
-class showTodo extends Component {
-  render() {
-    return (
-      <h1>Our List Is Comming</h1>
-    );
-  }
-}
+const ShowTodo = (props) => {
+  <ul>
+    {
+      props.items.map((item, index) => <li key={index}> {item} </li>)
+    }
+  </ul>
+};
 
-export default showTodo;
+export default ShowTodo;
