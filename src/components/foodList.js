@@ -16,13 +16,13 @@ class FavoriteFoodsClass extends Component {
       <div>
         <h1>Food List:</h1>
         <ul>
-          <li>{ this.state.anotherArray[0] }</li>
-          <li>{ this.state.anotherArray[1] }</li>
-          <li>{ this.state.anotherArray[2] }</li>
-          <li>{ this.state.anotherArray[3] }</li>
-          <li>{ this.state.anotherArray[4] }</li>
-          <li>{ this.state.anotherArray[5] }</li>
-          <li>{ this.state.anotherArray[6] }</li>
+          <li>{ this.state.foodArray[0] }</li>
+          <li>{ this.state.foodArray[1] }</li>
+          <li>{ this.state.foodArray[2] }</li>
+          <li>{ this.state.foodArray[3] }</li>
+          <li>{ this.state.foodArray[4] }</li>
+          <li>{ this.state.foodArray[5] }</li>
+          <li>{ this.state.foodArray[6] }</li>
         </ul>
         {/* <ul>
           { this.state.foodArray.map((name, index) => {
