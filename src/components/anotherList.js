@@ -12,7 +12,6 @@ class AnotherClass extends Component {
   }
   render() {
     console.log('Check me out in the Chrome Dev Tools!');
-    // alert('It works!');
     return (
       <div>
         <h1>Another List:</h1>
@@ -25,6 +24,7 @@ class AnotherClass extends Component {
           <li>{ this.state.anotherArray[5] }</li>
           <li>{ this.state.anotherArray[6] }</li>
         </ul>
+        <img src="https://vignette3.wikia.nocookie.net/adventuretimewithfinnandjake/images/7/7a/Ponies-meme-generator-did-someone-say-ponies-5707cf.jpeg" alt="Should be a MyLittlePony picture here"/>
       </div>
     )
   }
