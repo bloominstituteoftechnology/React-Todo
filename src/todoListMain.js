@@ -10,6 +10,7 @@ class todoListMain extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleChange(event) {
@@ -22,7 +23,16 @@ class todoListMain extends Component {
       term: '',
       items: [...this.state.items, this.state.term]
     });
+    // console.log(this.state);
   }
+   handleDelete(event){
+    const itemToDelete = event.target.innerText;
+    const updatedTasks = this.state.items.filter((item) => {
+      return item !== itemToDelete;
+    });
+    this.setState({items: updatedTasks})
+  }
+
   // <input value={this.state.term} onChange={this.onChange} />
   render() {
     return (
@@ -31,7 +41,9 @@ class todoListMain extends Component {
           <input  value={this.state.term} onChange={this.handleChange} placeholder='Add Task...' />
           <button>Submit</button>
         </form>
-        <ShowTodo items={this.state.items} />
+        <ShowTodo
+          handleDelete={this.handleDelete}
+          items={this.state.items} />
       </div>
     );
   }

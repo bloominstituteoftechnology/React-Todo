@@ -1,3 +1,6 @@
+div {
+
+}
 h1 {
   margin-bottom: .25em;
 }
@@ -9,14 +12,26 @@ hr {
 }
 ul {
   list-style: none;
-  
   li {
+    display: table;
     font-size: 2em;
     border: solid 2px black;
     border-radius: 4px;
-    margin: .5em;
+    margin: .5em 0em;
     width: 50%;
     text-align: left;
     padding: .25em 1em;
+
+    &:hover {
+      background-color: red;
+      color: white;
+    }
+  }
+}
+button {
+  &.delete {
+    background-color: yellow;
+    display: inline-block;
+    width: 10%;
   }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TodoListMain from './todoListMain'
 
 const ShowTodo = (props) => {
   return (
@@ -8,7 +9,10 @@ const ShowTodo = (props) => {
         <hr />
         <ul>
           {
-            props.items.map((item, index) => <li key={index}> {item} </li>)
+            props.items.map((item, index) =>
+            <div className="list" key={index}>
+              <li onClick={props.handleDelete} key={index}> {item} </li>
+            </div>)
           }
         </ul>
       </center>
