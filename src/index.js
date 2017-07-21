@@ -11,6 +11,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import ToDoClass from './components/toDoList';
+import AnotherClass from './components/anotherList';
 
 // require('!style-loader!css-loader!sass-loader!./index.scss');
 
@@ -19,6 +20,7 @@ const App = () => (
   <div>
     {/* Hello World! */}
     <ToDoClass myProp={ 'awesome props, yo!' }/>
+    <AnotherClass/>
   </div>
 );
 

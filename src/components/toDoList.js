@@ -11,10 +11,11 @@ class ToDoClass extends Component {
     };
   }
   render() {
-    console.log('FLAMING MUTANT HUMAN HAMSTERS');
-    alert('POOP MONKEYS');
+    console.log('Check me out in the Chrome Dev Tools!');
+    // alert('It works!');
     return (
       <div>
+        <h1>To Do List:</h1>
         <ul>
           <li>{ this.state.toDoArray[0] }</li>
           <li>{ this.props.myProp }</li>
