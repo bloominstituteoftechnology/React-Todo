@@ -11,10 +11,10 @@ class AnotherClass extends Component {
     };
   }
   render() {
-    console.log('Check me out in the Chrome Dev Tools!');
+    console.log('This message is from anotherList.js');
     return (
       <div>
-        <h1>Another List:</h1>
+        <h1>Another AWESOME List:</h1>
         <ul>
           <li>{ this.state.anotherArray[0] }</li>
           <li>{ this.state.anotherArray[1] }</li>
