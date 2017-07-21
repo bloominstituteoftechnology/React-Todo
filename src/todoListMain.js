@@ -28,7 +28,7 @@ class todoListMain extends Component {
     return (
       <div>
         <form className="App" onSubmit={this.handleSubmit} >
-          <input  value={this.state.term} onChange={this.handleChange} />
+          <input  value={this.state.term} onChange={this.handleChange} placeholder='Add Task...' />
           <button>Submit</button>
         </form>
         <ShowTodo items={this.state.items} />

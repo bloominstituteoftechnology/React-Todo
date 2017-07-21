@@ -1,0 +1,22 @@
+h1 {
+  margin-bottom: .25em;
+}
+hr {
+  width: 25%;
+  color: black;
+  border-color: black;
+  margin: 0;
+}
+ul {
+  list-style: none;
+  
+  li {
+    font-size: 2em;
+    border: solid 2px black;
+    border-radius: 4px;
+    margin: .5em;
+    width: 50%;
+    text-align: left;
+    padding: .25em 1em;
+  }
+}
