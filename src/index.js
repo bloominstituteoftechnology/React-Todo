@@ -32,7 +32,7 @@ class App extends Component {
              {'text': 'polish MyLittlePony statues', 'completed': false },
              {'text': 'snarfle frizzelbops', 'completed': false },
            },
-    },);
+    });
   }
 
   onHandleChange(event) {
