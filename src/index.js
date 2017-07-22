@@ -22,7 +22,7 @@ class App extends Component {
   //   this.setState({toDoList: ['pay bills', 'wash car', 'brush teeth', 'take shower', 'mend fence', 'solve rubik’s cube', 'polish MyLittlePony statues', 'snarfle frizzbopples']});
   // }
   componentWillMount() {
-    this.setState(
+    this.setState({
       todo: {{'text': 'pay bills', 'completed': false },
              {'text': 'wash car', 'completed': false },
              {'text': 'brush teeth', 'completed': false },
@@ -32,7 +32,7 @@ class App extends Component {
              {'text': 'polish MyLittlePony statues', 'completed': false },
              {'text': 'snarfle frizzelbops', 'completed': false },
            },
-    )
+    },);
   }
 
   onHandleChange(event) {
