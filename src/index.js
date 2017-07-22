@@ -18,22 +18,22 @@ class App extends Component {
     this.onHandleChange = this.onHandleChange.bind(this);
   }
 
-  // componentWillMount() {
-  //   this.setState({toDoList: ['pay bills', 'wash car', 'brush teeth', 'take shower', 'mend fence', 'solve rubik’s cube', 'polish MyLittlePony statues', 'snarfle frizzbopples']});
-  // }
   componentWillMount() {
-    this.setState({
-      todo: {{'text': 'pay bills', 'completed': false },
-             {'text': 'wash car', 'completed': false },
-             {'text': 'brush teeth', 'completed': false },
-             {'text': 'take shower', 'completed': false },
-             {'text': 'mend fence', 'completed': false },
-             {'text': 'solve rubik's cube, 'completed': false },
-             {'text': 'polish MyLittlePony statues', 'completed': false },
-             {'text': 'snarfle frizzelbops', 'completed': false },
-           },
-    });
+    this.setState({toDoList: ['pay bills', 'wash car', 'brush teeth', 'take shower', 'mend fence', 'solve rubik’s cube', 'polish MyLittlePony statues', 'snarfle frizzbopples']});
   }
+  // componentWillMount() {
+  //   this.setState({
+  //     todo: {{'text': 'pay bills', 'completed': false },
+  //            {'text': 'wash car', 'completed': false },
+  //            {'text': 'brush teeth', 'completed': false },
+  //            {'text': 'take shower', 'completed': false },
+  //            {'text': 'mend fence', 'completed': false },
+  //            {'text': 'solve rubik's cube, 'completed': false },
+  //            {'text': 'polish MyLittlePony statues', 'completed': false },
+  //            {'text': 'snarfle frizzelbops', 'completed': false },
+  //          },
+  //   });
+  // }
 
   onHandleChange(event) {
     this.SetState({toDoItem: event.target.value});
