@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.setState({toDoList: ['polish MyLittlePony statues', 'snarfle frizzbopples']});
+    this.setState({toDoList: [`pay bills`, `wash car`, `brush teeth`, `take shower`, `mend fence`, `solve rubik’s cube`, 'polish MyLittlePony statues', 'snarfle frizzbopples']});
   }
 
   onHandleChange(event) {
