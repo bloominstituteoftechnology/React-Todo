@@ -2,7 +2,7 @@
 Wanna try the clock example?
 - https://facebook.github.io/react/docs/react-component.html
 - https://facebook.github.io/react/docs/state-and-lifecycle.html <<<<< Clock example
-Also, scroll down to the Tips and Tricks section
+Also, scroll down to the [Tips and Tricks](https://github.com/mixelpixel/LS-React-1/blob/master/ReadMe.md#tips-and-tricks) section - or just click on the link to [Tips and Tricks](https://github.com/mixelpixel/LS-React-1/blob/master/ReadMe.md#tips-and-tricks).
 
 # React-1 - Todo Project
 
