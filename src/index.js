@@ -23,7 +23,7 @@ class App extends Component {
   }
   // componentWillMount() {
   //   this.setState({
-  //     todo: {{'text': 'pay bills', 'completed': false },
+  //     todo: [{'text': 'pay bills', 'completed': false },
   //            {'text': 'wash car', 'completed': false },
   //            {'text': 'brush teeth', 'completed': false },
   //            {'text': 'take shower', 'completed': false },
@@ -31,7 +31,7 @@ class App extends Component {
   //            {'text': 'solve rubik's cube, 'completed': false },
   //            {'text': 'polish MyLittlePony statues', 'completed': false },
   //            {'text': 'snarfle frizzelbops', 'completed': false },
-  //          },
+  //          ],
   //   });
   // }
 

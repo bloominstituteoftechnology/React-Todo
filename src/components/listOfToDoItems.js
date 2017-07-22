@@ -7,6 +7,9 @@ const ListOfToDoItems = (props) => {
       {item}
     </li>
   );
+  return (
+    <ul>{listItems}</ul>
+  );
   // return (
   //   <ul>
   //     { props.propToDoList.map((name, index) => {
@@ -14,9 +17,6 @@ const ListOfToDoItems = (props) => {
   //     }) }
   //   </ul>
   // )
-  return (
-    <ul>{listItems}</ul>
-  );
 }
 
 
