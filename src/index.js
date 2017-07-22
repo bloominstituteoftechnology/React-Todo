@@ -40,7 +40,7 @@ class App extends Component {
   // }
 
   onHandleChange(event) {
-    this.SetState({toDoItem: event.target.value});
+    this.setState({toDoItem: event.target.value});
   }
 
   render() {
