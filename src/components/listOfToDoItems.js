@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const ListOfToDoItems = (props) => {
-  const items = props.propToDoList;
+  const items = props.propsToDoList;
   const listItems = items.map((item) =>
     <li key={item.toString()}>
       {item}
@@ -12,7 +12,7 @@ const ListOfToDoItems = (props) => {
   );
   // return (
   //   <ul>
-  //     { props.propToDoList.map((name, index) => {
+  //     { props.propsToDoList.map((name, index) => {
   //       return <li>{ name } at index { index }</li>
   //     }) }
   //   </ul>

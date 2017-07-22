@@ -19,11 +19,15 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.setState({toDoList: ['pay bills', 'wash car', 'brush teeth', 'take shower', 'mend fence', 'solve rubik’s cube', 'polish MyLittlePony statues', 'snarfle frizzbopples']});
+    this.setState({toDoList: ['pay bills', 'wash car',
+                              'brush teeth', 'take shower',
+                              'mend fence', 'solve rubik’s cube',
+                              'polish MyLittlePony statues',
+                              'snarfle frizzbopples']});
   }
   // componentWillMount() {
   //   this.setState({
-  //     todo: [{'text': 'pay bills', 'completed': false },
+  //     todoList: [{'text': 'pay bills', 'completed': false },
   //            {'text': 'wash car', 'completed': false },
   //            {'text': 'brush teeth', 'completed': false },
   //            {'text': 'take shower', 'completed': false },
@@ -44,8 +48,8 @@ class App extends Component {
     return (
       <div style={styles}>
         <h1>Welcome to the Mothership { '\u2740' }</h1>
-        <ListOfToDoItems propToDoList={ this.state.toDoList }/>
-        <ToDoInputField change={ this.onHandleChange }/>
+        <ListOfToDoItems propsToDoList={ this.state.toDoList }/>
+        <ToDoInputField propsChange={ this.onHandleChange }/>
         <div>{ this.state.toDoItem }</div>
       </div>
     );
