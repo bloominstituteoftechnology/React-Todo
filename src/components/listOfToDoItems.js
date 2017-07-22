@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 const ListOfToDoItems = (props) => {
   return (
     <ul>
-      { props.toDoList.map((name, index) => {
-        return <li>{ name }</li>
+      { props.propToDoList.map((name, index) => {
+        return <li>{ name } at index { index }</li>
       }) }
     </ul>
   )

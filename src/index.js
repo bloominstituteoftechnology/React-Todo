@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { render } from 'react-dom';
 import ListOfToDoItems from './components/listOfToDoItems.js';
 import ToDoInputField from './components/toDoInputField.js';
@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.setState({toDoList: [`pay bills`, `wash car`, `brush teeth`, `take shower`, `mend fence`, `solve rubik’s cube`, 'polish MyLittlePony statues', 'snarfle frizzbopples']});
+    this.setState({toDoList: ['pay bills', 'wash car', 'brush teeth', 'take shower', 'mend fence', 'solve rubik’s cube', 'polish MyLittlePony statues', 'snarfle frizzbopples']});
   }
 
   onHandleChange(event) {
@@ -30,12 +30,12 @@ class App extends Component {
     console.log('WHERE IS THE WEBPAGE???');
     return (
       <div style={styles}>
-        <h1>Welcome to the Mothership { '\u1234' }</h1>
+        <h1>Welcome to the Mothership { '\u2740' }</h1>
         <ListOfToDoItems propToDoList={ this.state.toDoList }/>
         <ToDoInputField change={ this.onHandleChange }/>
         <div>{ this.state.toDoItem }</div>
       </div>
-    )
+    );
   }
 }
 
