@@ -14,7 +14,10 @@ class App extends Component {
     this.state = {
       nameList: []
     };
+    this.HandleChange = this.HandleChange.bind(this);
   }
+
+
 
   componentWillMount() {
     this.setState({nameList: ['Ryan', 'Sean', 'Allan', 'Jake', 'Greg', 'Stevie', 'Hannah']});
