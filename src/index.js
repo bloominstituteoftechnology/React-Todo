@@ -9,13 +9,14 @@ const styles = {
 };
 
 class App extends Component {
-  constructor(props) {
+  // constructor(props) {
+  constructor() {
     super();
     this.state = {
-      toDoList: [],
-      toDoItem: '',
+      toDoList: []
+      // toDoItem: '',
     };
-    this.onHandleChange = this.onHandleChange.bind(this);
+    // this.onHandleChange = this.onHandleChange.bind(this);
   }
 
   componentWillMount() {
@@ -25,31 +26,26 @@ class App extends Component {
                               'polish MyLittlePony statues',
                               'snarfle frizzlebops']});
   }
-  // componentWillMount() {
-  //   this.setState({
-  //     todoList: [{'text': 'pay bills', 'completed': false },
-  //            {'text': 'wash car', 'completed': false },
-  //            {'text': 'brush teeth', 'completed': false },
-  //            {'text': 'take shower', 'completed': false },
-  //            {'text': 'mend fence', 'completed': false },
-  //            {'text': 'solve rubik's cube, 'completed': false },
-  //            {'text': 'polish MyLittlePony statues', 'completed': false },
-  //            {'text': 'snarfle frizzelbops', 'completed': false },
-  //          ],
-  //   });
+
+  // onHandleChange(event) {
+  //   this.setState({toDoItem: event.target.value});
   // }
 
-  onHandleChange(event) {
-    this.setState({toDoItem: event.target.value});
-  }
+  onSave = (text) => {
+    this.setState({
+        toDoList: [...this.state.toDoList, text]
+    });
+  };
 
   render() {
     console.log('WHERE IS THE WEBPAGE???');
     return (
       <div style={styles}>
         <h1>Welcome to the Mothership { '\u2740' }</h1>
-        <ListOfToDoItems propsToDoList={ this.state.toDoList }/>
-        <ToDoInputField propsChange={ this.onHandleChange }/>
+        {/* <ListOfToDoItems propsToDoList={ this.state.toDoList }/>
+        <ToDoInputField propsChange={ this.onHandleChange }/> */}
+        <ListOfToDoItems toDoList={ this.state.toDoList }/>
+        <ToDoInputField onSave={ this.onSave }/>
         <div>{ this.state.toDoItem }</div>
       </div>
     );
@@ -57,3 +53,18 @@ class App extends Component {
 }
 
 render(<App />, document.getElementById('root'));
+
+// EXTRA CREDIT
+// componentWillMount() {
+//   this.setState({
+//     todoList: [{'text': 'pay bills', 'completed': false },
+//            {'text': 'wash car', 'completed': false },
+//            {'text': 'brush teeth', 'completed': false },
+//            {'text': 'take shower', 'completed': false },
+//            {'text': 'mend fence', 'completed': false },
+//            {'text': 'solve rubik's cube, 'completed': false },
+//            {'text': 'polish MyLittlePony statues', 'completed': false },
+//            {'text': 'snarfle frizzelbops', 'completed': false },
+//          ],
+//   });
+// }
