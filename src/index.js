@@ -14,7 +14,7 @@ class App extends Component {
     this.state = {
       nameList: []
     };
-    this.HandleChange = this.HandleChange.bind(this);
+    this.onSave = this.onSave.bind(this);
   }
 
 

@@ -7,6 +7,7 @@ class TodoInputField extends Component {
     this.state = {
       text: ""
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange = (e) => {
