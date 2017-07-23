@@ -8,13 +8,14 @@ class TodoInputField extends Component {
       text: ""
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = (e) => {
+  handleChange(e) {
       this.setState({ text: e.target.value });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit(e) {
     const text = this.state.text;
     if (e.which === 13) {
       this.props.onSave(text);

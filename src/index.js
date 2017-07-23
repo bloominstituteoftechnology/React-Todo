@@ -24,7 +24,7 @@ class App extends Component {
     this.setState({nameList: ['Ryan', 'Sean', 'Allan', 'Jake', 'Greg', 'Stevie', 'Hannah']});
   }
 
-  onSave = (text) => {
+  onSave(text) {
     this.setState({
       nameList: [...this.state.nameList, text]
     });
