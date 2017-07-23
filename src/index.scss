@@ -1,2 +1,58 @@
-// global styles go in here. 
+// global styles go in here.
 // When you start writing styles for your individual components you'll have to start importing them
+.heading {
+  color: blue;
+  font-style: italic;
+  font-family: monospace;
+  font-size: 40px;
+  text-align: left;
+  margin: 40px;
+}
+ul {
+  list-style-position: inside;
+}
+.ListItems {
+  margin-bottom: 10px;
+  display: run-in;
+
+  }
+  #checkBox:checked + li {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+  #checkBox {
+  display: inline-block;
+  position: absolute;
+  left: 25px;
+  margin-right: 10px;
+}
+  li {
+    font-size: 18px;
+    display: inline-block;
+    text-align: left;
+    word-wrap:break-word;
+    margin-right: 10px;
+}
+.textBox {
+  margin-left: 50px;
+  float: left;
+  font-size: 16px;
+  padding: 10px 25px;
+  border: solid #4CAF50 2px;
+}
+.clear {
+  float: right;
+  position: absolute;
+  left: 325px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+body {
+  font-family: sans-serif;
+}
