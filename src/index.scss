@@ -16,7 +16,7 @@ ul {
   display: run-in;
 
   }
-  #checkBox:checked + li {
+  .checked {
     text-decoration: line-through;
     opacity: 0.5;
   }

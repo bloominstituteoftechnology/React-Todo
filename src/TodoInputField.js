@@ -9,6 +9,7 @@ class TodoInputField extends Component {
       text: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
   handleChange(e) {
     this.setState({ text: e.target.value });

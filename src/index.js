@@ -15,6 +15,7 @@ class App extends Component {
     };
     this.onSave = this.onSave.bind(this);
     this.onClear = this.onClear.bind(this);
+    this.onCompleted = this.onCompleted.bind(this);
   }
 
   onSave(text) {
@@ -27,16 +28,17 @@ class App extends Component {
       list: []
     });
   }
-  onCompleted(e) {
-    this.state.list[index].completed = !this.state.list[index].completed;
-    this.forceUpdate();
+  onCompleted(idx) {
+    let newList = this.state.list;
+    newList[idx].completed = !newList[idx].completed;
+    this.setState({newList});
   }
 
   render() {
     return (
       <div>
         <h1 className="heading">Todo List</h1>
-        <ListItems list={this.state.list} onDelete={this.onClear} onComplete={this.onCompleted} />
+        <ListItems list={this.state.list} onDelete={this.onClear} onCompleted={this.onCompleted} />
         <TodoInputField onSave={this.onSave} />
       </div>
     );
