@@ -17,11 +17,11 @@ class ToDoInputField extends Component {
     };
   }
 
-  onHandleChange = (event) => {
-    this.setState({ toDoItem: event.target.value });
+  handleChange = (event) => {
+    this.setState({ text: event.target.value });
   };
 
-  onHandleSubmit = (event) => {
+  handleSubmit = (event) => {
     const text = this.state.text;
     // if ENTER button pressed
     if (event.which === 13) {
@@ -35,9 +35,10 @@ class ToDoInputField extends Component {
       <input
         type="text"
         placeholder='To Do?'
-        value={ this.inputValue }
-        onChange={ this.onHandleChange }
-        onKeyDown={ this.onHandleSubmit }
+        // value={ this.inputValue }
+        value={ this.state.text }
+        onChange={ this.handleChange }
+        onKeyDown={ this.handleSubmit }
       />
     );
   }

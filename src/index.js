@@ -38,9 +38,9 @@ class App extends Component {
   };
 
   render() {
-    console.log('WHERE IS THE WEBPAGE???');
+    console.log('DID THE WEBPAGE COMPILE???');
     return (
-      <div style={styles}>
+      <div style={ styles }>
         <h1>Welcome to the Mothership { '\u2740' }</h1>
         {/* <ListOfToDoItems propsToDoList={ this.state.toDoList }/>
         <ToDoInputField propsChange={ this.onHandleChange }/> */}
@@ -48,7 +48,7 @@ class App extends Component {
         <ToDoInputField onSave={ this.onSave }/>
         <div>{ this.state.toDoItem }</div>
       </div>
-    );
+    )
   }
 }
 
