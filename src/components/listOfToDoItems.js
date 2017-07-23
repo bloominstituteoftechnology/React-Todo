@@ -5,6 +5,7 @@ const ListOfToDoItems = (props) => {
     listStyleType: 'none',
   };
 
+  // // This style works, but it raises an error in the Chrome Dev Tools
   // return (
   //   <ul style={styles}>
   //     {props.toDoList.map((name, index) => {
