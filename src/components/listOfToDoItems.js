@@ -1,8 +1,12 @@
 import React from 'react';
 
 const ListOfToDoItems = (props) => {
+  const styles = {
+    listStyleType: 'none',
+  };
+
   // return (
-  //   <ul>
+  //   <ul style={styles}>
   //     {props.toDoList.map((name, index) => {
   //       return <li>to do item: {name} ...is at index: {index}</li>
   //     })}
@@ -17,7 +21,9 @@ const ListOfToDoItems = (props) => {
     </li>
   );
   return (
-    <ul>{ listItems }</ul>
+    <ul style={styles}>
+      { listItems }
+    </ul>
   );
 
 };

@@ -5,7 +5,7 @@ import ToDoInputField from './components/toDoInputField';
 
 const styles = {
   fontFamily: 'sans-serif',
-  textAlign: 'left',
+  textAlign: 'center',
 };
 
 class App extends Component {
@@ -34,7 +34,7 @@ class App extends Component {
   render() {
     return (
       <div style={styles}>
-        <h1>{'\u2740'} Welcom to the Mothership {'\u2740'}</h1>
+        <h1>{'\u2740'} Welcome to the Mothership {'\u2740'}</h1>
         <ListOfNames toDoList={this.state.toDoList} />
         <ToDoInputField onSave={this.onSave} />
         <div>{this.state.name}</div>
