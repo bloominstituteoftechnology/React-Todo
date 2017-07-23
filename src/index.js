@@ -23,7 +23,7 @@ class App extends Component {
                               'brush teeth', 'take shower',
                               'mend fence', 'solve rubik’s cube',
                               'polish MyLittlePony statues',
-                              'snarfle frizzbopples']});
+                              'snarfle frizzlebops']});
   }
   // componentWillMount() {
   //   this.setState({
