@@ -20,7 +20,7 @@ class App extends Component {
   componentWillMount() {
     this.setState({toDoList: ['pay bills', 'wash car',
                               'brush teeth', 'take shower',
-                              'mend fence', 'solve rubik’s cube',
+                              'mend fence', 'solve Rubik’s cube',
                               'polish MyLittlePony statues',
                               'snarfle frizzlebops']});
   }
