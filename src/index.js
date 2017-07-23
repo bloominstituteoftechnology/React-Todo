@@ -29,7 +29,7 @@ class App extends Component {
     this.setState({
       toDoList: [...this.state.toDoList, text]
     });
-  };
+  }
 
   render() {
     return (
@@ -39,7 +39,7 @@ class App extends Component {
         <ToDoInputField onSave={this.onSave} />
         <div>{this.state.name}</div>
       </div>
-    )
+    );
   }
 }
 
