@@ -9,6 +9,7 @@ const styles = {
 };
 
 class App extends Component {
+  // CHANGES
   constructor() {
     super();
     this.state = {
