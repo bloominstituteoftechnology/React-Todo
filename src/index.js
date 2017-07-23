@@ -1,45 +1,46 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import ListOfNames from './ListOfNames';
-import TodoInputField from './TodoInputField';
+import ListOfNames from './components/listOfToDoItems';
+import ToDoInputField from './components/toDoInputField';
 
 const styles = {
   fontFamily: 'sans-serif',
-  textAlign: 'center',
+  textAlign: 'left',
 };
 
 class App extends Component {
-  // CHANGES
   constructor() {
     super();
     this.state = {
-      nameList: []
+      toDoList: []
     };
     this.onSave = this.onSave.bind(this);
   }
 
-
-
   componentWillMount() {
-    this.setState({nameList: ['Ryan', 'Sean', 'Allan', 'Jake', 'Greg', 'Stevie', 'Hannah']});
+    this.setState({toDoList: ['pay bills', 'wash car',
+                              'brush teeth', 'take shower',
+                              'mend fence', 'solve rubik’s cube',
+                              'polish MyLittlePony statues',
+                              'snarfle frizzlebops']});
   }
 
   onSave(text) {
     this.setState({
-      nameList: [...this.state.nameList, text]
+      toDoList: [...this.state.toDoList, text]
     });
   };
 
   render() {
     return (
       <div style={styles}>
-        <h2>Start editing to see some magic happen {'\u2728'}</h2>
-        <ListOfNames nameList={this.state.nameList} />
-        <TodoInputField onSave={this.onSave} />
+        <h1>{'\u2740'} Welcom to the Mothership {'\u2740'}</h1>
+        <ListOfNames toDoList={this.state.toDoList} />
+        <ToDoInputField onSave={this.onSave} />
         <div>{this.state.name}</div>
       </div>
-      )
-    }
+    )
+  }
 }
 
 render(<App />, document.getElementById('root'));

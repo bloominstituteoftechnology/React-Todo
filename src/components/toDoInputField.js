@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class TodoInputField extends Component {
+class ToDoInputField extends Component {
   constructor(props) {
     super(props);
 
@@ -11,13 +11,14 @@ class TodoInputField extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e) {
-      this.setState({ text: e.target.value });
+  handleChange(event) {
+      this.setState({ text: event.target.value });
   };
 
-  handleSubmit(e) {
+  handleSubmit(event) {
     const text = this.state.text;
-    if (e.which === 13) {
+    // if (ENTER button pressed) { then...
+    if (event.which === 13) {
       this.props.onSave(text);
       this.setState({ text: "" });
     }
@@ -27,7 +28,7 @@ class TodoInputField extends Component {
     return (
       <input
         type="text"
-        placeholder="Enter a name"
+        placeholder="Something to do?"
         value={this.state.text}
         onChange={this.handleChange}
         onKeyDown={this.handleSubmit}
@@ -36,4 +37,4 @@ class TodoInputField extends Component {
   }
 }
 
-export default TodoInputField;
+export default ToDoInputField;
