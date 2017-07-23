@@ -1,7 +1,46 @@
-/*eslint no-unused-vars: "off"*/
-import React from 'react';
-import ReactDom from 'react-dom';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import ListOfNames from './components/listOfToDoItems';
+import ToDoInputField from './components/toDoInputField';
 
-require('!style-loader!css-loader!sass-loader!./index.scss');
+const styles = {
+  fontFamily: 'sans-serif',
+  textAlign: 'center',
+};
 
-ReactDom.render(<div>Hello World!</div>, document.getElementById('root'));
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      toDoList: []
+    };
+    this.onSave = this.onSave.bind(this);
+  }
+
+  componentWillMount() {
+    this.setState({toDoList: ['pay bills', 'wash car',
+                              'brush teeth', 'take shower',
+                              'mend fence', 'solve Rubik’s cube',
+                              'polish MyLittlePony statues',
+                              'snarfle frizzlebops']});
+  }
+
+  onSave(text) {
+    this.setState({
+      toDoList: [...this.state.toDoList, text]
+    });
+  }
+
+  render() {
+    return (
+      <div style={styles}>
+        <h1>{'\u2740'} Welcome to the Mothership {'\u2740'}</h1>
+        <ListOfNames toDoList={this.state.toDoList} />
+        <ToDoInputField onSave={this.onSave} />
+        <div>{this.state.name}</div>
+      </div>
+    );
+  }
+}
+
+render(<App />, document.getElementById('root'));
