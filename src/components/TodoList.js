@@ -4,11 +4,11 @@ import React from 'react';
 const TodoList = (props) => {
 
     return (
-        <ul>
+        <ol>
             {props.todos.map((todo, index) => {
-                return <li value={index}>{todo}</li>;
+                return <li value={index+1}>{todo}</li>;
             })}
-        </ul>
+        </ol>
     );
 };
 
