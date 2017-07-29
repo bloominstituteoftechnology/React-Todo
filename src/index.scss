@@ -1,2 +1,39 @@
-// global styles go in here. 
+// global styles go in here.
 // When you start writing styles for your individual components you'll have to start importing them
+button {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 15px 27px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  font-family: "Arial", Arial, sans-serif;
+  margin-left: 2em;
+}
+
+.input-1 {
+    width: 30%;
+    padding: 10px 20px;
+    margin: 1px 0;
+    box-sizing: border-box;
+    font-family: "Arial", Arial, sans-serif;
+    font-size: 1em;
+    box-shadow: 5px 5px 15px gray;
+}
+
+li {
+  font-size: 1em;
+  font-family: "Arial", Arial, sans-serif;
+}
+
+h1 {
+  font-family: "Arial", Arial, sans-serif;
+  color: Black;
+}
+
+h2 {
+  font-family: "Arial", Arial, sans-serif;
+  color: Gray;
+}
