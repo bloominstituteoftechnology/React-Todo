@@ -4,22 +4,23 @@ button {
   background-color: #008CBA;
   border: none;
   color: white;
-  padding: 10px 22px;
+  padding: 15px 27px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 1em;
   font-family: "Arial", Arial, sans-serif;
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-left: 2em;
 }
 
-input {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+.input-1 {
+    width: 30%;
+    padding: 10px 20px;
+    margin: 1px 0;
     box-sizing: border-box;
     font-family: "Arial", Arial, sans-serif;
+    font-size: 1em;
+    box-shadow: 5px 5px 15px gray;
 }
 
 li {
@@ -35,9 +36,4 @@ h1 {
 h2 {
   font-family: "Arial", Arial, sans-serif;
   color: Gray;
-}
-
-input:focus {
-    border: 3px solid #555;
-    font-family: "Arial", Arial, sans-serif;
 }
