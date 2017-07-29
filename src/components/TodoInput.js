@@ -1,6 +1,7 @@
 import React from 'react';
 
-const TodoInput = props => {
+const TodoInput = (props) => {
+    // console.log(props);
     return (
         <div>
             <input value={props.todo} onChange={props.onTodoInput} />
