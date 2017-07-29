@@ -1,14 +1,24 @@
 import React from 'react';
 
-const TodoList = props => {
+
+const TodoList = (props) => {
+
     return (
-        <ol>
-      Task List:
+        <ul>
             {props.todos.map((todo, index) => {
                 return <li value={index}>{todo}</li>;
             })}
-        </ol>
+        </ul>
     );
 };
+
+
+
+
+
+
+
+
+
 
 export default TodoList;

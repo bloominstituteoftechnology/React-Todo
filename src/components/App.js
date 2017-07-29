@@ -1,20 +1,21 @@
-import React, {Component} from 'react';
-import TodoList from './TodoList';
+import React, { Component } from 'react';
 import TodoInput from './TodoInput';
+import TodoList from './TodoList';
+
 class App extends Component {
-    // stateful component
     constructor() {
         super();
         this.state = {
             todo: '',
-            todoList: []
+            todoList: ['Clean House']
         };
         this.updateTodoHandler = this.updateTodoHandler.bind(this);
         this.submitTodoHandler = this.submitTodoHandler.bind(this);
     }
 
+    
     updateTodoHandler(event) {
-        this.setState({ todo: event.target.value });
+        this.setState({todo: event.target.value});
     }
 
     submitTodoHandler() {
@@ -23,17 +24,13 @@ class App extends Component {
         this.setState({ todoList, todo: '' });
     }
 
+
+
     render() {
-        return (
+        return ( 
             <div>
-                <TodoList
-                    todos={this.state.todoList}
-                />
-                <TodoInput
-                    todo={this.state.todo}
-                    onTodoInput={this.updateTodoHandler}
-                    onTodoSubmit={this.submitTodoHandler}
-                />
+                <TodoInput onTodoInput={this.updateTodoHandler} onTodoSubmit={this.submitTodoHandler} todo={this.state.todo}/>
+                <TodoList todos={this.state.todoList} />
             </div>
         );
     }
