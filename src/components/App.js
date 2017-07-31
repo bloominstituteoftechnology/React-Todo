@@ -30,7 +30,7 @@ class App extends React.Component {
     render() {
         return (
             <Panel header="To Do List" bsStyle="default">
-                <Form inLine onSubmit={this.handleSubmit}>
+                <Form onSubmit={this.handleSubmit}>
                     <FormGroup controlId="formInlineName">
                         <FormControl
                             type="text"
