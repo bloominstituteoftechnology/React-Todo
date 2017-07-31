@@ -1,2 +1,17 @@
 // global styles go in here. 
-// When you start writing styles for your individual components you'll have to start importing them
+// When you start writing styles for your individual components you'll have to start importing them.
+.panel {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    margin: 50px auto;
+    width: 60%;
+    min-height: 300px;
+}
+ul {
+    list-style: none;
+}
+#formInlineName {
+    width: 50%;
+    margin: auto;
+}
