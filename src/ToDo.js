@@ -1,4 +1,5 @@
-// IDEA Impose length limit, add deletable tasks.
+// IDEA Impose length limit, add deletable tasks, store data in browser for preserverence.
+// DONE Completed assignment and added toggleable checkbox/cross-through, added duplicate checker.
 
 import React, { Component } from 'react';
 import List from './List';
