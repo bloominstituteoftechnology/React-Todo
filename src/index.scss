@@ -1,2 +1,25 @@
-// global styles go in here. 
+// global styles go in here.
 // When you start writing styles for your individual components you'll have to start importing them
+div:nth-child(1) {
+  text-align: center;
+  user-select: none;
+  ul {
+    display: inline-block;
+    padding-left: 0;
+    text-align: left;
+    list-style: none;
+    li {
+      cursor: pointer;
+      input {
+        margin-right: .5em;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .crossed {
+    text-decoration: line-through;
+  }
+  div#response {
+    padding-top: 1em;
+  }
+}
