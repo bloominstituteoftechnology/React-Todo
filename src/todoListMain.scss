@@ -1,0 +1,28 @@
+div {
+  
+  form {
+    text-align: center;
+    padding: 3em;
+  }
+  input {
+    margin-right: 1.25em;
+    height: 2em;
+    width: 50em;
+    font-size: 1em;
+  }
+  button {
+    height: 2.5em;
+    width: 10em;
+    box-shadow: 5px 5px 5px rgb(25, 25, 25);
+    cursor: pointer;
+    background-color: limegreen;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-size: 1em;
+    &:active {
+      box-shadow: 1px 1px 1px black;
+      transform: translateY(4px);
+    }
+  }
+}
