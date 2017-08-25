@@ -1,7 +1,12 @@
 /*eslint no-unused-vars: "off"*/
 import React from 'react';
-import ReactDom from 'react-dom';
+import { render } from 'react-dom';
 
-require('!style-loader!css-loader!sass-loader!./index.scss');
+import App from './App';
 
-ReactDom.render(<div>Hello World!</div>, document.getElementById('root'));
+// require('!style-loader!css-loader!sass-loader!./index.scss');
+render(
+  <App/>
+  , 
+  document.getElementById('root')
+);
