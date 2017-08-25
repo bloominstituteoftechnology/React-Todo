@@ -47,7 +47,6 @@ export default class App extends Component {
   
   handleItemCompleteToggle = (event) => {
     event.preventDefault();
-    console.log(localStorage)
     if (event.currentTarget.id) {
       const items= Array.from(this.state.items)
       const target = event.currentTarget.id
