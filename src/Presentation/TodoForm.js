@@ -4,7 +4,6 @@ import Typography from 'material-ui/Typography';
 import Drawer from 'material-ui/Drawer';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
-import CancelIcon from 'material-ui-icons/Close';
 
 export const TodoForm = (props) => {
   return(

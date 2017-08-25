@@ -10,7 +10,6 @@ import List, {
 import Avatar from 'material-ui/Avatar';
 import Icon from 'material-ui/Icon';
 import IconButton from 'material-ui/IconButton';
-import Divider from 'material-ui/Divider';
 
 export const TodosList = (props) => {
   return(
@@ -23,19 +22,17 @@ export const TodosList = (props) => {
                 <Icon color="primary">check_box</Icon>
               </IconButton>
               :
-              <IconButton id={i} aria-label="Complete" onClick={props.onComplete}>
+              <IconButton id={i} aria-label="Not Complete" onClick={props.onComplete}>
                 <Icon color="primary">check_box_outline_blank</Icon>
               </IconButton>
             }
             <ListItemText 
-              primary={item.title} 
+              primary={`${i + 1}. ${item.title}`} 
               secondary={item.description} 
               style={item.isComplete ? {
                 textDecoration: 'line-through',
                 textDecorationColor: 'red',
-                } 
-                : 
-                {}
+                } : {}
               }
             />
             <ListItemSecondaryAction>
