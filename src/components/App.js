@@ -30,13 +30,13 @@ class App extends Component {
   }
   render() {
     const listItems = [];
-    this.state.list.forEach((item, i) => {
-      listItems.push(<ListItem item={item} onClick={() => this.onClick(i)} />);
+    this.state.list.forEach((item) => {
+      listItems.push(<ListItem item={item} />);
     });
     return (
       <div className="todolist">
         <h1>To Do List</h1>
-        <input type="text" id="listItem" placeholder="Add item" />
+        <input type="text" id="listItem" placeholder="Add item" /><br />
         <button type="button" onClick={() => this.addItem()}>Add</button>
         <button type="button" onClick={() => this.onClick()}>Delete</button>
         <ul>
