@@ -20,10 +20,11 @@ export default class App extends Component {
     };
   }
   componentWillMount() {
-    this.setState(JSON.parse(localStorage.state));
+    if (localStorage.state) this.setState(JSON.parse(localStorage.state));
   }
-  persistToLocalStorage = () => {
-    localStorage.state = JSON.stringify(this.state);
+  
+  persistToLocalStorage = (state) => {
+    localStorage.state = JSON.stringify(state || this.state);
   }
 
   handleDrawerOpen = () => {
@@ -96,8 +97,8 @@ export default class App extends Component {
       items 
     };
     const newState = Object.assign({}, this.state, state);
+    this.persistToLocalStorage(newState);
     if (title) this.setState(() => newState);
-    this.setState(newState);
   }
 
   render() {
