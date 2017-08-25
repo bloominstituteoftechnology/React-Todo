@@ -27,13 +27,10 @@ export default class App extends Component {
     localStorage.state = JSON.stringify(state || this.state);
   }
 
-  handleDrawerOpen = () => {
-    const newState = Object.assign({}, this.state, {drawerOpen: true})
-    this.setState(() => newState);
-  }
-
-  handleDrawerClose = () => {
-    const newState = Object.assign({}, this.state, {drawerOpen: false})
+  handleDrawerToggle = () => {
+    const newState = Object.assign({}, this.state, {
+      drawerOpen: !this.state.drawerOpen
+    })
     this.setState(() => newState);
   }
 
@@ -85,17 +82,8 @@ export default class App extends Component {
     event.preventDefault();
     const { title, description } = this.state;
     const items = Array.from(this.state.items);
-    items.push({
-      title, 
-      description,
-      isComplete: false
-    })
-    const state = { 
-      drawerOpen: false,
-      title: '', 
-      description: '', 
-      items 
-    };
+    items.push({ title, description, isComplete: false })
+    const state = { drawerOpen: false, title: '', description: '', items };
     const newState = Object.assign({}, this.state, state);
     this.persistToLocalStorage(newState);
     if (title) this.setState(() => newState);
@@ -113,7 +101,7 @@ export default class App extends Component {
               fab 
               color="primary" 
               aria-label="add" 
-              onClick={this.handleDrawerOpen}
+              onClick={this.handleDrawerToggle}
               style={{marginRight: '50px'}}
             >
               <AddIcon/>
@@ -129,12 +117,12 @@ export default class App extends Component {
         </Grid>
         <Drawer  
           open={this.state.drawerOpen} 
-          onRequestClose={this.handleDrawerClose}
+          onRequestClose={this.handleDrawerToggle}
         >
           <TodoForm 
             onSubmit={this.onSubmit} 
             onChange={this.onChange}
-            onCancel={this.handleDrawerClose}
+            onCancel={this.handleDrawerToggle}
             title={this.title}
             description={this.description}
           />
