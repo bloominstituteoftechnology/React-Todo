@@ -2,7 +2,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import App from './App';
+import App from './Container/App';
 
 // require('!style-loader!css-loader!sass-loader!./index.scss');
 render(
