@@ -20,7 +20,10 @@ export default class App extends Component {
     };
   }
   componentWillMount() {
-    if (localStorage.state) this.setState(JSON.parse(localStorage.state));
+    if (localStorage.state) {
+      const newState = JSON.parse(localStorage.state);
+      this.setState(() => newState);
+    }
   }
   
   persistToLocalStorage = (state) => {
