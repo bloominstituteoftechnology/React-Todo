@@ -1,2 +1,128 @@
 // global styles go in here. 
 // When you start writing styles for your individual components you'll have to start importing them
+
+.title {
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+	font-size: 36px;
+	font-style: normal;
+    font-variant: normal;
+    letter-spacing: 1px;
+	font-weight: 500;
+    line-height: 26.4px;
+    text-shadow: 2px 2px 1px #888888;
+}
+
+.entire {
+    text-align: center;
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 60px;
+    height: 100%;
+    border: solid 30px black;
+    border-radius: 1000px;
+}
+.list {
+    background-color: whitesmoke;
+    width: 300px;
+    margin: auto;
+    height: 400px;
+    overflow: scroll;
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+    line-height: 15.4px;
+    text-align: left;
+}
+#check {
+    background-image: url("https://atlas-content-cdn.pixelsquid.com/stock-images/check-mark-z074ln3-600.jpg");
+    background-size: 100%;
+}
+#check:hover {
+    box-shadow: 2px 2px 1px green;
+}
+#x-mark {
+    background-image: url("http://www.drodd.com/images14/x15.jpg");
+    background-size: 100%;
+}
+#x-mark:hover {
+    box-shadow: 2px 2px 1px red;
+}
+.btn-small {
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+    float: right;
+    border-radius: 100px;
+    border-color: white;
+    background-color: white;
+    margin: 0 5px;
+}
+
+.btn-small:hover {
+    cursor:  pointer;
+    opacity: .6;
+}
+.incomplete {
+    color: darkslategrey;
+    line-height: 40px;
+    border: outset 1px whitesmoke;
+}
+.complete {
+    color: green;
+    line-height: 40px;
+    font-style: italic;
+    font-weight: 0;
+    font-variant: small-caps;
+    height: 40px;
+    text-decoration: line-through;
+}
+.input {
+    background-color: grey;
+    margin: auto;
+    height: 20px;
+    width: 300px;
+    margin-left: 50px;
+    border: none;
+}
+.btn-add {
+    height: 35px;
+    width: 35px;
+    overflow: hidden;
+    border-radius: 100px;
+    border-color: white;
+    background-color: white;
+    margin: 0px 10px;
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    font-size: 12px;
+    text-align: left;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+}
+.btn-add:hover {
+    cursor: pointer;
+    opacity: .6;
+    box-shadow: 2px 2px 1px goldenrod;
+}
+.btn-remove {
+    height: 35px;
+    width: 205px;
+    overflow: hidden;
+    border-radius: 100px;
+    border-color: white;
+    background-color: white;
+    margin: 30px 10px;
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    font-size: 12px;
+    text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+}
+.btn-remove:hover {
+    cursor: pointer;
+    opacity: .6;
+    box-shadow: 2px 2px 1px goldenrod;
+}
