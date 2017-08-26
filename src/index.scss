@@ -1,2 +1,63 @@
 // global styles go in here. 
 // When you start writing styles for your individual components you'll have to start importing them
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
+$primary-color: black;
+$hOne-color: #0F0000;
+
+.div-class {
+  background-color: $primary-color;
+  
+}
+
+body {
+  background-image: url(http://www.clker.com/cliparts/0/3/J/v/1/d/pp-edge-torn-paper-hi.png);
+  background-color: $primary-color;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+
+}
+
+
+
+
+.hOne {
+  font-family: 'Gloria Hallelujah', cursive;
+text-align: center;
+color: $hOne-color;
+position: absolute;
+top: 5%;
+left: 41%;
+  
+}
+
+.button-One {
+  background: white;
+  border: 1px solid #0B0303;
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 41%;
+  
+}
+
+.List-Items{
+  color: #0F0000;
+  float: right;
+  display: inline-block;
+  margin-top: 150px;
+  margin-right: 630px;
+  
+  
+}
+
+.Form-Class {
+  text-align: center;
+  //float: right;
+  //margin-right: 550px;
+  position: absolute;
+  top: 20%;
+  left: 41%;
+  border: 1px solid black;
+}

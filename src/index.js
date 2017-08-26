@@ -1,7 +1,13 @@
 /*eslint no-unused-vars: "off"*/
+/*eslint linebreak-style: ["error", "windows"]*/
+
+//Create a file for the todo list
+//Create a file for a  function to add items to an array
+//Create a file 
 import React from 'react';
-import ReactDom from 'react-dom';
+import {render} from 'react-dom';
+import App from './App';
 
 require('!style-loader!css-loader!sass-loader!./index.scss');
 
-ReactDom.render(<div>Hello World!</div>, document.getElementById('root'));
+render(<App/> ,  document.getElementById('root'));
