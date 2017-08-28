@@ -19,7 +19,7 @@ export default class App extends Component {
       items: []
     }
   }
-  componentWillMount() {
+  componentDidMount() {
     if (localStorage.state) {
       const existingState = JSON.parse(localStorage.state)
       this.setState(() => existingState)
