@@ -1,7 +1,23 @@
 /*eslint no-unused-vars: "off"*/
 import React from 'react';
-import ReactDom from 'react-dom';
+import { render } from 'react-dom';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import createPalette from 'material-ui/styles/palette';
 
-require('!style-loader!css-loader!sass-loader!./index.scss');
+import App from './Container/App';
 
-ReactDom.render(<div>Hello World!</div>, document.getElementById('root'));
+const theme = createMuiTheme({
+  palette: createPalette({
+    type: 'dark', // Switching the dark mode on is a single property value change.
+  }),
+})
+
+// require('!style-loader!css-loader!sass-loader!./index.scss');
+render(
+  <MuiThemeProvider theme={theme}>
+    <App/>
+  </MuiThemeProvider>
+
+  , 
+  document.getElementById('root')
+);
