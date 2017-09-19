@@ -4,6 +4,10 @@
 - Read this first: [Facebook Docs](https://facebook.github.io/react/docs/hello-world.html)
 - Learn about the [React Life Cycle Methods](https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1)
 
+### Other Useful Resources
+- CodeSandbox that was used in the lecture video: [https://codesandbox.io/s/z667kplonx](https://codesandbox.io/s/z667kplonx)
+- Documentation on JSX: [JSX In Depth](https://facebook.github.io/react/docs/jsx-in-depth.html)
+
 ### Battle Plan
  - Objective: At this point you have become familiar with the DOM and have exausted research on the wonderful world of HTML and CSS. Now we're going to dive into modern JavaScript development by learning about ReactJS.
  - You're going to be building a ToDo App (please hold your applause).
