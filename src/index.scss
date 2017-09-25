@@ -1,2 +1,31 @@
 // global styles go in here. 
 // When you start writing styles for your individual components you'll have to start importing them
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+#completed-button {
+  background-image: url("http://vignette4.wikia.nocookie.net/five-nights-at-tubbyland/images/a/a5/X.png/revision/latest?cb=20160216225020");
+  background-size: 15px 15px;
+  height: 20px;
+  width: 20px;
+  background-color: white;
+}
