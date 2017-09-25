@@ -1,0 +1,23 @@
+.todo-app {
+  margin: 0 auto;
+  margin-top: 80px;
+  width: 60%;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px 1px rgba(143,140,143,1);
+}
+
+.todo-header {
+  background-color: $brightYellow;
+  width: 100%;
+  height: 6em;
+  // border-radius: 5px;
+  // box-shadow: 1px 1px 2px 1px rgba(143,140,143,1);
+  display: flex;
+  justify-content: center;
+}
+
+.todo-header-text {
+  font-size: 3em;
+  color: $white;
+  margin-bottom: 0;
+}

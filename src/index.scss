@@ -1,2 +1,10 @@
-// global styles go in here. 
+// global styles go in here.
 // When you start writing styles for your individual components you'll have to start importing them
+@import "./styles/_normalize.scss";
+@import "/styles/variables";
+@import "/styles/base";
+@import "/styles/todo-list";
+@import "/styles/todo-app";
+@import "/styles/buttons";
+@import "/styles/list-item";
+@import "/styles/todo-input";

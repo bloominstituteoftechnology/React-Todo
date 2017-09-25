@@ -1,0 +1,36 @@
+.todo-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.todo-list .todo-item:nth-child(even) {
+  background-color: $aero;
+  .todo-text {
+    color: $brightYellow;
+  }
+
+  .btn-del {
+    background-color: $maxBlueGreen;
+    color: $white;
+  }
+
+  .btn-complete {
+    background-color: $aero;
+    color: $brightYellow;
+  }
+}
+
+.todo-list .todo-completed:nth-child(even) {
+  color: $white;
+  background-color: #5d5d5d;
+
+  .todo-text {
+    text-decoration: line-through;
+    color: $white;
+  }
+  .btn-complete {
+    background-color: #5d5d5d;
+    color: $white;
+  }
+}

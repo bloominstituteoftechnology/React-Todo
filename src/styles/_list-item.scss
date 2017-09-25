@@ -1,0 +1,30 @@
+.todo-item {
+  font-size: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // border-bottom: 1px solid #343434;
+  background-color: $topaz;
+}
+
+.todo-checkbox {
+  margin-left: 10px;
+}
+
+.todo-text {
+  color: #f0fbfa;
+}
+
+.todo-completed {
+  color: $white;
+  background-color: #5d5d5d;
+
+  .todo-text {
+    text-decoration: line-through;
+  }
+
+  .btn-complete {
+    color: $white;
+    background-color: #5d5d5d;
+  }
+}
