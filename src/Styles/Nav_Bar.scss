@@ -1,0 +1,45 @@
+#nav_bar {
+    width: 100%;
+    height: auto;
+    color:white;
+    position: fixed;
+    padding:1% 1% 1% 0;
+    border-bottom-right-radius: 10px;
+    border-bottom:1px solid #FFCA37;
+
+    top:0;
+    margin:0 ;
+    background-color: black;
+    z-index: 1;
+    #nav_logo {
+       // text-align: center;
+        padding-right: 20px;
+        width: 10%;
+        font-size: 2em;
+        border-radius: 0px 10px 10px 0px;
+        background-color: #545754;
+        box-shadow: inset 0px 0px 1px 3px black;
+        text-shadow: 2px 2px  black;
+        border: 1px solid #FFCA37;
+        display: inline-block;
+    }
+    #nav_welcome{
+
+        text-align: center;
+        font-family: serif;
+        position: absolute;
+        top:15%;
+        left:30%;
+        display: inline-block;
+        width:40%;
+    }
+    #nav_version{
+        background-color: #585A58;
+        position: absolute;
+        top:10%;
+        right:2%;
+        padding:0.5%;
+        border-radius: 5px;
+        border: 1px solid #FFCA37
+    }
+}

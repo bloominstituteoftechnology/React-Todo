@@ -1,0 +1,120 @@
+#task_controller {
+    position: absolute;
+    top: 22%;
+    margin-left: 12%;
+    width: 70%;
+    min-height: 10%;
+    background-color: #E0DBDB;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 3px black;
+    padding: 2%;
+    //padding-left:0;
+    opacity: 0.9;
+    button{
+        background-color:#585757;
+        color: white;
+        padding: 1%;
+    }
+    #noTasks{
+        background-color: #EEEEEE;
+        text-align: center;
+        font-size: 2em;
+        border-radius: 5px;
+        border: 1px solid rgba(0,0,0,0.5)
+    }
+    #input_name{
+        width:50%;
+        border-radius: 10px;
+        padding-left: 1%;
+        font-weight: 700;
+    }
+    #input_info{
+        width:99%;
+        height: 100px;
+        border-radius: 10px;
+        white-space: pre-wrap;
+        resize: none;
+        padding-left: 1%;
+        font-weight: 700;
+    }
+    #task_form{
+        background-color: #F8C027;
+        padding:2%;
+        display: none;
+        opacity: 0;
+        color:black;
+        font-weight: 700;
+        -webkit-transition: opacity 0.5s, height 1s;
+        transition: opacity 0.5s, height 1s;
+        border: 1px solid black
+        
+        
+    }
+
+}
+.task {
+    width: 95.5%;
+    height: 8%;
+    border-radius: 5px;
+    position: relative;
+    background-color: #FDBE5E;
+    border: 2px solid red;
+    box-shadow: 2px 2px black;
+    padding: 2%;
+    margin-bottom: 2%;
+    
+
+    .task_index {
+        width: 30px;
+        height: 30px;
+        background-color: #F5F8EE;
+        border-radius: 40px;
+        border: 1px solid black;
+        text-align: center;
+        box-shadow: inset 0px 0px 2px 2px black;
+        display: inline-block; 
+        position: absolute;
+        top:2.5%;
+        left:0.5%; 
+
+        span{
+            position: relative; 
+            top:20%;
+            font-size: 1em;
+            text-shadow: 1px 1px black;
+        }
+    
+    }
+    .task_name{
+       display:inline-block;
+       padding: 1%; 
+       font-size: 1.5em;
+       margin:1%;
+       margin-left: 2%;
+       background-color: #565656;
+       box-shadow:inset 0px 0px 2px 2px black;
+       border-radius: 5px;
+       color: white;
+    }
+    .task_info{
+        display:block;
+        padding: 1%; 
+        font-size: 1.2em;
+        margin:1%;
+        margin-left: 2%;
+        position: relative;
+        background-color: #565656;
+        color: white;
+        box-shadow:inset 0px 0px 2px 2px black;
+        white-space: pre-wrap;
+        border-radius: 5px;
+        top:25%;
+     }
+     button{
+         background-color: black;
+         color: white;
+         border:1px solid red;
+         margin-left:2%;
+     }
+     
+}
