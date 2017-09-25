@@ -1,0 +1,72 @@
+.list-switch {
+  display: block;
+  float: left;
+  height: 100%;
+  width: 25%;
+  padding-top: 1em;
+
+  a {
+    display: block;
+    margin: .25em 0 .6em .45em;
+    padding: .6em;
+    color: #eee;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 0.9em;
+    text-decoration: none;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .list-icon {
+      margin-right: .4em;
+    }
+
+    em {
+      display: inline-block;
+      margin-left: .4em;
+      padding: .2em;
+      color: #eee;
+      background: rgba(255, 255, 255, .2);
+      min-width: 1.4em;
+      border-radius:.8em;
+      text-align: center;
+      font-style: normal;
+      font-weight: 500;
+    }
+  }
+
+  a:hover {
+    background: rgba(0,0,0,0.2);
+    border-radius: .4em 0 0 .6em;
+  }
+
+  .button-icon {
+    display: block;
+    text-align: center;
+    padding: 1em;
+    margin: 0em .6em;
+    background: rgba(0,0,0,0.2);
+
+    .list-icon {
+        margin: 0;
+    }
+
+    &:hover {
+      box-shadow: inset 0.0125em 0.125em 0.2em 0 rgba(0, 0, 0, .9);
+      .list-icon {
+        text-shadow: .0125em .125em .8em rgba(0, 0, 0, .9);
+      }
+    }
+  }
+}
+
+.icon-view {
+  a {
+    em {
+      margin-left: .4em;
+      vertical-align: top;
+    }
+  }
+}
