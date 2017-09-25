@@ -1,7 +1,11 @@
 /*eslint no-unused-vars: "off"*/
 import React from 'react';
-import ReactDom from 'react-dom';
+import { render } from 'react-dom';
+// You'll want to import the necessary components you want the App component to render
 
-require('!style-loader!css-loader!sass-loader!./index.scss');
+const App = () => (
+   {/* Replace this div with whatever components you want the App root component to render */}
+   <div>Hello World!</div> 
+);
 
-ReactDom.render(<div>Hello World!</div>, document.getElementById('root'));
+render(<App />, document.getElementById('root'));

@@ -15,7 +15,6 @@
 
   - Tool suggesstions
     - React Dev Tools - * This is a MUST you need to install this asap!
-    - For styling we'll be using [Sass](http://sass-lang.com/)
     - We have everything you need for your React Developer environment in this file. We went over this in the lecture video.
 
 #### To Get Started
