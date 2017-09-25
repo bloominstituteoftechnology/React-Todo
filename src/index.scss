@@ -1,2 +1,80 @@
 // global styles go in here. 
 // When you start writing styles for your individual components you'll have to start importing them
+
+body {
+    background-color: #ACACAC; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    padding: 80px 50px;
+    margin: 0px;
+}
+
+
+
+.completedItem {
+    color: green;
+    font-weight: 100;
+    margin: 10px;
+    text-decoration: none;
+    text-shadow: 1px 1px #19361A;
+}
+
+
+.incompleteItem {
+    color: #840000;
+    margin: 10px;
+    text-shadow: 1px 1px #361818;
+}
+
+.list {
+    display: block;
+    margin: 100px 100px 5px 100px;
+    background-color: #313131;
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+.list2 {
+    display: block;
+    margin: 100px 100px 5px 100px;
+    background-color: #313131;
+    padding: 40px 30px;
+    border-radius: 10px;
+    background-blend-mode: exclusion;
+    background-image: url("https://media.giphy.com/media/xT9IgmraIhwfDaLDXi/giphy.gif");
+    background-repeat: repeat;
+    background-size: 130%;
+    background-position-x: -100px;
+}
+
+.textBox {
+    margin: 0px 30%;
+    font-size: 30px;
+    border-radius: 10px;
+    width: 40%;
+    text-align: center;
+}
+
+.remove {
+    margin: 0px 100px;
+}
+
+.hidden {
+    display: none;
+}
+
+.blue {
+    font-size: 100px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.done {
+    text-align: right;
+    font-style: italic;
+    color: green;
+    font-weight: 1000;
+    text-decoration: none;
+    text-shadow: 1px 1px #19361A;
+    margin-bottom: -58px;
+}
