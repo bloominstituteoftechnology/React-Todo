@@ -5,10 +5,6 @@ import Nav_Bar from './Nav_Bar';
 class App extends Component {
     constructor() {
         super();
-
-        window.onload = {
-            
-        }
     }
     render() {
         return(
@@ -19,7 +15,7 @@ class App extends Component {
                <Task_Controller />
                <br/>
                <div></div>
-               <div id="footer">© Copyright Track Seven Entertainment & Designs</div>
+               <div id="footer"><p>© Copyright Track Seven Entertainment & Designs</p></div>
             </div>
         );
     }

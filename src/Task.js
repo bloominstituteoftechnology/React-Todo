@@ -26,7 +26,7 @@ class Task extends Component {
             <div className="task_name"> { this.name.toUpperCase()}</div>
             <div className="task_info"> {this.info}</div>           
             <button onClick={this.remove}>Remove</button>
-            <button>Mark As Done</button>
+            {/* <button>Mark As Done</button> */}
             </div>
         );
     };

@@ -13,6 +13,7 @@ class Task_Controller extends Component {
         this.size = window.localStorage.length;
         this.taskInfo = [];
         this.isOn = false;
+        this.inBeta = true;
         this.noTasks = "There No Tasks At The Moment"
        // this.taskArray = window.localStorage.getItem('task').split(',');
         this.initializeTasks = this.initializeTasks.bind(this);
@@ -22,6 +23,14 @@ class Task_Controller extends Component {
        window.onload = () =>{
            console.log("Loaded");
            this.initializeTasks();
+           if (this.inBeta)
+           {
+            document.getElementById("beta").innerHTML = "-Beta-";
+               document.getElementById('beta').style.color = "red";
+           } else {
+            document.getElementById("beta").innerHTML = "-Stable-";
+            document.getElementById('beta').style.color = "green";
+           }
        }
         
     }
