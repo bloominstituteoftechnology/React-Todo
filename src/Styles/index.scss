@@ -1,0 +1,29 @@
+// global styles go in here. 
+// When you start writing styles for your individual components you'll have to start importing them
+@import "./Task_Controller.scss";
+@import "./Nav_Bar.scss";
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+    margin: 0 auto;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+    
+}
+#bg_image{
+    position: fixed;
+    margin-left: 10%;
+    margin-top:15%;
+}
+#footer{
+width:100%;
+height:5%;
+position: fixed;
+bottom: 0;
+background-color: black;
+text-align: center;
+color:white;
+
+}
