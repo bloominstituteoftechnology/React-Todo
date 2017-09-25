@@ -1,0 +1,21 @@
+.btn {
+  padding: 1em 2em;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-del {
+  background-color: $brightYellow;
+  color: #f0fbfa;
+}
+
+.btn-complete {
+  background-color: $topaz;
+  color: #f0fbfa;
+}
+
+.btn-add {
+  background-color: $maxBlueGreen;
+  color: $white;
+  font-size: 1.41em;
+}

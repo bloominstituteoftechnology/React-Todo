@@ -1,0 +1,24 @@
+body {
+  background: linear-gradient(270deg, $topaz, $aero);
+  background-size: 400% 400%;
+
+  -webkit-animation: TodoBackground 30s ease infinite;
+  -moz-animation: TodoBackground 30s ease infinite;
+  animation: TodoBackground 30s ease infinite;
+
+  @-webkit-keyframes TodoBackground {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+  }
+  @-moz-keyframes TodoBackground {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+  }
+  @keyframes TodoBackground {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+  }
+}

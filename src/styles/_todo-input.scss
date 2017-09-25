@@ -1,0 +1,25 @@
+.todo-input {
+  width: 100%;
+  border: none;
+  margin-top: 0;
+  background-color: $aero;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  // box-shadow: 1px 1px 2px 1px rgba(143,140,143,1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-input input {
+  background-color: $aero;
+  border: none;
+  color: $brightYellow;
+  padding-left: 5px;
+  font-size: 1.5em;
+}
+
+.todo-input input::placeholder {
+  color: $brightYellow;
+}
