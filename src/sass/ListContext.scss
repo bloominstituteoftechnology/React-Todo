@@ -1,0 +1,31 @@
+header {
+  background-color: #232323;
+  color: #efefef;
+  padding: 1em;
+  clear: both;
+  height: 3em;
+
+  .edit-icon {
+    display: none;
+    margin-left: .6em;
+  }
+
+  &:hover {
+    .edit-icon {
+      display: inline-block;
+
+      &:hover {
+        color: green;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+h1 {
+  display: inline-block;
+}
+
+.list-icon {
+  margin-right: 1em;
+}

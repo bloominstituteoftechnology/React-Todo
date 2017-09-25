@@ -1,2 +1,13 @@
-// global styles go in here. 
+// global styles go in here.
 // When you start writing styles for your individual components you'll have to start importing them
+
+@import './sass/App';
+@import './sass/Listcontext';
+@import './sass/ListSwitch';
+@import './sass/List';
+@import './sass/FormControl';
+@import './sass/NewListMenu';
+
+body {
+  font-family: sans-serif;
+}
