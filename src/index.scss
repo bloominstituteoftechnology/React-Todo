@@ -1,2 +1,32 @@
-// global styles go in here. 
-// When you start writing styles for your individual components you'll have to start importing them
+body {
+    text-align: center;
+}
+
+h1 {
+    padding: 75px 0 25px 0;
+}
+
+.completed {
+    color: green;
+    text-decoration: line-through;
+}
+
+.incomplete {
+    color: red;
+}
+
+.list {
+    display: inline-block; 
+    text-align: left;
+}
+
+form {
+    display: inline-block;
+    text-align: center;
+    padding: 15px 0 15px 0;    
+}
+
+
+.hideButton {
+    display: none;
+}
