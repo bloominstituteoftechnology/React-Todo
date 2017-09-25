@@ -1,0 +1,8 @@
+First we need to let the user be able to add tasks to an array by typing their
+next task
+
+Next we need to display the array with any updates the user has made
+
+We need to allow the user to mark as completed (strike-through)
+
+After everything is crossed off the to do list. Display 'All done'
