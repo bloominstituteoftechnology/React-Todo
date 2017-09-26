@@ -1,0 +1,75 @@
+@import url(http://thecodeplayer.com/uploads/fonts/fontawesome/css/font-awesome.min.css);
+/*Montserrat for the text*/
+@import url(http://fonts.googleapis.com/css?family=Montserrat); 
+@import url(https://fonts.googleapis.com/css?family=Cantarell);
+
+body {
+  font-family: 'Cantarell', Lucida Grande, sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+h3 {
+  background: #ab576c;
+  text-align: center;
+  color: white;  
+  padding: 5px 0;
+  border:2px dashed #ffffff;
+  box-shadow: 0 0 0 8px #ab576c;
+  border-color: white;
+  border-radius: 25px;
+}
+ul li{
+  margin: 0 10px 20px 0;
+  line-height: 1.5;
+  list-style-type: none;
+  text-align: center;
+  color: white;  
+  padding: 0 10px;
+  box-shadow: 0 0 0 4px #8585e0;
+  border: 2px dashed;
+  border-color: white;
+  border-radius: 25px;
+  background: #8585e0;
+}
+input[type="checkbox"] {
+    display:none;
+    
+}
+input[type="checkbox"] {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-2px 10px 0 0;
+    vertical-align:middle;
+    background-color:#ab576c;
+    cursor:pointer;
+}
+  
+input[type=text] {
+  border: 1px solid #ccc;
+  border-radius: 25%;
+  padding: 7px 5px;
+  width: 125px;
+  font-size: 22px;
+}
+input[type=submit] {
+    background-color: #ab576c;
+    border: solid;
+    border-radius: 50%;
+    box-shadow: 0 8px 16px 0       rgba(0,0,0,0.4), 0 6px 20px 0   rgba(0,0,0,0.75);
+    color: white;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    font-size: 14px;
+}
+#todo {
+  background: radial-gradient(#fff, #dac4cd);
+  border-radius: 15px;
+  padding: 0 15px 15px;
+  width: 250px;
+  margin: 5em auto;
+  border: 1px solid #ddd;
+}
