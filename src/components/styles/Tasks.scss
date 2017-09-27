@@ -1,0 +1,45 @@
+.tasklist {
+  position: absolute;
+  width: 100%;
+  max-width: 1500px;
+  background-color: rgb(191,183,63);
+  .title {
+    position: static;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .list {
+    position: relative;
+    list-style: none;
+    width: auto;
+    padding: 0;
+    .item {
+      padding: .5%;
+      margin: 0;
+      float: top;
+      .task {
+        padding: 0;
+        .title {
+          text-align: center;
+        }
+        .checkbox {
+
+        }
+        .tab {
+          .title {
+            width: 10px;
+          }
+          .contents {
+            label {
+
+            }
+            code {
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
