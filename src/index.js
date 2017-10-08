@@ -15,7 +15,7 @@ class App extends React.Component {
       <div>
         <br />
         <br />
-          Hello World!
+          Hello World! Are we Hot? Yep!
       </div>
     );
   }
