@@ -6,6 +6,8 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body'
 });
+const HOST = '127.0.0.1';
+const PORT = '8888';
 
 module.exports = {
   entry: './src/index.js',
@@ -18,9 +20,13 @@ module.exports = {
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       {
         test: /\.scss$/,
-        loaders: ["style-loader", "css-loader", "sass-loader"]
+        loaders: ['style-loader', 'css-loader', 'sass-loader']
       }
     ],
   },
+  devServer: {
+    port: PORT,
+    host: HOST
+  },
   plugins: [HtmlWebpackPluginConfig],
-}
+};
