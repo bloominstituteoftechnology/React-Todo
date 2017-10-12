@@ -1,24 +1,17 @@
 /*eslint no-unused-vars: "off"*/
 import React from 'react';
 import { render } from 'react-dom';
+import ClassComponentToDo from './ClassComponentToDo';
+//import Rtable from './ReactTable';
 // You'll want to import the necessary components you want the App component to render
 
-//const App = () => (
-//    {
-/* Replace this div with whatever components you want the App root component to render */
-//        <div>HelloWorld!</div> 
-//    });
-
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <br />
-        <br />
-          Hello World! Are we Hot? Yep!
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div>
+    <br />
+    <br />
+    <ClassComponentToDo />
+    {/*<h2>Start editing to see some magic happen hello are we live?{'\u2728'}</h2>*/}
+  </div>
+); 
 
 render(<App />, document.getElementById('root'));

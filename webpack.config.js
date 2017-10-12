@@ -6,27 +6,35 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body'
 });
-const HOST = '127.0.0.1';
-const PORT = '8888';
 
-module.exports = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve('dist'),
-    filename: 'bundle.js',
-  },
-  module: {
-    loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      {
-        test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
-      }
-    ],
-  },
-  devServer: {
-    port: PORT,
-    host: HOST
-  },
-  plugins: [HtmlWebpackPluginConfig],
-};
+module.exports = env => {
+  const HOST = (env || {}).HOST || '127.0.0.1';
+  // const PORT = env.PORT || 8097;
+  return {
+    entry: './src/index.js',
+    output: {
+      path: path.resolve('dist'),
+      filename: 'bundle.js',
+    },
+    module: {
+      loaders: [
+        { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+        {
+          test: /\.scss$/,
+          loaders: ['style-loader', 'css-loader', 'sass-loader']
+        },
+        {
+          test: /\.css$/,
+          loaders: ['style-loader', 'css-loader'],
+          exclude: ['node_modules']
+        },        
+      ],
+    },
+    
+    devServer: {
+      host: HOST
+    },
+    
+    plugins: [HtmlWebpackPluginConfig],
+  };
+}

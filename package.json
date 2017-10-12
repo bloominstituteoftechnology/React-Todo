@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
+    "startx": "webpack-dev-server --env.PORT=3001",
     "lint": "eslint tests/*.js && eslint src/*.js"
   },
   "keywords": [],
@@ -13,9 +14,11 @@
   "license": "ISC",
   "dependencies": {
     "html-webpack-plugin": "^2.29.0",
+    "json5": "^0.5.1",
     "path": "^0.12.7",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-table": "^6.6.0",
     "webpack-dev-server": "^2.5.1"
   },
   "devDependencies": {
