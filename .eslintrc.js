@@ -6,6 +6,7 @@ module.exports = {
         "node": true
     },
     "extends": "eslint:recommended",
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -17,6 +18,7 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "no-console": ["error"],
         "indent": [
             "error",
              2
@@ -33,6 +35,13 @@ module.exports = {
             "error",
             "always"
         ],
-        "func-style" : ["declaration", { "allowArrowFunctions": true }]
+        "allowArrowFunctions": [0, true],
+        "func-style": [0],
+        "func-names": ["off", "never"]
+    },
+    "settings": {
+        "react": {
+            "pragma": "React"
+        }
     }
 };

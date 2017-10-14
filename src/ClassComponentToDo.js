@@ -1,8 +1,9 @@
 // These are the typical imports you'll need for a React component, among others
-import React, { Component } from 'react';
+/* eslint no-unused-vars: [0] */ // this is necessary for React
+import React, {Component } from 'react';
 // import Rtable from './ToDoObjectComponent';
 // import tryParse from 'json-try-parse';
-import JSON5 from 'json5'
+import JSON5 from 'json5';
 import './index.css';
 
 //import  {data} from './ReactTable'
@@ -12,22 +13,69 @@ class ClassComponentToDo extends Component {
   // component can inherit some useful methods from its parent `Component` class
   constructor() {
     super();
-    // {text: 'JavaScript', completed: false}
-    // `this.state` represents the internal state we may want our component to persist internally
-    this.state = {
-      toDos: [
+    let done = false;
+    const minToDos = 0;
+    let itemIndex = minToDos;
+    const states = [];
+    //window.localStorage.clear();
+    while (!done) {
+      try {
+        // console.log('trying itemIndex:', itemIndex);
+        const ls = localStorage.getItem(itemIndex.toString());
+        if (ls === null) {
+          done = true;
+          // console.log('null itemIndex:', itemIndex);
+          continue;
+        }
+        //console.log('to parse ls:', ls);
+        states.push(JSON5.parse(ls));
+        itemIndex++;
+      } catch (e) {
+        done = true;
+        //console.log('catch itemIndex:', itemIndex);
+      }
+    }
+    if (states.length) {
+      let toDos = states[states.length - 1].slice(0);
+      this.state = {
+        toDos
+      };
+    } else {
+      let toDos = [];
+      localStorage.setItem('0', JSON5.stringify(toDos));
+      states.push(toDos.slice(0));      
+      toDos.push(
         {
           text: 'C#',
           completed: true
-        },
-        {
-          text: 'Asp.Net',
-          completed: false
         }
-      ],
+      );
+      localStorage.setItem('1', JSON5.stringify(toDos));
+      states.push(toDos.slice(0));
+      toDos.push({
+        text: 'Asp.Net',
+        completed: false
+      });
+      localStorage.setItem('2', JSON5.stringify(toDos));
+      states.push(toDos.slice(0));        
+      toDos.push({
+        text: 'React',
+        completed: false
+      });
+      localStorage.setItem('3', JSON5.stringify(toDos));
+      states.push(toDos.slice(0));      
+      this.state = {
+        toDos
+      };
+    }
+    this.state = {
+      toDos: this.state.toDos,
       newToDo: '',
-      errors: []
+      errors: [],
+      stepNumber: 0,
+      states
     };
+    // console.log('states.length', this.state.states.length);
   }
   // A method on this class that adds a new dog to our dogNames array
   // Note how `this.setState` is used here to update the state object
@@ -35,7 +83,9 @@ class ClassComponentToDo extends Component {
   addToDo = event => {
     // this.printName();
     // This `preventDefault` call here is just to prevent the default behavior of an HTML form upon submission
-    event.preventDefault();
+    if (event != null) {
+      event.preventDefault();
+    }
     // We create a copy of our dogNames array in state, then push a new dog name onto our copy
     const toDos = this.state.toDos;
     let o = null;
@@ -43,13 +93,16 @@ class ClassComponentToDo extends Component {
     try {
       o = JSON5.parse(this.state.newToDo);
       if (o['text'] === undefined) {
-        errors.push(`>>>${this.state.newToDo}<<<< doesn't have "text" property`);
-      }     
-      if (o['completed'] === undefined) {
-        errors.push(`>>>${this.state.newToDo}<<<< doesn't have "completed" property`);
+        errors.push(
+          `>>>${this.state.newToDo}<<<< doesn't have "text" property`
+        );
       }
-    }
-    catch(e){
+      if (o['completed'] === undefined) {
+        errors.push(
+          `>>>${this.state.newToDo}<<<< doesn't have "completed" property`
+        );
+      }
+    } catch (e) {
       errors.push(`>>>${this.state.newToDo}<<<< is not an object`);
     }
     if (errors.length) {
@@ -58,7 +111,7 @@ class ClassComponentToDo extends Component {
       });
       return;
     }
-    
+
     toDos.push(o);
     // Now we update `this.state.dogNames` with the newer copy of our dogNames array
     // We also clear the value of the newDog field so that it is ready to accept new input after a submission has been made
@@ -67,38 +120,69 @@ class ClassComponentToDo extends Component {
       toDos,
       errors
     });
+    localStorage.setItem(
+      this.state.toDos.length.toString(),
+      JSON5.stringify(this.state.toDos)
+    );
+    const states = this.state.states;
+    states.push(this.state.toDos.slice(0));
+    this.setState({
+      states
+    });
   };
   toggleCompleted = event => {
     const i = event.target.name;
-   // console.log(`event.target.checked: ${event.target.checked} i: ${i}`)
+    // console.log(`event.target.checked: ${event.target.checked} i: ${i}`)
     const toDos = this.state.toDos;
     toDos[i].completed = !toDos[i].completed;
     //console.log(`>>>${toDos[i].completed}`)
     this.setState({
       toDos
-    })
+    });
   };
-  componentWillUpdate = (nextProps, nextState) => {
-    //console.log('will update:', nextState)
-  }
-  
+
   handleNewToDoValueInput = event => {
     this.setState({ newToDo: event.target.value });
   };
+  jumpTo = i => {
+    this.setState({
+      toDos: this.state.states[i]
+    });
+  };
   // Every React component needs to call the `render` method, which is inherited from the base React Component class
   render() {
+    const getState = this.state.states.map((toDos, i) => {
+      // console.log(`i: ${i}  toDos.length ${toDos.length}`);
+      // console.log('toDos:', toDos);
+      const text = toDos.length ? toDos[toDos.length - 1].text : 'Empty;';
+      const completed =  toDos.length ? toDos[toDos.length - 1].completed.toString() : '---';
+      return (
+        <li key={i}>
+          <button onClick={() => this.jumpTo(i)}>
+            text: {text}&nbsp; completed: {completed}
+          </button>
+        </li>);
+    });      
     return (
       <div>
         {/* The render method can only return a single HTML element, meaning whatever we want to render
          must be wrapped inside a single base parent HTML element */}
         {/* We can write and execute plain-old JavaScript inside of JSX */}
-        {/* <Rtable data={this.state.toDos} />*/}
-        {this.state.toDos.map((toDo,i) => <div key={i}>
-        <span className={`toDo-${toDo.completed}`}>{toDo.text}</span>
-        <label>       completed?   </label>
-        <input key={i} name={i} type="checkbox" className="checkBox" onChange={this.toggleCompleted}
-                checked={toDo.completed}  />
-        </div>)}
+
+        {this.state.toDos.map((toDo, i) => (
+          <div key={i}>
+            <span className={`toDo-${toDo.completed}`}>{toDo.text}</span>
+            <label> completed? </label>
+            <input
+              key={i}
+              name={i}
+              type="checkbox"
+              className="checkBox"
+              onChange={this.toggleCompleted}
+              checked={toDo.completed}
+            />
+          </div>
+        ))}
         {/* A form to add more dogs to our list of dogs */}
         {/* Upon submission, our form invokes our `addDog` method */}
         <form onSubmit={this.addToDo}>
@@ -110,9 +194,18 @@ class ClassComponentToDo extends Component {
             placeholder="    Add a new to do!    "
             value={this.state.newToDo}
           />
-          {this.state.errors.map((error,i) => 
-          < div key={i} className='error'>{error}</div>)}
+          {this.state.errors.map((error, i) => (
+            <div key={i} className="error">
+              {error}
+            </div>
+          ))}
         </form>
+        <div id="states">
+          <p>History</p>
+          <ol>
+            {getState}
+          </ol>
+        </div>
       </div>
     );
   }
