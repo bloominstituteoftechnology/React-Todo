@@ -29,7 +29,7 @@ class ClassComponentToDo extends Component {
           continue;
         }
         //console.log('to parse ls:', ls);
-        states.push( (ls === 'x') ? [] : JSON5.parse(ls));
+        states.push( (ls === '') ? [] : JSON5.parse(ls));
         itemIndex++;
       } catch (e) {
         done = true;
@@ -131,7 +131,7 @@ class ClassComponentToDo extends Component {
     if (!this.state.states.length) {
       localStorage.setItem(
         '0',
-        'x'
+        ''
       );
       // console.log('item[\'0\']:', localStorage.getItem('0'));
     }
@@ -213,9 +213,9 @@ class ClassComponentToDo extends Component {
           <input
             type="text"
             onChange={this.handleNewToDoValueInput}
-            placeholder="Add a new to do!"
+            placeholder="Add a new to do! example: {text: 'JavaScript',completed: false}"
             value={this.state.newToDo}
-            size="50"
+            size="60"
           />
           {this.state.errors.map((error, i) => (
             <div key={i} className="error">
