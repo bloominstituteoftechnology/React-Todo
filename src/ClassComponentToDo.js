@@ -1,6 +1,8 @@
 // These are the typical imports you'll need for a React component, among others
 /* eslint no-unused-vars: [0], no-console: [0] */ // this is necessary for React
-import React, {Component } from 'react';
+import React, {
+  Component
+} from 'react';
 // import Rtable from './ToDoObjectComponent';
 // import tryParse from 'json-try-parse';
 import JSON5 from 'json5';
@@ -28,8 +30,8 @@ class ClassComponentToDo extends Component {
           // console.log('null itemIndex:', itemIndex);
           continue;
         }
-        //console.log('to parse ls:', ls);
-        states.push( (ls === '') ? [] : JSON5.parse(ls));
+        // console.log('to parse ls:', ls);
+        states.push((ls === '') ? {toDos: [], lastChangeIndex: -1} : JSON5.parse(ls));
         itemIndex++;
       } catch (e) {
         done = true;
@@ -37,9 +39,17 @@ class ClassComponentToDo extends Component {
       }
     }
     if (states.length) {
-      let toDos = states[states.length - 1].slice(0);
+      //console.log('states[states.length - 1]', states[states.length - 1]);
+      let stateIndex = localStorage.getItem('stateIndex');
+      if (stateIndex === null) {
+        stateIndex = -1;
+      }
+      const index = (stateIndex === -1) ? states.length - 1 : stateIndex;
+      //console.log(`stateIndex:${stateIndex} index:${index} state.length:${states.length}`);
+      let toDos = states[index].toDos.slice(0);
       this.state = {
-        toDos
+        toDos,
+        lastChangeIndex: states[index].lastChangeIndex
       };
     } else {
       let toDos = [];
@@ -66,24 +76,41 @@ class ClassComponentToDo extends Component {
       });
       localStorage.setItem('3', JSON5.stringify(toDos));
       states.push(toDos.slice(0));  
-      */     
+      */
       this.state = {
-        toDos
+        toDos,
+        lastChangeIndex: -1
       };
     }
     this.state = {
       toDos: this.state.toDos,
       newToDo: '',
       errors: [],
-      stepNumber: 0,
-      states
+      states,
+      lastChangeIndex: this.state.lastChangeIndex
     };
+    this.stepNumber = itemIndex;
     // console.log('states.length', this.state.states.length);
   }
   copyToDos = (toDos) => {
     return toDos.map(toDo => {
-      return {text: toDo.text, completed: toDo.completed};
+      return {
+        text: toDo.text,
+        completed: toDo.completed
+      };
     });
+  }
+  updateLocalStorgePlusStates() {
+    localStorage.setItem(
+      this.stepNumber,
+      JSON5.stringify({toDos: this.state.toDos, lastChangeIndex:this.state.lastChangeIndex})
+    );
+    const states = this.state.states;
+    states.push({toDos: this.copyToDos(this.state.toDos), lastChangeIndex: this.state.lastChangeIndex});
+    this.setState({
+      states
+    }, () => this.stepNumber++);
+    localStorage.setItem('stateIndex', -1);
   }
   // A method on this class that adds a new toDo to our toDos array
   // Note how `this.setState` is used here to update the state object
@@ -126,60 +153,71 @@ class ClassComponentToDo extends Component {
     this.setState({
       newToDo: '',
       toDos,
-      errors
+      errors,
+      lastChangeIndex: -1
+    }, () => {
+      if (!this.state.states.length) {
+        localStorage.setItem(
+          '0',
+          ''
+        );
+        this.stepNumber = 1;
+        this.setState({
+          states: [
+            {toDos: [], lastChangeIndex: -1}
+          ]
+        }, () => {
+          this.updateLocalStorgePlusStates();
+        });
+        // console.log('item[\'0\']:', localStorage.getItem('0'));
+      } else {
+        this.updateLocalStorgePlusStates();
+      }
     });
-    if (!this.state.states.length) {
-      localStorage.setItem(
-        '0',
-        ''
-      );
-      // console.log('item[\'0\']:', localStorage.getItem('0'));
-    }
-    localStorage.setItem(
-      this.state.toDos.length.toString(),
-      JSON5.stringify(this.state.toDos)
-    );
-    const states = this.state.states;
-    if (!states.length) {
-      states.push([]);
-    }
-    states.push(this.copyToDos(this.state.toDos));
-    this.setState({
-      states
-    });
+
   };
   toggleCompleted = (i) => {
-    // console.log(`event.target.checked: ${event.target.checked} i: ${i}`)
     const toDos = this.copyToDos(this.state.toDos);
     toDos[i].completed = !toDos[i].completed;
-    //console.log(`>>>${toDos[i].completed}`)
     this.setState({
-      toDos
+      toDos,
+      lastChangeIndex: i
+    }, () => {
+      this.updateLocalStorgePlusStates();
     });
   };
 
   handleNewToDoValueInput = event => {
-    this.setState({ newToDo: event.target.value });
+    this.setState({
+      newToDo: event.target.value
+    });
   };
   jumpTo = i => {
     this.setState({
-      toDos: this.state.states[i]
+      toDos: this.state.states[i].toDos,
+      lastChangeIndex: this.state.states[i].lastChangeIndex
     });
+    localStorage.setItem('stateIndex', i);
   };
   deleteStorage = () => {
     localStorage.clear();
+    window.location.reload();
   }
   // Every React component needs to call the `render` method, which is inherited from the base React Component class
   render() {
-    const getState = this.state.states.map((toDos, i) => {
+    // Every React component needs to call the `render` method, which is inherited from the base React Component class
+    const getState = this.state.states.map((toDosO, i) => {
       // console.log(`i: ${i}  toDos.length ${toDos.length}`);
-      // console.log('toDos:', toDos);
-      const text = toDos.length ? toDos[toDos.length - 1].text : 'Empty;';
-      const completed =  toDos.length ? toDos[toDos.length - 1].completed.toString() : '---';
+      // console.log('getState toDosO', toDosO);
+      const toDos = toDosO.toDos;
+      // console.log('getState toDos', toDos);
+      const index = toDosO.lastChangeIndex === -1 ? toDos.length -1 : toDosO.lastChangeIndex; 
+      const text = toDos.length ? toDos[index].text : 'Empty;';
+      const completed =  toDos.length ? toDos[index].completed.toString() : '---';
       return (
         <li key={i}>
           <button onClick={() => this.jumpTo(i)}>
-            text: {text}&nbsp; completed: {completed}
+             text: {text}&nbsp; completed: {completed}
           </button>
         </li>);
     }); 
@@ -229,7 +267,7 @@ class ClassComponentToDo extends Component {
             {getState}
           </ol>
         </div>
-        <button onClick={this.deleteStorage}>Delete localStorage</button>
+        <button onClick={this.deleteStorage}>Reset and Delete localStorage</button>
       </div>
     );
   }
