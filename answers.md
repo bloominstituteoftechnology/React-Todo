@@ -17,4 +17,3 @@
 * 8. CDN, content devliery networks are distributed servers that host files in varies places on the globe to provide the closest download location for a client, which is used to potentially reduce latency, increase download speed and  reduce page load times.
 
 * 9. Props and state, props and state are both used to manipulate components and elements. Props come from an outside source, usually the parent and are inputs that are passed down into the component. State is the internal memory of a component. Both props and state can control the rendering output of the component.
-
