@@ -7,6 +7,8 @@ import React, {
 // import tryParse from 'json-try-parse';
 import JSON5 from 'json5';
 import './index.css';
+import ToDoList from './ToDoList';
+import StateList from './StatesList';
 
 //import  {data} from './ReactTable'
 // Pretty typical Class declaration, except React components always extend the base React Component class
@@ -210,41 +212,14 @@ class ClassComponentToDo extends Component {
   // Every React component needs to call the `render` method, which is inherited from the base React Component class
   render() {
     // Every React component needs to call the `render` method, which is inherited from the base React Component class
-    const getState = this.state.states.map((toDosO, i) => {
-      // console.log(`i: ${i}  toDos.length ${toDos.length}`);
-      // console.log('getState toDosO', toDosO);
-      const toDos = toDosO.toDos;
-      // console.log('getState toDos', toDos);
-      const index = toDosO.lastChangeIndex === -1 ? toDos.length -1 : toDosO.lastChangeIndex; 
-      const text = toDos.length ? toDos[index].text : 'Empty;';
-      const completed =  toDos.length ? toDos[index].completed.toString() : '---';
-      return (
-        <li key={i}>
-          <button onClick={() => this.jumpTo(i)}>
-             text: {text}&nbsp; completed: {completed}
-          </button>
-        </li>);
-    }); 
+
     const toDos = this.copyToDos(this.state.toDos);     
     return (
       <div>
         {/* The render method can only return a single HTML element, meaning whatever we want to render
          must be wrapped inside a single base parent HTML element */}
         {/* We can write and execute plain-old JavaScript inside of JSX */}
-
-        {toDos.map((toDo, i) => (
-          <div key={i}>
-            <span className={`toDo-${toDo.completed}`}>{toDo.text}</span>
-            <label> completed? </label>
-            <input
-              key={i}
-              type="checkbox"
-              className="checkBox"
-              onChange={() => this.toggleCompleted(i)}
-              checked={toDo.completed}
-            />
-          </div>
-        ))}
+        <ToDoList toDos={toDos} toggleCompleted={this.toggleCompleted} />
         {/* A form to add more toDos to our list of toDos */}
         {/* Upon submission, our form invokes our `addToDo` method */}
         <form onSubmit={this.addToDo}>
@@ -265,12 +240,7 @@ class ClassComponentToDo extends Component {
             </div>
           ))}
         </form>
-        <div id="states">
-          <p>History</p>
-          <ol>
-            {getState}
-          </ol>
-        </div>
+        <StateList states={this.state.states} jumpTo={this.jumpTo} />
         <button onClick={this.deleteStorage}>Reset and Delete localStorage</button>
       </div>
     );
