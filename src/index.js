@@ -8,8 +8,11 @@ class ToDo extends Component {
         this.state = {
             ToDoList: [],
         };
+
         this.handleToDoList = this.handleToDoList.bind(this);
         this.handleAddItemToList = this.handleAddItemToList.bind(this);
+
+
         
     }
 
@@ -17,6 +20,7 @@ handleToDoList(event) {
     this.setState({ ListItem: event.target.value });
 }
 render() {
+
 	console.log(this.state)
     return (
       <List
@@ -50,5 +54,5 @@ const List = props => {
         </div>
     );
 };
-
 render(<ToDo />, document.getElementById('root'));
+
