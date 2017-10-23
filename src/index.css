@@ -1,2 +1,10 @@
-// global styles go in here. 
-// When you start writing styles for your individual components you'll have to start importing them
+
+
+body {
+	background: purple;
+}
+input[type=checkbox]:isChecked {
+	color: purple;
+	background-color:purple;
+	border: 10px solid purple;
+}
