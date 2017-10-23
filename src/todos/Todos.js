@@ -19,7 +19,7 @@ export default class Todos extends Component {
 		const i = e.target.dataset.index;
 		const s = this.state.todos;
 		const newState = update(s, {[i]: {completed: {$set: e.target.checked}}});
-		newState.sort(function(a,b) { 
+		newState.sort((a,b) => { 
 		  return new Date(b.date).getTime() - new Date(a.date).getTime() 
 		});
 		this.setState({
@@ -35,24 +35,20 @@ export default class Todos extends Component {
 			completed: false
 		}
 		const newState = update(s, {$splice: [[0, 0, newTodo]]});
-		newState.sort(function(a,b) { 
+		newState.sort((a,b) => { 
 		  return new Date(b.date).getTime() - new Date(a.date).getTime() 
 		});
-		this.setState({
-			todos: newState
-		});
+		this.setState({ todos: newState });
 	}
 
 	deleteTodo = (i) => {
 		console.log(i);
 		const s = this.state.todos;
 		const newState = update(s, {$splice: [[i, 1]]});
-		newState.sort(function(a,b) { 
+		newState.sort((a,b) => { 
 		  return new Date(b.date).getTime() - new Date(a.date).getTime() 
 		});
-		this.setState({
-			todos: newState
-		});
+		this.setState({ todos: newState });
 	}
 
 	render(){

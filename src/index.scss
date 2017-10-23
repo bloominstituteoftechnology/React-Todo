@@ -67,7 +67,7 @@
 				}
 			}
 			&>.todos-container {
-				width: 90%;
+				width: 100%;
 				overflow-y: scroll;
 				-webkit-overflow-scrolling: touch;
 				display: block;
@@ -75,38 +75,45 @@
 				overflow-x: hidden;
 				&>.todo {
 					@include center;
-					width: 100%;
+					width: 90%;
 					flex-direction: row;
 					justify-content: space-between;
 					margin: 10px auto;
 					position: relative;
-					&>button {
-						outline: none;
-						border: none;
-						position: absolute;
-						height: 45px;
-						width: 45px;
-						top: calc(50% - 22.5px);
-						right: -45px;
-						@include backgroundLeft;
-						color: white;
-						// border-radius: 50%;
-					}
 					&>h2 {
 						font-weight: 200;
 						font-size: 1em;
 					}
-					&>input {
-						-moz-appearance: none;
-						-webkit-appearance: none;
-						outline: none;
-						border: none;
-						height: 30px;
-						width: 30px;
-						color: transparent;
-						@include buttonShadow;
-						@include backgroundLeft;
-						border-radius: 50%;
+					&>.checks {
+						@include center;
+						flex-direction: row;
+						&>input {
+							-moz-appearance: none;
+							-webkit-appearance: none;
+							outline: none;
+							border: none;
+							height: 30px;
+							width: 30px;
+							color: transparent;
+							@include buttonShadow;
+							@include backgroundLeft;
+							border-radius: 50%;
+							margin-right: 10px;
+						}
+						&>button {
+							outline: none;
+							border: none;
+							padding: 0;
+							color: #EB3349;
+							height: 30px;
+							width: 30px;
+							border: 1px solid #EB3349;
+							@include buttonShadow;
+							background: transparent;
+							border-radius: 50%;
+							@include center;
+							font-size: 1em;
+						}
 					}
 				}
 			}
@@ -129,6 +136,7 @@ input[type='checkbox'] {
 	position: relative;
 	border-radius: 50%;
 	overflow: hidden;
+	padding: 0;
 	&::after {
     	content: "";
     	position: absolute;
