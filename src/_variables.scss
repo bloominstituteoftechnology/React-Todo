@@ -1,0 +1,53 @@
+/*=============================variables====================*/
+$colors : #EE3C37, #6CB875;
+$red: #D8183C;
+$background : #fff;
+$size : 50vmin;
+$duration : 1.5s;
+$axis : 70deg;
+$easing : ease-in-out;
+/*======MEDIA QUERIES======*/
+$mq-375 : '(min-width: 375px)';
+$mq-410 : '(min-width: 410px)';
+$mq-550 : '(min-width: 550px)';
+$mq-670 : '(min-width: 670px)';
+$mq-800 : '(min-width: 800px)';
+$mq-890 : '(min-width: 890px)';
+$mq-957 : '(min-width: 957px)';
+$mq-1000 : '(min-width: 1000px)';
+$mq-1070 : '(min-width: 1070px)';
+$mq-1150 : '(min-width: 1150px)';
+$mq-h-1024: '(min-height: 1024px)';
+$mq-h-1051: '(min-height: 1051px)';
+$mq-h-1400: '(min-height: 1400px)';
+// $mq-l-h-and-w: '(min-width: 957px) and (min-height: 1024px)'; 
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin headerShadow {
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+@mixin leftShadow {
+	box-shadow: -10px 0px 20px rgba(0,0,0,0.19), -6px 0px 6px rgba(0,0,0,0.23);
+}
+@mixin rightShadow {
+	box-shadow: 10px 0px 20px rgba(0,0,0,0.19), 6px 0px 6px rgba(0,0,0,0.23);
+}
+
+@mixin buttonShadow {
+	 box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+@mixin whiteShadow {
+	 box-shadow: 0 1px 3px rgba(255,255,255,0.12), 0 1px 2px rgba(255,255,255,0.24);
+}
+
+@mixin backgroundLeft {
+	background: #EB3349; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #EB3349 , #F45C43); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #EB3349 , #F45C43); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

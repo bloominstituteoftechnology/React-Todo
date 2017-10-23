@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "html-webpack-plugin": "^2.29.0",
+    "immutability-helper": "^2.4.0",
     "path": "^0.12.7",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
