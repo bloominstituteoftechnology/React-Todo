@@ -44,8 +44,8 @@ class ClassComponentToDo extends Component {
       if (stateIndex === null) {
         stateIndex = -1;
       }
-      const index = (stateIndex === -1) ? states.length - 1 : stateIndex;
-      //console.log(`stateIndex:${stateIndex} index:${index} state.length:${states.length}`);
+      const index = ((stateIndex == -1) ? states.length - 1 : stateIndex);
+      // console.log(`stateIndex:${stateIndex} index:${index} state.length:${states.length}  states[index]:${states[index]}`);
       let toDos = states[index].toDos.slice(0);
       this.state = {
         toDos,
@@ -193,9 +193,13 @@ class ClassComponentToDo extends Component {
     });
   };
   jumpTo = i => {
+    const toDos = this.copyToDos(this.state.states[i].toDos);
+    const lastChangeIndex = (this.state.states[i].lastChangeIndex == -1) ? toDos.length - 1 : 
+      this.state.states[i].lastChangeIndex;
     this.setState({
-      toDos: this.state.states[i].toDos,
-      lastChangeIndex: this.state.states[i].lastChangeIndex
+      toDos,
+      lastChangeIndex,
+      newToDo: (lastChangeIndex !== -1) ? JSON5.stringify(toDos[lastChangeIndex]) : ''
     });
     localStorage.setItem('stateIndex', i);
   };
