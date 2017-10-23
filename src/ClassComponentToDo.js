@@ -177,7 +177,7 @@ class ClassComponentToDo extends Component {
 
   };
   toggleCompleted = (i) => {
-    const toDos = this.copyToDos(this.state.toDos);
+    const toDos = this.state.toDos;
     toDos[i].completed = !toDos[i].completed;
     this.setState({
       toDos,
