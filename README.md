@@ -26,6 +26,12 @@
   * open up new terminal and run `npm run lint` do this often so you can make sure your app is up to date with linting errors.
 
 #### Tips and Tricks
+  * *onChange Example:*
+  ```
+    handleChange(event) {
+      this.setState({todo: event.target.value});
+    }
+  ```
   * Think of your application as an Application Tree. App is the parent, which controlls properties/data needed for the child components. This is how modern applications are built. They're modular, separate pieces of code called components that you 'compose' together to make your app. It's awesome!
   * Be sure to keep your todos in an array on state. Arrays are so awesome to work with.
   * When you need to iterate over a list and return React components out as elements, you'll need to include a "key" property on the element itself. `<ElementBeingRendered key={someValue} />`. Note: this is what react is doing under the hood, it needs to know how to access each element and they need to be unique so the React engine can do its thing. 
