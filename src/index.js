@@ -19,16 +19,16 @@ class App extends Component {
   handleAddToDo(event) {
     this.state.toDoList.push(this.state.toDoInput);
     this.setState{( toDoList, toDoInput: '' )}
-  }
-  render() {
-    return (
-      <toDoList
-        changeHandler = {}
-        addToDo = {}
-        toDoItem = {}
-      />
-    )
-  }
-}
+//   }
+//   render() {
+//     return (
+//       <toDoList
+//         changeHandler = {}
+//         addToDo = {}
+//         toDoItem = {}
+//       />
+//     )
+//   }
+// }
 
 export default App;
