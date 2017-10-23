@@ -100,7 +100,7 @@ class ClassComponentToDo extends Component {
       };
     });
   }
-  updateLocalStorgePlusStates() {
+  updateLocalStorgePlusStates = () => {
     localStorage.setItem(
       this.stepNumber,
       JSON5.stringify({toDos: this.state.toDos, lastChangeIndex:this.state.lastChangeIndex})
