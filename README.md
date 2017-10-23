@@ -3,6 +3,7 @@
 ## Partner Study
 #### Answers to the following partner-study can be found [here](https://reactjs.org/docs/glossary.html)
   * Describe the following, Single Page Application, Compilers, Bundlers, Elements, Components, JSX, Package Mangers, CDN, Props and State. 
+  * Write all answers in answers.md
 
 ### Other Useful Resources
 * [CodeSandbox](https://codesandbox.io/s/z667kplonx) that was used in the lecture video: 
