@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Todo from './Todo';
 
 class InputButton extends Component {
     constructor () {
@@ -8,4 +9,11 @@ class InputButton extends Component {
             inputData: ''  
         };
     }
+    render() {
+        return (
+            <div> Test </div>
+        );
+    }
 }
+
+export default InputButton;
