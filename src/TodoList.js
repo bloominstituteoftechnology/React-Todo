@@ -4,7 +4,7 @@ const TodoList = props => {
   return (
     <div>
       <input type="text" value={props.todo} onChange={props.changeHandler} />
-      <button onClick={props.addToList}>Submit Movie</button>
+      <button onClick={props.addToList}>Add Todo</button>
       <ul>
         {props.todos.map((todos, i) => {
           return <li key={i + 1}>{todos}</li>;
