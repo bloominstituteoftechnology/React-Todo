@@ -2,43 +2,33 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import toDoList from './toDoList';
-// You'll want to import the necessary components you want the App component to render
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
+      toDoInput = '',
       toDoList = [];
     };
-
+    this.handleToDo = this.handleToDo.bind(this);
+    this.handleAddTodo = this.handleAddTodo.bind(this);
   }
   handleToDo () {
-    
+    this.setState({ toDoInput: event.target.value });
   }
   handleAddToDo(event) {
-
+    this.state.toDoList.push(this.state.toDoInput);
+    this.setState{( toDoList, toDoInput: '' )}
   }
   render() {
     return (
-      // <div>
-      //   <ul>
-      //     <li>Walk the dog</li>
-      //     <li>Buy Groceries</li>
-      //     <li>Rob a bank</li>
-      //   </ul>
-      // </div>
-      < toDoList
-      changeHandler = {}
-      addToDo = {}
-      toDoItem = {}
+      <toDoList
+        changeHandler = {}
+        addToDo = {}
+        toDoItem = {}
+      />
     )
   }
 }
 
-// const App = () => (
-//    {
-//      <div>Hello World!</div>
-//    }
-// );
-
-render(<App />, document.getElementById('root'));
+export default App;
