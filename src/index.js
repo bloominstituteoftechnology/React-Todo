@@ -8,12 +8,8 @@ class ToDo extends Component {
         this.state = {
             ToDoList: [],
         };
-
         this.handleToDoList = this.handleToDoList.bind(this);
-        this.handleAddItemToList = this.handleAddItemToList.bind(this);
-
-
-        
+        this.handleAddItemToList = this.handleAddItemToList.bind(this); 
     }
 
 handleToDoList(event) {
