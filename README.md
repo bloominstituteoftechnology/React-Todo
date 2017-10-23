@@ -6,6 +6,7 @@
 
 ### Other Useful Resources
 * [CodeSandbox](https://codesandbox.io/s/z667kplonx) that was used in the lecture video: 
+* [API Documentation](https://reactjs.org/docs/react-api.html)
 * [Documentation](https://facebook.github.io/react/docs/jsx-in-depth.html) on JSX
 
 ### Battle Plan
