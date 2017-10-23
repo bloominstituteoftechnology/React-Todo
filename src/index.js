@@ -44,7 +44,7 @@ const List = props => {
             <button onClick={props.handleAddItemToList}>Submit Item</button>
             <ul>
                 {props.ToDoList.map((foofie, i) => {
-                    return <li key={i+1}><input key={i+1} type="checkbox" />{foofie}</li>;
+                    return <li key={i+1}><input key={i+1} type="checkbox"/>{foofie}</li>;
                 })}
             </ul>
         </div>
