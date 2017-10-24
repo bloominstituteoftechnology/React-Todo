@@ -33,7 +33,7 @@ class ClassComponentToDo extends Component {
           continue;
         }
         // console.log('to parse ls:', ls);
-        states.push((ls === '') ? {toDos: [], lastChangeIndex: -1} : JSON5.parse(ls));
+        states.push((ls === '') ? {toDos: [], lastChangeToDo: null} : JSON5.parse(ls));
         itemIndex++;
       } catch (e) {
         done = true;
@@ -51,7 +51,7 @@ class ClassComponentToDo extends Component {
       let toDos = states[index].toDos.slice(0);
       this.state = {
         toDos,
-        lastChangeIndex: states[index].lastChangeIndex
+        lastChangeToDo: states[index].lastChangeToDo
       };
     } else {
       let toDos = [];
@@ -81,7 +81,7 @@ class ClassComponentToDo extends Component {
       */
       this.state = {
         toDos,
-        lastChangeIndex: -1
+        lastChangeToDo: null
       };
     }
     this.state = {
@@ -89,7 +89,7 @@ class ClassComponentToDo extends Component {
       newToDo: '',
       errors: [],
       states,
-      lastChangeIndex: this.state.lastChangeIndex
+      lastChangeToDo: this.state.lastChangeToDo
     };
     this.stepNumber = itemIndex;
     // console.log('states.length', this.state.states.length);
@@ -102,13 +102,15 @@ class ClassComponentToDo extends Component {
       };
     });
   }
-  updateLocalStorgePlusStates = () => {
+  updateLocalStorgePlusStates = (deletedToDo = null) => {
     localStorage.setItem(
       this.stepNumber,
-      JSON5.stringify({toDos: this.state.toDos, lastChangeIndex:this.state.lastChangeIndex})
+      JSON5.stringify({toDos: this.state.toDos, lastChangeToDo:this.state.lastChangeToDo,
+        deletedToDo: deletedToDo })
     );
     const states = this.state.states;
-    states.push({toDos: this.copyToDos(this.state.toDos), lastChangeIndex: this.state.lastChangeIndex});
+    states.push({toDos: this.copyToDos(this.state.toDos), lastChangeToDo: this.state.lastChangeToDo,
+      deletedToDo: (deletedToDo !== null) ? {text: deletedToDo.text, selected: deletedToDo.selected} : null});
     this.setState({
       states
     }, () => this.stepNumber++);
@@ -148,7 +150,7 @@ class ClassComponentToDo extends Component {
       });
       return;
     }
-
+    console.log('o',o);
     toDos.push(o);
     // Now we update `this.state.toDos` with the newer copy of our toDos array
     // We also clear the value of the newToO field so that it is ready to accept new input after a submission has been made
@@ -156,7 +158,7 @@ class ClassComponentToDo extends Component {
       newToDo: '',
       toDos,
       errors,
-      lastChangeIndex: -1
+      lastChangeToDo: null
     }, () => {
       if (!this.state.states.length) {
         localStorage.setItem(
@@ -166,7 +168,7 @@ class ClassComponentToDo extends Component {
         this.stepNumber = 1;
         this.setState({
           states: [
-            {toDos: [], lastChangeIndex: -1}
+            {toDos: [], lastChangeToDo: null}
           ]
         }, () => {
           this.updateLocalStorgePlusStates();
@@ -183,7 +185,7 @@ class ClassComponentToDo extends Component {
     toDos[i].completed = !toDos[i].completed;
     this.setState({
       toDos,
-      lastChangeIndex: i
+      lastChangeToDo: {text: toDos[i].text, completed: toDos[i].completed}
     }, () => {
       this.updateLocalStorgePlusStates();
     });
@@ -195,14 +197,30 @@ class ClassComponentToDo extends Component {
     });
   };
   jumpTo = i => {
-    const toDos = this.copyToDos(this.state.states[i].toDos);
-    const lastChangeIndex = (this.state.states[i].lastChangeIndex == -1) ? toDos.length - 1 : 
-      this.state.states[i].lastChangeIndex;
-    this.setState({
-      toDos,
-      lastChangeIndex,
-      newToDo: (lastChangeIndex !== -1) ? JSON5.stringify(toDos[lastChangeIndex]) : ''
-    });
+    let sToDos = this.state.states[i].toDos;
+    if (sToDos.length > 0) {
+      const toDos = this.copyToDos(sToDos);
+      //console.log(`i:${i} toDos:${toDos.}`);
+      let lastChangeToDo = (this.state.states[i].lastChangeToDo === null) ?
+        {text: toDos[toDos.length - 1].text, selected: (toDos[toDos.length - 1].selected ? true : false)}  : 
+        this.state.states[i].lastChangeToDo;
+      if (this.state.states[i].deletedToDo != null) {
+        lastChangeToDo = this.state.states[i].deletedToDo; 
+      }
+      this.setState({
+        toDos,
+        lastChangeToDo,
+        newToDo: (lastChangeToDo !== null) ? JSON5.stringify(lastChangeToDo) : ''
+      });        
+    }
+    else {
+      this.setState({
+        toDos: sToDos,
+        lastChangeToDo: null,
+        newToDo: ''
+      });
+    }
+
     localStorage.setItem('stateIndex', i);
   };
   deleteStorage = () => {
@@ -210,17 +228,16 @@ class ClassComponentToDo extends Component {
     window.location.reload();
   }
   deleteToDo = (i) => {
-    console.log('deleteToDo i:',i);
     const toDos = this.state.toDos;
-    const deletedToDo = toDos.splice(i,1);
-    console.log('deletedToDo:', deletedToDo);
+    const del = toDos.splice(i,1)[0];
     this.setState({
-      toDos : toDos,
-      deletedToDo: deletedToDo
+      toDos : toDos
     },() => {
-      console.log('deleteToDo setState done');
       localStorage.setItem('stateIndex', -1);
-      this.updateLocalStorgePlusStates();
+      let deletedToDo = {};
+      deletedToDo.text = del.text;
+      deletedToDo.selected = del.selected ? true : false;  
+      this.updateLocalStorgePlusStates(deletedToDo);
     });
   }
   // Every React component needs to call the `render` method, which is inherited from the base React Component class

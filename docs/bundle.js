@@ -21291,7 +21291,7 @@ var ClassComponentToDo = function (_Component) {
           continue;
         }
         // console.log('to parse ls:', ls);
-        states.push(ls === '' ? { toDos: [], lastChangeIndex: -1 } : _json2.default.parse(ls));
+        states.push(ls === '' ? { toDos: [], lastChangeToDo: null } : _json2.default.parse(ls));
         itemIndex++;
       } catch (e) {
         done = true;
@@ -21309,7 +21309,7 @@ var ClassComponentToDo = function (_Component) {
       var toDos = states[index].toDos.slice(0);
       _this.state = {
         toDos: toDos,
-        lastChangeIndex: states[index].lastChangeIndex
+        lastChangeToDo: states[index].lastChangeToDo
       };
     } else {
       var _toDos = [];
@@ -21339,7 +21339,7 @@ var ClassComponentToDo = function (_Component) {
       */
       _this.state = {
         toDos: _toDos,
-        lastChangeIndex: -1
+        lastChangeToDo: null
       };
     }
     _this.state = {
@@ -21347,7 +21347,7 @@ var ClassComponentToDo = function (_Component) {
       newToDo: '',
       errors: [],
       states: states,
-      lastChangeIndex: _this.state.lastChangeIndex
+      lastChangeToDo: _this.state.lastChangeToDo
     };
     _this.stepNumber = itemIndex;
     // console.log('states.length', this.state.states.length);
@@ -21416,9 +21416,13 @@ var _initialiseProps = function _initialiseProps() {
   };
 
   this.updateLocalStorgePlusStates = function () {
-    localStorage.setItem(_this2.stepNumber, _json2.default.stringify({ toDos: _this2.state.toDos, lastChangeIndex: _this2.state.lastChangeIndex }));
+    var deletedToDo = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+    localStorage.setItem(_this2.stepNumber, _json2.default.stringify({ toDos: _this2.state.toDos, lastChangeToDo: _this2.state.lastChangeToDo,
+      deletedToDo: deletedToDo }));
     var states = _this2.state.states;
-    states.push({ toDos: _this2.copyToDos(_this2.state.toDos), lastChangeIndex: _this2.state.lastChangeIndex });
+    states.push({ toDos: _this2.copyToDos(_this2.state.toDos), lastChangeToDo: _this2.state.lastChangeToDo,
+      deletedToDo: deletedToDo !== null ? { text: deletedToDo.text, selected: deletedToDo.selected } : null });
     _this2.setState({
       states: states
     }, function () {
@@ -21454,7 +21458,7 @@ var _initialiseProps = function _initialiseProps() {
       });
       return;
     }
-
+    console.log('o', o);
     toDos.push(o);
     // Now we update `this.state.toDos` with the newer copy of our toDos array
     // We also clear the value of the newToO field so that it is ready to accept new input after a submission has been made
@@ -21462,13 +21466,13 @@ var _initialiseProps = function _initialiseProps() {
       newToDo: '',
       toDos: toDos,
       errors: errors,
-      lastChangeIndex: -1
+      lastChangeToDo: null
     }, function () {
       if (!_this2.state.states.length) {
         localStorage.setItem('0', '');
         _this2.stepNumber = 1;
         _this2.setState({
-          states: [{ toDos: [], lastChangeIndex: -1 }]
+          states: [{ toDos: [], lastChangeToDo: null }]
         }, function () {
           _this2.updateLocalStorgePlusStates();
         });
@@ -21484,7 +21488,7 @@ var _initialiseProps = function _initialiseProps() {
     toDos[i].completed = !toDos[i].completed;
     _this2.setState({
       toDos: toDos,
-      lastChangeIndex: i
+      lastChangeToDo: { text: toDos[i].text, completed: toDos[i].completed }
     }, function () {
       _this2.updateLocalStorgePlusStates();
     });
@@ -21497,13 +21501,27 @@ var _initialiseProps = function _initialiseProps() {
   };
 
   this.jumpTo = function (i) {
-    var toDos = _this2.copyToDos(_this2.state.states[i].toDos);
-    var lastChangeIndex = _this2.state.states[i].lastChangeIndex == -1 ? toDos.length - 1 : _this2.state.states[i].lastChangeIndex;
-    _this2.setState({
-      toDos: toDos,
-      lastChangeIndex: lastChangeIndex,
-      newToDo: lastChangeIndex !== -1 ? _json2.default.stringify(toDos[lastChangeIndex]) : ''
-    });
+    var sToDos = _this2.state.states[i].toDos;
+    if (sToDos.length > 0) {
+      var toDos = _this2.copyToDos(sToDos);
+      //console.log(`i:${i} toDos:${toDos.}`);
+      var lastChangeToDo = _this2.state.states[i].lastChangeToDo === null ? { text: toDos[toDos.length - 1].text, selected: toDos[toDos.length - 1].selected ? true : false } : _this2.state.states[i].lastChangeToDo;
+      if (_this2.state.states[i].deletedToDo != null) {
+        lastChangeToDo = _this2.state.states[i].deletedToDo;
+      }
+      _this2.setState({
+        toDos: toDos,
+        lastChangeToDo: lastChangeToDo,
+        newToDo: lastChangeToDo !== null ? _json2.default.stringify(lastChangeToDo) : ''
+      });
+    } else {
+      _this2.setState({
+        toDos: sToDos,
+        lastChangeToDo: null,
+        newToDo: ''
+      });
+    }
+
     localStorage.setItem('stateIndex', i);
   };
 
@@ -21513,17 +21531,16 @@ var _initialiseProps = function _initialiseProps() {
   };
 
   this.deleteToDo = function (i) {
-    console.log('deleteToDo i:', i);
     var toDos = _this2.state.toDos;
-    var deletedToDo = toDos.splice(i, 1);
-    console.log('deletedToDo:', deletedToDo);
+    var del = toDos.splice(i, 1)[0];
     _this2.setState({
-      toDos: toDos,
-      deletedToDo: deletedToDo
+      toDos: toDos
     }, function () {
-      console.log('deleteToDo setState done');
       localStorage.setItem('stateIndex', -1);
-      _this2.updateLocalStorgePlusStates();
+      var deletedToDo = {};
+      deletedToDo.text = del.text;
+      deletedToDo.selected = del.selected ? true : false;
+      _this2.updateLocalStorgePlusStates(deletedToDo);
     });
   };
 };
@@ -22317,7 +22334,7 @@ exports = module.exports = __webpack_require__(36)(undefined);
 
 
 // module
-exports.push([module.i, ".toDo-true {\n    color: green;\n    background-color: white;\n}\n.toDo-false{\n    color: white;\n    background-color: blue;\n}\n.error {\n    color: red\n}\n#states {\n    margin-left: 20px;\n}\n.xDeleted {\n    opacity: 75%\n}", ""]);
+exports.push([module.i, ".toDo-true {\n    color: green;\n    background-color: white;\n}\n.toDo-false{\n    color: white;\n    background-color: blue;\n}\n.error {\n    color: red\n}\n#states {\n    margin-left: 20px;\n}\n.xDeleted {\n    opacity: 50%;\n    color: yellow;\n}", ""]);
 
 // exports
 
@@ -22956,13 +22973,18 @@ var StatesList = function StatesList(props) {
     // console.log(`i: ${i}  toDos.length ${toDos.length}`);
     // console.log('getState toDosO', toDosO);
     var toDos = toDosO.toDos;
+    var toDo = void 0;
     if (toDosO.deletedToDo) {
-      console.log('toDosO.deletedToDo', toDosO.deletedToDo);
+      toDo = toDosO.deletedToDo;
+    } else if (toDosO.lastChangeToDo) {
+      toDo = toDosO.lastChangeToDo;
+    } else if (toDos.length) {
+      toDo = toDos[toDos.length - 1];
+    } else {
+      toDo = null;
     }
-    // console.log('getState toDos', toDos);
-    var index = toDosO.lastChangeIndex === -1 ? toDos.length - 1 : toDosO.lastChangeIndex;
-    var text = toDosO.deletedToDo ? toDosO.deletedToDo.text : toDos.length ? toDos[index].text : 'Empty;';
-    var completed = toDosO.deletedToDo ? toDosO.deletedToDo.completed : toDos.length ? toDos[index].completed.toString() : '---';
+    var text = toDo === null ? 'Empty;' : toDo.text;
+    var completed = toDo === null ? '---' : toDo.completed ? 'true' : 'false';
     var deleted = toDosO.deletedToDo ? 'Deleted' : '';
     return _react2.default.createElement(
       'li',
@@ -22976,7 +22998,7 @@ var StatesList = function StatesList(props) {
         text,
         '\xA0 completed: ',
         completed,
-        ' ',
+        ' \xA0 ',
         deleted
       )
     );

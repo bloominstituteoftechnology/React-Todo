@@ -13,5 +13,6 @@
     margin-left: 20px;
 }
 .xDeleted {
-    opacity: 75%
+    opacity: 50%;
+    color: yellow;
 }
