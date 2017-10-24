@@ -30,8 +30,6 @@ class App extends Component {
   }
 
   handleClickItem() {
-    
-  }
 
   }
 
