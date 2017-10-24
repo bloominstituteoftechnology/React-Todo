@@ -1,2 +1,14 @@
-// global styles go in here. 
-// When you start writing styles for your individual components you'll have to start importing them
+.toDo-true {
+    color: green;
+    background-color: white;
+}
+.toDo-false{
+    color: white;
+    background-color: blue;
+}
+.error {
+    color: red
+}
+#states {
+    margin-left: 20px;
+}

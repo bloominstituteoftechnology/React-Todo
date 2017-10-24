@@ -2,9 +2,11 @@ module.exports = {
     "env": {
         "browser": true,
         "commonjs": true,
-        "es6": true
+        "es6": true,
+        "node": true
     },
     "extends": "eslint:recommended",
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -16,12 +18,13 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "no-console": ["error"],
         "indent": [
             "error",
              2
         ],
         "linebreak-style": [
-            "error",
+            "off",
             "unix"
         ],
         "quotes": [
@@ -31,6 +34,14 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "allowArrowFunctions": [0, true],
+        "func-style": [0],
+        "func-names": ["off", "never"]
+    },
+    "settings": {
+        "react": {
+            "pragma": "React"
+        }
     }
 };

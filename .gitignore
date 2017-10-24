@@ -1,3 +1,5 @@
 /node_modules
 /DS_store
 .DS_store
+*yarn*
+package-lock-json
