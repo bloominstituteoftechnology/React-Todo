@@ -11,11 +11,13 @@
 * [Documentation](https://facebook.github.io/react/docs/jsx-in-depth.html) on JSX
 
 ### Battle Plan
- * Objective: At this point you have become familiar with the DOM and have exausted research on the wonderful world of HTML and CSS. Now we're going to dive into modern JavaScript development by learning about ReactJS.
+ * Objective: At this point you have become familiar with the DOM and have exausted research on the wonderful world of HTML and CSS. 
+ * You've even been able to accomplish some Vanilla JS DOM manipulation... which is something that doesn't happen much today! We use modern tools like... *REACT* to get this type of stuff done.
+ * Now _gets excited_ we're going to dive into those modern JavaScript development by learning about ReactJS.
  * You're going to be building a ToDo App (please hold your applause).
  * We know this seems trivial, but the best part about this assignment is that is shows off some of the strengths of react and you can take it as far as want.
 
-  * Tool suggesstions
+  * Tool needs
     * React Dev Tools - *This is a MUST* you need to install this asap!
     * We have everything you need for your React Developer environment in this file. We went over this in the lecture video.
 
