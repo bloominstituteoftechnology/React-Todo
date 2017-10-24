@@ -21513,10 +21513,17 @@ var _initialiseProps = function _initialiseProps() {
   };
 
   this.deleteToDo = function (i) {
+    console.log('deleteToDo i:', i);
     var toDos = _this2.state.toDos;
-    toDos.splice(i, 1);
+    var deletedToDo = toDos.splice(i, 1);
+    console.log('deletedToDo:', deletedToDo);
     _this2.setState({
-      toDos: toDos
+      toDos: toDos,
+      deletedToDo: deletedToDo
+    }, function () {
+      console.log('deleteToDo setState done');
+      localStorage.setItem('stateIndex', -1);
+      _this2.updateLocalStorgePlusStates();
     });
   };
 };
@@ -22310,7 +22317,7 @@ exports = module.exports = __webpack_require__(36)(undefined);
 
 
 // module
-exports.push([module.i, ".toDo-true {\n    color: green;\n    background-color: white;\n}\n.toDo-false{\n    color: white;\n    background-color: blue;\n}\n.error {\n    color: red\n}\n#states {\n    margin-left: 20px;\n}", ""]);
+exports.push([module.i, ".toDo-true {\n    color: green;\n    background-color: white;\n}\n.toDo-false{\n    color: white;\n    background-color: blue;\n}\n.error {\n    color: red\n}\n#states {\n    margin-left: 20px;\n}\n.xDeleted {\n    opacity: 75%\n}", ""]);
 
 // exports
 
@@ -22943,16 +22950,20 @@ __webpack_require__(10);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars, no-console */
 var StatesList = function StatesList(props) {
   var getState = props.states.map(function (toDosO, i) {
     // console.log(`i: ${i}  toDos.length ${toDos.length}`);
     // console.log('getState toDosO', toDosO);
     var toDos = toDosO.toDos;
+    if (toDosO.deletedToDo) {
+      console.log('toDosO.deletedToDo', toDosO.deletedToDo);
+    }
     // console.log('getState toDos', toDos);
     var index = toDosO.lastChangeIndex === -1 ? toDos.length - 1 : toDosO.lastChangeIndex;
-    var text = toDos.length ? toDos[index].text : 'Empty;';
-    var completed = toDos.length ? toDos[index].completed.toString() : '---';
+    var text = toDosO.deletedToDo ? toDosO.deletedToDo.text : toDos.length ? toDos[index].text : 'Empty;';
+    var completed = toDosO.deletedToDo ? toDosO.deletedToDo.completed : toDos.length ? toDos[index].completed.toString() : '---';
+    var deleted = toDosO.deletedToDo ? 'Deleted' : '';
     return _react2.default.createElement(
       'li',
       { key: i },
@@ -22960,11 +22971,13 @@ var StatesList = function StatesList(props) {
         'button',
         { onClick: function onClick() {
             return props.jumpTo(i);
-          } },
+          }, className: 'x' + deleted },
         'text: ',
         text,
         '\xA0 completed: ',
-        completed
+        completed,
+        ' ',
+        deleted
       )
     );
   });
