@@ -210,10 +210,17 @@ class ClassComponentToDo extends Component {
     window.location.reload();
   }
   deleteToDo = (i) => {
+    console.log('deleteToDo i:',i);
     const toDos = this.state.toDos;
-    toDos.splice(i,1);
+    const deletedToDo = toDos.splice(i,1);
+    console.log('deletedToDo:', deletedToDo);
     this.setState({
-      toDos
+      toDos : toDos,
+      deletedToDo: deletedToDo
+    },() => {
+      console.log('deleteToDo setState done');
+      localStorage.setItem('stateIndex', -1);
+      this.updateLocalStorgePlusStates();
     });
   }
   // Every React component needs to call the `render` method, which is inherited from the base React Component class

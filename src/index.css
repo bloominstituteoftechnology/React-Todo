@@ -12,3 +12,6 @@
 #states {
     margin-left: 20px;
 }
+.xDeleted {
+    opacity: 75%
+}

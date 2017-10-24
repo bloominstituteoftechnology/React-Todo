@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
     "startx": "webpack-dev-server --env.PORT=3001",
-    "lint": "eslint tests/*.js && eslint src/*.js",
+    "lint": "eslint src/*.js",
     "build": "webpack --progress"
   },
   "keywords": [],
