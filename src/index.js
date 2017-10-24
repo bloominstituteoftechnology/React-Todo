@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 // You'll want to import the necessary components you want the App component to render
-import toDo from './components/toDo';
+import ToDo from './components/toDo';
 
 
 class App extends Component {
@@ -22,22 +22,32 @@ class App extends Component {
 
   handleAddNewToDo() {
     let chore = this.state.newToDo;
+    let choreObj = {'text' : this.state.newToDo, 'completed' : false};
     const toDoList = this.state.toDoList;
-    toDoList.push(chore);
+    toDoList.push(choreObj);
     this.setState({ toDoList, newToDo: '' });
+    console.log(this.state.toDoList);
+  }
+
+  handleClickItem() {
+    
+  }
+
   }
 
   render() {
     return (
       <div>
         <h1>To Do List</h1>
-        <toDo
+        <ToDo
           chore={this.state.newToDo}
           changeHandler={this.handleNewToDo}
           addTo={this.handleAddNewToDo}
           toDoList={this.state.toDoList}
+          checkHandler={this.handleClickItem}
         />
       </div>
+
     );
   }
 }
