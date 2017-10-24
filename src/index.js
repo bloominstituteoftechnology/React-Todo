@@ -4,10 +4,10 @@ import { render } from 'react-dom';
 import InputButton from './App';
 // You'll want to import the necessary components you want the App component to render
 
-const App = () => (
-   <div>
+const App = () => {
+  return <div>
        <InputButton />
    </div> 
-);
+  };
 
 render(<App />, document.getElementById('root'));

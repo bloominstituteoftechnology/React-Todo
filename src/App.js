@@ -5,13 +5,16 @@ class InputButton extends Component {
     constructor () {
         super();
         this.state = {
-            todoData: [],
+            todoData: ['Learn this stuff ', 'try to learn more stuff ', 'cry as all things are impossible'],
             inputData: ''  
         };
     }
+    handleTodoChange(event) {
+        
+    }
     render() {
         return (
-            <div> Test </div>
+            <div> {this.state.todoData} </div>
         );
     }
 }
