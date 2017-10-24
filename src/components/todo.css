@@ -1,0 +1,31 @@
+.todoList {
+    background: #fff;
+    width: 100%;
+}
+.todoList form {
+}
+.todoList form button {
+    border: none;
+    background: none;
+}
+
+.todoList ul {
+    list-style: none;
+    padding: 0;
+}
+.todoList__item {
+    padding: 10px 0;
+}
+.todoList__item .text {
+    padding: 0 20px;
+}
+.todoList__item span.complete{
+    padding: 5px 10px;
+    color: #fff;
+}
+.todoList__item span.complete.completed {
+    background: green;
+}
+.todoList__item span.complete.incomplete {
+    background: red;
+}
