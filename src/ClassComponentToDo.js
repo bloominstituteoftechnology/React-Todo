@@ -209,6 +209,13 @@ class ClassComponentToDo extends Component {
     localStorage.clear();
     window.location.reload();
   }
+  deleteToDo = (i) => {
+    const toDos = this.state.toDos;
+    toDos.splice(i,1);
+    this.setState({
+      toDos
+    });
+  }
   // Every React component needs to call the `render` method, which is inherited from the base React Component class
   render() {
     // Every React component needs to call the `render` method, which is inherited from the base React Component class
@@ -219,7 +226,7 @@ class ClassComponentToDo extends Component {
         {/* The render method can only return a single HTML element, meaning whatever we want to render
          must be wrapped inside a single base parent HTML element */}
         {/* We can write and execute plain-old JavaScript inside of JSX */}
-        <ToDoList toDos={toDos} toggleCompleted={this.toggleCompleted} />
+        <ToDoList toDos={toDos} toggleCompleted={this.toggleCompleted} deleteToDo={this.deleteToDo} />
         {/* A form to add more toDos to our list of toDos */}
         {/* Upon submission, our form invokes our `addToDo` method */}
         <form onSubmit={this.addToDo}>

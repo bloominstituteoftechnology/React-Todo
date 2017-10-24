@@ -37,4 +37,4 @@ module.exports = env => {
     
     plugins: [HtmlWebpackPluginConfig],
   };
-}
+};
