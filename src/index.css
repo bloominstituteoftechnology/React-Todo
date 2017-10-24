@@ -1,2 +1,4 @@
-// global styles go in here. 
-// When you start writing styles for your individual components you'll have to start importing them
+@import './components/todo.css';
+html, body {
+    background: #fff;
+}

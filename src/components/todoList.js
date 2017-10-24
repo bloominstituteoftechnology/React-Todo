@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TodoItem from './todoItem';
-
+import './todo.css';
 class TodoList extends Component {
     constructor() {
         super();
@@ -16,6 +16,7 @@ class TodoList extends Component {
     }
     addTodo = (event) => {
         event.preventDefault();
+        if(!this.state.todo) return;
         const todo = {
             item: this.state.todo,
             completed: false
