@@ -21369,7 +21369,7 @@ var ClassComponentToDo = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_ToDoList2.default, { toDos: toDos, toggleCompleted: this.toggleCompleted }),
+        _react2.default.createElement(_ToDoList2.default, { toDos: toDos, toggleCompleted: this.toggleCompleted, deleteToDo: this.deleteToDo }),
         _react2.default.createElement(
           'form',
           { onSubmit: this.addToDo },
@@ -21510,6 +21510,14 @@ var _initialiseProps = function _initialiseProps() {
   this.deleteStorage = function () {
     localStorage.clear();
     window.location.reload();
+  };
+
+  this.deleteToDo = function (i) {
+    var toDos = _this2.state.toDos;
+    toDos.splice(i, 1);
+    _this2.setState({
+      toDos: toDos
+    });
   };
 };
 
@@ -22902,7 +22910,14 @@ var toDoList = function toDoList(props) {
             return props.toggleCompleted(i);
           },
           checked: toDo.completed
-        })
+        }),
+        _react2.default.createElement(
+          'button',
+          { onClick: function onClick() {
+              return props.deleteToDo(i);
+            } },
+          'Delete'
+        )
       );
     })
   );
