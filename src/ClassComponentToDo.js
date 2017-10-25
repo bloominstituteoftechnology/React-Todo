@@ -150,7 +150,6 @@ class ClassComponentToDo extends Component {
       });
       return;
     }
-    console.log('o',o);
     toDos.push(o);
     // Now we update `this.state.toDos` with the newer copy of our toDos array
     // We also clear the value of the newToO field so that it is ready to accept new input after a submission has been made
