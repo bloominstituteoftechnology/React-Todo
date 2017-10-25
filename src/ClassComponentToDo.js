@@ -110,7 +110,7 @@ class ClassComponentToDo extends Component {
     );
     const states = this.state.states;
     states.push({toDos: this.copyToDos(this.state.toDos), lastChangeToDo: this.state.lastChangeToDo,
-      deletedToDo: (deletedToDo !== null) ? {text: deletedToDo.text, selected: deletedToDo.selected} : null});
+      deletedToDo: (deletedToDo !== null) ? {text: deletedToDo.text, completed: deletedToDo.completed} : null});
     this.setState({
       states
     }, () => this.stepNumber++);
@@ -202,7 +202,7 @@ class ClassComponentToDo extends Component {
       const toDos = this.copyToDos(sToDos);
       //console.log(`i:${i} toDos:${toDos.}`);
       let lastChangeToDo = (this.state.states[i].lastChangeToDo === null) ?
-        {text: toDos[toDos.length - 1].text, selected: (toDos[toDos.length - 1].selected ? true : false)}  : 
+        {text: toDos[toDos.length - 1].text, completed: (toDos[toDos.length - 1].completed ? true : false)}  : 
         this.state.states[i].lastChangeToDo;
       if (this.state.states[i].deletedToDo != null) {
         lastChangeToDo = this.state.states[i].deletedToDo; 
@@ -236,7 +236,7 @@ class ClassComponentToDo extends Component {
       localStorage.setItem('stateIndex', -1);
       let deletedToDo = {};
       deletedToDo.text = del.text;
-      deletedToDo.selected = del.selected ? true : false;  
+      deletedToDo.completed = del.completed;  
       this.updateLocalStorgePlusStates(deletedToDo);
     });
   }

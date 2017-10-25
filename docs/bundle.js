@@ -21422,7 +21422,7 @@ var _initialiseProps = function _initialiseProps() {
       deletedToDo: deletedToDo }));
     var states = _this2.state.states;
     states.push({ toDos: _this2.copyToDos(_this2.state.toDos), lastChangeToDo: _this2.state.lastChangeToDo,
-      deletedToDo: deletedToDo !== null ? { text: deletedToDo.text, selected: deletedToDo.selected } : null });
+      deletedToDo: deletedToDo !== null ? { text: deletedToDo.text, completed: deletedToDo.completed } : null });
     _this2.setState({
       states: states
     }, function () {
@@ -21505,7 +21505,7 @@ var _initialiseProps = function _initialiseProps() {
     if (sToDos.length > 0) {
       var toDos = _this2.copyToDos(sToDos);
       //console.log(`i:${i} toDos:${toDos.}`);
-      var lastChangeToDo = _this2.state.states[i].lastChangeToDo === null ? { text: toDos[toDos.length - 1].text, selected: toDos[toDos.length - 1].selected ? true : false } : _this2.state.states[i].lastChangeToDo;
+      var lastChangeToDo = _this2.state.states[i].lastChangeToDo === null ? { text: toDos[toDos.length - 1].text, completed: toDos[toDos.length - 1].completed ? true : false } : _this2.state.states[i].lastChangeToDo;
       if (_this2.state.states[i].deletedToDo != null) {
         lastChangeToDo = _this2.state.states[i].deletedToDo;
       }
@@ -21539,7 +21539,7 @@ var _initialiseProps = function _initialiseProps() {
       localStorage.setItem('stateIndex', -1);
       var deletedToDo = {};
       deletedToDo.text = del.text;
-      deletedToDo.selected = del.selected ? true : false;
+      deletedToDo.completed = del.completed;
       _this2.updateLocalStorgePlusStates(deletedToDo);
     });
   };
