@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 // You'll want to import the necessary components you want the App component to render
 
 const App = () => (
-   {/* Replace this div with whatever components you want the App root component to render */}
+   /* Replace this div with whatever components you want the App root component to render */
    <div>Hello World!</div> 
 );
 
