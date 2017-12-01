@@ -1,9 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
-// You'll want to import the necessary components you want the App component to render
+import ReactDOM from 'react-dom';
+import App from './App';
 
-const App = () => {
-  return <div>Hello World!</div>;
-};
-
-render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
