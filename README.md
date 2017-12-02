@@ -22,7 +22,6 @@
 #### To Get Started
 ##### You'll need to make sure you have the following installed.
   * node and npm
-  * webpack `npm install -g webpack` to install it globally
   * `npm install` will pull in all the node_modules you need once you `cd` into the root directory of the project
   * `npm start` will start a development server on your localhost at port 3000.
   * `npm test` will run the tests that are included in the the project. Try to get as many of these passing as you can in the allotted time. 
