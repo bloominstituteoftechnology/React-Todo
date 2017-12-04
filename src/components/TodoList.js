@@ -5,9 +5,17 @@ export default class TodoList extends Component {
   constructor() {
     super();
     this.state = {
-      todos: [],
+      todos: this.getLocalStorage() || [],
       newTodo: {text: '', completed: false},
     }
+  }
+
+  getLocalStorage() {
+    return JSON.parse(localStorage.getItem('state'));
+  }
+
+  setLocalStorage(storage) {
+    localStorage.setItem('state', JSON.stringify(storage));
   }
 
   handleTodoInput = (event) => {
@@ -37,6 +45,11 @@ export default class TodoList extends Component {
         })
       })
     };
+  }
+
+  setState(newState) {
+    super.setState(newState);
+    this.setLocalStorage(newState.todos);
   }
 
   render() {
