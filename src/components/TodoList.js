@@ -25,7 +25,7 @@ class TodoList extends Component {
     render() {
         return (
             <div>
-                {this.state.todos.map(todo => <Todo done={todo} />)}
+                {this.state.todos.map(todo => <Todo todo={todo} />)}
                 <form onSubmit={this.addTodo}>
                     <input onChange={this.handleTodoInput} placeholder="Add new todo" value={this.state.newTodo} />
                 </form>
