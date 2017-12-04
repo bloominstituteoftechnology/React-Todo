@@ -1,0 +1,7 @@
+.todo__text {
+  user-select: none;
+}
+
+.todo__button {
+  margin-left: 10px;
+}
