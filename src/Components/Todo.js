@@ -18,7 +18,7 @@ class Todo extends Component {
       : { textDecoration: 'none' };
     return (
       <div style={styles} onClick={this.handleClick}>
-        {this.props.name}
+        {this.props.todo}
       </div>
     );
   }

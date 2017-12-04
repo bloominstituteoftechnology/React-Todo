@@ -28,7 +28,7 @@ class TodoList extends Component {
   render() {
     return (
       <div>
-        {this.state.todos.map(todo => <Todo name={todo} />)}
+        {this.state.todos.map((todo, i) => <Todo key={i} index={i} todo={todo} />)}
         <form onSubmit={this.addTodo}>
           <input
             onChange={this.handleTodoInput}
