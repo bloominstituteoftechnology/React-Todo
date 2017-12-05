@@ -1,35 +1,35 @@
 import React, { Component } from 'react';
-import Todo from './todo.js';
+import Todo from './todo';
 
 class TodoList extends Component {
   constructor () {
     super();
     this.state = {
-      currenttodo : '',
-      todoitems : []
+      newTodo : '',
+      todos : []
     };
   }
   
   keepCurrent = (event) => {
-    this.setState( { currenttodo: event.target.value } );
+    this.setState( { newTodo: event.target.value } );
   }
 
-  addToList = (event) => {
+  addTodo = (event) => {
     event.preventDefault();
-    const todoupdated = this.state.todoitems;
-    todoupdated.push(this.state.currenttodo);
+    const todoupdated = this.state.todos;
+    todoupdated.push(this.state.newTodo);
     this.setState( { 
-      todoitems : todoupdated,
-      currenttodo : '' 
+      todos : todoupdated,
+      newTodo : '' 
     } );
   }
   
   render () {
     return (
       <div>
-        <div>{this.state.todoitems.map((todoitem, i) => <Todo key={i} todo={todoitem} />)}</div>
-        <form onSubmit={this.addToList}>
-          <input onChange={this.keepCurrent} placeholder="I need to..." value={this.state.currenttodo} />
+        {this.state.todos.map((todoitem, i) => <Todo key={i} todo={todoitem} />)}
+        <form onSubmit={this.addTodo}>
+          <input onChange={this.keepCurrent} placeholder="I need to..." value={this.state.newTodo} />
         </form>
       </div>
     );
