@@ -1,10 +1,15 @@
 import React from 'react';
-import TodoList from './Components/TodoList';
+import TodoList from './Components/TodoList/TodoList';
+import './App.css';
 
 const App = () => (
-  <div>
-    <h2>Todo App</h2>
+  <div className="App">
+    <div className="App__todo-list">
+    <div className="todo-list__header">
+    <h2>Todo List</h2>
+    </div>
     <TodoList />
+    </div>
   </div>
 );
 

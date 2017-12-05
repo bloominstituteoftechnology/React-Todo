@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import Todo from './Todo';
+import Todo from '../Todo/Todo';
+
+/*CSS Styles */
+import './TodoList.css';
 
 class TodoList extends Component {
   constructor() {
@@ -25,16 +28,22 @@ class TodoList extends Component {
     });
   };
 
+  removeTodo = event => {
+    const todoList = this.state.todo;
+    
+  }
+
   render() {
     return (
       <div>
         {this.state.todos.map((todo, i) => <Todo key={i} todo={todo} />)}
         <form onSubmit={this.addTodo}>
-          <input
+          <input className="input"
             onChange={this.handleTodoInput}
             placeholder="Add a new todo"
             value={this.state.newTodo}
           />
+          
         </form>
       </div>
     );
