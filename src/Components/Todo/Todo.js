@@ -34,8 +34,9 @@ class Todo extends Component {
             <div
               onClick={this.handleClick}
               style={styles}
-              className="Todo-Conatainer__item"
+              className="Todo-Container__item"
             >
+            
               {this.props.todo}
             </div>
           </div>

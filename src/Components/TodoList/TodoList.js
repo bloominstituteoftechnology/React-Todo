@@ -5,6 +5,13 @@ import Todo from '../Todo/Todo';
 import './TodoList.css';
 
 class TodoList extends Component {
+   componentDidMount() {
+     if (localStorage.getItem('todo')) {
+       const storage = localStorage.todo.split(',');
+       this.setState({ todos: storage});
+     }
+   }
+  
   constructor() {
     super();
 
@@ -15,8 +22,12 @@ class TodoList extends Component {
   }
 
   handleTodoInput = event => {
+  
     this.setState({ newTodo: event.target.value });
+
   };
+
+
 
   addTodo = event => {
     event.preventDefault();
@@ -26,6 +37,7 @@ class TodoList extends Component {
       newTodo: '',
       todos: todoList
     });
+    localStorage.setItem('todo', this.state.todos);
   };
 
   removeTodo = (index) => {
@@ -33,13 +45,15 @@ class TodoList extends Component {
     todoList.splice(index,1);
     this.setState({
       todos: todoList
-    })
+    });
+   localStorage.todo = todoList;
   }
 
   render() {
     return (
       <div>
-        {this.state.todos.map((todo, i) => <Todo key={i} index={i} todo={todo} remove={this.removeTodo.bind(this)} />)}
+        
+        {this.state.todos.map((todo, i) => <Todo key={i} index={i} todo={todo}  remove={this.removeTodo.bind(this)} />)}
         <form onSubmit={this.addTodo}>
           <input className="input"
             onChange={this.handleTodoInput}
