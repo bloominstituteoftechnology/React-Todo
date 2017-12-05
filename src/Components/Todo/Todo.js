@@ -23,11 +23,13 @@ class Todo extends Component {
       ? { textDecoration: 'line-through' }
       : { textDecoration: 'none' };
     return (
-      <div style={styles} onClick={this.handleClick}>
+      <div onClick={this.handleClick}>
       <div className="Todo-Container">
       <div className="Button-Container">
       <button className="btn btn--delete" onClick={() => this.remove()}>X</button>
+      <div style={styles} className="Todo-Conatainer__item">
       {this.props.todo}
+      </div>
       </div>
       </div>
         
