@@ -5,7 +5,7 @@ class TodoList extends Component {
     constructor() {
         super();
         this.state = {
-            todos: ['cook', 'study'],
+            todos: [],
             newTodo: '',
         };
     }
@@ -24,7 +24,7 @@ class TodoList extends Component {
     render() {
         return (
             <div>
-                {this.state.todos.map( todo => <ChildComponent thing ={todo}/>)}
+                {this.state.todos.map((todo, i) => <Todo key={i} todo={todo}/>)}
                 <form onSubmit = {this.addTodo}>
                 <input onChange= {this.handleTodoInput} placeholder= "Add a new Todo" value = {this.state.newTodo} />
                 </form>
