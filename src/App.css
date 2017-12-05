@@ -1,0 +1,30 @@
+body {
+  background: linear-gradient(blue, tomato);
+  margin: 0;
+  min-height: 100vh;
+  /* font-family:  */
+}
+
+#container {
+  padding-top: 50px;
+}
+
+#container > * {
+  text-align: center;
+}
+
+h2 {
+  font-size: 55pt;
+  color: whitesmoke;
+}
+
+input {
+  margin: 50px 0px 150px 0px;
+  padding: 10px;
+  font-size: 25pt;
+}
+
+div #input{
+  padding: 10px;
+  font-size: 25pt;
+}
