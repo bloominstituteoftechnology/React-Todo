@@ -19,12 +19,16 @@ h2 {
 }
 
 input {
-  margin: 50px 0px 150px 0px;
+  margin: 0px 0px 50px 0px;
   padding: 10px;
   font-size: 25pt;
 }
 
-div #input{
+div #input {
   padding: 10px;
   font-size: 25pt;
+}
+
+div #input:last-child {
+  padding-bottom: 50pt;
 }
