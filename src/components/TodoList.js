@@ -6,36 +6,35 @@ import Todo from './Todo';
       super();
       this.state = {
       todos: [],
-      newTask: '',
+      newTodo: '',
       };
     }
 
     handleTaskInput = event => {
       let n = event.target.value;
-      this.setState({ newTask: n });
+      this.setState({ newTodo: n });
 
     };
 
     addTodo = event => {
       event.preventDefault();
       const tasksList = this.state.todos;
-      tasksList.push(this.state.newTask);
+      tasksList.push(this.state.newTodo);
       this.setState({
         todos: tasksList,
-        newTask: '',
+        newTodo: '',
       });
     };
 
     render() {
       return (
         <div>
-          <div><h3>Todo List</h3></div>
           {this.state.todos.map((item, i) => (
             <Todo key = {i} index = {i} todo = {item} />
             ))}
           <form>
             <h3>Enter a New Task On Your To-Do List</h3>
-            <input type = "text" placeholder = "please enter a new task" value ={this.state.newTask} onChange = {this.handleTaskInput} />
+            <input type = "text" placeholder = "please enter a new task" value ={this.state.newTodo} onChange = {this.handleTaskInput} />
             <button type = "submit" value = "Submit" onClick = {this.addTodo}>Submit</button>
           </form>
         </div>
