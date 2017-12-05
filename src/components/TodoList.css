@@ -38,3 +38,6 @@ input::placeholder {
     opacity: 2;
     transition: opacity .6s ease-in-out;
   }
+ .hope div{
+     width: 75%;
+ }

@@ -28,8 +28,9 @@ class TodoList extends Component {
                 <form onSubmit={this.addTodo}>
                     <input onChange={this.handleTodoInput} placeholder="Add new todo" value={this.state.newTodo} type="text" />
                 </form>
-                {this.state.todos.map((todo, i) => <Todo key={i} index={i} todo={todo} />)}
-            </div>
+               <div className="hope">
+                {this.state.todos.map((todo, i) => <Todo key={i} index={i} todo={todo} />)}</div>
+                </div>
         );
     }
 }
