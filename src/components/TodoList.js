@@ -5,6 +5,7 @@ class TodoList extends Component {
 
   constructor() {
     super();
+
     this.state = {
       todos: [],
       newTodo: "",
@@ -15,29 +16,27 @@ class TodoList extends Component {
     event.preventDefault();
     
     const list = this.state.todos;
+    list.push(this.state.newTodo);
 
-    const newTodo = new Todo();
-    newTodo.add(this.state.newTodo);
-
-    list.push(newTodo);
-
-    this.setState({ todos: list, newTodo: "" });    
+    this.setState({
+      todos: list, 
+      newTodo: "" 
+    });    
   }
 
   createTodo = (event) => {
     event.preventDefault();
-    this.setState({ todos: this.state.todos, newTodo: event.target.value });
-  }
-  
-  markComplete = (event) => {
-    const index = event.target.dataset["index"];
-    this.state.todos[index].completed = true;
+
+    this.setState({
+      todos: this.state.todos,
+      newTodo: event.target.value
+    });
   }
 
   render() {
     return (
       <div>
-        {this.state.todos.map((thisTodo, i) => <Todo key={i} index={i} todo={thisTodo.todo} onClick={this.markComplete} />)}
+        {this.state.todos.map((thisTodo, i) => <Todo key={i} todo={thisTodo} />)}
         <form onSubmit={this.addTodo}>
           <input type="text" placeholder="Enter new Todo" onChange={this.createTodo} value={this.state.newTodo} />
         </form>
