@@ -1,46 +1,25 @@
 import React, { Component } from 'react';
-import TodoList from './TodoList';
 
-  class Todo  extends Component {
+class Todo extends Component {
     constructor() {
-      super();
-      this.state = {
-      tasks: [],
-      newTask: '',
-      };
+        super();
+        this.state = {
+            clicked: false,
+        }
     }
 
-    handleTaskInput = event => {
-      let n = event.target.value;
-      this.setState({ newTask: n });
-
-    };
-
-    addTodo = event => {
-      event.preventDefault();
-      const tasksList = this.state.tasks;
-      tasksList.push(this.state.newTask);
-      this.setState({
-        tasks: tasksList,
-        newTask: '',
-      });
+    handleClick = () => {
+        this.setState({ clicked: !this.state.clicked });
     };
 
     render() {
-      return (
-        <div>
-          <div><h3>Todo List</h3></div>
-          {this.state.tasks.map(item => (
-            <TodoList task = {item} />
-            ))}
-          <form>
-            <h3>Enter a New Task On Your To-Do List</h3>
-            <input type = "text" placeholder = "please enter a new task" value ={this.state.newTask} onChange = {this.handleTaskInput} />
-            <button type = "submit" value = "Submit" onClick = {this.addTodo}>Submit</button>
-          </form>
-        </div>
-      );
+        let fini;
+        if (this.state.clicked)  fini = {textDecoration: 'line-through'}
+        else fini = {textDecoration: 'none'}
+        return (
+            <div style = {fini} onClick = {this.handleClick}>{this.props.todo}</div>
+        );
     }
-  }
+}
 
 export default Todo;
