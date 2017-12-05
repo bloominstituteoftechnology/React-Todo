@@ -4,22 +4,35 @@ class classComponentIteratingState extends Component {
     constructor() {
         super()
         this.state = {
-            clicked: false
+            ingredients: ['flour', 'eggs', 'milk', 'sugar', 'vanilla'];
+            newIngredient
    };
 }
 
-handleClick= () => {
-    this.setState({ clicked: this.state.clicked });
+handleIngredientInput= (event) => {
+    this.setState({ newIngredient: event.target.value });
+}
+
+addIngredient = (event) => {
+  event.preventDefault(); 
+  const ingredientsList = this.state.ingredients;
+  ingredientsList.push(this.state.newIngredient);
+  this.setState({
+      newIngredient: '',
+      Ingredients: ingredientsList
+  });
 }
 
 render() {
-    const styles = this.state.clicked ? {textDecoration: 'line-through' }
     return (
-        <div style={styles} onClick=(this.handleClick)>
-          {this.props.thing}
-          </div>
-};
+        <div>
+            {this.state.ingredients.map(ingredient => <ChildComponent>}
+            <form onSubmit={this.addIngredient}>
+               <input onChange={this.handleIngredientInput} placeholder
+            </form>
+            </div>
+    );
 }
-}
-
-export default ChildComponent; 
+  }
+export default ClassComponentIteratingState; 
+ 

@@ -18,9 +18,11 @@ decrement = <> == {
 }
 render() {
     return [
-        <div>Hello World!</div>
+        <div>
+
+        </div>
 };
 }
 }
 
-export default ClassComponentWithState; 
+export default ClassComponentUpdatingState; 
