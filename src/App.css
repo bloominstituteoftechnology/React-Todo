@@ -1,0 +1,40 @@
+
+div h2 {
+    color: #e3e3e3;
+    padding: 2px;
+    font-size: 4rem;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    border: 6px solid #9ad3de;
+    background-color: #89bdd3;
+    width: 35vw;
+    font-family: Courier New, Courier, monospace;
+    box-shadow: 0 10px 6px -6px rgba(119, 119, 119, .6);
+}
+.app {
+   
+    padding: auto;
+    width: 50vw;
+    margin: 50px auto;;
+}
+.purpleRain {
+    padding: 25px;
+    /* height: 65vh; */
+    width: 50vw;
+    background-color: #c9c9c9;
+    
+    border-color: 4px solid #9ad3de;
+    box-shadow: 0 10px 6px -6px rgba(119, 119, 119, .6);
+}
+
+.anim-appear {
+    opacity: 0.01;
+  }
+   
+  .anim-appear.anim-appear-active{
+    opacity: 2;
+    transition: opacity 1s ease-in;
+  }

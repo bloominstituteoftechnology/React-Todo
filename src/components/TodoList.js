@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
-
+import './TodoList.css';
 class TodoList extends Component {
     constructor() {
         super();
         this.state = {
-            todos: ['cook', 'clean', 'poop'],
+            todos: [],
             newTodo: ''
         };
     }
@@ -25,10 +25,10 @@ class TodoList extends Component {
     render() {
         return (
             <div>
-                {this.state.todos.map(todo => <Todo todo={todo} />)}
                 <form onSubmit={this.addTodo}>
-                    <input onChange={this.handleTodoInput} placeholder="Add new todo" value={this.state.newTodo} />
+                    <input onChange={this.handleTodoInput} placeholder="Add new todo" value={this.state.newTodo} type="text" />
                 </form>
+                {this.state.todos.map((todo, i) => <Todo key={i} index={i} todo={todo} />)}
             </div>
         );
     }

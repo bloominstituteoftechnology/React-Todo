@@ -1,0 +1,18 @@
+.todoS {
+    padding: 20px;
+    margin: 10px;
+    font-size: 2rem;
+    background-color: #89bdd3;
+    border: 6px solid #9ad3de;
+    color: #e3e3e3;
+    box-shadow: 0 10px 6px -6px rgba(119, 119, 119, .6);
+}
+
+.anim2-appear {
+    opacity: 0.01;
+  }
+   
+  .anim2-appear.anim-appear-active{
+    opacity: 2;
+    transition: opacity 1s ease-in;
+  }

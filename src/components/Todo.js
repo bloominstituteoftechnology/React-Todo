@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Todo.css';
 class Todo extends Component {
     constructor(todo) {
         super();
@@ -15,7 +15,7 @@ class Todo extends Component {
     render() {
         const styles = this.state.clicked ? { textDecoration: 'line-through'} : { textDecoration: 'none' };
         return (
-            <div style={styles} onClick={this.handleClick}>
+            <div style={styles} onClick={this.handleClick} className="todoS">
         {this.props.todo}
       </div>
         );
