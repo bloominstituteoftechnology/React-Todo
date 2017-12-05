@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-class Todo extends Component {
-    constructor(todo) {
+class TodoItem extends Component {
+    constructor(todoItem) {
         super();
         this.state = {
-            todo,
+            todoItem,
             clicked:false
         };
     }
@@ -15,10 +15,11 @@ class Todo extends Component {
         const customStyle = this.state.clicked ? {textDecoration:'line-through'} : {textDecoration:'none'};
         return (
             <div style={customStyle} onClick={this.handleClick}>
-                {this.props.todo}
+                {this.props.title}
+                {this.props.message}
             </div>
         );
     }
 }
 
-export default Todo;
+export default TodoItem;
