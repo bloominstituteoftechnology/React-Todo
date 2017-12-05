@@ -19,3 +19,10 @@
 
 * 6. JSX: JSX is JavaScript in a syntax similar to a template language. It is a syntax extension. JSX is compiled to 
      React.createElement() calls that return JavaScript objects. These objects are also known as React elements.
+
+* 7. Package Managers: Useful tools that let you manage the dependencies in your project. Two good examples of package managers
+     are `npm` and `Yarn`.
+
+* 8. CDN: Content Delivery Network. CDNs deliver cached static content from a globe-spanning network of servers.
+
+* 9. 
