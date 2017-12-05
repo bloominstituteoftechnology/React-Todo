@@ -30,8 +30,10 @@ class TodoList extends Component {
 
 
   addTodo = event => {
+    
     event.preventDefault();
     const todoList = this.state.todos;
+    if (this.state.newTodo === '' ) return;
     todoList.push(this.state.newTodo);
     this.setState({
       newTodo: '',
