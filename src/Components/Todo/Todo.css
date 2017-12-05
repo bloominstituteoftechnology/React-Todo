@@ -1,0 +1,21 @@
+.Button-Container {
+  display: flex;
+  
+}
+
+.btn {
+ 
+  outline: none;
+  box-shadow: none;
+  border-width: 2px;
+  border-radius: 3px;
+  border-style: solid;
+  padding: 8px;
+  margin-right: 20px;
+}
+
+.btn--delete {
+  color: rgb(209, 13, 39);
+  border-color: rgba(209, 13, 39, 1.0);
+  background-color: transparent;
+}
