@@ -1,37 +1,61 @@
-import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-import TodoList from '../components/TodoList';
-
-Enzyme.configure({ adapter: new Adapter() });
-
-describe('Todo List', () => {
-    it('should render an input tag', () => {
-        const component = shallow(<TodoList />);
-        expect(component.find('input').length).toBe(1);
-    });
-
-    it('should store todos in state', () => {
-        const component = shallow(<TodoList />);
-        expect(component.state('todos')).toBeDefined();
-    });
-
-    it('should render a Todo component for every todo in state', () => {
-        const todos = ['complete this assignment', 'submit a PR'];
-        const component = shallow(<TodoList />);
-        expect(component.find('div').children().length).toBe(1);
-        component.setState({ todos: todos});
-        expect(component.find('div').children().length).toBe(3);
-        expect(component.state().todos).toEqual(todos);
-    });
-
-    it('should add a new Todo when `addTodo` is called', () => {
-        const e = { preventDefault: () => {} };
-        const component = shallow(<TodoList />);
-        expect(component.find('div').children().length).toBe(1);
-        component.setState({ newTodo: 'bake canneles' });
-        component.instance().addTodo(e);
-        expect(component.state()).toEqual({ todos: ['bake canneles'], newTodo: '' });
-    });
-});
++import React, { Component } from 'react';
++import Todo from './Todo';
++class TodoList extends Component {
++    constructor() {
++        super();
++        this.state = {
++            todo: '',
++            todos: []
++        };
++    }
++    handleChange = (event) => {
++        this.setState({
++            todo: event.target.value
++        })
++    }
++    addTodo = (event) => {
++        event.preventDefault();
++        if(!this.state.todo) return;
++        const todo = {
++            item: this.state.todo,
++            completed: false
++        }
++        this.setState({
++            todo: '',
++            todos: [todo, ...this.state.todos]
++        })
++    }
++    remove = (index) => {
++        const todos = this.state.todos.filter((todo, i) => {
++            return index !== i;
++        });
++        this.setState({
++            todos
++        });
++    }
++    toggleComplete = (index) => {
++        const todos = this.state.todos.map((todo, i) => index === i ? { item: todo.item, completed: !todo.completed} : todo);
++        this.setState({
++            todos
++        });
++    }
++    render() {
++        return (
++            <div className="todoList">
++                <form onSubmit={this.addTodo}>
++                    <input type="text" name="todo" value={this.state.todo} onChange={this.handleChange}/>
++                    <button>Add</button>
++                </form>
++                <ul>
++                    {
++                        this.state.todos.map((todo, i) => {
++                            return <Todo key={i} index={i} todo={todo} toggleComplete={() => {this.toggleComplete(i)}} remove={() => this.remove(i)}/>
++                        })
++                    }
++                </ul>
++            </div>
++        )
++    }
++}
++
++export default TodoList; 
