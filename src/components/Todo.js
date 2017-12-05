@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ChildComponent extends Component {
+class Todo extends Component {
     constructor() {
         super();
         this.state = {
@@ -20,4 +20,4 @@ class ChildComponent extends Component {
     }
 }
 
-export default ChildComponent;
+export default Todo;

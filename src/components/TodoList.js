@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Todo from './Todo';
 
-class ParentComponent extends Component {
+class TodoList extends Component {
     constructor() {
         super();
         this.state = {
             todos: ['cook', 'study'],
-            newTodo: ''
+            newTodo: '',
         };
     }
     handleTodoInput = (event) => {
@@ -23,7 +24,7 @@ class ParentComponent extends Component {
     render() {
         return (
             <div>
-                {this.state.todos.map( todo => <div>{todo}</div>)}
+                {this.state.todos.map( todo => <ChildComponent thing ={todo}/>)}
                 <form onSubmit = {this.addTodo}>
                 <input onChange= {this.handleTodoInput} placeholder= "Add a new Todo" value = {this.state.newTodo} />
                 </form>
@@ -33,4 +34,4 @@ class ParentComponent extends Component {
     }
 }
 
-export default ParentComponent;
+export default TodoList;

@@ -1,13 +1,10 @@
 import React from 'react';
-import BasicComponent from "./components/BasicComponent";
-import ClassComponentUpdatingState from "./components/ClassComponentUpdatingState";
-import ParentComponent from "./components/ParentComponent";
+import TodoList from "./components/TodoList";
+
 
 const App = () => (
   <div>
-    <BasicComponent />
-    <ClassComponentUpdatingState/>
-    <ParentComponent />
+    <TodoList/>
     <h2>Todo App</h2>
 
   </div>
