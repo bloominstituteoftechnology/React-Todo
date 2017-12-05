@@ -1,0 +1,4 @@
+@import './components/todo.css';
+html, body {
+    background: #fff;
+}
