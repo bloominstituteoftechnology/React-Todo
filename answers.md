@@ -29,4 +29,7 @@
      `props` are read only and should never be modified in any way. If some value needs to be modified, it should be done with
      `state` instead.
 
-* 10. 
+* 10. `props.children`: Every React component has `props.children`. It is the actual content in between the opening and closing
+      tags of a component.
+
+* 11. 
