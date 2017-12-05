@@ -3,7 +3,7 @@ import Todo from './Todo';
 
 class TodoList extends Component {
     constructor() {
-        super();
+        super();hgi
         this.state = {
             todos: [],
             newTodo: ''
@@ -13,7 +13,7 @@ class TodoList extends Component {
 
 addTodo = (e) => {
     e.preventDefault();
-    const todoList = this.state.todos;
+    const updatedTodos = this.state.todos;
     updatedTodos.push(this.state.newTodo);
     this.setState({
         todos: updatedTodos,
