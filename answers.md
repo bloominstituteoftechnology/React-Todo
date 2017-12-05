@@ -25,4 +25,5 @@
 
 * 8. CDN: Content Delivery Network. CDNs deliver cached static content from a globe-spanning network of servers.
 
-* 9. 
+* 9. Props: Inputs to React components. They are pieces of data that are passed down from parent component to child component.
+     `props` are read only and should never be modified in any way.
