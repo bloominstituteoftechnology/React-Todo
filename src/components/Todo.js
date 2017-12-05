@@ -4,7 +4,8 @@ class Todo extends Component {
   constructor() {
     super();
     this.state = {
-      clicked: false
+      clicked: false,
+      completed: false
     };
   }
 
@@ -14,11 +15,18 @@ class Todo extends Component {
     });
   }
 
+remove = () => {
+  this.props.remove(this.props.index);
+}
+
   render() {
     const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
     return (
-      <div id="input" style={styles} onClick={this.handleClick}>
-        {this.props.todo}
+      <div>
+        <div id="input" style={styles} onClick={this.handleClick}>
+           {this.props.todo}
+        </div>
+        <div onClick={this.remove}> X </div>
       </div>
     );
   }
