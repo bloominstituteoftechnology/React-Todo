@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import Todo from './Todo';
 
 class ToDoList extends Component {
   constructor() {
     super();
-
     this.state = {
       toDos: [],
       newToDo: ''
     };
+    this.handleToDos = this.handleToDos.bind(this)
+    this.addToDos = this.addToDos.bind(this);
   }
   handleToDos = (event) => {
     this.setState( { newToDo: event.target.value } );
@@ -29,7 +29,7 @@ class ToDoList extends Component {
       <div>
       {this.state.toDos.map( (toDos, i) => <div key={i}>{toDos}</div>)}
       <form onSubmit={this.addToDos}>
-        <input onChange={this.handleToDos} placeholder="Add new To Do!" value={this.state.newToDo} />
+        <input onChange={this.handleToDos} placeholder="Jot that down." value={this.state.newToDo} />
       </form>
     </div>
     );
