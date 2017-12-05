@@ -28,15 +28,18 @@ class TodoList extends Component {
     });
   };
 
-  removeTodo = event => {
-    const todoList = this.state.todo;
-    
+  removeTodo = (index) => {
+    const todoList = this.state.todos;
+    todoList.splice(index,1);
+    this.setState({
+      todos: todoList
+    })
   }
 
   render() {
     return (
       <div>
-        {this.state.todos.map((todo, i) => <Todo key={i} todo={todo} />)}
+        {this.state.todos.map((todo, i) => <Todo key={i} index={i} todo={todo} remove={this.removeTodo.bind(this)} />)}
         <form onSubmit={this.addTodo}>
           <input className="input"
             onChange={this.handleTodoInput}
