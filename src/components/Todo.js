@@ -14,10 +14,13 @@ class Todo extends Component {
 
   render() {
     const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
+    const buttonStyle ={marginLeft: 5};
     return (
       <div style={styles} onClick={this.handleClick}>
         {this.props.thing}
+        <button style={buttonStyle}>x</button>
       </div>
+
     );
   }
 }
