@@ -13,7 +13,7 @@ class Todo extends Component {
     }
 
     render() {
-        const styles = this.state.clicked ? { textDecoration: 'line-through'} : { textDecoration: 'none' };
+        const styles = this.state.clicked ? { textDecoration: 'line-through', textDecorationColor: '#9ad3de'} : { textDecoration: 'none' };
         return (
             <div style={styles} onClick={this.handleClick} className="todoS">
         {this.props.todo}

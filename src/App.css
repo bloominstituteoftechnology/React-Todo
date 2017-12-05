@@ -2,7 +2,7 @@
 div h2 {
     color: #e3e3e3;
     padding: 2px;
-    font-size: 4rem;
+    font-size: 5rem;
     text-align: center;
     margin: auto;
     padding: 0;
@@ -10,9 +10,10 @@ div h2 {
     border-radius: 6px;
     border: 6px solid #9ad3de;
     background-color: #89bdd3;
-    width: 35vw;
+    width: 40vw;
     font-family: Courier New, Courier, monospace;
-    box-shadow: 0 10px 6px -6px rgba(119, 119, 119, .6);
+    font-variant: small-caps;
+    box-shadow: 0 10px 6px -6px rgba(119, 119, 119, .2);
 }
 .app {
    
@@ -25,7 +26,7 @@ div h2 {
     /* height: 65vh; */
     width: 50vw;
     background-color: #c9c9c9;
-    
+    border-radius: 2px;
     border-color: 4px solid #9ad3de;
     box-shadow: 0 10px 6px -6px rgba(119, 119, 119, .6);
 }

@@ -4,7 +4,7 @@ form {
     margin: 20px;
 }
 input {
-    box-shadow: 0 10px 6px -6px rgba(119, 119, 119, .6);
+    box-shadow: 0 10px 6px -6px rgba(119, 119, 119, .2);
     background-color: #89bdd3;
     /* box-shadow: 0 10px 6px -6px #777;
     border-radius: 4px; */
