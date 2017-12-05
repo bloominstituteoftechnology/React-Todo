@@ -3,7 +3,7 @@ import Todo from './Todo';
 
 class TodoList extends Component {
     constructor() {
-        super();hgi
+        super();
         this.state = {
             todos: [],
             newTodo: ''
