@@ -5,6 +5,7 @@ class Todo extends Component {
         super();
         this.state = {
             clicked: false,
+            // buttonText: 'Check'
         }
     }
 
@@ -13,17 +14,16 @@ class Todo extends Component {
     }
 
     render() {
-        // const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
-        let styles = { textDecoration: 'none' };
+        let styles = { textDecoration: 'none', float: 'left', width: '200px' }; // Default Style when added
 
         if (this.state.clicked) {
-            styles = { textDecoration: 'line-through' };
-
+            styles = { textDecoration: 'line-through', float: 'left', width: '200px' }; // Put line through text
         }
+
         return (
-            <div style={styles} onClick ={this.handleClick}>
-                {this.props.todo}
-            </div>
+                <div style={styles} onClick ={this.handleClick}>
+                    {this.props.todo}
+                </div>
         );
     }
 }

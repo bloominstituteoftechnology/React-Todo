@@ -9,6 +9,11 @@ class TodoList extends Component {
             newTodo: '',
         };
     }
+    removeTodo = (event) => { // Handle Deleting of Todos from todos array.
+        const arrCopy = this.state.todos;
+        arrCopy.splice(event.target.id, 1);
+        this.setState({todos: arrCopy});
+    }
 
     handleTodos = (event) => {
         this.setState({newTodo: event.target.value});
@@ -25,14 +30,17 @@ class TodoList extends Component {
     }
 
     render() {
+        let styles = { display: 'inline-flex' , width: '400px'}
         return (
             <div>
                 {this.state.todos.map((todo, index) => 
-                    {
-                        return (
-                            <Todo index={index} todo={todo} key={index} />
-                        );
-                    })
+                        <div key={index}>
+                            <div key={index} style={styles}>
+                                <Todo key={index} todo={todo}/>
+                                <button id={index} onClick={this.removeTodo}>Delete</button>{/* Delete Button */}
+                            </div>
+                        </div>
+                    )
                 }
                 <form onSubmit={this.addTodo}>
                     <input onChange={this.handleTodos} value={this.state.newTodo}/>
