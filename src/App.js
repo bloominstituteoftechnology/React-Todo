@@ -1,9 +1,9 @@
 import React from 'react';
 import TodoList from './components/TodoList';
-import styles from './App.css';
-console.log(styles);
+import './App.css';
+
 const App = () => (
-  <div>
+  <div className="BoxShadow--slateblue Padding__All--6 Margin__All--2">
     <h2>Todo App</h2>
     <TodoList />
   </div>
