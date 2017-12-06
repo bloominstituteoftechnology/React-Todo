@@ -1,0 +1,32 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px 550px 100px;
+  grid-gap: 5px;
+  grid-template-areas: 
+    "h h h h h h h h h h h h"
+    "m m c c c c c c c c c c"
+    "f f f f f f f f f f f f"
+}
+
+.header {
+  grid-area: h;
+  background-color: solid blue;
+  font-size: 48px;
+}
+
+.menu {
+  grid-area: m;
+  background-color: solid red;
+  text-decoration-color: solid red;
+}
+
+.content {
+  grid-area: c;
+  background-color: solid green;
+}
+
+.footer {
+  grid-area: f;
+  background-color: solid yellow;
+}
