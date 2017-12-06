@@ -1,0 +1,15 @@
+body {
+    background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 1000px;
+}
+
+#root {
+    position: absolute;
+    left: 1100px;
+    top: 350px;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 35px;
+
+}
