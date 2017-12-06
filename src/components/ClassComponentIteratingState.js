@@ -34,5 +34,4 @@ render() {
     );
 }
   }
-export default ClassComponentIteratingState; 
- 
+export default ClassComponentIteratingState;
