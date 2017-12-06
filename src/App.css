@@ -29,9 +29,41 @@ div #input {
   font-size: 25pt;
 }
 
-div #input:last-child {
-  padding-bottom: 50pt;
+#button-container {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
 }
 
-#inputbox {
+#outer:last-of-child {
+  margin-bottom: 150px
+}
+
+div #input {
+  flex: 1;
+}
+
+button {
+  background: rgba(0, 0, 0, 0.103);
+  border: none;
+  height: 15px;
+  align-self: center;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

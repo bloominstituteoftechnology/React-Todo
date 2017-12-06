@@ -43,7 +43,7 @@ class TodoList extends Component {
         </form>
         <div>
           {this.state.todos.map((todo, i) => 
-              <Todo key={i} index={i} todo={todo} remove={this.removeTodo.bind(this)} />
+            <Todo key={i} index={i} todo={todo} remove={this.removeTodo.bind(this)} />
           )}
         </div>
       </div>

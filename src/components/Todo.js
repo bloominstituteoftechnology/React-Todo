@@ -15,18 +15,20 @@ class Todo extends Component {
     });
   }
 
-remove = () => {
-  this.props.remove(this.props.index);
+  remove = () => {
+    this.props.remove(this.props.index);
 }
 
   render() {
     const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
     return (
-      <div>
+      <div className="outer">
+      <div id="button-container">
         <div id="input" style={styles} onClick={this.handleClick}>
-           {this.props.todo}
+          {this.props.todo}
         </div>
-        <div onClick={this.remove}> X </div>
+        <button onClick={this.remove}> X </button>
+      </div>
       </div>
     );
   }
