@@ -32,4 +32,5 @@
 * 10. `props.children`: Every React component has `props.children`. It is the actual content in between the opening and closing
       tags of a component.
 
-* 11. 
+* 11. State: A component needs `state` whenever its data changes over time. This could be a checkbox, the number of likes, etc.
+      
