@@ -1,26 +1,27 @@
 import React, { Component} from 'react';
+import Todo from './Todo';
 
-class TodoList extends React.Component {
+class TodoList extends Component {
   constructor() {
     super();
     this.state = {
-      todos: [],
-      newTodo: ''
+      newTodo: '',
+      todos: []
     }
   }
 
-  handleListInput = event => {
-    this.setState({ newTodo: event.target.value }
+  handleListInput = e => {
+    this.setState({ newTodo: e.target.value }
   )};
 
 
-  addTodo = event => {
-    event.preventDefault();
-    const nList = this.state.todos;
-    nList.push(this.state.newTodo);   
+  addTodo = e => {
+    e.preventDefault();
+    const updatedTodos = this.state.todos;
+    updatedTodos.push(this.state.newTodo);   
     this.setState({
       newTodo: '',
-      todos: nList
+      todos: updatedTodos
     }); 
   };
    
@@ -28,9 +29,9 @@ class TodoList extends React.Component {
   render() {
     return (
       <div>
-        {this.state.todos.map(item => <div>{item}</div>)}
+    {this.state.todos.map((todo, i) => <Todo key = {i} todo={todo} />)}
         <form onSubmit={this.addTodo}>
-          <input type="text" onChange={this.handleListInput} placeholder="type in something" value={this.state.newTodo} />
+          <input type="text" onChange={this.handleListInput} placeholder="What do you need to do?" value={this.state.newTodo} />
         </form>
       </div>
     );
