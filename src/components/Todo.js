@@ -24,19 +24,22 @@
 import React, { Component } from 'react'
 
 class Todo extends Component{
-    constructor(){
-        super();
-        this.state = {clicked:false};
+    constructor(props){
+        super(props);
+        console.log(props);
+        this.state = {'text':props.text,'completed':props.completed};
     }
     handleClick = () =>{
-        this.setState({clicked:true});
+        this.setState({completed:!this.state.completed});
     }
-
     render(){
-        const styles = this.state.clicked ? {textDecoration:'line-through'}:{textDecoration:'none'};
+        const styles = this.state.completed ? {textDecoration:'line-through'}:{textDecoration:'none'};
         return (
-            <div style = {styles} onClick={this.handleClick}>
-                {this.props.todo}
+            <div>
+                <span style = {styles} onClick={this.handleClick}>
+                    {this.props.todo.text}
+                </span>
+                <button onClick={()=>{this.props.delete(this.props.index)}}>X</button>
             </div>
         );
     }

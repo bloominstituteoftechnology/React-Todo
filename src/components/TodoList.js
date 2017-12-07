@@ -117,25 +117,32 @@ class TodoList extends Component{
         super();
         this.state={
             todos:[],
-            newTodo:''}
+            newTodo:{}};
         }
     handleTodoInput = (event)=>{
-        this.setState({newTodo:event.target.value});}
+        this.setState({newTodo:{'text':event.target.value,"completed":false}});}
     addTodo = (event)=>{
         event.preventDefault();
         const todos = this.state.todos;
         todos.push(this.state.newTodo);
         this.setState({todos:todos,
-            newTodo:''});
+            newTodo:{'text':'',"completed":false}});
+            // console.log(this.state)
     };
+   deleteTodo=(i)=>{
+       const todos = this.state.todos;
+       let newtodos = todos.filter(todo => todos.indexOf(todo) !== i );
+       this.setState({todos:newtodos});
+   }
 
+    
     render(){
         return(
             <div>
                 {this.state.todos.map((todo,i) =>
-                <Todo key={i} todo={todo}/>)}
+                <Todo index={i} todo={todo} delete={this.deleteTodo}/>)}
             <form onSubmit={this.addTodo}>
-                <input type="text" placeholder="Enter new " onChange={this.handleTodoInput} value={this.state.newTodo}/>
+                <input type="text" placeholder="Enter new" onChange={this.handleTodoInput} value={this.state.newTodo.text}/>
             </form>
             </div>
         );
