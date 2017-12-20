@@ -1,0 +1,69 @@
+body {
+  background: linear-gradient(blue, tomato);
+  margin: 0;
+  min-height: 100vh;
+  /* font-family:  */
+}
+
+#container {
+  padding-top: 50px;
+}
+
+#container > * {
+  text-align: center;
+}
+
+h2 {
+  font-size: 55pt;
+  color: whitesmoke;
+}
+
+input {
+  margin: 0px 0px 50px 0px;
+  padding: 10px;
+  font-size: 25pt;
+}
+
+div #input {
+  padding: 10px;
+  font-size: 25pt;
+}
+
+#button-container {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+
+#outer:last-of-child {
+  margin-bottom: 150px
+}
+
+div #input {
+  flex: 1;
+}
+
+button {
+  background: rgba(0, 0, 0, 0.103);
+  border: none;
+  height: 15px;
+  align-self: center;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
