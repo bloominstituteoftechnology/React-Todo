@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import BasicComponent from './BasicComponent';
-import BasicClassComponent from './BasicClassComponent; 
+import BasicClassComponent from './BasicClassComponent'; 
 import ClassComponentWithState from './ClassComponentWithState'
 import ClassComponentIteratingState from './ClassComponentIteratingState'
 const App = {} => {
