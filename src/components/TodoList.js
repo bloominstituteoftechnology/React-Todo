@@ -6,19 +6,19 @@ class TodoList extends Component {
     super();
     this.state = {
       todos: [],
-      newTodo: '',
+      newTodo: { text: '' },
     };
   }
 
   addTodo = (e) => {
     e.preventDefault();
     
-    const todos = this.state.todos;
-    todos.push(this.state.newTodo)
+    const todos = this.state.todos.slice(0);
+    todos.push(this.state.newTodo);
 
     this.setState({
       todos,
-      newTodo: '',
+      newTodo: { text: '' },
     });
   }
 
@@ -26,20 +26,39 @@ class TodoList extends Component {
     const newTodo = {};
     newTodo.key = e.target.value.length;
     newTodo.text = e.target.value;
-    newTodo.decoration = 'none';
+    newTodo.completed = false;
     
-    this.setState({ newTodo: newTodo.text });
+    this.setState({ newTodo });
+  }
+
+  todoClicked = (e) => {
+
+    console.log(e);
+    console.log(e.target);
+    console.log(e.target.key);
+    e.stopPropagation();
+  }
+
+  deleteTodo = (e) => {
+    console.log('delete');
+    e.stopPropagation()
   }
 
   render() {
     return (
       <div>
         <form onSubmit={this.addTodo}>
-          <input type="text" onChange={this.handleNewTodo} placeholder="Add new task" value={this.state.newTodo} />
+          <input type="text" onChange={this.handleNewTodo} placeholder="Add new task" value={this.state.newTodo.text} />
           <button onClick={this.addTodo}>Submit</button>
         </form>
+        <br />
         {this.state.todos.map((todo, i) => {
-          return <Todo key={i} todo={todo} />
+          return (
+            <Todo key={i}
+            todo={todo}
+            todoClicked={this.todoClicked}
+            deleteTodo={this.deleteTodo} />
+          );
         })}
       </div>
     );
