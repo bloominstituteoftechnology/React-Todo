@@ -11,9 +11,9 @@ class TodoList extends Component {
     }
    
     removeTodo = (event) => {
-        event.preventDefault();
         const removeTodoList = this.state.todos;
-        removeTodoList.splice();
+        removeTodoList.splice(0, 1);
+        this.setState({todos: removeTodoList});
     }
 
     addTodo = (event) => {
@@ -33,10 +33,17 @@ class TodoList extends Component {
     render() {
         return(
             <div>
-                {this.state.todos.map((todo, i) => <Todo key={i} todo={todo}/>)}
-                <form onSubmit={this.addTodo}>
-                <input type='text' onChange={this.handleTodoInput} placeholder="Add a new Todo!" value= {this.state.newTodo}/>
+             <form onSubmit={this.addTodo}>
+              <input type='text' onChange={this.handleTodoInput} 
+              placeholder="Add a new Todo!" 
+              value= {this.state.newTodo}/>
                 </form>
+            <div>
+              {this.state.todos.map((todo, i) => 
+              <Todo key={i} index={i} todo={todo}
+                remove={this.removeTodo.bind(this)}/>
+                )}
+               </div>
             </div>
         );
     }
