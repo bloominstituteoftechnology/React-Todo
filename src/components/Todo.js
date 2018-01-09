@@ -28,7 +28,7 @@ class Todo extends Component {
                 <label className={this.state.finished === true ? "listItem" : "listItem-none"} onClick={this.handleClick}>
                     {this.props.item}
                 </label>
-                <button onClick={this.handleRemove}>Remove</button>
+                <button onClick={this.handleRemove} className="itemRemove-button">Remove</button>
             </form>
         );
     }

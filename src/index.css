@@ -13,11 +13,11 @@ body {
 }
 .listItem-none {
     text-decoration: none;
-    margin-bottom: 20px
+    padding-right: 30px;
 }
 .listItem {
     text-decoration: line-through;
-    margin-bottom: 20px
+    padding-right: 30px;
 }
 
 .todoList {
@@ -29,8 +29,14 @@ body {
 .itemRemove {
     display: none;
 }
-
-table {
-    padding: 10px;
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 5px;
+    background-color: lavender;
 }
+
+
+
 
