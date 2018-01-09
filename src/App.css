@@ -1,0 +1,77 @@
+body {
+    background-color: black ;
+    margin: 0;
+    min-height: 100vh;
+    border: 2px  black;
+    font-family: 'Sedgwick Ave Display', cursive;
+  }
+  
+  #container {
+    padding-top: 50px;
+  }
+  
+  #container > * {
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 55pt;
+    color: red;
+    background-color: black ;
+  }
+  
+  input {
+    margin: 0px 0px 50px 0px;
+    padding: 10px;
+    font-size: 25pt;
+  }
+  
+  div #input {
+    padding: 20px;
+    font-size: 25pt;
+    color: red;
+  }
+  
+  #button-container {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+  
+  #outer:last-of-child {
+    margin-bottom: 150px
+  }
+  
+  div #input {
+    flex: 1;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    height: 15px;
+    align-self: center;
+    font-size: 15px;
+    color: red;
+  }
+  .outer {
+    border: 2px solid black;
+  }
+  
+  .fade-enter {
+    opacity: 0.01;
+  }
+  
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  
+  .fade-leave {
+    opacity: 1;
+  }
+  
+  .fade-leave.fade-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+  }
