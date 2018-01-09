@@ -26,3 +26,11 @@ body {
     padding: 5px;
 }
 
+.itemRemove {
+    display: none;
+}
+
+table {
+    padding: 10px;
+}
+

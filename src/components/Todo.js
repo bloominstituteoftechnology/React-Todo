@@ -1,33 +1,38 @@
 import React, { Component } from 'react';
 
-class Items extends Component {
+class Todo extends Component {
     constructor() {
         super();
         this.state = {
-            finished: false
+            finished: false,
+            delete: false
         }
     }
-
+    
     handleClick = () => {
         this.setState({
-            finished: !this.state.finished
+        finished: !this.state.finished
         });
     }
-
-    onSubmit = (event, i) => {
-        this.props.item.splice(i, 1);
+    
+    handleRemove = (event) => {
+        event.preventDefault();
+        this.setState({
+            delete: !this.state.delete
+        })
     }
-
+    
     render() {
         return (
-            <form className="items" onSubmit={this.onSubmit}>
+            <form className={this.state.delete === true ? "itemRemove" : "item"} >
                 <label className={this.state.finished === true ? "listItem" : "listItem-none"} onClick={this.handleClick}>
                     {this.props.item}
                 </label>
-                <button>Remove</button>
+                <button onClick={this.handleRemove}>Remove</button>
             </form>
         );
     }
+
 }
 
-export default Items;
+export default Todo;

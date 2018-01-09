@@ -1,13 +1,13 @@
 import React from 'react';
 import { Component } from 'react';
-import Items from './Items';
+import Todo from './Todo';
 
-class List extends Component {
+class TodoList extends Component {
     constructor() {
         super();
         this.state = {
             term: '',
-            items: ['Add new items to your to-do list', 'Do something else']
+            items: ['Add new items to your to-do list']
         };
     }
 
@@ -36,11 +36,11 @@ class List extends Component {
                     <button>Submit</button>
                 </form>
                 {this.state.items.map((item, i) => {
-                    return <Items key={i} item={item}/>
+                    return <Todo key={i} item={item}/>
                 })}
             </div>
         );
     }
 }
 
-export default List;
+export default TodoList;
