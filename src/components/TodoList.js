@@ -7,7 +7,7 @@ class TodoList extends Component {
         super();
         this.state = {
             term: '',
-            items: ['Add new items to your to-do list']
+            items: ['Add a new task to your to-do list']
         };
     }
 
