@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import List from './components/List';
 
-const App = () => (
-  <div>
-    <h2>To-do App</h2>
-    <List />
-  </div>
-);
-
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <h1 className="title">To-do App</h1>
+        <List />
+      </div>
+    );
+  }
+}
 export default App;

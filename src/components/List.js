@@ -1,45 +1,44 @@
 import React from 'react';
 import { Component } from 'react';
-import Input from './Input';
+import Items from './Items';
 
 class List extends Component {
     constructor() {
         super();
         this.state = {
-            newItem: '',
-            items: ['Add new items to To-Do list'],
-            isStrikeThrough: 'list'
+            term: '',
+            items: ['Add new items to your to-do list', 'Do something else']
         };
-        this.changeHandler = this.changeHandler.bind(this);
-        this.addItemHandler = this.addItemHandler.bind(this);
-        this.strikeThrough = this.strikeThrough.bind(this);
     }
 
-    changeHandler(event) {
+    onChange = event => {
         this.setState({
-            newItem: event.target.value
+            term: event.target.value
         })
     }
 
-    addItemHandler() {
-        const newItem = this.state.newItem;
+    onSubmit = event => {
+        event.preventDefault();
         const items = this.state.items;
-        items.push(newItem);
+        const term = this.state.term;
+        items.push(term);
         this.setState({
             items,
-            newItem: ''
-        });
-    }
-
-    strikeThrough() {
-        this.setState({
-            isStrikeThrough: !this.state.isStrikeThrough
+            term: ''
         });
     }
 
     render() {
         return (
-            <Input items={this.state.items} newItem={this.state.newItem} changeHandler={this.changeHandler} addItemHandler={this.addItemHandler} strikeThrough={this.strikeThrough} />
+            <div>
+                <form className="todoList" onSubmit={this.onSubmit}>
+                    <input placeholder="enter task" value={this.state.term} onChange={this.onChange} />
+                    <button>Submit</button>
+                </form>
+                {this.state.items.map((item, i) => {
+                    return <Items key={i} item={item}/>
+                })}
+            </div>
         );
     }
 }
