@@ -27,7 +27,7 @@ class Todo extends Component {
         <div id="input" style={styles} onClick={this.handleClick}>
           {this.props.todo}
         </div>
-        <button onClick={this.remove}> X </button>
+        <button id="remove" onClick={this.remove}> X </button>
       </div>
       </div>
     );

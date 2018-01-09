@@ -33,20 +33,28 @@ class TodoList extends Component {
 
   render() {
     return (
-      <div>
+      <div>        
+
+        
         <form onSubmit={this.addTodo}>
           <input id="test" 
             onChange={this.handleTodoInput}
             placeholder="This is Bananas"
             value={this.state.newTodo}
-          />
-        </form>
-        <div>
+          /><button id="submitBut">Submit</button>
+          </form>
+          
+          <div>
           {this.state.todos.map((todo, i) => 
             <Todo key={i} index={i} todo={todo} remove={this.removeTodo.bind(this)} />
           )}
-        </div>
-      </div>
+        </div>  
+
+          </div>
+      
+
+      
+      
     );
   }
 }
