@@ -1,0 +1,42 @@
+body {
+    background-color: #f5f5f5;
+    padding: 50px;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+}
+.title {
+    display: flex;
+    justify-content: center;
+}
+.listItem-none {
+    text-decoration: none;
+    padding-right: 30px;
+}
+.listItem {
+    text-decoration: line-through;
+    padding-right: 30px;
+}
+
+.todoList {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.itemRemove {
+    display: none;
+}
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 5px;
+    background-color: lavender;
+}
+
+
+
+
