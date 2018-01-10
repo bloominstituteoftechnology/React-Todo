@@ -1,8 +1,10 @@
 import React from 'react';
+import Todo from './components/TodoList';
 
 const App = () => (
-  <div>
-    <h2>Todo App</h2>
+  <div id="container">
+    <h2>Calum's Magical List of Do's and Dont's</h2>
+    <Todo />
 
   </div>
 );

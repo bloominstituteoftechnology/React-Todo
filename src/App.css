@@ -1,0 +1,82 @@
+body {
+  background: linear-gradient(goldenrod, yellowgreen);
+  margin: 0;
+  min-height: 100vh;
+  border: 2px dashed black;
+  font-family: 'Joti One', cursive;
+}
+#container {
+  padding-top: 50px;
+}
+
+#container > * {
+  text-align: center;
+}
+
+h2 {
+  font-size: 25pt;
+  color: black;
+  border: 2px solid grey;
+  background: linear-gradient(goldenrod, greenyellow);
+}
+
+input {
+  margin: 0px 0px 50px 0px;
+  padding: 10px;
+  font-size: 15pt;
+}
+
+div #input {
+  padding: 20px;
+  font-size: 25pt;
+}
+
+#button-container {
+  display: inline-flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+#outer:last-of-child {
+  margin-bottom: 150px
+}
+
+div #input {
+  flex: 1;
+}
+
+
+.outer {
+  border: 2px solid black;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+#submitBut {
+  padding: 10px;
+  font-size: 15pt;
+}
+
+#remove {
+  font-size: 20pt;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
