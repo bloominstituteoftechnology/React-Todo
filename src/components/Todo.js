@@ -1,34 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Todo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todo: props.todo.text,
-      completed: props.todo.completed,
-    }
-  }
-
-  todoClicked = (e) => {
-    if (!this.state.completed) {
-      this.setState({
-        completed: true,
-      });
-    } else {
-      this.setState({
-        completed: false,
-      })
-    }
-  }
-
-  render() {
-    const styles = this.state.completed ? { textDecoration: 'line-through' } : { textDecoration: 'none' }
-    return (
-      <div onClick={this.todoClicked} style={styles}>
-        {this.state.todo}
-      </div>
-    )
-  }
+const Todo = props => {
+  const styles = props.todo.completed ? { opacity: 0.2 } : { opacity: 1.0 }
+  return (
+    <div style={styles}>
+      <button>x</button>&nbsp;
+      <button onClick={props.toggleCompleted(props.todo.id)}>✓</button>&nbsp;&nbsp;
+      {props.todo.text}
+    </div>
+  )
 }
 
 export default Todo;

@@ -8,10 +8,12 @@ class TodoList extends Component {
       todos: [],
       newTodo: { text: '' },
     };
+
   }
 
-  addTodo = (e) => {
-    e.preventDefault();
+  addTodo = (event) => {
+    event.preventDefault();
+    console.log('addTodo');
     
     const todos = this.state.todos.slice(0);
     todos.push(this.state.newTodo);
@@ -20,28 +22,45 @@ class TodoList extends Component {
       todos,
       newTodo: { text: '' },
     });
+
+    event.stopPropagation();
   }
 
-  handleNewTodo = (e) => {
+  handleNewTodo = (event) => {
+    event.preventDefault();
+
+    console.log('handleNewTodo');
     const newTodo = {};
-    newTodo.key = e.target.value.length;
-    newTodo.text = e.target.value;
+    newTodo.id = event.target.value.length;
+    newTodo.text = event.target.value;
     newTodo.completed = false;
     
     this.setState({ newTodo });
+
+    event.stopPropagation();
   }
 
-  todoClicked = (e) => {
+  toggleCompleted(id) {
+    console.log('toggleCompleted')
+    console.log(id);
+    // console.log(id);
+    // console.log(event);
+    // console.log(event.Handler);
+    let thisTodo;
+    const todos = this.state.todos.slice(0);
+    todos.forEach(todo => {
+      // console.log(todo.id);
+      // if (todo.id === id) thisTodo = todo;
+    });
+    // const thisTodo = todos[index];
 
-    console.log(e);
-    console.log(e.target);
-    console.log(e.target.key);
-    e.stopPropagation();
+    // console.log(thisTodo);
+    // event.stopPropagation();
   }
 
-  deleteTodo = (e) => {
+  deleteTodo() {
     console.log('delete');
-    e.stopPropagation()
+    // e.stopPropagation()
   }
 
   render() {
@@ -55,9 +74,10 @@ class TodoList extends Component {
         {this.state.todos.map((todo, i) => {
           return (
             <Todo key={i}
+            id={i}
             todo={todo}
-            todoClicked={this.todoClicked}
-            deleteTodo={this.deleteTodo} />
+            toggleCompleted={this.toggleCompleted.bind(this)}
+            deleteTodo={this.deleteTodo.bind(this)} />
           );
         })}
       </div>
