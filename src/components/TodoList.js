@@ -6,61 +6,62 @@ class TodoList extends Component {
     super();
     this.state = {
       todos: [],
-      newTodo: { text: '' },
+      newTodo: { 
+        id: '',
+        text: '',
+        completed: false,
+      },
     };
-
+    this.addTodo.bind(this);
+    this.handleNewTodo.bind(this);
+    this.toggleCompleted.bind(this);
+    this.deleteTodo.bind(this);
   }
 
   addTodo = (event) => {
     event.preventDefault();
-    console.log('addTodo');
     
     const todos = this.state.todos.slice(0);
     todos.push(this.state.newTodo);
 
     this.setState({
       todos,
-      newTodo: { text: '' },
+      newTodo: { 
+        id: '',
+        text: '',
+      },
     });
-
     event.stopPropagation();
   }
 
   handleNewTodo = (event) => {
-    event.preventDefault();
-
-    console.log('handleNewTodo');
     const newTodo = {};
-    newTodo.id = event.target.value.length;
+    newTodo.id = `${event.target.value.length}-${event.target.value.split('').filter(elem => elem !== ' ').join('')}`;
     newTodo.text = event.target.value;
-    newTodo.completed = false;
     
-    this.setState({ newTodo });
+    this.setState( { newTodo } );
 
     event.stopPropagation();
   }
 
   toggleCompleted(id) {
-    console.log('toggleCompleted')
-    console.log(id);
-    // console.log(id);
-    // console.log(event);
-    // console.log(event.Handler);
-    let thisTodo;
-    const todos = this.state.todos.slice(0);
-    todos.forEach(todo => {
-      // console.log(todo.id);
-      // if (todo.id === id) thisTodo = todo;
-    });
-    // const thisTodo = todos[index];
+    let todos = this.state.todos.slice();
 
-    // console.log(thisTodo);
-    // event.stopPropagation();
+    this.setState({ todos: todos.map((todo, i) => {
+      if (todo.id === id) todo.completed = !todo.completed;
+      return todo;
+    })});
   }
 
-  deleteTodo() {
-    console.log('delete');
-    // e.stopPropagation()
+  deleteTodo(id) {
+    let delTodo;
+    let todos = this.state.todos.slice();
+    
+    todos.forEach((todo) => {
+      if (todo.id === id) delTodo = todo;
+    })
+   
+    this.setState({ todos: todos.filter(todo => todo.id !== delTodo.id) })
   }
 
   render() {
@@ -73,7 +74,7 @@ class TodoList extends Component {
         <br />
         {this.state.todos.map((todo, i) => {
           return (
-            <Todo key={i}
+            <Todo key={`${i}-${todo.id}`}
             id={i}
             todo={todo}
             toggleCompleted={this.toggleCompleted.bind(this)}
