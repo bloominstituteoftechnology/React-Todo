@@ -3,16 +3,12 @@ import React from 'react';
 import Todo from './Todo';
 
 class TodoList extends React.Component {
-    constructor() {
-        super();
-
-        this.state = {
+        state = {
             newItem: '',
             items: [],
         };
 
-        this.addItem = this.addItem.bind(this);
-    }
+        // this.addItem = this.addItem.bind(this);
 
     handleChange = (event) => {
         this.setState({newItem: event.target.value});
@@ -20,25 +16,32 @@ class TodoList extends React.Component {
 
     addItem = (event) => {
         event.preventDefault();
-        const list = this.state.items;
-        list.push(this.state.newItem);
-        this.setState({newItem: '', items: list});
+        if(this.state.newItem !== '' && this.state.newItem !== ' ') {
+            const itemLength = this.state.items.length;
+            const n = {
+                id: itemLength + 1,
+                value: this.state.newItem,
+            }
+            const list = [ ...this.state.items, n];
+            this.setState({newItem: '', items: list});
+            console.log(itemLength, n.id);
+        }
     }
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.addItem}>
+            <div className='todolist-container'>
+                <form className='form' onSubmit={this.addItem}>
                     <label>
-                        Need to do:
+                        <div className='form-text'>Need to do:</div>
                         <textarea value={this.state.newItem} onChange={this.handleChange} />
                     </label>
-                    <input type='submit' value='Submit' />
+                    <input className='buttons' type='submit' value='Add' />
                 </form>
-                {this.state.items.map((item, i)  => {
+                {this.state.items.map((item)  => {
                     return (
-                        <div key={i} className='todo-item'>
-                            <Todo item={item} />
+                        <div key={item.id} className='todo-item'>
+                            <Todo item={item.value} />
                         </div>
                     );
                 })}

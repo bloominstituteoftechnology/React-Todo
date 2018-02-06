@@ -1,13 +1,10 @@
 import React from 'react';
 
 class Todo extends React.Component {
-    constructor(item) {
-    super();
-        this.state = {
-            item: item,
+        state = {
+            item: this.props.item,
             completed: false,
         }
-    }
 
     completeItem = () => {
         this.setState({newItem: '', completed: !this.state.completed});
@@ -16,10 +13,14 @@ class Todo extends React.Component {
 
     render() {
         const complete = this.state.completed ? '::COMPLETE' : ' ';
+        const buttonName = this.state.completed ? 'Uncomplete' : 'Completed'
         return (
-            <div>
-                <h4>{this.props.item}{complete}</h4>
-                <button className='completed-button' onClick={this.completeItem}>Completed</button>
+            <div className='todo-item-container'>
+                <div className='todo-item'>
+                    <div className='todo-entry'>{this.state.item}{complete}</div>
+                    <button className='buttons' onClick={this.completeItem}>{buttonName}</button>
+                </div>
+                <div className='break'></div>
             </div>
         );
 
