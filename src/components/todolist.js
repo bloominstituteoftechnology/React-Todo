@@ -13,19 +13,17 @@ class TodoList extends Component {
 
   newActivity = (event) => {
     event.preventDefault();
-    const temp = this.state.activities;
-    temp.push(this.state.input);
+    const temp = [...this.state.activities, this.state.input];
     this.setState({
       activities: temp, 
-      input: '' 
+      input: '', 
     });    
   }
 
   handleInput = (event) => {
     event.preventDefault();
     this.setState({
-      activities: this.state.activities,
-      input: event.target.value
+      input: event.target.value,
     });
   }
 
