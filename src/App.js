@@ -6,6 +6,23 @@ class TodoList extends React.Component {
       'text',
       'textext',
     ],
+  };
+
+  strikeText = () => {
+
+  };
+
+  render() {
+    return (
+      <div className="Todo-List">
+        <hr />
+        <ul>
+          {this.state.todos.map((item, i) => {
+            return <Todo key={i} todo={item} />;
+          })}
+        </ul>
+      </div>
+    );
   }
 }
 
