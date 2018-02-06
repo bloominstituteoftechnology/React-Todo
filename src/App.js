@@ -18,6 +18,7 @@ class App extends Component {
     const temp = this.state.list;
     temp.push(this.state.newItem);
     this.setState({list: temp});
+    this.setState({newItem: ''});
     event.preventDefault();
     console.log(this.state.list);
   }
@@ -30,7 +31,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Todo App</h1>
           <form onSubmit={this.handleSubmit}>
             <label>

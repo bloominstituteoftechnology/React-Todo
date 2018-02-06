@@ -1,19 +1,16 @@
 import React from 'react';
 
-// const StrikeThrough = (event) => {
-  
-// }
-
-// onClick={StrikeThrough}
+const StrikeThrough = (event) => {
+  return console.log(event);
+}
 
 const List = (props) => {
   return (
-    <div>
+    <ul>
       {props.items.map((element, index) => {
-          return <div key={index}>{element}</div>
-        // return <div onClick={toggleStrike} key={index}>{element}</div>
+          return <li onClick={StrikeThrough} key={index}>{element}</li>
       })}
-    </div>
+    </ul>
   );
 };
 
