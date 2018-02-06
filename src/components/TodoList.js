@@ -11,7 +11,7 @@ class TodoList extends React.Component {
     event.preventDefault();
     const todos = this.state.todos;
     const newTodo = this.state.newTodo;
-    todos.push(newTodo);
+    if (newTodo) todos.push(newTodo);
     this.setState({
       newTodo: '',
       todos: todos,
