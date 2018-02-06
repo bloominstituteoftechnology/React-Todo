@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '/.ToDo.css';
 
 class ToDo extends Component {
     constructor() {
@@ -7,15 +8,28 @@ class ToDo extends Component {
         this.state = {
             toDos: [],
             newToDo: '',
-            isToggleOn: true
+            isToggleOn: false
         };
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick = (event) => {
         event.preventDefault();
-        this.setState(prevState => ({isToggleOn: !prevState.isToggleOn}));
-    }
+        const toDos = this.state.toDos;
+        const isToggleOn = this.state.isToggleOn;
+        if (isToggleOn === false) {
+            toDos.classList.add('toggle__selected');
+            this.setState({
+            isToggleOn: true
+            });
+        }
+        if (isToggleOn === true) {
+            toDos.classList.remove('toggle__selected');
+            this.setState({
+                isToggleOn: false
+            });
+        }
+    };
 
     addNewTask = (event) => {
         event.preventDefault();
