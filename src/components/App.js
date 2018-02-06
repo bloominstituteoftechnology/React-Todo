@@ -1,9 +1,9 @@
 import React from 'react';
-
-const App = () => (
+import ToDo from './components/todo.js';
+const App = (props) => (
   <div>
     <h2>Todo App</h2>
-
+    <Todo />
   </div>
 );
 
