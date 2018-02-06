@@ -14,6 +14,9 @@ class Todo extends Component {
   }; // (false to true, vice versa.)
 
   // next is figuring out how to attach click function to component...
+  render() {
+    // will be rendering something.
+  }
 }
 
 export default Todo;
