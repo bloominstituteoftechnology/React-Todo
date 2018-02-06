@@ -3,33 +3,33 @@ import Todo from './Todo.js';
 
 class TodoList extends React.Component {
   state = {
-    list: [],
-    newItem: '',
+    todos: [],
+    newTodo: '',
   };
 
-  addToList = (event) => {
+  addTodo = (event) => {
     event.preventDefault();
-    const listCopy = this.state.list;
-    listCopy.push(this.state.newItem);
+    const todos = this.state.todos;
+    todos.push(this.state.newTodo);
     this.setState({
-      newItem: '',
-      listCopy: listCopy,
+      newTodo: '',
+      todos: todos,
     });
   }
 
-  handleNewItemInput = (event) => {
-    this.setState({ newItem: event.target.value });
+  handlenewTodoInput = (event) => {
+    this.setState({ newTodo: event.target.value });
   };
 
   render() {
     return (
-      <div className='todo-list'>
+      <div className='todo-todos'>
         <ul>
-          {this.state.list.map((item, i) => {
+          {this.state.todos.map((item, i) => {
             return <Todo key={i} todo={item} />;
           })}
-        <form onSubmit={this.addToList}>
-          <input type="text" onChange={this.handleNewItemInput} placeholder="Write something" value={this.state.newItem} />
+        <form onSubmit={this.addTodo}>
+          <input type="text" onChange={this.handlenewTodoInput} placeholder="Write something" value={this.state.newTodo} />
         </form>
         </ul>  
       </div>
