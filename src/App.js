@@ -22,7 +22,12 @@ class Tasks extends React.Component {
       },
       {
         id: 3,
-        text: 'add visual elements',
+        text: 'create form to add todos',
+        completed: false,
+      },
+      {
+        id: 4,
+        text: 'add ability to toggle on click',
         completed: false,
       },
     ],
@@ -49,18 +54,21 @@ class Tasks extends React.Component {
         <ul>
           {
             this.state.tasks.map(task => {
-              return <Todo key={task.id} completed={task.completed} task={task}/>
+              return <Todo key={task.id} toggleTodo={this.toggleTodo} task={task}/>
             })
           }
         </ul>
+        <form>
+          Add a Todo: <input type="text" name="input" onSubmit={this.addTodo("input")}/>
+        </form>
       </div>
     );
   }
 }
 
 function Todo(props) {
-  if (props.task.completed) return <li><strike>{props.task.text}</strike></li>
-  else return <li>{props.task.text}</li>
+  if (props.task.completed) return <li onClick={props.toggleTodo}><strike>{props.task.text}</strike></li>
+  else return <li onClick={props.toggleTodo}>{props.task.text}</li>
 }
 
 export default App;
