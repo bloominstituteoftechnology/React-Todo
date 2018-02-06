@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Todo from './components/Todo';
+
 class TodoList extends React.Component {
   state = {
     todos: [
@@ -29,7 +31,7 @@ class TodoList extends React.Component {
 const App = () => (
   <div>
     <h2>Todo App</h2>
-
+    <TodoList />
   </div>
 );
 
