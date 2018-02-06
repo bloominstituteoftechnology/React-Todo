@@ -29,7 +29,7 @@ class ToDo extends Component {
             });
         }
         if (isToggleOn === true) {
-            toDos.className = 'toggle__unselected';
+            toDos.className = '';
             this.setState({
                 isToggleOn: false
             });
@@ -56,7 +56,7 @@ class ToDo extends Component {
                 <form onSubmit={this.addNewTask}>
                     <input type="text" onChange={this.handleNewTaskInput} placeholder="Add New Task!" value={this.state.newToDo} />
                 </form>
-                <ol class={this.state.toDos.className}>{this.state.toDos.map((toDo) => <li onClick={this.handleClick}>{toDo}</li>
+                <ol>{this.state.toDos.map((toDo) => <li class={this.state.toDos.className} onClick={this.handleClick}>{toDo}</li>
                 )}
                 </ol>
             </div>    
