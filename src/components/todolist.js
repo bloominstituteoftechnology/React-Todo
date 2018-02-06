@@ -27,6 +27,10 @@ class TodoList extends Component {
     });
   }
 
+  removeActivity = (event) => {
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div>

@@ -15,9 +15,9 @@ class Todo extends Component {
     });
   };
 
-  render(){
+  render() {
     return (
-      <li className={(this.state.selected === true) ? 'selected' : null} onClick={this.toggleSelected}>{this.props.todo}</li>
+      <li className={(this.state.selected === true) ? 'selected' : null} onClick={this.toggleSelected}><span><i class="fa fa-trash" aria-hidden="true"></i></span>{this.props.todo}</li>
     );
   };
 
