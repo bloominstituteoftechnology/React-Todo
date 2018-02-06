@@ -3,10 +3,7 @@ import Todo from './Todo';
 
 class TodoList extends React.Component {
   state = {
-    todos: [
-      "text",
-      "textext",
-    ],
+    todos: [],
     newTodo: '',
   };
 
