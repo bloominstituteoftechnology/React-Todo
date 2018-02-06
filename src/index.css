@@ -1,0 +1,76 @@
+h1 {
+  padding: 0px;
+  border: none;
+  margin: 0px;
+  text-decoration: underline;
+}
+
+body {
+  background-color: #333;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+display: block;
+padding: 50px;
+font-size: 16px;
+border: 2px solid #FFF;
+background-color: darkgray;
+border-radius: 50px;
+justify-content: center;
+}
+
+.title {
+  display: flex;
+  font-family: cursive;
+  font-size: 2rem;
+  justify-content: center;
+  padding-bottom: 10px;
+  margin: 0px;
+  color: #333;
+  font-weight: 20px;
+  text-shadow: 2px 2px 3px rgba(255,255,255,0.2);
+}
+
+.input {
+  padding: 5px;
+  margin: 0px;
+  font-size: 16px;
+  border: 2px solid #666;
+  width: 150px;
+  height: 26px;
+}
+
+.button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+  margin-right: 0px;
+  background-color: #333;
+  color: #FFF;
+  border: 2px solid #666;
+}
+
+.button:hover {
+  background-color: #333;
+  border: 2px solid rgba(255,255,255,.5);
+  cursor: pointer;
+}
+
+.theList {
+  list-style: none;
+  padding-left: 0;
+  width: 250px;
+}
+
+.li {
+  color: #333;
+  background-color: rgba(255,255,255,.5);
+  padding: 15px 0px 15px 50px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  width: 200px;
+}
