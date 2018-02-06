@@ -1,3 +1,7 @@
 .struck {
   text-decoration: line-through;
 }
+
+li:hover {
+  cursor: pointer;
+}
