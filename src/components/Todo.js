@@ -1,8 +1,8 @@
 import React from 'react';
-
+import './Todo.css'
 
 const strikeText = (event) => {
-  event.target.innerHTML = event.target.innerHTML.strike();
+  Array.from(event.target.classList).includes("struck") ? event.target.classList.remove("struck") : event.target.classList.add("struck");
 };
 
 function Todo(props) {
