@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
+import List from './Components/List';
 
-const App = () => (
-  <div>
-    <h2>Todo App</h2>
+class App extends Component {
+  constructor() {
+    super();
+    this.state = ['testDo'];
+  }
 
-  </div>
-);
+  render() {
+    return (
+      <div>
+        <h1>Todo App</h1>
+        <List items={this.state} />
+      </div>
+    );
+  }
+}  
 
 export default App;
