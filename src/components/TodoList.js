@@ -10,10 +10,6 @@ class TodoList extends React.Component {
     newTodo: '',
   };
 
-  strikeText = () => {
-
-  };
-
   addNewTodo = (event) => {
     event.preventDefault();
     const todos = this.state.todos;
