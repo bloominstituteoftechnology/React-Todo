@@ -1,11 +1,27 @@
 import React from 'react';
 import Todo from './Todo';
-let storage = window.localStorage;
+
+// initial session todos
+let sessionTodos = null;
+// if there's todos in session storage and it's not an empty array
+if(sessionStorage.todos && sessionStorage.todos !== "[]"){
+	// retreive the todos in session storage as a string
+	let stringTodos = sessionStorage.getItem('todos');
+	// parse todo string to an array and assgin it to sessionTodos
+	sessionTodos = JSON.parse(stringTodos);
+}else{
+	// if session storage is undefined then set it to an empty array as a string
+	sessionStorage.setItem('todos', JSON.stringify([]));
+	// retrieve the todos as a string
+	let stringTodos = sessionStorage.getItem('todos');
+	// assign it to sessionTodos
+	sessionTodos = JSON.parse(stringTodos);
+}
 
 class TodoList extends React.Component {
-
+	// initialize state
 	state = {
-		todos: [],
+		todos: sessionTodos,
 		newTodo: '',
 	};
 
@@ -16,9 +32,9 @@ class TodoList extends React.Component {
 			newTodo: event.target.value
 		});
 	}
+		
 	// when user click submit or hit enter
 	submitTodo = (event) => {
-		event.stopPropagation();
 		// prevent page from refreshing
 		event.preventDefault();
 			if(this.state.newTodo != '' ){
@@ -30,12 +46,16 @@ class TodoList extends React.Component {
 				complete: false,
 				id: (this.state.todos.length + 1).toString(),
 			});
+			sessionStorage.setItem('todos', JSON.stringify(todos));
 			// set state
 			this.setState({
 				todos: todos,
 				newTodo: '',
 			});
+
 		}
+				
+			
 	}
 	// toggleTask method to handle click to strike through
 	// this method will be passed as a prop to the child component
@@ -68,6 +88,9 @@ class TodoList extends React.Component {
 				temp.splice(i, 1);
 			}
 		});
+		// set session storage todos to the updated state
+		sessionStorage.setItem('todos', JSON.stringify(temp));
+		// update state
 		this.setState({todos: temp});
 	}
 
@@ -75,7 +98,7 @@ class TodoList extends React.Component {
 		return (
 			<div className="todo-list">
 				<form onSubmit={this.submitTodo}>
-				<input value={this.state.newTodo} onChange={this.handleInput}></input><br />
+				<input placeholder="Enter todo..." value={this.state.newTodo} onChange={this.handleInput}></input><br />
 				<button>Add Todo</button>
 				</form>
 
