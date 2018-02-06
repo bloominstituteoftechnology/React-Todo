@@ -1,38 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ToDo from './ToDo';
 
 class ToDoList extends React.Component {
-  state = {
-    items: [
-      {
-        id: 1,
-        task: 'First Task'
-      }, 
-      {
-        id: 2,
-        task: 'Second Task'
-      }, 
-      {
-        id: 3,
-        task: 'Third Task'
-      }
-    ],
-    newTask: ''
+  constructor() {
+    super();
+    this.state = {
+      tasks: ['First Task', 'Second Task', 'Third Task'],
+      newTask: ''
+    };
   }
 
   addTask = (event) => {
-    let updatedItems = this.state.items;
-    updatedItems.push(event);
-    this.setState({items: updatedItems});
+    event.preventDefault();
+    const updatedTasks = this.state.tasks.push(this.state.newTask);
+    this.setState({
+      tasks: updatedTasks,
+      newTask: ''
+    });
   }
 
   handleNewTask = (event) => {
-
+    this.setState({newTask: event.target.value})
   }
 
-  removeTask = () => {
-    let newItems = this.state.items;
-    this.setState({})
+  completeTask = () => {
+
   }
 
   render() {
@@ -40,15 +32,15 @@ class ToDoList extends React.Component {
       <div>
       <h3>Test ToDoList</h3>
       <ul>
-        {this.state.items.map(item => {
+        {this.state.tasks.map((task, i) => {
           return (
-          <li>
-          <ToDo key={item.id} item={item} /><button onClick={this.removeTask}>remove</button>
+          <li key={i} className='task'>
+          <ToDo task={task} onClick=""/>
           </li>
         )})}
       </ul>
       <form onSubmit={this.addTask}>
-        <input type ='text' />
+        <input type ='text' onChange={this.handleNewTask} placeholder='Add new task' value={this.state.newTask} />
       </form>
       </div>
     )

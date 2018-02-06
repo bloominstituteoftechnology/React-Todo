@@ -3,5 +3,17 @@
 }
 
 html, body {
-  background: grey;
+  background: rgb(68, 68, 68);
+  color: rgb(163, 163, 163)
+}
+
+.task {
+  background: rgb(80, 80, 80);
+  /* color: rgb(192, 192, 192); */
+}
+
+
+button {
+  color: white;
+  background: black;
 }
