@@ -1,12 +1,10 @@
 import React from 'react';
+// import ToDoList from './ToDoList'
 
-class ToDo extends React.Component {
-
-  render() {
-    return(
-      <h4>Test ToDo item</h4>
-    )
-  }
+function ToDo(props) {
+  return(
+    <h5>{props.item.task}</h5>
+  );
 }
 
-export default ToDo;
+export default ToDo
