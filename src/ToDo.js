@@ -47,7 +47,7 @@ class ToDo extends Component {
 
     render() {
         return (
-            <div>
+            <div className={this.state.toDos}>
                 <form onSubmit={this.addNewTask}>
                     <input type="text" onChange={this.handleNewTaskInput} placeholder="Add New Task!" value={this.state.newToDo} />
                 </form>
