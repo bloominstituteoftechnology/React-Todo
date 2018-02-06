@@ -5,10 +5,9 @@ class TodoList extends Component {
 
   constructor() {
     super();
-    let toArr = localStorage.getItem('blah');
-    let toArr2 = JSON.parse(toArr);
+    let toArr = JSON.parse(localStorage.getItem('blah'));
     this.state = {
-      todos: [toArr2],
+      todos: toArr,
       newTodo: '',
     };
   }
