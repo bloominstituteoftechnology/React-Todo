@@ -1,5 +1,5 @@
 ### All Answers to Partner Study should be filled out in this file.
- * 1. SPA is a design pattern where only parts of the page get redered and the url doesn't get refreshed, making the page load faster.
+ * 1. SPA is a design pattern where only parts of the page get rendered and the url doesn't get refreshed, making the page load faster.
 
  A compiler is a program that can convert codes in different syntax to another syntax so a computer or other program can read it. Example is, a compiler can compile less syntax into normal css syntax or a jsx syntax to js syntax.
 
