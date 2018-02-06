@@ -1,0 +1,73 @@
+body{
+	font-family: 'Montserrat', sans-serif;
+}
+#root {
+	border: 1px solid gray;
+	max-width: 900px;
+	min-width: 700px;
+	margin: 0 auto;
+}
+.app {
+}
+.app .title {
+	margin: 0 auto;
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	margin-top: 15px;
+}
+.todo-list {
+	width: 100%;
+	text-align: center;
+}
+.todo-list button {
+	background: #7ae05e;
+	border: 1px solid #7ae05e;
+}
+input {
+	width: 80%;
+	margin: 30px 0 15px 0;
+	font-size: 25px;
+	padding: 7px 4px;
+}
+.todo-list button {
+	font-size: 30px;
+	padding: 5px 20px;
+}
+.todo {
+	border-top: 1px solid gray;
+	min-height: 400px;
+	text-align: left;
+	font-size: 20px;
+	padding-top: 20px;
+	margin-top: 30px;
+}
+.todo li {
+	margin: 0px 50px;
+	padding: 10px 0px;
+	list-style: none;
+	font-size: 25px;
+	border-bottom: 1px solid gray;
+}
+
+.todo .btn {
+	font-size: 18px;
+	float: right;
+	background: #f26d6d;
+	border:1px solid #f26d6d;
+	display: inline-block;
+	float: right;
+	margin-right: 5px;
+}
+
+.todo .complete-btn {
+	background: #3f89ff;
+	border: 1px solid #3f89ff;
+	width: 127px;
+}
+
+.todo .incomplete-btn {
+	background: #3f89ff;
+	border: 1px solid #3f89ff;
+	width: 127px;
+}
