@@ -6,11 +6,11 @@ function Todo(props){
 			{props.todos.map((todo, i)=>{
 				// check todo complete true or false
 				if(todo.complete){
-				// return todo complete true with strike through
-				return <li onClick={props.toggleTask.bind()} key={i}><del>{todo.task}</del></li>
+					// return todo complete true with strike through
+					return <li onClick={props.toggleTask.bind()} key={i}><del>{todo.task}</del></li>
 				}else{
-				// return todo complete alse with no strike
-				return <li onClick={props.toggleTask.bind()} key={i}>{todo.task}</li>
+					// return todo complete alse with no strike
+					return <li onClick={props.toggleTask.bind()} key={i}>{todo.task}</li>
 				}
 			})}
 		</div>

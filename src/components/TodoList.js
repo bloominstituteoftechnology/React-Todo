@@ -7,7 +7,7 @@ class TodoList extends React.Component {
 
 		newTodo: '',
 	};
-	// fires everytime when user type somthing
+	// fires everytime when user type something
 	handleInput = (event) => {
 		// assign input value to new todo
 		this.setState({
@@ -16,7 +16,7 @@ class TodoList extends React.Component {
 	}
 	// when user click submit or hit enter
 	submitTodo = (event) => {
-		// prevent form from refreshing
+		// prevent page from refreshing
 		event.preventDefault();
 		// make a copy of todos
 		const todos = this.state.todos;
@@ -49,7 +49,6 @@ class TodoList extends React.Component {
 		// set state to update todo complete
 		this.setState({todos: temp});
 		});
-
 	}
 	render() {
 		return (
