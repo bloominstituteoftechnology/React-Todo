@@ -29,6 +29,11 @@ class App extends Component {
     })
   }
 
+  toggleClass() {
+    alert('clicked')
+    
+  }
+
     render() {
       return (
         <div className="container">
@@ -41,7 +46,7 @@ class App extends Component {
           />
           <button className="button" onClick={ ()=> this.addToList(this.state.userInput)}>Submit</button>
         
-        <ul className="theList">
+        <ul className="theList" onClick={(e) => this.toggleClass(e.target.li)}>
           {this.state.list.map( (value) => <li className="li">{value}</li>)}
         </ul>
 
