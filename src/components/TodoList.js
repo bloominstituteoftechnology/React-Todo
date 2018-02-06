@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import Todo from './Todo.js';
 
 class TodoList extends Component {
+
   constructor() {
     super();
+    let toArr = localStorage.getItem('blah');
+    let toArr2 = JSON.parse(toArr);
     this.state = {
-      todos: [],
+      todos: [toArr2],
       newTodo: '',
     };
   }
@@ -19,6 +22,7 @@ class TodoList extends Component {
     const todoList = this.state.todos;
     if (this.state.newTodo) {
       todoList.push(this.state.newTodo);
+      localStorage.setItem('blah', JSON.stringify(todoList))
     } else {
       alert("catch!");
     }
