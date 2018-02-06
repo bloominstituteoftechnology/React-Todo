@@ -5,7 +5,7 @@ class TodoList extends React.Component {
   state = {
     list: [],
     newItem: '',
-  }
+  };
 
   addToList = (event) => {
     event.preventDefault();
@@ -13,7 +13,7 @@ class TodoList extends React.Component {
     listCopy.push(this.state.newItem);
     this.setState({
       newItem: '',
-      list: list,
+      listCopy: listCopy,
     });
   }
 
@@ -24,9 +24,16 @@ class TodoList extends React.Component {
   render() {
     return (
       <div className='todo-list'>
-        <Todo {...Todo} />
+        <ul>
+          {this.state.list.map((item, i) => {
+            return <Todo key={i} todo={item} />;
+          })}
+        <form onSubmit={this.addToList}>
+          <input type="text" onChange={this.handleNewItemInput} placeholder="Write something" value={this.state.newItem} />
+        </form>
+        </ul>  
       </div>
-    )
+    );
   }
 }
 
