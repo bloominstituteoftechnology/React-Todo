@@ -13,6 +13,11 @@ class ToDo extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
+    /*handleClick = (event) => {
+        event.preventDefault();
+        console.log('click');
+    } */
+
     handleClick = (event) => {
         event.preventDefault();
         const toDos = this.state.toDos;
@@ -24,12 +29,12 @@ class ToDo extends Component {
             });
         }
         if (isToggleOn === true) {
-            toDos.className = '';
+            toDos.className = 'toggle__unselected';
             this.setState({
                 isToggleOn: false
             });
         }
-    };
+    }; 
 
     addNewTask = (event) => {
         event.preventDefault();
@@ -47,11 +52,11 @@ class ToDo extends Component {
 
     render() {
         return (
-            <div className={this.state.toDos}>
+            <div>
                 <form onSubmit={this.addNewTask}>
                     <input type="text" onChange={this.handleNewTaskInput} placeholder="Add New Task!" value={this.state.newToDo} />
                 </form>
-                <ol>{this.state.toDos.map((toDo) => <li onClick={this.handleClick}>{toDo}</li>
+                <ol class={this.state.toDos.className}>{this.state.toDos.map((toDo) => <li onClick={this.handleClick}>{toDo}</li>
                 )}
                 </ol>
             </div>    
