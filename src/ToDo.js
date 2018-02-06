@@ -37,7 +37,7 @@ class ToDo extends Component {
                 <form onSubmit={this.addNewTask}>
                     <input type="text" onChange={this.handleNewTaskInput} placeholder="Add New Task!" value={this.state.newToDo} />
                 </form>
-                <ol>{this.state.toDos.map((toDo) => <li>{toDo}</li>
+                <ol>{this.state.toDos.map((toDo) => <li onClick={this.handleClick}>{toDo}</li>
                 )}
                 </ol>
             </div>    
