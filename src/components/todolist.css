@@ -12,3 +12,21 @@ input {
 	font-size: 20px;
 	color: #666;
 }
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+  list-style: none;	
+  height: 40px;
+  padding-left: 20px;
+	line-height: 40px;
+	background-color: #e7e7e7;
+	color: #666;
+}
+
+li:nth-child(2n) {
+	background-color: #fff;
+}

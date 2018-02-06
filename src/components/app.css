@@ -1,4 +1,4 @@
-div {
+.container {
 	width: 350px;
 	margin: 100px auto;
 	box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.3);
