@@ -8,6 +8,8 @@ class TodoList extends Component {
 			todos: ["Finish coding", "go for a walk", "clean the kitchen"],
 			newTodo: ""
 		}
+
+		this.updateString = this.updateString.bind('this');
 	}
 
   updateString(event){
