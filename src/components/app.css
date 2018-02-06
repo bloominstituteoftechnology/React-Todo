@@ -1,0 +1,15 @@
+.container {
+	width: 350px;
+	margin: 100px auto;
+	box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.3);
+	background-color: #f7f7f7;
+}
+
+h1 {
+    margin: 0;
+	padding: 10px 20px;
+	background-color: #CAC531;
+	font-weight: normal;
+	font-size: 24px;
+	color: #fff;
+}

@@ -1,0 +1,6 @@
+body {
+  background: #CAC531;
+  background: -webkit-linear-gradient(to right, #CAC531,#F3F9A7);
+  background: linear-gradient(to right, #CAC531, #F3F9A7);
+  font-family: 'Roboto', sans-serif;
+}
