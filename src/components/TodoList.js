@@ -17,6 +17,7 @@ class TodoList extends React.Component {
   addNewTodo = (event) => {
     event.preventDefault();
     const todos = this.state.todos;
+    const newTodo = this.state.newTodo;
     todos.push(newTodo);
     this.setState({
       newTodo: '',
@@ -25,7 +26,7 @@ class TodoList extends React.Component {
   };
 
   handleNewThingToDo = (event) => {
-
+    this.setState({ newTodo: event.target.value });
   };
 
   render() {
@@ -37,7 +38,7 @@ class TodoList extends React.Component {
             return <Todo key={i} todo={item} />;
           })}
           <form onSubmit={this.addNewTodo}>
-            <input type="text" onChange={} placeholder="Add a new thing to do!" value={this.state.newTodo} />
+            <input type="text" onChange={this.handleNewThingToDo} placeholder="Add a new thing to do!" value={this.state.newTodo} />
           </form>
         </ul>
       </div>
