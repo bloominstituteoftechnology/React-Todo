@@ -5,7 +5,7 @@ const App = () => (
   <div>
     <h2 >Todo App</h2>
     <div>
-        <input id="input-text" type="text" />
+       
         <input type="checkbox" id="coding" name="interest" value="coding" />
     </div>
     <ToDoList />
