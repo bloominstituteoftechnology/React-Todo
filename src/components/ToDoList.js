@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ToDo from './ToDo';
 
-class ToDoList extends React.Component {
+class ToDoList extends Component {
   constructor() {
     super();
     this.state = {
@@ -12,10 +12,10 @@ class ToDoList extends React.Component {
 
   addTask = (event) => {
     event.preventDefault();
-    const updatedTasks = this.state.tasks.push(this.state.newTask);
+    const tasks = this.state.tasks.push(this.state.newTask);
     this.setState({
-      tasks: updatedTasks,
-      newTask: ''
+      newTask: '',
+      tasks: tasks,
     });
   }
 
@@ -23,25 +23,25 @@ class ToDoList extends React.Component {
     this.setState({newTask: event.target.value})
   }
 
-  completeTask = () => {
+  // completeTask = () => {
 
-  }
+  // }
 
   render() {
     return (
       <div>
-      <h3>Test ToDoList</h3>
-      <ul>
-        {this.state.tasks.map((task, i) => {
-          return (
-          <li key={i} className='task'>
-          <ToDo task={task} onClick=""/>
-          </li>
-        )})}
-      </ul>
-      <form onSubmit={this.addTask}>
-        <input type ='text' onChange={this.handleNewTask} placeholder='Add new task' value={this.state.newTask} />
-      </form>
+        <h3>Test ToDoList</h3>
+        <ul>
+          {this.state.tasks.map((task, i) => {
+            return (
+            <li key={i} className='task'>
+              <ToDo task={task} onClick=""/>
+            </li>
+          )})}
+        </ul>
+        <form onSubmit={this.addTask}>
+          <input type='text' onChange={this.handleNewTask} placeholder='Add new task' value={this.state.addTask} />
+        </form>
       </div>
     )
   }

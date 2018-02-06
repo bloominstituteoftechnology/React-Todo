@@ -12,6 +12,10 @@ html, body {
   /* color: rgb(192, 192, 192); */
 }
 
+.task-complete {
+  text-decoration: line-through;
+}
+
 
 button {
   color: white;
