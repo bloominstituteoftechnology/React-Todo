@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  background: rgb(68, 68, 68);
+  color: rgb(163, 163, 163)
+}
+
+.task {
+  background: rgb(80, 80, 80);
+  /* color: rgb(192, 192, 192); */
+}
+
+.task-complete {
+  text-decoration: line-through;
+}
+
+
+button {
+  color: white;
+  background: black;
+}
