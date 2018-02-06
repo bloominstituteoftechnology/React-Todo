@@ -27,7 +27,15 @@ class TodoList extends Component {
   }
 
   render() {
-    // render with return statement.
+    return (
+      <div>
+        {this.state.todos.map((todo, i) => <Todo key={i} index={i} todo={todo} />)}
+        <form>
+          <input onChange={this.input} placeholder="add something" value={this.state.newTodo}/>
+          <button onClick={this.addTodo}>Add</button>
+        </form>
+      </div>
+    );
   }
 }
 export default TodoList;
