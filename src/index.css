@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  display: flex;
+  justify-content: center;
+}
+
+.complete {
+  text-decoration-line: line-through;
+}
+
+.incomplete {
+  text-decoration-line: none;
+}
