@@ -1,17 +1,15 @@
 import React from 'react';
 import Input from './input.js';
+import List from './list.js';
+import './app.css';
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Todo App</h2>
+        <h1>Todo App</h1>
         <Input />
-        <ul>
-          <li>Feed Cat</li>
-          <li>Wash Cat</li>
-          <li>Feed Cat To Dog</li>
-        </ul>
+        <List />
       </div>
     );
   }
