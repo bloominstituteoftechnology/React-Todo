@@ -1,0 +1,14 @@
+input {
+	margin: 0;
+	height: 40px;
+	width: 350px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding-left: 20px;
+	background-color: #e7e7e7;
+	border: none;
+	outline: none;
+	font-size: 20px;
+	color: #666;
+}
