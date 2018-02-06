@@ -9,7 +9,9 @@ class TodoList extends Component {
 			newTodo: ""
 		}
 
-		this.updateString = this.updateString.bind('this');
+		this.updateString = this.updateString.bind(this);
+		this.updateList = this.updateList.bind(this);
+		this.crossoutItem = this.crossoutItem.bind(this);
 	}
 
   updateString(event){
@@ -17,18 +19,30 @@ class TodoList extends Component {
     console.log(this.state);
   }
 
+  updateList(event){
+    const list = this.state.todos;
+    list.push(this.state.newTodo);
+    this.setState({
+      todos: list,
+      newTodo: ""
+    })
+  }
+
+  crossoutItem(event){
+    event.style.text-decoration = "line-through";
+  }
+
   render(){
     return(
       <div>
         <ul>
           {this.state.todos.map((item, index) => {
-            return <li key={index}>{item}</li>
+            return <li key={index} onClick={crossoutItem}>{item}</li>
           })}
         </ul>
 
-        <form>
+        <form onSubmit={this.updateList}>
           <input type="text" onChange={this.updateString} placeholder="enter item here" value={this.state.newTodo} />
-
         </form>
       </div>
       )
