@@ -1,9 +1,10 @@
 import React from 'react';
+import ToDo from './ToDo';
 
 const App = () => (
   <div>
-    <h2>Todo App</h2>
-
+    <h1> My To Do List</h1>
+    <ToDo />
   </div>
 );
 
