@@ -1,31 +1,25 @@
 import React from 'react';
 
+// function Todo(props) {
+//     return <li>{props.list.task}</li>;
+// }
 
 class Todo extends React.Component {
     state = {
-        list: [
-            {
-                id: 1, 
-                task: 'Take out the trash',
-            },
-            {
-                id: 2, 
-                task: 'Feed the dog',
-            },   
-        ],
-    }
+        list: ['Take out the trash','Wash the dog'],
+    };
     render() {
         return (
-        <div>
-            <h1>Todo App</h1>
+        <div className="todo-list">
+            <h1>{this.props.heading}</h1>
             <ul>
-                {this.state.list.map((task) => {
-                    return <li key={this.id}>{task}</li>
+                {this.state.list.map((task, i) => {
+                    return <li key={i}>{task}</li>
                 })}  
             </ul>
         </div>
-        )
-    }    
-}
+        ) // return
+    } // render    
+} // class
 
 export default Todo
