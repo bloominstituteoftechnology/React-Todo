@@ -10,6 +10,7 @@ class ToDo extends Component {
         }
     }
 
+
     addNewChore = (event) => {
         event.preventDefault();
         const toDo = this.state.toDo;
@@ -24,15 +25,24 @@ class ToDo extends Component {
         this.setState({ newToDo: event.target.value });
     };
 
+    handleClick = (event) => {
+        event.preventDefault();
+        console.log('click');
+        this.toDo.style.fontStyle = 'line-through';
+        
+    }
+
     
 
     render() {
         return (
             <div>
-                {this.state.toDo.map(chore => <div>{chore}</div>)}
+                <ol>
+                {this.state.toDo.map(chore => <div><li onClick={this.handleClick}>{chore}</li></div>)}
                 <form onSubmit={this.addNewChore}>
                 <input type="text" onChange={this.handleNewChoreInput} placeholder="Add a new chore" value={this.state.newToDo} />
                 </form>
+                </ol>
             </div>
         )
     }
