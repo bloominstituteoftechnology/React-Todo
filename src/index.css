@@ -2,5 +2,5 @@ body {
   background: #1c92d2;
   background: -webkit-linear-gradient(to righ, #1c92d2,  #f2fcfe);
   background: linear-gradient(to right,#1c92d2,  #f2fcfe);
-  /* text-align: center; */
+  font-family: 'Roboto', sans-serif;
 }
