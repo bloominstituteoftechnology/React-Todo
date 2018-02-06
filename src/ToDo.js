@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '/.ToDo.css';
+import './ToDo.css';
 
 class ToDo extends Component {
     constructor() {
@@ -18,13 +18,13 @@ class ToDo extends Component {
         const toDos = this.state.toDos;
         const isToggleOn = this.state.isToggleOn;
         if (isToggleOn === false) {
-            toDos.classList.add('toggle__selected');
+            toDos.className ='toggle__selected';
             this.setState({
             isToggleOn: true
             });
         }
         if (isToggleOn === true) {
-            toDos.classList.remove('toggle__selected');
+            toDos.className = '';
             this.setState({
                 isToggleOn: false
             });
