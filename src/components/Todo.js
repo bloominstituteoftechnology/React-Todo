@@ -11,18 +11,18 @@ function Todo(props){
 					return (
 						<li key={todo.id} data-id={todo.id} onClick={props.toggleTask.bind(this, todo.id)}>
 							<del>{todo.task}</del>
-							<button className="btn remove-btn" data-id={todo.id} onClick={props.removeTask.bind(this, todo.id)}>Remove</button>
-							<button className="btn incomplete-btn">Incomplete</button>
+							<button className="btn remove-btn" data-id={todo.id} onClick={props.removeTask.bind(this, todo.id)}>
+								Remove
+							</button>
 						</li>	
 					);
 				}else{
 					// return todo complete false with no strike
 					return (
-						<li key={todo.id} data-id={todo.id} key={todo.id}>
+						<li key={todo.id} data-id={todo.id} key={todo.id} onClick={props.toggleTask.bind(this, todo.id)}>
 							{todo.task}
-							<button className="btn remove-btn" data-id={todo.id} onClick={props.removeTask.bind(this, todo.id)}>Remove</button>
-							<button className="btn complete-btn" onClick={props.toggleTask.bind(this, todo.id)}>
-								Complete
+							<button className="btn remove-btn" data-id={todo.id} onClick={props.removeTask.bind(this, todo.id)}>
+								Remove
 							</button>
 						</li>	
 					);
