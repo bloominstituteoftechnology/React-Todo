@@ -5,9 +5,16 @@ class ToDo extends Component {
         super();
 
         this.state = {
-            toDos: ['clean bathroom', 'grocery shopping', 'pick up kids'],
-            newToDo: ''
+            toDos: [],
+            newToDo: '',
+            isToggleOn: true
         };
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick = (event) => {
+        event.preventDefault();
+        this.setState(prevState => ({isToggleOn: !prevState.isToggleOn}));
     }
 
     addNewTask = (event) => {
