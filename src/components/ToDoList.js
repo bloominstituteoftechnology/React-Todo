@@ -12,10 +12,11 @@ class ToDoList extends Component {
 
   addTask = (event) => {
     event.preventDefault();
-    const tasks = this.state.tasks.push(this.state.newTask);
+    const newTasks = this.state.tasks;
+    newTasks.push(this.state.newTask);
     this.setState({
       newTask: '',
-      tasks: tasks,
+      tasks: newTasks,
     });
   }
 
