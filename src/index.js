@@ -1,12 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './App';
-import './index.css';
+import TodoList from './TodoList';
 
-class Button extends React.Component {
-    render() {
-        return 
-    }
-}
+const App = () => (
+    <div>
+        <h1>To Do App</h1>
+        <TodoList />
+    </div>
+)
 
 render(<App />, document.getElementById('root'));
