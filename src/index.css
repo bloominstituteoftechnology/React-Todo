@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: Helvetica, sans-serif
+}
+
+.title {
+    color: greenyellow;
+}
