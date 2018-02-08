@@ -6,7 +6,6 @@ class TodoList extends Component {
   constructor() {
     super();
     const todos = JSON.parse(window.localStorage.getItem('todos')) || [];
-    alert(JSON.stringify(todos));
     this.state = {
       todos,
       newTodo: '',
@@ -57,7 +56,7 @@ class TodoList extends Component {
     let todos = this.state.todos;
     const index = Array.from(event.target.parentNode.parentNode.children).indexOf(event.target.parentNode);
     todos.splice(index, 1);
-    window.localStorage.setItem(todos, JSON.stringify(todos));
+    window.localStorage.setItem('todos', JSON.stringify(todos));
     this.setState({
       todos,
       newTodo: this.state.newTodo,
@@ -68,7 +67,7 @@ class TodoList extends Component {
     let todos = this.state.todos;
     const index = Array.from(event.target.parentNode.parentNode.children).indexOf(event.target.parentNode);
     todos[index].completed = !todos[index].completed;
-    window.localStorage.setItem(todos, JSON.stringify(todos));
+    window.localStorage.setItem('todos', JSON.stringify(todos));
     this.setState({
       todos,
       newTodo: this.state.newTodo,
