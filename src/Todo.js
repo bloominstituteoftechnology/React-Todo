@@ -1,7 +1,19 @@
 import React from 'react';
-import { Component } from 'react';
+//import toggleCompleted from './TodoList';
+import styles from './Todo.css';
 
-class Todo extends Component {
+const Todo = (props) => {
+  return (
+    <li key={props.key} onClick={props.onClick}>{props.completed ? <del>{props.text}</del> : props.text}</li>
+  );
+}
+
+export default Todo;
+
+ /* import React from 'react';
+  import { Component } from 'react'; */
+
+/*class Todo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,4 +36,4 @@ class Todo extends Component {
   };
 }
 
-export default Todo;
+export default Todo;*/
