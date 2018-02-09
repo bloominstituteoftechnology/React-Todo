@@ -1,6 +1,6 @@
 import React from 'react';
 //import toggleCompleted from './TodoList';
-import styles from './Todo.css';
+import styles from './css/Todo.css';
 
 const Todo = (props) => {
   return (
