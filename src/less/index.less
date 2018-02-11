@@ -1,4 +1,6 @@
 @import "Todo";
+@import "App";
+@import "TodoList";
 
 .opacity (@opacity: 0.5) {
    -webkit-opacity:  @opacity;
@@ -39,3 +41,31 @@
     -ms-transform:     rotate(@deg);
     -o-transform:      rotate(@deg);
   }
+   .skew (@deg, @deg2) {
+    -webkit-transform:  skew(@deg, @deg2);
+    -moz-transform:     skew(@deg, @deg2);
+    -ms-transform:      skew(@deg, @deg2);
+    -o-transform:     skew(@deg, @deg2);
+  }
+ 
+   .translate (@x, @y:0) {
+     -webkit-transform: translate(@x, @y);
+     -moz-transform:    translate(@x, @y);
+     -ms-transform:     translate(@x, @y);
+     -o-transform:      translate(@x, @y);
+  }
+ 
+   .translate3d (@x, @y: 0, @z: 0) {
+     -webkit-transform: translate3d(@x, @y, @z);
+     -moz-transform:    translate3d(@x, @y, @z);
+     -ms-transform:     translate3d(@x, @y, @z);
+     -o-transform:      translate3d(@x, @y, @z);
+  }
+   .perspective (@value: 1000) {
+     -webkit-perspective:  @value;
+     -moz-perspective:   @value;
+     -ms-perspective:  @value;
+     perspective:    @value;
+  }
+
+

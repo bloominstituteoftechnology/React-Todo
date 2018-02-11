@@ -1,0 +1,84 @@
+.todo-text {
+  border: 1px double black;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.todo-text:hover {
+  background: black;
+  color: white;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  -webkit-transform: skew(-20deg, 0);
+  -moz-transform: skew(-20deg, 0);
+  -ms-transform: skew(-20deg, 0);
+  -o-transform: skew(-20deg, 0);
+}
+h2 {
+  width: 200px;
+  color: #ff5147;
+}
+h2:hover {
+  -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s;
+  -webkit-transform: skew(-20deg, 0);
+  -moz-transform: skew(-20deg, 0);
+  -ms-transform: skew(-20deg, 0);
+  -o-transform: skew(-20deg, 0);
+  color: #8080ff;
+}
+form div {
+  color: #4ef84e;
+  width: 200px;
+}
+form div:hover {
+  color: #bb8fbb;
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s;
+}
+#input {
+  color: #ce944b;
+  background: yellow;
+  font-weight: bold;
+}
+#input:hover {
+  color: blue;
+  background: #65ffe5;
+  border-radius: 50%;
+  padding-left: 20px;
+  -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s;
+}
+#submit {
+  background: white;
+  font-weight: bold;
+  color: #ffb6c1;
+}
+#submit:hover {
+  -webkit-transform: rotate(0.5turn);
+  -moz-transform: rotate(0.5turn);
+  -ms-transform: rotate(0.5turn);
+  -o-transform: rotate(0.5turn);
+}
+#delete {
+  background: white;
+  color: #FFA500;
+}
+#delete:hover {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}

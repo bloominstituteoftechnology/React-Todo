@@ -20,13 +20,13 @@ class TodoList extends Component {
           return (
             <div key={i}>
               <Todo key={i} text={todo.text} completed={todo.completed} onClick={this.toggleCompleted} />
-              <button key={i} type="button" onClick={this.removeTodo}>x</button>
+              <button id='delete' key={i} type="button" onClick={this.removeTodo}>x</button>
             </div>
           )})}</ul>
         <form onSubmit={this.addNewTodo} onChange={this.updateTodo}>
-          Add new todo:<br /><br />
+          <div>Add new todo:</div><br />
           <input id="input" type="text" placeholder="New todo" /><br /><br />
-          <input type="submit" value="Add" />
+          <input id="submit" type="submit" value="Add" />
         </form>
       </div>
     );
