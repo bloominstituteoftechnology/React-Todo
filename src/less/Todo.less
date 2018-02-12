@@ -1,15 +1,16 @@
-.todo-text {
-    border: 1px double black;
-		font-size: 16px;
-//		.button(25px, 32px, white);
-		margin-top: 10px;
-     cursor: pointer;
-   
-       &:hover {
-         background: black;
-				 color: white;
-				.transition(1s);
-				.skew(-20deg, 0);
-			}
+li {
+  color: darken(yellow, 5%); 
+		&:hover {
+       color: darken(#ffd700, 10%);
+			 .transition(3s);					
+      }
   }
 
+.completed {
+color: lighten(red, 30%);
+	 text-decoration: line-through;
+	   &:hover {
+         color: darken(navy, 5%);
+				 .transition(3s);				
+			}
+}

@@ -3,10 +3,11 @@ import React from 'react';
 import styles from './css/Todo.css';
 
 const Todo = (props) => {
-  return (
-    <li key={props.key} onClick={props.onClick}>{props.completed ? <del>{props.text}</del> : props.text}</li>
+  return ( 
+	   <li key={props.key} className={props.completed ? "completed" : ""} onClick={props.onClick}>{props.text}</li>  // this allows us to modify the colors of strike thoughs on deletion
+	//	 <li key={props.key} onClick={props.onClick}>{props.completed ? <del>{props.text}</del> : props.text}</li>
   );
-}
+};
 
 export default Todo;
 
@@ -32,8 +33,8 @@ export default Todo;
   toggleCompleted = () => {
     this.setState({
       completed: !this.state.completed,
-    });
+		  });
   };
 }
 
-export default Todo;*/
+export default Todo; */

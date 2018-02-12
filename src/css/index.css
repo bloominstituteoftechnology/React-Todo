@@ -1,20 +1,41 @@
-.todo-text {
-  border: 1px double black;
-  font-size: 16px;
-  margin-top: 10px;
-  cursor: pointer;
+li {
+  color: #e5e600;
 }
-.todo-text:hover {
-  background: black;
-  color: white;
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -ms-transition: 1s;
-  -o-transition: 1s;
-  -webkit-transform: skew(-20deg, 0);
-  -moz-transform: skew(-20deg, 0);
-  -ms-transform: skew(-20deg, 0);
-  -o-transform: skew(-20deg, 0);
+li:hover {
+  color: #ccac00;
+  -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s;
+}
+.completed {
+  color: #ff9999;
+  text-decoration: line-through;
+}
+.completed:hover {
+  color: #000067;
+  -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s;
+}
+@media (max-width: 1100px) {
+  html,
+  body {
+    background: #a632c3;
+  }
+}
+@media (max-width: 768px) {
+  html,
+  body {
+    background: #72bcd4;
+  }
+}
+@media (max-width: 400px) {
+  html,
+  body {
+    background: green;
+  }
 }
 h2 {
   width: 200px;
@@ -31,8 +52,12 @@ h2:hover {
   -o-transform: skew(-20deg, 0);
   color: #8080ff;
 }
+.container {
+  width: 880px;
+  margin: auto;
+}
 form div {
-  color: #4ef84e;
+  color: #09f109;
   width: 200px;
 }
 form div:hover {
@@ -47,7 +72,7 @@ form div:hover {
   -o-transition: 3s;
 }
 #input {
-  color: #ce944b;
+  color: #503716;
   background: yellow;
   font-weight: bold;
 }

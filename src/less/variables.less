@@ -1,0 +1,75 @@
+ // Variables on top
+ 
+   @phone: ~"(max-width: 400px)";
+   @tablet: ~"(max-width: 768px)";
+   @laptop:  ~"(max-width: 1100px)";
+  
+   // Mixins below variables
+  
+   .opacity (@opacity: 0.5) {
+    -webkit-opacity:  @opacity;
+    -moz-opacity:     @opacity;
+    opacity:    @opacity;
+  }
+ 
+  .animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
+    -webkit-animation: @name @duration @delay @ease;
+    -moz-animation:    @name @duration @delay @ease;
+    -ms-animation:     @name @duration @delay @ease;
+  }
+ 
+  .transition (@transition) {
+    -webkit-transition: @transition;
+    -moz-transition:    @transition;
+    -ms-transition:     @transition;
+    -o-transition:      @transition;
+  }
+ 
+  .transform(@string){
+    -webkit-transform: @string;
+    -moz-transform:    @string;
+    -ms-transform:     @string;
+    -o-transform:      @string;
+  }
+ 
+  .scale (@factor) {
+    -webkit-transform: scale(@factor);
+    -moz-transform:    scale(@factor);
+    -ms-transform:     scale(@factor);
+    -o-transform:      scale(@factor);
+  }
+ 
+  .rotate (@deg) {
+    -webkit-transform: rotate(@deg);
+    -moz-transform:    rotate(@deg);
+    -ms-transform:     rotate(@deg);
+    -o-transform:      rotate(@deg);
+  }
+ 
+  .skew (@deg, @deg2) {
+    -webkit-transform: skew(@deg, @deg2);
+    -moz-transform:    skew(@deg, @deg2);
+    -ms-transform:     skew(@deg, @deg2);
+    -o-transform:      skew(@deg, @deg2);
+  }
+ 
+  .translate (@x, @y:0) {
+    -webkit-transform: translate(@x, @y);
+    -moz-transform:    translate(@x, @y);
+    -ms-transform:     translate(@x, @y);
+    -o-transform:      translate(@x, @y);
+  }
+ 
+  .translate3d (@x, @y: 0, @z: 0) {
+    -webkit-transform:       translate3d(@x, @y, @z);
+    -moz-transform:    translate3d(@x, @y, @z);
+    -ms-transform:     translate3d(@x, @y, @z);
+    -o-transform:      translate3d(@x, @y, @z);
+  }
+  .perspective (@value: 1000) {
+    -webkit-perspective:  @value;
+    -moz-perspective:   @value;
+    -ms-perspective:  @value;
+    perspective:    @value;
+  }
+

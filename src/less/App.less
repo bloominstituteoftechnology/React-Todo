@@ -1,3 +1,16 @@
+ html, body {
+    @media @laptop {
+        background: darken(#ba55d3, 10%);
+      }
+      @media @tablet {
+        background: darken(lightblue, 15%);
+      }
+      @media @phone {
+        background: green;
+      }
+  }
+
+
 h2 {
  width: 200px;	
   color: darken(#ff6961, 5%);
@@ -14,4 +27,8 @@ h2 {
 //			.skew(-20deg, 0);
 	}
 }
+ .container {
+      width: 880px;
+      margin: auto;
+  }
 
