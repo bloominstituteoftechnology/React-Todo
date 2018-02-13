@@ -1,22 +1,56 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class TodoList extends Component {
-    constructor() {
-        super();
-
-        this.state = {
-            items: ['Going to the mall', 'Grocery shopping', 'Study for React', 'Writing a chapter'],
-            newItem: ''
+state = {
+    todo: [
+        {
+            id: 1,
+            text: 'This',
+        },
+        { 
+            id: 2,
+            text: 'That',
+        },
+        {
+            id: 3,
+            text: 'Other',
         }
-
-        render() {
-            return (
-                <div>
-                    {this.state.items.map(item => <div>{item}</div>)}
-                </div>
-            )
-        }
-    }
+    ],
+    newToDo: '',
 }
 
-export default TodoList;
+addNewToDo = (event) => {
+event.preventDefault();
+const todo = this.state.todo;
+const newID = todo.length + 1;
+const item = this.state.newToDo;
+todo.push({id: newID, text: item});
+this.setState({
+    newToDo: '',
+    todo: todo,
+});
+}
+
+handleNewToDo = (event) => {
+this.setState({newToDo: event.target.value});
+}
+
+
+render() {
+return (
+    <div>
+        <ul>
+            {this.state.todo.map(item => {
+                return <Item key={item.id} item={item} />;
+            })}
+        </ul>
+      
+        <form onSubmit={this.addNewToDo}>
+            <input type="text" onChange={this.handleNewToDo} value={this.state.newToDo} />
+            <input type="submit" value="Submit New To Do Item to List" />
+        </form>
+    </div>
+)
+}
+}
+
+export default App;
