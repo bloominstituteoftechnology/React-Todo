@@ -1,13 +1,12 @@
 import React from 'react';
+import App from './App.css'
 import TodoList from './components/TodoList';
-import Todo from './components/Todo';
 
-const App = () => (
+const Application = () => (
   <div>
-    <h2>Todo App</h2>
-    <TodoList />
-    <Todo />
+    <h1 className="application">To Do App</h1>
+    <div className="box"><TodoList /></div>
   </div>
 );
 
-export default App;
+export default Application;
