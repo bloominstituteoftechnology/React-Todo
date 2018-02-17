@@ -1,0 +1,38 @@
+btn {
+	outline: none;
+	box-shadow: none;
+	border-width: 2px;
+	border-radius: 3px;
+	border-style: solid;
+	padding: 8px
+}
+
+.btn-primary {
+color: orangered;
+border-color: black;
+background-color: transparent;
+}
+
+input {
+	margin: 0;
+	height: 40px;
+	width: 350px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding-left: 20px;
+	background-color: paleturquoise;
+	border: none;
+	outline: none;
+	font-family: fantasy;
+	font-size: 25px;
+	color: rgb(163, 10, 10);
+}
+
+
+input:focus {
+	outline: none;
+	border: none;
+	border-top: 2px solid blueviolet;
+	border-bottom: 2px solid blueviolet;
+}

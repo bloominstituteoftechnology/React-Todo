@@ -1,0 +1,19 @@
+.todoWrapper {
+    border-bottom: 1px solid teal;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.removeTodo {
+    margin-right: 20px;
+    margin-bottom: 10px;
+    outline: palegreen;
+    box-shadow: olivedrab;
+    border-width: 2px;
+    border-radius: 3px;
+    border-style: solid;
+    padding: 8px;
+    color: midnightblue;
+    border-color: teal;
+    background-color: olivedrab;
+}
