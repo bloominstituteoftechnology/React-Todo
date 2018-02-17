@@ -23,7 +23,11 @@ class App extends React.Component {
     }
 
     addTodo(todoText) {
-      console.log("Todo added; ", todoText);
+      let todos = this.state.todos.slice();
+      todos.push({id: this.state.nextId, text: todoText});
+      this.setState({
+        todos: todos,
+      })
     }
       removeTodo(id) {
         this.setState({

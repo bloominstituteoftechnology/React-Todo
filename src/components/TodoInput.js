@@ -7,7 +7,7 @@ export default class TodoInput extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {value: "test"};
+    this.state = {value: ''};
 
     this.handleChange = this.handleChange.bind(this);
     this.addTodo = this.addTodo.bind(this);
@@ -20,7 +20,7 @@ export default class TodoInput extends React.Component {
   addTodo(Todo) {
     if (Todo.length > 0) { 
     this.props.addTodo(Todo);
-    this.setState({value: ""});
+    this.setState({value: ''});
   }
   }
 

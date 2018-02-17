@@ -1,5 +1,7 @@
 .App {
     text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font: 30px
     }
     
     .todo-wrapper {
