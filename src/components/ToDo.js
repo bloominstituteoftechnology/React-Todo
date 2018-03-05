@@ -1,39 +1,21 @@
-import React from 'react';
-import { Component } from 'react';
+import React, { Component } from 'react';
 
-class ToDo extends Component {
+class Todo extends Component {
   state = {
-    tasks: ["Grocery shop", "Drop the kids off forever"],
-    newTask: ""
+    clicked: false
   };
 
-  addTask = (event) => {
-    event.preventDefault();
-    this.setState({
-      newTask: "",
-      tasks: [ ...this.state.tasks, this.state.newTask]
-    });
-  };
 
-  handleToDo = (event) => {
-    this.setState({ newTask: event.target.value });
+  handleClick = () => {
+    this.setState({clicked: !this.state.clicked});
   };
 
   render() {
+    const styles = this.state.clicked ? {textDecoration: 'line-through'} : {textDecoration: 'none'};
     return (
-      <div>
-        {this.state.tasks.map(newTask => <div>{newTask}</div>)}
-        <form onSubmit={this.addTask}> 
-          <input
-            type="text"
-            onChange={this.handleToDo}
-            placeholder="Add task here"
-            value={this.state.newTask}
-          />
-        </form>
-      </div>
-    );
+      <div style={styles} onClick={this.handleClick}>{this.props.item}</div>
+    )
   }
 }
 
-export default ToDo;
+export default Todo;
