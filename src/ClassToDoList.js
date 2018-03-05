@@ -11,7 +11,7 @@ class ClassToDoList extends Component {
     addTask = (event) => {
         event.preventDefault();
         const taskList = this.state.toDoTaskList;
-        taskList.push(this.dtate.newTask);
+        taskList.push(this.state.newTask);
         this.setState({
             newTask: '',
             toDoTaskList: taskList,
