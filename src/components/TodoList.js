@@ -13,7 +13,7 @@ class TodoList extends Component {
     handleTodoInput = (event) => {
         this.setState({newTodo: event.target.value})
     } 
-    submitChanges = (event) => {
+    addTodo = (event) => {
         event.preventDefault();
         // const todoList = this.state.todos;
 
@@ -25,8 +25,8 @@ class TodoList extends Component {
     render(){
         return(
             <div>
-                {this.state.todos.map(todosItems => <Todo thing={todosItems}/>)}
-                <form onSubmit={this.submitChanges}>
+                {this.state.todos.map(todosItems => <Todo todo={todosItems}/>)}
+                <form onSubmit={this.addTodo}>
                     <input type='text' 
                     onChange={this.handleTodoInput} 
                     placeholder='Tell me what you need to do' 
