@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Todo extends Component {
-  constructor(items) {
+  constructor() {
     super();
     this.state({
       completed: false,
@@ -17,11 +17,13 @@ class Todo extends Component {
 
   render() {
 
-    if (this.state.completed) {
-      const styles = { textDecoration: 'line-through' };
-    } else {
-      const styles = { textDecoration: 'none' };
-    };
+    // if (this.state.completed) {
+    //   const styles = { textDecoration: 'line-through' };
+    // } else {
+    //   const styles = { textDecoration: 'none' };
+    // };
+
+    const styles = this.state.completed ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
 
 
     return (
@@ -31,3 +33,5 @@ class Todo extends Component {
     )
   }
 }
+
+export default Todo;
