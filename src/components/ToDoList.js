@@ -5,7 +5,7 @@ class ToDoList extends Component {
         super();
 
         this.state = {
-            ToDo: ['Sample Problem'],
+            ToDo: ['Item'],
             NewItem: ''
         };
     }
@@ -28,12 +28,15 @@ class ToDoList extends Component {
         return(
             <div>
                 {this.state.ToDo.map(item => <div>{item}</div>)}
+                <form onSubmit={this.AddToDo}>
+                    <input
+                        type='text'
+                        onChange={this.newInput}
+                        placeholder='add new task'
+                        value={this.state.NewItem}
+                    />
+                </form>
             </div>
-            <form>
-
-
-            </form>
-
         );
     }
 }
