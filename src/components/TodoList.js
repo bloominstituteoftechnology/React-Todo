@@ -12,7 +12,7 @@ class TodoList extends Component {
     }
 
     handleItem = (event) => {
-        this.setState({ newItem: event.target.value });
+        this.setState({ newList: event.target.value });
     };
 
     addItem = (event) => {
@@ -31,7 +31,7 @@ class TodoList extends Component {
             <div>   
                 {this.state.list.map(item => <div>{item}</div>)}
                 <form onSubmit={this.addItem}> 
-                    <input type="text" onChange={this.handleItem} placeholder="Add a new Todo" value={this.state.newList.text}/>
+                    <input type="text" onChange={this.handleItem} placeholder="Add a new Todo" value={this.state.newList}/>
                 </form>
             </div>
         );
