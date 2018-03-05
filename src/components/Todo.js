@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class Todo extends Component {
   constructor() {
     super();
-    this.state({
+    this.state = {
       completed: false,
-    })
+    }
 
   }
   toggleState = () => {

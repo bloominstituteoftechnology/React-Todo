@@ -27,7 +27,10 @@ class TodoList extends Component {
             <div>
                 {this.state.todos.map(todosItems => <Todo thing={todosItems}/>)}
                 <form onSubmit={this.submitChanges}>
-                    <input type='text' onChange={this.handleTodoInput} placeholder='Tell me what you need to do'/>
+                    <input type='text' 
+                    onChange={this.handleTodoInput} 
+                    placeholder='Tell me what you need to do' 
+                    value={this.state.newTodo}/>
                 </form>
             </div>
         )
