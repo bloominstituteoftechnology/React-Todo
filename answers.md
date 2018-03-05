@@ -1,7 +1,7 @@
 ### All Answers to Partner Study should be filled out in this file.
 
 1. Single Page Application
-    An application that loads a single HTML page and all the necessary assets reqquired for the application to run.
+    An application that loads a single HTML page and all the necessary assets required for the application to run.
 2. Compilers
     A program that takes human readable code and converts(translates) it into machine code that is readable by the computer's processor
 3. Bundlers
