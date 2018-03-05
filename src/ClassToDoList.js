@@ -19,7 +19,7 @@ class ClassToDoList extends Component {
     };
 
     handleTaskInput = (event) => {
-        this.setState({ ToDoTask: event.target.value });
+        this.setState({ newTask: event.target.value });
     };
 
 
