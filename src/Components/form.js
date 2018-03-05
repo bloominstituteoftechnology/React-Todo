@@ -6,9 +6,14 @@ class FormData extends React.Component {
         super();
         this.state = {
             storedList: [],
-            newEntries: ''
+            newEntries: '',
+            clicked: false
         };
     };
+
+    handleClicker = () => {
+        this.setState({ clicked: !this.state.clicked });
+    }
 
     handleEntry = (event) => {
         this.setState({ newEntries: event.target.value });
@@ -35,7 +40,7 @@ class FormData extends React.Component {
                         value={this.state.newEntries}
                         />                                       
                     </form>                
-            </div>
+            </div>            
         )
     }
 }
