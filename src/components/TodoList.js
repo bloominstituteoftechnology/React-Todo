@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Todo from './Todo.js'
 
 class TodoList extends Component {
     constructor() {
@@ -7,29 +8,30 @@ class TodoList extends Component {
         this.state = {
             list: ['eat food', 'code javascript'],
             newList: ''
-        }
+        };
     }
 
     handleItem = (event) => {
-        this.setState({ newItem: event.target.value })
-    }
+        this.setState({ newItem: event.target.value });
+    };
 
     addItem = (event) => {
         event.preventDefault();
         const currentList = this.state.list;
-        currentList.push(this.state.list);
+        currentList.push(this.state.newList);
         this.setState({
-            list: currentList,
-            newList: ''
+            newList: '',
+            list: currentList
+            
         });
-    } 
+    };
 
     render () {
         return (
             <div>   
                 {this.state.list.map(item => <div>{item}</div>)}
                 <form onSubmit={this.addItem}> 
-                    <input type="text" onChange={this.handleItem} placeholder="Add a new Todo" value={this.state.newList}/>
+                    <input type="text" onChange={this.handleItem} placeholder="Add a new Todo" value={this.state.newList.text}/>
                 </form>
             </div>
         );
