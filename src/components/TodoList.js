@@ -37,3 +37,46 @@ class TodoList extends Component {
 }
 
 export default TodoList;
+
+
+// import React, { Component } from "react";
+
+// class TodoList extends Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       list : ['Task one', 'Task two', 'Task three'],
+//       newTodo: ''
+//     };
+//   }
+
+//   addTodo = (event) => {
+//     event.preventDefault();
+//     const TodoList = this.state.list;
+//     TodoList.push(this.state.newTodo);
+//     this.setState({
+//       list: TodoList,
+//       newTodo: ''
+//     })
+//   }
+
+//   handleTodoList = (event) => {
+//     this.setState({newTodo:event.target.value});
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         {this.state.list.map(task => <div> {task}</div>)}
+//         <form onSubmit = {this.addTodo}>
+//           <input type = "text"
+//           onChange = {this.handleTodoList}
+//           placeholder = "Add a new Task"
+//           value = {this.state.newTodo}
+//           />
+//         </form> 
+//       </div>
+//     );
+//   }}
+
+// export default TodoList;
