@@ -26,7 +26,8 @@ class ClassToDoList extends Component {
     render() {
         return (
             <div> 
-                {this.state.toDoTaskList.map(toDoTaskList => <div>{toDoTaskList}</div>)}
+                {this.state.toDoTaskList.map((toDoTaskList, index) => 
+                <div key={index}>{toDoTaskList}</div>)}
                 <form onSubmit={this.newTask}>
                     <input type="text" onChange={this.handleTaskInput} placeholder="Add a new task" value={this.state.newTask}/>
                     </form>
