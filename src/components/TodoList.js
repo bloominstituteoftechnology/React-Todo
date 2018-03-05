@@ -22,7 +22,7 @@ class TodoList extends Component {
   render() {
     return (
       <div>
-        {this.state.todos.map((todo, i) => <Todo key={i} item={todo} />)}
+        {this.state.todos.map((todo, i) => <Todo key={i} todo={todo} />)}
         <form onSubmit={this.addTodo}>
           <input
             type="text"

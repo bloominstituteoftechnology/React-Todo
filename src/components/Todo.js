@@ -18,7 +18,7 @@ class Todo extends Component {
       : { textDecoration: "none" };
     return (
       <div style={styles} onClick={this.toggleDoneness}>
-        {this.props.item}
+        {this.props.todo}
       </div>
     );
   }
