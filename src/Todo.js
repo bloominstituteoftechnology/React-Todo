@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TodoToggle from './TodoToggle';
 
 class Todo extends Component {
     constructor() {
@@ -27,7 +28,7 @@ class Todo extends Component {
     render() {
         return (
             <div>
-                {this.state.todoListItem.map(item => <div>{item}</div>)}
+                {this.state.todoListItem.map(item => <TodoToggle thing={item} />)}
                 <form onSubmit={this.addTodoList}>
                     <input type="text" onChange={this.handleTodoListInput} placeholder="Add new todo item" value={this.state.newTodo} />
                 </form>
