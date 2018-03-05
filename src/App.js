@@ -1,9 +1,11 @@
 import React from 'react';
+import FormData from './Components/form';
+import ListState from './Components/ListState';
 
 const App = () => (
   <div>
-    <h2>Todo App</h2>
-
+    <h1>Todo App</h1>    
+    <FormData/>    
   </div>
 );
 
