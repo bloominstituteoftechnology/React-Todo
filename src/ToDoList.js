@@ -10,11 +10,13 @@ class ToDoList extends Component {
   }
 }
 
-listItemsInput = (event) => {
-  this.setState ({ listItems: event.target.value });
-}
+// listItemsInput = (event) => {
+//   this.setState ({ listItems: event.target.value });
+// }
 
 // addlistItems = (event) {
 //   event.preventDefault();
 
 // }
+
+export default ToDoList;
