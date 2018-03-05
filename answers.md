@@ -1,11 +1,13 @@
 ### All Answers to Partner Study should be filled out in this file.
 
 1. Single Page Application
-  It's Cesar!
-Hello! it's
-2. Compilers
+A single page application is an app that loads a single HTML page and updates the page as it's being interacted with, without constant page reloads.
+
+2. Compilers 
+It converts javascript and tranforms it, then returns it into a better format for other broswers.
 
 3. Bundlers
+These take JS and CSS code written as separate modules and combine them into lesser files optimized
 
 4. Elements
 
