@@ -17,3 +17,5 @@
 8. CDN
 
 9. Props and State
+
+Jeremy Kepf
