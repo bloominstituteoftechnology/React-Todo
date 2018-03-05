@@ -5,34 +5,35 @@ class TodoList extends Component{
     constructor() {
       super();
       this.state = {
-        todo: ['Do laundry', 'buy groceries'], 
-        newTask : '',
+        todos: [], 
+        newTodo: '',
       };
     }
   
-    addNewTask = (event) => {
+    addTodo = (event) => {
       event.preventDefault();
-      const newTaskList = this.state.todo; 
-      newTaskList.push(this.state.newTask);
+      const newTaskList = this.state.todos; 
+      newTaskList.push(this.state.newTodo);
       this.setState({
-        todo: newTaskList,
-        newTaskList: '',
+        todos: newTaskList,
+        newTodo: '',
         });
     };
   
     handleTodoTaskInput = (event) => {
-      this.setState({newTask: event.target.value});
+      this.setState({newTodo: event.target.value});
     };
   
     render(){
       return(
         <div> 
-          {this.state.todo.map((todo,index) => <Todo key={index} todo={todo} />)}
-          <form onSubmit = {this.addNewTask}>
-            <input type = "text" onChange={this.handleTodoTaskInput} placeholder="Add a new Task" value={this.state.addNewTask} />
+          {this.state.todos.map((todo,index) => <Todo key={index} todo={todo} />)}
+          <form onSubmit = {this.addTodo}>
+            <input type = "text" onChange={this.handleTodoTaskInput} placeholder="Add a new Task" value={this.state.addTodo} />
           </form>
         </div>
       );}
   }
+  
 
   export default TodoList;
