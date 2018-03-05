@@ -1,0 +1,11 @@
+.Todo {
+  max-width: 480px;
+  margin: 0px auto;
+}
+
+.Todo > h2 {
+  color: #2196f3;
+  font-size: 28px;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+}
