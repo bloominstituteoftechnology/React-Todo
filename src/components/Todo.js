@@ -9,7 +9,7 @@ class Todo extends Component {
     }
 
     handleClick = () => {
-        this.setState({clicked: !this.state.clicked })
+        this.setState({ clicked: !this.state.clicked })
         console.log('clicked')
     }
 
@@ -17,7 +17,7 @@ class Todo extends Component {
     render() {
         const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
         return (
-            <div styles={styles} onClick={this.handleClick}>{this.props.data}</div>
+            <div style={styles} onClick={this.handleClick}>{this.props.data}</div>
         );
     }
 }
