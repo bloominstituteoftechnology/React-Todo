@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ToDo from './ToDo.js';
 
 class ToDoList extends Component {
     constructor(){
@@ -27,7 +28,7 @@ class ToDoList extends Component {
     render() {
         return(
             <div>
-                {this.state.ToDo.map(item => <div>{item}</div>)}
+                {this.state.ToDo.map(item => <ToDo text={item} />)}
                 <form onSubmit={this.AddToDo}>
                     <input
                         type='text'

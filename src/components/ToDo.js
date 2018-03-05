@@ -17,7 +17,9 @@ class ToDo extends Component {
     render() {
         const styles = this.state.clicked ? { textDecoration: 'line-through'} : { textDecoration: 'none' };
         return(
-            <div style={styles} onClick={this.handleClick}>{}</div>
+            <div style={styles} onClick={this.handleClick}>{this.props.text}</div>
         );
     }
 }
+
+export default ToDo;
