@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Todo = (props) => {
+class Todo extends Component {
+    constructor() {
+        super();
+        this.state = {
+            clicked: false
+        };
+    }
+
+    handleClick = () => {
+        this.setState({clicked: !this.state.clicked })
+        console.log('clicked')
+    }
+
+
+    render() {
+        const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
         return (
-            <div>{props.item.text}</div>
+            <div styles={styles} onClick={this.handleClick}>{this.props.data}</div>
         );
-
+    }
 }
 
 export default Todo;

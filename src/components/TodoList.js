@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Todo from './Todo.js'
+import Todo from './Todo.js';
 
 class TodoList extends Component {
     constructor() {
@@ -29,7 +29,7 @@ class TodoList extends Component {
     render () {
         return (
             <div>   
-                {this.state.list.map(item => <div>{item}</div>)}
+                {this.state.list.map(item => <Todo data={item} />)}
                 <form onSubmit={this.addItem}> 
                     <input type="text" onChange={this.handleItem} placeholder="Add a new Todo" value={this.state.newList}/>
                 </form>
