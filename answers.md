@@ -15,6 +15,6 @@
 7. Package Mangers
     A software tool that automates installing from a database of packages in JavaScript
 8. CDN
-    Content Delivery System. Relieves scaling issues with delivering static content and  deliver non-cachable content. Maintains secure connections closer to the requestor.
+    Content Delivery Network. Relieves scaling issues with delivering static content and  deliver non-cachable content. Maintains secure connections closer to the requestor.
 9. Props and State
     The two types of model data in React. Props pass information from parent to child to build a static website. State is used to store data and update an element dynamically.
