@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import ChildComponent from './ChildComponent';
 
-const App = () => (
-  <div>
-    <h2>Todo App</h2>
 
-  </div>
-);
 
 class App extends Component {
   constructor() {
@@ -15,6 +10,7 @@ class App extends Component {
       todos: [],
       newTodo: ''
     };
+  }
 
 addTodo = (event) => {
     event.preventDefault();
@@ -25,7 +21,7 @@ addTodo = (event) => {
       todos: todoList
     });
   }
-};
+
 
 handleTodoInput = (event) => {
   this.setState({ newTodo: event.target.value });
@@ -40,7 +36,7 @@ render() {
             </form>
         </div>
     );
-}
+  }
 }
 
 
