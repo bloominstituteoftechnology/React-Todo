@@ -1,24 +1,26 @@
 import React, { Component } from "react";
 
 class Todo extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      item: this.item,
-      clicked: false
+      text:this.props.todo.text,
+      completed:this.props.completed
+      // item: this.item,
+      // clicked: false
     };
   }
   toggleDoneness = () => {
-    this.setState({ clicked: !this.state.clicked });
+    this.setState({ completed: !this.state.completed });
   };
   render() {
-    const styles = this.state.clicked
+    const styles = this.state.completed
       ? { textDecoration: "line-through" }
       : { textDecoration: "none" };
     return (
       <div style={styles} onClick={this.toggleDoneness}>
-        {this.props.todo}
+        {this.props.todo.text}
       </div>
     );
   }

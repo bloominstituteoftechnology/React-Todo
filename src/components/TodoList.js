@@ -6,8 +6,11 @@ class TodoList extends Component {
     super();
 
     this.state = {
-      todos: [],
-      newTodo: ""
+      todos: [{
+        text:'',
+        completed:false,
+      }],
+      newTodo: ''
     };
   }
   handleTodoInput = event => {
@@ -16,7 +19,7 @@ class TodoList extends Component {
   addTodo = event => {
     event.preventDefault();
     const todoList = this.state.todos;
-    todoList.push(this.state.newTodo);
+    todoList.push({text:this.state.newTodo, completed:false});
     this.setState({ newTodo: "", todos: todoList });
   };
   render() {
