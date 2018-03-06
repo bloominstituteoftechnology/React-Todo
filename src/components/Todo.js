@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 
 class Todo extends Component{
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = {
-          click: false
+          text: props.text,
+          completed: props.completed,
+         // click: false,
       };
     }
   
-    handleTodoClick = (event) => {
-      this.setState({click: !this.state.click });
+    handleTodoClick = () => {
+      //  this.setState({click: !this.state.click });
+      this.setState({completed: !this.state.completed });
     };
 
     // remove = () => {
@@ -17,11 +20,15 @@ class Todo extends Component{
     // }
   
     render() {
-        const styles = this.state.click ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
+        const styles = this.state.completed ? 
+        { textDecoration: 'line-through' } : 
+        { textDecoration: 'none' };
       return(
-        <div style={styles} onClick={this.handleTodoClick}>{this.props.todo}
-        <button onClick={this.remove}> X </button>
-        </div>
+        <div>
+          <span style={styles} onClick={this.handleTodoClick}>{this.props.todo.text}</span>
+          <button onClick={this.props.delete}>X</button>
+
+       </div>
       );
     }
   }
