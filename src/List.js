@@ -15,9 +15,12 @@ class List extends Component {
 	}
 	
 	render() {
-		this.addReminder();
-		return (this.state.reminders.map( (e, i) => 
-			<Item key={i} reminder={e} />
+		{this.addReminder()}
+		return (this.state.reminders.map( (e, i) => {
+			if(i>0){
+				return <Item key={i} reminder={e} />
+			}
+		}
 		));
 	}
 }
