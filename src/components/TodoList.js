@@ -6,7 +6,7 @@ class TodoList extends Component {
     super();
 
     this.state = {
-      todos: [{}],
+      todos: [],
       newTodo: ""
     };
   }

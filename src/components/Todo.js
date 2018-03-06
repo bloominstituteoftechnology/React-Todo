@@ -15,13 +15,23 @@ class Todo extends Component {
   };
   render() {
     const styles = this.state.completed
-      ? { textDecoration: "line-through" }
-      : { textDecoration: "none" };
-
+      ? {
+          textDecoration: "line-through",
+          display: "inline"
+        }
+      : {
+          textDecoration: "none",
+          display: "inline"
+        };
+    const buttonStyles = {
+      display: "inline"
+    };
     return (
-      <div style={styles} onClick={this.toggleDoneness}>
+      <div style={buttonStyles}>
         {this.props.button}
-        {this.props.todo.text}
+        <div style={styles} onClick={this.toggleDoneness}>
+          {this.props.todo.text}
+        </div>
       </div>
     );
   }
