@@ -31,11 +31,14 @@ class TodoList extends Component {
           text: this.state.newList,
           completed: false,
         };
+      if (this.state.newList !== '') {
         const updatedList = [...this.state.list, newItem];
         this.setState({
             newList: '',
             list: updatedList,    
         });
+      }
+        
     };
 
     render () {
