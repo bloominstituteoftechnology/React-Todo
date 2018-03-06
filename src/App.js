@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ChildComponent from './ChildComponent';
+import './App.css';
 
 
 class App extends Component {
@@ -27,12 +28,12 @@ handleTodoInput = (event) => {
 
 render() {
     return (
-      <div>
+      <div class="todo-box">
         <h2>Todo App</h2>
-        <div>
+        <div class="todo-input">
             {this.state.todos.map(todo => <ChildComponent thing={todo} />)}
             <form onSubmit={this.addTodo}>
-                <input type="text" onChange={this.handleTodoInput} placeholder="Add New Todo Item" value={this.state.newTodo} />
+                <input type="text" onChange={this.handleTodoInput} placeholder="Add New Todo" value={this.state.newTodo} />
             </form>
         </div>
        </div>

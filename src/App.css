@@ -1,0 +1,17 @@
+html {
+  margin: 0;
+  display: block;
+  flex-direction: row;
+}
+
+.todo-box {
+  text-align: center;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.todo-input {
+  text-align: center;
+  border: 1px solid black;
+  padding: 10px;
+}

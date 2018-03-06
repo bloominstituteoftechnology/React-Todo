@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ChildComponent.css';
 
 class ChildComponent extends Component {
   constructor() {
@@ -12,11 +13,18 @@ class ChildComponent extends Component {
     this.setState({ clicked: !this.state.clicked });
   }
 
+ //  handleXClick = () => {
+ //   this.props.action(this.props.index);
+ // }
+
   render() {
     console.log('props: ', this.props);
     const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
     return (
-      <div style={styles} onClick={this.handleClick}>{this.props.thing}</div>
+      <div>
+      <div class="two" style={styles} onClick={this.handleClick}>{this.props.thing}</div>
+      <button class="one" onClick={this.handleXClick}>X</button>
+      </div>
     )
   }
 }
