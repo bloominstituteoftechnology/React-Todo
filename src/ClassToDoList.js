@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class ClassToDoList extends Component {
     constructor() {
-        super ();
+        super();
         this.state = {
             toDoTaskList: ['make to do list', 'sumbit pr', 'praise hallelujah'],
             newTask: ''
@@ -13,8 +13,9 @@ class ClassToDoList extends Component {
         const taskList = this.state.toDoTaskList;
         taskList.push(this.state.newTask);
         this.setState({
-            newTask: '',
+            // toDoTaskList: [...this.state.toDoTaskList, this.state.newTask],
             toDoTaskList: taskList,
+            newTask: '',
         });
     };
 
@@ -26,11 +27,11 @@ class ClassToDoList extends Component {
     render() {
         return (
             <div> 
-                {this.state.toDoTaskList.map((toDoTaskList, index) => 
-                <div key={index}>{toDoTaskList}</div>)}
-                <form onSubmit={this.newTask}>
+                {this.state.toDoTaskList.ma((toDoTask, index) => 
+                <div key={index}>{toDoTask}</div>)}
+                <form onSubmit={this.addTask}>
                     <input type="text" onChange={this.handleTaskInput} placeholder="Add a new task" value={this.state.newTask}/>
-                    </form>
+                </form>
             </div>
         )
     }
