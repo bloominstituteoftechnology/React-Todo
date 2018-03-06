@@ -4,17 +4,19 @@ class Todo extends Component {
   constructor() {
     super();
     this.state = {
-      clicked: false,
+      
     }
 
     
   }
-  toggleState = () => {
-    this.setState({
-      clicked: !this.state.clicked
-      
-    })
-  }
+  // toggleState = () => {
+  //   console.log(this.props);
+  //   console.log(this.props.todo);
+  //   console.log(this.props.todo.completed);
+  //   this.props.todo.completed = !this.props.todo.completed;
+  //   console.log(this.props.todo.completed);
+  //   this.setState({counter: ++this.counter});
+  // }
 
   render() {
 
@@ -24,12 +26,12 @@ class Todo extends Component {
     //   const styles = { textDecoration: 'none' };
     // };
 
-    const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
+    const styles = this.props.todo.completed ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
 
 
     return (
-      <div style={styles} onClick={this.toggleState}>
-        {this.props.todo}
+      <div style={styles} onClick={this.props.toggle}>
+        {this.props.todo.text}
       </div>
     )
   }
