@@ -15,6 +15,14 @@ class TodosInput extends Component {
     this.setState({ todo: event.target.value });
   };
 
+  deleteTodo = () => {
+    const newTodos = this.state.todos.filter((elem) => {
+      return elem !== this.state.todo;
+    });
+    this.setState({ todos: newTodos, todo: '' });
+    console.log(newTodos);
+};
+
   addTodo = (event) => {
     event.preventDefault();
     const newTodo = this.state.todos; // copy of current state
