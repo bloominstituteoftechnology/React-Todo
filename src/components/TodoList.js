@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import TodoToggle from './TodoToggle';
+import Todo from './Todo';
 
-class Todo extends Component {
+class TodoList extends Component {
     constructor() {
         super();
 
         this.state = {
-            todoListItem: ['laundry','washing dishes', 'gardening'],
+            todos: [],
             newTodo: ''
         };
     }
@@ -15,21 +15,21 @@ class Todo extends Component {
         this.setState({ newTodo: event.target.value });
     };
 
-    addTodoList = (event) => {
+    addTodo = (event) => {
         event.preventDefault();
-        const todoList = this.state.todoListItem;
+        const todoList = this.state.todos;
         todoList.push(this.state.newTodo);
         this.setState({
             newTodo: '',
-            todoListItem: todoList
+            todos: todoList
         });
     };
 
     render() {
         return (
             <div>
-                {this.state.todoListItem.map((item, i) => <TodoToggle key={i} thing={item} />)}
-                <form onSubmit={this.addTodoList}>
+                {this.state.todos.map(item => <Todo todo={item} />)}
+                <form onSubmit={this.addTodo}>
                     <input type="text" onChange={this.handleTodoListInput} placeholder="Add new todo item" value={this.state.newTodo} />
                 </form>
             </div>
@@ -37,4 +37,4 @@ class Todo extends Component {
     }
 }
 
-export default Todo;
+export default TodoList;

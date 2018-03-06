@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 
-class TodoToggle extends Component {
+class Todo extends Component {
     constructor() {
         super();
         this.state = {
@@ -13,11 +13,12 @@ class TodoToggle extends Component {
     };
 
     render() {
+        console.log(this.props);
         const styles = this.state.clicked ? {textDecoration : 'line-through'} : {textDecoration : 'none'};
         return (
-            <div style={styles} onClick={this.handleClick}>{this.props.thing}</div>
+            <div style={styles} onClick={this.handleClick}>{this.props.todo}</div>
         );
     }
 }
 
-export default TodoToggle;
+export default Todo;
