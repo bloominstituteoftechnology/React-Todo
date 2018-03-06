@@ -1,0 +1,9 @@
+body {
+    font-family: cursive;
+    font-size: 100%;
+    color: pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0 0 0;
+}

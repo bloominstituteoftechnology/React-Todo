@@ -7,7 +7,10 @@ class TodoList extends Component {
 
     this.state = {
       todos: [],
-      newTodo: ""
+      newTodo: {
+        text: '',
+        completed: false
+      }
       // clicked: false
     };
   }
@@ -18,7 +21,7 @@ class TodoList extends Component {
 // this is when it is clicked, changes state to opposite whatever clicked is because !
 // so when you click again it uncrosess like toggle
   handleInput = event => {
-    this.setState({ newTodo: event.target.value });
+    this.setState({ newTodo: { text: event.target.value } });
   };
 
   // okay so I'd like some explanation here:
@@ -26,13 +29,17 @@ class TodoList extends Component {
   // called event, and yet when it is invoked on line 46
   // I'm not seeing it called with any parameters.
   // So what of this event parameter here? Special keyword? or wut?
+  // setting it cleared every time you add an item to the todolist
   addTodo = event => {
     event.preventDefault();
     const todoList = this.state.todos;
     todoList.push(this.state.newTodo);
     this.setState({
       todos: todoList,
-      newTodo: ""
+      newTodo: {
+        text: '',
+        completed: false
+      }
     });
   };
 
