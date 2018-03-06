@@ -21,6 +21,11 @@ class TodoList extends Component {
     this.setState({ newTodo: event.target.value });
   };
 
+  // okay so I'd like some explanation here:
+  // I'm seeing this addTodo method taking a parameter
+  // called event, and yet when it is invoked on line 46
+  // I'm not seeing it called with any parameters.
+  // So what of this event parameter here? Special keyword? or wut?
   addTodo = event => {
     event.preventDefault();
     const todoList = this.state.todos;
