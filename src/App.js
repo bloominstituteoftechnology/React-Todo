@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ChildComponent from './ChildComponent';
 
 
-
 class App extends Component {
   constructor() {
     super();
@@ -22,19 +21,21 @@ addTodo = (event) => {
     });
   }
 
-
 handleTodoInput = (event) => {
   this.setState({ newTodo: event.target.value });
 };
 
 render() {
     return (
+      <div>
+        <h2>Todo App</h2>
         <div>
             {this.state.todos.map(todo => <ChildComponent thing={todo} />)}
             <form onSubmit={this.addTodo}>
-                <input type="text" onChange={this.handleTodoInput} placeholder="Add a new Todo" value={this.state.newTodo} />
+                <input type="text" onChange={this.handleTodoInput} placeholder="Add New Todo Item" value={this.state.newTodo} />
             </form>
         </div>
+       </div>
     );
   }
 }
