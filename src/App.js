@@ -10,6 +10,7 @@ class App extends Component {
       todos: [],
       newTodo: ''
     };
+    // this.removeTodo = this.removeTodo.bind(this);
   }
 
 addTodo = (event) => {
@@ -21,6 +22,13 @@ addTodo = (event) => {
       todos: todoList
     });
   }
+
+  // removeTodo = (event) => {
+  //   const todoList = this.state.todos;
+  //   todoList.forEach(newTodo, i) => {
+  //
+  //   }
+  // }
 
 handleTodoInput = (event) => {
   this.setState({ newTodo: event.target.value });
