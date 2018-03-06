@@ -8,7 +8,7 @@ class TodosInput extends Component {
     this.state = {
       todos: [],
       todo: '',
-      id: 0
+      id: 0,
     };
   }
 
@@ -26,20 +26,19 @@ class TodosInput extends Component {
   addTodo = (event) => {
     event.preventDefault();
     let id = this.state.id;
-    const newTodo = this.state.todos; // copy of current state
+    const todoList = this.state.todos; // copy of current state
 
-    //     const todoToAdd = {
-    //   text: this.state.newTodo,
-    //   complete: false
-    // }
-    
-    // todosList.push(todoToAdd);
+    const newTodo = {
+      text: this.state.todo,
+      id: ++id,
+      complete: false
+    }
 
-    newTodo.push(this.state.todo);
+    todoList.push(newTodo);
     this.setState({
-      todos: newTodo,
+      todos: todoList,
       todo: '',
-      id: ++id
+      id: id
     });
   };
 
@@ -53,7 +52,7 @@ class TodosInput extends Component {
         <form onSubmit={this.addTodo}>
           <input type="text" onChange={this.handleInputChange} placeholder="Add Todo" value={this.state.todo} />
         </form>
-        {this.state.todos.map(todo => <TodosList todo={todo} deleteTodo={this.deleteTodo} key={this.id} />)}
+        {this.state.todos.map(element => <TodosList todo={element} deleteTodo={this.deleteTodo} key={element.id} />)}
     </div>
   )
 }

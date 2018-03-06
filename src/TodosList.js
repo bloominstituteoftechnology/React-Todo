@@ -15,16 +15,16 @@ class TodosList extends Component {
   };
   
   render() {
-    const todoItems = this.props.todo;
     const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
 
     return (
-      <div>
-      <div style={styles} onClick={this.handleClick}>{todoItems}</div>
-        <button onClick={() => this.props.deleteTodo(todoItems)} value={todoItems}>delete</button>
+      <div className="card card-cascade wider">
+        <div className="card-body text-center" style={styles} onClick={this.handleClick}>{this.props.todo.text}</div>
+        <button className="btn btn-unique waves-effect waves-light" onClick={() => this.props.deleteTodo(this.props.todo)} value={this.props.todo}>delete</button>
       </div>
     );
   }
+
 
 }
 
