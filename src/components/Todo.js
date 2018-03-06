@@ -7,7 +7,6 @@ class Todo extends Component {
       
     }
 
-    
   }
   // toggleState = () => {
   //   console.log(this.props);
@@ -17,6 +16,10 @@ class Todo extends Component {
   //   console.log(this.props.todo.completed);
   //   this.setState({counter: ++this.counter});
   // }
+
+  handleXClick = () => {
+    this.props.getIndex(this.props.index);
+  }
 
   render() {
 
@@ -30,8 +33,11 @@ class Todo extends Component {
 
 
     return (
-      <div style={styles} onClick={this.props.toggle}>
-        {this.props.todo.text}
+      <div>
+        <div style={styles} onClick={this.handleXClick && this.props.toggle}>
+          <button onClick={this.props.deleteTodo}>X</button>
+          {this.props.todo.text}
+        </div>
       </div>
     )
   }
