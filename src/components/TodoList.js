@@ -8,10 +8,10 @@ class TodoList extends Component {
         this.state = {
           list: [
               {
-                text: 'eat food',
+                text: 'Eat Food',
               },
               {
-                text: 'code javascript',
+                text: 'Code Javascript',
               }
           ],
           newList: '',

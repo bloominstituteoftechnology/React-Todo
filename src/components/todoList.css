@@ -1,0 +1,26 @@
+h2 {
+  color: red;
+}
+
+div {
+  margin-bottom: 10px;
+  color: blue;
+  font-size: 25px;
+}
+
+button {
+  margin-left: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background: linear-gradient(red, yellow);
+}
+
+button:hover {
+  cursor: pointer;
+  background: linear-gradient(yellow, red);
+}
+
+input {
+  border-radius: 5px;
+  width: 200px;
+}

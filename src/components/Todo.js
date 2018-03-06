@@ -15,8 +15,7 @@ class Todo extends Component {
     }
     
     delete = () => {
-      
-      if (this.props.data.length !== 0) {
+      if (this.props.data.length === 0) {
         console.log("button works");
         this.setState({ delete: !this.state.delete })
       }
