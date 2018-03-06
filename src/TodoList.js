@@ -7,15 +7,7 @@ class TodoList extends Component {
     super();
 
     this.state = {
-      list: [{
-        text: 'watch pokeon',
-        clicked: false
-        }
-        /*'watch pokeon',
-        'Throw out the Garbage',
-        'make lunch',
-        'go for a walk'*/
-      ],
+      list: [],
       newItem: {
         text: '',
         clicked: false,
@@ -52,17 +44,19 @@ class TodoList extends Component {
   handleXClick = (event) => {
     const arrayIndex = event.target.id;
     const itemsList = this.state.list;
-    console.log(arrayIndex);
-    // itemList.slice()
-    //
-    // this.setState({
-    // });
+    if (itemsList.length === 1) {
+      itemsList.pop();
+    }
+    itemsList.splice(event.target.id, event.target.id);
+    this.setState({
+      list: itemsList
+    });
   };
 
   render() {
     return (
       <div>
-        {this.state.list.map((item, i) => <div><div id={i} class="one" onClick={this.handleXClick}>x</div> <Done key={i} index={i} thing={item} action={this.childFunc}/></div>)}
+        {this.state.list.map((item, i) => <div><div id={i} class="one" onClick={this.handleXClick}>x</div> <Done id={i} key={i} index={i} thing={item} action={this.childFunc}/></div>)}
         <form onSubmit={this.addItem}>
           <input
             type="text"
