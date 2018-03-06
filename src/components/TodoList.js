@@ -16,8 +16,8 @@ class TodoList extends Component {
 
     } 
 
-    getIndex = (index) => {
-        this.setState({index})
+    getIndex = (bubbles) => {
+        this.setState({index: bubbles})
     }
 
 
@@ -40,6 +40,7 @@ class TodoList extends Component {
 
     deleteTodo = () => {
         const tempArray = this.state.todos
+        console.log("deleteTodo")
         tempArray.slice(this.state.index, 1)
         this.setState({
             todos: tempArray
@@ -47,14 +48,16 @@ class TodoList extends Component {
     }
 
     toggleState = () => {
-        console.log(this);
-        console.log(this.completed);
-        this.completed = !this.completed;
-        console.log(this.completed);
-        const tempStatus = this.state.todos[this.state.index].completed
-        this.setState ({
-            tempStatus
-        })
+        // console.log(this);
+        console.log('index', this.state);
+        // const tempArray = this.state.todos;
+        // tempArray[this.state.index].completed = !tempArray[this.state.index].completed
+        // console.log('should be true first time', this.completed);
+        // console.log(this.state.todos)
+        // // const tempStatus = this.state.todos[this.state.index].completed
+        // this.setState ({
+        //     todos: tempArray
+        // })
         
       }
     

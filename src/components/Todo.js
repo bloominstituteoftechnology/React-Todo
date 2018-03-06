@@ -18,8 +18,16 @@ class Todo extends Component {
   // }
 
   handleXClick = () => {
+    console.log("handleXClick")
     this.props.getIndex(this.props.index);
+    
   }
+
+  toggleCombo = () => {
+    this.handleXClick();
+    this.props.toggle();
+  }
+  
 
   render() {
 
@@ -34,9 +42,10 @@ class Todo extends Component {
 
     return (
       <div>
-        <div style={styles} onClick={this.handleXClick && this.props.toggle}>
-          <button onClick={this.props.deleteTodo}>X</button>
+        <div style={styles} onClick={this.toggleCombo}>
+          <button>X</button>
           {this.props.todo.text}
+          {this.props.index}
         </div>
       </div>
     )
