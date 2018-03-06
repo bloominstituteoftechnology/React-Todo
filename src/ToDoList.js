@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Completed from './Completed';
+import Completed from './Completed.js';
 
 class ToDoList extends Component {
  constructor() {
@@ -29,20 +29,19 @@ class ToDoList extends Component {
     render() {
         return (
             <div>
-            {this.state.list.map(item => <Completed itemKey={item} />)}
-                <form onSubmit={this.addItem}>
-                <input 
-                type="text"
-                onChange={this.handleListInput}
-                placeholder="Add a new item"
-                value={this.state.newItem}
-                />
+            {this.state.itemsList.map(item => <Completed itemKey={item} />)}
+            <form onSubmit={this.addItem}>
+            <input
+            type="text"
+            onChange={this.handleListInput}
+            placeholder="Add a new item"
+            value={this.state.newItem}
+            />
             </form>
-        </div> 
-        );
-
+            </div>
+            );
+        }
     }
-}
 
 //  addlistItems = (event) => {
 //    event.preventDefault();
