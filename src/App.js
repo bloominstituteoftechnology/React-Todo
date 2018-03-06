@@ -1,10 +1,10 @@
 import React from 'react';
-import TodoComponent from './TodoComponent';
+import Todo from './Todo';
 
 const App = () => (
   <div>
     <h2>Todo App</h2>
-    <TodoComponent />
+    <Todo />
   </div>
 );
 

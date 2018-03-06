@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class TodoComponent extends Component {
+class Todo extends Component {
   constructor() {
     super();
 
@@ -55,4 +55,4 @@ class TodoComponent extends Component {
 
 
 
-export default TodoComponent;
+export default Todo;
