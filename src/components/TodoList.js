@@ -18,7 +18,6 @@ class TodoList extends Component {
 // this is when it is clicked, changes state to opposite whatever clicked is because !
 // so when you click again it uncrosess like toggle
   handleInput = event => {
-    console.log("event.target.value", event.target.value);
     this.setState({ newTodo: event.target.value });
   };
 
