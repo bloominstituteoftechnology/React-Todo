@@ -37,7 +37,7 @@ class TodoItem extends Component {
     }
 
     render() {
-        const myList=this.state.things.map(thing => <div><Todo thing={thing} removeThing={this.removeThing} /> <button onClick={this.removeThing}>x</button></div>)
+        const myList=this.state.things.map((thing, i) => <Todo thing={thing} removeThing={this.removeThing} key={i}/>)
         return (
             <div>
                 {myList}
