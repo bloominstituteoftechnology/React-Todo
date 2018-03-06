@@ -3,7 +3,7 @@ body {
     justify-content: center;
 }
 
-.root {
+#root {
     display: flex;
     justify-content: center
 }

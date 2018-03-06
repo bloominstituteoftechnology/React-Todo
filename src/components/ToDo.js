@@ -26,7 +26,10 @@ class ToDo extends Component {
         const space = { marginLeft: '30px' };
         return(
             <div style={show}>
-                <div style={styles} onClick={this.handleClick}>{this.props.text}<button style={space} type='button' onClick={this.xOut}>Remove</button></div>
+                <div style={styles} onClick={this.handleClick}>
+                    {this.props.text}
+                    <button style={space} type='button' onClick={this.xOut}>Remove</button>
+                </div>
             </div>
         );
     }
