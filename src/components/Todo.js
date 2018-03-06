@@ -21,4 +21,19 @@ class Todo extends Component {
     }
 }
 
-export default Todo;
+export default class TodoList extends Component {
+    removeItem(item) {
+        this.props.deleteTodo(item);
+    }
+    render() {
+        return(
+            <ul>
+                { this.props.todos.map((todo) => {
+                    return <li onClick={() => { this.removeItem(todo)}} key={todo}>{ todo }</li>
+                })}
+            </ul>
+        );
+    }
+}
+
+//export default Todo;

@@ -11,6 +11,7 @@ class TodoList extends Component {
             newTodo: {'text': '', 'completed': false, 'selected': null},
             selected: null
         };
+        this.deleteTodo = this.deleteTodo.bind(this);
     }
 
     handleTodoListInput = (event) => {
@@ -33,10 +34,16 @@ class TodoList extends Component {
         });
     };
 
+    deleteTodo(item) {
+        this.setState({
+            todo: this.state.todo.filter(el => el !== item)
+        });
+    };
+
     render() {
         return (
             <div>
-                {this.state.todos.map((item, i) => <div> <Todo todo={item} /> <DeleteButton key={i} index={i} action={this.addCompletedButton} deleteButton={item} /></div>)}
+                {this.state.todos.map((item, index) => <div> <Todo todo={item} /> <DeleteButton key={index} index={i} action={this.addCompletedButton} deleteButton={item} /></div>)}
                 <form onSubmit={this.addTodo}>
                     <input type="text" onChange={this.handleTodoListInput} placeholder="Add new todo item" value={this.state.newTodo.text} />
                     
