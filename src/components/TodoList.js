@@ -18,10 +18,14 @@ class TodoList extends Component {
 // this is when it is clicked, changes state to opposite whatever clicked is because !
 // so when you click again it uncrosess like toggle
   handleInput = event => {
-    console.log("event.target.value", event.target.value);
     this.setState({ newTodo: event.target.value });
   };
 
+  // okay so I'd like some explanation here:
+  // I'm seeing this addTodo method taking a parameter
+  // called event, and yet when it is invoked on line 46
+  // I'm not seeing it called with any parameters.
+  // So what of this event parameter here? Special keyword? or wut?
   addTodo = event => {
     event.preventDefault();
     const todoList = this.state.todos;
@@ -40,12 +44,12 @@ class TodoList extends Component {
         {this.state.todos.map(todo => 
         <Todo todo = {todo}/>
         )}
-        {/* The .map is iterating through each item in the “ToDo” array and passes each element to the “ToDo.js” file as the variable “items”. */}
+        {/* The .map is iterating through each todo in the “ToDo” array and passes each element to the “ToDo.js” file as the variable “items”. */}
         <form onSubmit={this.addTodo}>
           <input
             type="text"
             onChange={this.handleInput}
-            placeholder="Add a new item"
+            placeholder="Add a new todo"
             value={this.state.newTodo}
           />
         </form>
