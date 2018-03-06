@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ClassToDoList extends Component {
+class TodoList extends Component {
     constructor() {
         super();
         this.state = {
@@ -27,7 +27,7 @@ class ClassToDoList extends Component {
     render() {
         return (
             <div> 
-                {this.state.toDoTaskList.ma((toDoTask, index) => 
+                {this.state.toDoTaskList.map((toDoTask, index) => 
                 <div key={index}>{toDoTask}</div>)}
                 <form onSubmit={this.addTask}>
                     <input type="text" onChange={this.handleTaskInput} placeholder="Add a new task" value={this.state.newTask}/>
@@ -36,4 +36,4 @@ class ClassToDoList extends Component {
         )
     }
 }
-export default ClassToDoList;
+export default TodoList;
