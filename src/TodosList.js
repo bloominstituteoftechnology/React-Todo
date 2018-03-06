@@ -20,8 +20,8 @@ class TodosList extends Component {
 
     return (
       <div>
-      <div style={styles} onClick={this.handleClick}>{todoItems.text}</div>
-        <button onClick={() => this.props.deleteTodo(todoItems.text)} value={todoItems}>delete</button>
+      <div style={styles} onClick={this.handleClick}>{todoItems}</div>
+        <button onClick={() => this.props.deleteTodo(todoItems)} value={todoItems}>delete</button>
       </div>
     );
   }

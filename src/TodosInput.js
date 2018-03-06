@@ -8,7 +8,7 @@ class TodosInput extends Component {
     this.state = {
       todos: [],
       todo: '',
-      id: 1
+      id: 0
     };
   }
 
@@ -19,18 +19,23 @@ class TodosInput extends Component {
   deleteTodo = (todoItem) => {
       const newTodos = this.state.todos.filter(item => {
         return item !== todoItem;
-      })
-      console.log(todoItem)
-      this.setState({ todos: newTodos, todo: '' });
+      });
+      this.setState({ todos: newTodos, todo: ''});
   }
 
   addTodo = (event) => {
     event.preventDefault();
-    const todos = this.state.todos.slice(0);
     let id = this.state.id;
-    const newTodo = {text: this.state.todo, id}; // copy of current state
+    const newTodo = this.state.todos; // copy of current state
 
-    todos.push(newTodo);
+    //     const todoToAdd = {
+    //   text: this.state.newTodo,
+    //   complete: false
+    // }
+    
+    // todosList.push(todoToAdd);
+
+    newTodo.push(this.state.todo);
     this.setState({
       todos: newTodo,
       todo: '',
@@ -44,11 +49,11 @@ class TodosInput extends Component {
   render() {
     return (
       <div>
+        {console.log(this.state)}
         <form onSubmit={this.addTodo}>
           <input type="text" onChange={this.handleInputChange} placeholder="Add Todo" value={this.state.todo} />
         </form>
-        {console.log(this.state.todos)}
-        {this.state.todos.map(todo => <TodosList todo={todo} deleteTodo={this.deleteTodo} />)}
+        {this.state.todos.map(todo => <TodosList todo={todo} deleteTodo={this.deleteTodo} key={this.id} />)}
     </div>
   )
 }
