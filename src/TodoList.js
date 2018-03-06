@@ -6,18 +6,27 @@ class TodoList extends Component {
     super();
 
     this.state = {
-      list: [
-        'watch pokeon',
+      list: [{
+        text: 'watch pokeon',
+        clicked: false
+        }
+        /*'watch pokeon',
         'Throw out the Garbage',
         'make lunch',
-        'go for a walk'
+        'go for a walk'*/
       ],
-      newItem: ''
+      newItem: {
+        text: '',
+        clicked: false,
+      }
     };
   }
 
   handleListInput = event => {
-    this.setState({ newItem: event.target.value });
+    this.setState({ newItem: {
+      text: event.target.value,
+      clicked: false
+    }});
   };
 
   addItem = event => {
@@ -25,7 +34,10 @@ class TodoList extends Component {
     const itemsList = this.state.list;
     itemsList.push(this.state.newItem);
     this.setState({
-      newItem: '',
+      newItem: {
+        text: '',
+        clicked: false,
+      },
       list: itemsList
     });
   };
@@ -39,7 +51,7 @@ class TodoList extends Component {
             type="text"
             onChange={this.handleListInput}
             placeholder="Add a new item"
-            value={this.state.newItem}
+            value={this.state.newItem.text}
           />
         </form>
       </div>
