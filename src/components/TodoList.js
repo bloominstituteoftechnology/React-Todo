@@ -8,7 +8,8 @@ class TodoList extends Component {
 
         this.state = {
             todos: [],
-            newTodo: {'text': '', 'completed': false}
+            newTodo: {'text': '', 'completed': false, 'selected': null},
+            selected: null
         };
     }
 
@@ -26,15 +27,16 @@ class TodoList extends Component {
         });
     };
 
-    addCompletedButton = (event) => {
-        event.preventDefault();
-        const deleteButton = <button>x</button>
+    addCompletedButton = (index) => {
+        this.setState({
+            selected: index
+        });
     };
 
     render() {
         return (
             <div>
-                {this.state.todos.map(item => <Todo todo={item} /> <DeleteButton deletebutton={item} />)}
+                {this.state.todos.map((item, i) => <div> <Todo todo={item} /> <DeleteButton key={i} index={i} action={this.addCompletedButton} deleteButton={item} /></div>)}
                 <form onSubmit={this.addTodo}>
                     <input type="text" onChange={this.handleTodoListInput} placeholder="Add new todo item" value={this.state.newTodo.text} />
                     

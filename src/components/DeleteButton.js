@@ -9,14 +9,13 @@ class DeleteButton extends Component {
     }
 
     handleCompleted = () => {
-        this.setState({ completed: !this.state.completed });
-    };
+        this.props.action(this.props.index);
+    }
 
     render() {
-        console.log(this.props);
-        const styles = this.state.completed ? {textDecoration : 'line-through'} : {textDecoration : 'none'};
+        console.log(this.props.selected);
         return (
-            <div style={styles} onClick={this.handleCompleted}>{this.props.todo}</div>
+            <div onClick={this.handleCompleted}>x</div>
         );
     }
 }
