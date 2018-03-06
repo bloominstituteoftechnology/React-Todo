@@ -12,10 +12,15 @@ class Todo extends Component {
     this.setState({ clicked: !this.state.clicked });
   };
 
+  removeThing = function() {
+    console.log(1);
+    this.props.removeThing();
+}
+
   render() {
-    const styles = this.state.clicked ? { textDecoration: 'line-through'} : { textDecoration: 'none' };
+    const styles = this.state.clicked ? { textDecoration: 'line-through'} : { textDecoration: 'none' }
     return (
-      <div style={styles} onClick={this.handleClick}>{this.props.thing}</div>
+        <span style={styles} onClick={this.handleClick}>{this.props.thing}</span>
     );
   }
 }
