@@ -22,14 +22,13 @@ class TodoList extends Component {
       
         this.setState({ newList: event.target.value });
         console.log('check');
-      
     };
 
     addItem = (event) => {
         event.preventDefault();
         const newItem = {
           text: this.state.newList,
-          completed: false,
+          // completed: false,
         };
       if (this.state.newList !== '') {
         const updatedList = [...this.state.list, newItem];
