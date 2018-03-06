@@ -19,8 +19,10 @@ class TodoList extends Component {
     }
 
     handleItem = (event) => {
+      
         this.setState({ newList: event.target.value });
-        //console.log(newList.text);
+        console.log('check');
+      
     };
 
     addItem = (event) => {
