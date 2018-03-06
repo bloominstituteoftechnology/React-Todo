@@ -1,12 +1,12 @@
 import React from 'react';
-import FormData from './Components/form';
 import ToDoList from './Components/ToDoList';
-import Todo from './Components/ToDo';
+import Todo from './Components/Todo';
 
 const App = () => (
   <div>
-    <h1>Todo App</h1>    
-    <FormData/>    
+    <h1>Todo App</h1>        
+  <ToDoList />
+    <Todo />    
   </div>
 );
 

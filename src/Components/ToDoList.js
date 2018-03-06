@@ -1,4 +1,5 @@
 import React from 'react';
+import Todo from './Todo';
 
 class ToDoList extends React.Component {
     constructor() {
@@ -26,7 +27,7 @@ class ToDoList extends React.Component {
     render() {
         return (
             <div>
-                {this.state.newEntries.map(entry => <div>{entry}</div>)}
+                {this.state.storedList.map(entry => <Todo thing={entry} />)}
                 <form onSubmit={this.addEntry}>
                     <input type="text"
                     onChange={this.handleEntry}

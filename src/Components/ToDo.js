@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 
-class Todo extends React.Component {
+class Todo extends Component {
     constructor() {
         super();
         this.state = {            
@@ -17,10 +17,10 @@ class Todo extends React.Component {
 
     render() {
         const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
-
-    return (
-      <div style={styles} onClick={this.handleClicker}>{this.props.storedList}</div>
-    )}
+        return (
+        <div style={styles} onClick={this.handleClicker}>{this.props.thing}</div>
+    )
+}
 }
 
 
