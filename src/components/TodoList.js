@@ -8,20 +8,16 @@ class TodoList extends Component{
         todos: [], 
         newTodo: {text: '', completed: false},
       };
-
-       if (localStorage.todos !== null) {
-           this.loadLocalStorage();
-       }
     }
 
-    loadLocalStorage() {
-      return JSON.parse(localStorage.getItem('state'));
-    }
+    // loadLocalStorage() {
+    //   return JSON.parse(window.localStorage.getItem('todos'));
+    // }
 
     
-    saveLocalStorage = (stored) => {
-        localStorage.setItem('state', JSON.stringify(stored));
-    }
+    // saveLocalStorage = (stored) => {
+    //     window.localStorage.setItem('todos', JSON.stringify(stored));
+    // }
 
     handleTodoTaskInput = (event) => {
       this.setState({
@@ -32,10 +28,10 @@ class TodoList extends Component{
       });
     };
     
-    setState(newState) {
-      super.setState(newState);
-      this.saveLocalStorage(newState.todos);
-    }
+    // setState(newState) {
+    //   super.setState(newState);
+    //   this.saveLocalStorage(newState.todos);
+    // }
   
     addTodo = (event) => {
       event.preventDefault();
@@ -67,8 +63,9 @@ class TodoList extends Component{
           {this.state.todos.map((todo,index) => <Todo key={index} todo={todo} delete={this.deleteTodo(index)}
             // remove={this.deleteTodo.bind(this)}
           />)}
-          <form onSubmit = {this.addTodo}>
-            <input type="text" onChange={this.handleTodoTaskInput} placeholder="Add a new Task" value={this.state.newTodo.text} />
+          <form onSubmit = {this.addTodo} onChange={this.handleTodoTaskInput}>
+            <input type="text" placeholder="Add a new Task" value={this.state.newTodo.text} />
+            <input id="submit" type="submit" value="Add Todo" />
           </form>
         </div>
       );
