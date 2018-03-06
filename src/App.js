@@ -1,9 +1,8 @@
 import React from 'react';
-
+import Application from "./Application";
 const App = () => (
   <div>
-    <h2>Todo App</h2>
-
+  	<Application />
   </div>
 );
 
