@@ -37,15 +37,15 @@ class TodoList extends Component {
     // ternary operator
     return (
       <div>
-        {this.state.todos.map(item => 
-        <Todo items = {item}/>
+        {this.state.todos.map(todo => 
+        <Todo todo = {todo}/>
         )}
-        {/* The .map is iterating through each item in the “ToDo” array and passes each element to the “ToDo.js” file as the variable “items”. */}
+        {/* The .map is iterating through each todo in the “ToDo” array and passes each element to the “ToDo.js” file as the variable “items”. */}
         <form onSubmit={this.addTodo}>
           <input
             type="text"
             onChange={this.handleInput}
-            placeholder="Add a new item"
+            placeholder="Add a new todo"
             value={this.state.newTodo}
           />
         </form>
