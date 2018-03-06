@@ -1,0 +1,10 @@
+.one {
+  /* border: thin solid red; */
+  width: 2%;
+  float: left;
+}
+
+#two {
+  /* border: thin solid red; */
+  margin-left: 2%;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Done from './Done.js';
+import './Done.css';
 
 class TodoList extends Component {
   constructor() {
@@ -48,10 +49,20 @@ class TodoList extends Component {
     });
   }
 
+  handleXClick = (event) => {
+    const arrayIndex = event.target.id;
+    const itemsList = this.state.list;
+    console.log(arrayIndex);
+    // itemList.slice()
+    //
+    // this.setState({
+    // });
+  };
+
   render() {
     return (
       <div>
-        {this.state.list.map((item, i) => <Done k={i} index={i} thing={item} action={this.childFunc}/>)}
+        {this.state.list.map((item, i) => <div><div id={i} class="one" onClick={this.handleXClick}>x</div> <Done key={i} index={i} thing={item} action={this.childFunc}/></div>)}
         <form onSubmit={this.addItem}>
           <input
             type="text"
