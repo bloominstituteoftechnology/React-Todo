@@ -6,25 +6,24 @@ class ToDoList extends Component {
    super();
 
    this.state = {
-     itemsList: [
-         'be pretty',
-     ],
-     newItem: '',
-   };
- }
+    itemsList: ['be pretty','eating healthy', 'walking'],
+    newItem: '',
+  };
+}
 
- handleListInput = event => {
-     this.setState({ newItem: event.target.value });
- };
- addItem = event => {
-     event.preventDefault();
-     const list = this.state.list;
-     list.push(this.state.newItem);
-     this.setState({
-         newItem: '',
-         itemsList: list
-     });
-    };
+addItem = event => {
+    event.preventDefault();
+    const list = this.state.itemsList;
+    list.push(this.state.newItem);
+    this.setState({
+        newItem: '',
+        itemsList: list
+    });
+};
+
+handleListInput = event => {
+    this.setState({ newItem: event.target.value });
+};
 
     render() {
         return (
@@ -43,16 +42,5 @@ class ToDoList extends Component {
         }
     }
 
-//  addlistItems = (event) => {
-//    event.preventDefault();
-//    const listItems = this.state.items;
-//    listItems.push(this.state.newItems);
-//    this.setState({
-//      newListItems: '',
-//      items: listItems
-//    });
 
-//  handleItemsInput = (event) => {
-//    this.setState({ newItems: event.target.value });
-//  }
 export default ToDoList;
