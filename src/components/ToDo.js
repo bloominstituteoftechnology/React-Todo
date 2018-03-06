@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
-import ToDoItem from './ToDoItem';
 
-class ToDo extends Component {
-    constructor(){
+class Todo extends Component {
+    constructor() {
         super();
         this.state = {
-            todo: ['run', 'eat', 'work'],
+            clicked: false,
         };
+    }
+    completed = () => {
+        const clicked = !this.state.clicked;
+        this.setState({
+            clicked: clicked,   
+        });
     }
 
     render() {
-        return (
-            <div>
-                {this.state.todo.map((item, index) => {
-                    return <ToDoItem key={index}  todo={item} />
-                })}
-                <form>
-                    <input text="text" />
-                </form>
-            </div>
+        const clicked = this.state.clicked ? {textDecoration: 'line-through'}: {textDecoration: 'none'};
+        return(
+            <li style={clicked} onClick={this.completed} >{this.props.todo}</li>
         );
     }
 }
 
-export default ToDo;
+export default Todo;
