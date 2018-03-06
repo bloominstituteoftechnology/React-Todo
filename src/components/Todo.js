@@ -17,11 +17,13 @@ class Todo extends Component {
     const styles = this.state.completed
       ? {
           textDecoration: "line-through",
-          display: "inline"
+          display: "inline",
+          margin: "20px"
         }
       : {
           textDecoration: "none",
-          display: "inline"
+          display: "inline",
+          margin: "20px"
         };
     const buttonStyles = {
       display: "inline"
