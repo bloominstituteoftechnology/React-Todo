@@ -21,7 +21,7 @@ class ToDoList extends Component {
   };
 
   handleTaskInput = (event) => {
-    this.setState({ newList: event.target.value });
+    this.setState({ newTask: event.target.value });
   };
 
   render(){
