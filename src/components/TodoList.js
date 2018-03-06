@@ -48,10 +48,10 @@ class TodoList extends Component {
         {this.state.todos.map((todo, i) => {
           return (
             <div key={i}>
-              <Todo key={i} todo={todo} />
-              <button key={i} onClick={this.removeTodo}>
+              <button key={"button" + i} onClick={this.removeTodo}>
                 x
               </button>
+              <Todo key={"todo" + i} todo={todo} />
             </div>
           );
         })}
