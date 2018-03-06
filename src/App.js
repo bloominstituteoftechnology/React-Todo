@@ -6,9 +6,13 @@ const styles = {
   textAlign: 'center'
 };
 
+const h2styles = {
+  color: 'lightblue'
+};
+
 const App = () => (
   <div style={styles}>
-    <h2>Todo App</h2>
+    <h2 style={h2styles}>Todo App</h2>
     <TodoList />
   </div>
 );

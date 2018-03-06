@@ -25,10 +25,30 @@ class TodoList extends Component {
     });
   };
 
+  deleteTodo = index => {
+    const todoList = this.state.todos;
+    // const idx = todoList.indexOf(index);
+    console.log(todoList, index);
+    todoList.splice(index, 1);
+    this.setState({
+      newTodo: '',
+      todos: todoList
+    });
+  };
+
   render() {
+    const pointer = this;
     return (
       <div>
-        {this.state.todos.map((newTodo, i) => <Todo key={i} todo={newTodo} />)}
+        {this.state.todos.map((newTodo, i) => (
+          <Todo
+            key={i}
+            index={i}
+            todo={newTodo}
+            delTodo={this.deleteTodo}
+            parent={pointer}
+          />
+        ))}
         <form>
           <input
             type="text"
