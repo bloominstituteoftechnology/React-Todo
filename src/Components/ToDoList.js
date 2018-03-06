@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ListState extends React.Component {
+class ToDoList extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -39,4 +39,4 @@ class ListState extends React.Component {
     }
 }
 
-export default ListState;
+export default ToDoList;

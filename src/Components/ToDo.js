@@ -1,13 +1,27 @@
 import React from 'react';
 
-class Listing extends React.Component {
-    render() {
-        return (
-            <ul>
-                <li>test</li>
-            </ul>
-        );
+
+class Todo extends React.Component {
+    constructor() {
+        super();
+        this.state = {            
+            clicked: false
+        };
+    };
+
+    handleClicker = () => {
+        this.setState({ clicked: !this.state.clicked });
     }
+
+    
+
+    render() {
+        const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
+
+    return (
+      <div style={styles} onClick={this.handleClicker}>{this.props.storedList}</div>
+    )}
 }
 
-export default Listing;
+
+export default Todo;
