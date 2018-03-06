@@ -1,4 +1,4 @@
-/* import React, { Component } from 'react'; */
+import React, { Component } from 'react'; 
 
 class ToDoList extends Component {
     constructor() {
@@ -6,12 +6,12 @@ class ToDoList extends Component {
         super();
 
         this.state = {
-        toDoItems: [],
+        toDoItems: ['A', 'B', 'C'],
         newToDo: '',
 
 
         };    
-    }
+    };
 
     addToDo = (event) => {
         event.preventDefault();
@@ -19,14 +19,21 @@ class ToDoList extends Component {
         toDoItemsList.push(this.state.newToDo);
         
         this.setState ({
-            newToDo = '',
-            toDoItems = toDoItemsList,
+            newToDo: '',
+            toDoItems: toDoItemsList,
         });
+    };
+    
+    render() {
+        return (
+            <div>
+                {this.state.toDoItems.map((toDoItem) => <div>{toDoItem}</div>)}
+            </div>
+        );
 
+    };
         
 
     };
 
-    
-
-}
+    export default ToDoList;

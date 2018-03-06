@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoList from './src/components';
+import ToDoList from './components/ToDoList';
 /* import components from .src */
 
 
@@ -8,7 +8,7 @@ import TodoList from './src/components';
 const App = () => (
   <div>
     <h2>Todo App</h2>
-    <ToDoList/>
+    <ToDoList />
 
 
   </div>
