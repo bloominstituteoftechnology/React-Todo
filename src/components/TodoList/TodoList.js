@@ -5,9 +5,7 @@ class TodoList extends Component {
     constructor() {
         super();
 
-     
         this.state = {
-            things: ['buy groceries', 'get haircut','mow lawn','wash dog'],
             newThing: ''
         };
     }
@@ -16,33 +14,35 @@ class TodoList extends Component {
         this.setState({ newThing: event.target.value });
     };
 
+    handleComplete = (event) => {
+        window.localStorage.setItem(event.target.innerHTML, `{"name": "${event.target.innerHTML}", "completed": ${(event.target.style.textDecoration === "none")}}`)
+        this.setState({
+        });
+      };
+
     addThing = (event) => {
         event.preventDefault();
-        const thingsList = this.state.things;
-        thingsList.push(this.state.newThing);
+        const newName = `${localStorage.length + 1}. ${this.state.newThing}`;
+        window.localStorage.setItem(newName, `{"name": "${newName}", "completed": false}`);
         this.setState({
-            newThing: '',
-            things: thingsList
+            newThing: ''
         });
+        
     };
 
     removeThing = (event) => {
-        const thingsList = this.state.things;
-        const index = thingsList.indexOf(event.target.previousSibling.innerHTML)
-        thingsList.splice(index, 1);
+        window.localStorage.removeItem(event.target.previousSibling.innerHTML)
         this.setState({
-            newThing: '',
-            things: thingsList
         });
     }
 
     render() {
-        const myList=this.state.things.map((thing, i) => <Todo thing={thing} removeThing={this.removeThing} key={i}/>)
+        let myList=Object.values(window.localStorage).map((thing) => JSON.parse(thing)).map((thing, i) => <Todo thing={thing.name} removeThing={this.removeThing} handleComplete={this.handleComplete} completed={thing.completed} key={i}/>)
         return (
             <div>
                 {myList}
                 <form onSubmit={this.addThing}>
-                    <input type="text" onChange={this.handleThingInput} placeholder="Add a new thing to do" value={this.state.newThing} />
+                    <input className="Todo__input" type="text" onChange={this.handleThingInput} placeholder="+" value={this.state.newThing} />
                 </form>
             </div>
         );

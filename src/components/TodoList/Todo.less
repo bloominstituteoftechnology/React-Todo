@@ -1,7 +1,32 @@
-.Todo__text {
+.Todo__container {
+    width: 200px;
+    display: flex;
     padding: 10px;
+    border: 1px solid black;
+
+    &&:hover {
+        .Todo__button {
+            display: inline;
+        }
+    }
+}
+
+.Todo__text {
+    font-size: 18px;
+    font-family: Lucida Console, Courier, monospace;
 }
 
 .Todo__button {
-    background-color: blue;
+    display: none;
+    position: absolute;
+    margin-left: 188px;
+    margin-top: -10px;
+}
+
+.Todo__input {
+    width: 200px;
+    padding: 9px;
+    font-size: 18px;
+    font-family: Lucida Console, Courier, monospace;
+
 }
