@@ -1,7 +1,4 @@
 /*eslint no-unused-vars: "off"*/
-import React from "react";
-import ReactDom from "react-dom";
-import { Component } from "react";
 
 class App extends Component {
   constructor(props) {
