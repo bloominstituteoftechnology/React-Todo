@@ -6,13 +6,13 @@ class ToDoList extends Component {
         super();
 
         this.state = {
-            ToDo: ['Item'],
+            ToDo: [''],
             NewItem: ''
         };
     }
 
     newInput = (event) => {
-        this.setState({ NewItem: event.target.value})
+        this.setState({ NewItem: event.target.value});
     };
 
     AddToDo = (event) => {
@@ -41,6 +41,5 @@ class ToDoList extends Component {
         );
     }
 }
-
 export default ToDoList;
 

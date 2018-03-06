@@ -23,10 +23,10 @@ class ToDo extends Component {
     render() {
         const styles = this.state.clicked ? { textDecoration: 'line-through'} : { textDecoration: 'none' };
         const show = this.state.xed ? {display: 'none'} : {display: 'flex'};
+        const space = { marginLeft: '30px' };
         return(
             <div style={show}>
-                <div onClick={this.xOut}>X</div>
-                <div style={styles} onClick={this.handleClick}>{this.props.text}</div>
+                <div style={styles} onClick={this.handleClick}>{this.props.text}<button style={space} type='button' onClick={this.xOut}>Remove</button></div>
             </div>
         );
     }
