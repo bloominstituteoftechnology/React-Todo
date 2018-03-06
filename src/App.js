@@ -30,9 +30,9 @@ render() {
     return (
       <div class="todo-box">
         <h2>Todo App</h2>
-        <div class="todo-input">
+        <div class="todo-list">
             {this.state.todos.map(todo => <ChildComponent thing={todo} />)}
-            <form onSubmit={this.addTodo}>
+            <form class="myForm" onSubmit={this.addTodo}>
                 <input type="text" onChange={this.handleTodoInput} placeholder="Add New Todo" value={this.state.newTodo} />
             </form>
         </div>

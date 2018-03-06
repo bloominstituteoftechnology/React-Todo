@@ -21,9 +21,9 @@ class ChildComponent extends Component {
     console.log('props: ', this.props);
     const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
     return (
-      <div>
-      <div class="two" style={styles} onClick={this.handleClick}>{this.props.thing}</div>
-      <button class="one" onClick={this.handleXClick}>X</button>
+      <div class="items">
+      <div class="itemOne" style={styles} onClick={this.handleClick}>{this.props.thing}</div>
+      <button class="myButton" onClick={this.handleXClick}>X</button>
       </div>
     )
   }

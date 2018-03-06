@@ -1,11 +1,12 @@
+.items {
+border: 1px solid black;
+}
 
-
-.one {
+.itemOne {
   text-align: center;
 
 }
 
-.two {
+.myButton {
   text-align: center;
-  padding: 5px;
 }
