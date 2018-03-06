@@ -9,11 +9,9 @@ class TodoList extends Component {
           list: [
               {
                 text: 'eat food',
-                completed: true
               },
               {
-                text: 'code javascript', 
-                completed: false
+                text: 'code javascript',
               }
           ],
           newList: '',
@@ -43,7 +41,8 @@ class TodoList extends Component {
             <div>
               {this.state.list.map(item => <Todo data={item.text} />)}
               <form onSubmit={this.addItem}> 
-                <input type="text" onChange={this.handleItem} placeholder="Add a new Todo" value={this.state.newList.text}/>
+                <input type="text" onChange={this.handleItem}
+                  placeholder="Add a new Todo" value={this.state.newList}/>
                 </form>
             </div>
         );
