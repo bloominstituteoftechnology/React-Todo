@@ -6,8 +6,8 @@ class TodoList extends Component {
     super();
 
     this.state = {
-      ToDo: [],
-      newToDo: ""
+      todos: [],
+      newTodo: ""
       // clicked: false
     };
   }
@@ -19,16 +19,16 @@ class TodoList extends Component {
 // so when you click again it uncrosess like toggle
   handleInput = event => {
     console.log("event.target.value", event.target.value);
-    this.setState({ newToDo: event.target.value });
+    this.setState({ newTodo: event.target.value });
   };
 
-  addToDo = event => {
+  addTodo = event => {
     event.preventDefault();
-    const ToDoList = this.state.ToDo;
-    ToDoList.push(this.state.newToDo);
+    const todoList = this.state.todos;
+    todoList.push(this.state.newTodo);
     this.setState({
-      ToDo: ToDoList,
-      newToDo: ""
+      todos: todoList,
+      newTodo: ""
     });
   };
 
@@ -37,16 +37,16 @@ class TodoList extends Component {
     // ternary operator
     return (
       <div>
-        {this.state.ToDo.map(item => 
+        {this.state.todos.map(item => 
         <Todo items = {item}/>
         )}
         {/* The .map is iterating through each item in the “ToDo” array and passes each element to the “ToDo.js” file as the variable “items”. */}
-        <form onSubmit={this.addToDo}>
+        <form onSubmit={this.addTodo}>
           <input
             type="text"
             onChange={this.handleInput}
             placeholder="Add a new item"
-            value={this.state.newToDo}
+            value={this.state.newTodo}
           />
         </form>
       </div>
