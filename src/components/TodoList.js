@@ -6,7 +6,7 @@ class TodoList extends Component {
     super();
 
     this.state = {
-      todos: [],
+      todos: [{text: 'todo'}, {text: 'hi'}],
       newTodo: {
         text: '',
         completed: false
@@ -48,8 +48,15 @@ class TodoList extends Component {
     // ternary operator
     return (
       <div>
-        {this.state.todos.map(todo => 
-        <Todo todo = {todo}/>
+        {/* map is iterating through todos array
+            map is assigning each todos item as todo parameter 
+            map is assigning each todos index as i parameter 
+            if todo.text is true(not an empty string)
+            then render Todo class component from Todo.js
+            pass value todo.text as props to todo
+        */
+          this.state.todos.map((todo, i) =>
+          todo.text && <Todo todo={todo.text} key={i} />
         )}
         {/* The .map is iterating through each todo in the “ToDo” array and passes each element to the “ToDo.js” file as the variable “items”. */}
         <form onSubmit={this.addTodo}>
@@ -57,7 +64,7 @@ class TodoList extends Component {
             type="text"
             onChange={this.handleInput}
             placeholder="Add a new todo"
-            value={this.state.newTodo}
+            value={this.state.newTodo.text}
           />
         </form>
       </div>
