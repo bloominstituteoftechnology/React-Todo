@@ -14,6 +14,14 @@ class TodoList extends Component {
       newTask: "",
       tasks: [ ...this.state.tasks, this.state.newTask]
     });
+    console.log(this.state);
+  };
+
+  deleteTask = (event) => {
+    event.preventDefault();
+    let index = this.tasks.indexOf(event.target.value);
+    this.tasks.splice(index, 1);
+    this.setState({ items: this.tasks });
   };
 
   handleToDo = (event) => {

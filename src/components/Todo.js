@@ -5,7 +5,6 @@ class Todo extends Component {
     clicked: false
   };
 
-
   handleClick = () => {
     this.setState({clicked: !this.state.clicked});
   };
