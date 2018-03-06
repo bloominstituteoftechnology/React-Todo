@@ -4,6 +4,17 @@
 #### Answers to the following partner-study can be found [here](https://reactjs.org/docs/glossary.html)
   * Describe the following, Single Page Application, Compilers, Bundlers, Elements, Components, JSX, Package Mangers, CDN, Props and State. 
   * Write all answers in answers.md
+  
+  * Single Page Application - Everything is loaded onto a single page and does not require a reload to go to another page
+  * Compilers - Takes newer javascript code and converts it into older javascript format for compatibility
+  * Bundlers - Bundles multiple dependencies into one file
+  * Elements - An element is the visual block of a component (HTML)
+  * Components - Contains an element and the functionality of the element in a self-contained reusable block of code 
+  * JSX - Allows for HTML elements in javascript (gets compiled down to javascript)
+  * Package Manager - Manages multiple dependencies needed in a project
+  * CDN - Hosts static content (JS, css, images) in multiple servers around the world for faster load times and lower latency
+  * Props - Read only data properties on a React component (passed down from parent to child)
+  * State - Data properties of a React component (the component's own data, not from a parent component)
 
 ### Other Useful Resources
 * [CodeSandbox](https://codesandbox.io/s/z667kplonx) that was used in the lecture video: 

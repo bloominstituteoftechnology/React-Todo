@@ -1,0 +1,7 @@
+.Todo__text {
+  user-select: none;
+}
+
+.Todo__button {
+  margin-left: 10px;
+}
