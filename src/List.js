@@ -15,7 +15,7 @@ class List extends Component {
 	}
 	
 	render() {
-		{this.addReminder()}
+		this.addReminder();
 		return (this.state.reminders.map( (e, i) => 
 			<Item key={i} reminder={e} />
 		));
