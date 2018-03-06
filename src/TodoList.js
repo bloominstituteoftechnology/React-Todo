@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Todo from './Todo';
 
 class TodoList extends Component {
     constructor() {
@@ -28,7 +29,7 @@ class TodoList extends Component {
         return (
             <div> 
                 {this.state.toDoTaskList.map((toDoTask, index) => 
-                <div key={index}>{toDoTask}</div>)}
+               <Todo thing={toDoTask} key={index} />)}
                 <form onSubmit={this.addTask}>
                     <input type="text" onChange={this.handleTaskInput} placeholder="Add a new task" value={this.state.newTask}/>
                 </form>
