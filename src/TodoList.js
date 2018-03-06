@@ -42,10 +42,16 @@ class TodoList extends Component {
     });
   };
 
+  childFunc = (index) => {
+    this.setState({
+      selected: index
+    });
+  }
+
   render() {
     return (
       <div>
-        {this.state.list.map(item => <Done thing={item} />)}
+        {this.state.list.map((item, i) => <Done k={i} index={i} thing={item} action={this.childFunc}/>)}
         <form onSubmit={this.addItem}>
           <input
             type="text"
