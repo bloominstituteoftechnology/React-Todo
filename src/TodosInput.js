@@ -8,6 +8,7 @@ class TodosInput extends Component {
     this.state = {
       todos: [],
       todo: '',
+      id: 1
     };
   }
 
@@ -15,22 +16,25 @@ class TodosInput extends Component {
     this.setState({ todo: event.target.value });
   };
 
-  deleteTodo = () => {
-    const newTodos = this.state.todos.filter((elem) => {
-      return elem !== this.state.todo;
-    });
-    this.setState({ todos: newTodos, todo: '' });
-    console.log(newTodos);
-};
+  deleteTodo = (todoItem) => {
+      const newTodos = this.state.todos.filter(item => {
+        return item !== todoItem;
+      })
+      console.log(todoItem)
+      this.setState({ todos: newTodos, todo: '' });
+  }
 
   addTodo = (event) => {
     event.preventDefault();
-    const newTodo = this.state.todos; // copy of current state
+    const todos = this.state.todos.slice(0);
+    let id = this.state.id;
+    const newTodo = {text: this.state.todo, id}; // copy of current state
 
-    newTodo.push(this.state.todo);
+    todos.push(newTodo);
     this.setState({
       todos: newTodo,
-      todo: ''
+      todo: '',
+      id: ++id
     });
   };
 
@@ -43,7 +47,8 @@ class TodosInput extends Component {
         <form onSubmit={this.addTodo}>
           <input type="text" onChange={this.handleInputChange} placeholder="Add Todo" value={this.state.todo} />
         </form>
-        {this.state.todos.map(todo => <TodosList prop={todo} />)}
+        {console.log(this.state.todos)}
+        {this.state.todos.map(todo => <TodosList todo={todo} deleteTodo={this.deleteTodo} />)}
     </div>
   )
 }
