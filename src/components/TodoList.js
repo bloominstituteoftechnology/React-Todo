@@ -17,12 +17,14 @@ class TodoList extends Component {
 
   addTodo = event => {
     event.preventDefault();
-    const todoList = this.state.todos;
-    todoList.push(this.state.newTodo);
-    this.setState({
-      newTodo: '',
-      todos: todoList
-    });
+    if (this.state.newTodo !== '') {
+      const todoList = this.state.todos;
+      todoList.push(this.state.newTodo);
+      this.setState({
+        newTodo: '',
+        todos: todoList
+      });
+    }
   };
 
   deleteTodo = index => {
