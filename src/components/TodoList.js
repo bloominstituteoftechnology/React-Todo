@@ -6,11 +6,8 @@ class TodoList extends Component {
     super();
 
     this.state = {
-      todos: [{
-        text:'',
-        completed:false,
-      }],
-      newTodo: ''
+      todos: [{}],
+      newTodo: ""
     };
   }
   handleTodoInput = event => {
@@ -19,13 +16,29 @@ class TodoList extends Component {
   addTodo = event => {
     event.preventDefault();
     const todoList = this.state.todos;
-    todoList.push({text:this.state.newTodo, completed:false});
+    todoList.push({ text: this.state.newTodo, completed: false });
     this.setState({ newTodo: "", todos: todoList });
+  };
+  removeTodo = num => {
+    console.log(num);
+    const todoList = this.state.todos;
+    todoList.splice(num, 1);
+    this.setState({ todos: todoList });
   };
   render() {
     return (
       <div>
-        {this.state.todos.map((todo, i) => <Todo key={i} todo={todo} />)}
+        {this.state.todos.map((todo, i) => (
+          <div>
+            <Todo
+              key={i}
+              todo={todo}
+              button={
+                <button onClick={this.removeTodo.bind(null, i)}>X</button>
+              }
+            />
+          </div>
+        ))}
         <form onSubmit={this.addTodo}>
           <input
             type="text"
@@ -40,7 +53,6 @@ class TodoList extends Component {
 }
 
 export default TodoList;
-
 
 // import React, { Component } from "react";
 
@@ -77,7 +89,7 @@ export default TodoList;
 //           placeholder = "Add a new Task"
 //           value = {this.state.newTodo}
 //           />
-//         </form> 
+//         </form>
 //       </div>
 //     );
 //   }}

@@ -5,10 +5,9 @@ class Todo extends Component {
     super(props);
 
     this.state = {
-      text:this.props.todo.text,
-      completed:this.props.completed
-      // item: this.item,
-      // clicked: false
+      text: this.props.todo.text,
+      completed: this.props.completed,
+      key: this.key
     };
   }
   toggleDoneness = () => {
@@ -18,8 +17,10 @@ class Todo extends Component {
     const styles = this.state.completed
       ? { textDecoration: "line-through" }
       : { textDecoration: "none" };
+
     return (
       <div style={styles} onClick={this.toggleDoneness}>
+        {this.props.button}
         {this.props.todo.text}
       </div>
     );
