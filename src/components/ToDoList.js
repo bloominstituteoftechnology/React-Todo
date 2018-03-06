@@ -9,7 +9,7 @@ class TodoList extends Component {
             newTodo: '',
         };
     }
-
+    
     addTodo = (event) => {
         event.preventDefault();
         // Make new copies of the array and item
@@ -21,8 +21,8 @@ class TodoList extends Component {
         
        // reset the newToDoItem to empty, and update the item list
         this.setState({
-            newTodo: '',
             todos: newTodos,
+            newTodo: '',
         });
     }; 
     
@@ -35,8 +35,8 @@ class TodoList extends Component {
     render() {
         return (
             <div>
-                {this.state.todos.map((item, index) => {
-                    return <Todo key={index} todo={item} />
+                {this.state.todos.map((todo, i) => {
+                    return <Todo key={i} todo={todo} />
                 })}
                 <form onSubmit={this.addTodo}>
                     <input text="text" onChange={this.getToDoItemInput} placeholder="Enter a to do item" value={this.state.newTodo}/>

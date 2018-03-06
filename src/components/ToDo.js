@@ -17,7 +17,7 @@ class Todo extends Component {
     render() {
         const clicked = this.state.clicked ? {textDecoration: 'line-through'}: {textDecoration: 'none'};
         return(
-            <li style={clicked} onClick={this.completed} >{this.props.todo}</li>
+            <div style={clicked} onClick={this.completed}>{this.props.todo}</div>
         );
     }
 }
