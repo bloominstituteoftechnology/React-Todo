@@ -7,7 +7,7 @@ A single page application is an app that loads a single HTML page and updates th
 It converts javascript and tranforms it, then returns it into a better format for other broswers.
 
 3. Bundlers
-These take JS and CSS code written as separate modules and combine them into lesser files optimized
+Bundlers take JS and CSS code written as separate modules and combines them into one JavaScript file.
 
 4. Elements
 
