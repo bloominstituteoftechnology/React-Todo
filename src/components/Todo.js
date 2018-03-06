@@ -7,6 +7,7 @@ class Todo extends Component {
       clicked: false,
     }
 
+    
   }
   toggleState = () => {
     this.setState({
