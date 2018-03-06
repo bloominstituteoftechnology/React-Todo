@@ -7,7 +7,7 @@ class TodoList extends Component {
 
     this.state = {
       todos: [],
-      newTodo: ''
+      newTodo: {}
     };
   }
 
@@ -19,9 +19,9 @@ class TodoList extends Component {
     event.preventDefault();
     if (this.state.newTodo !== '') {
       const todoList = this.state.todos;
-      todoList.push(this.state.newTodo);
+      todoList.push({ text: this.state.newTodo, completed: false });
       this.setState({
-        newTodo: '',
+        newTodo: { text: '', completed: false },
         todos: todoList
       });
     }
@@ -29,11 +29,10 @@ class TodoList extends Component {
 
   deleteTodo = index => {
     const todoList = this.state.todos;
-    // const idx = todoList.indexOf(index);
     console.log(todoList, index);
     todoList.splice(index, 1);
     this.setState({
-      newTodo: '',
+      newTodo: {},
       todos: todoList
     });
   };
@@ -56,10 +55,10 @@ class TodoList extends Component {
             type="text"
             placeholder="Enter a Todo Item"
             onChange={this.handleOnChange}
-            value={this.state.newTodo}
+            value={this.state.newTodo.text}
           />
           <button type="submit" onClick={this.addTodo}>
-            Add a Todo
+            Add Todo Item
           </button>
         </form>
       </div>

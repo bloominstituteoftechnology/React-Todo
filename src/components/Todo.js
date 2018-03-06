@@ -26,7 +26,7 @@ class Todo extends Component {
     return (
       <div>
         <div className="propsTodoID" style={styles} onClick={this.handleClick}>
-          {this.props.todo}
+          {this.props.todo.text}
         </div>
         <button onClick={this.handleDel}>x</button>
       </div>
