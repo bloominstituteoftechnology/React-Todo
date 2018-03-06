@@ -1,19 +1,20 @@
 import React, { Component } from "react";
+import Todo from "./Todo";
 
-class Todo extends Component {
+class TodoList extends Component {
   constructor() {
     super();
 
     this.state = {
       ToDo: [],
-      newToDo: "",
-      clicked: false
+      newToDo: ""
+      // clicked: false
     };
   }
 
-  handleClick = () => {
-    this.setState({ clicked: !this.state.clicked });
-  }
+  // handleClick = () => {
+  //   this.setState({ clicked: !this.state.clicked });
+  // }
 // this is when it is clicked, changes state to opposite whatever clicked is because !
 // so when you click again it uncrosess like toggle
   handleInput = event => {
@@ -32,13 +33,14 @@ class Todo extends Component {
   };
 
   render() {
-    const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
+    // const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
     // ternary operator
     return (
       <div>
-        {this.state.ToDo.map(item =>
-        <div style={styles} onClick={this.handleClick}>{item}</div>
+        {this.state.ToDo.map(item => 
+        <Todo items = {item}/>
         )}
+        {/* The .map is iterating through each item in the “ToDo” array and passes each element to the “ToDo.js” file as the variable “items”. */}
         <form onSubmit={this.addToDo}>
           <input
             type="text"
@@ -55,4 +57,4 @@ class Todo extends Component {
 
 
 
-export default Todo;
+export default TodoList;
