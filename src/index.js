@@ -1,6 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-import ParentComponent from './App';
-import ChildComponent from './ChildComponent';
+import App from './App';
 
-render(<ParentComponent />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));
