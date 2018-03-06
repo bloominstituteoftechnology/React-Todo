@@ -14,7 +14,8 @@ class ToDoList extends Component {
     };
 
     addToDo = (event) => {
-        event.preventDefault();
+        //event.preventDefault();
+        console.log('This is the newToDo: ', this.state.newToDo);
         const toDoItemsList = this.state.toDoItems;
         toDoItemsList.push(this.state.newToDo);
         
@@ -28,6 +29,12 @@ class ToDoList extends Component {
         return (
             <div>
                 {this.state.toDoItems.map((toDoItem) => <div>{toDoItem}</div>)}
+            
+                <p/>
+                <form onSubmit={this.addToDo()}>
+                    <input type='text' placeholder='Please enter some text' value={this.state.newToDo} />
+                </form>
+                
             </div>
         );
 
