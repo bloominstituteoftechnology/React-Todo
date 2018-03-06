@@ -1,0 +1,15 @@
+body {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+}
+#TodoList {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  font-size: 20px;
+  padding: 20px;
+}
+h2 {
+  font-size: 40px;
+}

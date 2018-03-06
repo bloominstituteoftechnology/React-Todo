@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Todo.css";
 
 class Todo extends Component {
   constructor(props) {
@@ -16,24 +17,18 @@ class Todo extends Component {
   render() {
     const styles = this.state.completed
       ? {
-          textDecoration: "line-through",
-          display: "inline",
-          margin: "20px"
+          textDecoration: "line-through"
         }
       : {
-          textDecoration: "none",
-          display: "inline",
-          margin: "20px"
+          textDecoration: "none"
         };
-    const buttonStyles = {
-      display: "inline"
-    };
+
     return (
-      <div style={buttonStyles}>
+      <div class="todo-wrapper">
         {this.props.button}
-        <div style={styles} onClick={this.toggleDoneness}>
+        <p style={styles} onClick={this.toggleDoneness}>
           {this.props.todo.text}
-        </div>
+        </p>
       </div>
     );
   }

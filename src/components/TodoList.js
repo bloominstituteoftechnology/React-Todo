@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Todo from "./Todo.js";
-
+import "./TodoList.css";
 class TodoList extends Component {
   constructor() {
     super();
@@ -44,14 +44,19 @@ class TodoList extends Component {
 
   render() {
     return (
-      <div>
+      <div id="TodoList">
         {this.state.todos.map((todo, i) => {
           return (
             <div key={i}>
-              <button key={"button" + i} onClick={this.removeTodo}>
-                x
-              </button>
-              <Todo key={"todo" + i} todo={todo} />
+              <Todo
+                key={"todo" + i}
+                todo={todo}
+                button={
+                  <button key={"button" + i} onClick={this.removeTodo}>
+                    x
+                  </button>
+                }
+              />
             </div>
           );
         })}
