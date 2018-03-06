@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class makeTodo_Complete extends Component {
+class Todo extends Component {
     constructor () {
         super ();
         this.state = {
@@ -21,4 +21,4 @@ class makeTodo_Complete extends Component {
     
 }
 
-export default makeTodo_Complete;
+export default Todo;
