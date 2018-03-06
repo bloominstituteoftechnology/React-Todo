@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
+import DeleteButton from './DeleteButton';
 
 class TodoList extends Component {
     constructor() {
@@ -7,7 +8,7 @@ class TodoList extends Component {
 
         this.state = {
             todos: [],
-            newTodo: ''
+            newTodo: {'text': '', 'completed': false}
         };
     }
 
@@ -20,21 +21,29 @@ class TodoList extends Component {
         const todoList = this.state.todos;
         todoList.push(this.state.newTodo);
         this.setState({
-            newTodo: '',
+            newTodo: {'text': '', 'completed': false},
             todos: todoList
         });
+    };
+
+    addCompletedButton = (event) => {
+        event.preventDefault();
+        const deleteButton = <button>x</button>
     };
 
     render() {
         return (
             <div>
-                {this.state.todos.map(item => <Todo todo={item} />)}
+                {this.state.todos.map(item => <Todo todo={item} /> <DeleteButton deletebutton={item} />)}
                 <form onSubmit={this.addTodo}>
-                    <input type="text" onChange={this.handleTodoListInput} placeholder="Add new todo item" value={this.state.newTodo} />
+                    <input type="text" onChange={this.handleTodoListInput} placeholder="Add new todo item" value={this.state.newTodo.text} />
+                    
                 </form>
             </div>
         );
     }
+
+    
 }
 
 export default TodoList;
