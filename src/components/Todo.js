@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './todoList.css';
 
 class Todo extends Component {
     constructor() {
@@ -21,7 +22,7 @@ class Todo extends Component {
 
     render() {
         const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
-        const styleDel = this.state.delete ? {display: 'none'} : {display: 'inline'}
+        const styleDel = this.state.delete ? {display: 'none'} : {display: 'inline'};
         return (
           <div style = {styleDel}>
             <div style={styles} onClick={this.handleClick}>

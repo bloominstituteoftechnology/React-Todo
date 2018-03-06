@@ -37,7 +37,6 @@ class TodoList extends Component {
             list: updatedList,    
         });
       }
-        
     };
 
     render () {
