@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoComponent from './TodoComponent';
 
 const App = () => (
   <div>
