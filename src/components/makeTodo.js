@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import makeTodo_Complete from './makeTodo_Complete'
 
 class makeTodo extends Component {
   constructor () {
     super();
 
     this.state = {
-      tasksTodo: [],
+      tasksTodo: ["first task","second task"],
       newTask: ''
     };
   }
@@ -27,9 +28,9 @@ class makeTodo extends Component {
   render() {
     return (
       <div>
-        {this.state.tasksTodo.map(task => <div>{task}</div>)}
+        {this.state.tasksTodo.map(task => <makeTodo_Complete done={task} />)}
         <form onSubmit={this.addTask}>
-          <input type="text" onChange={this.handleTaskInput} placeholder= "Add new task" value={this.state.newTask} />
+          <input type="text" onChange={this.handleTaskInput} placeholder="Add new task" value={this.state.newTask} />
         </form>
       </div>
     );

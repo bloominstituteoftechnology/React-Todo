@@ -3,9 +3,8 @@ import makeTodo from './components/makeTodo'
 
 const App = () => (
   <div>
-    <h2>Todo App</h2>
+    <h2>Todo App Here</h2>
     <makeTodo />
-
   </div>
 );
 
