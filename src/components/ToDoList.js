@@ -4,12 +4,17 @@ import Todo from './Todo';
 class TodoList extends Component {
     constructor(){
         super();
+        //this.handler = this.handler.bind(this);
         this.state = {
             todos: [],
-            newTodo: '',
+            newTodo: {text: '', completed: false},
         };
     }
-    
+
+    completed = (child) => {
+        console.log("from child", child.target);
+    }
+
     addTodo = (event) => {
         event.preventDefault();
         // Make new copies of the array and item
@@ -22,13 +27,15 @@ class TodoList extends Component {
        // reset the newToDoItem to empty, and update the item list
         this.setState({
             todos: newTodos,
-            newTodo: '',
+            newTodo: {text: '', completed: false},
         });
     }; 
     
     getToDoItemInput = (event) => {
+       const updateNewTodo = this.state.newTodo;
+       updateNewTodo.text = event.target.value;
         this.setState({
-            newTodo: event.target.value,
+            newTodo: updateNewTodo,
         });
     };
 
@@ -36,10 +43,10 @@ class TodoList extends Component {
         return (
             <div>
                 {this.state.todos.map((todo, i) => {
-                    return <Todo key={i} todo={todo} />
+                    return <Todo key={i} todo={todo} completed={this.completed}/>
                 })}
                 <form onSubmit={this.addTodo}>
-                    <input text="text" onChange={this.getToDoItemInput} placeholder="Enter a to do item" value={this.state.newTodo}/>
+                    <input text="text" onChange={this.getToDoItemInput} placeholder="Enter a to do item" value={this.state.newTodo.text}/>
                     <button onClick={this.addTodo}>Add Item</button>
                 </form>
             </div>
