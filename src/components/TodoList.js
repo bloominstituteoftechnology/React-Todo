@@ -17,7 +17,12 @@ class TodoList extends Component {
     } 
 
     getIndex = (bubbles) => {
-        this.setState({index: bubbles})
+        console.log('bubbles', bubbles);
+        let tempArr = this.state.todos;
+        
+        tempArr.splice(bubbles, 1)
+
+        this.setState( {todos: tempArr} )
     }
 
 
@@ -47,19 +52,19 @@ class TodoList extends Component {
         })
     }
 
-    toggleState = () => {
-        // console.log(this);
-        console.log('index', this.state);
-        // const tempArray = this.state.todos;
-        // tempArray[this.state.index].completed = !tempArray[this.state.index].completed
-        // console.log('should be true first time', this.completed);
-        // console.log(this.state.todos)
-        // // const tempStatus = this.state.todos[this.state.index].completed
-        // this.setState ({
-        //     todos: tempArray
-        // })
+    // toggleState = () => {
+    //     // console.log(this);
+    //     console.log('index', this.state);
+    //     // const tempArray = this.state.todos;
+    //     // tempArray[this.state.index].completed = !tempArray[this.state.index].completed
+    //     // console.log('should be true first time', this.completed);
+    //     // console.log(this.state.todos)
+    //     // // const tempStatus = this.state.todos[this.state.index].completed
+    //     // this.setState ({
+    //     //     todos: tempArray
+    //     // })
         
-      }
+    //   }
     
     render(){
         return(
