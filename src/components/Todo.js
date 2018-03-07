@@ -12,6 +12,8 @@ class Todo extends Component {
 
   handleClick = () => {
     this.setState({ clicked: !this.state.clicked });
+    this.props.todo.completed = !this.props.todo.completed;
+    console.log(this.props.todo);
   };
 
   handleDel = () => {
