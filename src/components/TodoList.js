@@ -7,23 +7,20 @@ class ToDoList extends Component {
         this.state = {
             toDoItems: ['A', 'B', 'C'],
             newToDo: '',
+            clicked: false,
         };  
     };
     //there was an event passed below
     addToDo = (event) => {
         event.preventDefault();
-        //console.log('This is the newToDo: ', this.state.newToDo);
-        //const value = document.querySelector('input').value;
         let toDoItemsList = this.state.toDoItems;
         toDoItemsList.push(this.state.newToDo);
-        
-        
+ 
         this.setState ({
             
             toDoItems: toDoItemsList,
-            newToDo: 'Some random bullshit',
+            newToDo: '',
         });
-        
     };
 
     handleInput = (event) => {
@@ -32,21 +29,27 @@ class ToDoList extends Component {
         this.setState ({ newToDo: event.target.value});
     };
     
+    // handleClick = () => {
+    //     this.setState({ clicked: !this.state.clicked})
+    // }
+
     render() {
+        // const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
+        // return (
+        //     <div id="two" style={styles} onClick={this.handleClick}>
+        //         {this.props.thing}
+        //     </div>
+        // )
         return (
             <div>
                 {this.state.toDoItems.map((toDoItem, i) => <div key={i}>{toDoItem} </div>)}
                 <br/><form onSubmit={this.addToDo}>
                 <input type='text' placeholder='Please enter some text' onChange={this.handleInput} value={this.state.newToDo}/>
                 </form>
-                {/* {<div>{this.state.newToDo}</div>} */}
                 
             </div>
         );
-
     };
-        
-
 };
 
 export default ToDoList;
