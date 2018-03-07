@@ -1,5 +1,6 @@
 import React from "react";
-import List from "./components/ToDoList";
+import TodoList from "./components/TodoList";
+
 
 const styles = {
   fontFamily: "sans-serif",
