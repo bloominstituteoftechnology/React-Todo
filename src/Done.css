@@ -1,10 +1,15 @@
+h2 {
+  margin-left: 6%;
+}
+
 .one {
-  /* border: thin solid red; */
   width: 2%;
   float: left;
 }
 
 #two {
-  /* border: thin solid red; */
-  margin-left: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 2px;
+  overflow-wrap: break-word;
 }

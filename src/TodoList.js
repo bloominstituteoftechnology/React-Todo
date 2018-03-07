@@ -56,7 +56,7 @@ class TodoList extends Component {
   render() {
     return (
       <div>
-        {this.state.list.map((item, i) => <div><div id={i} class="one" onClick={this.handleXClick}>x</div> <Done id={i} key={i} index={i} thing={item} action={this.childFunc}/></div>)}
+        {this.state.list.map((item, i) => <div><div id={i} class="one" onClick={this.handleXClick}>x</div> <Done id={i} key={i} index={i} thing={item} action={this.childFunc}/>{"\n"}{"\n"}</div>)}
         <form onSubmit={this.addItem}>
           <input
             type="text"
