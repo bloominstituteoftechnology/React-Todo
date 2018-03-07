@@ -6,18 +6,17 @@ class TodoList extends Component {
     super();
 
     this.state = {
-      todos: [{text: 'todo'}, {text: 'hi'}],
+      todos: [],
       newTodo: {
         text: '',
         completed: false
       }
-      // clicked: false
     };
   }
 
-  // handleClick = () => {
-  //   this.setState({ clicked: !this.state.clicked });
-  // }
+  handleClick = () => {
+    this.setState({ completed: !this.state.completed });
+  }
 // this is when it is clicked, changes state to opposite whatever clicked is because !
 // so when you click again it uncrosess like toggle
   handleInput = event => {
@@ -30,9 +29,11 @@ class TodoList extends Component {
   // I'm not seeing it called with any parameters.
   // So what of this event parameter here? Special keyword? or wut?
   // setting it cleared every time you add an item to the todolist
+  
   addTodo = event => {
     event.preventDefault();
     const todoList = this.state.todos;
+
     todoList.push(this.state.newTodo);
     this.setState({
       todos: todoList,
@@ -43,9 +44,12 @@ class TodoList extends Component {
     });
   };
 
+  deleteTodo = (event) => {
+    const todoList = this.state.todos.filter(todoitem => todoitem.text !== event);
+    this.setState({todos: todoList, todo: ''})
+  }
+
   render() {
-    // const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
-    // ternary operator
     return (
       <div>
         {/* map is iterating through todos array
@@ -56,7 +60,12 @@ class TodoList extends Component {
             pass value todo.text as props to todo
         */
           this.state.todos.map((todo, i) =>
-          todo.text && <Todo todo={todo.text} key={i} />
+          todo.text && <Todo
+            todo={todo.text}
+            key={i}
+            clicked={this.handleClick}
+            deleteTodo={this.deleteTodo}
+          />
         )}
         {/* The .map is iterating through each todo in the “ToDo” array and passes each element to the “ToDo.js” file as the variable “items”. */}
         <form onSubmit={this.addTodo}>
