@@ -29,12 +29,9 @@ class TodoList extends Component {
     this.setState({ todos: todoList });
   };
 
-  removeTodo = event => {
+  removeTodo = num => {
     let todos = this.state.todos;
-    const index = Array.from(
-      event.target.parentNode.parentNode.children
-    ).indexOf(event.target.parentNode);
-    todos.splice(index, 1);
+    todos.splice(num, 1);
     window.localStorage.setItem("todos", JSON.stringify(todos));
     this.setState({
       todos,
@@ -52,8 +49,11 @@ class TodoList extends Component {
                 key={"todo" + i}
                 todo={todo}
                 button={
-                  <button key={"button" + i} onClick={this.removeTodo}>
-                    x
+                  <button
+                    key={"button" + i}
+                    onClick={this.removeTodo.bind(null, i)}
+                  >
+                    X
                   </button>
                 }
               />
