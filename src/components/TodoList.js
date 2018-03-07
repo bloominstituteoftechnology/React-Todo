@@ -4,94 +4,73 @@ import Todo from "./Todo";
 class TodoList extends Component {
   constructor() {
     super();
-
     this.state = {
       todos: [],
       newTodo: {
+        index: null,
         text: '',
         completed: false
       }
     };
   }
 
-  handleClick = (event) => {
-    console.log(event)
-    console.log(this.state.todos)
-    
-    // this.setState({ todos: todoList })
-    //console.log(todoList)
-    //this.setState({ completed: !this.state.newTodo.completed });
+  handleClick = index => {
+    const { todos } = this.state;
+    const clicked = todos.filter(obj => obj.index === index);
+    clicked[0].completed = !clicked[0].completed;
+    const newTodos = [...todos.slice(0, index), ...todos.slice(index)];
+    this.setState({ todos: newTodos });
   }
-  // this is when it is clicked, changes state to opposite whatever clicked is because !
-  // so when you click again it uncrosess like toggle
+
   handleInput = event => {
     this.setState({ newTodo: {
+      index: this.state.todos.length,
       text: event.target.value,
       completed: false
     }});
   };
 
-  // okay so I'd like some explanation here:
-  // I'm seeing this addTodo method taking a parameter
-  // called event, and yet when it is invoked on line 46
-  // I'm not seeing it called with any parameters.
-  // So what of this event parameter here? Special keyword? or wut?
-  // setting it cleared every time you add an item to the todolist
-  
   addTodo = event => {
     event.preventDefault();
-    const todoList = this.state.todos;
-
-    todoList.push(this.state.newTodo);
+    const { todos } = this.state;
+    todos.push(this.state.newTodo);
     this.setState({
-      todos: todoList,
-      newTodo: {
-        text: '',
-        completed: false
-      }
+      todos,
+      newTodo: { text: '' }
     });
   };
 
-  deleteTodo = (event) => {
-    const todoList = this.state.todos.filter(todoitem => todoitem.text !== event);
-    this.setState({todos: todoList, todo: ''})
+  deleteTodo = index => {
+    const todoList = this.state.todos.filter(obj => obj.index !== index);
+    this.setState({ todos: todoList })
   }
 
   render() {
-    const { completed } = this.state.newTodo
+    const { newTodo, todos } = this.state
     return (
       <div>
-        {/* map is iterating through todos array
-            map is assigning each todos item as todo parameter 
-            map is assigning each todos index as i parameter 
-            if todo.text is true(not an empty string)
-            then render Todo class component from Todo.js
-            pass value todo.text as props to todo
-        */
-          this.state.todos.map((todo, i) =>
+        {todos.map((todo, i) =>
           todo.text && <Todo
             todo={todo.text}
             key={i}
-            completed={completed}
+            index={todo.index}
+            completed={todo.completed}
             clicked={this.handleClick}
             deleteTodo={this.deleteTodo}
           />
         )}
-        {/* The .map is iterating through each todo in the “ToDo” array and passes each element to the “ToDo.js” file as the variable “items”. */}
+
         <form onSubmit={this.addTodo}>
           <input
             type="text"
             onChange={this.handleInput}
             placeholder="Add a new todo"
-            value={this.state.newTodo.text}
+            value={newTodo.text}
           />
         </form>
       </div>
    );
   }
 }
-
-
-
 
 export default TodoList;
