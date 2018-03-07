@@ -9,13 +9,11 @@ class TodoList extends Component {
             todos: [],
             newTodo: '',
         };
-        // this.handleTodoInput = this.handleTodoInput.bind(this);
-        // this.addTodo = this.addTodo.bind(this);
-        // this.toggleState = this.toggleState.bind(this);
-
+        
     } 
 
-    getIndex = (bubbles) => {
+    removeTodo = (bubbles) => {
+        console.log(this.state);
         console.log('bubbles', bubbles);
         let tempArr = this.state.todos;
         
@@ -24,12 +22,22 @@ class TodoList extends Component {
         this.setState( {todos: tempArr} )
     }
 
+    strikeout = (i) => {
+        console.log(this.state);
+        let tempArr = this.state.todos;
+        
+        tempArr[i].completed = !tempArr[i].completed
+
+        this.setState( {todos: tempArr} )
+    }
 
     handleTodoInput = (event) => {
         this.setState({newTodo: event.target.value})
     } 
+
     addTodo = (event) => {
         event.preventDefault();
+        if (this.state.newTodo === '') return;
         const todoList = this.state.todos;
         const newItem = {
             text: this.state.newTodo,
@@ -51,24 +59,19 @@ class TodoList extends Component {
         })
     }
 
-    // toggleState = () => {
-    //     // console.log(this);
-    //     console.log('index', this.state);
-    //     // const tempArray = this.state.todos;
-    //     // tempArray[this.state.index].completed = !tempArray[this.state.index].completed
-    //     // console.log('should be true first time', this.completed);
-    //     // console.log(this.state.todos)
-    //     // // const tempStatus = this.state.todos[this.state.index].completed
-    //     // this.setState ({
-    //     //     todos: tempArray
-    //     // })
-        
-    //   }
-    
-    render(){
+    render(){        
         return(
             <div>
-                {this.state.todos.map((todosItems, i) => <Todo key={i} index={i} todo={todosItems} toggle={this.toggleState} getIndex={this.getIndex} deleteTodo={this.deleteTodo}/>)}
+                {this.state.todos.map((todosItems, i) => <Todo 
+                    key={i} 
+                    index={i} 
+                    todo={todosItems} 
+                    toggle={this.toggleState} 
+                    removeTodo={this.removeTodo} 
+                    deleteTodo={this.deleteTodo}
+                    strikeout={this.strikeout}
+                />)}
+
                 <form onSubmit={this.addTodo}>
                     <input type='text' 
                     onChange={this.handleTodoInput} 
