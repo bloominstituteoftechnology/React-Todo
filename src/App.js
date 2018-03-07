@@ -1,5 +1,6 @@
 import React from "react";
-import List from "./components/List";
+import TodoList from "./components/TodoList";
+
 
 const styles = {
   fontFamily: "sans-serif",
@@ -7,7 +8,7 @@ const styles = {
 };
 
 const App = () => (
-  <div style={styles}>
+  <div className="app" style={styles}>
     <h2>To Do App</h2>
     <List />
   </div>

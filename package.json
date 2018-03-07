@@ -1,8 +1,9 @@
 {
-  "name": "react-i",
+  "name": "to-do-extras",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme-adapter-react-16": "1.1.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17"
@@ -18,5 +19,7 @@
     "enzyme-adapter-react-16": "^1.1.0",
     "react-test-renderer": "^16.2.0",
     "sinon": "^4.1.2"
-  }
+  },
+  "keywords": [],
+  "description": "basics complete"
 }
