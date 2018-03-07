@@ -7,8 +7,7 @@ class Todo extends Component {
 
     this.state = {
       text: this.props.todo.text,
-      completed: this.props.completed,
-      key: this.key
+      completed: this.props.completed
     };
   }
   toggleDoneness = () => {
@@ -24,7 +23,7 @@ class Todo extends Component {
         };
 
     return (
-      <div class="todo-wrapper">
+      <div className="todo-wrapper">
         {this.props.button}
         <p style={styles} onClick={this.toggleDoneness}>
           {this.props.todo.text}

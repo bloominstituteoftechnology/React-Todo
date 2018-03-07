@@ -22,12 +22,6 @@ class TodoList extends Component {
     window.localStorage.setItem("todoList", JSON.stringify(todoList));
     this.setState({ newTodo: "", todos: todoList });
   };
-  removeTodo = num => {
-    console.log(num);
-    const todoList = this.state.todos;
-    todoList.splice(num, 1);
-    this.setState({ todos: todoList });
-  };
 
   removeTodo = num => {
     let todos = this.state.todos;
