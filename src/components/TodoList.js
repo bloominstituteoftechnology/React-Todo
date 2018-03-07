@@ -14,13 +14,21 @@ class TodoList extends Component {
     };
   }
 
-  handleClick = () => {
-    this.setState({ completed: !this.state.completed });
+  handleClick = (event) => {
+    console.log(event)
+    console.log(this.state.todos)
+    
+    // this.setState({ todos: todoList })
+    //console.log(todoList)
+    //this.setState({ completed: !this.state.newTodo.completed });
   }
-// this is when it is clicked, changes state to opposite whatever clicked is because !
-// so when you click again it uncrosess like toggle
+  // this is when it is clicked, changes state to opposite whatever clicked is because !
+  // so when you click again it uncrosess like toggle
   handleInput = event => {
-    this.setState({ newTodo: { text: event.target.value } });
+    this.setState({ newTodo: {
+      text: event.target.value,
+      completed: false
+    }});
   };
 
   // okay so I'd like some explanation here:
@@ -50,6 +58,7 @@ class TodoList extends Component {
   }
 
   render() {
+    const { completed } = this.state.newTodo
     return (
       <div>
         {/* map is iterating through todos array
@@ -63,6 +72,7 @@ class TodoList extends Component {
           todo.text && <Todo
             todo={todo.text}
             key={i}
+            completed={completed}
             clicked={this.handleClick}
             deleteTodo={this.deleteTodo}
           />
