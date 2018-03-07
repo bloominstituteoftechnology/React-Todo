@@ -8,7 +8,6 @@ class TodoList extends Component {
         this.state={
             todos: [],
             newTodo: '',
-            index: null
         };
         // this.handleTodoInput = this.handleTodoInput.bind(this);
         // this.addTodo = this.addTodo.bind(this);
