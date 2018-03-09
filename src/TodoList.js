@@ -47,7 +47,7 @@ class TodoList extends Component {
     if (itemsList.length === 1) {
       itemsList.pop();
     }
-    itemsList.splice(event.target.id, event.target.id);
+    itemsList.splice({arrayIndex}, {arrayIndex});
     this.setState({
       list: itemsList
     });
@@ -56,7 +56,7 @@ class TodoList extends Component {
   render() {
     return (
       <div>
-        {this.state.list.map((item, i) => <div><div id={i} class="one" onClick={this.handleXClick}>x</div> <Done id={i} key={i} index={i} thing={item} action={this.childFunc}/>{"\n"}{"\n"}</div>)}
+        {this.state.list.map((item, i) => <div><div id={i} class="one" onClick={this.handleXClick}>x</div> <Done id={i} key={i} index={i} thing={item} action={this.childFunc}/></div>)}
         <form onSubmit={this.addItem}>
           <input
             type="text"
