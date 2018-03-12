@@ -7,11 +7,11 @@ class TodoList extends Component {
 
         this.state = {
             list: [
-                'Codecademy 5x / Week'
-                'Review Preclass Material'
-                'Complete Project'
-                'Church it up!'
-                'Dinner Family Plans'
+                'Codecademy 5x / Week',
+                'Review Preclass Material',
+                'Complete Project',
+                'Church it up!',
+                'Dinner Family Plans',
                 'Dinner Friend Plans'
             ],
             newItem: ''
@@ -35,7 +35,7 @@ class TodoList extends Component {
     render() {
         return (
             <div>
-                {this.state.list.map(item => <Completed ={item} />)}
+                {this.state.list.map(item => <Completed = {item} />)}
                 <form onSubmit={this.addItem}>
                 <input
                 type="text"
