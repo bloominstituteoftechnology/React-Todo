@@ -1,0 +1,7 @@
+.propsTodoID {
+  display: inline-block;
+  margin: 10px;
+  background-color: gray;
+  color: white;
+  min-width: 100px;
+}
