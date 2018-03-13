@@ -1,17 +1,12 @@
-import React from 'react';
-import Todolist from './Todolist';
+import React, { Component } from 'react';
+import List from './List';
 
-const styles = {
-  fontFamily: 'sans-serif',
-  textAlign: 'center',
-  color: 'red',
-};
-
-const App = () => (
-  <div style= {styles}>
-    <h2>To Do List</h2>
-    <Todolist/>
-  </div>
-);
+class App extends Component {
+  render() {
+    return (
+      <List />
+    )
+  }
+}
 
 export default App;
