@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 
 class TodoList extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             Todos: ['Brush cat'],
-            nextTodo: ""
+            nextTodo: "",
+            completed: this.props.completed
         };
+    }
+
+    toggleCompleted = () => {
+        this.setState({completed: !this.props.completed})
+        if(!this.props.completed) {
+            this.setState({completed: this.props.completed})
+        }
     }
 
     todoChange = event => {
@@ -29,7 +37,9 @@ class TodoList extends Component {
                     return(
                         <div>
                             <ul> 
-                                <li key={i}>{todo}</li>
+                                <li key={i}>{todo}
+                                <input type="checkbox" checked={this.state.completed} onChange={() => this.toggleCompleted()} />
+                                </li>
                             </ul>
                         </div>
                     );
@@ -41,6 +51,7 @@ class TodoList extends Component {
                     onChange={this.todoChange}
                     />
                 </form>
+
             </div>  
         );
     }
