@@ -11,7 +11,6 @@ class Todo extends Component {
   }
 
   handleClick = (e) => {
-      e.preventDefault();
     this.setState({
       completed: this.complete = !this.complete, 
     });
@@ -22,10 +21,9 @@ class Todo extends Component {
       "textDecoration": this.state.completed ? "line-through" : "",
     }
     return (
-      <li>
-        <input class="checkBox" type="checkbox" onClick={this.handleClick.bind(this)}/>
-        <label style={style}>{this.props.task.text}</label>
-      </li>
+      <div className="todoTask" style={style} onClick={this.handleClick}>
+        {this.props.index + 1}. {this.props.task.text}
+      </div>
     );
   }
 }
