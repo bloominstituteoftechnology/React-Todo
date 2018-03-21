@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+
+
 class TodoList extends Component {
     constructor(props) {
         super(props);
@@ -36,7 +38,7 @@ class TodoList extends Component {
                 {this.state.Todos.map((todo, i) => {
                     return(
                         <div>
-                            <ul> 
+                            <ul style={{color: blue}}> 
                                 <li key={i}>{todo}
                                 <input type="checkbox" checked={this.state.completed} onChange={() => this.toggleCompleted()} />
                                 </li>
