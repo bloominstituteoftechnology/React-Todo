@@ -22,8 +22,16 @@
 
 6. JSX
 
+    This is an extended syntax for Javascript.
+
 7. Package Mangers
+
+    These tools manage the dependencies for your project. Ex: npm & yarn.
 
 8. CDN
 
+    (Content Delivery Network) Global servers that deliver cached static content.
+
 9. Props and State
+
+    Props are inputs for a React component. Props passed from the parent component. Required by a componene when its data changes over time. State is managed by the component itself. 
