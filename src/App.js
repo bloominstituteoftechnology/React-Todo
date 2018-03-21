@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
+import TodosList from './components/TodosList'
 
 const App = () => (
   <div>
-    <h2>Todo App</h2>
-
+    <TodosList thisIsAnExample='example' />
   </div>
-);
+)
 
-export default App;
+export default App
