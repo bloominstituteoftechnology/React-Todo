@@ -1,0 +1,21 @@
+
+body {
+  margin: 0 auto;
+  width: 800px;
+}
+
+.container {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.todoList {
+  list-style: none;
+}
+
+.checkBox {
+  margin-right: 10px;
+}
