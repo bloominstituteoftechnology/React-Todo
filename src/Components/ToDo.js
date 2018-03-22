@@ -1,11 +1,14 @@
 import React from 'react';
 
-const ToDo = (props) => {
+const Todo = (props) => {
+    console.log("PROPS", props);
     return (
-        <ul> {props.todo.map((todo, i) => {
-            return <li key = {i}>{ todo }</li>
-        })} </ul> 
+        <div>
+            <ul> {this.props.todos.map((todo, i) => {
+                return <li key = {i}>{ todo }</li>
+            })} </ul> 
+        </div>    
     );
 }
 
-export default ToDo;
+export default Todo;
