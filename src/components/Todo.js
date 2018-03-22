@@ -1,31 +1,30 @@
 import React from 'react';
 
 class Todo extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.toggleTodo = this.toggleTodo.bind(this);
+        this.deleteTodo = this.deleteTodo.bind(this);
     }
     
     render() {
       return (
-        <ul>        
-          { this.props.todos.map((todo, i) => 
-              <li key={i}>
-                <input type="checkbox" onClick={this.toggleTodo} />
-                { todo }
-              </li>
-            )}
-        </ul>  
+        <li>
+          <input type="checkbox" onClick={ this.toggleTodo } 
+                 checked={ this.props.todo.checked } />
+          { this.props.todo.content }
+          <input type="button" value="x" onClick={ this.deleteTodo } />    
+        </li>        
       )
     }
 
     toggleTodo(event) {
-      if (event.target.parentNode.style.textDecoration !== "line-through") {
-        event.target.parentNode.style.textDecoration = "line-through";
-      } else {
-        event.target.parentNode.style.textDecoration = "none";
-      }
+      this.props.toggle(event.target, this.props.id);
     }
+
+    deleteTodo() {
+      this.props.delete(this.props.id);
+    }    
 }
 
 export default Todo;
