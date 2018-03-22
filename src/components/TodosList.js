@@ -33,7 +33,7 @@ export default class TodosList extends Component {
       return !todo.text
 	? undefined
         : {
-	  todos: prevState.todos.concat(makeTodo(todo.text)),
+	  todos: prevState.todos.concat(todo),
 	  newTodo: makeTodo('')
 	}
     })
@@ -43,10 +43,9 @@ export default class TodosList extends Component {
     e.preventDefault()
     console.log(e)
     this.setState((prevState, props) => {
-      return prevState.todos.map((todo) => {
-	console.log(e.target)
-
-	todo.id === e.target
+      return prevState.todos.map(({ id }) => {
+	console.log(id)
+	return id
       })
     })
   }
@@ -56,8 +55,13 @@ export default class TodosList extends Component {
     return (
       <div>
 	<ul>
-	  {this.state.todos.map((todo) => (
-	    <div key={todo.id}>{todo.text} <a onClick={this.toggleTodo} href=''>&times;</a></div>
+	  {this.state.todos.map(todo => (
+            <div key={todo.id}>
+              {todo.text}
+              <a onClick={this.toggleTodo} href=''>
+                &times;
+	      </a>
+	    </div>
 	  ))}
 	</ul>
 	<form onSubmit={this.handleSubmit}>
