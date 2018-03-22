@@ -31,6 +31,16 @@ class TodoList extends Component {
     this.pushToLocalStorage(todos);
   }
 
+  removeTodo = (index) => {
+    let todos = this.state.todos;
+    todos.splice(index, 1);
+    this.setState({
+      todos: todos,
+      newTodo: '',
+    });
+    this.pushToLocalStorage(todos);
+  }
+
   handleChange = (event) => {
     this.setState({
         newTodo: event.target.value,
@@ -54,8 +64,8 @@ class TodoList extends Component {
           placeholder="Add a new task!" value={this.state.newTodo}/>
        </form> 
        {this.state.todos.map((item, index) => {
-           return <Todo stateHandler={this.stateHandler}
-                     key={index} todo={item} index={index}/>
+           return <Todo stateHandler={this.stateHandler} removeTodo={this.removeTodo} 
+                   key={index} todo={item} index={index}/>
        })}
       </div>
     );

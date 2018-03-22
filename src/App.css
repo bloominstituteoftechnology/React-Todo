@@ -39,4 +39,7 @@ body {
 
 .button {
   border-radius: 50%;
+  margin-left: 25px;
+  color: red;
+  background-color: black;
 }

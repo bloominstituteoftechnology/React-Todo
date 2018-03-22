@@ -6,8 +6,12 @@ class Todo extends Component {
     super();
   }
 
-  handleClick = (e) => {
+  handleClick = () => {
     this.props.stateHandler(this.props.index)
+  }
+
+  handleButton = () => {
+    this.props.removeTodo(this.props.index);
   }
 
   render() {
@@ -20,6 +24,7 @@ class Todo extends Component {
           <input className="checkBoxes" id="checkBox" type="checkbox" onClick={this.handleClick}/>
           {this.props.todo.text}
         </label>
+        <button className="button" onClick={this.handleButton}>&times;</button>
       </div>
     );
   }
