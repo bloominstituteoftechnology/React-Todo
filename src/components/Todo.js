@@ -21,8 +21,11 @@ class Todo extends Component {
       "textDecoration": this.state.completed ? "line-through" : "",
     }
     return (
-      <div className="todoTask" style={style} onClick={this.handleClick}>
-        {this.props.index + 1}. {this.props.task.text}
+      <div className="todoTask">
+        <label className="todoTask" style={style}>
+          <input id="checkBox" type="checkbox" onClick={this.handleClick}/>
+          {this.props.task.text}
+        </label>
       </div>
     );
   }

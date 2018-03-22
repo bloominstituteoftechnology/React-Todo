@@ -4,10 +4,19 @@ import Todo from './Todo';
 class TodoList extends Component {
   constructor(props) {
     super(props);
+    let todos = this.grabLocalStorage();
     this.state = {
-      todos: [],
+      todos,
       newTodo: '', 
     }
+  }
+
+  grabLocalStorage = () => {
+    return JSON.parse(localStorage.getItem('todos')) || [];
+  }
+
+  pushToLocalStorage = (todos) => {
+    localStorage.setItem('todos', JSON.stringify(todos))
   }
 
   addTodo = (event) => {
@@ -16,9 +25,10 @@ class TodoList extends Component {
     let todos = this.state.todos;
     todos.push(newTodo);
     this.setState({
-        todos: todos,
-        newTodo: ''
-    })
+      todos: todos,
+      newTodo: ''
+    });
+    this.pushToLocalStorage(todos);
   }
 
   handleChange= (event) => {
@@ -31,10 +41,11 @@ class TodoList extends Component {
     return (
       <div>
        <form onSubmit={this.addTodo}>
-         <input class="textBox" type="text" onChange={this.handleChange} placeholder="Add a new task!" value={this.state.newTodo}/>
+         <input className="textBox" type="text" onChange={this.handleChange} 
+          placeholder="Add a new task!" value={this.state.newTodo}/>
        </form> 
        {this.state.todos.map((item, index) => {
-           return <Todo index={index} task={item}/>
+           return <Todo key={index} task={item}/>
        })}
       </div>
     );
