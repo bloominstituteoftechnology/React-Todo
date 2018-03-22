@@ -5,7 +5,7 @@ class TodoList extends Component {
     constructor() {
         super();
         this.state = {
-            tasks: ["watch Lambda vids"],
+            tasks: [""],
             newTodo:""
         };
     }

@@ -8,17 +8,17 @@ class Todo extends Component {
         };
     }
 
-    completed = () => {
+    clickHandler = () => {
         this.setState({ completed: !this.state.completed });
     };
 
     render() {
-        const style = this.state.completed
+        const styles = this.state.completed
         ? { textDecoration: "line-through"}
         : { textDecoration: "none" };
 
         return (
-            <div style={style} onClick={this.completed}>
+            <div style={styles} onClick={this.clickHandler}>
             {this.props.todo}
             </div>
         );
