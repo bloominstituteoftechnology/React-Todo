@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-let blankFormString = 'What are you going to do with your life?'
+let blankFormString = 'Add something to the list'
 
 class NewTodo extends Component {
 
@@ -17,9 +17,8 @@ class NewTodo extends Component {
 
 	addItem = (event) => {
 		event.preventDefault();
-		this.props.add(this.state.newItem);
+        this.props.add(this.state.newItem);
         this.setState({newItem: blankFormString});
-        console.log(this.props);
 	}
 
 	render() {

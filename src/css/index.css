@@ -3,16 +3,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1 {
-
+div {
+    margin: 5% 5%;
 }
 
 form {
     margin: 60% 5% 5% 5%;
-}
-
-div {
-
 }
 
 input {
@@ -21,7 +17,7 @@ input {
 }
 
 button {
-    margin-left: 200px;
+    margin-left: 100px;
 }
 
 .completed {

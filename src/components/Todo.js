@@ -29,10 +29,8 @@ class Todo extends Component {
 		else{
             const style = this.state.clicked ? 'completed' : 'notCompleted';
 			return (
-			<div className={style} onClick={this.handleClick}>
-				{this.state.item}
-				<button onClick={this.removeItem}>X</button>
-			</div>
+                <div className={style} onClick={this.handleClick}>{this.state.item}
+                <button onClick={this.removeItem}>X</button></div>
 			);
 		}
 	}
