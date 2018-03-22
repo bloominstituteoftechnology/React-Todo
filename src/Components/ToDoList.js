@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Todo from './Todo';
 
-class TodoList extends Component {
+ class TodoList extends Component {
     constructor() {
         super();
         this.state = {
@@ -14,6 +15,7 @@ class TodoList extends Component {
       const todos = this.state.todos;
       console.log("TODOS", todos);
       todos.push(this.state.newTodo);
+
       this.setState({
         newTodo: '',
         todos: todos,
@@ -24,21 +26,26 @@ class TodoList extends Component {
       this.setState({ newTodo: event.target.value });
     };
 
-    completeTodo = (event) => {
-
-    }
-
+  
     render() {
         return (
           <div>
-            { this.state.todos.map(todo => <div>{todo}</div>) }
-        
-            <form onSubmit={this.addTodo}>
-              <input type="text" onChange={this.handleNewTodo} placeholder="Add a task!" value={this.state.newTodo} />
+            { this.state.todos.map((todo, i) => {
+              return (
+              <Todo key={i} todo={todo}/> 
+              )
+            })
+          }
+
+            <form onSubmit={ this.addTodo }>
+              <input type="text" onChange={ this.handleNewTodo } placeholder="Add a task!" value={ this.state.newTodo } />
             </form>
+              
           </div>
-        );
-    }
+        
+      ) 
+    
+}
 }
 
 export default TodoList;
