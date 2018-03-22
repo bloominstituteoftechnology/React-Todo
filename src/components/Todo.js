@@ -10,13 +10,17 @@ class Todo extends Component {
     handleClick = () => {
         this.setState({ clicked: !this.state.clicked}); //now it's true. changing this.state.clicked
     }
+
+    handleButton = () => {
+        this.props.removeTodo(this.props.index);
+
+    }
     render() { //about to return dynamic html 
         const styles = this.state.clicked? { textDecoration: 'line-through'} : { textDecoration: 'none'};
-        return (
-            <div style= {styles} onClick= {this.handleClick}>
+        return <div style={styles} onClick={this.handleClick}>
             {this.props.todo}
-            </div> //curly brackets- variables. everything else is regular html.  JSX
-        );
+            <button onClick={this.handleButton}>&times;</button>
+          </div>; //curly brackets- variables. everything else is regular html.  JSX
     }
 }
 
