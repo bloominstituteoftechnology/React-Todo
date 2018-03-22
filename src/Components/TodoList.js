@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 
-let strikeThrough = {textDecoration: "underline"};
+let strikeThrough = {textDecoration: 'none'}
 
 class TodoList extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             Todos: ['Brush cat'],
             nextTodo: "",
-            completed: this.props.completed,
+            completed: this.completed,
         };
     }
 
-    toggleCompleted = () => {
-        this.setState({completed: !this.props.completed})
 
-        if(!this.props.completed) {
-            this.setState({completed: this.props.completed})
-            strikeThrough = {textDecoration: "line-through"}
+    toggleCompleted = () => {
+        this.setState({completed: !this.state.completed})
+
+        if(!this.state.completed) {
+            this.setState({completed: this.state.completed})
+            strikeThrough={textDecoration: !this.state.completed ? 'line-through' : 'none'}
         }
     }
 
@@ -33,7 +34,7 @@ class TodoList extends Component {
         todosArray.push(nextTodos);
         this.setState({Todos: todosArray, nextTodo: "" });
     };
-
+    
     render() {
         return (
             <div>
