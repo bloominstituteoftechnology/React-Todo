@@ -2,29 +2,23 @@ import React, { Component } from 'react';
 
 
 class Todo extends Component {
-  constructor(props) {
-    super(props);
-    this.complete = this.props.task.completed
-    this.state = {
-      completed: this.complete
-    };
+  constructor() {
+    super();
   }
 
   handleClick = (e) => {
-    this.setState({
-      completed: this.complete = !this.complete, 
-    });
+    this.props.stateHandler(this.props.index)
   }
 
   render() {
     let style = {
-      "textDecoration": this.state.completed ? "line-through" : "",
+      "textDecoration": this.props.todo.completed ? "line-through" : "none",
     }
     return (
       <div className="todoTask">
-        <label className="todoTask" style={style}>
-          <input id="checkBox" type="checkbox" onClick={this.handleClick}/>
-          {this.props.task.text}
+        <label style={style}>
+          <input className="checkBoxes" id="checkBox" type="checkbox" onClick={this.handleClick}/>
+          {this.props.todo.text}
         </label>
       </div>
     );

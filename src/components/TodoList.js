@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Todo from './Todo';
 
 class TodoList extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     let todos = this.grabLocalStorage();
     this.state = {
       todos,
@@ -21,9 +21,9 @@ class TodoList extends Component {
 
   addTodo = (event) => {
     event.preventDefault();
-    let newTodo = {'text': this.state.newTodo, 'completed': false}
+    let todoObject = {'text': this.state.newTodo, 'completed': false}
     let todos = this.state.todos;
-    todos.push(newTodo);
+    todos.push(todoObject);
     this.setState({
       todos: todos,
       newTodo: ''
@@ -31,11 +31,20 @@ class TodoList extends Component {
     this.pushToLocalStorage(todos);
   }
 
-  handleChange= (event) => {
+  handleChange = (event) => {
     this.setState({
         newTodo: event.target.value,
     }); 
  }
+
+  stateHandler = (index) => {
+    let todos = this.state.todos;
+    todos[index].completed = !todos[index].completed;
+    this.setState({
+      todos: todos,
+      newTodo: '',
+    });
+  } 
 
   render() {
     return (
@@ -45,7 +54,8 @@ class TodoList extends Component {
           placeholder="Add a new task!" value={this.state.newTodo}/>
        </form> 
        {this.state.todos.map((item, index) => {
-           return <Todo key={index} task={item}/>
+           return <Todo stateHandler={this.stateHandler}
+                     key={index} todo={item} index={index}/>
        })}
       </div>
     );
