@@ -3,7 +3,7 @@ import TodosList from './components/TodosList'
 
 const App = () => (
   <div>
-    <TodosList thisIsAnExample='example' />
+    <TodosList />
   </div>
 )
 

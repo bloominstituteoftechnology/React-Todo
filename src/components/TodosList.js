@@ -1,20 +1,32 @@
 import React, { Component } from 'react'
 
+const Input = (props) => {
+  return (
+    <div>
+      <input value={this.props.todoText} />
+    </div>
+  )
+}
+
+
 export default class TodosList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      todos: ['todo 1', 'todo 2'],
-      todo: ''
+      todos: ['Call Mom', 'Do laundry'],
+      newTodo: ''
     }
   }
 
-  handleSubmit(event) {
-    event.preventDefault()
+  handleChange = (event) => {
+    this.setState({ newTodo: event.target.value })
+  }
 
-    console.log(event)
-    let todo = event.target.value
-    console.log('todo:', todo)
+  handleSubmit = (event) => {
+    event.preventDefault()
+    let todos = this.state.todos
+    todos.push(this.state.newTodo)
+    this.setState({ todos, newTodo: '' })
   }
 
   render() {
@@ -22,12 +34,9 @@ export default class TodosList extends Component {
       <div>
 	<ul>{this.state.todos.map((todo, i) => <li key={i}> {todo} </li>)}</ul>
 	<form onSubmit={this.handleSubmit}>
-	  <input value={this.state.newTodo} />
+	  <input onChange={this.handleChange} type="text" value={this.state.newTodo} />
 	</form>
       </div>
     )
   }
 }
-
-//       <div>this.state.todos.map(todo => <div>{todo}</div>)</div>
-
