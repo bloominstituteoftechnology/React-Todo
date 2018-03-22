@@ -9,18 +9,15 @@ class TodoList extends Component {
         this.state = {
             Todos: ['Brush cat'],
             nextTodo: "",
-            completed: this.completed,
+            isToggle: this.isToggle
         };
     }
 
 
-    toggleCompleted = () => {
-        this.setState({completed: !this.state.completed})
+    toggleCompleted = e => {
+        this.setState({isToggle: !this.state.isToggle})
 
-        if(!this.state.completed) {
-            this.setState({completed: this.state.completed})
-            strikeThrough={textDecoration: !this.state.completed ? 'line-through' : 'none'}
-        }
+        strikeThrough={textDecoration: !this.state.isToggle ? 'line-through' : 'none'}
     }
 
     todoChange = event => {
@@ -38,14 +35,14 @@ class TodoList extends Component {
     render() {
         return (
             <div>
-                {this.state.Todos.map((todo, i) => {
+                {this.state.Todos.map((todo, index) => {
                     return(
-                        <div>
-                            <ul> 
-                                <li style={strikeThrough} key={i}>{todo}
-                                <input type="checkbox" checked={this.state.completed} onChange={() => this.toggleCompleted()} />
-                                </li>
-                            </ul>
+                        <div key={index}>
+                            <li> 
+                                <a onClick={(e) => this.toggleCompleted(e)}>
+                                    {todo}
+                                </a>
+                            </li>
                         </div>
                     );
                 })}
