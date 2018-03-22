@@ -1,48 +1,28 @@
-import React, { Component } from 'react';
-import TodoList from './Todolist';
-import Todo from './Todo';
-// import App.css;
-
-// const App = () => (
-//   <div>
-//     <h2>Todo App</h2>
-
-//   </div>
-// );
+import React, {Component} from 'react';
+import TodoList from "./Todolist";
+import NewTodo from "./NewTodo";
+import '../css/index.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: [
-        {item: 'mow the lawn', status: false},
-        {item: 'mow the lawn', status: false},
-      ],
-      input: ''
-    };
-  }
+	constructor() {
+		super();
+		this.state = {
+		};
+	}
 
-  onChange = (event) => {
-    this.setState({todos: event.target.value});
-  }
+	addNewTodo = (item) => {
+		this.setState({ todo: item });
+	}
 
-  onSubmit = (event) => {
-    event.preventDefault();
-    this.setState({
-      todo: '',
-      items: [...this.state.items, this.state.term]
-    });
-  }
-
-
-  render() {
-    return (
-      <div>
-        {/* {this.state.todos.map(item => <div>{item}</div>)} */}
-          {<TodoList todos={this.state.todos} />}
-      </div>
-    )
-  }
+	render() {
+		return (
+		<div>
+			<h1>Keep Track of your Todos:</h1>
+			<TodoList todo={this.state.todo}/>
+			<NewTodo add={this.addNewTodo} />
+		</div>
+		);
+	}
 }
 
 export default App;

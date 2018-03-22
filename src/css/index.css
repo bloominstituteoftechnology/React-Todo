@@ -1,0 +1,48 @@
+body {
+    margin: 5% 5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+
+}
+
+form {
+    margin: 60% 5% 5% 5%;
+}
+
+div {
+
+}
+
+input {
+    display: flex;
+    width: 500px;
+}
+
+button {
+    margin-left: 200px;
+}
+
+.completed {
+    background-Color: white;
+    text-Decoration: line-through
+}
+
+.notCompleted {
+    background-color: peachpuff;
+}
+
+.emptyForm {
+    font-size: 1em;
+    color: gray;
+}
+
+.nonEmptyForm {
+    font-size: 1em;
+    color: black;
+}
+
+
+
+

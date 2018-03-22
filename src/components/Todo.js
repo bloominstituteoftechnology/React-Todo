@@ -1,30 +1,41 @@
-// Import React from react.
-import React from 'react';
-// eslint-disable-next-line
-import TodoList from './Todolist';
-
-// Create a const arrow function called MoviesList.
+import React, { Component } from 'react';
 
 
+class Todo extends Component {
+	
+	constructor(props) {
+		super(props);
+		this.state = {
+			clicked: false,
+			item: this.props.todo,
+			removed: false
+		};
+	
+	}
 
-const Todo = (props) => {
+	handleClick = () => {
+		this.setState({clicked: !this.state.clicked});
+	};
 
-    return (
-        <div>
-            {/* {props.todos.map((todo, i) => {
-                return <p key={i}>{checkbox(todo.completed)}{todo.todo}
-                </p>;
-            })} */}
-        </div>
-    )
+	removeItem = () => {
+		this.setState({removed: true});
+	}
+
+
+	render() {
+		if(this.state.removed){
+			return <div></div>;
+		}
+		else{
+            const style = this.state.clicked ? 'completed' : 'notCompleted';
+			return (
+			<div className={style} onClick={this.handleClick}>
+				{this.state.item}
+				<button onClick={this.removeItem}>X</button>
+			</div>
+			);
+		}
+	}
 }
 
 export default Todo;
-
-// Return an unordered list
-// Inside the unordered list, embed a javascript expression (curly brackets).
-// Inside the javascript expression, map the movies array
-// The function inside map should take in two arguments, movie and i (for index).
-// The function should return a list item, with a javascript expression movie (the same variable as map).
-// The list item should have an attribute called key, that takes in i as a javascript expression.
-// Outside the arrow function, export the function MoviesList as a default.
