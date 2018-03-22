@@ -1,27 +1,25 @@
+// Import React from react.
 import React from 'react';
 // eslint-disable-next-line
-import Todo from './Todo';
+import TodoList from './Todolist';
+
+// Create a const arrow function called MoviesList.
 
 
-const checked = (props) => {
-    let propList = props.status.map(status => {
-            return <div>{status}</div>;
-        }
-    )
 
-}
+const Todo = (props) => {
 
-const TodoList = (props) => {
     return (
         <div>
-            {props.todos.map(todo => {
-                return <div>{todo + checked(props)}</div>;
-            })}
+            {/* {props.todos.map((todo, i) => {
+                return <p key={i}>{checkbox(todo.completed)}{todo.todo}
+                </p>;
+            })} */}
         </div>
     )
 }
 
-export default TodoList;
+export default Todo;
 
 // Return an unordered list
 // Inside the unordered list, embed a javascript expression (curly brackets).
