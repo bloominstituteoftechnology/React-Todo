@@ -1,19 +1,10 @@
 import React, { Component } from 'react'
 
-const Input = (props) => {
-  return (
-    <div>
-      <input value={this.props.todoText} />
-    </div>
-  )
-}
-
-
 export default class TodosList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      todos: ['Call Mom', 'Do laundry'],
+      todos: ['todo 1', 'todo 2'],
       newTodo: ''
     }
   }
