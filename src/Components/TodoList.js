@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 
-let strikeThrough = {textDecoration: 'none'}
+let strikeThrough = {
+    textDecoration: 'line-through'
+    
+}
+
+let noStrike = {
+    textDecoration: 'none'
+}
 
 class TodoList extends Component {
     constructor() {
@@ -9,15 +16,19 @@ class TodoList extends Component {
         this.state = {
             Todos: ['Brush cat'],
             nextTodo: "",
-            isToggle: this.isToggle
+            isToggle: false
         };
     }
 
 
-    toggleCompleted = e => {
-        this.setState({isToggle: !this.state.isToggle})
+    toggleCompleted = (i) => {
+        this.setState({isToggle: true})
 
-        strikeThrough={textDecoration: !this.state.isToggle ? 'line-through' : 'none'}
+        if (this.state.isToggle) {
+            this.setState({isToggle: false})
+        }
+        console.log(this.state.isToggle);
+        console.log('clicked', i);
     }
 
     todoChange = event => {
@@ -37,12 +48,8 @@ class TodoList extends Component {
             <div>
                 {this.state.Todos.map((todo, index) => {
                     return(
-                        <div key={index}>
-                            <li> 
-                                <a onClick={(e) => this.toggleCompleted(e)}>
-                                    {todo}
-                                </a>
-                            </li>
+                        <div style={this.todo ? strikeThrough : noStrike} key={index} onClick={() => this.toggleCompleted(index)}>
+                            {todo}
                         </div>
                     );
                 })}
