@@ -30,11 +30,6 @@ body {
   font-size: 18px;
   text-align: left;
   margin: 15px 0;
-  /* border: 1px solid black; */
-}
-
-.checkBoxes {
-  margin-right: 15px;
 }
 
 .button {

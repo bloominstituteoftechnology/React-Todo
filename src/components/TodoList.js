@@ -47,13 +47,14 @@ class TodoList extends Component {
     }); 
  }
 
-  stateHandler = (index) => {
+  toggleTodoCompleted = (index) => {
     let todos = this.state.todos;
     todos[index].completed = !todos[index].completed;
     this.setState({
       todos: todos,
       newTodo: '',
     });
+    this.pushToLocalStorage(todos);
   } 
 
   render() {
@@ -64,8 +65,9 @@ class TodoList extends Component {
           placeholder="Add a new task!" value={this.state.newTodo}/>
        </form> 
        {this.state.todos.map((item, index) => {
-           return <Todo stateHandler={this.stateHandler} removeTodo={this.removeTodo} 
-                   key={index} todo={item} index={index}/>
+           return <Todo toggleTodoCompleted={this.toggleTodoCompleted} 
+                  removeTodo={this.removeTodo} key={index}
+                  todo={item} index={index}/>
        })}
       </div>
     );

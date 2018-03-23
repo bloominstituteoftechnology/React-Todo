@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 
 class Todo extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   handleClick = () => {
-    this.props.stateHandler(this.props.index)
+    this.props.toggleTodoCompleted(this.props.index)
   }
 
   handleButton = () => {
@@ -19,11 +19,8 @@ class Todo extends Component {
       "textDecoration": this.props.todo.completed ? "line-through" : "none",
     }
     return (
-      <div className="todoTask">
-        <label style={style}>
-          <input className="checkBoxes" id="checkBox" type="checkbox" onClick={this.handleClick}/>
-          {this.props.todo.text}
-        </label>
+      <div className="todoTask" style={style} onClick={this.handleClick}>
+        {this.props.todo.text}
         <button className="button" onClick={this.handleButton}>&times;</button>
       </div>
     );
