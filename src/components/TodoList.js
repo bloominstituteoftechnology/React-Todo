@@ -4,28 +4,32 @@ import Todo from './Todo';
 class TodoList extends Component {
     constructor(props){
         super(props);
-        this.state = ['Wash clothes', 'Buy Milk']
+        this.state = {
+            todos: ['Wash clothes', 'Buy Milk'],
+            newTodo: ''
+        }
+       
     };
 
  addTask = (event) => {
         event.preventDefault();
-        const TodoList = this.state.tasks;
-        TodoList.push(this.state.newTask);
+        const newItems = this.state.todos;
+        newItems.push(this.state.newTodo);
         this.setState({
-            newTask: '',
-            tasks: TodoList
+            todos: newItems,
+            newTodo: '' 
         });
     }
 
 handleTaskInput = (event) => {
-    this.setState({ newTask: event.target.value});
+    this.setState({ newTodo: event.target.value});
 };
 
     render() {
         return (
             <div className='TodoList' >
                 <h2>TodoList</h2>
-                {this.state.map((value, i) => <Todo key={i} value={value} />
+                {this.state.todos.map((value, i) => <Todo key={i} value={value} />
                 )}
 
                 <form onSubmit={this.addTask}>

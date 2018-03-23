@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 // import TodoList from './TodoList';
 class Todo extends Component {
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
         this.state = {
             clicked: false
-        };
+        }
     }
    
     handleClick = () => {
-        this.setState({clicked: this.state.clicked});
+        this.setState({clicked: !this.state.clicked});
     }
 
     
