@@ -30,11 +30,13 @@ body {
     margin: 10px 0;
     text-align: left;
     font-size: 18px;
+    
 }
 
 button{
     display: flex;
-    
+    /* position: absolute;
+    margin-left: 200px; */
     border-radius: 25%;
     
 }
