@@ -5,7 +5,7 @@ class TodoList extends Component {
     constructor(props){
         super(props);
         this.state = {
-            todos: ['Wash clothes', 'Buy Milk'],
+            todos: [],
             newTodo: ''
         }
        
@@ -22,7 +22,9 @@ class TodoList extends Component {
     }
 
 handleTaskInput = (event) => {
-    this.setState({ newTodo: event.target.value});
+    this.setState({ 
+        newTodo: event.target.value
+    });
 };
 
     render() {
@@ -36,8 +38,8 @@ handleTaskInput = (event) => {
                     <input type='text'
                     onChange={this.handleTaskInput}
                     placeholder="Add new task"
-                    value={this.state.newTask}/>
-                    </form>
+                    value={this.state.newTodo}/>
+                </form>
             </div>
         );
     }
