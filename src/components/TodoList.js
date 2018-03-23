@@ -2,15 +2,8 @@ import React, { Component } from 'react'
 import Todo from './Todo'
 import { v4 } from 'uuid'
 
-// generateTodo :: Function -> String -> Object[Todo]
-function generateTodo(idFn) {
-  return function(text) {
-    return { text, completed: false, id: idFn() }
-  }
-}
-
 // makeTodo :: String -> Object[Todo]
-const makeTodo = generateTodo(v4)
+const makeTodo = text => ({ text, completed: false, id: v4() })
 
 export default class TodosList extends Component {
   constructor(props) {
@@ -40,13 +33,17 @@ export default class TodosList extends Component {
   }
 
   toggleTodo = (e, id) => {
-    //e.preventDefault()
     this.setState((prevState, props) => prevState.todos
       .map(todo =>
 	todo.id === id
 	  ? Object.assign(todo, { completed: !todo.completed })
-	: todo
+	  : todo
       ))
+  }
+
+  removeTodo = (e, id) => {
+    e.preventDefault()
+    this.setState({ todos: this.state.todos.filter((t) => t.id !== id) })
   }
 
   render() {
@@ -55,9 +52,9 @@ export default class TodosList extends Component {
 	<ul>{this.state.todos.map(todo => (
 	  <div key={todo.id} className={todo.completed ? 'complete' : 'incomplete'} >
 	    <Todo
-	      key={todo.id}
 	      todoMessage={todo.text}
 	      toggleTodo={(e) => this.toggleTodo(e, todo.id)}
+	      removeTodo={(e) => this.removeTodo(e, todo.id)}
             />
 	  </div>
 	))}
@@ -71,5 +68,3 @@ export default class TodosList extends Component {
   }
 }
 
-
-//	    <Todo key={todo.id} toggleTodo={this.toggleTodo} todoMessage={todo.text} />

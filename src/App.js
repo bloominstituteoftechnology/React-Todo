@@ -1,9 +1,9 @@
 import React from 'react'
-import TodosList from './components/TodosList'
+import TodoList from './components/TodoList'
 
 const App = () => (
   <div>
-    <TodosList />
+    <TodoList />
   </div>
 )
 

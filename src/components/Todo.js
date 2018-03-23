@@ -1,13 +1,15 @@
 import React from 'react'
 
-const Todo = (props) => {
+const Todo = props => {
   return (
-    <div
-      onClick={props.toggleTodo}>{ props.todoMessage }
+    <div>
+      <div
+	className="todo"
+	onClick={props.toggleTodo}>{ props.todoMessage }
+	<a onClick={props.removeTodo} href="">&times;</a>
+      </div>
     </div>
   )
 }
 
 export default Todo
-
-//      className={props.complete ? 'complete' : 'incomplete'}
