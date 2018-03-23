@@ -3,7 +3,7 @@ import React from 'react';
 const Todo = (props) => {
     // console.log("PROPS", props);
     return (
-        <div>
+        <div className = 'item' onClick = {this.completeTodo}>
             { props.todo }
         </div>    
     );
