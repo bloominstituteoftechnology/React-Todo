@@ -37,10 +37,13 @@ class TodoList extends Component {
     }
 
     render(){
-        return <div>
+        return <div class="textBox">
             {this.state.todos.map((todo, i) => (
-              <Todo key={i} todo={todo}
-              removeTodo = {this.removeTodo} index= {i} /> //gotta pass it down to Todo component
+              <Todo
+                key={i} todo={todo}
+                removeTodo={this.removeTodo}
+                index={i}
+              /> //gotta pass it down to Todo component
             ))}
             <form onSubmit={this.addTodo}>
               <input onChange={this.handleTodoTyping} placeholder="Add new Task!" value={this.state.newTodo} />
