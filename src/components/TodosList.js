@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
+import Todo from './Todo'
 import { v4 } from 'uuid'
-//import Todo from './Todo'
 
 // generateTodo :: Function -> String -> Object[Todo]
 function generateTodo(idFn) {
@@ -39,35 +39,35 @@ export default class TodosList extends Component {
     })
   }
 
-  toggleTodo = (e) => {
-    e.preventDefault()
-    console.log(e)
-    this.setState((prevState, props) => {
-      return prevState.todos.map(({ id }) => {
-	console.log(id)
-	return id
-      })
-    })
+  toggleTodo = (e, id) => {
+    //e.preventDefault()
+    this.setState((prevState, props) => prevState.todos
+      .map(todo =>
+	todo.id === id
+	  ? Object.assign(todo, { completed: !todo.completed })
+	: todo
+      ))
   }
-
 
   render() {
     return (
       <div>
-	<ul>
-	  {this.state.todos.map(todo => (
-            <div key={todo.id}>
-              {todo.text}
-              <a onClick={this.toggleTodo} href=''>
-                &times;
-	      </a>
-	    </div>
-	  ))}
+	<ul>{this.state.todos.map(todo => (
+	  <Todo
+	    key={todo.id}
+	    todoMessage={todo.text}
+	    toggleTodo={(e) => this.toggleTodo(e, todo.id)}
+	    complete={todo.complete}
+          />))}
 	</ul>
+
 	<form onSubmit={this.handleSubmit}>
-	<input onChange={this.handleChange} value={this.state.newTodo.text} />
+	  <input onChange={this.handleChange} value={this.state.newTodo.text} />
 	</form>
       </div>
     )
   }
 }
+
+
+//	    <Todo key={todo.id} toggleTodo={this.toggleTodo} todoMessage={todo.text} />
