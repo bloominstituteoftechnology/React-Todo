@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Todo = (props) => {
-    // console.log("PROPS", props);
+    console.log("PROPS", props);
     return (
-        <div className = 'item' onClick = {this.completeTodo}>
+        <div className = 'item'>
             { props.todo }
         </div>    
     );

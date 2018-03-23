@@ -38,7 +38,7 @@ import Todo from './Todo';
           <div>
             { this.state.todos.map((todo, i) => {
                 return (
-                <Todo key={i} todo={todo} /> 
+                <Todo key={i} todo={todo}  onClick = {this.completeTodo} /> 
                 )
               })
             }
