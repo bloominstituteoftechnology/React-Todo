@@ -17,7 +17,7 @@ class NewTodo extends Component {
 
 	addItem = (event) => {
 		event.preventDefault();
-        this.props.add(this.state.newItem);
+		this.props.add(this.state.newItem);
         this.setState({newItem: blankFormString});
 	}
 

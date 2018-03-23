@@ -6,8 +6,8 @@ class Todo extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			clicked: false,
 			item: this.props.todo,
+			clicked: false,
 			removed: false
 		};
 	
@@ -23,10 +23,10 @@ class Todo extends Component {
 
 
 	render() {
-		if(this.state.removed){
+		if (this.state.removed){
 			return <div></div>;
 		}
-		else{
+		else {
             const style = this.state.clicked ? 'completed' : 'notCompleted';
 			return (
                 <div className={style} onClick={this.handleClick}>{this.state.item}

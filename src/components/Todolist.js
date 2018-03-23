@@ -16,7 +16,7 @@ class TodoList extends Component {
 	
 	render() {
         {this.addTodo()}
-		return (this.state.todos.map( (e, i) => {
+		return (this.state.todos.map((e, i) => {
 			if (i >= 1) {
 				return <Todo key={i} todo={e} />
 			}
