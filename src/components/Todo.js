@@ -1,16 +1,22 @@
 import React, { Component } from "react";
-import TodoList from './TodoList';
+// import TodoList from './TodoList';
 class Todo extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             clicked: false
         };
     }
    
+    handleClick = () => {
+        this.setState({clicked: this.state.clicked});
+    }
 
+    
     render() {
-        return <div>{this.props.value}</div>
+        const styles = this.state.clicked ? {textDecoration: 'line-through'} : {textDecoration: 'none'};
+        return (<div styles={styles} onClick={this.handleClick}>{this.props.value}</div>
+        )
     }
 }
 
