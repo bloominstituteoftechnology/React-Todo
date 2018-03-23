@@ -53,12 +53,14 @@ export default class TodosList extends Component {
     return (
       <div>
 	<ul>{this.state.todos.map(todo => (
-	  <Todo
-	    key={todo.id}
-	    todoMessage={todo.text}
-	    toggleTodo={(e) => this.toggleTodo(e, todo.id)}
-	    complete={todo.complete}
-          />))}
+	  <div key={todo.id} className={todo.completed ? 'complete' : 'incomplete'} >
+	    <Todo
+	      key={todo.id}
+	      todoMessage={todo.text}
+	      toggleTodo={(e) => this.toggleTodo(e, todo.id)}
+            />
+	  </div>
+	))}
 	</ul>
 
 	<form onSubmit={this.handleSubmit}>

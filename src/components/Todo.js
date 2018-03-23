@@ -3,7 +3,6 @@ import React from 'react'
 const Todo = (props) => {
   return (
     <div
-      className={props.complete ? 'complete' : 'incomplete'}
       onClick={props.toggleTodo}>{ props.todoMessage }
     </div>
   )
@@ -11,3 +10,4 @@ const Todo = (props) => {
 
 export default Todo
 
+//      className={props.complete ? 'complete' : 'incomplete'}
