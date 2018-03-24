@@ -1,34 +1,22 @@
 import React, { Component } from 'react';
+import Todo from './Todo'
 
-let strikeThrough = {
-    textDecoration: 'line-through'
-    
-}
-
-let noStrike = {
-    textDecoration: 'none'
-}
 
 class TodoList extends Component {
     constructor() {
         super();
 
         this.state = {
-            Todos: ['Brush cat'],
+            Todos: [],
             nextTodo: "",
-            isToggle: false
         };
     }
 
 
-    toggleCompleted = (i) => {
-        this.setState({isToggle: true})
-
-        if (this.state.isToggle) {
-            this.setState({isToggle: false})
-        }
-        console.log(this.state.isToggle);
-        console.log('clicked', i);
+    toggleCompleted = (index) => {
+        const todos = this.state.Todos;
+        todos[index].clicked = !todos[index].clicked
+        this.setState({todos})
     }
 
     todoChange = event => {
@@ -37,7 +25,7 @@ class TodoList extends Component {
 
     todoSubmit = event => {
         event.preventDefault();
-        const nextTodos = this.state.nextTodo;
+        const nextTodos = {body: this.state.nextTodo, clicked: false};
         const todosArray = this.state.Todos;
         todosArray.push(nextTodos);
         this.setState({Todos: todosArray, nextTodo: "" });
@@ -48,9 +36,7 @@ class TodoList extends Component {
             <div>
                 {this.state.Todos.map((todo, index) => {
                     return(
-                        <div style={this.todo ? strikeThrough : noStrike} key={index} onClick={() => this.toggleCompleted(index)}>
-                            {todo}
-                        </div>
+                        <Todo todo={todo} toggleCompleted={this.toggleCompleted} index={index} key={index} />
                     );
                 })}
                 <form onSubmit={this.todoSubmit}>
