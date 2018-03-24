@@ -21,24 +21,16 @@ import Todo from './Todo';
     };
 
     handleNewTodo = (event) => {
-      this.setState({ newTodo: event.target.value });
+      const newTodo = event.target.value;
+      this.setState({ newTodo: newTodo });
     };
 
-    completeTodo = (event) => {
-      const items = document.getElementsByClassName('item');
-      Array.from(items).forEach(item => {
-        item.addEventListener('click', () => {
-          item.classList.toggle("complete");
-        });
-      });
-    }
-  
     render() {
         return (
           <div>
             { this.state.todos.map((todo, i) => {
                 return (
-                <Todo key={i} todo={todo}  onClick = {this.completeTodo} /> 
+                <Todo key={i} todo={todo}  onClick = {this.clickHandler} /> 
                 )
               })
             }
@@ -48,7 +40,7 @@ import Todo from './Todo';
             </form>
               
           </div>
-      )   
+      );   
   }
 }
 
