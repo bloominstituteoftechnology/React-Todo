@@ -30,7 +30,7 @@ body {
   margin-bottom: 25px;
   border: 3px black solid;
   border-radius: 10px;
-  background: transparent;
+  background:rgba(255,255,255,0.5);
   color: black;
 }
 
@@ -41,7 +41,6 @@ body {
 
 .todo {
   display: flex;
-  justify-content: center;
 }
 
 .todoTask {
@@ -56,6 +55,7 @@ body {
   border: 3px solid black;
   border-radius: 10px;
   font-weight: bold;
+  background:rgba(255,255,255,0.5);
 }
 
 .button {
