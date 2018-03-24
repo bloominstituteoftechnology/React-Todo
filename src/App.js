@@ -4,7 +4,7 @@ import './App.css';
 
 const App = () => (
   <div className="container">
-    <h2>Todo List</h2>
+    <h1>Todo List</h1>
     <TodoList />
   </div>
 );
