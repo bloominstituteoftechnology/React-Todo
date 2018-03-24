@@ -5,7 +5,7 @@ import { v4 } from 'uuid'
 // makeTodo :: String -> Object[Todo]
 const makeTodo = text => ({ text: text, completed: false, id: v4() })
 
-// Local Storage Side Effects:
+// SIDE EFFECTS: localStorage
 const saveTodoToStorage = (todo) => localStorage.setItem(todo.id, JSON.stringify(todo))
 const removeTodoFromStorage = (todo) => localStorage.removeItem(todo.id)
 const updateToggleInStorage = (newTodo) => {
@@ -45,10 +45,14 @@ export default class TodosList extends Component {
     this.setState((prevState, props) => prevState.todos
       .map(prevTodo => {
 	if(prevTodo.id === todo.id) {
-	  const newTodo = Object.assign(prevTodo, { completed: !prevTodo.completed})
+	  const newTodo = Object.assign(
+	    prevTodo,
+	    { completed: !prevTodo.completed}
+	  )
 	  updateToggleInStorage(newTodo)
 	  return newTodo
-	} return todo
+	}
+	return todo
       }))
   }
 
