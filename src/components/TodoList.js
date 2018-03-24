@@ -54,7 +54,7 @@ class TodoList extends Component {
       todos: todos,
       newTodo: '',
     });
-    // this.pushToLocalStorage(todos);
+    this.pushToLocalStorage(todos);
   } 
 
   render() {

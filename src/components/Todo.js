@@ -17,10 +17,10 @@ class Todo extends Component {
     }
     return (
       <div className="todo">
-      <div className="todoTask" style={style} onClick={this.handleClick}>
-        {this.props.todo.text}
-      </div>
-      <div className="button" onClick={this.handleButton}>&times;</div>
+        <div className="todoTask" style={style} onClick={this.handleClick}>
+          {this.props.todo.text}
+        </div>
+        <div className="button" onClick={this.handleButton}>&times;</div>
       </div>
     );
   }
