@@ -28,7 +28,12 @@ class Todo extends Component {
     return (
       <div>
         {this.state.todoList.map(todo => <div>{todo}</div>)}
+        <form onSubmit={this.addTodo}>
+          <input type="text" onChange={this.handleNewInput} placeholder="Add a new Todo!" value={this.state.newTodo} />
+        </form>
       </div>
     )
   }
 }
+
+export default Todo;
