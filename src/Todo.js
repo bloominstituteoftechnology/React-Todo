@@ -19,4 +19,8 @@ class Todo extends Component {
       todoList: todos
     })
   }
+
+  handleNewInput = (event) => {
+    this.setState({newTodo: event.target.value});
+  }
 }
