@@ -13,5 +13,10 @@ class Todo extends Component {
     event.preventDefault();
     const todos = this.state.todoList;
     todos.push(this.state.newTodo);
+
+    this.setState({
+      newTodo: '',
+      todoList: todos
+    })
   }
 }
