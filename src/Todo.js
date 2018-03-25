@@ -23,4 +23,12 @@ class Todo extends Component {
   handleNewInput = (event) => {
     this.setState({newTodo: event.target.value});
   }
+
+  render() {
+    return (
+      <div>
+        {this.state.todoList.map(todo => <div>{todo}</div>)}
+      </div>
+    )
+  }
 }
