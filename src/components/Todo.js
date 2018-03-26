@@ -4,8 +4,8 @@ class Todo extends Component {
   constructor() {
     super() 
     this.state = {
-      todoList = [],
-      newTodo = ""
+      todoList: [],
+      newTodo: ""
     }
   }
 
