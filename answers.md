@@ -3,7 +3,7 @@
 1. Single Page Application
   An application that loads a single HTML page with everything required to run it (CSS, JavaScript, etc.). 
   The benefit to the user is that he/she can interact with the page without the need to make a round trip to 
-  the server--their is less need to reload the page.
+  the server--less need to reload the page.
 
 2. Compilers
    In CS the word compiler can mean many things but in this case a JavaScript compiler--such as Babel--takes
@@ -16,9 +16,11 @@
 
 4. Elements
   The building blocks of all React applications. Should not be confused with React components. An element 
-  describes what you want to see on the screen. React elements are immutable.
+  describes what you want to see on the screen. React elements are immutable. Elements are normally not used directly, but are instead returned from React components.
 
 5. Components
+  React components are little reusable pieces of code that return a React element to be rendered to the page.
+  
   
 
 6. JSX
