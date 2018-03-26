@@ -20,7 +20,11 @@
 
 5. Components
   React components are little reusable pieces of code that return a React element to be rendered to the page.
-  
+  I have learned about two types of components thus far in my journey in Lambda School; functional components
+  and class components. A functional component is just a little function that returns some element. A class 
+  component also returns an element but in addition has access to a property called `state`. We can do lots of
+  really cool things with state, which I'm still learning about...
+
   
 
 6. JSX
