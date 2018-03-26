@@ -26,8 +26,9 @@
   really cool things with state, which I'm still learning about...
 
   
-
 6. JSX
+  A syntax extension to JavaScript with the full power of JavaScript. JSX is ultimately compiled to 
+  `React.createElement()` which return JavaScript objects called React elements.
 
 7. Package Mangers
 
