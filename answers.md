@@ -11,10 +11,15 @@
    is to transform newer JavaScript into JavaScript of an older syntax that an older browser can understand.
 
 3. Bundlers
+  Bundlers take a bunch of JavaScript and CSS code written as separate files and bundles them into fewer files
+  so they work better with browsers. Two great examples of bundlers are Webpack and Browserify.
 
 4. Elements
+  The building blocks of all React applications. Should not be confused with React components. An element 
+  describes what you want to see on the screen. React elements are immutable.
 
 5. Components
+  
 
 6. JSX
 
