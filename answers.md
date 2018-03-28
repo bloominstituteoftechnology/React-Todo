@@ -28,10 +28,16 @@
   
 6. JSX
   A syntax extension to JavaScript with the full power of JavaScript. JSX is ultimately compiled to 
-  `React.createElement()` which return JavaScript objects called React elements.
+  `React.createElement()` which returns JavaScript objects called React elements.
 
-7. Package Mangers
+7. Package Managers
+   Tools that help developers more easily manage software dependencies.
 
 8. CDN
+   Content Delivery Network; cached content delivered from a global network of servers. Bootstrap is one great
+   example of a CDN.
 
 9. Props and State
+   Props are inputs to a React component; they are data passed down from a parent component to a child 
+   component.Props are read only and should never be modified. State is used when some property should change
+   based on user input. `setState()` is used to change the state.
