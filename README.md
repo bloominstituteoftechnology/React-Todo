@@ -1,22 +1,16 @@
-# React I - `The Good Ol'` Todo Project 
-
-## Partner Study
-#### Answers to the following partner-study can be found [here](https://reactjs.org/docs/glossary.html)
-  * Describe the following, Single Page Application, Compilers, Bundlers, Elements, Components, JSX, Package Mangers, CDN, Props and State. 
-  * Write all answers in answers.md
+# React-Todo
 
 ### Other Useful Resources
-* [CodeSandbox](https://codesandbox.io/s/z667kplonx) that was used in the lecture video: 
 * [API Documentation](https://reactjs.org/docs/react-api.html)
 * [Documentation](https://facebook.github.io/react/docs/jsx-in-depth.html) on JSX
 
 ### Battle Plan
- * Objective: At this point you have become familiar with the DOM and have done some research on the wonderful world of HTML and CSS. Now we're going to dive into modern front-end JavaScript development by learning about ReactJS.
+ * Objective: At this point you have become familiar with the DOM and have built out User Interfaces HTML and CSS and some custom components. Now we're going to dive into modern front-end JavaScript development by learning about ReactJS.
  * You're going to be building a ToDo App (please hold your applause).
- * We know this seems trivial, but the best part about this assignment is that is shows off some of the strengths of React and you can take it as far as want.
+ * We know this may seem trivial, but the best part about this assignment is that is shows off some of the strengths of React and you can also take it as far as want so don't hold back on being creative.
 
-  * Tool suggesstions
-    * React Dev Tools - *This is a MUST* you need to install this asap!
+  * Tool requirements
+    * [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) - *This is a MUST* you need to install this asap!
     * We have everything you need for your React Developer environment in this file. We went over this in the lecture video.
 
 #### To Get Started
