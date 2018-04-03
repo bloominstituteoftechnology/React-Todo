@@ -1,24 +1,15 @@
-// import React from 'react';
-// import { render } from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
+
+// renders individual todo items
+const ToDo = props => {
+
+	return (
+		<div>
+
+		</div>
+	);
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export default ToDoList;
+export default ToDoList;

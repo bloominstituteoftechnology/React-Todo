@@ -39,7 +39,7 @@ class TodoInput extends React.Component {
   render() {
     return (
       <div>
-      	<ToDo {this.state.todoList} />
+      	<ToDo todoList = {this.state.todoList} />
         <form>
           <input
             name="todoItem"
