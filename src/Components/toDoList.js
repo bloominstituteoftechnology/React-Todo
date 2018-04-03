@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import toDoItems from "./toDoItems";
+import ToDoItems from "./toDoItems";
+import "./toDoList.css";
 
 const styles = {
     fontFamily: "sans-serif",
     textAlign: "center"
   };
 
-  class toDoList extends Component {
+  class ToDoList extends Component {
       constructor() {
           super();
           this.state = {
@@ -36,7 +37,7 @@ const styles = {
 
       render() {
           return (
-              <div className="toDoListMain">
+            <div className="toDoListMain">
                 <div className="header">
                     <form onSubmit={this.addItem}>
                         <input ref={(a) => this._inputElement = a} placeHolder="Enter Todo!">
@@ -44,13 +45,11 @@ const styles = {
                         <button type="submit">add Me</button>
                     </form>
                 </div>
-                    <div className="myEntries">
-                <toDoItems entries={this.state.items}/>
-                </div>
-              </div>
+                <ToDoItems entries={this.state.items}/>
+            </div>
           );
       }
   }
 
-  export default toDoList;
+  export default ToDoList;
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class toDoItems extends Component {
+class ToDoitems extends Component {
     createToDos(item) {
         return <li key={item.key}>{item.text}</li>
     }
@@ -13,8 +13,8 @@ class toDoItems extends Component {
             <ul className="myList">
             {listItems}
             </ul>
-        )
+        );
     }
 }
 
-export default toDoItems;
+export default ToDoitems;

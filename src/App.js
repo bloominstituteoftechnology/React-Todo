@@ -1,10 +1,12 @@
 import React from 'react';
-import toDoList from './Components/toDoList';
+import ToDoList from './Components/toDoList';
 import completed from './Components/completed';
+import "./App.css";
+import "./toDoList.css"
 
 const App = () => (
   <div>
-    <toDoList />
+    <ToDoList />
   </div>
 );
 
