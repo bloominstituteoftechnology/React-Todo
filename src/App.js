@@ -4,11 +4,14 @@ import Todo from './components/Todo.js';
 
 
 const App = () => (
+  render () {
+    return (
   <div>
     <h2>Todo App</h2>
     <Input />
     <Todo />
   </div>
+)}
 );
 
 export default App;
