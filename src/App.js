@@ -13,18 +13,21 @@ class App extends Component {
     };
   }
 
+// is the input section
   handleAddToDo = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
 
+// the actual submit button
   handleSubmitToDo = () => {
     const {toDos} = this.state;
     toDos.push(this.state.textInput);
     this.setState({toDos, textInput: ""});
   };
 
+// shows everything
   render() {
     return (<div>
       <h2>Todo App</h2>
