@@ -7,6 +7,7 @@ import React from 'react';
 // }
 
 const lineThrough = (e) => {
+  e.target.style.userSelect = 'none';
   e.target.style.textDecoration = (e.target.style.textDecoration === 'line-through') ? "none" : "line-through";
 }
 
