@@ -1,16 +1,10 @@
 import React from 'react';
+import ToDo from './components/ToDo';
 
-const ItemList = props => {
-  console.log(props);
-  return (
-    <div>
-        {props.items.map((item, index) => (
-          <div key={item + index}>{item}</div>
-          )
-        )
-      }
-    </div>
-  )
-};
+const App = () => (
+  <div>
+    <ToDo />
+  </div>
+);
 
-export default ItemList;
+export default App;
