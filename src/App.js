@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import ToDoList from "./components/ToDoList"
 
+const styles = {
+  fontFamily: "sans-serif",
+  textAlign: "center",
+  background: "#d9eef7",
+};
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       newToDo: "",
-      toDos: ["Finish Project", "Review", "Walk Dog", "Sleep", "Relax"]
+      toDos: ["Finish Project", "Review", "Walk Dog", "Relax", "Sleep"]
     };
   }
 
@@ -23,8 +29,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Kaitlyn's To Do List</h2>
+      <div style={styles}>
+        <h1>Kaitlyn's To Do List</h1>
           <ToDoList {...this.state}/>
         <input 
           type="text" 

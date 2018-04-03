@@ -1,0 +1,19 @@
+.task {
+    font-size: 25px;
+    padding: 5px;
+    transition: .5s;
+}
+
+.task:hover {
+    cursor: pointer;
+    color: darkorchid;
+}
+
+.task--Completed {
+    text-decoration: line-through;
+    color: darkblue;
+}
+
+.button {
+    color: yellow;
+}
