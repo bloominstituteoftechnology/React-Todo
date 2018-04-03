@@ -1,13 +1,10 @@
 import React from 'react';
-import Title from './components/Title';
-import Todoform from './components/Todoform';
-import Todo from './components/Todo';
+import Application from './Application';
+
 
 const App = () => (
   <div>
-    <Title />
-    <Todoform />
-    <Todo />
+    <Application />
   </div>
 );
 
