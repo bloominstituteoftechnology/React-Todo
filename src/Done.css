@@ -1,0 +1,15 @@
+h2 {
+  margin-left: 6%;
+}
+
+.one {
+  width: 2%;
+  float: left;
+}
+
+#two {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 2px;
+  overflow-wrap: break-word;
+}
