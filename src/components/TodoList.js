@@ -5,7 +5,7 @@ class TodoList extends Component {
     constructor() {
         super();
         this.state = {
-            newTodoItem: '',
+            newTodoItem: "",
             todos: []
         };
     }
@@ -19,4 +19,22 @@ class TodoList extends Component {
         todos.push(this.state.newTodoItem);
         this.setState({ todos, newTodoItem: "" });
     };
+
+    render() {
+        return (
+            <div>
+                <Todo {...this.state} />
+                <input
+                    type="text"
+                    name="newTodoItem"
+                    value={this.state.newTodoItem}
+                    placeholder="New To Do Item"
+                    onChange={this.buttonAddTodo}
+                />
+                <button onClick={this.buttonSubmitTodo}>Add To Do</button>
+            </div>
+        ); 
+    }
 }
+
+render(<App />, document.getElementById("root"));
