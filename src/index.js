@@ -16,7 +16,8 @@ class TodoInput extends React.Component {
   }
 
   // updates as user types todo item
-  handleAddTodo = event => {
+  handleAddTodo = (event) => {
+  	// updates state as user types a todo item
     this.setState({ todoItem: event.target.value });
 
     // console.log(event.target.value);
@@ -24,9 +25,15 @@ class TodoInput extends React.Component {
   };
 
   // adds new todo item to todo list
-    handleSubmitTodo = () => {
-
-    }
+  // end of form submit - add one item at a time
+	handleSubmitTodo = () => {
+		// push new todo item to todoList
+		const items = this.state.todoList;
+		items.push(this.state.todoItem);
+		// this.state.todoList.push(this.state.todoItem);
+		// reset todoItem for the next todo item
+		this.setState({ items, todoItem: "" });
+	}
 
   render() {
     return (
