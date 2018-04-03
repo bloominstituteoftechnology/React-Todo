@@ -10,11 +10,22 @@ class TodoList extends Component {
     };
   }
 
+  update() {
+    this.setState({
+      todos: this.state.newTodo.length
+        ? [...this.state.todos, this.state.newTodo]
+        : [...this.state.todos],
+      newTodo: ""
+    });
+  }
+
   addTodo(e) {
     e.preventDefault();
+    this.update();
     this.setState({
       newTodo: !!e.target ? e.target.value : ""
     });
+    
   }
 
   render() {
