@@ -6,15 +6,15 @@ class TodoList extends Component {
         super();
         this.state = {
             newTodoItem: "",
-            todos: []
+            todos: [""]
         };
     }
 
-    buttonAddTodo = e => {
+    handleAddTodo = e => {
         this.setState({ [e.target.name]: e.target.value });
     };
 
-    buttonSubmitTodo = () => {
+    handleSubmitTodo = () => {
         const { todos } = this.state;
         todos.push(this.state.newTodoItem);
         this.setState({ todos, newTodoItem: "" });
@@ -29,12 +29,12 @@ class TodoList extends Component {
                     name="newTodoItem"
                     value={this.state.newTodoItem}
                     placeholder="New To Do Item"
-                    onChange={this.buttonAddTodo}
+                    onChange={this.handleAddTodo}
                 />
-                <button onClick={this.buttonSubmitTodo}>Add To Do</button>
+                <button onClick={this.handleSubmitTodo}>Add To Do</button>
             </div>
         ); 
     }
 }
 
-render(<App />, document.getElementById("root"));
+export default TodoList;
