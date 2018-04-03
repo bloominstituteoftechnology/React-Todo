@@ -11,6 +11,12 @@ class App extends Component {
     };
   }
 
+  handleAddToDo = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
   render() {
     return (<div>
       <h2>Todo App</h2>
