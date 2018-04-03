@@ -1,10 +1,16 @@
 import React from 'react';
 
-const App = () => (
-  <div>
-    <h2>Todo App</h2>
+const ItemList = props => {
+  console.log(props);
+  return (
+    <div>
+        {props.items.map((item, index) => (
+          <div key={item + index}>{item}</div>
+          )
+        )
+      }
+    </div>
+  )
+};
 
-  </div>
-);
-
-export default App;
+export default ItemList;
