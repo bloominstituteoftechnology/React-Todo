@@ -1,10 +1,13 @@
 import React from 'react';
 
-const App = () => (
-  <div>
-    <h2>Todo App</h2>
+const TaskList = props => {
+  return (
+    <div>
+        {props.todoList.map((task, index) => (
+        <div key={task + index}>{task}</div>
+      ))}
+    </div>
+  );
+};
 
-  </div>
-);
-
-export default App;
+export default TaskList;
