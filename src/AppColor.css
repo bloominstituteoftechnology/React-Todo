@@ -1,0 +1,42 @@
+body {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 200px;
+    
+}
+
+.textBox{
+   font-size: 20px;
+   max-width: 200px;
+   width: 100%;
+   margin-bottom: 20px;
+   text-align: center;
+}
+
+.todoTask{
+    display: flex;
+    margin: 10px 0;
+    text-align: left;
+    font-size: 18px;
+    
+}
+
+button{
+    display: flex;
+    /* position: absolute;
+    margin-left: 200px; */
+    border-radius: 25%;
+    
+}
