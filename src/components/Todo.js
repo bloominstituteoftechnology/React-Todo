@@ -7,7 +7,11 @@ class Todo extends React.Component {
 
     render() {
         return (
-            <div></div>
+            <div>
+            <li>
+            {this.props.todo}
+            </li> 
+            </div>
         );
     }
 }
