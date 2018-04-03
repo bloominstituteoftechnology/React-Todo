@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LineThrough from "./Done";
+import Done from "./Done";
 
 const styles = {
   fontFamily: "sans-serif",
@@ -26,14 +26,10 @@ class TodoList extends Component {
     this.setState({ Todo: TodoList, newTodo: "" });
   };
 
-  toggleTodoCompleted = (index) => {
-    let todos = this.state.Todo;
-    todos[index].completed = !todos[index].completed;
-    this.setState({
-      Todo: todos,
-      newTodo: '',
-    });
-}
+  lineThrough = e => {
+      const ele = e.target;
+      ele.classList.toggle('lineThrough');
+  }
 
   render() {
     return (
@@ -41,9 +37,6 @@ class TodoList extends Component {
             {this.state.Todo.map(todo => <div>{todo}</div>)}
             <input type="text" value={this.state.newTodo} placeholder="new task" onChange={this.handleAddTodo} />
             <button onClick={this.handleSubmitTodo}>Add Todo</button>
-            {this.state.Todo.map((item, index) => {
-           return <LineThrough toggleTodoCompleted={this.toggleTodoCompleted}  key={index} todo={item} index={index}/>
-       })}
       </div>
     );
   }

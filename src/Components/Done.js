@@ -1,20 +1,14 @@
 import React, { Component } from "react";
 
-class LineThrough extends Component {
-    handleLine = (props) => {
-        this.props.toggleTodoCompleted(this.props.index);
-    }
+const Done = props => {
+    // this is reading state
+    return (
+        <div>
+            {props.done.map((item, index) => {
+                <div onClick={props.method} key={item + index}>{item}</div>
+            })}
+        </div>
+    );
+};
 
-    rendor() {
-        let style = {
-            "TextDecoration": this.props.TodoList.completed ? "line-through" : "none",
-        }
-        return (
-            <div style={style} onClick={this.handleLine}>
-                {this.props.LineThrough.text}
-            </div>
-        );
-    }
-}
-
-export default LineThrough;
+export default Done;
