@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 const ToDoList = props => {
     return(
         <div>
             {props.ToDo.map((task, index) => (
-                <div key={task + index}>{task}</div>
+                <div key={index} onClick={props.toggleClick}>{task}</div>
             ))}
         </div>
     );

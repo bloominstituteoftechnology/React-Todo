@@ -27,11 +27,15 @@ class App extends Component {
     this.setState({ ToDo, newTask: ""});
   };
 
+  myStrikeThrough = e => {
+    e.target.style.textDecoration = e.target.style.textDecoration === '' ? 'line-through' : ''; //ternaries are dumm
+  };
+  
   render() {
     return (
       <div>
         <h2>To Do List</h2>
-        <ToDoList {...this.state} />
+        <ToDoList {...this.state} toggleClick={this.myStrikeThrough}/>
         <input
           type="text"
           name="newTask"
