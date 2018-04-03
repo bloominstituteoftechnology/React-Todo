@@ -10,6 +10,7 @@ const Input = props => {
         placeholder="Put To Do Here!" 
         onChange={props.parent.handleAddToDo}
       />
+      <button onClick={props.parent.handleSubmitToDo}>Add To Do</button>
     </div>
   )
 }
