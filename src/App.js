@@ -1,9 +1,10 @@
 import React from 'react';
+import TodoList from './TodoList.js';
 
 const App = () => (
-  <div>
+  <div className="todo-app">
     <h2>Todo App</h2>
-
+    <TodoList todos={[{ text: "foo" }, { text: "bar" }]}/>
   </div>
 );
 
