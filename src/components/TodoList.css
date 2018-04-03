@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
+
+body {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  background: lightsalmon;
+}
+#TodoList {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  width: 40%;
+  border: none;
+}
+h2 {
+  font-size: 50px;
+  color: white;
+  font-family: "Pacifico", cursive;
+}
