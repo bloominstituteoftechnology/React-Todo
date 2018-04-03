@@ -1,0 +1,19 @@
+.completed {
+  text-decoration: line-through;
+  text-decoration-style: double;
+  text-decoration-color: maroon;
+}
+
+.not {
+  text-decoration: none;
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo__button {
+  border: none;
+  font-size: 0.75rem;
+}
