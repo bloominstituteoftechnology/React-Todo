@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import App from "./App";
-import TodoList from "./ToDo";
+import ToDo from "./ToDo";
 
 // TodoInput(parent)(form & button)
 //     TodoList(items)
@@ -39,7 +39,7 @@ class TodoInput extends React.Component {
   render() {
     return (
       <div>
-      	<ToDo todoList = {this.state.todoList} />
+      	<ToDo {...this.state} />
         <form>
           <input
             name="todoItem"
