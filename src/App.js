@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 // const App = () => (
 //   <div>
 //     <h2>Todo App</h2>
@@ -18,7 +19,7 @@ const styles = {
       super();
       this.state = {
         newTodo: "",
-        todo: ["Doggos", "Panda Bears", "Mokeys", "Kittens"]
+        todo: ["Git", "Gud", "at", "Coding"]
       };
     }
 
@@ -51,7 +52,7 @@ const styles = {
     }
   }
   
-  render(<App />, document.getElementById("root"));
+  // ReactDOM.render(<App />, document.getElementById("root"));
 
 
 export default App;
