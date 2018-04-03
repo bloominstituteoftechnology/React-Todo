@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import ToDoList from "./components/ToDoList"
 
 class App extends Component {
   constructor() {
@@ -24,7 +25,7 @@ class App extends Component {
     return (
       <div >
         <h2>Here is The ToDo List</h2>
-        
+          <ToDoList {...this.state}/>
         <input 
           type="text" 
           name="newToDo" 
