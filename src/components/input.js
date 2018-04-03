@@ -1,9 +1,9 @@
 import React from 'react';
 
-class Input extents React.Component {
+class Input extends React.Component {
   constructor() {
+    return ()
     super();
-
   }
 }
 
