@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 
+const completion = e => {
+  e.target.classList.toggle("task--Completed");
+};
+
 const Done = props => {
-    // this is reading state
-    return (
-        <div>
-            {props.done.map((item, index) => {
-                <div onClick={props.method} key={item + index}>{item}</div>
-            })}
-        </div>
-    );
+  return (
+    <div>
+      {props.Todo.map((task, index) => (
+        <div onClick={completion} className="task" key={task + index}>{task}</div>
+      ))}
+    </div>
+  );
 };
 
 export default Done;

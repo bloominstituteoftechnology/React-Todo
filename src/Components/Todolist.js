@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Done from "./Done";
+//import Done from "./Done";
 
 const styles = {
   fontFamily: "sans-serif",
@@ -25,11 +25,6 @@ class TodoList extends Component {
     TodoList.push(this.state.newTodo);
     this.setState({ Todo: TodoList, newTodo: "" });
   };
-
-  lineThrough = e => {
-      const ele = e.target;
-      ele.classList.toggle('lineThrough');
-  }
 
   render() {
     return (
