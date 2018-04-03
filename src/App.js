@@ -21,18 +21,31 @@ class App extends Component {
     
     }
 
+    toggleClick = e  =>{
+      console.log(e)
+      
+    }
+strike = e =>{
+
+if(e.target.style.textDecoration === "line-through"){
+e.target.style.textDecoration = ""
+}else{
+e.target.style.textDecoration = "line-through";
+};
+}
   render(){
 return(
 
-        <div>
-           <TodoList {...this.state} />
+        <div class="container">
+    
+           <TodoList {...this.state} toggleClick={this.strike}/>
         <input type="text" 
         name ="newTodo"
         value ={this.state.newTodo}
         placeholder="add todo" 
         onChange={this.handleAddTodo}
         />
-        <button onClick={this.handleSubmitTodo}>Add Animal</button>
+        <button onClick={this.handleSubmitTodo}>Add todo</button>
         </div>
 
 );
