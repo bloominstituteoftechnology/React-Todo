@@ -1,0 +1,72 @@
+body {
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  background-image: url("./img/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+}
+
+.container {
+  border: 3px solid black;
+  border-radius: 10px;
+  display: flex;
+  max-width: 1100px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.textBox {
+  width: 700px;
+  height: 40px;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 25px;
+  border: 3px black solid;
+  border-radius: 10px;
+  background:rgba(255,255,255,0.5);
+  color: black;
+}
+
+.textBox::placeholder {
+  color: black;
+  font-weight: bold;
+}
+
+.todo {
+  display: flex;
+}
+
+.todoTask {
+  display: flex;
+  font-size: 30px;
+  align-items: center;
+  margin: 15px 0;
+  padding-left: 5px;
+  width: 500px;
+  height: 35px;
+  max-height: 100%;
+  border: 3px solid black;
+  border-radius: 10px;
+  font-weight: bold;
+  background:rgba(255,255,255,0.5);
+}
+
+.button {
+  display: flex;
+  align-self: center;
+  margin-left: 25px;
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.button:hover {
+  cursor: pointer;
+}
