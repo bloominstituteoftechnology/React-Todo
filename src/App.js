@@ -11,6 +11,14 @@ class App extends Component {
     };
   }
 
+  render() {
+    return (<div>
+      <h2>Todo App</h2>
+      <Input {...this.state} parent={this}/>
+      <Todo {...this.state} />
+    </div>)
+  }
+
 };
 
 export default App;
