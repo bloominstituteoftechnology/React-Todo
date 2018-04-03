@@ -25,7 +25,7 @@ Your job is to write the components to complete the Todo List application and ge
 
 #### Tips to Keep in Mind
   * All components you implement should go in the `src/components` directory.
-  * The components should be named `TodoList.js` and `Todo.js` (as those are the files being imported into the tests). 
+  * The components should be named `App.js`, `TodoList.js` and `Todo.js` (as those are the files being imported into the tests). 
   * Think of your application as an Application Tree. App is the parent, which controlls properties/data needed for the child components. This is how modern applications are built. They're modular, separate pieces of code called components that you 'compose' together to make your app. It's awesome!
   * Be sure to keep your todos in an array on state. Arrays are so awesome to work with.
   * When you need to iterate over a list and return React components out as elements, you'll need to include a "key" property on the element itself. `<ElementBeingRendered key={someValue} />`. Note: this is what react is doing under the hood, it needs to know how to access each element and they need to be unique so the React engine can do its thing. An example snippet that showcases this may look something like this:
