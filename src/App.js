@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from "react";
 import Input from './components/Input.js';
 import Todo from './components/Todo.js';
+
 
 class App extends Component {
   constructor() {
@@ -13,8 +14,7 @@ class App extends Component {
   render() {
     return (<div>
       <h2>Todo App</h2>
-      <Input/>
-      <Todo/>
+      <Input {...this.state}/>
     </div>)
   }
 };
