@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class Todo extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
         }
     };
@@ -10,6 +10,7 @@ class Todo extends Component {
     render() {
         return (
             <div>
+                {this.props.todo}
             </div>
         );
     }
