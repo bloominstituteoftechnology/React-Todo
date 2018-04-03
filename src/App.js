@@ -1,16 +1,31 @@
 import React, { Component } from 'react';
 
+const TodoList = props => {
+  return (
+    <div>
+      <h3 className="typedText">{props.newTodo}</h3>
+      {props.todoList.map((item, index) => (
+        <div key={item + index} className="itemsList">
+          <ul>
+            <li className="item" onClick="style.textDecoration: lineThrough">{item}<button className="button">X</button></li>
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       newTodo: "",
       todoList: []
-    }
+    };
   }
 
   handleAddItem = e => {
-    this.setState({ [e.target.item]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   handleSubmitItem = () => {
@@ -30,8 +45,9 @@ class App extends Component {
           value={this.state.newTodo}
           placeholder="add item"
           onChange={this.handleAddItem}
+          className="entryField"
         />
-        <button onClick={this.handleSubmitItem}>Add Item</button>
+        <button onClick={this.handleSubmitItem} className="entryBtn">Add Item</button>
       </div>
 
     )
