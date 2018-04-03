@@ -16,9 +16,6 @@ class TodoList extends Component {
         super();
     }
 
-    buttonHandler() {
-
-    }
     render() {
         return(
             <div className="container">
