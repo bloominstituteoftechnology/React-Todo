@@ -7,7 +7,7 @@ const TodoList = props => {
       {props.todoList.map((item, index) => (
         <div key={item + index} className="itemsList">
           <ul>
-            <li className="item" onClick="style.textDecoration: lineThrough">{item}<button className="button">X</button></li>
+            <li className="item">{item}<button className="button">X</button></li>
           </ul>
         </div>
       ))}
