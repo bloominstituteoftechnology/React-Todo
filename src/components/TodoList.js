@@ -3,7 +3,7 @@ import Todo from './Todo.js';
 
 export default class TodoList extends React.Component {
   state = {
-    inputValue: "",
+    newTodo: "",
     todos: []
   };
 
@@ -15,15 +15,15 @@ export default class TodoList extends React.Component {
   ));
 
   handleChange = (event) => {
-    this.setState({ inputValue: event.target.value });
+    this.setState({ newTodo: event.target.value });
   }
 
-  handleSubmit = (event) => {
+  addTodo = (event) => {
     const todos = this.state.todos.concat({ 
-      text: this.state.inputValue, 
+      text: this.state.newTodo, 
       completed: false 
     });
-    this.setState({ todos: todos, inputValue: "" }, this.updateLocalStorage);
+    this.setState({ todos: todos, newTodo: "" }, this.updateLocalStorage);
     event.preventDefault();
   }
 
@@ -34,9 +34,12 @@ export default class TodoList extends React.Component {
   }
 
   componentDidMount = () => {
-    const todos = window.localStorage.getItem("todos");
-    if (todos !== undefined) {
-      this.setState({ todos: JSON.parse(todos) });
+    const localStorage = window.localStorage;
+    if (localStorage !== undefined) {
+      const todos = localStorage.getItem("todos");
+      if (todos !== undefined) {
+        this.setState({ todos: JSON.parse(todos) });
+      }
     }
   }
 
@@ -45,7 +48,10 @@ export default class TodoList extends React.Component {
   }
 
   updateLocalStorage = () => {
-    window.localStorage.setItem("todos", JSON.stringify(this.state.todos));
+    const localStorage = window.localStorage;
+    if (localStorage !== undefined) {
+      localStorage.setItem("todos", JSON.stringify(this.state.todos));
+    }
   }
 
   render = () => {
@@ -54,7 +60,7 @@ export default class TodoList extends React.Component {
         <div className="todo-list">
           {this.todoElements()}
         </div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.addTodo}>
           <input 
             type="text" 
             value={this.state.inputValue}

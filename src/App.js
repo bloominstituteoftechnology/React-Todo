@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoList from './TodoList.js';
+import TodoList from './components/TodoList.js';
 
 const App = () => (
   <div className="todo-app">
