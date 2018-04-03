@@ -11,30 +11,30 @@ class TodoList extends Component {
   }
 
   update() {
-    this.setState({
-      todos: this.state.newTodo.length
-        ? [...this.state.todos, this.state.newTodo]
-        : [...this.state.todos],
-      newTodo: ""
+    this.setState(prevState => {
+      return {
+        todos: prevState.newTodo.length
+          ? [...prevState.todos, prevState.newTodo]
+          : [...prevState.todos],
+        newTodo: ""
+      };
     });
   }
 
   addTodo(e) {
-    e.preventDefault();
+    if (!!e.target) {
+      this.setState({ newTodo: e.target.value });
+    }
     this.update();
-    this.setState({
-      newTodo: !!e.target ? e.target.value : ""
-    });
-    
+    e.preventDefault();
+    e.target.value = "";
   }
 
   render() {
     return (
       <div>
-        <input />
-        {this.state.todos.map((todo, i) => (
-          <Todo todo={todo} key={i} onClick={this.addTodo} />
-        ))}
+        <input onKeyPress={e => (e.key === "Enter" ? this.addTodo(e) : "")} />
+        {this.state.todos.map((todo, i) => <Todo todo={todo} key={i} />)}
       </div>
     );
   }
