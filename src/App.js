@@ -1,9 +1,16 @@
-import React from 'react';
+import React from "react";
+import TodoList from "./components/TodoList";
+
+
+const styles = {
+  fontFamily: "sans-serif",
+  textAlign: "center"
+};
 
 const App = () => (
-  <div>
-    <h2>Todo App</h2>
-
+  <div className="app" style={styles}>
+    <h2>To Do App</h2>
+    <List />
   </div>
 );
 
