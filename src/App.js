@@ -14,6 +14,7 @@ class App extends React.Component {
 
   // updates as user types todo item
   handleAddTodo = event => {
+  	event.preventDefault();
     // updates state as user types a todo item
     this.setState({ todoItem: event.target.value });
 
