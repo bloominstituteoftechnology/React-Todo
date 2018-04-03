@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import TaskList from './App';
+// import Strike from './Strike';
 
 const styles = {
   fontFamily: "sans-serif",
-  textAlign: "center"
+  // textAlign: "center"
 };
 
 class App extends Component {
@@ -26,11 +27,15 @@ class App extends Component {
     this.setState({ todoList, newTask: "" });
   };
 
+  strike = e => {
+  	e.target.style.textDecoration = e.target.style.textDecoration === '' ? 'line-through' : '';
+	}
+
   render() {
     return (
       <div style={styles}>
         <h2>Todo List</h2>
-        <TaskList {...this.state} />
+        <TaskList {...this.state} toggleClick={this.strike}/>
         <input
           type="text"
           name="newTask"

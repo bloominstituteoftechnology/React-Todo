@@ -4,7 +4,7 @@ const TaskList = props => {
   return (
     <div>
         {props.todoList.map((task, index) => (
-        <div key={task + index}>{task}</div>
+        	<div key={index} onClick={props.toggleClick}>{task}</div>
       ))}
     </div>
   );
