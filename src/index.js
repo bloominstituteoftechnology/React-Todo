@@ -1,5 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { render } from 'react-dom';
 import App from './App';
+import Comp from './components';
+
+
+
+// const styles = {
+//     fontFamily: "sans-serif",
+//     textAlign: "center"
+//   };
+  
+//   class App extends Component {
+//     constructor() {
+//       super();
+//       this.state = {
+//         newTodo: "",
+//         todo: ["Doggos", "Panda Bears", "Mokeys", "Kittens"]
+//       };
+//     }
+  
+//     handleAddTodo = e => {
+//       this.setState({ [e.target.name]: e.target.value });
+//     };
+  
+//     handleSubmitTodo = () => {
+//       const { todo } = this.state;
+//       todo.push(this.state.newTodo);
+//       this.setState({ todo, newTodo: "" });
+//     };
+  
+//     render() {
+//       return (
+//         <div style={styles}>
+//           <h2>Welcome to my List of todo stuff</h2>
+//           <todoList {...this.state} />
+//           <input
+//             type="text"
+//             name="newTodo"
+//             value={this.state.newTodo}
+//             placeholder="add todo"
+//             onChange={this.handleAddTodo}
+//           />
+//           <button onClick={this.handleSubmitTodo}>Add Todo</button>
+//         </div>
+//       );
+//     }
+//   }
+  
+//   render(<App />, document.getElementById("root"));
+
+
+
 
 render(<App />, document.getElementById('root'));
