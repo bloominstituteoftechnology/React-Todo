@@ -33,11 +33,13 @@ class TodoInput extends React.Component {
 		// this.state.todoList.push(this.state.todoItem);
 		// reset todoItem for the next todo item
 		this.setState({ items, todoItem: "" });
+		console.log(items);
 	}
 
   render() {
     return (
       <div>
+      	<ToDo {this.state.todoList} />
         <form>
           <input
             name="todoItem"
