@@ -22,12 +22,11 @@ class TodoList extends Component {
   }
 
   addTodo(e) {
-    if (!!e.target) {
-      this.setState({ newTodo: e.target.value });
-    }
+    !!e.target ? this.setState({ newTodo: e.target.value }) : "";
+
     this.update();
     e.preventDefault();
-    e.target.value = "";
+    !!e.target ? (e.target.value = "") : "";
   }
 
   render() {
