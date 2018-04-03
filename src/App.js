@@ -7,7 +7,7 @@ class App extends Component {
     super();
     this.state = {
       textInput: "",
-      toDos: ["hello"]
+      toDos: []
     };
   }
 
@@ -17,10 +17,17 @@ class App extends Component {
     });
   };
 
+  handleSubmitToDo = () => {
+    const {toDos} = this.state;
+    toDos.push(this.state.textInput);
+    this.setState({toDos, textInput: ""});
+  };
+
   render() {
     return (<div>
       <h2>Todo App</h2>
       <Input {...this.state} parent={this}/>
+      <Todo {...this.state} />
     </div>)
   }
 
