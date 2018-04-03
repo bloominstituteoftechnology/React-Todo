@@ -9,7 +9,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <h2>Todo App</h2>
+      <h2>Harrison Brock's Todo App</h2>
       <TodoList />
       </div>
     );
