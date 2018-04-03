@@ -71,7 +71,7 @@ class TodoList extends Component {
                 <form onSubmit={this.addTodo}>
                     <input type='text' 
                     onChange={this.TodoInput} 
-                    placeholder='Tell me what you need to do' 
+                    placeholder='Todo List' 
                     value={this.state.newTodo}/>
                 </form>
             </div>
