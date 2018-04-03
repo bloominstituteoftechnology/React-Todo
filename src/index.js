@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import ToDoList from './App';
+
+import Strike from './Strike';
 
 
 class App extends Component {
@@ -26,9 +27,11 @@ class App extends Component {
     render(){
         return (
             <div class="container">
-                <h1 class="header__content"> These are my things to do: </h1>
+          
+                <h1 class="header__content"> Things To Do: </h1>
+                
+        {this.state.currentToDo.map(currentToDo => <Strike thing={currentToDo} />)}
 
-        <ToDoList {...this.state} />
         <input
           type="text"
           name="newToDo"
@@ -46,3 +49,4 @@ class App extends Component {
 }
 
 render(<App />, document.getElementById('root'));
+
