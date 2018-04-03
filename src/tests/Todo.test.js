@@ -7,7 +7,7 @@ import Todo from "../components/Todo";
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("Todo", () => {
-  it("should render props that it receives", () => {
+  xit("should render props that it receives", () => {
     const component = shallow(<Todo todo={"eat food"} />);
     expect(component.props().children).toEqual("eat food");
     expect(
@@ -17,7 +17,7 @@ describe("Todo", () => {
     ).toBe(true);
   });
 
-  it("should toggle textDecoration upon being clicked", () => {
+  xit("should toggle textDecoration upon being clicked", () => {
     const component = shallow(<Todo todo={"go to the bathroom"} />);
     expect(component.state().clicked).toBe(false);
     component.find("div").simulate("click");

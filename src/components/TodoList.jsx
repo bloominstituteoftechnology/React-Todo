@@ -5,7 +5,7 @@ class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [],
+      todos: props.todos || [],
       newTodo: ""
     };
   }
@@ -29,11 +29,21 @@ class TodoList extends Component {
     !!e.target ? (e.target.value = "") : "";
   }
 
+  handleDelete(val) {
+    this.setState(prevState => {
+      return {
+        todos: prevState.todos.filter(todo => todo !== val)
+      };
+    });
+  }
+
   render() {
     return (
       <div>
         <input onKeyPress={e => (e.key === "Enter" ? this.addTodo(e) : "")} />
-        {this.state.todos.map((todo, i) => <Todo todo={todo} key={i} />)}
+        {this.state.todos.map((todo, i) => (
+          <Todo todo={todo} key={i} onDelete={val => this.handleDelete(val)} />
+        ))}
       </div>
     );
   }

@@ -11,12 +11,23 @@ class Todo extends Component {
 
   render() {
     return (
-      <div
-        style={{ textDecoration: this.state.clicked ? "line-through" : "none" }}
-        onClick={e => this.setState({ clicked: !this.state.clicked })}
-      >
-        {this.state.todo}
-      </div>
+      <React.Fragment>
+        <div
+          style={{
+            textDecoration: this.state.clicked ? "line-through" : "none"
+          }}
+          onClick={e => this.setState({ clicked: !this.state.clicked })}
+        >
+          {this.state.todo}
+        </div>
+        <button
+          value={this.props.todo}
+          type="submit"
+          onClick={e => this.props.onDelete(e.target.value)}
+        >
+          x
+        </button>
+      </React.Fragment>
     );
   }
 }
