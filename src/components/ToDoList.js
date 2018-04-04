@@ -30,10 +30,10 @@ class ToDoList extends Component {
 
     toUpper = str => {
       return str
-      .toLowerCase()
+      // .toLowerCase()  // this is if u want to prevent all caps
       .split(' ')
-      .map(function(word) {return word[0].toUpperCase() + word.substr(1);
-      }).join(' ');
+      .map(word => word[0].toUpperCase() + word.substr(1) )
+      .join(' ');
     }
   
     render() {
