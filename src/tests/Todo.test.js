@@ -9,6 +9,7 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('Todo', () => {
     it('should render props that it receives', () => {
         const component = shallow(<Todo todo={'eat food'} />);
+      console.log(component.debug())
         expect(component.props().children).toEqual('eat food');
         expect(component.matchesElement(<div style={{ textDecoration: 'none' }}>eat food</div>)).toBe(true);
     });
