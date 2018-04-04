@@ -8,18 +8,19 @@ class App extends React.Component {
     super();
     this.state = {
       todoItem: "",
-      todoList: []
+      todoList: [],
+      isComplete: false
     };
   }
 
   // updates as user types todo item
-  handleAddTodo = event => {
-  	event.preventDefault();
+  handleAddTodo = (event) => {
     // updates state as user types a todo item
     this.setState({ todoItem: event.target.value });
 
     // console.log(event.target.value);
     // console.log(this.state.todoItem);
+    event.preventDefault();
   };
 
   // adds new todo item to todo list
@@ -37,7 +38,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <ToDo {...this.state} />
+      	<ToDo {...this.state} />
         <form>
           <input
             name="todoItem"
