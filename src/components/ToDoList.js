@@ -39,6 +39,14 @@ class ToDoList extends Component {
       this.setState({ toDos });
     }
 
+    clearToDO = e => {
+      const { toDos } = this.state;
+      const incomplete = toDos.filter(toDo => {
+        toDo.complete === false;
+      })
+      this.setState({toDos});
+    }
+
     toUpper = str => {
       return str
       .trim()
