@@ -70,9 +70,10 @@
     margin: 2px;
     padding: 5px 10px;
     transition: width 0.4s ease-in-out;
+    width: 35%;
 }
 
 input:focus {
     background-color: lightblue;
-    width: 50%;
+    width: 75%;
 }

@@ -12,8 +12,11 @@ const ToDo = props => {
     return (
         <div>
             {props.toDos.map( (task, index) => (
-                <div onClick={completion} className="task" key={task + index}> 
-                    {task}<button className="remove" onClick={removal}>X</button> 
+                <div 
+                    onClick={completion} 
+                    className="task" 
+                    key={task.text + index}> {task.text}
+                    <button className="remove" onClick={removal}>X</button> 
                 </div>
             ))}
         </div>
