@@ -6,6 +6,12 @@ import Todo from "./Todo";
 class TodoList extends Component {
     constructor() {
         super();
+        this.state = {
+        }
+    }
+
+    onClick() {
+        setState =
     }
 
      Button = () => {
