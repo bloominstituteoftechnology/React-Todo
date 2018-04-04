@@ -32,10 +32,11 @@ class ToDo extends React.Component {
 		// console.log('hello');
 		// console.log(this.state);
 		// console.log(this.props);
+		const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
 		return (
 	    <div>
 	      {this.props.todoList.map((item, index) => (
-	        <div key={item + index} onClick={this.state.handleCompleteTodo}> {item} </div>
+	        <div style={styles} key={item + index} onClick={this.handleCompleteTodo}> {item} </div>
 	      ))}
 	    </div>
 		);
