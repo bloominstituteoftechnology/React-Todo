@@ -1,0 +1,39 @@
+.App__container {
+  max-width: 600px;
+  width: max-content;
+  margin: 2%;
+}
+.App__header {
+  font-family: Arial;
+}
+.Todo__container {
+  max-width: max-content;
+  display: flex;
+  padding: 1%;
+  border: 1px solid black;
+}
+.Todo__container.Todo__container:hover .Todo__button {
+  display: inline;
+}
+.Todo__text {
+  cursor: pointer;
+  word-wrap: normal;
+  margin-right: 1%;
+}
+.Todo__button {
+  display: none;
+  cursor: pointer;
+  max-width: fit-content;
+  height: 10%;
+  /* background-image:'./red-close-button.png';
+  background-repeat:no-repeat; */
+  color: white; 
+  background: red;
+  font-size: 2rem;
+  justify-content: flex-end;
+  text-align: center;
+}
+.Todo__input {
+  max-width: 100%;
+  padding: 1%;
+}
