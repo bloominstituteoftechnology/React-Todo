@@ -19,22 +19,23 @@ class ToDo extends React.Component {
 	 	super();
 	 	this.state ={
 	 		isComplete: false,
- 		  handleCompleteTodo: (event) => {
- 		  	console.log('before: ', this.state.isComplete);
-		  	if (this.state.isComplete) {
-		  		event.target.style.textDecoration = "none";
-		  		// a completed item becomes unfinished when clicked
-		  		this.state.isComplete = false;
-		  	} else {
-		  		event.target.style.textDecoration ="line-through";
-		  		// a unfinished item becomes finished when clicked
-		  		this.state.isComplete = true;
-		  	}
-		  	// console.log('made it');
-		  	console.log('after: ', this.state.isComplete);
- 			}
 	 	}
 	 }
+	 
+	handleCompleteTodo: (event) => {
+		console.log('before: ', this.state.isComplete);
+		if (this.state.isComplete) {
+		event.target.style.textDecoration = "none";
+		// a completed item becomes unfinished when clicked
+		this.state.isComplete = false;
+		} else {
+		event.target.style.textDecoration ="line-through";
+		// a unfinished item becomes finished when clicked
+		this.state.isComplete = true;
+		}
+		// console.log('made it');
+		console.log('after: ', this.state.isComplete);
+	}
 
 	render() {
 		// console.log('hello');
