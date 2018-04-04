@@ -1,18 +1,29 @@
 import React from 'react';
 
-const lineThrough = (e) => {
-  e.target.style.userSelect = 'none';
-  e.target.style.textDecoration = (e.target.style.textDecoration === 'line-through') ? "none" : "line-through";
+const style = {
+  marginLeft: '-20px',
+  paddingBottom: '10px',
+  userSelect: 'none',
 }
 
-const Todo = props => {
+const toggleLineThrough = (e) => {
+  if (e.target.style.textDecoration === 'line-through') {
+    e.target.style.textDecoration = 'none';
+    e.target.style.color = 'black';
+  } else {
+    e.target.style.textDecoration = 'line-through';
+    e.target.style.color = 'gray';
+  }
+}
+
+const TodoList = props => {
   return (
-    <div>
+    <ul>
       {props.toDos.map((todo, index) => (
-        <div onClick={lineThrough} key={index + todo}>{todo}</div>
+        <li style={style} onClick={toggleLineThrough} key={index + todo}>{todo}</li>
       ))}
-    </div>
+    </ul>
   )
 };
 
-export default Todo;
+export default TodoList;
