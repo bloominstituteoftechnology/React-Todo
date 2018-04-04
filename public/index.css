@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex {
+    display: flex;
+}
+
+.container {
+    width: 70%;
+    margin: 0 auto;
+    border: 1px solid green;
+    text-align: center;
+}
+
+.row1 {
+    border-right: 1px solid black;
+    font-size: 2rem;
+    width: 25%;
+}
+
+.row2 {
+    font-size: 2rem;
+    width: 75%;
+}
+
+.rows {
+    justify-content: space-around;
+    border: 1px solid purple;
+}
+
+.input {
+    margin: 1rem;
+    margin-bottom: .5rem;
+}
+
+.submit {
+    display: block;
+}
+
+.center {
+    margin: 0 auto;
+}
