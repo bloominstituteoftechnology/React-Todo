@@ -1,8 +1,7 @@
 import React from "react";
 
 
-const ListOfThings = (props) => {
-    console.log(props);
+const ListOfThings = (props) => { 
     return (
         <div>
             <h1>{props.newTask}</h1>

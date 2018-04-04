@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 import ToDoListOfThings from "./ToDoListOfThings";
+
+
+const styles = {
+  fontFamily: "sans-serif",
+  textAlign: "center",
+  border: "2px solid black",
+  padding:" 40px" ,
+  background: 'yellowgreen'
+};
 class App extends Component {
   constructor() {
     super();
@@ -18,7 +27,7 @@ class App extends Component {
   };
   render() {
     return (
-      <div>
+      <div style={styles}>
         <h2>Welcom To Todo App!!!!!!{"\u2728"} </h2>
         <ToDoListOfThings {...this.state} />
         <input type='text' placeholder=' add a task'
@@ -26,7 +35,6 @@ class App extends Component {
           value={this.state.newTask}
           onChange={this.handelTask} />
         <button onClick={this.handelSubmitTask}> Add Task</button>
-
       </div>
     );
   }
