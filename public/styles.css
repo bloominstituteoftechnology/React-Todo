@@ -19,16 +19,18 @@
 }
 
 .task {
+    border-radius: 5px;
     display: flex;
     font-size: 25px;
     justify-content: space-between;
-    padding: 1px 0;
+    padding: 1px 5px;
     transition: .5s;
 }
 
 .task:hover {
     cursor: pointer;
     color: dodgerblue;
+    background-color: black;
 }
 
 .task--Completed {
@@ -48,6 +50,19 @@
 .button:hover {
     background-color: #008CBA;
     border: 2px solid #008CBA; 
+    cursor: pointer;
+}
+
+.remove {
+    border: none;
+    border-radius: 5px;
+    width: 30px;
+    transition: .5s;
+}
+
+.remove:hover {
+    background-color: red;
+    color: white;
     cursor: pointer;
 }
 
