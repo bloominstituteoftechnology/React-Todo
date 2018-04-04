@@ -11,7 +11,6 @@ const App = () => (
   <div style={styles}>
     <h2>Todo App</h2>
     <TodoList />
-    <Todo />
   </div>
 );
 

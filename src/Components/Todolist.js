@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import Done from "./Done";
+import Todo from './Todo';
 
 const styles = {
   fontFamily: "sans-serif",
@@ -29,7 +29,7 @@ class TodoList extends Component {
   render() {
     return (
         <div style={styles}>
-            {this.state.Todo.map(todo => <div>{todo}</div>)}
+            {this.state.Todo.map((todo, i) => <Todo key{...i} todo{...todo} />)}
             <input type="text" value={this.state.newTodo} placeholder="new task" onChange={this.handleAddTodo} />
             <button onClick={this.handleSubmitTodo}>Add Todo</button>
       </div>
