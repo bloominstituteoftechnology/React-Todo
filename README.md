@@ -35,7 +35,7 @@ Your job is to write the components to complete the Todo List application and ge
   * Feel free to structure your "todo" data however you'd like. i.e. strings, objects etc. 
   * React will give you warnings in the console that urge you to squash React Anti-Patterns. But if something is completely off, you'll get stack trace errors that will force your bundle to freeze up. You can look for these in the Chrome console.
 
-#### Extra Credit
+#### Stretch Problems
   * Refactor each todo to be an object instead of a just a string. For example, `todo: {'text': 'Shop for food, 'completed': false}` and when a user clicks on a todo, switch that completed flag to true. If `completed === true`, this should toggle the strikethrough on the 'completed' todo. The toggling functionality should work the same as when each todo was just a string. 
   * Add the ability to delete a todo. The way this would work is each todo item should have an 'x' that should be clickable and that, when clicked, should remove the todo item from the state array, which will also remove it from the rendered list of todos. 
   * Take your App's styles to the next level. Start implementing as much creativity here as you'd like. You can build out your styles on a component-by-component basis eg `App.js` has a file next to it in the directory tree called `App.scss` and you define all your styles in that file. Be sure to @import these styles into the `index.scss` file. 
