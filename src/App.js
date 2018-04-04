@@ -1,10 +1,18 @@
 import React from 'react';
 
-const App = () => (
-  <div>
-    <h2>Todo App</h2>
+const ToDoList = props => {
+  // This is "Reading" State
+  return (
+    <div>
+      <h1>{props.newToDo}</h1>
+      {props.currentToDo.map((ToDo, index) => (
+        <div key={ToDo + index}>{ToDo}</div>
+      ))}
+    </div>
+  );
+};
 
-  </div>
-);
+export default ToDoList;
 
-export default App;
+
+
