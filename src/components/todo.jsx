@@ -11,7 +11,10 @@ class todo extends Component {
 
     render() {
         return (
-            <div style=
-        )
+            <div style={{ textDecoration: this.state.clicked ? "line-through" : "none" }}
+            onClick={e => this.setState({ clicked: !this.state.clicked })}> {this.state.todo} </div>
+        );
     }
 }
+
+export default todo;
