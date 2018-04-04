@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import todo from "./todo";
+import Todo from "./Todo";
 
-class todolist extends Component {
+class Todolist extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +13,9 @@ class todolist extends Component {
     update() {
         this.setState(prevState => {
             return {
-                todos: prevState.newTodo.length ? [...prevState.todos, prevState.newTodo] : [...prevState.todos],
+                todos: prevState.newTodo.length
+                    ? [...prevState.todos, prevState.newTodo] 
+                    : [...prevState.todos],
                 newTodo: ""
             };
         });
@@ -21,7 +23,7 @@ class todolist extends Component {
 
     addTodo(e) {
         !!e.target ? this.setState({ newTodo: e.target.value }) : "";
-        
+
         this.update();
         e.preventDefault();
         !!e.target ? (e.target.value = "") : "";
@@ -40,11 +42,11 @@ class todolist extends Component {
             <div>
                 <input onKeyPress={e => (e.key === "Enter" ? this.addTodo(e) : "")} />
                 {this.state.todos.map((todo, i) => (
-                    <todo todo={todo} key={i} onDelete={val => this.handleDelete(val)} />
+                    <Todo todo={todo} key={i} onDelete={val => this.handleDelete(val)} />
                 ))}
             </div>
         );
     }
 }
 
-export default todolist;
+export default Todolist;

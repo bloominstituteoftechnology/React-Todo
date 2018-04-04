@@ -1,6 +1,6 @@
 import React, { Component} from "react";
 
-class todo extends Component {
+class Todo extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +12,8 @@ class todo extends Component {
     render() {
         return (
             <React.Fragment>
-                <div style={{ textDecoration: this.state.clicked ? "line-through" : "none" }}
+                <div 
+                    style={{ textDecoration: this.state.clicked ? "line-through" : "none" }}
                 onClick={e => this.setState({ clicked: !this.state.clicked })}> {this.state.todo}
                 </div>
                 <button
@@ -26,4 +27,4 @@ class todo extends Component {
     }
 }
 
-export default todo;
+export default Todo;
