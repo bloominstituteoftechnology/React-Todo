@@ -1,3 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    min-height: 300px;
+    font-family: "sans-serif";
+    text-align: "center";
+}
+
 .task {
     font-size: 25px;
     transition: .5s;
@@ -11,4 +27,30 @@
 .task--Completed {
     text-decoration: line-through;
     color: red;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: 2px solid #4CAF50; 
+    color: white;
+    margin: 5px 0;
+    padding: 5px 0;
+    transition-duration: 0.5s;
+}
+
+.button:hover {
+    background-color: #008CBA;
+    border: 2px solid #008CBA; 
+    cursor: pointer;
+}
+
+.input {
+    margin: 2px;
+    padding: 5px 10px;
+    transition: width 0.4s ease-in-out;
+}
+
+input:focus {
+    background-color: lightblue;
+    width: 50%;
 }
