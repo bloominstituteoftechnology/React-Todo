@@ -6,10 +6,24 @@ class ToDoList extends Component {
       super();
       this.state = {
         newToDo: "",
-        toDos: [{text: "Finish Project", complete: false} ,{text: "Review", complete: false} ,{text: "Relax", complete: false} ,{text: "Sleep", complete: false}]
+        toDos: []
       };    
     }
-  
+
+    componentDidMount() {
+      console.log('cdm called');
+      const initialTodos = JSON.parse(localStorage.getItem('todos'));
+      console.log('initial totods', initialTodos);
+      this.setState({ toDos: initialTodos});
+      console.log('state', this.state)
+    }
+
+    persistTodos = () => {
+      const { toDos } = this.state;
+      console.log('todos', toDos);
+      localStorage.setItem('todos', JSON.stringify(toDos));
+    }
+
     handleAddToDo = e => {
       this.setState({ [e.target.name]: e.target.value});
     }
@@ -19,32 +33,24 @@ class ToDoList extends Component {
       if (this.state.newToDo.trim() !== "") {
         const { toDos } = this.state;
         toDos.push({text: this.toUpper(this.state.newToDo), complete: false});
+        this.persistTodos();
         this.setState({ toDos, newToDo: "" });
       }
     }
-  
-    // handleEnter = e => {
-    //   if(e.key === 'Enter' && this.state.newToDo !== ""){
-    //     const { toDos } = this.state;
-    //     toDos.push(this.toUpper(this.state.newToDo));
-    //     this.setState({ toDos, newToDo: "" });
-    //   }
-    // }
 
-    completeToDo = e => {
+    completeToDo = done => {
       const { toDos } = this.state;
       toDos.forEach(toDo => {
-        if(toDo.text === e.text) toDo.complete = !e.complete;
+        if(toDo.text === done.text) toDo.complete = !done.complete;
       })
+      this.persistTodos();
       this.setState({ toDos });
     }
 
-    clearToDO = e => {
+    clearToDO = () => {
       const { toDos } = this.state;
-      const incomplete = toDos.filter(toDo => {
-        toDo.complete === false;
-      })
-      this.setState({toDos});
+      const incomplete = toDos.filter(toDo => toDo.complete === false )
+      this.setState({ toDos: incomplete });
     }
 
     toUpper = str => {
@@ -57,13 +63,14 @@ class ToDoList extends Component {
     }
   
     render() {
+      console.log('render called');
       return (
         <div className="container">
           <h1>Here is The ToDo List</h1>
           <div className="rows">
-            <ToDo onComplete={this.completeToDo} {...this.state}/>
+            <ToDo clearToDo={this.clearToDo} completeToDo={this.completeToDo} toDos={this.state.toDos}/>
           </div>
-          <form onSubmit={this.handleSubmitToDo}>
+          <form className="form" onSubmit={this.handleSubmitToDo}>
             <input 
               type="text" 
               name="newToDo" 
@@ -75,6 +82,8 @@ class ToDoList extends Component {
             />
             <button type="submit" className="button" onClick={this.handleSubmitToDo}> Add Task </button>
           </form>
+          <button className="button clear" onClick={this.clearToDO}>Clear Completed</button>
+          <button className="button save" onClick={this.persistTodos}>Save</button>
         </div>
       );
     }

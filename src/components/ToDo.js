@@ -1,24 +1,16 @@
 import React from "react";
-
-const completion = e => {
-    e.target.classList.toggle('task--Completed')
-}
-
-const removal = e => {
-    e.target.parentNode.style.display = 'none';
-}
+import Task from "./Task";
 
 const ToDo = props => {
     return (
         <div>
-            {props.toDos.map( (task, index) => (
-                <div 
-                    onClick={completion} 
-                    className="task" 
-                    key={task.text + index}> {task.text}
-                    <button className="remove" onClick={removal}>X</button> 
-                </div>
-            ))}
+            {props.toDos.map((toDo, index) => {
+                return <Task 
+                    key={toDo.text + index} 
+                    clearToDo={props.clearToDo} 
+                    completeToDo={props.completeToDo} 
+                    toDo={toDo}/>
+                })}
         </div>
     );
 };
