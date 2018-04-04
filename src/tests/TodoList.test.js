@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import TodoList from '../components/TodoList';
+import TodoList from '../TodoList';
 
 Enzyme.configure({ adapter: new Adapter() });
 
