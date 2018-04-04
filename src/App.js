@@ -34,9 +34,11 @@ class App extends React.Component {
     // console.log(items);
   };
 
+ 
+
   render() {
     return (
-      <div>
+     <div>
         <ToDo {...this.state} />
         <form>
           <input
@@ -49,7 +51,7 @@ class App extends React.Component {
         </form>
         <button onClick={this.handleSubmitTodo}>add to do</button>
       </div>
-    );
+    );        
   }
 }
 export default App;
