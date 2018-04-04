@@ -35,10 +35,20 @@ class App extends React.Component {
     // console.log(items);
   };
 
+ 
+
   render() {
     return (
+<<<<<<< HEAD
       <div>
       	<ToDo {...this.state} />
+||||||| merged common ancestors
+      <div>
+        <ToDo {...this.state} />
+=======
+     <div>
+        <ToDo {...this.state} />
+>>>>>>> 721964165e301d76014f7232e18102286c3eeb3a
         <form>
           <input
             name="todoItem"
@@ -50,7 +60,7 @@ class App extends React.Component {
         </form>
         <button onClick={this.handleSubmitTodo}>add to do</button>
       </div>
-    );
+    );        
   }
 }
 export default App;
