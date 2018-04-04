@@ -21,6 +21,11 @@
   * `npm test` will run the tests that are included in the the project. Try to get as many of these passing as you can in the allotted time. 
 
 #### How to Tackle this Project
+(1) Todo component
+(2) todo items
+(3) entry for new todo item
+(4) Strikethrough toggle for completed items
+ 
 Your job is to write the components to complete the Todo List application and getting as many of the tests to pass as you can. The tests are expecting that you have a TodoList component that renders a Todo component for each todo item. The requirements for your Todo List app is that it should have an input field that a user can type text into and submit data in the input field in order to create a new todo item. Aside from being able to add todos, you should be able to mark any todo in the list as 'complete'. In other words, a user should be able to click on any of the todos in the list and have a strikethrough go through the individual todo. This behavior should be toggle-able, i.e. a todo item that has a strikethrough through it should still be clickable in order to allow completed items to no longer be marked as 'completed'. Once you've finished your components, you'll need to have the root `App` component render your TodoList component. 
 
 #### Tips to Keep in Mind
