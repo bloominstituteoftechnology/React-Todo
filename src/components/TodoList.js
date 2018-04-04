@@ -9,7 +9,7 @@ class TodoList extends Component {
 
   render() {
     return (
-      this.state.todos.map((todo, index) => <Todo> key="{index}" todoItem="{todo}"></Todo>)
+      this.state.todos.map((todo, index) => <Todo key={index} todoItem={todo}></Todo>)
 
     );
   }

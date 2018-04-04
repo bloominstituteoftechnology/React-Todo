@@ -8,7 +8,7 @@ class Todo extends Component {
 
   render() {
     return (
-      <div>{this.props.children[3]}</div>
+      <div>{this.props.todoItem}</div>
     );
   }
 }
