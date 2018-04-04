@@ -1,14 +1,6 @@
 import React, {Component} from 'react';
 import Todo from "./Todo";
 
-const Button = () => {
-    return (
-        <div>
-            <input className="submit center" type="text"/>
-            <button className="submit center">ADD</button>
-        </div>
-    )
-}
 
 
 class TodoList extends Component {
@@ -16,11 +8,21 @@ class TodoList extends Component {
         super();
     }
 
+     Button = () => {
+        return (
+            <div>
+                <input className="input" type="text" placeholder="Time"/>
+                <input className="input" type="text" placeholder="Todo"/>
+                <button className="submit center">ADD</button>
+            </div>
+        )
+    }
+
     render() {
         return(
             <div className="container">
                 <Todo />
-                <Button/>
+                <this.Button/>
             </div>
         )
     }

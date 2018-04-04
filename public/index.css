@@ -31,6 +31,11 @@
     border: 1px solid purple;
 }
 
+.input {
+    margin: 1rem;
+    margin-bottom: .5rem;
+}
+
 .submit {
     display: block;
 }
