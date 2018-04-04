@@ -16,23 +16,33 @@ class ToDoList extends Component {
   
     handleSubmitToDo = () => {
       const { toDos } = this.state;
-      toDos.push(this.state.newToDo);
+      toDos.push(this.toUpper(this.state.newToDo));
       this.setState({ toDos, newToDo: "" });
     }
   
     handleEnter = e => {
-      if(e.key === 'Enter'){
+      if(e.key === 'Enter' && this.state.newToDo !== ""){
         const { toDos } = this.state;
-        toDos.push(this.state.newToDo);
+        toDos.push(this.toUpper(this.state.newToDo));
         this.setState({ toDos, newToDo: "" });
       }
+    }
+
+    toUpper = str => {
+      return str
+      .toLowerCase()
+      .split(' ')
+      .map(function(word) {return word[0].toUpperCase() + word.substr(1);
+      }).join(' ');
     }
   
     render() {
       return (
         <div className="container">
           <h1>Here is The ToDo List</h1>
+          <div className="rows">
             <ToDo {...this.state}/>
+          </div>
           <input 
             type="text" 
             name="newToDo" 

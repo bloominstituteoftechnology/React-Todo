@@ -5,7 +5,7 @@
 .container {
     display: flex;
     margin: auto;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
     width: 600px;
@@ -14,8 +14,15 @@
     text-align: "center";
 }
 
+.rows {
+    width: 50%;
+}
+
 .task {
+    display: flex;
     font-size: 25px;
+    justify-content: space-between;
+    padding: 1px 0;
     transition: .5s;
 }
 

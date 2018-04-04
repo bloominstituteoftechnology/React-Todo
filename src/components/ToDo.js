@@ -4,11 +4,17 @@ const completion = e => {
     e.target.classList.toggle('task--Completed')
 }
 
+const removal = e => {
+    e.target.parentNode.style.display = 'none';
+}
+
 const ToDo = props => {
     return (
         <div>
             {props.toDos.map( (task, index) => (
-                <div onClick={completion} className="task" key={task + index}> {task} </div>
+                <div onClick={completion} className="task" key={task + index}> 
+                    {task}<button onClick={removal}>X</button> 
+                </div>
             ))}
         </div>
     );
