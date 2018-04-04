@@ -1,57 +1,65 @@
 import React, { Component } from 'react';
-
-const TodoList = props => {
-  return (
-    <div>
-      <h3 className="typedText">{props.newTodo}</h3>
-      {props.todoList.map((item, index) => (
-        <div key={item + index} className="itemsList">
-          <ul>
-            <li className="item">{item}<button className="button">X</button></li>
-          </ul>
-        </div>
-      ))}
-    </div>
-  );
-};
+import TodoList from './components/TodoList';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      newTodo: "",
-      todoList: []
+      newTodo: '',
+      todos: [{ text: 'Shop for food', completed: false }]
     };
   }
 
-  handleAddItem = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  }
+  todoHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
-  handleSubmitItem = () => {
-    const { todoList } = this.state;
-    todoList.push(this.state.newTodo);
-    this.setState({ todoList, newTodo: "" });
+  handleSubmitTodo = e => {
+    e.preventDefault();
+    const { todos } = this.state;
+    const myTodo = { text: this.state.newTodo, completed: false };
+    todos.push(myTodo);
+    this.setState({ todos, newTodo: '' });
+  };
+
+  onCompleteHandler = childTodo => {
+    const { todos } = this.state;
+    todos.forEach(todo => {
+      if (todo.text === childTodo.text) {
+        todo.completed = !todo.completed;
+      }
+    });
+    this.setState({ todos });
+  };
+
+  onClearTodos = () => {
+    const { todos } = this.state;
+    const completedTodos = todos.filter(todo => todo.completed === false);
+    this.setState({ todos: completedTodos });
   };
 
   render() {
     return (
       <div>
-        <h2>My Todo List</h2>
-        <TodoList {...this.state} />
-        <input
-          type="text"
-          name="newTodo"
-          value={this.state.newTodo}
-          placeholder="add item"
-          onChange={this.handleAddItem}
-          className="entryField"
+        <h2>Todo Foo</h2>
+        <form onSubmit={this.handleSubmitTodo}>
+          <input
+            type="text"
+            placeholder="Add todo"
+            name="newTodo"
+            value={this.state.newTodo}
+            onChange={this.todoHandler}
+          />
+          <button type="submit">Add Todo</button>
+        </form>
+        <button onClick={this.onClearTodos}>Clear Completed</button>
+        <TodoList
+          completeTodo={this.onCompleteHandler}
+          todos={this.state.todos}
         />
-        <button onClick={this.handleSubmitItem} className="entryBtn">Add Item</button>
       </div>
-
-    )
+    );
   }
-};
+}
 
 export default App;
