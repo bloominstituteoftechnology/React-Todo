@@ -1,10 +1,24 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Todo from './components/Todo';
+import TodoList from './components.TodoList';
 
-const App = () => (
-  <div>
-    <h2>Todo App</h2>
+//CCR (Class, Constructor, Render)
 
-  </div>
+class App extends Componenet(
+  constructor() {
+    super();
+    this.state = {
+      arrayoftext: ['Shop for food', '']
+    }
+  }
+  render() {
+    return (
+    <div>
+      <input type='text' placeholder= 'add item' name ="newItem" value ={this.state.newItem} onChange={this.itemHandler}>
+
+    </div>
+    )
+  }
 );
 
 export default App;
