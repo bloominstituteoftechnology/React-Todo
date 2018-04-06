@@ -1,0 +1,86 @@
+body {
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  background-image: url("./img/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.container {
+  border: 4px solid #ffc4;
+  border-radius: 2%;
+  display: flex;
+  max-width: 1000px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 100px;
+  box-shadow: -2px 1px 1px #ffc4;
+}
+
+.container h2 {
+  color: gold;
+  font-size: 2rem;
+  text-shadow: 4px 4px 4px purple;
+}
+
+.inputBox {
+  width: 600px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+  border: 3px solid #ffc4;
+  border-radius: 5%;
+  background: rgba(255, 255, 255, 0.5);
+  color: purple;
+  box-shadow: 2px 2px 2px grey;
+}
+
+.inputBox::placeholder {
+  color: purple;
+  font-weight: bold;
+}
+
+.todo {
+  display: flex;
+}
+
+.todoItem {
+  color: purple;
+  display: flex;
+  font-size: 1.8rem;
+  align-items: center;
+  margin: 15px 0;
+  padding-left: 5px;
+  width: 500px;
+  height: 35px;
+  border: 3px solid #ffc4;
+  border-radius: 10px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 2px 2px 2px grey;
+}
+
+.button {
+  display: flex;
+  align-self: center;
+  margin-left: 25px;
+  color: gold;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: purple;
+  border-radius: 50%;
+  border: 2px solid gold;
+  padding: 4px 10px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
