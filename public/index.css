@@ -1,0 +1,52 @@
+html, body, #root {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  background-color: slateblue;
+}
+
+.todo-app {
+  background-color: ivory;
+  width: 500px;
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-app h2 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.todo-list {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.todo-list__entry {  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: blanchedalmond;
+}
+
+.todo-list__entry:nth-child(2n) {
+  background-color: gainsboro;
+}
+
+
+.todo-list__todo {
+  list-style-type: none;
+  font-size: 1.5rem;
+}
+
+.todo-list__todo--complete {
+  text-decoration-line: line-through;
+}
