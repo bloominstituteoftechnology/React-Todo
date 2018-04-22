@@ -5,7 +5,7 @@ class TodoList extends Component {
     constructor() {
         super();
         this.state = {
-            tasks: [""],
+            todos: [],
             newTodo:""
         };
     }
@@ -25,8 +25,8 @@ class TodoList extends Component {
     render() {
         return (
             <div>
-                {this.state.tasks.map(task => {
-                    return <div>{task}</div>;
+                {this.state.todos.map( (todo, index) => {
+                    return <Todo todo ={task} />;
                 })}
                 <form onSubmit={this.addTodo}>
                 <input 
