@@ -1,0 +1,59 @@
+.typedText {
+    font-size: 14px;
+    color: rgb(153, 153, 153);
+}
+
+.itemsList {
+    font-size: 20px;
+    color: Black;
+    background-color: rgb(212, 212, 212);
+    width: 250px;
+    height: 30px;
+    box-shadow: 5px 5px 5px gray;
+}
+
+.item {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.button {
+    font-size: 20px;
+    color: gray;
+    float: right;
+    height: 30px;
+    width: auto;
+}
+
+.button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.clickedItem {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.clickedX {
+    display: none;
+}
+
+.entryField {
+    margin-top: 10px;
+    font-size: 14px;
+    height:20px;
+}
+
+.entryBtn {
+    margin-top: 10px;
+    font-size: 14px;
+    height: 20px;
+}
+
+.entryBtn:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
