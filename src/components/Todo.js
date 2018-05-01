@@ -1,5 +1,9 @@
 import React from 'react';
 
-// create a style variable so users can
+const Todo = props => {
+    return (
+        <li>{props.todo.task}</li>
+    )
+}
 
-
+export default Todo;
