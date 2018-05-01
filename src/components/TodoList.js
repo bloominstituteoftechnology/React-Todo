@@ -18,18 +18,21 @@ class TodoList extends Component {
                             completed: false
                         }
             ], 
-            newTodo: {task: "", id: "", completed: false}
+            newTodo: "",
+            // newTodo: {task: "", id: "", completed: false},
+            taskValue: ""
         }
     }
 
 handleNewTodo = (event) => {
-    const {newTodo} = this.state.newTodo;
-    this.setState({[event.target.name]: event.target.value})
+    this.setState({[event.target.name]: event.target.value});
 }
 
 handleSubmitTodo = () => {
-    const {todos} = this.state.todos;
-    this.setState({todos: todos.push(this.state.newTodo)});
+    const todos = this.state.todos;
+    const newTodo = {task: this.state.newTodo, id: this.state.newTodo, completed: false}
+    todos.push(newTodo)
+    this.setState({todos: todos, newTodo: ""});
 }
 
 
@@ -37,7 +40,7 @@ handleSubmitTodo = () => {
         return (
             <div>
                 <ul>{this.state.todos.map((todo) => {return <Todo key={todo.id} todo={todo} />})}</ul>
-                <input type="text" placeholder="new todo" name="newTodo" value={this.state.newTodo}></input>
+                <input onChange={this.handleNewTodo} type="text" placeholder="new todo" name="newTodo" value={this.state.newTodo}></input>
                 <button onClick={this.handleSubmitTodo}>Add Todo</button>
             </div>
         )
