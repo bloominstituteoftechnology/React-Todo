@@ -13,15 +13,15 @@ class Todo extends Component {
     };
 
 
-    namereciever = (event) => {
+    nameReciever = (event) => {
         this.setState({ [event.target.description]: event.target.value });
     }; 
     
     handleSunmitTodo = () => {
         const todos = this.state.todos;
-        const todo = {name: this.state.todo, id:this.state.todo };
+        const todo = { name: this.state.todo, id:this.state.todo };
         todos.push(todo);
-        this.seyState({ todos: todos, todo: "" });
+        this.setState({ todos: todos, todo: "" });
     };
 
 
@@ -30,6 +30,9 @@ class Todo extends Component {
         return (
         <div>
          Todo placeholder
+          <todos todo={this.state.todo} />   
+            <input name="todos" onChange={this.nameReciever} value={this.state.todos} placeholder="Welcome to the palyground" />
+                <button onClick={this.handleSunmitTodo}>Add todos</button>   
         </div>
         )
     };
