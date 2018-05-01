@@ -21,7 +21,12 @@ class App extends Component {
       this.setState({
         inputTextValue: '',
         todoListTasks: [
-          this.state.inputTextValue,
+          {
+            task: this.state.inputTextValue,
+            id: Date.now(),
+            completed: false,
+            ID: Date.now(),
+          },
           ...this.state.todoListTasks
         ]
       });
@@ -32,6 +37,22 @@ class App extends Component {
   handleInputChange = e => {
     this.setState({
       inputTextValue: e.target.value,
+    });
+  }
+
+  // handle task completion (remove task)
+  handleTaskCompletion = e => {
+    const taskID = e.target.id;
+    const stateArr = [...this.state.todoListTasks];
+    
+    for (let i = 0; i < stateArr.length; i++) {
+      if ('' + stateArr[i].ID === taskID) {
+        stateArr.pop();
+      }
+    }
+
+    this.setState({
+      todoListTasks: [ ...stateArr ]
     });
   }
 
@@ -48,6 +69,7 @@ class App extends Component {
 
         <TodoList
           todoTask={ this.state.todoListTasks }
+          handleTaskCompletion={ this.handleTaskCompletion }
         />
       </div>
     );
