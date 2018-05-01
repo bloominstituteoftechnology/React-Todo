@@ -10,6 +10,7 @@ class TodoList extends React.Component {
       char: "",
       list: [],
     };
+    this.toggleFlag = this.toggleFlag.bind(this);
   }
   updateChar = event => {
     // console.log(event.target.name, event.target.value);
@@ -27,13 +28,24 @@ class TodoList extends React.Component {
       this.handleSubmitTodo();
     }
   }
+  toggleFlag = () => {
+    this.setState({
+      condition: !this.state.condition
+    })
+  }
   render() {
     return (
       <div>
         <h3>Something need doing?</h3>
-        <input type="text" name="char" onKeyPress={this.enterKeyPress} onChange={this.updateChar} value={this.state.char} placeholder="What to do today?" />
+        <input type="text" 
+          name="char" 
+          onKeyPress={this.enterKeyPress} 
+          onChange={this.updateChar} 
+          value={this.state.char} 
+          placeholder="What to do today?" 
+        />
         <button onClick={this.handleSubmitTodo}>Update To-Do List</button>
-        <Todo list={this.state.list} />
+        <Todo className={this.state.condition ? "complete" : "pending"} toggleClassName={this.toggleFlag} list={this.state.list} />
       </div>
     );
   }

@@ -70,3 +70,7 @@ Here, we're simply passing the index of each todo item as the key for the indivi
 ------
 
 Project START! :) 
+
+#### Resources Used
+
+[Codepen: React - toggle class](https://codepen.io/_danko/pen/yJqRWr)
