@@ -23,10 +23,10 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleTaskDone = (event) => {
+  handleTaskDone = (index) => {
     let tasks = this.state.tasks;
-    console.log(event.target);
-    console.log("HELLO THERE");
+    tasks.splice(index, 1);
+    this.setState({"tasks": tasks});
   }
 
 
