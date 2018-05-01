@@ -28,3 +28,11 @@ body {
 h1 {
     margin-bottom: 30px;
 }
+
+.list-element-done {
+    margin-top: 25px;
+    border: 1px solid #222222;
+    text-align: center;
+    padding: 30px;
+    background: darkblue;
+}

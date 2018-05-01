@@ -1,15 +1,25 @@
-import React from "react";
+import React, { Component } from 'react';
 // import TodoList from "./components/TodoList";
 
-const Todo = props => {
-    console.log(props)
-    return (
-        <x>{props.items.map(item => {
-            console.log(item.name)
-            return <div className="rounded listElement" key={item.id}>{item.item}</div>;
-        })}
-        </x>
-    )
+
+class Todo extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            clicked: false
+        }
+    }
+    click = () => {
+        this.setState({
+            clicked: !this.state.clicked
+        })
+    }
+    render() {
+        return (
+            <div className="listElement" style={this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' }} onClick={this.click}>{this.props.todo}</div>
+        )
+    }
 }
+
 
 export default Todo;
