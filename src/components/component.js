@@ -11,5 +11,15 @@ export const AddField = (props) => <input
   placeholder="New Task"
 />
 
+export const ListView = (props) => {
+  return (
+    <ul>
+      {
+        props.tasks.map(task => <li>{task}</li>)
+      }
+    </ul>
+  );
+}
+
 
 export default AddButton;
