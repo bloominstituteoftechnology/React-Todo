@@ -10,8 +10,8 @@ import TodoList from './components/TodoList'
 // Clear Handler
 // Render React Statement
 
-import React, { Component } from 'react';
-import TodoList from './components/TodoList'
+import react, { Component } from 'react';
+import todoList from './components/TodoList'
 
 class App extends Component {
   constructor() {
