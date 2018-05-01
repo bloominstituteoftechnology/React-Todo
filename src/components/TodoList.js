@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Todo from './Todo.js';
 
 
 class TodoList extends Component {
@@ -22,7 +23,9 @@ class TodoList extends Component {
 
     render() {
         return (
-            <div></div>
+            <div>
+                <ul>{this.state.todos.map((todo) => {return <Todo key={todo.id} todo={todo} />})}</ul>
+            </div>
         )
     }
 }
