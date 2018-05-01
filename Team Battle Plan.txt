@@ -1,0 +1,5 @@
+Team-Battleplan
+1.Check imports
+2.Create class contructors
+3.Add event handlers[ES6]
+4.Implement render[]
