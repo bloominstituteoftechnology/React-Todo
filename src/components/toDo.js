@@ -5,7 +5,7 @@ const ToDo = props => {
   return (
     <ul>
       {props.todo.map(items => {
-        return <li key={items.name}>{items.id}</li>;
+        return <li key={items.id}>{items.name}</li>;
       })}
     </ul>
   );

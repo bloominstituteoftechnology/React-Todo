@@ -9,15 +9,15 @@ class ToDoList extends Component {
         super();
         this.state = {
             todo: [],
-            items: ''
-        };
+            items: '',
+        }
     }
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
     handleSubmit = () => {
-        const todo = this.state.todo;
-        const items = { name: this.state.items, id: this.state.items + todo.length };
+        const {todo} = this.state.todo;
+        const items = { name: this.state.items, id: this.state.items + 'WHAT?!' };
         todo.push(items);
         this.setState({ todo: todo, items: '' });
     };
@@ -26,13 +26,13 @@ class ToDoList extends Component {
             <div>
                 <ToDo todo={this.state.todo} />
                 <input 
-                    name="todo"
+                    name="items"
                     onChange={this.handleChange}
                     value={this.state.items}
                     placeholder="Add a Todo"
                 />
                 <button onClick={this.handleSubmit}>What do you need to do?</button>
-                </div>
+            </div>
             );
         }
     }
