@@ -19,11 +19,13 @@ class App extends Component {
   }
 
   handleTaskType = (event) => {
+    console.log(event.target);
     this.setState({ [event.target.name]: event.target.value });
   }
 
   handleTaskDone = (event) => {
     let tasks = this.state.tasks;
+    console.log(event.target);
     console.log("HELLO THERE");
   }
 
