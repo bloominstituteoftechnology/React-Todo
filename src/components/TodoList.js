@@ -52,7 +52,7 @@ class TodoList extends React.Component {
                   value={this.state.char} 
                   placeholder="Add things to Me!!!" 
                 />
-                <button onClick={this.handleSubmitTodo}>Update To-Do List</button>
+                <button onClick={this.handleSubmitTodo}>Update!</button>
                 <List className={this.state.condition ? "complete" : "pending"} toggleClassName={this.toggleFlag} list={this.state.item} />
               </div>
             );
