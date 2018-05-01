@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Todo from './Todo';
 
 
-class Todo extends Component {
+class TodoList extends Component {
     constructor() {
       super();
       this.state = {
@@ -14,7 +14,7 @@ class Todo extends Component {
     addItem = (event) => { // runs when form is submitted
         event.preventDefault();
         const updatedItems = this.state.items;
-        updateItems.push(this.state.newItem);
+        updatedItems.push(this.state.newItem);
         this.setState({
             items: updatedItems,
             newItem: ''
@@ -37,3 +37,5 @@ class Todo extends Component {
     }
  
 }
+
+export default TodoList;
