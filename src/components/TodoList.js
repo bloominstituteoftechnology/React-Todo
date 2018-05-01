@@ -2,18 +2,7 @@
 // feel free to change this component.js into TodoList.js
 import React, {Component} from 'react';
 
-const DisplayList = props => {
-    return (
-    <ul>
-    {props.toDoList.map(item => {
-    return <li key={item.id}>{item.name}</li>;
-     })}
-     </ul>
-    );
-};
-
-
-
+import DisplayList from './displaylist';
 class TodoList extends Component {
     constructor() {
         super()
