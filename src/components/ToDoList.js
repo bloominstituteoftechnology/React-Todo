@@ -2,30 +2,34 @@
 // feel free to change this component.js into TodoList.js
 
 import React, { Component } from 'react';
-import { ToDo } from "./toDo"
+import ToDo from "./Todo"
 
 class ToDoList extends Component {
     constructor () {
         super();
         this.state = {
             todo: [],
-            items: '',
-        }
+            items: ''
+        };
     }
+    
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
+
     handleSubmit = () => {
-        const {todo} = this.state.todo;
+        const todo = this.state.todo;
         const items = { name: this.state.items, id: this.state.items + 'WHAT?!' };
         todo.push(items);
+        console.log(todo)
         this.setState({ todo: todo, items: '' });
     };
+
     render() {
         return (
             <div>
-                <ToDo todo={this.state.todo} />
-                <input 
+                <ToDo todo={this.state.todo} items={this.state.items}/>
+                <input
                     name="items"
                     onChange={this.handleChange}
                     value={this.state.items}

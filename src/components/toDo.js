@@ -1,7 +1,7 @@
 import React from "react";
 
-
 const ToDo = props => {
+    console.log(props)
   return (
     <ul>
       {props.todo.map(items => {
@@ -11,4 +11,4 @@ const ToDo = props => {
   );
 };
 
-export { ToDo }
+export default ToDo 
