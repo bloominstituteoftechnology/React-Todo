@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
+import './index.css';
 
 class TodoList extends Component {
     constructor(props) {
@@ -32,22 +33,31 @@ class TodoList extends Component {
 
 render() {
 return (
-    <div>
-        <input name="inputField" type="text" value={this.state.newTodo} onChange={e => this.handleChange(e)}/>
-        <button onClick={this.addTodo}>+</button>
-        {this.state.todos.map((todo, i) =>
-            todo && !todo.completed?
-                <Todo key={i} todo={todo} handleClick={e => this.removeTodo(i)}/>
-            :
-            ""
-        )}
-        <div>Completed:</div>
-        {this.state.todos.map((todo, i) =>
-            todo && todo.completed?
-                <Todo key={i} todo={todo} handleClick={e => this.removeTodo(i)}/>
-            :
-            ""
-        )}
+    <div className="root">
+        <div className="input">
+            <input name="inputField" type="text" value={this.state.newTodo} onChange={e => this.handleChange(e)}/>
+            <button onClick={this.addTodo}>+</button>
+        </div>
+        <div className="list">
+            <div className="complete-list">
+                <h5>New Task</h5>
+                {this.state.todos.map((todo, i) =>
+                    todo && !todo.completed?
+                        <Todo key={i} todo={todo} handleClick={e => this.removeTodo(i)}/>
+                    :
+                    ""
+                )}
+            </div>
+            <div className="incomplete-list">
+                <h5>Completed</h5>
+                {this.state.todos.map((todo, i) =>
+                    todo && todo.completed?
+                        <Todo key={i} todo={todo} handleClick={e => this.removeTodo(i)}/>
+                    :
+                    ""
+                )}
+            </div>
+        </div>
     </div>
 )
 }}
