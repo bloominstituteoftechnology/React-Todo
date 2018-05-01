@@ -44,7 +44,7 @@ class TodoList extends React.Component {
         render() {
             return (
               <div>
-                <h3>Something need doing?</h3>
+                <h3>Tasks</h3>
                 <input type="text" 
                   name="char" 
                   onKeyPress={this.enterKeyPress} 
