@@ -1,5 +1,14 @@
 Team-Battleplan
 1.Check imports
 2.Create class contructors
+    *create todo list
+        -contain all todos
+        -display in order 
+        -dispatch infomation for creating todos
+        -recieve infomation from users
+    *create the todos
+        -recieve infomation about its description
+        -understand once its finished
+        - ability to remove itself once completed
 3.Add event handlers[ES6]
 4.Implement render[]
