@@ -13,7 +13,9 @@ class App extends Component {
   }
 
   handleAddTask = () => {
-    console.log("hi!");
+    let tasks = this.state.tasks;
+    tasks.push(this.state.task);
+    this.setState({"task": '', "tasks": tasks})
   }
 
   handleTaskType = (event) => {
