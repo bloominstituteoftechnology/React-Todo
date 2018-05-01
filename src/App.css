@@ -1,0 +1,17 @@
+.container {
+    border: 4px solid black;
+    height: 500px;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #2B2C39;
+}
+
+
+.container-header {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+}

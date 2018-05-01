@@ -1,0 +1,34 @@
+.todoBtn {
+    margin-left: 50px;
+    height: 40px;
+    width: 100px;
+    border-radius: 20%;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #933490;
+    color: white;
+}
+
+.todoBtn:hover {
+    background-color: #ECDEEC;
+    color: black;
+}
+
+.inputField {
+    margin-left: 50px;
+    height: 25px;
+    border-radius: 10px;
+    border: 4px solid #933490;
+    background-color: #ECDEEC;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+input::placeholder {
+    text-align: center;
+}
+
+input::text {
+    color: white;
+}
