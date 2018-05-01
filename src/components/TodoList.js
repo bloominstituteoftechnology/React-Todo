@@ -6,7 +6,7 @@ class TodoList extends Component {
         super(props);
         this.state = {
             todos: [],
-            newTodo: ""
+            newTodo: "Please type something"
         }
     }
     handleChange = (e) => {
@@ -36,14 +36,14 @@ return (
         <input name="inputField" type="text" value={this.state.newTodo} onChange={e => this.handleChange(e)}/>
         <button onClick={this.addTodo}>+</button>
         {this.state.todos.map((todo, i) =>
-            !todo.completed?
+            todo && !todo.completed?
                 <Todo key={i} todo={todo} handleClick={e => this.removeTodo(i)}/>
             :
             ""
         )}
         <div>Completed:</div>
         {this.state.todos.map((todo, i) =>
-            todo.completed?
+            todo && todo.completed?
                 <Todo key={i} todo={todo} handleClick={e => this.removeTodo(i)}/>
             :
             ""
