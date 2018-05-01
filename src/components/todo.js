@@ -6,7 +6,9 @@ class Todo extends Component {
     constructor() {
         super();
         this.state = {
-        todo:""
+        todos: "",
+        todo: "",
+        
         }
     };
 
@@ -14,7 +16,13 @@ class Todo extends Component {
     namereciever = (event) => {
         this.setState({ [event.target.description]: event.target.value });
     }; 
-
+    
+    handleSunmitTodo = () => {
+        const todos = this.state.todos;
+        const todo = {name: this.state.todo, id:this.state.todo };
+        todos.push(todo);
+        this.seyState({ todos: todos, todo: "" });
+    };
 
 
 
