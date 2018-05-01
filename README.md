@@ -5,7 +5,7 @@
 * [Documentation](https://facebook.github.io/react/docs/jsx-in-depth.html) on JSX
 
 ### Battle Plan
- * Objective: At this point you have become familiar with the DOM and have built out User Interfaces HTML and CSS and some custom components. Now we're going to dive into modern front-end JavaScript development by learning about ReactJS.
+ * Objective: At this point you have become familiar with the DOM and have built out User Interfaces HTML and CSS and some custom components. And you've even had some practice working with React at a basic level. Now we're going to dive into modern front-end JavaScript development by learning about ReactJS.
  * You're going to be building a ToDo App (please hold your applause).
  * We know this may seem trivial, but the best part about this assignment is that is shows off some of the strengths of React and you can also take it as far as want so don't hold back on being creative.
 
@@ -15,10 +15,8 @@
 
 #### To Get Started
 ##### You'll need to make sure you have the following installed.
-  * node and npm
-  * `npm install` will pull in all the node_modules you need once you `cd` into the root directory of the project
-  * `npm start` will start a development server on your localhost at port 3000.
-  * `npm test` will run the tests that are included in the the project. Try to get as many of these passing as you can in the allotted time. 
+  * `yarn install OR npm install` will pull in all the node_modules you need once you `cd` into the root directory of the project
+  * `yarn start OR npm start` will start a development server on your localhost at port 3000.
 
 #### How to Tackle this Project
 Your job is to write the components to complete the Todo List application and getting as many of the tests to pass as you can. The tests are expecting that you have a TodoList component that renders a Todo component for each todo item. The requirements for your Todo List app is that it should have an input field that a user can type text into and submit data in the input field in order to create a new todo item. Aside from being able to add todos, you should be able to mark any todo in the list as 'complete'. In other words, a user should be able to click on any of the todos in the list and have a strikethrough go through the individual todo. This behavior should be toggle-able, i.e. a todo item that has a strikethrough through it should still be clickable in order to allow completed items to no longer be marked as 'completed'. Once you've finished your components, you'll need to have the root `App` component render your TodoList component. 
