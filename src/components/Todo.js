@@ -12,7 +12,7 @@ const Todo = props => {
             style={props.todo.completed ? styles : null}
             onClick={() => props.completeTodo(props.todo)}
         >
-            {props.todo.name}
+            {props.todo.text}
         </div>
     )
 }
