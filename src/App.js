@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   handleTaskType = (event) => {
-    console.log(event.target);
     this.setState({ [event.target.name]: event.target.value });
   }
 
