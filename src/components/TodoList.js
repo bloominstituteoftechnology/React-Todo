@@ -9,7 +9,11 @@ const TodoList = props => {
                 return <li key={task.id}>{task.task}</li>
             })}
         </ul>
-    )
-}
+    );
+};
+
+// taskComplete = () => {
+
+// };
 
 export default TodoList;
