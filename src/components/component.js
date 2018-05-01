@@ -19,7 +19,7 @@ class Input extends React.Component {
     }
     render(){
         return (
-            <input onChange={this.handleChange} type='text' name="input" placeholder="Input-Component"  />
+            <input onChange={this.handleChange} type='text' name="input" placeholder="Input-Component" value={this.state.currentInput}  />
         )
     }
     handleChange = (e) => {
