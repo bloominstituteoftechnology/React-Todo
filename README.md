@@ -6,7 +6,7 @@
 * [Documentation](https://facebook.github.io/react/docs/jsx-in-depth.html) on JSX
 
 ### Battle Plan
-
+cd
 * Objective: At this point you have become familiar with the DOM and have built out User Interfaces HTML and CSS and some custom components. And you've even had some practice working with React at a basic level. Now we're going to dive into modern front-end JavaScript development by learning about ReactJS.
 * You're going to be building a ToDo App (please hold your applause).
 * We know this may seem trivial, but the best part about this assignment is that is shows off some of the strengths of React and you can also take it as far as want so don't hold back on being creative.

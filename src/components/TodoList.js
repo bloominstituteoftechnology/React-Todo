@@ -1,5 +1,4 @@
-// your components will all go in this `component` directory.
-// feel free to change this component.js into TodoList.js
+
 import React, { Component } from 'react';
 
 
@@ -32,9 +31,11 @@ class TodoList extends Component {
                     placeholder="Add to-do item"
                 />
                 <button onClick={this.handleSubmit}>Add Todo</button>
-            </div >
+            </div>
         );
     }
 }
 
-export { TodoList } 
+export { TodoList }
+
+
