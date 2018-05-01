@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TodoList from "./todolist";
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
 
@@ -31,7 +32,7 @@ class Todo extends Component {
         <div>
          Todo placeholder
           <todos todo={this.state.todo} />   
-            <input name="todos" onChange={this.nameReciever} value={this.state.todos} placeholder="Welcome to the palyground" />
+            <input name="todos" onChange={this.nameReciever} value={this.state.todos} placeholder="React palyground" />
                 <button onClick={this.handleSunmitTodo}>Add todos</button>   
         </div>
         )
