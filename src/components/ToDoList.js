@@ -9,11 +9,13 @@ export const ToDoList = props => {
     return(
         <ul>
             {
-                props.toDoTask.map(task, index => {
+                props.toDoTask.map((task, index) => {
                     return( 
                     <ToDo 
-                        key={ index }
-                         toDoTask={ task }
+                        key= { task.id }
+                        toDoTask= { task.task }
+                        taskCompleted={ task.completed }
+                        handleTaskCompletion={ props.handleTaskCompletion }
                     />
                     )
                 })

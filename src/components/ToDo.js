@@ -3,7 +3,9 @@ import React from "react";
 
 export const ToDo = props => {
     return (
-        <li>
+        <li
+            onClick= { props.handleTaskCompletion }
+        >
             { props.toDoTask }
         </li>
     );

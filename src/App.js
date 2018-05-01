@@ -8,7 +8,7 @@ class App extends Component {
     super();
     this.state = {
       inputTextValue: '',
-      toDoListTasks: {},
+      toDoListTasks: [],
     };
     
   }
@@ -21,10 +21,15 @@ class App extends Component {
     }
     else{
       this.setState({
+        inputTextValue: '',
         toDoListTasks: [
-          this.state.inputTextValue,
-          ...this.state.toDoListTasks
-        ]
+        {
+          task: this.state.inputTextValue,
+          id: Date.now(),
+          completed: false,
+        },
+        ...this.state.toDoListTasks
+      ]
       });
     }
 
@@ -38,6 +43,15 @@ class App extends Component {
     });
   }
 
+  handleTaskCompletion = e => {
+    if(e.target.style.textDecoration === 'line-through'){
+      e.target.style.textDecoration = 'none';
+    }
+    else{
+      e.target.style.textDecoration = 'line-through';
+    }
+    
+  }
 
   render() {
     return( 
@@ -52,6 +66,7 @@ class App extends Component {
 
           <ToDoList 
             toDoTask={ this.state.toDoListTasks }
+            handleTaskCompletion={ this.handleTaskCompletion }
           />
         </div>
       );
