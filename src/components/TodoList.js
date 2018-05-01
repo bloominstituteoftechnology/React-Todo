@@ -12,8 +12,11 @@ export const TodoList = props => {
         props.todoTask.map((task, ind) => {
           return (
             <Todo
-              key={ ind }
-              todoTask={ task }
+              key={ task.id }
+              ID={ task.ID }
+              todoTask={ task.task }
+              taskCompleted={ task.completed }
+              handleTaskCompletion={ props.handleTaskCompletion }
             />
           )
         })
