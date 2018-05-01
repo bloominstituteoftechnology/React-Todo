@@ -16,7 +16,7 @@ class App extends Component {
 
   submitTodo = event => {
     event.preventDefault();
-    const { todos } = this.state; //const { todos } = this.state;
+    const todos  = this.state.todos; //const { todos } = this.state;
     const myTodo = { text: this.state.todo, completed: false};
     todos.push(myTodo);
     console.log(todos)
