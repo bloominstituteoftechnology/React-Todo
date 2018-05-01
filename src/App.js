@@ -24,7 +24,7 @@ class App extends Component {
 
   handleTaskDone = (event) => {
     let tasks = this.state.tasks;
-
+    console.log("HELLO THERE");
   }
 
 
@@ -35,7 +35,7 @@ class App extends Component {
         <h1>{this.state.title}</h1>
         <AddButton onClick={this.handleAddTask} />
         <AddField name="task" onChange={this.handleTaskType} value={this.state.task} />
-        <ListView tasks={this.state.tasks} />
+        <ListView onClick={this.handleTaskDone} tasks={this.state.tasks} />
       </div>
     );
   }
