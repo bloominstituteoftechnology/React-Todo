@@ -66,3 +66,7 @@ Here, we're simply passing the index of each todo item as the key for the indivi
 * Add the ability to remove any todos that you have completed. `.filter` will be your best friend here. You can have a `remove completed` button that fires a filtering function that will filter out an todos that have a completed of `true`.
 * Take your App's styles to the next level. Start implementing as much creativity here as you'd like. You can build out your styles on a component-by-component basis eg `App.js` has a file next to it in the directory tree called `App.scss` and you define all your styles in that file. Be sure to @import these styles into the `index.scss` file.
 * Persist your data in `window.localStorage()` hint: you may have to pass your data to a stringifier to get it to live inside the `localStorage()` of the browser. This will cause it to persist past the page refresh.
+
+------
+
+Project START! :) 
