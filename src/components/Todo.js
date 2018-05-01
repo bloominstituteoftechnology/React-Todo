@@ -11,7 +11,7 @@ class Todo extends Component {
     }
 
     handleNewTask = event => {
-        this.setState({ [event.target.task]: event.target.value});
+        this.setState({ task: event.target.value});
     };
     
     handleSubmitTask = () => {
