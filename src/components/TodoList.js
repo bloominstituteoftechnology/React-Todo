@@ -7,8 +7,8 @@ import React from 'react';
 const TodoList = props => {
   return (
     <ul>
-      {props.todos.map(newTodo => {
-        return <li key={newTodo.id}>{newTodo.name}</li>;
+      {props.todos.map((newTodo,index) => {
+        return <li key={newTodo + index}>{newTodo}</li>;
       })}
     </ul>
   );
