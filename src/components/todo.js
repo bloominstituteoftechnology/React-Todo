@@ -30,7 +30,7 @@ class Todo extends Component {
     render() {
         return (
         <div>
-         Todo placeholder
+         Todo 
           <todos todo={this.state.todo} />   
             <input name="todos" onChange={this.nameReciever} value={this.state.todos} placeholder="React palyground" />
                 <button onClick={this.handleSunmitTodo}>Add todos</button>   

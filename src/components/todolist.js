@@ -12,7 +12,6 @@ class TodoList extends Component {
         return (
         <div>
             TodoList-placeholder
-            <Todo/>
             <Todo/>    
         </div>
         )
