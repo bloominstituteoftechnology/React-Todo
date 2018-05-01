@@ -11,21 +11,19 @@ class AddToList extends React.Component {
 }
 
 class Input extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        // console.log('props.parent',props.parent);
+        // console.log('props.currentInput',props.currentInput);
+        super(props);
         this.state = {
             currentInput: ''
         }
+        this.parent = props.parent;
     }
     render(){
         return (
-            <input onChange={this.handleChange} type='text' name="input" placeholder="Input-Component" value={this.state.currentInput}  />
+            <input type='text' name="input" placeholder="Input-Component" value={this.state.currentInput}  />
         )
-    }
-    handleChange = (e) => {
-        // this.state.currentInput = e.target.value;
-        this.setState( {currentInput: e.target.value} );
-
     }
 }
 
@@ -45,12 +43,22 @@ class TodoList extends React.Component {
     constructor() {
         super();
         this.state = {
-            todos: ['tst-todo-1','tst-todo-2','tst-todo-3','tst-todo-4','tst-todo-5','tst-todo-6','tst-todo-7','tst-todo-8','tst-todo-9','tst-todo-10']
+            todos: ['tst-todo-1','tst-todo-2','tst-todo-3','tst-todo-4','tst-todo-5','tst-todo-6','tst-todo-7','tst-todo-8','tst-todo-9','tst-todo-10'],
+            currentInput: '',
+            // getCurrentInput: this.getCurrentInput.bind(this)
         }
     }
+    onInputChange = (e) => {
+        console.log('hello form getCurrentInput')
+        console.log(e.target.value);
+        this.setState( {currentInput: e.target.value} )
+    }
     render(){
+        // console.log(this);
+        // const parent = this;
+        // console.log(parent);
         return (
-            <div>
+            <div onChange={this.onInputChange}>
                 Todo-List-Component
                 <ol>
                     <li>ListItem-Component</li>
