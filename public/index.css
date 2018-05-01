@@ -1,0 +1,30 @@
+#root {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.listElement {
+    margin-top: 25px;
+    border: 1px solid #222222;
+    text-align: center;
+    padding: 30px;
+    background: lightblue;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+body {
+    background: lightgray;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
