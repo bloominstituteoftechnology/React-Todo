@@ -9,6 +9,7 @@ class TodoList extends Component {
     this.state = {
       task: [],
       add: ''
+      clicked: false;
     }
   }
   addTodo = element => {
