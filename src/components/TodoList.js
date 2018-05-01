@@ -10,27 +10,43 @@ class TodoList extends Component {
         }
     }
     handleChange = (e) => {
-        if (e.key === "Enter" && this.state.newTodo !== "") {
-            this.addTodo()
-        } else {
-            this.setState({
-                newTodo: this.state.newTodo + e.key
-            })
-        }
-    }
-    addTodo = (e) => {
         this.setState({
-            todos: [...this.state.todos, this.state.newTodo],
+            newTodo: e.target.value
+        })
+    }
+    addTodo = () => {
+        this.setState({
+            todos: [...this.state.todos, { task: this.state.newTodo, completed: false}],
             newTodo: ""
+        })
+    }
+    removeTodo = (clickedIndex) => {
+        const currentTodos = this.state.todos
+        for(let i=0; i<currentTodos.length; i++){
+            if (i === clickedIndex) currentTodos[i].completed = !currentTodos[i].completed
+        }
+        this.setState({
+            todos: currentTodos
         })
     }
 
 render() {
 return (
     <div>
-        <input name="inputField" type="text" value={this.state.newTodo} onKeyPress={e => this.handleChange(e)}/>
-        {this.state.todos.map((todo, i) => 
-            <Todo key={i} todo={todo}>{todo}</Todo>
+        <input name="inputField" type="text" value={this.state.newTodo} onChange={e => this.handleChange(e)}/>
+        <button onClick={this.addTodo}>+</button>
+        {this.state.todos.map((todo, i) =>
+            !todo.completed?
+                <Todo key={i} todo={todo} handleClick={e => this.removeTodo(i)}/>
+            :
+            ""
+        )}
+        <div>Completed:</div>
+        {this.state.todos.map((todo, i) =>
+            todo.completed?
+                <Todo key={i} todo={todo} handleClick={e => this.removeTodo(i)}/>
+            :
+            ""
         )}
     </div>
 )
