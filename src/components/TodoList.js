@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import Todo from "./Todo";
 
-class Todo extends Component {
+class TodoList extends React.Component {
     constructor() {
-        super(props) 
+        super(); 
         this.state = {
             title: "Do Your Work!",
             list: [],
@@ -11,20 +11,26 @@ class Todo extends Component {
         };
     }
 
-    handleListChange = event => {
-        this.setState({ [event.target.name]: event.target.value});
-    };
+    handleListChange(event) {
+        this.setState({ newTask: event.target.value});
+    }
 
-    handleSubmitChar = () => {
+    handleSubmitChar() {
         const list = this.state.list;
         list.push(this.state.newTask);
-        this.setState({list: list, newTask: ''});
-    };
+        this.setState({list: list, newTask: ""});
+    }
 
     render() {
         return (
             <div>
                 <h1>{this.state.title}</h1>
-                <TodoList list={this.state.list} />
+                <p>{this.state.newTask}</p>
+                <input placeholder = "add more tasks!" onChange = {this.handleListChange.bind(this)} />
+                <button onClick = {this.handleSubmitChar.bind(this)}>add task</button>
+                <Todo list={this.state.list} />
             </div>
-export default TodoList
+        )};
+    }
+
+export default TodoList;
