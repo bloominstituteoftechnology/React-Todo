@@ -33,7 +33,7 @@ class App extends Component {
       todos.push(todo);
       this.setState({ todos: todos, char: ''});
     }
-    this.dataObjectUpdate();
+    this.dataObjectUpdate(todos);
   };
 
   handleCompletedTodo = (todoId) => {
@@ -44,25 +44,33 @@ class App extends Component {
       }
       return todo;
     });
-    this.setState({ todos: newTodos });
-    this.dataObjectUpdate();
+    // this.setState({ todos: newTodos });
+    this.dataObjectUpdate(newTodos);
   }
 
   handleRemoveTodo = (todoId) => {
-    const todos = this.state.todos;
-    const newTodos = todos.filter(todo => todoId !== todo.id);
+    let newTodos = this.state.todos;
+    newTodos = newTodos.filter(todo => todoId !== todo.id);
+    console.log("remove before ", newTodos);
+    localStorage.setItem('todoList', JSON.stringify(newTodos));
     this.setState({ todos: newTodos });
-    this.dataObjectUpdate();
+
   }
 
   
   initTodoList = () => {
+    console.log("i was called");
     let todos = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : [];
     return todos;
   }
 
-  dataObjectUpdate(){
+  dataObjectUpdate(newTodos){
+    this.setState({ todos: newTodos });
     localStorage.setItem('todoList', JSON.stringify(this.state.todos))
+  }
+
+  componentDidMount() {
+    console.log("render i was called");
   }
 
   render() {
