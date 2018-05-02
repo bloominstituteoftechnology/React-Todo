@@ -9,10 +9,17 @@ const TodoList = props => {
       {props.todos.map((todo) => {
           console.log("inside todo", todo);
           if(todo.completed){
-            return <li key={todo.id}>Id : {todo.id} Task: {todo.task} completed</li>;
+            return (
+                <div key={todo.id}>
+                    <span>Id : {todo.id} Task: {todo.task} completed</span>;
+                </div>
+            )
           }else {
             return (
-                <li key={todo.id}>Id : {todo.id} Task: {todo.task} not completed</li>
+                <div key={todo.id} >
+                    <span>Id : {todo.id} Task: {todo.task} not completed </span>
+                    <button onClick={ () => {props.removeTodo(todo.id)} }> completed </button>
+                </div>
             )
           }
       })}

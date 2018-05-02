@@ -27,19 +27,29 @@ class App extends Component {
     };
     todos.push(todo);
     this.setState({ todos: todos, char: '' });
-    console.log("what is in todos", this.todos);
   };
 
-
+  handleRemoveTodo = (todoId) => {
+    console.log("remove ", todoId);
+    const todos = this.state.todos;
+    const newTodos = todos.map(todo => {
+      if (todoId === todo.id) {
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    });
+    console.log(newTodos);
+    this.setState({ todos: newTodos });
+  }
 
   render() {
     return (
       <div>
         <h1>{this.state.title}</h1>
-        <ToDoList todos={this.state.todos} />
-        {
-              console.log(this.state.todos)
-        }
+        <ToDoList 
+          removeTodo={this.handleRemoveTodo}
+          todos={this.state.todos}  
+        />
         <input
           name="char" // should be known as the state.value of the thing we update
           onChange={this.handleNameChange}
