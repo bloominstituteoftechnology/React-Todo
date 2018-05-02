@@ -29,6 +29,7 @@ class ToDoList extends React.Component {
                 <TaskList tasks={this.state.taskList}/>
                 <input value={this.state.inputValue} onChange={this.handleChange}/>
                 <button onClick={this.onClick}>Add Task</button>
+                {/* seperate component for crossed-out list */}
             </div>
         );
       }
