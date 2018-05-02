@@ -14,6 +14,8 @@ class TodoList extends Component {
     this.setState({[event.target.name] : event.target.value});
   };
   addTodo = event => {
+    event.preventDefault();
+
     const newTodoList = this.state.todos,
       newTaskId = this.state.taskId + 1;
     
@@ -28,10 +30,9 @@ class TodoList extends Component {
   render(){
     return (
       <div>
-        {this.state.todos.map(task => <Todo key={task.id} task={task.task}/>)}
         <form>
           <input
-            name="task"
+            name="newTodo"
             type="text"
             placeholder="Add a task"
             value={this.state.newTodo}
@@ -39,6 +40,7 @@ class TodoList extends Component {
           />
           <button onClick={this.addTodo}>Save task to list</button>
         </form>
+        {this.state.todos.map(task => <Todo key={task.id} task={task.task}/>)}
       </div>
     );
   };
