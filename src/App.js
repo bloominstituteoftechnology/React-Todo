@@ -6,8 +6,8 @@ const App = () => (
   <div>
     <h2> Todo App </h2>
     
-    <TodoList className="todo" display="flex"/>
-    <button className="btn" display="flex" ></button>
+    <TodoList className="todo" />
+    <button className="btn"></button>
   </div>
 );
 
