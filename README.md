@@ -1,5 +1,25 @@
 # React-Todo
 
+## React ToDo List
+
+### Setup
+- [ ] Make sure you have Node, npm, and React Dev Tools installed
+- [ ] Run `npm install` in the project's root folder to install dependencies
+- [ ] Run `npm start` in the project's root folder to start your development server
+- [ ] Run `npm test` to run the project tests
+
+### Create Your Components
+- [ ] Create `App.js` (parent-level component)
+- [ ] Create `Todo.js` (single todo item component)
+- [ ] Create `TodoList.js` (list of todo items component)
+
+### Stretch Problems
+- [ ] Add a `completed` flag to toggle the todo status
+- [ ] Add a `delete` button to remove the todo item from the list
+- [ ] Add styling to make your app look nice
+- [ ] Make your data persist in `window.localStorage()`
+
+
 ### Other Useful Resources
 
 * [API Documentation](https://reactjs.org/docs/react-api.html)
@@ -35,7 +55,7 @@
 * Think of your application as an Application Tree. App is the parent, which controls properties/data needed for the child components. This is how modern applications are built. They're modular, separate pieces of code called components that you 'compose' together to make your app. It's awesome!
 * Be sure to keep your todos in an array on state. Arrays are so awesome to work with.
 * When you need to iterate over a list and return React components out as elements, you'll need to include a "key" property on the element itself. `<ElementBeingRendered key={someValue} />`. Note: this is what react is doing under the hood, it needs to know how to access each element and they need to be unique so the React engine can do its thing. An example snippet that showcases this may look something like this:
-
+ 
 ```js
 this.state.todos.map((todo, i) => <AnotherComponent key={i} todo={todo} />);
 ```
