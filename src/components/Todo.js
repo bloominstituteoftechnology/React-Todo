@@ -15,9 +15,9 @@ class Todo extends Component {
   };
 
   render() {
-      const styles = this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' };
+      const styles = this.state.clicked ? { padding: 7, textDecoration: 'line-through', margin:5, backgroundColor: "lightGray" } : { padding: 8, textDecoration: 'none', margin: 5 };
       return (
-          <div style={styles} onClick={this.handleClick}>{this.props.item}</div>
+          <button style={styles} onClick={this.handleClick}>{this.props.item}</button>
       );
   }
 }
