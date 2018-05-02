@@ -3,8 +3,8 @@ import React from 'react';
 const Todo = props => {
     return (
         <ul>
-            {props.todos.map(char => {
-                return <li key={task.id}>{task.name}</li>;
+            {props.tasks.map(task => {
+                return <li key={task.id}>{task.nameOfApp}</li>;
             })}
         </ul>
     );

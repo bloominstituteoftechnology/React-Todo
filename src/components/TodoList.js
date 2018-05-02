@@ -21,10 +21,11 @@ class TodoList extends Component {
 
     handleSubmitTodo = () => {
         const tasks = this.state.tasks;
-        const task = { name: this.state.task, id: this.state.task + tasks.length };
+        const task = { nameOfApp: this.state.task, id: this.state.task + tasks.length };
         tasks.push(task);
         this.setState({ tasks: tasks, task: '' });
     };
+
 
     render() {
         console.log('Render was called');

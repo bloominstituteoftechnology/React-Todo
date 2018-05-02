@@ -1,9 +1,9 @@
 import React from 'react';
-import TodoList from '../components/TodoList';
+import TodoList from './components/TodoList';
 
 const App = () => (
   <div>
-    <h2>Todo App</h2>
+    <h2>OneDay To Do App</h2>
 
   </div>
 );
