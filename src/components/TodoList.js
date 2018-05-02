@@ -7,42 +7,32 @@ class TodoList extends Component {
     constructor () {
         super();
         this.state = {
-                nameOfApp: 'OneDay To Do List',
-                tasks: [],
-                task: '',
-                id: 1,
-                completed: false
-            };
+                todos: [],
+                newTodo: '',
+        };
     }
 
-    handleNameChange = event => {
-        this.setState({ [event.target.nameOfApp]: event.target.value });
+    addTodo = (e) => {
+        e.preventDefault();
+        const updatedTodos = this.state.todos;
+        updatedTodos.push(this.state.newTodo);
+        this.setState({
+            todos: updatedTodos,
+            newTodo: ''
+        });
     };
 
-    handleSubmitTodo = () => {
-        const tasks = this.state.tasks;
-        const task = { nameOfApp: this.state.task, id: this.state.task + tasks.length };
-        tasks.push(task);
-        this.setState({ tasks: tasks, task: '' });
+    handleNewTodoInput = (e) => {
+        this.setState({ newTodo: e.target.value });
     };
-
 
     render() {
-        console.log('Render was called');
         return (
             <div>
-                <h1>{this.state.nameOfApp}</h1>
-                {
-
-                }
-                <Todo tasks={this.state.tasks} />
-                <input
-                    name="task"
-                    onChange={this.handleNameChange}
-                    value={this.state.task}
-                    placeholder="What do you want to do today?"
-                />
-                <button onClick={this.handleSubmitTask}>Add Task</button>
+                {this.state.todos.map((todo, i) => <Todo key={i} todo={todo} />)}
+                <form onSubmit={this.addTodo}>
+                    <input type="text" onChange={this.handleNewTodoInput} placeholder="Add a new todo" value={this.state.newTodo} />
+                </form>
             </div>
         );
     }
