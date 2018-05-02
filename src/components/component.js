@@ -55,18 +55,20 @@ class TodoList extends React.Component {
     }
     onClick(e) {
         console.log(e.target.tagName);
-        if (e.target.tagName === 'BUTTON') {
+        if (e.target.tagName === 'BUTTON' && this.state.currentInput !== '') {
+            e.preventDefault();
             console.log(e.target.tagName);
-            if (this.state.currentInput !== '') {
+            // if (this.state.currentInput !== '') {
                 let newTodos = this.state.todos;
-                newTodos.push(this.state.currentInput);
+                // newTodos.push(this.state.currentInput);
                 console.log('newTodos',newTodos);
                 // this.setState( {currentInput: ''} ); DO NOT WORKS
                 // this.setState( {todos: newTodos.push(this.state.currentInput), currentInput: ''} );
-                this.setState( {[this.state.todos]: newTodos, currentInput: ''} );
-                // this.setState( {[this.state.todos]: this.state.todos.push(this.state.currentInput)} ); // ADD THE INPUT TWICE
+                // this.setState( {todos: newTodos.push(this.state.currentInput), currentInput: ''} ); DO NOT WORK
+                // this.setState( {[this.state.todos]: newTodos, currentInput: ''} ); WORKS
+                this.setState( {[this.state.todos]: this.state.todos.push(this.state.currentInput), currentInput: ''} ); // WORKS
 
-            }            
+            // }            
         }
     }
     render(){
@@ -74,16 +76,16 @@ class TodoList extends React.Component {
         // const parent = this;
         // console.log(parent);
         return (
-            <div onChange={this.onInputChange} >
+            <div onChange={this.onInputChange} onClick={this.onClick.bind(this)} >
                 <div  >
                     Todo-List-Component
                     <ol>
-                        <li>ListItem-Component</li>
+                        <li>ListItem-Components</li>
                         {/* <ListItem /> */}
                         {this.state.todos.map( (todo, indx) => <ListItem key={indx} todo={todo} /> )}
                     </ol>
                     <Input value={this.state.currentInput} />
-                    <AddToList onClick={this.onClick.bind(this)} />
+                    <AddToList  />
                 </div>
             </div>
         )
