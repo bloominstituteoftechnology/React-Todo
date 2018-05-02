@@ -22,7 +22,7 @@ class Input extends React.Component {
     }
     render(){
         return (
-            <input type='text' name="input" placeholder="Input-Component" value={this.props.vale}  />
+            <input type='text' name="input" placeholder="Input-Component" value={this.props.value}  />
         )
     }
 }
@@ -59,11 +59,11 @@ class TodoList extends React.Component {
             console.log(e.target.tagName);
             if (this.state.currentInput !== '') {
                 let newTodos = this.state.todos;
-                // newTodos = newTodos.push(this.state.currentInput);
+                newTodos.push(this.state.currentInput);
                 console.log('newTodos',newTodos);
                 // this.setState( {currentInput: ''} ); DO NOT WORKS
-                this.setState( {todos: newTodos.push(this.state.currentInput), currentInput: ''} );
-                // this.setState( {[this.state.todos]: newTodos, currentInput: ''} );
+                // this.setState( {todos: newTodos.push(this.state.currentInput), currentInput: ''} );
+                this.setState( {[this.state.todos]: newTodos, currentInput: ''} );
                 // this.setState( {[this.state.todos]: this.state.todos.push(this.state.currentInput)} ); // ADD THE INPUT TWICE
 
             }            
