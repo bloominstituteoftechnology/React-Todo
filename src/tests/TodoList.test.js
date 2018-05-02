@@ -32,6 +32,6 @@ describe('Todo List', () => {
         expect(component.find('div').children().length).toBe(1);
         component.setState({ newTodo: 'bake canneles' });
         component.instance().addTodo(e);
-        expect(component.state()).toEqual({ todos: ['bake canneles'], newTodo: '' });
+        expect(component.state()).toEqual({ todos: [{ task: 'bake canneles', id: 1, completed: false}], newTodo: '', taskId: 1 });
     });
 });
