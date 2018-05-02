@@ -9,8 +9,7 @@ class App extends Component {
     this.state = {
       title: 'Welcome to My Todo App',
       char: '',
-      todos: [],
-      nextId: 0
+      todos: this.initTodoList()
     }
   }
   // lets build input that will allow us to type a new todo char
@@ -23,7 +22,7 @@ class App extends Component {
     // take this.state.char add it to an array
     // this.setState() to replace the old array
     const todos = this.state.todos;
-    let nextId = this.state.nextId + 1;
+    let nextId = Date.now();
     var todo = {
       task: this.state.char, 
       id: nextId, 
@@ -32,12 +31,12 @@ class App extends Component {
     if(this.state.char.length > 3)
     {
       todos.push(todo);
-      this.setState({ todos: todos, char: '', nextId: nextId});
+      this.setState({ todos: todos, char: ''});
     }
+    this.dataObjectUpdate();
   };
 
   handleCompletedTodo = (todoId) => {
-    console.log("remove ", todoId);
     const todos = this.state.todos;
     const newTodos = todos.map(todo => {
       if (todoId === todo.id) {
@@ -45,16 +44,25 @@ class App extends Component {
       }
       return todo;
     });
-    console.log(newTodos);
     this.setState({ todos: newTodos });
+    this.dataObjectUpdate();
   }
 
   handleRemoveTodo = (todoId) => {
-    console.log("remove ", todoId);
     const todos = this.state.todos;
     const newTodos = todos.filter(todo => todoId !== todo.id);
-    console.log(newTodos);
     this.setState({ todos: newTodos });
+    this.dataObjectUpdate();
+  }
+
+  
+  initTodoList = () => {
+    let todos = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : [];
+    return todos;
+  }
+
+  dataObjectUpdate(){
+    localStorage.setItem('todoList', JSON.stringify(this.state.todos))
   }
 
   render() {
@@ -67,7 +75,6 @@ class App extends Component {
           onKeyPress={
             (event) => {
               if(event.key === 'Enter'){
-                console.log('enter press here! ');
                 this.handleSubmitTodo();
               }
             }

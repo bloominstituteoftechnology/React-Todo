@@ -20,7 +20,7 @@ button {
 
 }
 
-input::placeholder {
+input::placeholder, .todo-completed {
     color: #0a87fcdd;
     opacity: 0.4;
   }

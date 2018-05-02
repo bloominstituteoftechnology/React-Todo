@@ -7,10 +7,9 @@ const TodoList = props => {
   return (
     <ul>
       {props.todos.map((todo) => {
-          console.log("inside todo", todo);
           if(todo.completed){
             return (
-                <li key={todo.id}>
+                <li key={todo.id} className="todo-completed">
                     <button className="white-btn green-btn fa fa-thumbs-up" onClick={ () => {props.completedTodo(todo.id)} }></button>
                         {todo.task}
                     <div className="strike-line"></div>
