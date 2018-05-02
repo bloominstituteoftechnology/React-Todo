@@ -1,0 +1,118 @@
+body {
+    background: #cde2e9;    
+  }
+
+h1 {
+    margin:  40px 20px;
+    padding: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    color: rgb(255, 255, 255);
+    background: lightskyblue;
+    font-size: 2.0rem;
+    text-align: center;
+}
+
+input,
+button {
+    font-size: 2.0rem;
+    color: #0a87fcdd;
+
+}
+
+input::placeholder {
+    color: #0a87fcdd;
+    opacity: 0.4;
+  }
+  
+input {
+    width: 95%;
+    margin: 10px 20px;
+    padding: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+  
+    background: #fff;
+    font-size: 2.0rem;
+    word-break: break-word;
+  }
+
+ul {
+    padding: 10px;
+}  
+
+
+li {
+    position: relative;
+    display: flex;
+  
+    margin: 0 20px 10px 20px;
+    padding: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+  
+    background: #fff;
+    color: #0a87fcdd;
+    font-size: 2.0rem;
+
+  }
+
+  /* BUTTONS */
+
+.white-btn {
+    background: #ffffff;
+    border: 0;
+    font-size: 2.0rem;
+}
+
+.white-btn:focus {
+    border: 0;
+}
+
+.gray-btn {
+  color: gray;
+}
+
+.gray-btn:hover {
+    color: #42a707;
+}
+
+.green-btn {
+    color: #42a707;
+}
+
+.green-btn:hover {
+    color: gray;
+  }
+
+  .trash-btn {
+    position: absolute;
+    color: gray;
+    top:50%;
+    right: 5px;
+    transform: translateY(-50%)
+  }
+  
+  .trash-btn:hover {
+    color: #42a707;
+  }
+
+  /* STRIKETHROUGH LINE */
+
+.strike-line {
+    position: absolute;
+    top: 26px;
+    left: 50px;
+    
+    display: inline-block;
+    height: 2px;
+    
+    background: red;
+    
+    animation: strike-line .3s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+  }
+  
+  @keyframes strike-line {
+    from { width: 0% }
+    to { width: calc(100vw - 140px) }  
+  }

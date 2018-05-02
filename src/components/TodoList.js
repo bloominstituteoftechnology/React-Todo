@@ -10,16 +10,21 @@ const TodoList = props => {
           console.log("inside todo", todo);
           if(todo.completed){
             return (
-                <div key={todo.id}>
-                    <span>Id : {todo.id} Task: {todo.task} completed</span>;
-                </div>
+                <li key={todo.id}>
+                    <button className="white-btn green-btn fa fa-thumbs-up" onClick={ () => {props.completedTodo(todo.id)} }></button>
+                        {todo.task}
+                    <div className="strike-line"></div>
+                    <button className="white-btn trash-btn fa fa-trash-o" onClick={ () => {props.removeTodo(todo.id)} }></button>
+                </li>
             )
           }else {
             return (
-                <div key={todo.id} >
-                    <span>Id : {todo.id} Task: {todo.task} not completed </span>
-                    <button onClick={ () => {props.removeTodo(todo.id)} }> completed </button>
-                </div>
+                <li key={todo.id} >
+                    <button className="white-btn gray-btn fa fa-thumbs-up" onClick={ () => {props.completedTodo(todo.id)} }></button>
+                        {todo.task}
+                    <button className="white-btn trash-btn fa fa-trash-o" onClick={ () => {props.removeTodo(todo.id)} }></button>
+
+                </li>
             )
           }
       })}
