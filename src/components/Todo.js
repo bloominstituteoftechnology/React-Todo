@@ -5,9 +5,9 @@ class Todo extends Component {
   constructor() {
     super();
     this.state = {
-      title: 'i just want to see something',
+      title: 'Test',
       toDo: "",
-      allToDos: [{item: 'delete full object when done', id: 'delete0'}]
+      allToDos: []
     };
   }
 
@@ -22,18 +22,30 @@ class Todo extends Component {
     // push current toDo value to allToDos
     // setState
     const allToDos = this.state.allToDos;
-    const toDo = { item: this.state.toDo, id: this.state.toDo + allToDos.length };
+    const toDo = { item: this.state.toDo, id: this.state.toDo + allToDos.length, click: false, };
     this.state.allToDos.push(toDo);
     this.setState({ allToDos: allToDos, toDo: ""})
     // console.log(this)
   }
 
+  clicked = () => {
+    this.setState({click: !this.state.allToDos.click})
+    
+    // let styled = this.allToDos[e].style;
+    // if(styled === false){
+    //   return styled = true;
+    // }
+    console.log(this.state.allToDos); 
+    console.log('this was clicked')
+  }
 
   render(){
     return (
       <div>
         <h2>{this.state.title}</h2>
-        <ToDoList allToDos={this.state.allToDos} />
+        <div onClick={this.clicked}>
+          <ToDoList allToDos={this.state.allToDos}/>
+        </div>
         <input
           name="toDo"
           onChange={this.handleNameChange}
