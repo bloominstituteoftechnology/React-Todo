@@ -16,9 +16,9 @@ class TodoList extends React.Component {
     }
 
     handleSubmitChar() {
-        const list = this.state.list;
-        list.push(this.state.newTask);
-        this.setState({list: list, newTask: ""});
+        const updateList = this.state.list;
+        updateList.push(this.state.newTask);
+        this.setState({list: updateList, newTask: ""});
     }
 
     render() {
