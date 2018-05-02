@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const toDoListItems = props => {
+const ToDoListItems = props => {
     return (
       <ul>
         {props.toDos.map(toDo => {
@@ -11,5 +11,4 @@ const toDoListItems = props => {
     );
   };
   
-  export { toDoListItems };
-  
+  export { ToDoListItems };

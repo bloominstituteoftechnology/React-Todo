@@ -1,5 +1,6 @@
+
   import React, { Component } from 'react';
-  import { toDoListitems }  from './toDoListItems.js';
+  import { ToDoListItems }  from './ToDoListItems.js';
 
 
 class TodoList extends Component {
@@ -25,7 +26,7 @@ class TodoList extends Component {
         render() {
             return (
             <div>     
-                <toDoListItems toDos={this.state.toDos} />
+                <ToDoListItems toDos={this.state.toDos} />
                     <input 
                     name="toDo"
                     onChange={this.handleToDoActionChange}
