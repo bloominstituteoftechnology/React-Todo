@@ -3,11 +3,11 @@ import React from 'react';
 const Todo = props => {
     return (
         <ul>
-            {props.chars.map(char => {
-                return <li key={char.id}>{char.name}</li>;
+            {props.todos.map(char => {
+                return <li key={task.id}>{task.name}</li>;
             })}
         </ul>
     );
 };
 
-export default Todo.js;
+export default Todo;

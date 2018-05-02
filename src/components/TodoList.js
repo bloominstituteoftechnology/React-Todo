@@ -7,7 +7,8 @@ class TodoList extends Component {
     constructor () {
         super();
         this.state = {
-                title: 'OneDay To Do List',
+                nameOfApp: 'OneDay To Do List',
+                tasks: [],
                 task: '',
                 id: 1,
                 completed: false
@@ -15,32 +16,32 @@ class TodoList extends Component {
     }
 
     handleNameChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({ [event.target.nameOfApp]: event.target.value });
     };
 
     handleSubmitTodo = () => {
-        const todos = this.state.todos;
-        const task = { name: this.state.task, id: this.state.task + todos.length };       
-        todos.push(task);
-        this.setState({ todos: todos, task: '' });
+        const tasks = this.state.tasks;
+        const task = { name: this.state.task, id: this.state.task + tasks.length };
+        tasks.push(task);
+        this.setState({ tasks: tasks, task: '' });
     };
 
     render() {
         console.log('Render was called');
         return (
             <div>
-                <h1>{this.state.title}</h1>
+                <h1>{this.state.nameOfApp}</h1>
                 {
 
                 }
-                <Todo todos={this.state.todos} />
+                <Todo tasks={this.state.tasks} />
                 <input
                     name="task"
                     onChange={this.handleNameChange}
                     value={this.state.task}
                     placeholder="What do you want to do today?"
                 />
-                <button onClick={this.handleSubmitTodo}>Add Task</button>
+                <button onClick={this.handleSubmitTask}>Add Task</button>
             </div>
         );
     }
