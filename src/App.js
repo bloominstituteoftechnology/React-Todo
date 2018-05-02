@@ -1,7 +1,10 @@
-import React, {Component} from 'react';
-import Todo from "./Todo.js";
-import TodoList from "./TodoList.js";
+import React from 'react';
+import ToDoList from "./components/ToDoList.js";
 
+
+submit = () =>
+const newToDos = this.state;
+ToDos.push(this.stat.newToDo)
 const App = () => (
   <div>
     <h2>Todo App</h2>
