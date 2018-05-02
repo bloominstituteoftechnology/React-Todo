@@ -1,13 +1,14 @@
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
 import React, {Component} from 'react';
-
 import DisplayList from './displaylist';
+import List from './list';
+
 class TodoList extends Component {
     constructor() {
         super()
         this.state = {
-          id: 0,  
+          id: 1,  
           item: '',        
           toDoList: []
         }
@@ -24,9 +25,12 @@ class TodoList extends Component {
         toDoList.push(item);
         this.setState({toDoList: toDoList, item : ''});        
     }
+
   render() {
       return (
-          <div>
+          <div className="container">
+          <h1>My to do list.</h1>
+          <List hold={this.state.toDoList} />
               <DisplayList toDoList={this.state.toDoList} /> 
               <input name="item" type="text" value={this.state.item} onChange={this.handleChange} placeholder="Add to List" />            
               <button onClick={this.submitChange}>Add Item</button>
