@@ -1,7 +1,11 @@
 import React from 'react';
 
-const Todo = () => (
-  <li>To Do Item</li>
-);
+const Todo = props => {
+  return (
+    <ul>
+      {props.todos.map(todo => <li key={todo.id}>{todo.task}</li>)}
+    </ul>
+  );
+};
 
 export default Todo;

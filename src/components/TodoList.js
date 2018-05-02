@@ -2,19 +2,46 @@ import React from 'react';
 import Todo from './Todo';
 
 class TodoList extends React.Component {
-  constructor(){
+  constructor() {
     super();
-    this.state = {};
+    this.state = {
+      todos: [{
+        task: 'Organize Garage',
+        id: 1,
+        completed: false
+      },
+        {
+          task: 'Bake Cookies',
+          id: 2,
+          completed: false
+        }],
+      id: 0,
+      todoItem: ''
+    };
   }
-  render(){
-    return <div>
-        This is the TodoList Component
-        <ul>
-          <Todo />
-          <Todo />
-          <Todo />
-        </ul>
-      </div>;
+  onChange = event => {
+    this.setState({[event.target.name] : event.target.value});
+  };
+  addTodo = event => {
+    event.preventDefault();
+
+    const todoList = this.state.todos,
+      id = this.state.id + 1;
+
+    todoList.push({
+      task: this.state.todoItem,
+      id: id,
+      completed: false
+    });
+
+    this.setState({todos: todoList, id: id, todoItem: ''});
+  };
+  render() {
+    return (
+      <div>
+        <Todo todos={this.state.todos}/>
+      </div>
+    );
   }
 }
 
