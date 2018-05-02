@@ -47,3 +47,7 @@ h1 {
 input {
     margin-top: 20px;
 }
+
+.hide {
+    display: none;
+}
