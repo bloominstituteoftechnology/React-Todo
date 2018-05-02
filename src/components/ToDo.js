@@ -16,7 +16,7 @@ class Todo extends Component {
     }
     render() {
         return (
-            <div className="listElement" style={this.state.clicked ? { textDecoration: 'line-through' } : { textDecoration: 'none' }} onClick={this.click}>{this.props.todo}</div>
+            <div className="listElement" style={this.state.clicked ? { display: 'none' } : { textDecoration: 'none' }} onClick={this.click}>{this.props.todo}</div>
         )
     }
 }

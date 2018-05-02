@@ -8,7 +8,7 @@ class TodoList extends Component {
         super(props);
         this.state = {
             items: [],
-            Item: "",
+            item: "",
         }
     };
     render() {
@@ -16,6 +16,7 @@ class TodoList extends Component {
         return (
             <div className="wrapper">
                 <h1>This is an awesome ToDo List!</h1>
+                <h6>Did you complete a Todo? Congrats! Simply click on it to make it disappear!</h6>
                 <input
                     name="item" // should be known as the state.value of the thing we update
                     onChange={this.handleNewItem}
@@ -24,7 +25,7 @@ class TodoList extends Component {
                 />
                 <button className="btn btn-primary" onClick={this.handleItemSubmition}>Yes Please!</button>
                 <div>{this.state.items.map((todo, i) => {
-                    console.log(todo);
+                    // console.log(todo);
                     return <Todo key={i} todo={todo.item} text={todo.item} />
                 }
                 )}
@@ -33,6 +34,7 @@ class TodoList extends Component {
         )
     }
     handleNewItem = event => {
+        console.log(event.target.value)
         this.setState({ [event.target.name]: event.target.value })
     }
     handleItemSubmition = () => {

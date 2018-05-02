@@ -36,3 +36,14 @@ h1 {
     padding: 30px;
     background: darkblue;
 }
+
+.smallBtn {
+    height: 20px;
+    width: 80px;
+    font-size: 10px;
+    padding: 5px;
+}
+
+input {
+    margin-top: 20px;
+}
