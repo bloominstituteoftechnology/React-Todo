@@ -1,5 +1,6 @@
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
+
 import React, { Component } from 'react';
 import Todo from './Todo';
 
@@ -31,7 +32,7 @@ class TodoList extends Component {
             <div>
                 {this.state.todos.map((todo, i) => <Todo key={i} todo={todo} />)}
                 <form onSubmit={this.addTodo}>
-                    <input type="text" onChange={this.handleNewTodoInput} placeholder="Add a new todo" value={this.state.newTodo} />
+                    <input type="text" onChange={this.handleNewTodoInput} placeholder="Add a task" value={this.state.newTodo} />
                 </form>
             </div>
         );
