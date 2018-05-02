@@ -21,11 +21,17 @@ class ToDo extends Component{
         const task = { name: this.state.task, id: this.state.task + tasks.length };
         tasks.push(task);
         this.setState({tasks: tasks, task:""});
-    }
+    };
+    toggleClass() {
+      const currentState = this.state.active;
+      this.setState({ active: !currentState });
+  };
         
     render(){
         return (
             <div>
+              
+            <h1 className = "title">To-Do List</h1>
             <ToDoList tasks={this.state.tasks} />
             <input
               name="task" // should be known as the state.value of the thing we update
