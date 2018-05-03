@@ -27,6 +27,14 @@ class TodoList extends Component {
 
     this.setState({ todos: newTodoList, newTodo: '', taskId: newTaskId});
   };
+  updateTask = event => {
+    const newTodoList = this.state.todos.map(task => {
+      if (+task.id === +event.target.getAttribute('todoid')) task.completed = !task.completed;
+      return task;
+    });
+
+    this.setState({todos: newTodoList});
+  }
   render(){
     return (
       <div>
@@ -40,7 +48,15 @@ class TodoList extends Component {
           />
           <button onClick={this.addTodo}>Save task to list</button>
         </form>
-        {this.state.todos.map(task => <Todo key={task.id} task={task.task}/>)}
+        {this.state.todos.map(task =>
+          <Todo
+            key={task.id}
+            todoid={task.id}
+            todo={task.task}
+            completed={task.completed}
+            onClick={this.updateTask}
+          />
+        )}
       </div>
     );
   };
