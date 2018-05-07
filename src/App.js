@@ -1,8 +1,8 @@
 import React from 'react';
 import {Component} from 'react';
 import AddButton, { ListView } from './components/component.js';
-//I combined 2 components into 1 folder and imported them together.
-//The syntax is weird to export 2 components
+//I combined 2 components into 1 folder and imported them together to try it out.
+//The syntax is weird to export/import 2 components
 import AddField from './components/AddField.js';
 
 
