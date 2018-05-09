@@ -1,0 +1,13 @@
+.app-div {
+    display: flex;
+    text-align: center;
+}
+.app-name {
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid orange;
+}
