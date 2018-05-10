@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { Component } from "react";
+import TodoList from "./components/TodoList";
 
-const App = () => (
-  <div>
-    <h2>Todo App</h2>
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      title: "To Do List"
+    }
+  }
 
-  </div>
-);
+  render() {
+    return (
+      <div>
+        <h2>{this.state.title}</h2>
+        <TodoList />
+      </div>
+    )
+  }
+}
 
 export default App;
