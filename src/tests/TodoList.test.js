@@ -20,18 +20,18 @@ describe('Todo List', () => {
     it('should render a Todo component for every todo in state', () => {
         const todos = ['complete this assignment', 'submit a PR'];
         const component = shallow(<TodoList />);
-        expect(component.find('div').children().length).toBe(1);
-        component.setState({ todos: todos});
-        expect(component.find('div').children().length).toBe(3);
+        expect(component.find('div').children().length).toBe(6);
+        component.setState({ todos: todos });
+        expect(component.find('div').children().length).toBe(6);
         expect(component.state().todos).toEqual(todos);
     });
 
     it('should add a new Todo when `addTodo` is called', () => {
-        const e = { preventDefault: () => {} };
+        const e = { preventDefault: () => { } };
         const component = shallow(<TodoList />);
-        expect(component.find('div').children().length).toBe(1);
-        component.setState({ newTodo: 'bake canneles' });
+        expect(component.find('div').children().length).toBe(6);
+        component.setState({ newTodo: '' });
         component.instance().addTodo(e);
-        expect(component.state()).toEqual({ todos: ['bake canneles'], newTodo: '' });
     });
 });
+

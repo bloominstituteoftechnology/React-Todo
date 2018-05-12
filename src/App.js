@@ -5,14 +5,14 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      title: "To Do List"
+      text: "Note: When an item is added to the todo list you can click on it to confirm that it was completed"
     }
   }
 
   render() {
     return (
       <div>
-        <h2>{this.state.title}</h2>
+        <p>{this.state.text}</p>
         <TodoList />
       </div>
     )

@@ -8,41 +8,53 @@ class TodoList extends Component {
   constructor() {
     super()
     this.state = {
-      task: '',
-      todos: []
+      title: "To Do List",
+      newTodo: '',
+      todos: [],
+      error: false
     };
   }
 
   handleTodoChange = event => {
     this.setState({ [event.target.name]: event.target.value })
   }
-  
-  addTodo = event => {
-    const todos = this.state.todos;
-    const task = {
-      name: this.state.task,
-      id: this.state.todos.length,
-      completed: false,
-      strikeThrough: function(index) {
-        const item = document.getElementById(todos[index].id);
-        if (todos[index].completed === true) {
-          item.style.textDecoration = "line-through";
+
+  addTodo = () => {
+    if (this.state.newTodo === '') {
+      this.setState({ error: true });
+      setTimeout(() => {
+        this.setState({ error: false });
+      }, 3000);
+    }
+    else {
+      const todos = this.state.todos;
+      const newTodo = {
+        name: this.state.newTodo,
+        id: this.state.todos.length,
+        completed: false,
+        strikeThrough: function (index) {
+          const item = document.getElementById(todos[index].id);
+          if (todos[index].completed === true) {
+            item.style.textDecoration = "line-through";
+          }
+          else {
+            item.style.textDecoration = "none";
+          }
         }
-        else {
-          item.style.textDecoration = "none";
-        }
-      }
-    };
-    todos.push(task);
-    this.setState({ todos: todos, task: '' });
+      };
+      todos.push(newTodo);
+      this.setState({ todos: todos, newTodo: '' });
+    }
   }
 
   render() {
     return (
       <div>
+        <input name="newTodo" value={this.state.newTodo} placeholder="Enter a new todo item" onChange={this.handleTodoChange} /><br /><br />
+        <button onClick={this.addTodo}>Click to add a new todo</button>
+        <h2>{this.state.title}</h2>
+        {this.state.error ? <div>Cannot submit an empty text for a todo item</div> : null}
         <Todo todo={this.state.todos} />
-        <input name="task" value={this.state.task} placeholder="Enter a new task" onChange={this.handleTodoChange} /><br /><br />
-        <button onClick={this.addTodo}>Click to add a new task</button>
       </div>
     )
   }
