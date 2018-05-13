@@ -1,46 +1,62 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import FormSubmit from './components/FormSubmit';
 import ToDoList from './components/ToDoList';
 
-class ToDo extends Component{
-    constructor() {
+class App extends Component {
+    constructor(){
         super();
         this.state = {
-            title: "To Do List",
+            tasks: ['Wash car'],
             task: "",
-            someVal: "",
-            tasks:[]
-        };
+            id: null,
+            completed: false,
+        }
+
     }
-    inputNameChange = event => {
-      // a controlled input
-      this.setState({ [event.target.name]: event.target.value });
-    }; // I DID THIS - Because... REUSABILITY
-  
-    inputSubmitTask = () => {
-        const tasks = this.state.tasks;
-        const task = { name: this.state.task, id: this.state.task + tasks.length };
-        tasks.push(task);
-        this.setState({tasks: tasks, task:""});
-    };
-    toggleClass() {
-      const currentState = this.state.active;
-      this.setState({ active: !currentState });
-  };
         
+    changeHandle = (event) =>{
+        this.setState ({[event.target.name]:event.target.value})//every time you call setState you call the render function
+    }
+
+
+
+    submitHandle = (event) =>{
+        event.preventDefault();
+        const tasks = this.state.tasks.slice(); //slice creates a copy of the array so we don't mutate the original
+        tasks.push(this.state.task);
+        this.setState({tasks:tasks, task: ''});
+    }
+
+    handleRemoveTask = (taskId) => {
+        const tasks = this.state.tasks.map((task) => {
+            if (taskId===this.state.id){
+                this.state.completed = !this.state.completed
+            }
+            return {task}
+            
+        });
+        
+            this.setState({tasks})
+        }
+       
+    
+
     render(){
-        return (
-            <div>
-              
-            <h1 className = "title">To-Do List</h1>
-            <ToDoList tasks={this.state.tasks} />
-            <input
-              name="task" // should be known as the state.value of the thing we update
-              onChange={this.inputNameChange}
-              value={this.state.task} // should be bound to the state.value of thing we update
-              placeholder="add task to List"
-            />
-            <button onClick={this.inputSubmitTask}>Add Task</button>
-          </div>
-        )}
+        return(
+            <div>       
+            <h1>My To-Do List</h1>     
+            <FormSubmit tasks = {this.state.tasks}
+                        changeHandle = {this.changeHandle}
+                        submitHandle = {this.submitHandle} />
+            <ToDoList 
+                tasks = {this.state.tasks}
+                handleRemoveTask = {this.handleRemoveTask}/>
+                
+          
+            </div>   
+        )
+        
+    }
 }
-export default ToDo;
+export default App;
+

@@ -1,13 +1,19 @@
-import React from "react";
+import React from 'react';
 
 const ToDoList = props => {
-  return (
-    <ul className = "unorderedList">
-      {props.tasks.map(task => {
-        return <li className = 'listItem' key={task.id}>{task.name}</li>;
-      })}
-    </ul>
-  );
-};
+    return(
+        <div>
+            <ul>
+                {props.tasks.map((task) => {
+                    return(
+                    
+                        <li key = {props.task} onClick = {props.handleRemoveTask}>{task} </li>
+                    )
+                })
+            }              
+            </ul>
+        </div>         
+    )
+}
 
 export default ToDoList;
