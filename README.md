@@ -1,10 +1,10 @@
 # React-Todo
 
-- At this point you have become familiar with the DOM and have built out User Interfaces HTML and CSS and some custom components. And you've even had some practice working with React at a basic level. Now we're going to start adding some functionality to that work-flow. It's one thing to be able to build UI components using react, but what about the interactivity of those components?
+- At this point you have become familiar with the DOM and have built out User Interfaces using HTML and CSS and some JavaScript using custom components. And you've even had some practice working with React at a basic level. Now we're going to start adding some functionality to that work-flow. It's one thing to be able to build UI components using react, but what about the interactivity of those components?
 
 ## Initializing the project.
 
-- _Fork and clone_ this project and cd into your cloned version.
+- `Fork and clone` this project and cd into your cloned version.
 - `yarn install` will pull in all the node_modules you need.
 - `yarn start` will start a development server on your `http://localhost:3000`.
   - If yarn asks you to select different port with some error message, just select `Y` and it will pull it up on port 3001. This simply means you have a development server up and running on that port already.
@@ -39,10 +39,15 @@
 
 #### Day 1 MVP Requirements
 
-- **Don't focus on styling for today**. We want you to worry about function over form today.
+- **Don't focus on styling yet**. We want you to worry about function over form today.
 - Your todo list should display a list of todos, an input field, a submit button, and a clear all button.
-- Your input field should take in user input, and you then should be able to press `Enter` or click on the `Submit Button` to add a todo to your list.
-- Once a todo is submitted, the Todo List should re-render and show the added todo.
+- Be sure to use the given files for building out these components.
+- `<App />` will hold all the data needed for this project. It will also be the container for your TodoComponents.
+- `<TodoList />` receives your Todos array and iterates over the list generating a new `<Todo />` for each element in the array.
+- `<Todo />` is a component that takes in the `todo` data and displays the task to the screen.
+- `<TodoForm>` will hold your input field and your `Add Todo` and `Clear Completed` buttons.
+  - Your input field should take in user input, and you then should be able to press `Enter` or click on the `Submit Button` to add a todo to your list.
+  - Once a todo is submitted, the Todo List should re-render and show the added todo.
 
 #### Day 2 MVP Requirements
 
