@@ -16,43 +16,45 @@
 
 ### [**INSERT GIF OF COMPLETED TODO**]
 
-#### Day 1 MVP Requirements
-
-- Your todo list should display a list of todos, an input field, a submit button, and a clear all button.
-- Your input field should take in user input, and you then should be able to press `Enter` or click on the `Submit Button` to add a todo to your list.
-- Aside from being able to add todos, you should be able to mark any todo in the list as 'complete'.
-  - In other words, a user should be able to click on any of the todos in the list and have a strikethrough go through the individual todo.
-  - This behavior should be toggle-able, i.e. a todo item that has a strike-through through it should still be clickable in order to allow completed items to no longer be marked as 'completed'.
-- The
-- Once you've finished your components, you'll need to have the root `App` component render your TodoList component.
-
-```js
-this.state.todos.map((todo, i) => <AnotherComponent key={i} todo={todo} />);
-```
-
-Here, we're simply passing the index of each todo item as the key for the individual React component.
-
-- Remember your todo data should be an array of objects that look a lot like this:
+- Your todo data should be an array of objects that look a lot like this:
 
 ```js
 [
   {
     task: 'Organize Garage',
-    id: 1,
+    id: 1528817077286,
     completed: false
   },
   {
     task: 'Bake Cookies',
-    id: 2,
+    id: 1528817084358,
     completed: false
   }
 ];
 ```
 
+- The `task` field is the todo title that will be shown to the user.
+- The `completed` field should default to `false` and will be the field that we toggle when we complete a todo.
+- The `id` field is a unique `Time Stamp` that will be assigned by `Date.now()`.
+
+#### Day 1 MVP Requirements
+
+- **Don't focus on styling for today**. We want you to worry about function over form today.
+- Your todo list should display a list of todos, an input field, a submit button, and a clear all button.
+- Your input field should take in user input, and you then should be able to press `Enter` or click on the `Submit Button` to add a todo to your list.
+- Once a todo is submitted, the Todo List should re-render and show the added todo.
+
 #### Day 2 MVP Requirements
+
+- Add the functionality to toggle your todo's completed flag from `false` to `true`.
+  - Once a todo is completed, be sure to demonstrate to the user that the todo is completed by adding a strike-through style property if the completed flag is true.
+- Add the functionality to remove any 'completed' todos from the list when a user clicks on the 'Clear Todos' button.
+- **Now is the time to style** Take your time to make this an app that you can be proud of.
 
 #### Stretch Problems
 
 - Add the ability to remove any todos that you have completed. `.filter` will be your best friend here. You can have a `remove completed` button that fires a filtering function that will filter out an todos that have a completed of `true`.
 
 - Persist your data in `window.localStorage()` hint: you may have to pass your data to a stringifier to get it to live inside the `localStorage()` of the browser. This will cause it to persist past the page refresh.
+
+- Create a [Netlify Account](https://www.netlify.com/) and follow the tutorial on how to host your shiny new todo app on the world wide web.
