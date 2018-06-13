@@ -1,3 +1,11 @@
 .todo-container {
     margin: 0 auto;
 }
+
+.todo-list:hover {
+    cursor: pointer;
+}
+
+.todo-form button {
+    cursor: pointer;
+}

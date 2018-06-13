@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Todo from './components/TodoComponents/Todo';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -18,7 +17,7 @@ class App extends React.Component {
         {
           task: 'Bake Cookies',
           id: 1528817084358,
-          completed: 'false'
+          completed: false
         }
       ],
       list: ''
@@ -29,8 +28,25 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
 
   handleInputChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ list: event.target.value });
   };
+
+  toggleCompleted = event => {
+    let toDoList = this.state.todos.slice()
+      .map(list => {
+        if (list.id === event) {
+          list.completed = !list.completed;
+          return list;
+        }
+        return list;
+      });
+
+    this.setState({ todos: toDoList });
+  }
+
+  onSubmit = event => {
+    event.preventDefault();
+  }
 
   addButton = () => {
     const toDoList = this.state.todos.slice();
@@ -39,12 +55,24 @@ class App extends React.Component {
     this.setState({ todos: toDoList, list: '' });
   }
 
+  clearButton = () => {
+    let toDoList = this.state.todos.slice().filter(list => !list.completed);
+    this.setState({ todos: toDoList });
+  }
+
   render() {
     return (
       <div className='app-container'>
         <h1>Todo List: MVP</h1>
-        <TodoList toDoList={this.state.todos} />
-        <TodoForm value={this.state.list} onChange={this.handleInputChange} addButton={this.addButton} />
+        <TodoList
+          toggleCompleted={this.toggleCompleted}
+          toDoList={this.state.todos} />
+        <TodoForm
+          value={this.state.list}
+          onSubmit={this.onSubmit}
+          onChange={this.handleInputChange}
+          clearButton={this.clearButton}
+          addButton={this.addButton} />
       </div>
     );
   }
