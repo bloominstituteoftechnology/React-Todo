@@ -9,7 +9,7 @@ class TodoForm extends React.Component {
   render() { 
     return (    
       <div>
-        <input onChange={this.props.onInputChangeHandler} type="text" placeholder="Add Todo item"/>
+        <input onChange={this.props.onInputChangeHandler} type="text" placeholder="Add Todo item" value={this.props.inputValue}/>
         <button onClick={this.props.addButtonHandler}>Add</button>
         <button onClick={this.props.clearButtonHandler}>Clear</button>
       </div>

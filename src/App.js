@@ -34,7 +34,6 @@ class App extends React.Component {
     console.log('You clicked the add button')
     
     let id = new Date().getTime(); 
-    
 
     this.setState(prevState => {
      return {
@@ -60,7 +59,7 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         {/* {console.log(this.state.todos,"in App.js Render this.state.todos")} */}
         <TodoList todo={this.state.todos}/>
-        <TodoForm onInputChangeHandler= {this.onInputChangeHandler} addButtonHandler={this.addHandler} clearButtonHandler={this.clearHandler}/>
+        <TodoForm inputValue={this.state.tempTodo} onInputChangeHandler= {this.onInputChangeHandler} addButtonHandler={this.addHandler} clearButtonHandler={this.clearHandler}/>
       </div>
     );
   }
