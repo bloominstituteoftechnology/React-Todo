@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   constructor() {
@@ -19,6 +20,8 @@ class App extends React.Component {
       ],
       newTodo: ''
     }
+    this.changeHandler = this.changeHandler.bind(this);
+    this.addTodoHandler = this.addTodoHandler.bind(this);
   }
 
   changeHandler(e) {
@@ -29,7 +32,7 @@ class App extends React.Component {
     if (this.state.newTodo.length >= 1) {
       this.state.todos.push({
         task: this.state.newTodo,
-        id: Math.random(),
+        id: Date.now(),
         completed: false
       });
       this.state.newTodo = '';
@@ -38,18 +41,12 @@ class App extends React.Component {
     }
   }
 
-
-
   render() {
     return (
       <div>
         <h2>TODO LIST</h2>
         <TodoList todoList={this.state.todos} />
-          <form onSubmit={(e) => this.addTodoHandler(e)}>
-            <input type="text" placeholder="..add new todo" value={this.state.newTodo} onChange={(e) => {this.changeHandler(e)}}/> 
-            <button onClick={(e) => {this.addTodoHandler(e)}}>Add Todo</button>
-            <button>Clear Completed</button>
-          </form>
+        <TodoForm onSubmitHandler = {this.addTodoHandler} value={this.state.newTodo} onChangeHandler={this.changeHandler} />
       </div>
     );
   }
