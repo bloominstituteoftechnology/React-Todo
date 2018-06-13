@@ -7,7 +7,7 @@ const TodoList = props => {
     return (
         <ul>
             {props.todoProps.map(todo => {
-                return <Todo todoData={todo} />
+                return <Todo todoData={todo} key={Math.random()}/>
         })}
         </ul>
     );

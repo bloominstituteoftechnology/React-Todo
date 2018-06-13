@@ -5,10 +5,11 @@ const TodoForm = props =>{
         <div>
         <input
             type="text"
+            onChange={props.todoHandler}
             placeholder="To Do"
-            value={props.todo}
+            value={props.todoSubmit.task}
         />
-        <button> Add Todo </button>
+        <button onClick={props.addTodoFunction}> Add Todo </button>
         <button> Clear Completed </button>
         </div>
     );

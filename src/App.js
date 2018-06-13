@@ -20,19 +20,36 @@ class App extends React.Component {
          id: 1528817084358,
          completed: false
        }
-     ]
+     ],
+     todo: {
+            task: '',
+            id: Date.now(),
+            completed: false
+            },
     }
-  
   }
+
+  todoHandler = event => {
+    let newTodo = Object.assign({}, this.state.todo);
+    newTodo.task = event.target.value;
+    this.setState({todo: newTodo});
+  }
+
+  addTodo = () => {
+    console.log('im getting here');
+    const todos = this.state.todos.slice();
+    todos.push(this.state.todo);
+    this.setState({todos: todos});
+  };
+
   render() {
     return (
       <div>
         <h2>Todo List: MVP</h2>
         <TodoList todoProps={this.state.todos} />
-        <TodoForm />
+        <TodoForm addTodoFunction={this.addTodo} todoSubmit={this.state.todo} todoHandler={this.todoHandler}/>
       </div>
     );
   }
 }
-
 export default App;
