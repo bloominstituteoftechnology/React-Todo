@@ -4,4 +4,4 @@ const Todo = () => {
 
 }
 
-default export Todo;
+export default Todo;
