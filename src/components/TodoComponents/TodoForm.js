@@ -6,7 +6,7 @@ class TodoForm extends React.Component {
     this.state = {
       task: '',
       addClick: props.addTask,
-      clearClick: props.clearTasks
+      clearClick: props.clearCompleted,
     };
   }
 
@@ -31,6 +31,7 @@ class TodoForm extends React.Component {
 
   onClearClick = e => {
     e.preventDefault();
+    this.state.clearClick();
     console.log('Clicked clear completed');
   };
 
