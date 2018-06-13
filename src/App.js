@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './App.css';
 
 class App extends React.Component {
   constructor() {
@@ -22,6 +23,7 @@ class App extends React.Component {
     }
     this.changeHandler = this.changeHandler.bind(this);
     this.addTodoHandler = this.addTodoHandler.bind(this);
+    // this.clickTaskHandler = this.clickTaskHandler.bind(this);
   }
 
   changeHandler(e) {
@@ -35,11 +37,19 @@ class App extends React.Component {
         id: Date.now(),
         completed: false
       });
-      this.state.newTodo = '';
-      this.setState(this.state);
+      // this.state.newTodo = '';
+      // this.setState(this.state);
+      this.setState({ todos: this.state.todos, newTodo: ''});
       e.preventDefault();
     }
   }
+
+  // clickTaskHandler(index){
+  //   let task = document.getElementById(this.state.todos[index].id);
+  //   task.classList.toggle('completed');
+  //   this.state.todos[index].completed = true;
+  //   this.setState({ todos: this.state.todos});
+  // }
 
   render() {
     return (

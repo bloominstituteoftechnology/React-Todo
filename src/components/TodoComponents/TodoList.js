@@ -5,7 +5,7 @@ import Todo from './Todo';
 function TodoList(props) {
     return (
         <div className="todo-list-wrapper">
-          {props.todoList.map((todo) => {
+          {props.todoList.map((todo, index) => {
             return <Todo key={todo.id} todo={todo}/>
           })}
         </div>
