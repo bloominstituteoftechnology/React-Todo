@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Todo from './components/TodoComponents/Todo'
 
 class App extends Component {
   constructor () {
@@ -21,6 +22,8 @@ class App extends Component {
     return (
       <div>
         <h2>{this.state.header}</h2>
+        <Todo toDoArray={this.state.newTodo} />
+        <input />
       </div>
     )
   }
