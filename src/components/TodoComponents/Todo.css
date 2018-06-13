@@ -1,3 +1,4 @@
-.complete {
+.completed h3 {
     text-decoration-line: line-through;
+    color: green;
 }

@@ -2,11 +2,11 @@ import React from 'react';
 
 const Todo = (props) => {
     let classCombo = 'todo-item';
-    if (props.complete) {
-        classCombo += ' complete';
+    if (props.completed) {
+        classCombo += ' completed';
     }
     return (
-        <div id={props.id} className={classCombo}>
+        <div id={props.id} className={classCombo} onClick={props.handleClick}>
             <h3>{props.task}</h3>
         </div>
     );

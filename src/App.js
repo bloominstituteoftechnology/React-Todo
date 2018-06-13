@@ -1,16 +1,17 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm.js'
 import TodoList from './components/TodoComponents/TodoList.js';
+import './components/TodoComponents/Todo.css';
 
 let testArr = [
   {
     task: 'Organize Garage',
-    id: 1528817077286,
+    id: '1528817077286',
     completed: false
   },
   {
     task: 'Bake Cookies',
-    id: 1528817084358,
+    id: '1528817084358',
     completed: false
   }
 ];
@@ -21,6 +22,7 @@ class App extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.addTodo = this.addTodo.bind(this);
+    this.markComplete = this.markComplete.bind(this);
     this.state = {
       "todoList": testArr,
       "todoInput": ''
@@ -31,6 +33,19 @@ class App extends React.Component {
     this.setState({
       'todoInput': event.target.value
     })
+  }
+
+  markComplete (event) {
+    let target = event.currentTarget;
+    let id = target.attributes.id.value;
+    let newList = this.state.todoList.slice(0,);
+    for (let i in newList) {
+      let todo = newList[i];
+      if (todo.id === id) {
+        todo.completed = !(todo.completed);
+      }
+    }
+    this.setState({todoList: newList});
   }
 
   addTodo (event) {
@@ -51,7 +66,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList list={this.state.todoList} />
+        <TodoList list={this.state.todoList} handleClick={this.markComplete}/>
         <TodoForm value={this.state.todoInput} handleChange={this.handleChange} handleClick={this.addTodo} />
       </div>
     );
