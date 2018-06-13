@@ -2,10 +2,13 @@
 import React from 'react';
 import './Todo.css';
 
-const ToDo = props => (
-  <ul>
-    {props.tasks.map(task => <li>{`${task.task} ${task.completed}`}</li>)}
-  </ul>
-);
+const ToDo = props =>
+  !props.task.completed ? (
+    <li key={props.key}>{`${props.task.task} ${props.task.completed}`}</li>
+  ) : (
+    <li key={props.key}>{`${props.task.task} is done ${
+      props.task.completed
+    }`}</li>
+  );
 
 export default ToDo;

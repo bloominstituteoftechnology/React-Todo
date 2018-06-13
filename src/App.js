@@ -1,5 +1,6 @@
 import React from 'react';
-import ToDo from './components/TodoComponents/Todo';
+import Todo from './components/TodoComponents/Todo';
+import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
   constructor() {
@@ -8,12 +9,12 @@ class App extends React.Component {
       tasks: [
         {
           task: 'Organize Garage',
-          id: Date.now(),
+          id: Date.now() + Math.random(),
           completed: false,
         },
         {
           task: 'Bake Cookies',
-          id: Date.now(),
+          id: Date.now() + Math.random(),
           completed: false,
         },
       ],
@@ -23,7 +24,9 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <ToDo tasks={this.state.tasks} />
+        <ul>
+          <TodoList tasks={this.state.tasks} />
+        </ul>
       </div>
     );
   }
