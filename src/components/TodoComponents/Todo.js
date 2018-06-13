@@ -1,8 +1,8 @@
 import React from 'react';
 
-class ToDo extends React.Component {
-  constructor(){
-
+class Todo extends React.Component {
+  constructor(props){
+    super();
   }
   render() {
     return (
@@ -11,4 +11,4 @@ class ToDo extends React.Component {
   }
 }
 
-export default ToDo;
+export default Todo;
