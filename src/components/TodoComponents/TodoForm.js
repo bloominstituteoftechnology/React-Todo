@@ -9,8 +9,9 @@ class TodoForm extends React.Component {
     };
   }
 
-  changeInputValue = () => {
-    console.log("changed");
+  changeInputValue = event => {
+    console.log(event.target.value);
+    this.setState({ inputValue: event.target.value });
   };
 
   render() {
@@ -18,8 +19,8 @@ class TodoForm extends React.Component {
       <div className="toDoForm">
         <form action="">
           <input
-            value={this.state.inputValue}
             onChange={this.changeInputValue}
+            value={this.state.inputValue}
           />
         </form>
       </div>
