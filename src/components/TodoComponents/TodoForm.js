@@ -10,3 +10,5 @@ class ToDoForm extends React.Component {
     );
   }
 }
+
+export default ToDoForm;
