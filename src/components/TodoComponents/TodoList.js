@@ -3,11 +3,11 @@ import React from 'react';
 
 const TodoList = props => {
     return (
-        <ul>
+        <div>
             {props.toDoList.map(list => {
-                return <li key={Math.random()}>{list}</li>;
+                return <div key={Math.random()}>{list.task}</div>;
             })}
-        </ul>
+        </div>
     );
 };
 

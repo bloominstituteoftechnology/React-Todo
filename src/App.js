@@ -18,9 +18,10 @@ class App extends React.Component {
         {
           task: 'Bake Cookies',
           id: 1528817084358,
-          completed: false
+          completed: 'false'
         }
-      ]
+      ],
+      list: ''
     }
   }
   // you will need a place to store your state in this component.
@@ -28,19 +29,20 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
 
   handleInputChange = event => {
-    this.setState({ list: event.target.value })
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   addButton = () => {
     const toDoList = this.state.todos.slice();
 
-    toDoList.push(this.state.list);
+    toDoList.push({ task: this.state.list, completed: false, id: Math.random() });
     this.setState({ todos: toDoList, list: '' });
   }
 
   render() {
     return (
       <div className='app-container'>
+        <h1>Todo List: MVP</h1>
         <TodoList toDoList={this.state.todos} />
         <TodoForm value={this.state.list} onChange={this.handleInputChange} addButton={this.addButton} />
       </div>
