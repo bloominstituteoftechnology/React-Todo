@@ -3,12 +3,13 @@
 import React from 'react';
 
 const TodoList = props => {
+    console.log(props);
     return (
-        <ul>
-            {props.todoArr.map(todo => {
-                return <li key={Date.now()}>{todo}</li>;
-            })}
-        </ul>
+        <div>
+            <ul>
+                <li>TodoList placeholder</li>
+            </ul>
+        </div>
     );
 };
 
