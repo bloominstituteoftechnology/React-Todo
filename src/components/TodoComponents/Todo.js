@@ -3,7 +3,9 @@ class Todo extends React.Component {
     constructor() {
         super();
         this.state = {
-
+            task: "",
+            id: Date.now(),
+            completed: false
         };
     }
     render() {
