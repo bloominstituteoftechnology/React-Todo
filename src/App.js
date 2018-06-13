@@ -23,6 +23,7 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.addTodo = this.addTodo.bind(this);
     this.markComplete = this.markComplete.bind(this);
+    this.clearCompleted = this.clearCompleted.bind(this);
     this.state = {
       "todoList": testArr,
       "todoInput": ''
@@ -62,12 +63,19 @@ class App extends React.Component {
     });
   }
 
+  clearCompleted () {
+    let newList = this.state.todoList.filter((todo) => {
+      return !todo.completed;
+    });
+    this.setState({todoList: newList});
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList list={this.state.todoList} handleClick={this.markComplete}/>
-        <TodoForm value={this.state.todoInput} handleChange={this.handleChange} handleClick={this.addTodo} />
+        <TodoForm value={this.state.todoInput} handleChange={this.handleChange} addTodo={this.addTodo} clearCompleted={this.clearCompleted} />
       </div>
     );
   }
