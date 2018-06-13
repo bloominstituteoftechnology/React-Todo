@@ -1,8 +1,8 @@
 import React from 'react';
-/*import TodoList from './components/TodoComponents/TodoList';*/
-/*import Todo from './components/TodoComponents/Todo';
+import TodoList from './components/TodoComponents/TodoList';
+/*import Todo from './components/TodoComponents/Todo';*/
 import TodoForm from './components/TodoComponents/TodoForm';
-import Todo from './components/TodoComponents/Todo';*/
+
 
 
 
@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todolist: [{task: 'task1', id: Date.now(), completed: false}],
+      todolist: [],
       dataInput: ''
     }
   }
@@ -20,6 +20,7 @@ class App extends React.Component {
     console.log(event.target.value);
     this.setState({dataInput: event.target.value})
   }
+ 
 
   addTodo = () => {
     const data = {task: this.state.dataInput, id: Date.now(), completed: false};
@@ -32,18 +33,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        {this.state.todolist.map((todo) => {
-            return <li key={todo.task}>{todo.task}</li>
-            
-        })}
-        <div>
-       <input type='text'
-       placeholder='Add Todo'
-       onChange={this.toDoHandler}
-       value={this.state.dataInput}/>
-       <button onClick={this.addTodo}>Add</button>
-    </div>
-    
+       <TodoList todolist={this.state.todolist} />
+       <TodoForm toDoHandler={this.toDoHandler} addTodo={this.addTodo} dataInput={this.state.dataInput} />
       </div>
     );
   }
