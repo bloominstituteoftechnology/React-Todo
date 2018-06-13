@@ -1,14 +1,13 @@
 import React from 'react';
 
-class Todo extends React.Component {
-  constructor(props){
-    super();
-  }
-  render() {
-    return (
-      <div></div>
-    );
-  }
+const Todo = props => {
+  return (
+    <li>
+      Task: {props.task}<br>
+        ID: {props.id}</br>
+      Completed: {props.completed}<br>
+      </li>
+  );
 }
 
 export default Todo;
