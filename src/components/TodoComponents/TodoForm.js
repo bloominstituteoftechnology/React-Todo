@@ -5,7 +5,15 @@ class TodoForm extends React.Component {
         this.state = {};
     }
     render() {
-        return <div>Hello, I am TodoForm.js</div>;
+        return (
+            <div>
+                <form action="">
+                    <input type="text" name="" id="" placeholder="...todo" />
+                    <input type="button" value="Add Todo" />
+                    <input type="button" value="Clear Completed" />
+                </form>
+            </div>
+        );
     }
 }
 export default TodoForm;

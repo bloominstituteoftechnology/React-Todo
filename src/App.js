@@ -13,6 +13,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <h1>Todo List: MVP</h1>
         <TodoList />
       </div>
     );

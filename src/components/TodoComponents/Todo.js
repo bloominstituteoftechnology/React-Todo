@@ -2,7 +2,9 @@ import React from 'react';
 class Todo extends React.Component {
     constructor() {
         super();
-        this.state = {};
+        this.state = {
+
+        };
     }
     render() {
         return <div>Hello, I am Todo.js</div>;
