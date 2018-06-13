@@ -3,18 +3,13 @@ import TodoForm from './components/TodoComponents/TodoForm.js'
 import TodoList from './components/TodoComponents/TodoList.js';
 import './components/TodoComponents/Todo.css';
 
-let testArr = [
-  {
-    task: 'Organize Garage',
-    id: '1528817077286',
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: '1528817084358',
-    completed: false
-  }
-];
+
+//Imports localStorage if available
+let initialList = [];
+let storedTodos = localStorage.getItem('todoList');
+if (storedTodos !== null) {
+  initialList = JSON.parse(storedTodos);
+}
 
 
 class App extends React.Component {
@@ -24,10 +19,16 @@ class App extends React.Component {
     this.addTodo = this.addTodo.bind(this);
     this.markComplete = this.markComplete.bind(this);
     this.clearCompleted = this.clearCompleted.bind(this);
+    this.saveToLocalStorage = this.saveToLocalStorage.bind(this);
     this.state = {
-      "todoList": testArr,
+      "todoList": initialList,
       "todoInput": ''
     }
+  }
+  
+  saveToLocalStorage() {
+    let stringifiedTodoList = JSON.stringify(this.state.todoList)
+    localStorage.setItem("todoList", stringifiedTodoList);
   }
 
   handleChange (event) {
@@ -46,7 +47,7 @@ class App extends React.Component {
         todo.completed = !(todo.completed);
       }
     }
-    this.setState({todoList: newList});
+    this.setState({todoList: newList}, this.saveToLocalStorage);
   }
 
   addTodo (event) {
@@ -60,14 +61,14 @@ class App extends React.Component {
     this.setState({
       "todoList": copy,
       "todoInput": ''
-    });
+    }, this.saveToLocalStorage);
   }
 
   clearCompleted () {
     let newList = this.state.todoList.filter((todo) => {
       return !todo.completed;
     });
-    this.setState({todoList: newList});
+    this.setState({todoList: newList}, this.saveToLocalStorage);
   }
 
   render() {
