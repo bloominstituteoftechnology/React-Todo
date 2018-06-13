@@ -25,6 +25,7 @@ class App extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleAdd = this.handleAdd.bind(this)
+    this.handleClear = this.handleClear.bind(this)
   }
 
   handleChange(e) {
@@ -51,7 +52,10 @@ class App extends React.Component {
     return (
       <div className="app-container">
         <TodoList todos={this.state.todos} />
-        <TodoForm handleAdd={this.handleAdd} handleChange={this.handleChange}  />
+        <TodoForm handleAdd={this.handleAdd} 
+                  handleChange={this.handleChange}
+                  handleClear={this.handleClear}
+        />
       </div>
     );
   }
