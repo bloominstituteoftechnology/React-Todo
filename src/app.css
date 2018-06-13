@@ -3,7 +3,7 @@
 }
 
 .wrapper {
-    max-width: 55%;
+    max-width: 450px;
     height: 100%;
     margin: 5rem auto;
     border: 1px solid rgb(163, 163, 163);
@@ -11,6 +11,7 @@
     text-align: center;
     box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     /* source https://css-tricks.com/almanac/properties/b/box-shadow/ */
+    cursor:pointer;
 }
 .container {
     padding: 20px;
