@@ -1,10 +1,16 @@
 import React from 'react';
+import TodoList from './TodoList';
 
-const TodoForm = () => {
+const TodoForm = props => {
     return (
-        <form>
-            <input type="text" />
-            <button>Add Todo</button>
+        <form onSubmit={props.addTodo}>
+            <h2>Todo List: MVP</h2>
+            <TodoList killerList={props.items} />
+            <input type="text"
+                onChange={props.changeTitleHandler}
+                placeHolder="...todo"
+                value={props.item} />
+            <button onClick={props.addTodo}>Add Todo</button>
             <button>Clear Completed</button>
         </form>
     );
