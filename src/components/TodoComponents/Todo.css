@@ -1,3 +1,14 @@
 .todo__item{
     list-style: none;
+    border: 1px solid red;
+    padding: 10px 0;
+    cursor: pointer;
+
+}
+.todo__item li{
+    border: 1px solid blue;
+    padding: 10px 0;
+}
+.complete{
+    text-decoration: line-through;
 }

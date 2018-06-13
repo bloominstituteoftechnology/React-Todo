@@ -3,14 +3,14 @@ import Todo from './Todo';
 import './Todo.css'
 
 const TodoList = (props) => {
-    // console.log(props.todoList)
+    // console.log(props)
     return(
         <ul className="todo__item">
-            {props.todoList.filter(list => (!list.completed)).map((list, i) => {
-                return <Todo  key={list.id} todo={list.task} />
+            {props.todoList.map((list, i) => {
+                return <Todo onClick={props.onclick} key={list.id} todo={list.task} />
             })}
         </ul>
     )
 }
-
+// filter(list => (!list.completed))
 export default TodoList;

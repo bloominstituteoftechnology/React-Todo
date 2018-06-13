@@ -32,8 +32,6 @@ class App extends React.Component {
   }
   handleChange = (e) =>{
     e.preventDefault();
-
-    console.log('inputting ' + e.target.value);
     this.setState({
       input: e.target.value
     })
@@ -49,18 +47,28 @@ class App extends React.Component {
     this.setState({ todo: todo, input:''  })
 
   }
+isCompleteCss = (e) => {
+  // console.log(e.target.outerText);
+  let todos = this.state.todos;
+  for(let todo in todos){
+    if(todos[todo].task === e.target.outerText) {
+      todos[todo].completed = true;
+    }
+  }
+  this.setState({todos: todos});
 
+  e.target.classList.toggle('complete');
+}
   render() {
     return (
       <div className='app'>
         <h2>Todo List: MVP</h2>
         <TodoForm 
-            onChange={this.handleChange} 
+            onChange={this.handleChange}
             input={this.state.input} 
             onSubmit={this.addTodo}
-
         />
-        <TodoList todoList={this.state.todos}/>
+        <TodoList todoList={this.state.todos} onclick={this.isCompleteCss}/>
       </div>
     );
   }
