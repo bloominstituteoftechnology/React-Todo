@@ -3,8 +3,13 @@
 import React from 'react';
 import './Todo.css';
 
-function TodoList(props) {
+const TodoList = (props) => {
+    return (
+        <ul>
+            {}
 
+        </ul>
+    );
 }
 
 export default TodoList;
