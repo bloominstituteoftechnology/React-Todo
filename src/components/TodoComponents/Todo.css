@@ -1,0 +1,24 @@
+.app-wrapper {
+    display: block;
+    margin: 10vh auto;
+    max-width: 480px;
+}
+/* .form-wrapper {
+    display: block;
+    margin: 10vh auto;
+    max-width: 480px;
+} */
+.todo-input {
+    display: block;
+    width: 476px;
+    height: 50px;
+    font-size:36px;
+}
+.add-todo {
+    display: inline-block;
+    width: 50%;
+}
+.clear {
+    display: inline-block;
+     width: 50%;
+}
