@@ -34,8 +34,7 @@ class App extends React.Component {
   };
 
   changeTodoInput = event => {
-    let todoInput = event.target.value;
-    this.setState({ todoInput: todoInput })
+    this.setState({ todoInput: event.target.value })
   }
 
   render() {
