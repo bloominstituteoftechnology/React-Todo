@@ -4,6 +4,14 @@ import React from 'react';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
 
+const TodoList = () => {
+    return (
+        <div>
+            <Todo />
+            <TodoForm />
+        </div>
+    )
+}
 
 
 export default TodoList;
