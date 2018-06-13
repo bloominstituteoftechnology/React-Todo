@@ -1,15 +1,11 @@
 import React from 'react';
 
-class Todo extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <li></li> 
-    );
-  }
-}
+const Todo = props => {
+  return (
+      props.todos.map(todo => {
+        return <li key={Date.now()}>{props.todo}</li>;
+      })
+  );
+};
 
 export default Todo;
