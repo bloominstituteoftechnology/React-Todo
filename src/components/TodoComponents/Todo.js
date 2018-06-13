@@ -5,18 +5,25 @@ class Todo extends React.Component {
     super();
     this.state = {
       task: props.task,
+      id: props.id,
       isCompleted: props.isCompleted,
+      setCompletedState: props.setCompletedState,
       myClass: ''
     }
   }
 
   onClick = e => {
     e.preventDefault();
+    let myState, myClass = '';
     if (this.state.isCompleted) {
-      this.setState({isCompleted: false, myClass: ''});
+      myState = this.state.setCompletedState(this.state.id);
+      console.log('turned incomplete');
     } else {
-      this.setState({isCompleted: true, myClass: 'is-completed'});
+      myState = this.state.setCompletedState(this.state.id);
+      myClass = 'is-completed';
+      console.log('turned complete');
     }
+    this.setState({isCompleted: myState, myClass: myClass});
   };
 
   render() {

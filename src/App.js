@@ -35,10 +35,24 @@ class App extends React.Component {
     console.log('Task added');
   };
 
+  setCompletedState = (id) => {
+    const newTodos = this.state.todos.slice();
+    let newState;
+    newTodos.forEach(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        newState = todo.completed;
+      }
+    });
+    this.setState({todos: newTodos});
+    console.log('set completed state', newState);
+    return newState;
+  };
+
   render() {
     return (
       <div>
-      <TodoList todos={this.state.todos} />
+      <TodoList todos={this.state.todos} setCompletedState={this.setCompletedState} />
       <TodoForm addTask={this.addTask}/>
       </div>
     );
