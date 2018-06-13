@@ -5,8 +5,8 @@ import React from "react";
 const TodoList = props => {
     return (
         <ul>
-            {props.Todo.map(todo => {
-                return <li key={Math.random()}>{todo}</li>
+            {props.todoProps.map(todo => {
+                return <li key={Math.random()}>{todo.task}</li>
         })}
         </ul>
     );
