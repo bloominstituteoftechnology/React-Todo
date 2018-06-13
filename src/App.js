@@ -16,16 +16,16 @@ class App extends React.Component {
      };
      // state is the memory we have in our component,
      // props is the mechanism for passing that state around.
+     this.renderItem = "";
+    for (var key in this.state) {
+     this.renderItem += this.state[key].task + " </br>";
+     }
+     console.log(this.renderItem)
    }
-   var renderItem = "";
-   for (var key in this.state) {
-    renderItem += this.state[key].task + " </br>";
-    }
-   console.log(renderItem);
    render(){
      return(
        <div>
-          {renderItem}
+          {this.renderItem}
        </div>
      )
    }
