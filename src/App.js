@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoList from './components/TodoComponents/Todo'
+import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
 
 import './App.css'
@@ -12,7 +12,12 @@ class App extends React.Component {
       todos: [
         {
           task: 'take out trash',
-          id: 123,
+          id: 1,
+          completed: false
+        },
+        {
+          task: 'do the laundry',
+          id: 2,
           completed: false
         }
       ],
