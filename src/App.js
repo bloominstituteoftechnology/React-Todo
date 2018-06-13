@@ -8,12 +8,12 @@ class App extends React.Component {
    this.state = {
     todos: [
       {
-        task: 'Organize Garage',
+        task: 'Example Todo 1',
         id: 1528817077286,
         completed: false
       },
       {
-        task: 'Bake Cookies',
+        task: 'Example Todo 2',
         id: 1528817084358,
         completed: false
       }
@@ -21,11 +21,23 @@ class App extends React.Component {
    } 
   }
 
+  addTask = (taskName) => {
+    const newTodos = this.state.todos.slice();
+    const randomId = `${Math.random()}-${newTodos.length}`;
+    newTodos.push({
+      task: taskName,
+      id: randomId,
+      complete: false
+    });
+    this.setState({todos: newTodos});
+    console.log('Task added');
+  };
+
   render() {
     return (
       <div>
       <TodoList todos={this.state.todos} />
-      <TodoForm />
+      <TodoForm addTask={this.addTask}/>
       </div>
     );
   }
