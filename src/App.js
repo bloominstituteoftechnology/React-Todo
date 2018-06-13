@@ -23,26 +23,34 @@ class App extends React.Component {
      ],
      todo: {
             task: '',
-            id: Date.now(),
+            id: 0,
             completed: false
             },
+
+      blanktodo: {
+          task: '',
+          id: 0,
+          completed: false
+      }      
     }
   }
 
   todoHandler = event => {
     let newTodo = Object.assign({}, this.state.todo);
     newTodo.task = event.target.value;
+    newTodo.id = Date.now();
     this.setState({todo: newTodo});
   }
 
   addTodo = () => {
-    console.log('im getting here');
     const todos = this.state.todos.slice();
     todos.push(this.state.todo);
     this.setState({todos: todos});
+    this.setState({todo: this.state.blanktodo})
   };
 
   render() {
+    console.log(this.state.todos);
     return (
       <div>
         <h2>Todo List: MVP</h2>
