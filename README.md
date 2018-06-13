@@ -14,7 +14,7 @@
 - Your job is to write the components to complete the Todo List application.
 - Your todo list should be fully functional and you should design it however you'd like. Feel free to get creative here. I have supplied a gif for you to see what the MVP functionality is required to look like over the course of the two days.
 
-### [**INSERT GIF OF COMPLETED TODO**]
+![Todo App MVP](todo.gif)
 
 - Your todo data should be an array of objects that look a lot like this:
 
@@ -60,6 +60,8 @@
 
 #### Stretch Problems
 
-- Persist your data in `window.localStorage()` hint: you may have to pass your data to a stringifier to get it to live inside the `localStorage()` of the browser. This will cause it to persist past the page refresh.
+- **Persist your data** in `window.localStorage()` hint: you may have to pass your data to a stringifier to get it to live inside the `localStorage()` of the browser. This will cause it to persist past the page refresh.
 
-- Create a [Netlify Account](https://www.netlify.com/) and follow the tutorial on how to host your shiny new todo app on the world wide web.
+- **Search Functionality** Add a input bar that allows you to search through your tasks and only show the ones that match the search input.
+
+- **Hosting** Create a [Netlify Account](https://www.netlify.com/) and follow the tutorial on how to host your shiny new todo app on the world wide web.
