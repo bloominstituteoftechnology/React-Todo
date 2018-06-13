@@ -5,13 +5,23 @@ class Todo extends React.Component {
     super();
     this.state = {
       task: props.task,
-      isCompleted: props.isCompleted
+      isCompleted: props.isCompleted,
+      myClass: ''
     }
   }
 
+  onClick = e => {
+    e.preventDefault();
+    if (this.state.isCompleted) {
+      this.setState({isCompleted: false, myClass: ''});
+    } else {
+      this.setState({isCompleted: true, myClass: 'is-completed'});
+    }
+  };
+
   render() {
     return(
-      <li>{this.state.task}</li>
+      <li className={this.state.myClass} onClick={this.onClick}>{this.state.task}</li>
     );
   }    
 }

@@ -2,6 +2,8 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+import './components/TodoComponents/Todo.css';
+
 class App extends React.Component {
   constructor() {
    super();
@@ -23,11 +25,11 @@ class App extends React.Component {
 
   addTask = (taskName) => {
     const newTodos = this.state.todos.slice();
-    const randomId = `${Math.random()}-${newTodos.length}`;
+    const randomId = `${Date.now()}${newTodos.length}`;
     newTodos.push({
       task: taskName,
       id: randomId,
-      complete: false
+      completed: false
     });
     this.setState({todos: newTodos});
     console.log('Task added');
