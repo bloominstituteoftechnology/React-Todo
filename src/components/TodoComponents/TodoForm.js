@@ -1,12 +1,12 @@
 import React from 'react'
 
-function TodoForm () {
+function TodoForm ({handleAdd, handleChange, value}) {
     return (
-        <form>
-            <input type="text" placeholder="add todo" />
-            <button>Add Todo</button>
+        <div >
+            <input onChange={handleChange} type="text" placeholder="add todo" value={value} />
+            <button onClick={handleAdd}>Add Todo</button>
             <button>Clear Completed</button>
-        </form>
+        </div>
     )
 }
 

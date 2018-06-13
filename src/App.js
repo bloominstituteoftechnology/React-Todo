@@ -23,13 +23,31 @@ class App extends React.Component {
       ],
       todoText: ''
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleAdd = this.handleAdd.bind(this)
   }
-  
+
+  handleChange(e) {
+    this.setState({todoText: e.target.value})
+    console.log(this.state.todoText)
+  }
+
+  handleAdd(e) {
+    console.log(this.state.todoText)
+    this.setState({
+      todos: this.state.todos.concat({
+        task: this.state.todoText,
+        id: Date.now(),
+        completed: false
+      }),
+      todoText: ''
+    })
+  }
   render() {
     return (
       <div className="app-container">
         <TodoList todos={this.state.todos} />
-        <TodoForm />
+        <TodoForm handleAdd={this.handleAdd} handleChange={this.handleChange} value={this.state.text} />
       </div>
     );
   }
