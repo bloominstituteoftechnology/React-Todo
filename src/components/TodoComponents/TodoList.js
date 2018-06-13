@@ -2,14 +2,19 @@
 // feel free to change this component.js into TodoList.js
 
 import React from "react";
+import Todo from './Todo';
+
 
 const TodoList = props => {
   return (
-    <ul>
-      {props.myTodos.map(band => {
-        return <li key={Math.random()}>{band}</li>;
+    <div>
+      {props.myTodos.map(todo => {
+        <Todo 
+        key={todo.id}
+          todo={todo}
+        />
       })}
-    </ul>
+    </div>
   );
 };
 
