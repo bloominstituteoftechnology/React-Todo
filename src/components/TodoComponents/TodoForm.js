@@ -4,7 +4,7 @@ import './Todo.css';
 const TodoForm = (props) => {
     return (
         <div>
-            <input value = "" onChange={(event) => {
+            <input onChange={(event) => {
                 { props.inputHandler(event.target.value) }
             }
         }
