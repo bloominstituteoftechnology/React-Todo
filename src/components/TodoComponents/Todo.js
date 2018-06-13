@@ -9,7 +9,7 @@ class Todo extends React.Component {
         };
     }
     render() {
-        return <div>Hello, I am Todo.js</div>;
+        return <p>{this.state.task}</p>;
     }
 }
 export default Todo;
