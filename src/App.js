@@ -22,14 +22,13 @@ class App extends React.Component {
           completed: false
         }
       ],
-      newToDo: ""
+      input: ""
     };
-    // AddTodo = this.AddTodo.bind(this);
   }
 
   AddTodo = event => { //handlechange
     event.preventDefault();
-    this.setState({ newToDo: event.target.value });
+    this.setState({ input: event.target.value });
   };
 
   updateTodos = event => {
@@ -39,10 +38,9 @@ class App extends React.Component {
   obj.task = this.state.input;
   obj.id= Math.floor(Date.now() + Math.random());
   obj.completed = false;
-  const todo = this.state.todos;
+  const todo = this.state.list;
   todo.push(obj);
   this.setState({todo: todo, input: ''})
-
   }
 
   render() {
@@ -52,7 +50,7 @@ class App extends React.Component {
         <TodoForm 
         onChange={this.AddTodo}
         input={this.state.input}
-        oonSubmit={this.updateTodos} />
+        onSubmit={this.updateTodos} />
       </div>
     );
   }
