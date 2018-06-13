@@ -15,7 +15,7 @@ class App extends React.Component {
         {
           task: 'Bake Cookies',
           id: Date.now() + Math.random(),
-          completed: true,
+          completed: false,
         },
       ],
     };
@@ -27,14 +27,23 @@ class App extends React.Component {
     this.setState({ tasks: newTasks });
   };
 
+  clearHandler = task => {
+    let tasks = this.state.tasks.slice();
+    let notDone = tasks.filter(t => !t.completed);
+    this.setState({ tasks: notDone });
+  };
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <ul>
-          <TodoList tasks={this.state.tasks} />
+          <TodoList tasks={this.state.tasks} HandleClear={this.clearHandler} />
         </ul>
-        <TodoForm FormHandle={this.formHandler} />
+        <TodoForm
+          FormHandle={this.formHandler}
+          clearHandle={this.clearHandler}
+        />
       </div>
     );
   }

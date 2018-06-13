@@ -2,11 +2,30 @@
 import React from 'react';
 import './Todo.css';
 
-const ToDo = props =>
-  !props.task.completed ? (
-    <li>{`${props.task.task} ${props.task.completed}`}</li>
-  ) : (
-    <li>{`${props.task.task} is done ${props.task.completed}`}</li>
-  );
+class ToDo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      strike: false,
+    };
+  }
+
+  clickHandler = () => {
+    let toggle = !this.state.strike;
+    this.setState({ strike: toggle });
+    let task = this.props.task;
+    task.completed = toggle;
+  };
+
+  render() {
+    return !this.state.strike ? (
+      <li onClick={this.clickHandler}>{`${this.props.task.task}`}</li>
+    ) : (
+      <li onClick={this.clickHandler} className="strike">{`${
+        this.props.task.task
+      }`}</li>
+    );
+  }
+}
 
 export default ToDo;

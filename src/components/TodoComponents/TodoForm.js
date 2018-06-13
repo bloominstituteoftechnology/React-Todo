@@ -27,6 +27,10 @@ class TodoForm extends React.Component {
     this.setState({ input: '' });
   };
 
+  handleClear = () => {
+    this.props.clearHandle();
+  };
+
   render() {
     return (
       <div>
@@ -37,7 +41,7 @@ class TodoForm extends React.Component {
           value={this.state.input}
         />
         <button onClick={this.handleAdd}>Add Todo</button>
-        <button onClick={this.props.FormHandle}>Clear Completed</button>
+        <button onClick={this.handleClear}>Clear Completed</button>
       </div>
     );
   }
