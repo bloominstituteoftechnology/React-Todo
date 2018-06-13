@@ -8,7 +8,8 @@ const TodoForm = (props) => {
                 placeholder='Add New Todo' 
              onChange={ props.customChange } value={props.customValue}   
            />
-            <button onClick={props.custompropforbutton}>Submit</button>
+            <button onClick={props.customPropForSubmit}>Submit</button>
+            <button onClick={props.customClear}>Clear Completed</button>
         </div>    
     )
 }

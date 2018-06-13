@@ -46,7 +46,11 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm custompropforbutton={this.handleSubmit} customChange={this.handleChange} customValue={this.state.newLine} />
+        <TodoForm
+          customPropForSubmit={this.handleSubmit}
+          customClear={this.handleClear}
+          customChange={this.handleChange}
+          customValue={this.state.newLine} />
         <TodoList passedstateasprops={this.state.todoList} />
         {/* <input 
           placeholder='Add New Todo'  
