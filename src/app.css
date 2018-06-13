@@ -4,8 +4,8 @@
 
 .wrapper {
     max-width: 55%;
-    height: 100vh;
-    margin: 0 auto;
+    height: 100%;
+    margin: 5rem auto;
     border: 1px solid rgb(163, 163, 163);
     border-radius: 4px;
     text-align: center;
@@ -14,7 +14,7 @@
 }
 .container {
     padding: 20px;
-    height: 100vh;
+    height: 100%;
     box-shadow:0 0 20px rgba(0,0,0,0.8);
 }
 
