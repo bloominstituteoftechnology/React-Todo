@@ -1,18 +1,14 @@
 import React from 'react';
-import TodoList from './TodoList'
-import TodoForm from './TodoForm'
 
 class Todo extends React.Component{
-  constructor(){
+  constructor(props){
     super()
+    this.props = props;
   }
 
   render(){
       return (
-        <div>
-          <TodoList />
-          <TodoForm />
-        </div>
+        <li>{this.props.task}</li>
     )
   }
 }

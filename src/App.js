@@ -1,5 +1,6 @@
 import React from 'react';
-import Todo from './components/TodoComponents/Todo';
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -7,24 +8,59 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor(){
     super();
-    // this.state = [
-    //   {
-    //     task: 'Organize Garage',
-    //     id: 1528817077286,
-    //     completed: false
-    //   },
-    //   {
-    //     task: 'Bake Cookies',
-    //     id: 1528817084358,
-    //     completed: false
-    //   }
-    // ]
+    this.state = {
+      todos : [
+        {
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
+      ],
+      tempTodo: ''
+    }
   }
+  onInputChangeHandler = (e) => {
+    console.log('Something changed in the input field')
+    this.setState({tempTodo: e.target.value})
+    // console.log(this.state.todos)
+  }
+
+  addHandler = (e) => {
+    console.log('You clicked the add button')
+    
+    let id = new Date().getTime(); 
+    
+
+    this.setState(prevState => {
+     return {
+        todos: prevState.todos.concat({
+          task:this.state.tempTodo,
+          id: id,
+          completed:false            
+        }),
+        tempTodo:""
+      }
+    });
+
+  }
+
+  clearHandler = () => {
+    console.log('You clicked the clear button')
+  }
+
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <Todo />
+        {/* {console.log(this.state.todos,"in App.js Render this.state.todos")} */}
+        <TodoList todo={this.state.todos}/>
+        <TodoForm onInputChangeHandler= {this.onInputChangeHandler} addButtonHandler={this.addHandler} clearButtonHandler={this.clearHandler}/>
       </div>
     );
   }
