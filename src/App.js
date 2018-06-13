@@ -22,16 +22,20 @@ class App extends React.Component {
           completed: false
         }
       ],
-      todo:''
+      todo:'Add To Do'
     }
+  }
+
+  changeTodo = event => {
+    this.setState({todo: event.target.value});
+    console.log(this.state.todo)
   }
 
   addTodo = props => {
     props.preventDefault();
-    const toDos = this.state.toDos.slice();
-    toDos.push({task: this.state.toDos, completed: false, id: Date.now()});
-    this.setState({toDos: toDos});
-    this.setState({ toDos, todo: '' });
+    const newToDos = this.state.toDos.slice();
+    newToDos.push({task: this.state.todo, completed: false, id: Date.now()});
+    this.setState({toDos: newToDos, todo: ''});
   }
 
   render() {
@@ -39,7 +43,7 @@ class App extends React.Component {
       <div>
         <h1>My to do list</h1>
         <TodoList items={this.state.toDos} />
-        <TodoForm />
+        <TodoForm changeEvent={this.changeTodo} handler={this.addTodo} displayText={this.state.todo} />
       </div>
     );
   }
