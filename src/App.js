@@ -1,4 +1,5 @@
 import React from 'react';
+import Todo from './components/TodoComponents/Todo';
 
 
 
@@ -11,16 +12,21 @@ class App extends React.Component {
     super();
     this.state = {
       title: 'This is Ems Todo List'
-    }
+    };
   }
 
 
 
   render() {
+    // console.log("What is this?");
     return (
       <div>
         <h1>{this.state.title}</h1>
+          <Todo />
       </div>
+
+
+
 
     );
   }
