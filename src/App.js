@@ -1,17 +1,34 @@
 import React from 'react';
 
-function TodoElement(prop){
-  return <div> {prop.item} </div>
-}
 class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <TodoElement item="Walk the dog" />
-        <input type="text" placeholder="Add item"/>
-      </div>
-  );
-  }
+  constructor() {
+     // step 2. call your `constructor`
+     super();
+     this.state = {
+       todo1: {
+         task: ["Walk the dog"],
+         completed: [false]
+       },
+       todo2: {
+         task: ["Wash the dog"],
+         completed: [false]
+       }
+     };
+     // state is the memory we have in our component,
+     // props is the mechanism for passing that state around.
+   }
+   var renderItem = "";
+   for (var key in this.state) {
+    renderItem += this.state[key].task + " </br>";
+    }
+   console.log(renderItem);
+   render(){
+     return(
+       <div>
+          {renderItem}
+       </div>
+     )
+   }
 }
 export default App;
 // you will need a place to store your state in this component.
