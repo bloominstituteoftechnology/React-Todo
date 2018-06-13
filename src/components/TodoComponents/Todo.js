@@ -1,5 +1,7 @@
 import React from 'react'
 
-export default ({task}) => (
+const Todo = ({task}) => (
     <div className="todo-item">{task}</div>
 )
+
+export default Todo
