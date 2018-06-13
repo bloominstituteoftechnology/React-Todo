@@ -1,6 +1,6 @@
 import React from 'react';
-import Todo from './components/TodoComponents/Todo';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   constructor() {
@@ -15,11 +15,18 @@ class App extends React.Component {
         {
           task: 'Bake Cookies',
           id: Date.now() + Math.random(),
-          completed: false,
+          completed: true,
         },
       ],
     };
   }
+
+  formHandler = addedTask => {
+    let newTasks = this.state.tasks.slice();
+    newTasks.push(addedTask);
+    this.setState({ tasks: newTasks });
+  };
+
   render() {
     return (
       <div>
@@ -27,6 +34,7 @@ class App extends React.Component {
         <ul>
           <TodoList tasks={this.state.tasks} />
         </ul>
+        <TodoForm FormHandle={this.formHandler} />
       </div>
     );
   }
