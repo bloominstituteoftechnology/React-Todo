@@ -12,7 +12,8 @@ const TodoForm = props => {
         name="todo"
         value={props.value}
       /> 
-      <button onClick={props.clickAddTodo}>Add Todo</button>
+      <button onClick={props.clickAddTodo}>
+      Add Todo</button>
     </form>
   );
 };

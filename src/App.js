@@ -34,6 +34,7 @@ class App extends React.Component {
 
 // this adds the new todo to the list
   addTodo = event => {
+    event.preventDefault()
     const todos = this.state.todos.slice();
     todos.push({ task: this.state.todo, completed: false, id: Date.now() });
     this.setState({ todos, todo: "" });
@@ -49,7 +50,7 @@ class App extends React.Component {
           typeInputNewTodo={this.inputNewTodo}
           clickAddTodo={this.addTodo}
           />
-        <TodoList myTodos=
+        <TodoList todos=
         {this.state.todos} />
       </div>
     );
