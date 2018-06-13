@@ -36,9 +36,8 @@ class App extends React.Component {
   }
   clearTodos(){
     let newTodos = this.state.todos.slice();
-    newTodos.filter((todo)=> todo.complete === true)
+    newTodos = newTodos.filter((todo)=> todo.complete === false)
     this.setState({todos: newTodos})
-    console.log('attempting to clear completed')
   }
 
   toggleTodo(id){
