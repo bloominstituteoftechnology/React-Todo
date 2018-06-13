@@ -25,31 +25,38 @@ class App extends React.Component {
     }
   }
   onInputChangeHandler = (e) => {
-    console.log('Something changed in the input field')
+    console.log('Something was typed in the input field')
     this.setState({tempTodo: e.target.value})
     // console.log(this.state.todos)
   }
 
+  onKeyUp = (e) =>{
+    if (e.keyCode === 13) {
+      console.log('You pressed enter')
+      this.updateList()
+    }
+  }
+
   addHandler = (e) => {
     console.log('You clicked the add button')
-    
-    let id = new Date().getTime(); 
-
-    this.setState(prevState => {
-     return {
-        todos: prevState.todos.concat({
-          task:this.state.tempTodo,
-          id: id,
-          completed:false            
-        }),
-        tempTodo:""
-      }
-    });
-
+    this.updateList()
   }
 
   clearHandler = () => {
     console.log('You clicked the clear button')
+  }
+
+  updateList = () => {
+    this.setState(prevState => {
+      return {
+         todos: prevState.todos.concat({
+           task:this.state.tempTodo,
+           id: new Date().getTime(),
+           completed:false            
+         }),
+         tempTodo:""
+       }
+     }); 
   }
 
 
@@ -59,7 +66,13 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         {/* {console.log(this.state.todos,"in App.js Render this.state.todos")} */}
         <TodoList todo={this.state.todos}/>
-        <TodoForm inputValue={this.state.tempTodo} onInputChangeHandler= {this.onInputChangeHandler} addButtonHandler={this.addHandler} clearButtonHandler={this.clearHandler}/>
+        <TodoForm 
+          inputValue={this.state.tempTodo} 
+          onInputChangeHandler= {this.onInputChangeHandler} 
+          addButtonHandler={this.addHandler} 
+          clearButtonHandler={this.clearHandler}
+          onKeyUp={this.onKeyUp}
+        />
       </div>
     );
   }
