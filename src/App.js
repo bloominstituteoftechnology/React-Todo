@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -10,24 +11,60 @@ class App extends React.Component {
     this.state = {
       "List title": "Todo List: MVP",
       "items": [{
-    task: 'Organize Garage',
-    id: '',
-    completed: false
-  }, 
-  {
-    task: 'Bake Cookies',
-    id: '',
-    completed: false
-  }]
-      } 
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
+      ], ß
+      item: ''
+    };
   }
 
+  addTask = event => {
+    event.preventDefault();
+    const items = this.state.items.slice();
+    items.push({
+      task: this.state.item,
+      id: Date.now(),
+      completed: false
+    });
+    this.setState({
+      items,
+      item: ''
+    });
+  }
+
+  changeTask = event => this.setState({
+    [event.target.name]: event.target.value
+  });
+
   render() {
-    return (
-      <div>
-        <h1>{this.state["List title"]}</h1>
-        <TodoList listItems={this.state.items} />
-      </div>
+    return ( <
+      div >
+      <
+      h1 > {
+        this.state["List title"]
+      } < /h1> <
+      TodoList listItems = {
+        this.state.items
+      }
+      /> <
+      TodoForm value = {
+        this.state.item
+      }
+      addTaskHandler = {
+        this.addTask
+      }
+      taskChangeHandler = {
+        this.changeTask
+      }
+      /> <
+      /div>
     );
   }
 }

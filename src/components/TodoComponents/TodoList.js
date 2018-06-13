@@ -4,13 +4,20 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = props => {
-	return (
-		<ul>
-			{props.listItems.map(item => {
-				return <Todo />; 
-				})}
-		</ul>
-	);
+  return ( <
+    ul > {
+      props.listItems.map(item => {
+        return <Todo key = {
+          item.id
+        }
+        item = {
+          item
+        }
+        />; 
+      })
+    } <
+    /ul>
+  );
 };
 
 export default TodoList;
