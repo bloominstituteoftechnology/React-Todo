@@ -14,8 +14,8 @@ class App extends React.Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.addTodo = this.addTodo.bind(this);
     this.clearTodos = this.clearTodos.bind(this);
+    this.toggleTodo = this.toggleTodo.bind(this);
   }
   handleInputChange(event){
     this.setState({task: event.target.value});
@@ -23,30 +23,33 @@ class App extends React.Component {
   }
   handleSubmit (event){
     event.preventDefault();
-    this.setState({
-      todo: {
-        id: Date.now(),
-        task: this.state.task,
-        completed: false,
+    let task = this.state.task.slice();
+    let todos = this.state.todos.slice();
+    const todo = {
+      id: Date.now(),
+      task,
+      complete: false
     }
-  })
-    //this.addTodo(this.state.todo)
-    let newTodos = this.state.todos;
-    newTodos.push(this.state.todo)
-    this.setState({todos: newTodos})
-    this.setState({task: ''})
-  }
-
-  addTodo(item){
-    let newTodos = this.state.todos;
-    newTodos.push(item)
-    this.setState({todos: newTodos})
-    console.log('logging state', this.state)
+    todos.push(todo);
+    this.setState({todo, todos, task: ''})
+    
   }
   clearTodos(){
-    let newTodos = this.state.todos;
-    newTodos.filter((todo)=>{
-      return !todo.completed;
+    let newTodos = this.state.todos.slice();
+    newTodos.filter((todo)=> todo.complete === true)
+    this.setState({todos: newTodos})
+    console.log('attempting to clear completed')
+  }
+
+  toggleTodo(id){
+    let newTodos = this.state.todos.slice();
+    newTodos = newTodos.map(todo => {
+      if (todo.id === id){
+        todo.complete = !todo.complete
+        return todo;
+      }else {
+        return todo;
+      }
     })
     this.setState({todos: newTodos})
   }
@@ -55,7 +58,7 @@ class App extends React.Component {
     return (
       <div>       
          <TodoForm  value={this.state.task} onChange={this.handleInputChange} onSubmit={this.handleSubmit} onClick={this.clearTodos} />
-         <TodoList state={this.state} list={this.state.todos}/>
+         <TodoList onClick={this.toggleTodo} list={this.state.todos}/>
       </div>
     );
   }
