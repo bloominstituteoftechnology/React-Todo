@@ -54,7 +54,7 @@
 #### Day 2 MVP Requirements
 
 - Add the functionality to toggle your todo's completed flag from `false` to `true`.
-  - Once a todo is completed, be sure to demonstrate to the user that the todo is completed by adding a strike-through style property if the completed flag is true.
+  - Once a todo is completed, be sure to demonstrate to the user that the todo is completed by adding a line-through style property if the completed flag is true.
 - Add the ability to remove any todos that you have completed. `.filter` will be your best friend here. When a user clicks on the `Clear Completed` button call your handler function that will filter out any todos that have the completed flag toggled to `true`.
 - **Now is the time to style** Take your time to make this an app that you can be proud of.
 
