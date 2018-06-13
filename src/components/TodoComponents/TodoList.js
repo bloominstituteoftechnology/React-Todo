@@ -8,7 +8,7 @@ const TodoList = props => {
   return (
     <ul>
       {props.listItem.map(item => {
-        return <li key={Date.now()}>{item.task}</li>;
+        return <li key={Math.random()}>{item.task}</li>;
       })}
     </ul>
   );

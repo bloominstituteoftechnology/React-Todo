@@ -42,8 +42,8 @@ constructor(){
 
  addItem = () => {
     const todos = this.state.todos.slice();
-    todos.push(this.state.item);
-    this.setState({ todos: todos });
+	 todos.push({"task": this.state.item, "id": Date.now(), "completed": false });
+    this.setState({ todos: todos});
   };
 
 
@@ -53,7 +53,7 @@ constructor(){
     return (
       <div>
            <TodoList  listItem={this.state.todos} />
-	   <TodoForm    inputEvent={this.changeListItem}  inputValue={this.state.item} />
+	   <TodoForm  inputEvent={this.changeListItem}  inputValue={this.state.item} addNewItem={this.addItem}  />
 
       </div>
     );
