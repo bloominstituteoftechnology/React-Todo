@@ -24,18 +24,37 @@ constructor(){
     id: 1528817084358,
     completed: false
   }
-]
+],
+
+	item: ""
 		
 	};
 
 };
 
+ changeListItem = event => {
+   event.preventDefault();		 
+    console.log(event.target.value);
+    // the way to update state in react! // LIFECYCLE FUNCTION
+    this.setState({ item: event.target.value });
+  };
+
+
+ addItem = () => {
+    const todos = this.state.todos.slice();
+    todos.push(this.state.item);
+    this.setState({ todos: todos });
+  };
+
+
+
 		
  render() {
     return (
       <div>
-           <TodoList listItem={this.state.todos} />
-	   <TodoForm />
+           <TodoList  listItem={this.state.todos} />
+	   <TodoForm    inputEvent={this.changeListItem}  inputValue={this.state.item} />
+
       </div>
     );
   }
