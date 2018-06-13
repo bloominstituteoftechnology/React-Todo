@@ -10,7 +10,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      task: 'take out'
+      title: 'This is Ems Todo List'
     }
   }
 
@@ -19,7 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <ul>{this.state.task}</ul>
+        <h1>{this.state.title}</h1>
       </div>
 
     );
