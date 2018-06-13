@@ -1,14 +1,11 @@
 import React from 'react';
 
-
-class TodoForm extends React.Component {
-
-
-  render(){
-    return (
-      <form></form>
-    );
-  }
+const TodoForm = props => {
+  return (
+    <form>
+      <input type="text" placeholder="Add To Do" /> <button></button>
+    </form>
+  );
 }
 
 export default TodoForm;

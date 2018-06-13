@@ -3,15 +3,15 @@
 import React from 'react';
 import Todo from './Todo.js';
 
-class TodoList extends React.Component {
+const TodoList = props => {
+  return (
+    <div>
+      <ul>{props.items.map(item => <Todo key={item.task} task={item.task}>{item.task}</Todo>)}</ul>
+    </div>
+  );
 
-  render() {
-    return (
-      <ul>
-        <Todo />
-      </ul>
-    );
-  }
+
+
+
 }
-
 export default TodoList;

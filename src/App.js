@@ -10,7 +10,6 @@ class App extends React.Component {
     super()
 
     this.state = {
-      header: "My To Do List",
       toDos: [
         {
           task: 'Organize Garage',
@@ -23,13 +22,23 @@ class App extends React.Component {
           completed: false
         }
       ],
+      todo:''
     }
   }
+
+  addTodo = props => {
+    props.preventDefault();
+    const toDos = this.state.toDos.slice();
+    toDos.push({task: this.state.toDos, completed: false, id: Date.now()});
+    this.setState({toDos: toDos});
+    this.setState({ toDos, todo: '' });
+  }
+
   render() {
     return (
       <div>
-        <h1>{this.state.header}</h1>
-        <TodoList />
+        <h1>My to do list</h1>
+        <TodoList items={this.state.toDos} />
         <TodoForm />
       </div>
     );
