@@ -24,11 +24,13 @@ class App extends React.Component {
   }
 
   addTodo = event => {
-    console.log("hi");
-    let todos = this.state.todos;
-    todos.push(this.state.todoInput);
-    this.setState({ todos: todos });
     event.preventDefault();
+    const task = this.state.todoInput;
+    const id = Date.now();
+    const newTodo = { task: task, id: id, completed: false };
+    let todos = this.state.todos;
+    todos.push(newTodo);
+    this.setState({ todos: todos, todoInput: "" });
   };
 
   changeTodoInput = event => {
