@@ -9,7 +9,16 @@ class App extends React.Component {
     super();
     this.state = {
       "List title": "Todo List: MVP",
-      
+      "items": [{
+    task: 'Organize Garage',
+    id: '',
+    completed: false
+  }, 
+  {
+    task: 'Bake Cookies',
+    id: '',
+    completed: false
+  }]
       } 
   }
 
@@ -17,7 +26,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>{this.state["List title"]}</h1>
-        <TodoList />
+        <TodoList listItems={this.state.items} />
       </div>
     );
   }
