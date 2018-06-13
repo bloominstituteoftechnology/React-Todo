@@ -33,7 +33,7 @@ class App extends React.Component {
   }
 
   handleAdd(e) {
-    console.log(this.state.todoText)
+    e.target.parentElement.children[0].value = ''
     this.setState({
       todos: this.state.todos.concat({
         task: this.state.todoText,
@@ -43,11 +43,15 @@ class App extends React.Component {
       todoText: ''
     })
   }
+
+  handleClear(e) {
+    this.setState({todos: [], todoText: ''})
+  }
   render() {
     return (
       <div className="app-container">
         <TodoList todos={this.state.todos} />
-        <TodoForm handleAdd={this.handleAdd} handleChange={this.handleChange} value={this.state.text} />
+        <TodoForm handleAdd={this.handleAdd} handleChange={this.handleChange}  />
       </div>
     );
   }
