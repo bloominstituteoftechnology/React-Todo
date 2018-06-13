@@ -4,6 +4,7 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
+      header: 'The ToDo List',
       newTodo: [
         {
           task: '',
@@ -19,7 +20,7 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>{this.state.header}</h2>
       </div>
     )
   }
