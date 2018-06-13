@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
   constructor() {
@@ -15,8 +16,24 @@ class App extends React.Component {
           id: 1528817084358,
           completed: false
         }
+      ],
+      newTodo: ''
+    }
+  }
 
-      ]
+  changeHandler(e) {
+    this.setState({ newTodo: e.target.value});
+  }
+
+  addTodo(){
+    if (this.state.newTodo.length >= 1) {
+      this.state.todos.push({
+        task: this.state.newTodo,
+        id: Math.random(),
+        completed: false
+      });
+      this.state.newTodo = '';
+      this.setState(this.state);
     }
   }
 
@@ -24,11 +41,10 @@ class App extends React.Component {
     return (
       <div>
         <h2>TODO LIST</h2>
-        <div className="todo-list-wrapper">
-          {this.state.todos.map((todo,index) => {
-            return <p key={todo.id}>{todo.task}</p>
-          })}
-        </div>
+        <TodoList todoList={this.state.todos} />
+          <input type="text" placeholder="..add new todo" value={this.state.newTodo} onChange={(e) => {this.changeHandler(e)}}/> 
+          <button onClick={() => {this.addTodo()}}>Add Todo</button>
+          <button>Clear Completed</button>
       </div>
     );
   }
