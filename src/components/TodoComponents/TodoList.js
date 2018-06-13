@@ -14,7 +14,7 @@ class TodoList extends React.Component {
     return(
       <ul>
         {myTodos.map((todo) => {
-          return <Todo />;
+          return <Todo task={todo.task} key={todo.id} isCompleted={todo.completed} />;
         })}
       </ul>
     );
