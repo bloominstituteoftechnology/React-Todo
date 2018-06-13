@@ -81,6 +81,7 @@ class App extends React.Component {
          <TodoForm  value={this.state.task} onChange={this.handleInputChange} onSubmit={this.handleSubmit} onClick={this.clearTodos} />
          <TodoList onClick={this.toggleTodo} list={this.state.todos}/>
          <SearchBar value={this.state.term} onSubmit={this.handleSearchSubmit} onChange={this.handleSearchInput}/>
+         <p>Search your todo list</p>
          <SearchList list={this.state.searchResults} />
       </div>
     );
