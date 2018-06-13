@@ -2,6 +2,8 @@ import React from 'react';
 
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import SearchBar from './components/SearchComponents/SearchBar';
+import SearchList from './components/SearchComponents/SearchList'
 
 class App extends React.Component {
   constructor(props){
@@ -10,16 +12,19 @@ class App extends React.Component {
       todos: [],
       todo: {},
       task: '',
+      term: '',
+      searchResults: [],
     }
 
+    this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearTodos = this.clearTodos.bind(this);
     this.toggleTodo = this.toggleTodo.bind(this);
+    this.handleSearchInput = this.handleSearchInput.bind(this);
   }
   handleInputChange(event){
     this.setState({task: event.target.value});
-    console.log('logging task', this.state.task)
   }
   handleSubmit (event){
     event.preventDefault();
@@ -53,11 +58,30 @@ class App extends React.Component {
     this.setState({todos: newTodos})
   }
 
+  handleSearchInput(event){
+    this.setState({term: event.target.value});
+  }
+
+  handleSearchSubmit(event){
+    event.preventDefault();
+
+    let searchArray = this.state.todos.slice();
+    console.log('logging searchArray', searchArray)
+    let term = this.state.term.slice();
+    console.log('Logging Search term', term);
+    searchArray = searchArray.filter(todo=>{
+      return todo.task.includes(term);
+    })
+    console.log('new search array', searchArray);
+    this.setState({searchResults: searchArray, term: ''})
+  }
   render() {
     return (
       <div>       
          <TodoForm  value={this.state.task} onChange={this.handleInputChange} onSubmit={this.handleSubmit} onClick={this.clearTodos} />
          <TodoList onClick={this.toggleTodo} list={this.state.todos}/>
+         <SearchBar value={this.state.term} onSubmit={this.handleSearchSubmit} onChange={this.handleSearchInput}/>
+         <SearchList list={this.state.searchResults} />
       </div>
     );
   }
