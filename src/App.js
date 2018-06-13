@@ -25,7 +25,7 @@ class App extends React.Component {
     this.setState({ newTodo: e.target.value});
   }
 
-  addTodo(){
+  addTodoHandler(e){
     if (this.state.newTodo.length >= 1) {
       this.state.todos.push({
         task: this.state.newTodo,
@@ -34,17 +34,22 @@ class App extends React.Component {
       });
       this.state.newTodo = '';
       this.setState(this.state);
+      e.preventDefault();
     }
   }
+
+
 
   render() {
     return (
       <div>
         <h2>TODO LIST</h2>
         <TodoList todoList={this.state.todos} />
-          <input type="text" placeholder="..add new todo" value={this.state.newTodo} onChange={(e) => {this.changeHandler(e)}}/> 
-          <button onClick={() => {this.addTodo()}}>Add Todo</button>
-          <button>Clear Completed</button>
+          <form onSubmit={(e) => this.addTodoHandler(e)}>
+            <input type="text" placeholder="..add new todo" value={this.state.newTodo} onChange={(e) => {this.changeHandler(e)}}/> 
+            <button onClick={(e) => {this.addTodoHandler(e)}}>Add Todo</button>
+            <button>Clear Completed</button>
+          </form>
       </div>
     );
   }
