@@ -20,6 +20,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.addTodo = this.addTodo.bind(this);
     this.state = {
       "todoList": testArr,
       "todoInput": ''
@@ -32,12 +33,26 @@ class App extends React.Component {
     })
   }
 
+  addTodo (event) {
+    let copy = this.state.todoList.slice(0,);
+    let newTodo = {
+      "task": this.state.todoInput,
+      "complete": false,
+      "id": Date.now().toString()
+    }
+    copy.push(newTodo);
+    this.setState({
+      "todoList": copy,
+      "todoInput": ''
+    });
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList list={this.state.todoList} />
-        <TodoForm value={this.state.todoInput} />
+        <TodoForm value={this.state.todoInput} handleChange={this.handleChange} handleClick={this.addTodo} />
       </div>
     );
   }
