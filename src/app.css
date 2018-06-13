@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    max-width: 55%;
+    height: 100vh;
+    margin: 0 auto;
+    border: 1px solid rgb(163, 163, 163);
+    border-radius: 4px;
+    text-align: center;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    /* source https://css-tricks.com/almanac/properties/b/box-shadow/ */
+}
+.container {
+    padding: 20px;
+    height: 100vh;
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+}
+
+h3 {
+    font-weight: 600;
+    padding-bottom: 4rem;
+}
+.row {
+    padding-bottom: 3rem;
+}
+
+.cardWrapper {
+    width: 60%;
+    margin: 2rem auto;
+    border: 1px solid rgb(206, 202, 202);
+    border-radius: 2px;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    
+}
+.cardContent {
+    margin: 0 10px;
+    
+    word-wrap: break-word;
+}

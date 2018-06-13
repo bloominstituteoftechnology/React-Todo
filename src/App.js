@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './app.css';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -38,24 +39,42 @@ class App extends React.Component {
     }
     copyOftodoList.push(createdNewObj);
     this.setState({ todoList: copyOftodoList, newLine: '' })
+  }
 
+  handleToggleLine = (id) => {
+    const copyOftodoList = this.state.todoList.slice();
+    copyOftodoList.map(item => {
+      if (item.id === id) {
+        item.completed = !item.completed;
+        return item;
+      }
+    })
+    this.setState({ todoList: copyOftodoList })
+  }
+
+  handleClear = () => {
+    const copyOftodoList = this.state.todoList.slice();
+    const filtered = copyOftodoList.filter(item => !item.completed)//filter all items except completed: false
+    this.setState({ todoList: filtered })
   }
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm
-          customPropForSubmit={this.handleSubmit}
-          customClear={this.handleClear}
-          customChange={this.handleChange}
-          customValue={this.state.newLine} />
-        <TodoList passedstateasprops={this.state.todoList} />
-        {/* <input 
-          placeholder='Add New Todo'  
-          customProp={this.handleChange} />
-        <button customPropForButton = {this.handleSubmit}>Submit</button> */}
+      <div className='wrapper'>
+        <div className='container'>
+          <h3 id='header' ></h3>
+          <TodoForm
+            customPropForSubmit={this.handleSubmit}
+            customClear={this.handleClear}
+            customChange={this.handleChange}
+            customValue={this.state.newLine}
+          />
+          <TodoList
+            passedToTodoList={this.state.todoList}
+            handleToggle={this.handleToggleLine}
+          />
+        </div>
       </div>
     );
   }

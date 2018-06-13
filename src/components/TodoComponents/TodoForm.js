@@ -3,7 +3,7 @@ import React from 'react';
 const TodoForm = (props) => {
     console.log('todo form passed stuff: ', props)
     return (
-        <div>
+        <div className='row'>
             <input 
                 placeholder='Add New Todo' 
              onChange={ props.customChange } value={props.customValue}   
