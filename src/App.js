@@ -11,18 +11,28 @@ constructor(){
 
 	this.state = {
 
-	   myList:['Get milk',
-		 'Learn React', 
-		 'Read Thinking Fast and Slow'
-	   ]			
+	 todos: [
+  {
+    task: 'Organize Garage',
+    id: 1528817077286,
+    completed: false
+  },
+  {
+    task: 'Bake Cookies',
+    id: 1528817084358,
+    completed: false
+  }
+]
+		
 	};
 
-};	
+};
+
 		
  render() {
     return (
       <div>
-           <TodoList listItem={this.state.myList} />
+           <TodoList listItem={this.state.todos} />
       </div>
     );
   }
