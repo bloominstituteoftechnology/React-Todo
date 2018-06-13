@@ -14,3 +14,6 @@ class App extends React.Component {
 }
 
 export default App;
+
+// Github Pull Request:
+// https://github.com/LambdaSchool/React-Todo/pull/288
