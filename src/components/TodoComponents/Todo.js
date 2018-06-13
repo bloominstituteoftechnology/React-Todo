@@ -4,7 +4,7 @@ const Todo = (props) => {
   return (
     <ul>
       {props.toDoArray.map((task) => {
-        return <li key={Date.now()}>{task.task}</li>
+        return <li key={Date.now()}>{task}</li>
       })}
     </ul>
   )

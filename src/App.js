@@ -6,14 +6,15 @@ class App extends Component {
     super()
     this.state = {
       header: 'The ToDo List',
-      newTodo: [
-        {
-          task: '',
-          id: Date.now(),
-          completed: false
-        }
-      ]
+      toDos: [],
+      task: '',
+      completed: false,
+      id: 2
     }
+  }
+
+  addToDo = (event) => {
+    this.setState({ task: event.target.value })
   }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -22,8 +23,13 @@ class App extends Component {
     return (
       <div>
         <h2>{this.state.header}</h2>
-        <Todo toDoArray={this.state.newTodo} />
-        <input />
+        <Todo toDoArray={this.state.toDos} />
+        <input
+          type='text'
+          placeholder='Add Todo'
+          value={this.state.task}
+          onChange={this.addToDo}
+        />
       </div>
     )
   }
