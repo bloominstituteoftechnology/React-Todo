@@ -9,7 +9,12 @@ const TodoForm = props => {
             >
                 Add Todo
             </button>
-            <button>Clear Completed</button>
+
+            <button
+                onClick={props.handleClearTodos}
+            >
+                Clear Completed
+            </button>
         </div>
     );
 };
