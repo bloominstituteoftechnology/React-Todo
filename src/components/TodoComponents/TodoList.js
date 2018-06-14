@@ -7,9 +7,10 @@ import './Todo.css';
 const TodoList = (props) => {  //receives array, iterates over array, generates new 'Todo' for each.
     console.log(props);
     return (
-    <ul>
+    <ul className='todo-list'>
            {props.todolist.map((todo) => {
-            return <li key={todo.task}>{todo.task}</li>
+            return <li className='todo-item' key={todo.task}>{todo.task}<input type='checkbox' id='checkbox' /></li>
+            
             
         })}
     </ul>
@@ -18,7 +19,3 @@ const TodoList = (props) => {  //receives array, iterates over array, generates 
 
 export default TodoList;
 
-/*
-{props.itemslist.map(todo => {
-            return <li key={Math.random()}>{todo}</li>
-        })}*/

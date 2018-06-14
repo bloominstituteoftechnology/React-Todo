@@ -1,0 +1,23 @@
+.container {
+    border: 1px solid black;
+    width: 456px;
+    height: auto;
+    padding: 30px;
+}
+
+.title {
+    font-size: 64px;
+    font-weight: bold;
+}
+
+.todo-list {
+
+}
+
+.todo-item {
+    list-style: none;
+}
+
+.completed {
+    text-decoration: line-through;
+}

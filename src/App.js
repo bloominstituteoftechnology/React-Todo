@@ -1,4 +1,5 @@
 import React from 'react';
+import './components/TodoComponents/Todo.css';
 import TodoList from './components/TodoComponents/TodoList';
 /*import Todo from './components/TodoComponents/Todo';*/
 import TodoForm from './components/TodoComponents/TodoForm';
@@ -29,10 +30,14 @@ class App extends React.Component {
     this.setState({todolist: todolist, dataInput: ''});
   }
 
+ /* toggleFlag = () => {
+    todolist[].completed: true;
+  }*/
+
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className='container'>
+        <h2 className='title'>Todo List: MVP</h2>
        <TodoList todolist={this.state.todolist} />
        <TodoForm toDoHandler={this.toDoHandler} addTodo={this.addTodo} dataInput={this.state.dataInput} />
       </div>
