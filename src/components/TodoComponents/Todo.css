@@ -1,3 +1,20 @@
+body {
+  background: linear-gradient(to right, #2BBCB3, #40B9E6);
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+
+
 .completed {
   text-decoration: line-through;
+}
+
+li {
+  list-style-type: none;
 }

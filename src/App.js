@@ -44,7 +44,6 @@ class App extends React.Component {
   }
 
   crossOut = id => {
-    console.log("crossOut");
     let newToDos = this.state.toDos.slice();
     newToDos.map(item => {
       item.id === id ? item.completed = !item.completed : item.completed = item.completed;
@@ -53,15 +52,24 @@ class App extends React.Component {
     this.setState({toDos: newToDos});
   }
 
+  clearTodo = props => {
+    props.preventDefault();
+    let newToDos = this.state.toDos.slice();
+    newToDos = newToDos.filter(item => !item.completed );
+    this.setState({toDos: newToDos});
+  }
+
   render() {
     return (
-      <div>
+      <div className="App">
         <h1>My to do list</h1>
-        <TodoList items={this.state.toDos}
-                  handler={this.crossOut}/>
         <TodoForm changeEvent={this.changeTodo}
                   handler={this.addTodo}
+                  clearTodo={this.clearTodo}
                   displayText={this.state.todo} />
+        <TodoList items={this.state.toDos}
+                  handler={this.crossOut}/>
+
       </div>
     );
   }
