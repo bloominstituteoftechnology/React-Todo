@@ -11,7 +11,7 @@ class App extends React.Component {
     this.state = {
       todos: [
         {
-          task: 'Test',
+          task: 'Do Laundry',
           id: Date.now(),
           completed: false
         },
@@ -55,7 +55,7 @@ class App extends React.Component {
         <h1>Todo List:</h1>
         <TodoList
           handleToggleComplete={this.toggleTodoComplete}
-          tasks="this.state.todos"
+          tasks={this.state.todos}
         />
         <TodoForm 
           value={this.state.todo}
