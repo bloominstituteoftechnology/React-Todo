@@ -4,7 +4,6 @@ import TodoForm from "./TodoForm";
 
 class App extends React.Component {
   constructor() {
-     // step 2. call your `constructor`
      super();
      this.state = {
        todo1: {
@@ -14,21 +13,23 @@ class App extends React.Component {
        todo2: {
          task: ["Wash the dog"],
          completed: [false]
-       }
+       },
+       todo: "Todo..."
      };
-     // state is the memory we have in our component,
-     // props is the mechanism for passing that state around.
    }
+   updateInputFormText = event => {
+     console.log("hi");
+   }
+   // addTodo = event => {
+   //
+   // }
    render(){
      return(
        <div>
        <TodoList tasks={this.state} />
-       <TodoForm />
+       <TodoForm value={this.state.todo} updateInputFormText={this.updateInputFormText}/>
        </div>
      )
    }
 }
 export default App;
-// you will need a place to store your state in this component.
-// design `App` to be the parent component of your application.
-// this component is going to take care of state, and any change handlers you need to work with your state
