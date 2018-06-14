@@ -4,9 +4,9 @@ const TodoForm = props => {
     console.log(props);
     return (
         <div>
-            <ul>
-                <li>TodoForm placeholder</li>
-            </ul>
+            <input type="text"/>
+            <button>Add Todo</button>
+            <button>Clear Completed</button>
         </div>
     );
 };

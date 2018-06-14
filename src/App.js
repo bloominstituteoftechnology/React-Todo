@@ -12,26 +12,21 @@ class App extends React.Component {
       toDos: [
         {
           task: 'Organize Garage',
-          id: 1528817077286,
+          id: Date.now(),
           completed: false
         },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
       ],
     };
     todo:"";
   }
 
-  addTodo = props => {
-    props.preventDefault();
-    const toDos = this.state.todos.slice();
-    toDos.push({task: this.state.toDos, completed: false, id: Date.now()});
-    this.setState({toDos: toDos});
-    this.setState({toDos, todo: ''});
-  }
+  // addTodo = props => {
+  //   props.preventDefault();
+  //   const toDos = this.state.todos.slice();
+  //   toDos.push({task: this.state.toDos, completed: false, id: Date.now()});
+  //   this.setState({toDos: toDos});
+  //   this.setState({toDos, todo: ''});
+  // }
 
   render() {
     return (
