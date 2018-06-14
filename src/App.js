@@ -26,6 +26,9 @@ class App extends React.Component {
       'id': Date.now(),
       'completed': false,
      });
+     if(this.state.item === '') {
+       return;
+     }
     this.setState({ task: toDos, item: '' });
   }
 
@@ -52,7 +55,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
       <TodoList task={this.state.task} toggle={this.toggleCompleted} />
       <ToDoForm changeHandle={this.changeHandler} inputValue={this.state.item} addNew={this.addToDo} handleCompleted={this.clearCompleted} />
       </div>
