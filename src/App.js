@@ -30,10 +30,26 @@ class App extends React.Component {
     this.setState({item: e.target.value});
   };
 
-  addItem = () => {
+  handleSubmit = e => {
+    e.preventDefault();
+
+    const newItem = {
+      task: this.state.item,
+      key: Date.now(),
+      completed: false
+    };
+
     const items = this.state.items;
-    items.push(this.state.item);
+    items.push(newItem);
     this.setState({items, item: ""});
+  }
+
+  handleClear = e => {
+
+  }
+
+  handleClick = e => {
+
   }
 
   render() {
@@ -41,7 +57,13 @@ class App extends React.Component {
       <div>
         {/* <h2>Welcome to your Todo App!</h2> */}
         <h1>{this.state.title}</h1>
-        <TodoForm items={this.state.items} handleChange={this.handleChange} addItem={this.addItem}/>
+        <TodoForm
+          items={this.state.items}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          handleClear={this.handleClear}
+          handleClick={this.handleClick}  
+        />
       </div>
     );
   }
