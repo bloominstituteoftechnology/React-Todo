@@ -10,17 +10,7 @@ class App extends React.Component {
     super();
     this.state = {
       "List title": "Todo List: MVP",
-      "items": [{
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ],
+      "items": JSON.parse(localStorage.getItem('storedItems')),
       item: ''
     };
   }
@@ -33,6 +23,9 @@ addTask = event => {
     id: Date.now(),
     completed: false
   });
+
+  let stringItems = JSON.stringify(items);
+  localStorage.setItem('storedItems', stringItems);
   this.setState({items, item: ''});
 }
 
