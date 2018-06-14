@@ -3,15 +3,16 @@ import TodoList from './TodoList';
 
 const TodoForm = props => {
     return (
-        <form onSubmit={props.addTodo}>
-            <h2>Todo List: MVP</h2>
-            <TodoList killerList={props.items} />
-            <input type="text"
-                onChange={props.changeTitleHandler}
+        <form onSubmit={props.handleSubmit}>
+            <TodoList items={props.items} />
+            <input
+                type="text"
+                onChange={props.handleChange}
                 placeHolder="...todo"
-                value={props.item} />
-            <button onClick={props.addTodo}>Add Todo</button>
-            <button>Clear Completed</button>
+                value={props.item}
+            />
+            <button type="submit">Add Todo</button>
+            <button onClick={props.handleClear}>Clear Completed</button>
         </form>
     );
 };
