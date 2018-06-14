@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 
 class App extends React.Component {
@@ -9,29 +10,65 @@ class App extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      header: "Todo List: MVP",
-      tasks: [],
-      task: ""
+      todos: [
+        {
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
+      ],
+      todo: ""
     };
   }
 
-  addTask = event => {
-    console.log(event.target.value);
-    this.setState({ task: event.target.value});
-  }
 
   addTodo = () => {
-    const tasks = this.state.tasks.slice();
-    tasks.push(this.state.task);
-    this.setState({tasks: tasks, task: ""});
+    const todos = this.state.todos.slice();
+    todos.push({ task: this.state.todo, completed: false, id: Date.now() });
+    this.setState({ todos, todo: "" });
+  };
+
+  changeTodo = event => this.setState({ [event.target.name]: event.target.value });
+
+  toggleTodoComplete = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ todos });
+  }
+
+  clearCompletedTodos = event => {
+    event.preventDefault();
+    let todos = this.state.todos.slice();
+    todos = todos.filter(todo => !todo.completed);
   }
 
   render() {
     console.log("render called")
     return (
-      <div>
-        <h2>{this.state.header}</h2>
-        <TodoList />
+      <div className="container">
+        <h2>Todo List: React App</h2>
+        <TodoList 
+          handleToggleComplete={this.toggleTodoComplete}
+          todos={this.state.todos}
+        />
+        <TodoForm 
+          value={this.state.todo}
+          handleTodoChange={this.changeTodo}
+          handleAddTodo={this.addTodo}
+          handleClearTodos={this.clearCompletedTodos}
+        />
       </div>
     );
   }

@@ -2,16 +2,16 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 import Todo from './Todo';
-import TodoForm from './TodoForm';
 
-const TodoList = () => {
+const TodoList = (props) => {
     return (
-        <div>
-            <Todo />
-            <TodoForm />
-        </div>
-    )
-}
+        <ul>
+            {props.list.map(todo => {
+                return <li id={Math.random()}>{todo}</li>;
+            })}
+        </ul>
+    );
+};
 
 
 export default TodoList;
