@@ -56,7 +56,7 @@ html {
     .mini-title {
         color: #9acd32;
         font-size: 45px;
-        height: 50px;
+        height: 80px;
     }
 }
 @media (max-width: 480px) {
