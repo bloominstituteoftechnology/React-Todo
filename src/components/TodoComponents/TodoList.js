@@ -5,7 +5,9 @@ const TodoList = props => {
   return (
     <div>
       {props.todos.map(todo => {
-        return <Todo todo={todo}/>;
+        return <Todo todo={todo}
+                     key={Math.random()}
+                     toggleCompleted={props.toggleCompleted} />;
       })}
     </div>
   );

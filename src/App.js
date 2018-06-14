@@ -28,7 +28,7 @@ class App extends React.Component {
     const task = this.state.todoInput;
     const id = Date.now();
     const newTodo = { task: task, id: id, completed: false };
-    let todos = this.state.todos;
+    let todos = this.state.todos.slice();
     todos.push(newTodo);
     this.setState({ todos: todos, todoInput: "" });
   };
@@ -37,14 +37,22 @@ class App extends React.Component {
     this.setState({ todoInput: event.target.value })
   }
 
+  toggleCompleted = id => {
+    let todos = this.state.todos.slice();
+    let todo = todos[id];
+    todos[todo]["completed"] ? todos[todo]["completed"] = false : todos[todo]["completed"] = true;
+    this.setState({ todos: todos });
+  }
+
   render() {
     return (
       <div>
         <h2>Todo list: MVP</h2>
-        <TodoList todos={this.state.todos}/>
-        <TodoForm todoInput={this.state.todoInput}
-                  addTodo={this.addTodo}
-                  changeTodoInput={this.changeTodoInput}/>
+        <TodoList todos={this.state.todos} />
+        <TodoForm addTodo={this.addTodo}
+                  todoInput={this.state.todoInput}
+                  toggleCompleted={this.toggleCompleted}
+                  changeTodoInput={this.changeTodoInput} />
       </div>
     );
   }
