@@ -1,3 +1,61 @@
 .completed {
     text-decoration: line-through;
 }
+
+#root{
+    width: 40%;
+    margin: 100px auto 0;
+    border: solid 3px black;
+    background: mistyrose;
+    padding: 0 3% 20px 3%;
+}
+
+h2{
+    font-size: 2rem;
+    text-align: center;
+    font-family: pacifico, cursive;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.input{
+
+    background: unset;
+    border: 1px solid black;
+    text-align: center;
+    font-family: pacifico, cursive;
+    height: 37px;
+    width: 70%;
+    margin: 15px auto 15px;
+
+}
+
+.add-todo{
+    background: lightcyan;
+    border: 3px solid black;
+    text-align: center;
+    font-family: pacifico, cursive;
+    height: 37px;
+    width: 40%;
+    margin: auto;
+
+}
+
+.clear-completed{
+    background: lightcyan;
+    border: 3px solid black;
+    text-align: center;
+    font-family: pacifico, cursive;
+    height: 37px;
+    width: 40%;
+    margin: auto;
+}
+
+.todo-list{
+    font-size: 23px;
+    font-family: pacifico, cursive;
+    text-align: center;
+}

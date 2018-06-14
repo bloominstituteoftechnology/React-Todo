@@ -77,7 +77,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Todo List: MVP</h2>
+        <h2>Let's Get Some Stuff Done</h2>
         <TodoList todoProps={this.state.todos} todoComplete={this.completeTodo}/>
         <TodoForm addTodoFunction={this.addTodo} todoSubmit={this.state.todo} todoHandler={this.todoHandler} clearCompleted={this.clearCompleted}/>
       </div>

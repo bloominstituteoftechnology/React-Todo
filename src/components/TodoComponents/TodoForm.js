@@ -2,15 +2,16 @@ import React from "react";
 
 const TodoForm = props =>{
     return(
-        <div>
+        <div className="form-container">
         <input
             type="text"
             onChange={props.todoHandler}
-            placeholder="To Do"
+            placeholder="Type your To Do Here"
             value={props.todoSubmit.task}
+            className="input"
         />
-        <button onClick={props.addTodoFunction}> Add Todo </button>
-        <button onClick={props.clearCompleted}> Clear Completed </button>
+        <button className="add-todo" onClick={props.addTodoFunction}> Add Todo </button>
+        <button className= "clear-completed" onClick={props.clearCompleted}> Clear Completed </button>
         </div>
     );
 }

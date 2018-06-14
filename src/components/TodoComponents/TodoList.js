@@ -5,9 +5,9 @@ import Todo from "./Todo";
 
 const TodoList = props => {
     return (
-        <div>
+        <div className="todo-list">
             {props.todoProps.map(todo => {
-                return <Todo todoData={todo} todoComplete={props.todoComplete} key={Math.random()}/>
+                return <Todo todoData={todo} todoComplete={props.todoComplete}/>
         })}
         </div>
     );
