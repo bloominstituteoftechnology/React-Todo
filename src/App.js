@@ -35,6 +35,8 @@ class App extends React.Component {
         completed: false
       });
       this.setState({ todos: this.state.todos, newTodo: ''});
+      localStorage.setItem("todos", JSON.stringify(this.state.todos));
+      localStorage.setItem("newTodo", "");
       e.preventDefault();
     }
   }
@@ -45,17 +47,43 @@ class App extends React.Component {
     task.classList.toggle('completed');
     updatedTodos[index].completed = !updatedTodos[index].completed;
     this.setState({ todos: updatedTodos});
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
   }
 
   clickRemoveHandler = (e) => {
     let nonCompletedTodos = this.state.todos.filter(todo => todo.completed===false);
     this.setState({todos: nonCompletedTodos});
+    localStorage.setItem("todos", JSON.stringify(nonCompletedTodos));
     e.preventDefault();
   }
 
   searchHandler = (e) => {
     this.setState({searchTodo: e.target.value});
   }
+
+  hydrateStateWithLocalStorage() {
+    // for all items in state
+    for (let key in this.state) {
+      // if the key exists in localStorage
+      if (localStorage.hasOwnProperty(key)) {
+        // get the key's value from localStorage
+        let value = localStorage.getItem(key);
+
+        // parse the localStorage string and setState
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          // handle empty string
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  }
+
+  componentDidMount() {
+    this.hydrateStateWithLocalStorage();
+ }
 
   render() {
     return (
