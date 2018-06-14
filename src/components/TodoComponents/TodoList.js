@@ -5,11 +5,11 @@ import Todo from "./Todo";
 
 const TodoList = props => {
     return (
-        <ul>
+        <div>
             {props.todoProps.map(todo => {
-                return <Todo todoData={todo} key={Math.random()}/>
+                return <Todo todoData={todo} todoComplete={props.todoComplete} key={Math.random()}/>
         })}
-        </ul>
+        </div>
     );
 };
 

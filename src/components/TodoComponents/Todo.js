@@ -1,7 +1,13 @@
 import React from "react";
 
 const Todo = props => {
-    return <div>{props.todoData.task}</div>;
+    return <div
+        className={props.todoData.completed ? "completed" : null}
+        onClick={() => props.todoComplete(props.todoData.id)}
+        key={props.todoData.id}
+    >
+    {props.todoData.task}
+    </div>;
 }
 
 export default Todo;

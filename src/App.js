@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './components/TodoComponents/Todo.css';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -10,16 +11,16 @@ class App extends React.Component {
     super();
     this.state = {
       todos: [
-       {
-         task: 'Organize Garage',
-         id: 1528817077286,
-         completed: false
-       },
-       {
-         task: 'Bake Cookies',
-         id: 1528817084358,
-         completed: false
-       }
+      //  {
+      //    task: 'Organize Garage',
+      //    id: 1528817077286,
+      //    completed: false
+      //  },
+      //  {
+      //    task: 'Bake Cookies',
+      //    id: 1528817084358,
+      //    completed: false
+      //  }
      ],
      todo: {
             task: '',
@@ -43,18 +44,32 @@ class App extends React.Component {
   }
 
   addTodo = () => {
-    const todos = this.state.todos.slice();
+    let todos = this.state.todos.slice();
     todos.push(this.state.todo);
     this.setState({todos: todos});
-    this.setState({todo: this.state.blanktodo})
-  };
+    this.setState({todo: this.state.blanktodo});
+  }
+
+  completeTodo = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(item => {
+      if(item.id === id) {
+        item.completed = !item.completed;
+        return item;
+      }
+      else{
+        return item;
+      }
+    });
+
+    this.setState({ todos: todos});
+  }
 
   render() {
-    console.log(this.state.todos);
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        <TodoList todoProps={this.state.todos} />
+        <TodoList todoProps={this.state.todos} todoComplete={this.completeTodo}/>
         <TodoForm addTodoFunction={this.addTodo} todoSubmit={this.state.todo} todoHandler={this.todoHandler}/>
       </div>
     );
