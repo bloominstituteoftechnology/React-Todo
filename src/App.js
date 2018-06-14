@@ -4,10 +4,6 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
-  constructor() {
-    super();
-  }
-
   state = {
     todoInput: "",
     todos: []
@@ -33,7 +29,9 @@ class App extends React.Component {
   toggleCompleted = id => {
     let todos = this.state.todos.slice();
     todos = todos.map(todo => {
-      todo.id === id ? todo.completed = !todo.completed : null;
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+      }
       return todo;
     });
     this.setState({ todos: todos });
