@@ -37,14 +37,11 @@ class App extends React.Component {
     console.log(this.state, "original state")
     console.log(localTodos, "clone of state")
 
-    // Initialize the todoObj that will hold the toggled completed boolean value
-    let todoObj = {}
-
     // Map over the array and if the id matches the one that was selected, toggle completed
     // if not, pass back the todo object
     localTodos = localTodos.map( todo => {
       if (todo.id === id) {
-        todoObj = {}
+        let todoObj = {}
         todoObj.task = todo.task;
         todoObj.id = todo.id;
         todoObj.completed = !todo.completed;
@@ -78,6 +75,20 @@ class App extends React.Component {
 
   clearHandler = () => {
     console.log('You clicked the clear button')
+    
+    // Clone state
+    let localTodos = this.state.todos.slice();
+
+    if (localTodos.length > 0){
+      localTodos = localTodos.filter(cv => !cv.completed)
+    }
+
+    //Update State
+    this.setState({
+      todos:localTodos,
+      tempTodo:''
+    })
+
   }
 
   updateList = () => {
