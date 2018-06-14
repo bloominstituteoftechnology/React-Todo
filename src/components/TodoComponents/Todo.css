@@ -67,7 +67,7 @@ body {
 .todo-item {
     width: 100%;
     text-align: right;
-    pading: 0% 10%;
+    padding: 0% 10%;
 }
 
 .todo-item h3 {
@@ -76,10 +76,6 @@ body {
     padding: 10px 0% 10px 15%;
     border-bottom: 1px solid #63646C;
     font-size: 1.6rem;
-}
-
-.todo-item:last-of-type h3 {
-    border-bottom: none;
 }
 
 
