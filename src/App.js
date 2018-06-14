@@ -54,9 +54,11 @@ class App extends React.Component {
   render() {
     return (
       <div className='container'>
-        <h2 className='title'>Todo List: MVP</h2>
+      <div className='inner-container'>
+        <h2 className='title'>Todo List:</h2>
        <TodoList todolist={this.state.todolist} toggleFlag={this.toggleFlag} dataInput={this.state.dataInput}/>
        <TodoForm toDoHandler={this.toDoHandler} addTodo={this.addTodo} clearTodo={this.clearTodo} dataInput={this.state.dataInput} />
+      </div>
       </div>
     );
   }
