@@ -36,21 +36,23 @@ class App extends React.Component {
         id: Date.now(),
         completed: false
       });
-      // this.state.newTodo = '';
-      // this.setState(this.state);
       this.setState({ todos: this.state.todos, newTodo: ''});
       e.preventDefault();
     }
   }
 
   clickToggleComplete(index){
-    let task = document.getElementById(this.state.todos[index].id);
+    let updatedTodos = this.state.todos
+    let task = document.getElementById(updatedTodos[index].id);
     task.classList.toggle('completed');
-    this.state.todos[index].completed = !this.state.todos[index].completed;
-    // this.state.todos[index].completed = !this.state.todos[index].completed;
-    // this.setState({ todos: this.state.todos});
-    console.log(task);
-    console.log(this.state.todos[index]);
+    updatedTodos[index].completed = !updatedTodos[index].completed;
+    this.setState({ todos: updatedTodos});
+  }
+
+  clickRemoveHandler = (e) => {
+    let nonCompletedTodos = this.state.todos.filter(todo => todo.completed===false);
+    this.setState({todos: nonCompletedTodos});
+    e.preventDefault();
   }
 
   render() {
@@ -58,7 +60,7 @@ class App extends React.Component {
       <div>
         <h2>TODO LIST</h2>
         <TodoList clickToggle={this.clickToggleComplete} todoList={this.state.todos} />
-        <TodoForm onSubmitHandler = {this.addTodoHandler} value={this.state.newTodo} onChangeHandler={this.changeHandler} />
+        <TodoForm onSubmitHandler = {this.addTodoHandler} value={this.state.newTodo} onChangeHandler={this.changeHandler} onClickRemove={this.clickRemoveHandler}/>
       </div>
     );
   }
