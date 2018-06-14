@@ -51,17 +51,20 @@ class App extends React.Component {
   }
 
   addTodo (event) {
-    let copy = this.state.todoList.slice(0,);
-    let newTodo = {
-      "task": this.state.todoInput,
-      "complete": false,
-      "id": Date.now().toString()
+    let newTask = this.state.todoInput;
+    if (newTask.length > 0) {
+      let copy = this.state.todoList.slice(0,);
+      let newTodo = {
+        "task": newTask,
+        "complete": false,
+        "id": Date.now().toString()
+      }
+      copy.push(newTodo);
+      this.setState({
+        "todoList": copy,
+        "todoInput": ''
+      }, this.saveToLocalStorage);
     }
-    copy.push(newTodo);
-    this.setState({
-      "todoList": copy,
-      "todoInput": ''
-    }, this.saveToLocalStorage);
   }
 
   clearCompleted () {

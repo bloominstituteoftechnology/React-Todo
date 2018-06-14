@@ -6,7 +6,7 @@
 
 .color-complement-0 { color: #46474D }	/* Main Complement color */
 .color-complement-1 { color: #83858C }/* lower pane */
-.color-complement-2 { color: #63646C } 
+.color-complement-2 { color: #63646C } /* lower pane border */
 .color-complement-3 { color: #242529 } /*lower pane shadow inset */ 
 .color-complement-4 { color: #14161E }
 
@@ -38,8 +38,8 @@
     position: relative;
     bottom: -1px;
     /* z-index: -1; */
-    margin-left: 15%;
-    padding: 20px 1%;
+    margin-left: 5%;
+    padding: 0px 1%;
     display: inline-block;
     background-color: #83858C;
     border-radius: 0 0 8px 8px;
@@ -47,10 +47,20 @@
 }
 
 .todo-list ul {
+    margin: 0px;
     display: flex;
     flex-flow: column wrap;
     justify-content: space-between;
-    padding: 0px;
+    align-items: flex-end;
+    padding: 0px 2% 0px 0px;
+}
+
+.todo-item {
+    text-align: right;
+    border-bottom: 1px solid #63646C;
+}
+
+.todo-item h3 {
 
 }
 
