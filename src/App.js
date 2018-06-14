@@ -41,7 +41,7 @@ class App extends React.Component {
       <div>
         {/* <h2>Welcome to your Todo App!</h2> */}
         <h1>{this.state.title}</h1>
-        <TodoForm />
+        <TodoForm items={this.state.items} handleChange={this.handleChange} addItem={this.addItem}/>
       </div>
     );
   }
