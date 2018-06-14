@@ -1,8 +1,5 @@
-
-
 .todo-list {
     width: 100%;
-    
 }
 
 .todo-list__todo {
@@ -13,13 +10,11 @@
     list-style: none;
     background: lightblue;
     height: 50px;
-    
 }
 
 .task--complete {
     text-decoration: line-through;
 }
-
 
 .todo-form {
     display: flex;
@@ -27,6 +22,14 @@
 }
 
 .todo-form__btn {
-    width: 100px;
-    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 50%; /*desired width */
+}
+.todo-form__btn:before{
+	content: "";
+	display: block;
+	padding-top: 100%; 	/* initial ratio of 1:1*/
 }
