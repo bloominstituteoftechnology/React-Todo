@@ -10,11 +10,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = [
-      {
-        task: "",
-        // id: "",
-        // completed: "false",
-      }
+      // {
+      //   task: "",
+      //   id: "",
+      //   completed: "false",
+      // }
     ];
   }
 
@@ -27,8 +27,8 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm />
-        <br></br>
-        <h3>Todo List </h3>
+        {/* <br></br> */}
+        
         <Todo />
       </div>
     );

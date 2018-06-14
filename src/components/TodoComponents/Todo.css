@@ -1,0 +1,7 @@
+
+
+.headings{
+    display:flex;
+    max-width:400px;
+    justify-content: space-between;
+}

@@ -9,19 +9,27 @@ class TodoForm extends React.Component {
         super();
     }
 
+    addTodoTask() {
+        const todoTask = {
+            
+        }
+    }
+
     render() {
         return (
             <div>
                 <input
+                    // id = {this.props.id}
                     type="text"
                     placeholder= "Add Todo Task"
                     value = {this.props.todoTask}
+                    completed = {this.props.completed}
                     onChange = {this.props.onChange}
                 />
-                <button onSubmit={this.props.addTodo}>
+                <button onSubmit={this.props.addTodoTask}>
                     Add Todo
                 </button>
-                <button onSubmit={this.props.clearCompleted}>
+                <button onClearCompleted={this.props.onClearCompleted}>
                     Clear Completed
                 </button>
             </div>
