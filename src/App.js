@@ -18,6 +18,18 @@ class App extends React.Component {
     };
   }
 
+  toggleCompletion = (event, id) => {
+    const items = this.state.items.slice();
+    for(let i = 0; i < items.length; i++) {
+      if(items[i].id === id) {
+        items[i].completed = !items[i].completed;
+        event.target.classList.toggle('task--complete');
+        break;
+      }
+    }
+  }
+
+
   todoChange = event => {
     this.setState({ item: event.target.value})
   }
@@ -30,13 +42,14 @@ class App extends React.Component {
     this.setState({ items: items, item: ''});
   }
 
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
       <div>
-        <TodoList items={this.state.items} />
+        <TodoList completeHandler = {this.toggleCompletion} items={this.state.items} />
         <TodoForm 
         value = {this.state.item}
         changeTodoHandler = {this.todoChange}

@@ -7,7 +7,7 @@ import Todo from './Todo';
 const TodoList = (props) => {
     return (
         <ul>
-            {props.items.map(item => <Todo item = {item}/>)}
+            {props.items.map(item => <Todo completeHandler = {props.completeHandler} item = {item}/>)}
         </ul>
     );
 }
