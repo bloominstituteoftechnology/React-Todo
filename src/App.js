@@ -1,4 +1,6 @@
 import React from 'react';
+import TodoList from "./TodoList";
+import TodoForm from "./TodoForm";
 
 class App extends React.Component {
   constructor() {
@@ -16,16 +18,12 @@ class App extends React.Component {
      };
      // state is the memory we have in our component,
      // props is the mechanism for passing that state around.
-     this.renderItem = "";
-    for (var key in this.state) {
-     this.renderItem += this.state[key].task + " </br>";
-     }
-     console.log(this.renderItem)
    }
    render(){
      return(
        <div>
-          {this.renderItem}
+       <TodoList tasks={this.state} />
+       <TodoForm />
        </div>
      )
    }
