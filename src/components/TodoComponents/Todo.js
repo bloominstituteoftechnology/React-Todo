@@ -18,12 +18,13 @@ class ToDo extends React.Component {
   };
 
   render() {
-    return !this.state.strike ? (
-      <li onClick={this.clickHandler}>{`${this.props.task.task}`}</li>
-    ) : (
-      <li onClick={this.clickHandler} className="strike">{`${
-        this.props.task.task
-      }`}</li>
+    return (
+      <li
+        onClick={this.clickHandler}
+        className={!this.state.strike ? null : 'strike'}
+      >
+        {`${this.props.task.task}`}
+      </li>
     );
   }
 }

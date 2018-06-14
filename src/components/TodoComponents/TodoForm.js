@@ -13,6 +13,7 @@ class TodoForm extends React.Component {
   }
 
   changeTaskHandler = event => {
+    // console.log('key', event.target);
     this.setState({ input: event.target.value });
   };
 

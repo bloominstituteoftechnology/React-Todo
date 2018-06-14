@@ -7,8 +7,6 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = props =>
-  props.tasks.map(task => (
-    <Todo key={task.id} task={task} clear={props.HandleClear} />
-  ));
+  props.tasks.map(task => <Todo key={task.id} task={task} />);
 
 export default TodoList;

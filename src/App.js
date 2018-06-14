@@ -38,7 +38,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <ul>
-          <TodoList tasks={this.state.tasks} HandleClear={this.clearHandler} />
+          <TodoList tasks={this.state.tasks} />
         </ul>
         <TodoForm
           FormHandle={this.formHandler}
