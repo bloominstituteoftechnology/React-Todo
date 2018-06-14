@@ -22,6 +22,9 @@ class App extends React.Component {
     this.setState({ item: event.target.value})
   }
   addToDo = event => {
+    if(this.state.item.length === 0) {
+      return;
+    }
     const items = this.state.items.slice();
     items.push({ task: this.state.item, id: Date.now(), completed: false });
     this.setState({ items: items, item: ''});
