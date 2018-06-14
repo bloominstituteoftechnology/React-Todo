@@ -1,3 +1,75 @@
 .completed {
     text-decoration: line-through;
 }
+
+.todo-list-wrapper {
+    padding: 0 15px;
+}
+
+.input-form {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 15px 15px;
+    background-color: #222;
+    border-radius: 0 0 20px 20px
+}
+
+.todo {
+    font-size: 1.2em;
+    border-bottom: solid 2px #444;
+    letter-spacing: 2px;
+    flex-grow: 1;
+    /* padding: 20px 10px 10px 10px; */
+}
+
+button {
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #FAFAFA;
+    display: block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .add {
+    flex-grow: 0.3;
+    background: #66BB6A;
+  }
+
+  .add:hover{
+    background: #549d59;
+    cursor: pointer;
+  }
+
+  .remove {
+    background: #ef5350;
+  }
+
+  .remove:hover {
+    background: #c44442;
+    cursor: pointer;
+  }
+
+
+  input{
+    flex-grow: 0.4;
+    border-radius: 2px;
+    border-style: none;
+    color: #999;
+    letter-spacing: 1.5px;
+    outline: none;
+  }
+
+  input::-webkit-input-placeholder{
+    color: #666;
+    letter-spacing: 1.5px;
+  }
+
+  input:focus{
+    background-color: #444;
+    color: rgb(218, 218, 218);
+  }

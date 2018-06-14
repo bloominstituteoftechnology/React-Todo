@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './App.css';
 
 class App extends React.Component {
   constructor() {
@@ -87,9 +88,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>TODO LIST</h2>
-        <input onChange={this.searchHandler} type="text" placeholder="..search"/>
+      <div className='todo-list'>
+        <div className="header">
+          <h1>TODO LIST</h1>
+          <input onChange={this.searchHandler} type="text" placeholder="..search"/>
+        </div>
         <TodoList clickToggle={this.clickToggleComplete} todoList={this.state.todos} searchText={this.state.searchTodo}/>
         <TodoForm onSubmitHandler={this.addTodoHandler} value={this.state.newTodo} onChangeHandler={this.changeHandler} onClickRemove={this.clickRemoveHandler}/>
       </div>
