@@ -3,19 +3,25 @@
 import React from 'react';
 import Todo from './Todo';
 
-class TodoList extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            listOfTodos: [< Todo task="lather" />, < Todo task="rinse" />, <Todo task="repeat" />]
-        }
-    };
+// class TodoList extends React.Component {
+//     constructor() {
+//         super();
+
+//     };
 
 
-    render() {
-        return (
-            <div>{this.state.listOfTodos}</div>
-        );
-    }
+//     render() {
+//         return (
+//             <div>{this.state.listOfTodos.map((object) => <li>{object.task} </li>)}</div>
+//         );
+//     }
+// }
+const TodoList = (props) => {
+    return (
+        <div>
+            {props.todoitems.map((item) => (<Todo todo={item} />))}
+        </div>
+    )
 }
+
 export default TodoList;
