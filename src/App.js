@@ -47,6 +47,16 @@ constructor(){
     this.setState({ todos: todos, item: ""});
   };
 
+removeListItem = event => {
+	event.preventDefault();
+
+	let todos = this.state.todos.slice();
+	todos = todos.filter(todo => !todo.completed);
+	
+	this.setState({ todos: todos});
+
+};
+
 
 toggleId = id => {
 	let todos =this.state.todos.slice();
@@ -73,7 +83,7 @@ toggleId = id => {
     return (
       <div>
 	    <TodoList classStrike="item-strike" classRegular="item-style" toggleIdValue={this.toggleId} listItem={this.state.todos} />
-	    <TodoForm  inputEvent={this.changeListItem}  inputValue={this.state.item} addNewItem={this.addItem}  />
+	    <TodoForm removeItem={this.removeListItem} inputEvent={this.changeListItem}  inputValue={this.state.item} addNewItem={this.addItem}  />
 
       </div>
     );
