@@ -1,14 +1,20 @@
 import React from 'react';
-import './Todo.css';
 
-const ToDoList = props => {
+
+const TodoForm= props => {
   return (
-    <ul>
-      {props.newToDo.map(newItem => {
-        return <li key={Math.random()}>{newItem}</li>;
-      })}
-    </ul>
+    <form>
+      <input
+        onChange={props.handleTodoChange}
+        type="text"
+        name="todo"
+        value={props.value}
+        placeholder="...todo"
+      />
+      <button onClick={props.handleAddTodo}>Add Todo</button>
+      <button onClick={props.handleClearTodos}>Clear Completed</button>
+    </form>
   );
 };
 
-export default ToDoList;
+export default TodoForm;

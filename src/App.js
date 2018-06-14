@@ -56,9 +56,9 @@ toggleTodoComplete = id => {
   };
 
 clearCompletedTodos = def => {
-  preventDefault();
+  def.preventDefault();
   let todos = this.state.todos.slice();
-  todos = todos.filter(todeo => !todo.completed);
+  todos = todos.filter(todo => !todo.completed);
   this.setState({todos});
 };
 
@@ -66,11 +66,11 @@ clearCompletedTodos = def => {
     return (
       <div className="container">
       <h2>To-do List</h2>
-      <ToDoList 
+      <TodoList 
       handleToggleComplete={this.toggleTodoComplete}
       todos={this.state.todos}
       />
-      <TodoForm 
+      <TodoForm
       value={this.state.todo}
       handleTodoChange={this.changeTodo}
       handleAddTodo={this.addTodo}
