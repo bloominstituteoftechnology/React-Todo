@@ -27,6 +27,7 @@ class App extends React.Component {
         break;
       }
     }
+    this.setState({items: items});
   }
 
 
