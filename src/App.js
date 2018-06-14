@@ -1,7 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import './App.css';
 
 class App extends React.Component {
   constructor() {
@@ -23,7 +22,7 @@ class App extends React.Component {
     }
     this.changeHandler = this.changeHandler.bind(this);
     this.addTodoHandler = this.addTodoHandler.bind(this);
-    // this.clickTaskHandler = this.clickTaskHandler.bind(this);
+    this.clickToggleComplete = this.clickToggleComplete.bind(this);
   }
 
   changeHandler(e) {
@@ -44,18 +43,21 @@ class App extends React.Component {
     }
   }
 
-  // clickTaskHandler(index){
-  //   let task = document.getElementById(this.state.todos[index].id);
-  //   task.classList.toggle('completed');
-  //   this.state.todos[index].completed = true;
-  //   this.setState({ todos: this.state.todos});
-  // }
+  clickToggleComplete(index){
+    let task = document.getElementById(this.state.todos[index].id);
+    task.classList.toggle('completed');
+    this.state.todos[index].completed = !this.state.todos[index].completed;
+    // this.state.todos[index].completed = !this.state.todos[index].completed;
+    // this.setState({ todos: this.state.todos});
+    console.log(task);
+    console.log(this.state.todos[index]);
+  }
 
   render() {
     return (
       <div>
         <h2>TODO LIST</h2>
-        <TodoList todoList={this.state.todos} />
+        <TodoList clickToggle={this.clickToggleComplete} todoList={this.state.todos} />
         <TodoForm onSubmitHandler = {this.addTodoHandler} value={this.state.newTodo} onChangeHandler={this.changeHandler} />
       </div>
     );
