@@ -1,4 +1,61 @@
+.color-primary-0 { color: #716E65 }	/* Main Primary color */
+.color-primary-1 { color: #CCC8BE }
+.color-primary-2 { color: #9D998F } 
+.color-primary-3 { color: #3C3A34 } /* Header boxshadow*/
+.color-primary-4 { color: #2C271B }  /* Main Text */
+
+.color-complement-0 { color: #46474D }	/* Main Complement color */
+.color-complement-1 { color: #83858C }/* lower pane */
+.color-complement-2 { color: #63646C } 
+.color-complement-3 { color: #242529 } /*lower pane shadow inset */ 
+.color-complement-4 { color: #14161E }
+
+* {
+    box-sizing: border-box;
+}
+
+.app {
+    color: #2C271B;
+    max-width: 700px;
+    font-family: Helvetica, sans-serif;
+}
+
+.header {
+    background-color:#716E65;
+    box-shadow: 0px 0px 1px 2px #3C3A34;
+    border-radius: 4px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.header h2 {
+    padding-left: 5%;
+    font-weight: 900;
+}
+
+.todo-list-container {
+    position: relative;
+    bottom: -1px;
+    /* z-index: -1; */
+    margin-left: 15%;
+    padding: 20px 1%;
+    display: inline-block;
+    background-color: #83858C;
+    border-radius: 0 0 8px 8px;
+    box-shadow: inset 0px 0px 1px 1px #242529;
+}
+
+.todo-list ul {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    padding: 0px;
+
+}
+
+
 .completed h3 {
     text-decoration-line: line-through;
-    color: green;
+    color: #63646C
 }
