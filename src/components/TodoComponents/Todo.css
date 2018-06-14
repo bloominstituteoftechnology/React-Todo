@@ -1,0 +1,8 @@
+.list-item:hover{
+  /* font-style: italic; */
+  cursor:pointer;
+}
+
+.completed{
+  text-decoration: line-through;
+}

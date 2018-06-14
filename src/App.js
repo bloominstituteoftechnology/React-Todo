@@ -24,10 +24,18 @@ class App extends React.Component {
       tempTodo: ''
     }
   }
+
   onInputChangeHandler = (e) => {
     console.log('Something was typed in the input field')
     this.setState({tempTodo: e.target.value})
     // console.log(this.state.todos)
+  }
+
+  onTodoClick = (e) => {
+    if (e.target.classList.contains('completed'))
+      e.target.classList.remove('completed')
+    else 
+    e.target.classList.add('completed')
   }
 
   onKeyUp = (e) =>{
@@ -65,7 +73,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         {/* {console.log(this.state.todos,"in App.js Render this.state.todos")} */}
-        <TodoList todo={this.state.todos}/>
+        <TodoList todo={this.state.todos} onTodoClick={this.onTodoClick}/>
         <TodoForm 
           inputValue={this.state.tempTodo} 
           onInputChangeHandler= {this.onInputChangeHandler} 

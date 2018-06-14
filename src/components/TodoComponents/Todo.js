@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todo.css';
 
 class Todo extends React.Component{
   constructor(props){
@@ -8,7 +9,7 @@ class Todo extends React.Component{
 
   render(){
       return (
-        <li>{this.props.task}</li>
+        <li className="list-item"onClick={this.props.onTodoClick}>{this.props.task}</li>
     )
   }
 }

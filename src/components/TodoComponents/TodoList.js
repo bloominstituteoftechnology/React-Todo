@@ -13,7 +13,7 @@ class TodoList extends React.Component{
     return (
       <div>
         {/* {console.log(this.props.todo,"this.props.todo in TodoList.js")} */}
-        {this.props.todo.map( (todo,ind) => <Todo key={ind+todo.task} task={todo.task} />)}
+        {this.props.todo.map( (todo,ind) => <Todo key={ind+todo.task} task={todo.task} onTodoClick={this.props.onTodoClick}/>)}
         
       </div>
   )
