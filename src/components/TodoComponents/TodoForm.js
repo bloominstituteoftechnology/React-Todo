@@ -6,7 +6,7 @@ const ToDoForm = props => {
         <div>
             <input type="text" placeholder="What to do?" onChange={props.changeHandle} value={props.inputValue}/>
             <button onClick={props.addNew}>Add</button>
-            <button>Clear Completed</button>
+            <button onClick={props.handleCompleted}>Clear Completed</button>
         </div>
     );
 }
