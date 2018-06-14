@@ -43,9 +43,13 @@ class App extends React.Component {
   }
 
   crossOut = id => {
+    console.log("crossOut");
     let newToDos = this.state.toDos.slice();
     newToDos.map(item => {
-      item.id === id ? item.completed = !item.completed : null;
+      item.id === id ? item.completed = !item.completed : item.completed = item.completed;
+      if(item.completed){
+        item.className="completed";
+      }
       return item;
     });
     this.setState({toDos: newToDos});
