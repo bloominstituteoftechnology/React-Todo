@@ -11,6 +11,7 @@ const TodoList = props => {
                     <Todo
                         task={task}
                         key={task.id}
+                        handleToggleComplete={props.handleToggleComplete}
                     /> 
                 )
                 

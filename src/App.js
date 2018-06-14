@@ -12,7 +12,17 @@ class App extends React.Component {
       todos: [
         {
           task: 'Do Laundry',
-          id: Date.now(),
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Walk Dog',
+          id: 1528817084358,
+          completed: false
+        },
+        {
+          task: 'Grocery Shopping',
+          id: 1529016806261,
           completed: false
         },
       ],
