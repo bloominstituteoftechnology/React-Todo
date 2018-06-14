@@ -5,13 +5,13 @@ import './Todo.css';
 
 const Todo = props => { //takes in 'todo' data and displays it; use toggle() here.
     return (
-    <li className='todo-item'>
-       <input type='checkbox' id='checkbox' onClick={props.toggleFlag}/>{props.todo}   
-    </li>
+    <div className={props.completed ? 'completed' : 'todo-item'} onClick={props.toggleFlag}>
+        
+       {props.todo}   
+    </div>
         
     )        
 }
 
 export default Todo;
-//{props.task}
 // <input type='checkbox' id='checkbox' onClick={props.toggleFlag}/>

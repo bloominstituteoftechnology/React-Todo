@@ -1,7 +1,6 @@
 import React from 'react';
 import './components/TodoComponents/Todo.css';
 import TodoList from './components/TodoComponents/TodoList';
-import Todo from './components/TodoComponents/Todo';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 
@@ -30,9 +29,27 @@ class App extends React.Component {
     this.setState({todolist: todolist, dataInput: ''});
   }
 
-  toggleFlag = () => {
-    this.setState({completed: true});
-    this.classList.add('completed');
+  clearTodo = () => {
+    const todolist = this.state.todolist.slice();
+    todolist.filter((todolist) => {
+      return todolist.completed === false;
+    },
+    this.setState({todolist: todolist })
+  );
+  }
+
+  toggleFlag = id => {
+    let todos = this.state.todolist.slice();
+    todos=todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      }
+      else {
+        return todo;
+      }
+    })
+    this.setState({todolist: todos});
   }
 
   render() {
@@ -40,8 +57,7 @@ class App extends React.Component {
       <div className='container'>
         <h2 className='title'>Todo List: MVP</h2>
        <TodoList todolist={this.state.todolist} toggleFlag={this.toggleFlag} dataInput={this.state.dataInput}/>
-       <TodoForm toDoHandler={this.toDoHandler} addTodo={this.addTodo} dataInput={this.state.dataInput} />
-       <Todo />
+       <TodoForm toDoHandler={this.toDoHandler} addTodo={this.addTodo} clearTodo={this.clearTodo} dataInput={this.state.dataInput} />
       </div>
     );
   }
@@ -65,4 +81,8 @@ export default App;
     this.setState({
       condition: !this.state.condition
     });
-  },*/
+  },
+  
+  this.setState(prevState => ({
+      completed: !prevState.completed
+    }));*/

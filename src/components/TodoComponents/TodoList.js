@@ -11,8 +11,11 @@ const TodoList = (props) => {  //receives array, iterates over array, generates 
         {props.todolist.map((todo) => {
             return (
             <Todo 
-            key={Math.random()} 
-            todo={todo.task} />
+            key={todo.id} 
+            todo={todo.task} 
+            completed={todo.completed}
+            id={todo.id}
+            toggleFlag={props.toggleFlag}/>
             );  
         })}
     </div>
