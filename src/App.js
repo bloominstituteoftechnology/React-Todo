@@ -78,7 +78,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <div className="header">
-        <h2>Welcome to your Todo App!</h2>
+        <h2>TASK TORMENTER 3000</h2>
         </div>
         <div className="todo-list-container">
           <TodoList list={this.state.todoList} handleClick={this.markComplete}/>
