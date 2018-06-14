@@ -1,7 +1,8 @@
 import React from 'react';
+import './App.css';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
-
+import TrashButton from './components/ButtonComponents/TrashButton';
 
 class App extends React.Component {
   constructor() {
@@ -65,7 +66,7 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div>
+      <div className = "todo-container">
         <TodoList completeHandler={this.toggleCompletion} items={this.state.items} />
         <TodoForm
           value={this.state.item}
