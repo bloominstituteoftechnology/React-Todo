@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoForm from './components/TodoComponents/TodoForm';
+import TodoForm from './TodoForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -27,7 +27,7 @@ class App extends React.Component {
   }
 
   handleChange = e => {
-    this.setState({item: e.target.value});
+    this.setState({ item: e.target.value });
   };
 
   handleSubmit = e => {
@@ -41,15 +41,24 @@ class App extends React.Component {
 
     const listItems = this.state.listItems;
     listItems.push(newItem);
-    this.setState({listItems, item: ""});
+    this.setState({ listItems, item: "" });
   }
 
   handleClear = e => {
 
   }
 
-  handleClick = e => {
-
+  handleCompleted = e => {
+    let listItems = this.state.listItems.slice();
+    listItems = listItems.map(item => {
+      if(item.key === e) {
+        item.completed = !item.completed;
+        return item;
+      } else {
+        return item;
+      }
+    });
+    this.setState({listItems})
   }
 
   render() {
@@ -63,7 +72,7 @@ class App extends React.Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           handleClear={this.handleClear}
-          handleClick={this.handleClick}  
+          handleCompleted={this.handleCompleted}
         />
       </div>
     );
