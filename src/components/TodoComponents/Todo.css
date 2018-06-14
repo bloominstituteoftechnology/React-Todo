@@ -1,16 +1,17 @@
-/*#716E65 Main Primary color 
-#CCC8BE: 
-#9D998F:  
-#3C3A34:  Header boxshadow
-#2C271B: Main Text 
+/* holder {
+    color: #716E65 Main Primary color 
+    color: #CCC8BE
+color: #9D998F;  
+color: #3C3A34;  Header boxshadow
+color: #2C271B; Main Text 
+color: #46474D;	 Main Complement color 
+color: #83858C; lower pane 
+color: #63646C;  lower pane border 
+color: #242529; lower pane shadow inset  
+color: #14161E;
+color: #FFB204; hover color
+} */
 
-#46474D 	 Main Complement color 
-#83858C  lower pane 
-#63646C   lower pane border 
-#242529  lower pane shadow inset  
-#14161E 
-#FFB204 hover color
-*/
 
 * {
     box-sizing: border-box;
@@ -53,7 +54,7 @@ body {
     position: relative;
     bottom: -1px;
     margin: auto auto auto 5%;
-    padding: 10px 1%;
+    padding: 10px 0 0 0;
     display: inline-block;
     background-color: #83858C;
     border-radius: 0 0 8px 8px;
@@ -92,9 +93,15 @@ body {
 }
 
 .form {
-    padding-top: 30px;
+    padding-top: 10px;
+    /* border-top: 2px solid #2C271B; */
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
+}
+
+.form div {
+    padding: 0 1%;
 }
 
 .form input {
@@ -104,24 +111,46 @@ body {
     color: #63646C;
     border-radius: 3px;
 }
+
+.form label {
+    width: 100%;
+    font-size: .8rem;
+    text-align: center;
+    color: #14161E;;
+}
+
+.form-container {
+    padding-top: 40px;
+}
+
 .form .button {
-    margin: 0px;
-    padding: 10px 15% 10px 0;
+    margin: auto;
+    padding: 10px 0 10px 0;
 }
 
 .form .button:last-of-type {
     border-top: 1px solid #63646C;
-}\
+}
+
+.search-form {
+    background-color:#716E65;
+    border-radius: 0 0 8px 8px;
+    box-shadow: inset 0px 0px 1px 1px #242529;
+}
 
 .form .button, .todo-item {
     transition: transform .3s ease-out;
 } 
 
+.form .main-button {
+    font-size: 120%;
+}
+
 .form .button:hover, .todo-item:hover {
     color: #FFB204;
     transform: translate(10px, 0px);
-
 }
+
 
 .hidden {
     visibility: hidden;
