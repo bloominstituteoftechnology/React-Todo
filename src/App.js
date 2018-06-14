@@ -18,7 +18,8 @@ class App extends React.Component {
     this.setState({ item: event.target.value });
   };
 
-  addToDo = () => {
+  addToDo = e => {
+    e.preventDefault();
     const toDos = this.state.task.slice();
     toDos.push({ 
       'task': this.state.item,
@@ -41,12 +42,19 @@ class App extends React.Component {
    this.setState({ items });
  }
 
+ clearCompleted = event => {
+   event.preventDefault();
+   let tasks = this.state.task.slice();
+   tasks = tasks.filter(task => !task.completed);
+   this.setState({ task: tasks });
+ }
+
 
   render() {
     return (
       <div>
       <TodoList task={this.state.task} toggle={this.toggleCompleted} />
-      <ToDoForm changeHandle={this.changeHandler} inputValue={this.state.item} addNew={this.addToDo} />
+      <ToDoForm changeHandle={this.changeHandler} inputValue={this.state.item} addNew={this.addToDo} handleCompleted={this.clearCompleted} />
       </div>
     );
   }
