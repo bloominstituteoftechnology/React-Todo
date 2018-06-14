@@ -1,13 +1,7 @@
-// import TodoList from "./components/TodoComponents/TodoList";
+import React from 'react';
 
-// // const Todo = props => {
-// //     return (
-// //         <ul>
-// //             {props.todo.map(todo => {
-// //                 return <li key={Date.now()}>{todo}</li>;
-// //             })}
-// //         </ul>
-// //     );
-// // }
+const Todo = props => {
+    return (<li>{props.task}</li>);
+};
 
-// export default Todo;
+export default Todo;

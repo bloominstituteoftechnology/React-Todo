@@ -9,30 +9,29 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      toDos: [
+      tasks: [
         {
-          task: 'Organize Garage',
+          task: 'Test',
           id: Date.now(),
           completed: false
         },
       ],
     };
-    todo:"";
   }
 
   // addTodo = props => {
   //   props.preventDefault();
-  //   const toDos = this.state.todos.slice();
-  //   toDos.push({task: this.state.toDos, completed: false, id: Date.now()});
-  //   this.setState({toDos: toDos});
-  //   this.setState({toDos, todo: ''});
+  //   const task = this.state.todos.slice();
+  //   task.push({task: this.state.toDos, id: Date.now(), completed: false});
+  //   this.setState({Tasks: task});
+  //   this.setState({task, task: ''});
   // }
 
   render() {
     return (
       <div>
         <h1>Todo List:</h1>
-        <TodoList />
+        <TodoList tasks="this.state.tasks" />
         <TodoForm />
       </div>
     );
