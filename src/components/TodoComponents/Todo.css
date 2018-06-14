@@ -1,3 +1,32 @@
+
+
+.todo-list {
+    width: 100%;
+    
+}
+
+.todo-list__todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 3%;
+    list-style: none;
+    background: lightblue;
+    height: 50px;
+    
+}
+
 .task--complete {
     text-decoration: line-through;
+}
+
+
+.todo-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-form__btn {
+    width: 100px;
+    height: 100px;
 }
