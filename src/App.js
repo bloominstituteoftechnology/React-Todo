@@ -83,7 +83,7 @@ toggleId = id => {
     return (
       <div>
 	    <TodoList classStrike="item-strike" classRegular="item-style" toggleIdValue={this.toggleId} listItem={this.state.todos} />
-	    <TodoForm removeItem={this.removeListItem} inputEvent={this.changeListItem}  inputValue={this.state.item} addNewItem={this.addItem}  />
+	    <TodoForm inputStyle="input-style" buttonStyle="button-style" removeItem={this.removeListItem} inputEvent={this.changeListItem}  inputValue={this.state.item} addNewItem={this.addItem}  />
 
       </div>
     );

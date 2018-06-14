@@ -4,14 +4,14 @@ import './Todo.css';
 const TodoForm = props => {
   return (
 	<div>
-	 <input
+	 <br /><input className={props.inputStyle}
           type="text"
 	  onChange={props.inputEvent}
           placeholder="Add an Item"
 	  value={props.inputValue}
-        />
-        <button onClick={props.addNewItem}>Add Item</button>
-	<button onClick={props.removeItem}>Clear Completed</button>
+        /><br />< br />
+        <button className={props.buttonStyle} onClick={props.addNewItem}>Add Item</button><br /><br />
+	<button className={props.buttonStyle} onClick={props.removeItem}>Remove Item</button>
 	</div>  
   );
 };

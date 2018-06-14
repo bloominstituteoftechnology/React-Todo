@@ -9,3 +9,31 @@
 	text-decoration: line-through;
 	color: chocolate;
 }
+
+.input-style{
+	width: 200px;
+	height: 30px;
+	border: 2px solid chocolate;
+	border-radius: 5px;
+	margin-left: 2%;
+	color: black;
+	font-size: 0.8rem;
+
+}
+
+.button-style{
+	border: 2px solid teal;
+	border-radius: 5px;
+	margin-left: 2%;
+	width: 150px;
+        height: 35px;
+	font-size: 0.8rem;
+	color: chocolate;
+	font-weight: bold;
+
+}
+
+.div-style{
+	border: 1px solid gray;
+
+}
