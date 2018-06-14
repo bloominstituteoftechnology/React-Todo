@@ -9,7 +9,7 @@ class App extends React.Component {
     this.state = {
         task: '',
         id: '',
-        completed: false,
+      
 
       todos: [{
           task: 'Organize Garage',
@@ -23,8 +23,8 @@ class App extends React.Component {
         }
       ],
     };
-
-    this.markComplete = this.markComplete.bind(this);
+this.toggle = this.toggle.bind(this);
+  
   }
 
 handleChange = (event) => {
@@ -39,30 +39,44 @@ this.setState({
 
 clearComplete = () => {
  let todolist = this.state.todos.slice();
- todolist.forEach((item, index) => {
-   if (item.completed === true) {
-     todolist.splice(index, 1);
-   }
- });
+ todolist = todolist.filter(item => 
+   item.completed === false)
  this.setState({
    todos: todolist,
+   task: '',
  })
- alert('completed items removed.');
 };
 
-markComplete () {
-this.setState(prevState => ({
-  completed: !prevState.completed
-}));
+
+toggle = (id) => {
+ 
+let todos = this.state.todos.slice();
+todos = todos.map(todo => {
+  if (todo.id === id) {
+    todo.completed = !todo.completed;
+    return todo;
+  } else {
+    return todo;
+  }
+});
+
+  this.setState({ todos });
 }
 
+
+
 addToDo = (event) => {
- let todolist = this.state.todos.slice();
- console.log('previous list ', todolist);
- todolist.push({task: this.state.task, id: Date.now(), completed: false});
- this.setState({todos: todolist })
-  console.log('new list ', todolist);
-  }
+
+ let addToDo = this.state.todos.slice();
+ console.log('previous list ', addToDo);
+ addToDo.push({task: this.state.task, id: Date.now(), completed: false});
+ this.setState({
+   task: '',
+   todos: addToDo,
+ })
+  console.log('new list ', addToDo);
+}
+  
 
 
   // you will need a place to store your state in this component.
@@ -73,7 +87,7 @@ addToDo = (event) => {
       <div className = 'app-wrapper'>
         {/* render a todo form, and the todo list */}
        <TodoForm clearComplete = {this.clearComplete} addToDo = {this.addToDo} handleChange = {this.handleChange} />
-       <TodoList checked = {this.state.CheckboxChecked} markComplete = {this.markComplete} todos = {this.state.todos} />
+       <TodoList   toggle={this.toggle} checked = {this.state.CheckboxChecked} todos = {this.state.todos} />
 
       </div>
     );

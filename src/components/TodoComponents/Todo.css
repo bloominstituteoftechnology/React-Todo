@@ -23,5 +23,13 @@
      width: 50%;
 }
 .list {
-    list-style: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+
+}
+.strike-out {
+    color: lightgrey;
+    text-decoration: line-through;
 }
