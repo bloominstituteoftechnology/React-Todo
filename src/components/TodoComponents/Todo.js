@@ -5,6 +5,9 @@ const Todo = (props) => {
     if (props.completed) {
         classCombo += ' completed';
     }
+    if (props.hidden) {
+        classCombo += ' hidden';
+    }
     return (
         <div id={props.id} className={classCombo} onClick={props.handleClick}>
             <h3>{props.task}</h3>

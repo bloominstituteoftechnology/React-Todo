@@ -15,14 +15,16 @@ if (storedTodos !== null) {
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleNewTodoInput = this.handleNewTodoInput.bind(this);
+    this.handleSearchInput = this.handleSearchInput.bind(this);
     this.addTodo = this.addTodo.bind(this);
     this.markComplete = this.markComplete.bind(this);
     this.clearCompleted = this.clearCompleted.bind(this);
     this.saveToLocalStorage = this.saveToLocalStorage.bind(this);
     this.state = {
       "todoList": initialList,
-      "todoInput": ''
+      "todoInput": '',
+      "searchInput": ''
     }
   }
   
@@ -31,10 +33,35 @@ class App extends React.Component {
     localStorage.setItem("todoList", stringifiedTodoList);
   }
 
-  handleChange (event) {
+  handleNewTodoInput (event) {
     this.setState({
       'todoInput': event.target.value
     })
+  }
+
+  handleSearchInput (event) {
+    let searchString = event.target.value;
+    this.setState({
+      'searchInput': searchString
+    })
+
+    let newTodoList = this.state.todoList.map((todo) => {
+      let needsToBeHidden = false;
+      if (todo.task.indexOf(searchString) === -1) {
+        needsToBeHidden = true;
+      }
+      return {
+        id: todo.id,
+        task: todo.task,
+        complete: todo.complete,
+        hidden: needsToBeHidden
+      };
+    });
+
+    this.setState({
+      todoList: newTodoList
+    });
+
   }
 
   markComplete (event) {
@@ -57,7 +84,8 @@ class App extends React.Component {
       let newTodo = {
         "task": newTask,
         "complete": false,
-        "id": Date.now().toString()
+        "id": Date.now().toString(),
+        "hidden": false
       }
       copy.push(newTodo);
       this.setState({
@@ -82,7 +110,7 @@ class App extends React.Component {
         </div>
         <div className="todo-list-container">
           <TodoList list={this.state.todoList} handleClick={this.markComplete}/>
-          <TodoForm value={this.state.todoInput} handleChange={this.handleChange} addTodo={this.addTodo} clearCompleted={this.clearCompleted} />
+          <TodoForm inputValue={this.state.todoInput} searchValue = {this.state.searchInput}  handleSearchInput={this.handleSearchInput} handleNewTodoInput={this.handleNewTodoInput} addTodo={this.addTodo} clearCompleted={this.clearCompleted} />
         </div>
       </div>
     );

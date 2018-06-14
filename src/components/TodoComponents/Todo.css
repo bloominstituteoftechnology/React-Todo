@@ -101,7 +101,8 @@ body {
     margin: 5px 0px;
     font-size: 1.2rem;
     text-align: center;
-    color: #63646C
+    color: #63646C;
+    border-radius: 3px;
 }
 .form .button {
     margin: 0px;
@@ -118,8 +119,12 @@ body {
 
 .form .button:hover, .todo-item:hover {
     color: #FFB204;
-    transform: translate(10px, -5px);
+    transform: translate(10px, 0px);
 
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 @media (max-width: 600px) {
