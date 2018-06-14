@@ -15,22 +15,47 @@ class App extends React.Component {
   }
 
   onChange = event => {
-    this.setState({ todo: event.target.value });
+   return this.setState({ todo: event.target.value });
   }
 
   todosAdd = event => {
-    const todosCopy = this.state.todos.slice();
-    todosCopy.push(this.state.todo);
-    this.setState({ todos: todosCopy, todo: "" });
+    let todosCopy = this.state.todos.slice();
+    todosCopy.push({task: this.state.todo, id: Math.random(), completed:false});
+    return this.setState({ todos: todosCopy, todo: "" });
   }
 
   onClear = event => {
     let todosCopy = this.state.todos.slice();
-    todosCopy = [];
-    this.setState({ todos: todosCopy, todo: "" });
+    for(let i = 0; i < todosCopy.length; ++i){
+      if(todosCopy[i].completed){
+        delete todosCopy[i];
+      }
+    }
+    return this.setState({ todos: todosCopy, todo: "" });
   }
 
+  completedEvent = id => {
+    let todosCopy = this.state.todos.slice();
+    for(let i = 0; i < todosCopy.length; ++i){
+      if(id === todosCopy[i].id){
+        todosCopy[i].completed =  !(todosCopy[i].completed)
+      }
+    }
+      // todosCopy = todosCopy.map(item => {
+      //   if(item.id === id){
+      //     item.completed = !item.completed;
+      //     return item;
+      //   }
+      //   else {
+      //     return item;
+      //   }
+      // })
+
+    this.setState({todos: todosCopy})
+  }
   render() {
+    console.log("RENDER CALLED!")
+    console.table(this.state.todos)
     return (
       <div>
         <h2>Your Todo List</h2>
@@ -40,7 +65,7 @@ class App extends React.Component {
           onAddClick={this.todosAdd}
           onClearClick={this.onClear}
         />
-        <TodoList passedTodos={this.state.todos} />
+        <TodoList passedTodos={this.state.todos} complete={this.completedEvent} />
       </div>
     );
   }
