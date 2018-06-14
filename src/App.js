@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import { TweenMax, TimelineLite, Power2, Elastic, CSSPlugin } from "gsap/TweenMax";
 
 class App extends React.Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class App extends React.Component {
   }
 
   handleChange = (event) => {
+    event.preventDefault();
     this.setState({
        [event.target.name]: event.target.value
     });
@@ -49,7 +51,6 @@ class App extends React.Component {
 
 
   toggle = (id) => {
-
     let todos = this.state.todos.slice();
     todos = todos.map(todo => {
       if (todo.id === id) {
@@ -76,11 +77,16 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     });
+    // const lastItem = addToDo[addToDo.length-1];
+    // TweenMax.from(lastItem, 3, {
+    //   scale: 0.5,
+    //   y: 200,
+    });
     this.setState({
       task: '',
       todos: addToDo,
     })
-
+// localStorage.setItem(addToDo, JSON.stringify(addToDo));
   }
 
 
