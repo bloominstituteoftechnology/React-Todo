@@ -31,11 +31,37 @@ class App extends React.Component {
     // console.log(this.state.todos)
   }
 
-  onTodoClick = (e) => {
-    if (e.target.classList.contains('completed'))
-      e.target.classList.remove('completed')
-    else 
-    e.target.classList.add('completed')
+  onTodoClick = (id) => {
+    //Clone state
+    let localTodos = this.state.todos.slice();
+    console.log(this.state, "original state")
+    console.log(localTodos, "clone of state")
+
+    // Initialize the todoObj that will hold the toggled completed boolean value
+    let todoObj = {}
+
+    // Map over the array and if the id matches the one that was selected, toggle completed
+    // if not, pass back the todo object
+    localTodos = localTodos.map( todo => {
+      if (todo.id === id) {
+        todoObj = {}
+        todoObj.task = todo.task;
+        todoObj.id = todo.id;
+        todoObj.completed = !todo.completed;
+        return todoObj
+      } else return todo
+    })
+
+    console.log(localTodos, "modified completed")
+
+    //Update State - looks like you have to update everything! This seems weird. Why can't we just update the part of the state that changed?
+    this.setState({
+      todos:localTodos,
+      tempTodo:''
+    })
+
+    console.log(this.state, "after simple setState call")
+
   }
 
   onKeyUp = (e) =>{

@@ -10,11 +10,10 @@ class TodoList extends React.Component{
   }
 
   render(){
+    // Map over the todo Arr. Set the key, todo and onTodoClick props of the Todo component
     return (
       <div>
-        {/* {console.log(this.props.todo,"this.props.todo in TodoList.js")} */}
-        {this.props.todo.map( (todo,ind) => <Todo key={ind+todo.task} task={todo.task} onTodoClick={this.props.onTodoClick}/>)}
-        
+        {this.props.todo.map( (todo,ind) => <Todo key={ind+todo.task} todo={todo} onTodoClick={this.props.onTodoClick}/>)}
       </div>
   )
 }
