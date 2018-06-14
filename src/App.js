@@ -20,27 +20,38 @@ class App extends React.Component {
 
   toggleCompletion = (event, id) => {
     const items = this.state.items.slice();
-    for(let i = 0; i < items.length; i++) {
-      if(items[i].id === id) {
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].id === id) {
         items[i].completed = !items[i].completed;
         event.target.classList.toggle('task--complete');
         break;
       }
     }
-    this.setState({items: items});
+    this.setState({ items: items });
   }
+  clearCompleted = () => {
+    let items = this.state.items.slice();
+    items = items.filter(item => {
+      if (item.completed === true) {
+        console.log(item);
+        return false;
+      }
+      return true;
+    });
 
+    this.setState({ items });
+  }
 
   todoChange = event => {
-    this.setState({ item: event.target.value})
+    this.setState({ item: event.target.value })
   }
   addToDo = event => {
-    if(this.state.item.length === 0) {
+    if (this.state.item.length === 0) {
       return;
     }
     const items = this.state.items.slice();
     items.push({ task: this.state.item, id: Date.now(), completed: false });
-    this.setState({ items: items, item: ''});
+    this.setState({ items: items, item: '' });
   }
 
 
@@ -50,11 +61,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList completeHandler = {this.toggleCompletion} items={this.state.items} />
-        <TodoForm 
-        value = {this.state.item}
-        changeTodoHandler = {this.todoChange}
-        addTodoHandler = {this.addToDo}
+        <TodoList completeHandler={this.toggleCompletion} items={this.state.items} />
+        <TodoForm
+          value={this.state.item}
+          changeTodoHandler={this.todoChange}
+          addTodoHandler={this.addToDo}
+          clearHandler={this.clearCompleted}
         />
       </div>
     );

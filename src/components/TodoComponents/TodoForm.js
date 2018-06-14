@@ -13,7 +13,7 @@ const TodoForm = (props) => {
                     }
                 }} />
             <button onClick={props.addTodoHandler}>Add Todo</button>
-            <button>Clear Completed</button>
+            <button onClick = {props.clearHandler}>Clear Completed</button>
         </div>
     );
 }
