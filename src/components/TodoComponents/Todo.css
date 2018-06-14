@@ -31,8 +31,13 @@ body {
 
 #container {
     display: flex;
-    justify-content: flex;
+    justify-content: center;
+    align-items: center;
 } 
+
+.app-name {
+    color: white;
+}
 
 .tasks {
     padding-top: 10px;
