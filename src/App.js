@@ -1,44 +1,64 @@
 import React from 'react';
-import ToDoList from './components/TodoComponents/TodoList';
+import TodoList from './components/TodoComponents/TodoList'
+import TodoForm from './components/TodoComponents/TodoForm'
+
+import './App.css'
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-  constructor() {
-    super();
-    this.state = {
-      greeting: "Hello To Do List!",
-      todos: [
-        "shopping",
-        "cleaning",
-        "buying new car",
-        "renting a storage unit",
-      ],
-      todo: ""
-    };
-  };
-  
-  changeGreetingHandler = event => {
-    console.log(event.target.value);
-    this.setState({ todo: event.target.value });
-  };
 
+  constructor(){
+    super()
+    this.state = {
+      todos: [
+        {
+          task: 'take out trash',
+          id: 1,
+          completed: false
+        },
+        {
+          task: 'do the laundry',
+          id: 2,
+          completed: false
+        }
+      ],
+      todoText: ''
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleAdd = this.handleAdd.bind(this)
+    this.handleClear = this.handleClear.bind(this)
+  }
+
+  handleChange(e) {
+    this.setState({todoText: e.target.value})
+    console.log(this.state.todoText)
+  }
+
+  handleAdd(e) {
+    e.target.parentElement.children[0].value = ''
+    this.setState({
+      todos: this.state.todos.concat({
+        task: this.state.todoText,
+        id: Date.now(),
+        completed: false
+      }),
+      todoText: ''
+    })
+  }
+
+  handleClear(e) {
+    this.setState({todos: [], todoText: ''})
+  }
   render() {
     return (
-      <div>
-        <h2>{this.state.greeting}</h2>
-        <input
-          type="text"
-          onChange={this.changeGreetingHandler}
-          placeholder="add todo"
-          value={this.state.todo}
+      <div className="app-container">
+        <TodoList todos={this.state.todos} />
+        <TodoForm handleAdd={this.handleAdd} 
+                  handleChange={this.handleChange}
+                  handleClear={this.handleClear}
         />
-        <button onSubmit={this.addToDo}> Add To Do </button>
-        <ToDoList allChores={this.state.bands} />
       </div>
     );
-  };
-};
+  }
+}
 
 export default App;
