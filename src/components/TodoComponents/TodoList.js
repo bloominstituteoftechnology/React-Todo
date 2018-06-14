@@ -7,6 +7,9 @@ function TodoList(props) {
     return (
         <div className="todo-list-wrapper">
           {props.todoList.map((todo, index) => {
+            if (!todo.task.toLowerCase().includes(props.searchText.toLowerCase())) {
+              return;
+            }
             return <Todo onClick={() => props.clickToggle(index)} key={todo.id} todo={todo}/>
           })}
           

@@ -18,18 +18,16 @@ class App extends React.Component {
           completed: false
         }
       ],
-      newTodo: ''
+      newTodo: '',
+      searchTodo: ''
     }
-    this.changeHandler = this.changeHandler.bind(this);
-    this.addTodoHandler = this.addTodoHandler.bind(this);
-    this.clickToggleComplete = this.clickToggleComplete.bind(this);
   }
 
-  changeHandler(e) {
+  changeHandler = (e) => {
     this.setState({ newTodo: e.target.value});
   }
 
-  addTodoHandler(e){
+  addTodoHandler= (e) => {
     if (this.state.newTodo.length >= 1) {
       this.state.todos.push({
         task: this.state.newTodo,
@@ -41,7 +39,7 @@ class App extends React.Component {
     }
   }
 
-  clickToggleComplete(index){
+  clickToggleComplete = (index) => {
     let updatedTodos = this.state.todos
     let task = document.getElementById(updatedTodos[index].id);
     task.classList.toggle('completed');
@@ -55,12 +53,17 @@ class App extends React.Component {
     e.preventDefault();
   }
 
+  searchHandler = (e) => {
+    this.setState({searchTodo: e.target.value});
+  }
+
   render() {
     return (
       <div>
         <h2>TODO LIST</h2>
-        <TodoList clickToggle={this.clickToggleComplete} todoList={this.state.todos} />
-        <TodoForm onSubmitHandler = {this.addTodoHandler} value={this.state.newTodo} onChangeHandler={this.changeHandler} onClickRemove={this.clickRemoveHandler}/>
+        <input onChange={this.searchHandler} type="text" placeholder="..search"/>
+        <TodoList clickToggle={this.clickToggleComplete} todoList={this.state.todos} searchText={this.state.searchTodo}/>
+        <TodoForm onSubmitHandler={this.addTodoHandler} value={this.state.newTodo} onChangeHandler={this.changeHandler} onClickRemove={this.clickRemoveHandler}/>
       </div>
     );
   }
