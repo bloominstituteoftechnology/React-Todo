@@ -40,6 +40,7 @@ class App extends React.Component {
       localStorage.setItem("newTodo", "");
       e.preventDefault();
     }
+    e.preventDefault();
   }
 
   clickToggleComplete = (index) => {
