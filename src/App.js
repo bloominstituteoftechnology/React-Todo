@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList.js';
 import TodoForm from './components/TodoComponents/TodoForm.js';
+import './components/TodoComponents/Todo.css';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -47,9 +48,6 @@ class App extends React.Component {
     let newToDos = this.state.toDos.slice();
     newToDos.map(item => {
       item.id === id ? item.completed = !item.completed : item.completed = item.completed;
-      if(item.completed){
-        item.className="completed";
-      }
       return item;
     });
     this.setState({toDos: newToDos});
