@@ -2,17 +2,43 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 
+let myDate = Date.now() ;
 
-const TodoList = props => {
 
-    console.log(props) ;
-
+// PASSING (PROPS) TO TodoList
+const TodoList = (props) => {
     return(
-        <div className="displayed-list-wrapper">
-            <h3>"PLACEHOLDER: displayed-list"</h3>
-            <ul className="displayed-list"></ul>
-      </div>
+        <div>
+            {/* CALLING PROPS DATA */}
+            {/* <h3>{props.myPropsData[0].name}</h3> */}
+            {/* <h3>{props.myPropsData.ogArr[0].name}</h3> */}
 
+            {/* 
+            <ul>
+                {props.myPropsData.map(bananas => {
+                    return (
+                        // <li key={Date.now() + (Math.random() )} >
+                            <li key = {myDate++}>
+                            {bananas.name}
+                        </li>
+                    )
+                })}
+            </ul> 
+            */}
+
+            <ul>
+                {props.myPropsData.ogArr.map(bananas => {
+                    return (
+                            <li key = {myDate++}>
+                            {bananas.name}
+                        </li>
+                    )
+                })}
+            </ul>
+
+
+        </div>
     )
 }
 export default TodoList ;
+{/* <li key={Date.now() + (Math.random() )} > */}

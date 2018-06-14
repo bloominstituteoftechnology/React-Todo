@@ -1,60 +1,66 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList' ;
+import TodoForm from './components/TodoComponents/TodoForm' ;
+
+
 
 
 class App extends React.Component {
   constructor() {
     super() ;
     this.state = {
-      tasksList: [
+      ogArr: [
         {
-          task: 'Default Task Title 1',
-          id: Date.now(),
+          name: 'Tristan',
+          id: 1,
           completed: false
         },
         {
-          task: 'Default Task Title 2',
-          id: Date.now() + 1,
+          name: 'Sophia',
+          id: 2,
           completed: false
         },
-
       ],
-
-      tasksListNew: ''
+      newArr: ''
     }
-    console.log(this.state.tasksList[0].task) ;
   }
+  addTodoTask = e => {
+    e.preventDefault();
+    const tempStateArrCopy = this.state.ogArr.slice() ;
+    tempStateArrCopy.push({ task: this.state.newArr, completed: false, id: Date.now() });
+    console.log('UPDATING STATE!! from addTodoTaks') ;
+    this.setState({ ogArr: tempStateArrCopy, newArr: ''}) ;
+  } ;
 
-  addTask = () => {
-    // copying state, as to not mutate state
-    const tasksList = this.state.tasksList.slice() ;
-    // adding user input to new array, inside state
-    tasksList.push(this.state.tasksListNew) ;
-    // need clarification on setState syntax
-    this.setState({ tasksList: tasksList, band: ''}) ;
-  }
+  changeTodo = event => { 
+    console.log('hey' + event.target.value);   
+    console.log('UPDATING STATE!! from changeTodo') ;
+    this.setState({ newArr: event.target.propNewArr}) ;
+  }  
 
   render() {
-    console.log('Just Rendered!!') ;
-    return(
-      
-      
+    console.log("React Render Called!");
+    return(            
       <div>
-        <h1>To Do List: MVP</h1>
+        <div><h1>Todo List: MVP</h1></div>
+
+        {/* PASSING STATE TO PROPS VIA A VARIABLE, VAR DECALRED HERE */}
+        {/* <TodoList myPropsData={this.state.ogArr} /> */}
         
-        <TodoList />
+        <TodoList myPropsData={this.state} />
 
-        <div className="list-actions-wrapper">
-          <input type="text" className="input-box"/>
-          <button className="button-todo">button-todo</button>
-          <button className="button-clear">button-clear</button>
-        </div>
-      </div> 
-      
 
-    ) 
-  } 
-} 
+        <TodoForm
+          value = {this.state.newArr}
+          propChangeTodo = {this.state.changeTodo}
+          propAddTodoTask = {this.state.addTodoTask}
+        />
 
+      </div>
+    )
+  }
+}
 export default App ;
-      {/* <li>{this.state.tasksList[0].task}</li>          */}
+          {/*propNewArr = {this.state.newArr}*/}
+
+
