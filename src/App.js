@@ -1,66 +1,54 @@
 import React from 'react';
-import TodoList from './components/TodoComponents/TodoList'
 
 class App extends React.Component {
 constructor(){
-	super();
-	this.state={
-	list:[  
-		  {
-              task: 'Take Nap',
-              id: 100,
-              completed: false,
-          },
-          {
-              task: 'Mow Lawn',
-              id: 101,
-              completed: false,
-          },
-          {
-              task: 'Fix Fence',
-              id: 102,
-              completed: false,
-          },
-          {
-              task: 'Take Nap',
-              id: 103,
-              completed: false,
-          }
-	],
-	newItem:"",
-	newTask:[{
-		task:''
-	}]
-	};
-}
-update = event => {
-	this.setState({newItem: event.target.value});
-};
-addItem = () => {
-this.taskCreator(this.newItem);
-const newList = this.state.list.splice('');
-newList.push(this.state.newTask);
-	this.setState({list : newList, newItem : ""});
-};
-taskCreator= () => {
-this.state.newTask.task=this.state.newItem;
-}
-render(){
-return(
-<div>
-<h2> Todo List: </h2>
-<ul>
-      {this.state.list.map((list) => <li key={list.id} className={list.completed}>{list.task}</li>)}
-</ul>
-<input
-type="text"
-placeholder="add item"
-onChange={this.update}
-value={this.state.newItem}
-/>
-<button onClick={this.addItem}>add item</button>
-</div>
-)
+super();
+this.state={
+	todos:[
+  {
+    task: 'Organize Garage',
+    id: 1528817077286,
+    completed: false
+  },
+  {
+    task: 'Bake Cookies',
+    id: 1528817084358,
+    completed: false
+  }
+],
+todo:''
 }
 };
+//every letter typed updates the string todo
+updateTodo = update => {
+	this.setState({todo:update.target.value});
+}
+//makes a copy of todo list, pushes the new todo onto the list,
+//setting the task as the string, id as random, completed defaults to false,
+//then updates the state of todo list with the new list
+newTodo = () => {
+	let newList = this.state.todos.slice();
+	newList.push({task : this.state.todo, completed:false, id:new Date()});
+	this.setState({todos:newList,todo:''})
+}
+// the ul part maps over todo, setting id as the key, class as list_item, completed as a sibling selector,
+// and task as the innerHTML text. 
+  render() {
+    return (
+      <div>
+        <ul>
+		 {this.state.todos.map((list) => <li key={list.id} className={`${'list_item'} ${list.completed.toString()}`}>{list.task}</li>)}
+		</ul>
+		<input
+        type = "text"
+        placeholder = "Add todo"
+		onChange = {this.updateTodo}
+        value = {this.state.todo}
+        />
+		<button onClick={this.newTodo}>Add to the list</button>
+      </div>
+    );
+  }
+}
+
 export default App;
