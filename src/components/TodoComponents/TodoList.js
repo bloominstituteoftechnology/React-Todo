@@ -1,18 +1,23 @@
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
 import React from "react";
+import Todo from "./Todo";
 
 const TodoList = props => {
 
-  if(props.killerList) {
+  if(props.items) {
     return (
-      <ul>
-        {
-          props.killerList.map(item => {
-          return <li key={Date.now()}>{item}</li>;
-        })
-        }  
-      </ul>
+      <div> {
+          props.items.map((item, index) => {
+            return (
+                <Todo 
+                    key={index}
+                    index={index}
+                    item={item}
+                />
+            );
+          })}
+      </div>
     );
   } else {
     return null;

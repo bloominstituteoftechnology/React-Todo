@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       title: "Todo List: MVP",
-      items: [
+      listItems: [
         {
           task: "Learn setState()",
           key: Date.now(),
@@ -39,9 +39,9 @@ class App extends React.Component {
       completed: false
     };
 
-    const items = this.state.items;
-    items.push(newItem);
-    this.setState({items, item: ""});
+    const listItems = this.state.listItems;
+    listItems.push(newItem);
+    this.setState({listItems, item: ""});
   }
 
   handleClear = e => {
@@ -58,7 +58,8 @@ class App extends React.Component {
         {/* <h2>Welcome to your Todo App!</h2> */}
         <h1>{this.state.title}</h1>
         <TodoForm
-          items={this.state.items}
+          listItems={this.state.listItems}
+          item={this.state.item}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           handleClear={this.handleClear}
