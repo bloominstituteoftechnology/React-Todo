@@ -8,11 +8,6 @@ class App extends React.Component {
     super();
     this.state = {
       items: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
       ],
       item: '',
     };
@@ -28,7 +23,8 @@ class App extends React.Component {
       }
     }
     this.setState({ items: items });
-  }
+  } //toggleCompletion
+
   clearCompleted = () => {
     let items = this.state.items.slice();
     items = items.filter(item => {
@@ -40,11 +36,20 @@ class App extends React.Component {
     });
 
     this.setState({ items });
-  }
+  } //clearCompleted
+
+  clearAll = () => {
+    if(this.state.items.length === 0) {
+      return;
+    }
+    if(window.confirm('Are you sure you want to delete everything?')) {
+    this.setState({ items: [] })
+    }
+  } //clearAll
 
   todoChange = event => {
     this.setState({ item: event.target.value })
-  }
+  } //todoChange
   addToDo = event => {
     if (this.state.item.length === 0) {
       return;
@@ -52,7 +57,7 @@ class App extends React.Component {
     const items = this.state.items.slice();
     items.push({ task: this.state.item, id: Date.now(), completed: false });
     this.setState({ items: items, item: '' });
-  }
+  } //addToDo
 
 
   // you will need a place to store your state in this component.
@@ -66,7 +71,8 @@ class App extends React.Component {
           value={this.state.item}
           changeTodoHandler={this.todoChange}
           addTodoHandler={this.addToDo}
-          clearHandler={this.clearCompleted}
+          clearCompletedHandler={this.clearCompleted}
+          clearAllHandler = {this.clearAll}
         />
       </div>
     );
