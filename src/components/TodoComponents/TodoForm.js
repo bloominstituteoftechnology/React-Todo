@@ -10,9 +10,11 @@ const TodoForm = (props) => {
           placeholder='Add Todo'
           value={props.task}
           onChange={props.onChange}
+          required
         />
         <button type='submit'>Add Todo</button>
       </form>
+      <button onClick={props.handleremove}>Clear Completed</button>
     </div>
   )
 }
