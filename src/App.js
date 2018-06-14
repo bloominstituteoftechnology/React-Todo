@@ -41,7 +41,6 @@ changeTask = event => this.setState({[event.target.name]: event.target.value});
 toggleCompleteHandler = id => {
   //do I need event.preventDefault()?
   let items = this.state.items.slice();
-  console.log('something happended');
   items.map(item => {
     if (item.id === id) {
       item.completed = !item.completed;
