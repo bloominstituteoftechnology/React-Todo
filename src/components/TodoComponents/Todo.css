@@ -25,17 +25,23 @@ html {
 }
 .add-todo {
     display: inline-block;
-    width: 50%;
+    width: 70%;
     background-color: yellowgreen;
     color: white;
     border: 1px solid yellowgreen;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
 }
 .clear {
     display: inline-block;
-     width: 50%;
-     color: whitesmoke;
-     background-color: #E35D20;
-     border: 1px solid #E35D20;
+     width: 61.8%;
+     color: #E35D20;
+     background-color: rgba(0,0,0,0);
+
+     border: none;
+     margin-top: 10px;
+     padding: 3px;
 }
 .list {
    display: flex;
@@ -44,12 +50,13 @@ html {
    flex-direction: column;
    cursor: pointer;
    font-size: 30px;
-   background-color: #241337;
+   background-color:#241337;
    color: white;
    margin: 10px 0 10px 0;
    border-bottom: 1px solid white;
    max-width: 100%;
    padding:0;
+  text-align: center;
 
 
 }
@@ -59,12 +66,23 @@ html {
     text-decoration: line-through;
     cursor: pointer;
     display: flex;
-    margin: 10px 0 10px 0;
-    background-color:#CC4217;
+    margin: 10px 0 10px 0;  
+    background-color: #150b20;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
+}
+.button-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 form input {
     box-sizing: border-box;
+}
+@media (max-width: 480px) {
+    .list, .strike-out {
+     font-size: 20px;
+    }
 }
