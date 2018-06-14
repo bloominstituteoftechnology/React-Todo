@@ -7,15 +7,15 @@ class App extends React.Component {
      super();
      this.state = {
        todo1: {
-         task: ["Walk the dog"],
-         completed: [false]
+         task: "Walk the dog",
+         completed: false
        },
        todo2: {
-         task: ["Wash the dog"],
-         completed: [false]
+         task: "Wash the dog",
+         completed: false
        },
        todo: {
-         task:[""]
+         task:""
        }
      };
    }
@@ -23,7 +23,8 @@ class App extends React.Component {
      let newTodo = event.target.value;
      let oldTodo = Object.assign({},this.state.todo);
      oldTodo.task = newTodo;
-     this.setState({oldTodo});
+     console.log(newTodo);
+     this.setState({todo: oldTodo});
    }
    addTodo = event => {
 
