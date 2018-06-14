@@ -25,19 +25,32 @@ class App extends React.Component {
     };
   }
 
-  addTask = event => {
-    event.preventDefault();
-    const items = this.state.items.slice();
-    items.push({
-      task: this.state.item,
-      id: Date.now(),
-      completed: false
-    });
-    this.setState({items, item: ''});
-  }
+addTask = event => {
+  event.preventDefault();
+  const items = this.state.items.slice();
+  items.push({
+    task: this.state.item,
+    id: Date.now(),
+    completed: false
+  });
+  this.setState({items, item: ''});
+}
 
-  changeTask = event => this.setState({[event.target.name]: event.target.value});
+changeTask = event => this.setState({[event.target.name]: event.target.value});
 
+toggleCompleteHandler = id => {
+  //do I need event.preventDefault()?
+  let items = this.state.items.slice();
+  items.map(item => {
+    if (item.id === id) {
+      item.completed = !item.completed;
+      return item;
+    } else {
+      return item;
+    }
+  });
+  this.setState({items: items});
+}
 
 clearCompleted = event => {
   event.preventDefault();
@@ -49,7 +62,7 @@ clearCompleted = event => {
   render() {
     return ( <div>
       <h1> {this.state["List title"]}</h1>
-      <TodoList listItems = {this.state.items}/>
+      <TodoList listItems = {this.state.items} toggleComplete={this.toggleCompleteHandler} />
       <TodoForm value = {this.state.item} addTaskHandler = {this.addTask} taskChangeHandler = {this.changeTask} clearCompletedHandler = {this.clearCompleted} />
       </div>
     );
