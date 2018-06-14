@@ -1,0 +1,57 @@
+.container {
+    max-width: 1024px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.form {
+    order: -1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.form input {
+    border: 1px solid purple;
+    padding: 1%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.form .buttons {
+    width: 32%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1%;
+}
+
+.form .buttons button {
+    margin: 10px 9px;
+    padding: 3% 8%;
+    background: white;
+    border: 1px solid black;
+}
+
+.form .buttons button:hover {
+    background: purple;
+    color: white;
+}
+
+.task {
+    align-self: flex-start;
+    margin-top: 5%;
+    list-style: none;
+    border: 1px solid purple;
+    width: 98%;
+    text-align: center;
+    padding: 2%;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    margin-left: -1%;
+}
