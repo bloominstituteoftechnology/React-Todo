@@ -32,13 +32,14 @@ body {
     background-color:#716E65;
     box-shadow: 0px 0px 1px 2px #3C3A34;
     border-radius: 4px;
-    height: 60px;
     display: flex;
     align-items: center;
 }
 
 .header h2 {
-    padding: 10px 0px 10px 5%;
+    margin: 0;
+    width: 100%;
+    padding: 25px 0px 25px 5%;
     font-weight: 900;
     color: #14161E;
 }
@@ -47,7 +48,7 @@ body {
     position: relative;
     bottom: -1px;
     margin-left: 5%;
-    padding: 0px 1%;
+    padding: 10px 1%;
     display: inline-block;
     background-color: #83858C;
     border-radius: 0 0 8px 8px;
@@ -56,16 +57,16 @@ body {
 
 .todo-list {
     display: grid;
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(40px, auto));
     grid-auto-flow: column;
     grid-auto-columns: minmax(100px, auto);
     padding: 0px 2% 0px 0px;
-    /* max-height: 60vh; */
+    max-height: 60vh;
     
 }
 
 .todo-item {
-    width: 100%;
+    /* width: 100%; */
     display: inline;
     text-align: right;
     padding: 0% 10%;
@@ -74,9 +75,9 @@ body {
 .todo-item h3 {
     display:inline-block;
     margin: 0px;
-    padding: 10px 0% 10px 15%;
+    padding: 10px 0px 10px 0;
     border-bottom: 1px solid #63646C;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 }
 
 
@@ -85,9 +86,15 @@ body {
     color: #63646C
 }
 
+.form {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
 .form input {
     margin: 5px 0px;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     text-align: center;
     color: #63646C
 }
@@ -98,4 +105,9 @@ body {
 
 .form .button:last-of-type {
     border-top: 1px solid #63646C;
+}
+
+.form .button:hover, .todo-item:hover {
+    color: #FFB204;
+
 }
