@@ -57,11 +57,10 @@ class App extends React.Component {
     console.log('Todo added');
   }
 
-  onTodoClick = e => {
-    const id = e.target.dataset.id;
+  onTodoClick = id => {
     const newTodos = this.state.todos.slice();
     newTodos.forEach(todo => {
-      if (todo.id === Number(id)) {
+      if (todo.id === id) {
         console.log(todo.completed);
         todo.completed = !todo.completed;
       }
