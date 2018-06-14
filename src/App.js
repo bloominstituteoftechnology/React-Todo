@@ -1,4 +1,5 @@
 import React from 'react';
+import "./components/TodoComponents/Todo.css";
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -39,8 +40,21 @@ class App extends React.Component {
 
   toggleCompleted = id => {
     let todos = this.state.todos.slice();
-    let todo = todos[id];
-    todos[todo]["completed"] ? todos[todo]["completed"] = false : todos[todo]["completed"] = true;
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ todos: todos });
+  }
+
+  clearCompleted = event => {
+    event.preventDefault();
+    let todos = this.state.todos.slice();
+    todos = todos.filter(todo => !todo.completed)
     this.setState({ todos: todos });
   }
 
@@ -48,10 +62,11 @@ class App extends React.Component {
     return (
       <div>
         <h2>Todo list: MVP</h2>
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos}
+                  toggleCompleted={this.toggleCompleted} />
         <TodoForm addTodo={this.addTodo}
                   todoInput={this.state.todoInput}
-                  toggleCompleted={this.toggleCompleted}
+                  clearCompleted={this.clearCompleted}
                   changeTodoInput={this.changeTodoInput} />
       </div>
     );
