@@ -5,7 +5,8 @@ const TodoForm = props => {
     <form className="todo-form">
       <input className="todo-input"
              type="text"
-             placeholder={props.displayText}
+             placeholder={props.defaultText}
+             value={props.displayText}
              onChange={props.changeEvent} />
       <button className="todo-add-btn"
               type="submit"

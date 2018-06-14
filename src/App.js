@@ -28,7 +28,7 @@ class App extends React.Component {
           completed: false
         }
       ],
-      todo:'Add To Do'
+      todo:''
     }
   }
 
@@ -66,7 +66,8 @@ class App extends React.Component {
         <TodoForm changeEvent={this.changeTodo}
                   handler={this.addTodo}
                   clearTodo={this.clearTodo}
-                  displayText={this.state.todo} />
+                  defaultText="Please add item" 
+                  displayText={this.state.todo}/>
         <TodoList items={this.state.toDos}
                   handler={this.crossOut}/>
 
