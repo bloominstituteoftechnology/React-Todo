@@ -109,7 +109,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="background">
-        <h1 className="header">Welcome to your Todo App!</h1>
+        <h1 className="header">A Todo List in React</h1>
         {/* {console.log(this.state.todos,"in App.js Render this.state.todos")} */}
         <TodoForm
           inputValue={this.state.tempTodo} 
