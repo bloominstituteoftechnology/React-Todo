@@ -10,25 +10,37 @@ class App extends React.Component {
     super(props);
     this.state = {
       title: "Todo List: MVP",
-      items: [],
+      items: [
+        {
+          task: "Learn setState()",
+          key: Date.now(),
+          completed: false
+        },
+        {
+          task: "Style my Todo List",
+          key: Date.now(),
+          completed: false
+        }
+      ],
       item: ""
     };
   }
 
-  changeTitleHandler = event => {
-    this.setState({item: event.target.value});
+  handleChange = e => {
+    this.setState({item: e.target.value});
   };
 
-  addTodo = () => {
-    const items = this.state.items.slice();
+  addItem = () => {
+    const items = this.state.items;
     items.push(this.state.item);
-    this.setState({items: items, item: ""});
+    this.setState({items, item: ""});
   }
 
   render() {
     return (
       <div>
         {/* <h2>Welcome to your Todo App!</h2> */}
+        <h1>{this.state.title}</h1>
         <TodoForm />
       </div>
     );
