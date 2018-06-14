@@ -38,7 +38,7 @@ class App extends React.Component {
        return item;
      }
    });
-  //  this.setState({ task: items });
+   this.setState({ items });
  }
 
 
