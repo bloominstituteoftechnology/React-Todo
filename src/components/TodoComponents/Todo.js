@@ -1,9 +1,9 @@
 import React from "react";
 
-const Tododo = props => {
+const Todo = props => {
     return(
         <div>
-
+            {/* {props.things.task} */}
         </div>
     );
 };
@@ -11,3 +11,6 @@ const Tododo = props => {
 export default Todo;
 
 //div passes props, task and functionality
+
+// style={props.todo.completd ? {textDecoration: "line-through"}: null}
+
