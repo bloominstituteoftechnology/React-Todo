@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import './components/TodoComponents/Todo.css';
+import TodoSearch from './components/TodoComponents/TodoSearch';
 
 
 class App extends React.Component {
@@ -13,7 +14,9 @@ class App extends React.Component {
     this.state = {
       "List title": "Todo List: MVP",
       "items": JSON.parse(localStorage.getItem('storedItems')),
-      item: ''
+      item: '',
+      search:'',
+      searchResults: []
     };
   }
 
@@ -31,7 +34,11 @@ addTask = event => {
   this.setState({items, item: ''});
 }
 
-changeTask = event => this.setState({[event.target.name]: event.target.value});
+changeTask = event => {
+  console.log(event.target.value);
+  this.setState({[event.target.name]: event.target.value});
+}
+//changeSearch = event => this.setState({[event.target.name]: event.target.value});
 
 toggleCompleteHandler = id => {
   //do I need event.preventDefault()?
@@ -51,12 +58,24 @@ clearCompleted = event => {
   event.preventDefault();
   let items = this.state.items.slice();
   items = items.filter(item => !item.completed);
+  let stringItems = JSON.stringify(items);
+  localStorage.setItem('storedItems', stringItems);
   this.setState({items});
+}
+
+searchTasks = event => {
+  event.preventDefault();
+  let searchResults = this.state.items.slice();
+  searchResults = searchResults.filter(query => query.task === event.target.value);
+  console.log('something');
+  this.setState({searchResults: searchResults});
+
 }
 
   render() {
     return ( <div className="main-content">
       <h1> {this.state["List title"]}</h1>
+      <TodoSearch value={this.state.search} serachTaskHandler={this.searchTasks} searchChangeHandler={this.changeTask} />
       <TodoList listItems = {this.state.items} toggleComplete={this.toggleCompleteHandler} />
       <TodoForm value = {this.state.item} addTaskHandler = {this.addTask} taskChangeHandler = {this.changeTask} clearCompletedHandler = {this.clearCompleted} />
       </div>
