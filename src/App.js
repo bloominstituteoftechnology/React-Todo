@@ -14,20 +14,25 @@ class App extends React.Component {
          task: ["Wash the dog"],
          completed: [false]
        },
-       todo: "Todo..."
+       todo: {
+         task:[""]
+       }
      };
    }
    updateInputFormText = event => {
-     console.log("hi");
+     let newTodo = event.target.value;
+     let oldTodo = Object.assign({},this.state.todo);
+     oldTodo.task = newTodo;
+     this.setState({oldTodo});
    }
-   // addTodo = event => {
-   //
-   // }
+   addTodo = event => {
+
+   }
    render(){
      return(
        <div>
        <TodoList tasks={this.state} />
-       <TodoForm value={this.state.todo} updateInputFormText={this.updateInputFormText}/>
+       <TodoForm value={this.state.todo} updateInputFormText={this.updateInputFormText} addTodo={this.addTodo}/>
        </div>
      )
    }
