@@ -23,6 +23,8 @@ class App extends React.Component {
         }
       ],
     };
+
+    this.markComplete = this.markComplete.bind(this);
   }
 
 handleChange = (event) => {
@@ -35,9 +37,24 @@ this.setState({
 });
 };
 
-isComplete = () => {
-  
+clearComplete = () => {
+ let todolist = this.state.todos.slice();
+ todolist.forEach((item, index) => {
+   if (item.completed === true) {
+     todolist.splice(index, 1);
+   }
+ });
+ this.setState({
+   todos: todolist,
+ })
+ alert('completed items removed.');
 };
+
+markComplete () {
+this.setState(prevState => ({
+  completed: !prevState.completed
+}));
+}
 
 addToDo = (event) => {
  let todolist = this.state.todos.slice();
@@ -55,8 +72,8 @@ addToDo = (event) => {
     return (
       <div className = 'app-wrapper'>
         {/* render a todo form, and the todo list */}
-       <TodoForm addToDo = {this.addToDo} handleChange = {this.handleChange} />
-       <TodoList todos = {this.state.todos} />
+       <TodoForm clearComplete = {this.clearComplete} addToDo = {this.addToDo} handleChange = {this.handleChange} />
+       <TodoList checked = {this.state.CheckboxChecked} markComplete = {this.markComplete} todos = {this.state.todos} />
 
       </div>
     );
