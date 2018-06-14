@@ -1,0 +1,43 @@
+.list-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 15px;
+    font-family: "Open Sans Condensed", sans-serif;
+    color: gold;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+  }
+  
+  button {
+    margin-top: 5px;
+    height: 25px;
+    background-color: goldenrod;
+    border-color: gold;
+    color: white;
+  }
+  
+body {
+    padding:50px;
+    background-color: #66CCFF;
+    font-family: sans-serif;
+}
+
+#container {
+    display: flex;
+    justify-content: flex;
+} 
+
+.tasks {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    background: white;
+    border-radius: 5px 5px 5px 5px;
+    margin-bottom: 10px;
+}
