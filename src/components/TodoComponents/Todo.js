@@ -5,13 +5,13 @@ const Todo = props => {
   let todoStyles = {
     marginLeft: '10%', 
     fontSize: '20px',
-    marginBotton: '10px'
+    lineHeight: '36px'
   }
 
   return (
     <div style={todoStyles}> 
     <div
-    style={props.todo.completed ? { color: 'red', textDecoration: 'line-through' } : null }
+    style={props.todo.completed ? { color: '#DE434B', textDecoration: 'line-through' } : null }
     onClick={() => props.clickToggleComplete(props.todo.id)}>
   
       {props.todo.task}

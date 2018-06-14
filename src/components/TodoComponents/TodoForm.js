@@ -13,10 +13,11 @@ let inputStyles = {
   
   height: '40px', 
   width: '80%', 
-  color: 'white', 
+  color: 'black', 
   margin: '10px',
   borderRadius: '5px',
-  fontSize: '16px'
+  fontSize: '16px',
+  paddingLeft: '10px'
 
 }
 

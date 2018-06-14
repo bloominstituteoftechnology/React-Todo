@@ -6,17 +6,12 @@ import Todo from './Todo';
 
 
 const TodoList = props => {
-  
-  let todoListStyles = {
-    marginLeft: '10%'
-  }
 
   return (
     <div>
       {props.todos.map(todo => {
         return (
         <Todo 
-            style={todoListStyles}
             clickToggleComplete={props.clickToggleComplete}
             key={todo.id}
             todo={todo}
