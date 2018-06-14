@@ -20,7 +20,8 @@ class App extends React.Component {
           completed: false
         }
       ],
-      list: ''
+      list: '',
+      searchString: ''
     }
   }
   // you will need a place to store your state in this component.
@@ -30,6 +31,10 @@ class App extends React.Component {
   handleInputChange = event => {
     this.setState({ list: event.target.value });
   };
+
+  handleSearchChange = event => {
+    this.setState({ searchString: event.target.value})
+  }
 
   toggleCompleted = event => {
     let toDoList = this.state.todos.slice()
@@ -60,16 +65,23 @@ class App extends React.Component {
     this.setState({ todos: toDoList });
   }
 
+  searchBar = () => {
+ 
+  }
+
   render() {
     return (
       <div className='app-container'>
         <h1>Todo List: MVP</h1>
         <TodoList
+          searchBar={this.state.searchString}
           toggleCompleted={this.toggleCompleted}
           toDoList={this.state.todos} />
         <TodoForm
           value={this.state.list}
           onSubmit={this.onSubmit}
+          searchBar={this.state.searchString}
+          searchBarChange={this.handleSearchChange}
           onChange={this.handleInputChange}
           clearButton={this.clearButton}
           addButton={this.addButton} />

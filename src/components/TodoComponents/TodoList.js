@@ -2,9 +2,18 @@ import React from 'react';
 import './Todo.css';
 
 const TodoList = props => {
+    let lists = props.toDoList;
+    let search = props.searchBar.trim().toLowerCase();
+
+    if (search.length > 0) {
+        lists = lists.filter(function(user) {
+          return user.task.toLowerCase().match(search);
+        });
+    }
+
     return (
         <div>
-            {props.toDoList.map(list => {
+            {lists.map(list => {
                 if (list.task === '') {
                     return;
                 }
