@@ -3,15 +3,15 @@ import './Todo.css';
 
 
 
-const TodoForm = () => {
+const TodoForm = (props) => {
 
         return (
             <div className='form-wrapper'>
-            <form >
-               <input className='todo-input' type='text' placeholder=' type your todo here...'/> 
-               <button className='add-todo'>Add Todo</button>
+            
+               <input onChange = {props.handleChange} className='todo-input' type='text' name = 'task' value = {props.task} placeholder=' type your todo here...' /> 
+               <button onClick = {props.addToDo} className='add-todo'>Add Todo</button>
                <button className='clear'>Clear Completed</button>
-                </form>
+               
             </div>
         );
     }

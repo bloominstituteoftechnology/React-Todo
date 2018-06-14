@@ -7,6 +7,9 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+        task: '',
+        id: '',
+        completed: false,
 
       todos: [{
           task: 'Organize Garage',
@@ -22,6 +25,27 @@ class App extends React.Component {
     };
   }
 
+handleChange = (event) => {
+  console.log('event name', event.target.name);
+  console.log('event value', event.target.value);
+this.setState({ 
+  task : event.target.value ,
+  id: Date.now(),
+  completed: false,
+});
+};
+
+isComplete = () => {
+  
+};
+
+addToDo = (event) => {
+ let todolist = this.state.todos.slice();
+ console.log('previous list ', todolist);
+ todolist.push({task: this.state.task, id: Date.now(), completed: false});
+ this.setState({todos: todolist })
+  console.log('new list ', todolist);
+  }
 
 
   // you will need a place to store your state in this component.
@@ -31,7 +55,7 @@ class App extends React.Component {
     return (
       <div className = 'app-wrapper'>
         {/* render a todo form, and the todo list */}
-       <TodoForm />
+       <TodoForm addToDo = {this.addToDo} handleChange = {this.handleChange} />
        <TodoList todos = {this.state.todos} />
 
       </div>
