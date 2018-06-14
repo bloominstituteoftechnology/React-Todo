@@ -1,7 +1,13 @@
+html {
+    font-family: 'Noto Serif',
+    serif;
+}
 .app-wrapper {
+    box-sizing: border-box;
     display: block;
-    margin: 10vh auto;
-    max-width: 480px;
+    margin: 0 auto;
+    max-width: 450px;
+    background-color: #241337;
 }
 /* .form-wrapper {
     display: block;
@@ -10,26 +16,55 @@
 } */
 .todo-input {
     display: block;
-    width: 476px;
+    width: 100%;
     height: 50px;
-    font-size:36px;
+    font-size:30px;
+    font-family: 'Noto Serif',
+    serif;
+    text-align: center;
 }
 .add-todo {
     display: inline-block;
     width: 50%;
+    background-color: yellowgreen;
+    color: white;
+    border: 1px solid yellowgreen;
 }
 .clear {
     display: inline-block;
      width: 50%;
+     color: whitesmoke;
+     background-color: #E35D20;
+     border: 1px solid #E35D20;
 }
 .list {
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
+   cursor: pointer;
+   font-size: 30px;
+   background-color: #241337;
+   color: white;
+   margin: 10px 0 10px 0;
+   border-bottom: 1px solid white;
+   max-width: 100%;
+   padding:0;
+
 
 }
 .strike-out {
+    font-size: 30px;
     color: lightgrey;
     text-decoration: line-through;
+    cursor: pointer;
+    display: flex;
+    margin: 10px 0 10px 0;
+    background-color:#CC4217;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+form input {
+    box-sizing: border-box;
 }

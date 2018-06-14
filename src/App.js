@@ -28,8 +28,6 @@ this.toggle = this.toggle.bind(this);
   }
 
 handleChange = (event) => {
-  console.log('event name', event.target.name);
-  console.log('event value', event.target.value);
 this.setState({ 
   task : event.target.value ,
   id: Date.now(),
@@ -40,7 +38,7 @@ this.setState({
 clearComplete = () => {
  let todolist = this.state.todos.slice();
  todolist = todolist.filter(item => 
-   item.completed === false)
+   item.completed === false || !item.task.length < 1)
  this.setState({
    todos: todolist,
    task: '',
@@ -66,7 +64,7 @@ todos = todos.map(todo => {
 
 
 addToDo = (event) => {
-
+  event.preventDefault();
  let addToDo = this.state.todos.slice();
  console.log('previous list ', addToDo);
  addToDo.push({task: this.state.task, id: Date.now(), completed: false});
@@ -74,8 +72,10 @@ addToDo = (event) => {
    task: '',
    todos: addToDo,
  })
+
   console.log('new list ', addToDo);
 }
+
   
 
 
@@ -86,7 +86,7 @@ addToDo = (event) => {
     return (
       <div className = 'app-wrapper'>
         {/* render a todo form, and the todo list */}
-       <TodoForm clearComplete = {this.clearComplete} addToDo = {this.addToDo} handleChange = {this.handleChange} />
+       <TodoForm value={this.state.task} clearComplete = {this.clearComplete} addToDo = {this.addToDo} handleChange = {this.handleChange} />
        <TodoList   toggle={this.toggle} checked = {this.state.CheckboxChecked} todos = {this.state.todos} />
 
       </div>
