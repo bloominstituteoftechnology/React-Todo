@@ -5,20 +5,20 @@ import Todo from "./Todo";
 
 const TodoList = props => {
 
-  if(props.items) {
+  if (props.listItems) {
     return (
-      <div> {
-          props.items.map((item, index) => {
-            return (
-                <Todo 
-                    index={index}
-                    item={item}
-                    key={item.key}
-                    handleCompleted={props.handleCompleted}
-                    className={!item.completed ? "none" : "completed"}
-                />
-            );
-          })}
+      <div className="todoList"> {
+        props.listItems.map((item, index) => {
+          return (
+            <Todo
+              index={index}
+              task={item.task}
+              id={item.key}
+              completed={item.completed}
+              handleCompleted={props.handleCompleted}
+            />
+          );
+        })}
       </div>
     );
   } else {

@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoForm from './TodoForm';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -13,12 +13,12 @@ class App extends React.Component {
       listItems: [
         {
           task: "Learn setState()",
-          key: Date.now(),
-          completed: false
+          key: 1529011020237,
+          completed: true
         },
         {
           task: "Style my Todo List",
-          key: Date.now(),
+          key: 1529011020238,
           completed: false
         }
       ],
@@ -50,20 +50,18 @@ class App extends React.Component {
 
   handleCompleted = e => {
     let listItems = this.state.listItems.slice();
-    listItems = listItems.map(item => {
+    listItems = listItems.map((item, index) => {
       if(item.key === e) {
         item.completed = !item.completed;
-        return item;
-      } else {
-        return item;
       }
+      return item;
     });
     this.setState({listItems})
   }
 
   render() {
     return (
-      <div>
+      <div className="app">
         {/* <h2>Welcome to your Todo App!</h2> */}
         <h1>{this.state.title}</h1>
         <TodoForm
