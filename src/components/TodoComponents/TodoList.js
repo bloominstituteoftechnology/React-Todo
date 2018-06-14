@@ -9,9 +9,7 @@ const TodoList = (props) => {
 
     return (
         <div className="todo-list">
-            <ul>
                 {todos}
-            </ul>
         </div>
     );
 }

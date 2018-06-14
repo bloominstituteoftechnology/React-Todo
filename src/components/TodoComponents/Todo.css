@@ -26,7 +26,6 @@ body {
     color: #2C271B;
     max-width: 700px;
     font-family: Helvetica, sans-serif;
-    max-height: 100vh;
 }
 
 .header {
@@ -53,21 +52,22 @@ body {
     background-color: #83858C;
     border-radius: 0 0 8px 8px;
     box-shadow: inset 0px 0px 1px 1px #242529;
-    max-height: 80vh;
 }
 
-.todo-list ul {
-    margin: 0px;
-    display: flex;
+.todo-list {
+    display: inline-flex;
     flex-flow: column wrap;
     justify-content: space-between;
     align-items: flex-end;
     padding: 0px 2% 0px 0px;
+    max-height: 60vh;
+    
 }
 
 .todo-item {
-    text-align: right;
     width: 100%;
+    text-align: right;
+    pading: 0% 10%;
 }
 
 .todo-item h3 {
