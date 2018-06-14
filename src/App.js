@@ -45,13 +45,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
+      <h1> Ultimate ToDo List Maker </h1>
         <TodoForm
           value={this.state.todo}
           handlerTodoChange={this.changeTodo}
           handlerAddTodo={this.addTodo}
           handlerClearTodos={this.clearCompleted}
         />
-        <hr/>
+      
         <TodoList
           handlerToggleComplete={this.toggleComplete}
           todos={this.state.list}

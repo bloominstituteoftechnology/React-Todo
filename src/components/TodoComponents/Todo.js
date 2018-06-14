@@ -10,21 +10,21 @@ const Todo = props => {
               textDecoration: "line-through",
               color: "black",
               backgroundColor: "green",
-              padding: "5%",
-              width: "150px",
+              padding: "2%",
+              minWidth: "150px",
               border: "1px solid black",
               borderRadius: "5%",
-              margin: "15px 0"
+              margin: "5px 0"
             }
           : {
             textAlign: "center",
               color: "black",
-              backgroundColor: "red",
+              backgroundColor: "darkred",
               border: "1px solid black",
               borderRadius: "5%",
-              margin: "15px 0",
-              padding: "5%",
-              width: "150px"
+              margin: "5px 0",
+              padding: "2%",
+              minWidth: "150px"
             }
       }
       onClick={() => props.handlerToggleComplete(props.todo.id)}

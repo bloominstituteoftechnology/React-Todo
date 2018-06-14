@@ -4,4 +4,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: gray;
 }
+
+.to-do-list {
+    width: 80%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
