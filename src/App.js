@@ -30,12 +30,11 @@ class App extends React.Component {
   }
 
   clearTodo = () => {
-    const todolist = this.state.todolist.slice();
-    todolist.filter((todolist) => {
-      return todolist.completed === false;
-    },
-    this.setState({todolist: todolist })
+    let todolist = this.state.todolist.filter((todo) => {
+      return todo.completed === false;
+    }
   );
+  this.setState({todolist: todolist })
   }
 
   toggleFlag = id => {
