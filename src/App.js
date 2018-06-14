@@ -61,8 +61,12 @@ class App extends React.Component {
         changeTodo = {this.changeTodo}
         value = {this.state.todo}
         handleAddItemTodo = {this.addTodo}
+        handleClearTodo = {this.clearCompletedTodo}
         />
-        <TodoList todos ={this.state.todos}/>
+        <TodoList
+        todos ={this.state.todos}
+        handleToggleComplete={this.toggleTodoComplete}
+        />
       </div>
     );
   }
