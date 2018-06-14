@@ -36,6 +36,9 @@ h3 {
     box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     
 }
+.cardWrapper:hover {
+    box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+}
 .cardContent {
     margin: 0 10px;
     
@@ -43,4 +46,8 @@ h3 {
 }
 .todoListFild {
     margin-bottom: 5rem
+}
+
+button:hover {
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }

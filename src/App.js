@@ -70,6 +70,7 @@ class App extends React.Component {
             customChange={this.handleChange}
             customValue={this.state.newLine}
           />
+          <input id="myInput" type="text" placeholder="Search... " />
           <div className='todoListFild' id="sortable"> 
             <TodoList
               passedToTodoList={this.state.todoList}
