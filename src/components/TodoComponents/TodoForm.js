@@ -1,14 +1,20 @@
-onSubmit = (event) => {
-    event.preventDefault()
-    this.setState({
-        todo: '',
-        tasks: [...this.state.tasks, this.state.todo]
-    });
-}
+import React from 'react';
 
-<form className="app" onSubmit={this.onSubmit}>
-<input value={this.state.todo} onChange={this.onChange} />
-<button>Submit</button>
-</form>
+const TodoForm = props => {
+    return (
+<div className="todoForm">
+<input 
+onChange={props.handleChange}
+type="text"
+name="todo"
+value={props.value}
+placeholder="...todo" 
+ />
+<button onClick={props.handleAddTodo}>Add Todo</button>
+<button onClick={props.handleDeleteTodo}>Delete Todo</button>
+</div>
+    );
+};
 
-export default TodoForm;
+
+ export default TodoForm;

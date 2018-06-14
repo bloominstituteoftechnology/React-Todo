@@ -9,38 +9,71 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      
-      todo: '',
 
       todos: [
         {
         task: "Learn how to use React",
-        id:1528817077286,
+        id:1,
         completed: false
         },
         {
         task: "Go for a walk",
-        id:1528817077286,
+        id:2,
         completed: false
           },
         {
         task: "Try, try again",
-        id:1528817077286,
+        id:3,
         completed: false
           }
       ],
+      todo: ""
     };
   }
 
-  addTask = () => {
-    this.setState ({});
+  addTodo = event => {
+    event.preventDefault();
+    const todos = this.state.todos.slice();
+    todos.push({ task: this.state.todo, completed: false, id: Date.now() });
+    this.setState ({ todos, todo: "" });
   }
+
+  changeTodo = event => this.setState({ [event.target.name]: event.target.value });
+
+  toggleTodoComplete = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ todos});
+  };
+
+  clearCompletedTodos = event => {
+    event.preventDefault();
+    let todos = this.state.todos.slice();
+    todos = todos.filter(todo => !todo.completed);
+    this.setState({ todos });
+  };
+
   render() {
     return (
-      <div className="app">
+      <div className="app-container">
         <h2>What do you need to do?</h2>
-        <TodoList />
-        <TodoForm />
+        <TodoList 
+          handleToggleComplete={this.toggleTodoComplete}
+          todos={this.state.todo}
+          />
+        <TodoForm 
+          value={this.state.todo}
+          handleChange={this.changeTodo}
+          handleAdd={this.addTodo}
+          handleDeleteTodo={this.clearCompletedTodos}
+          />
       </div>
     );
   }
@@ -49,6 +82,6 @@ class App extends React.Component {
 export default App;
 
 
-// const element = <App />;
+  // const element = <App />;
 
-// ReactDOM.render(element, document.getElementById("root"));
+//  ReactDOM.render(element, document.getElementById("root"));
