@@ -4,7 +4,11 @@ import TodoList from './TodoList';
 const TodoForm = props => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <TodoList items={props.listItems} />
+            <TodoList
+                listItems={props.listItems}
+                item={props.item}
+                handleCompleted={props.handleCompleted}
+            />
             <input
                 type="text"
                 onChange={props.handleChange}
