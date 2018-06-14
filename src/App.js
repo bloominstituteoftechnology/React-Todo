@@ -33,38 +33,25 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     });
-    this.setState({
-      items,
-      item: ''
-    });
+    this.setState({items, item: ''});
   }
 
-  changeTask = event => this.setState({
-    [event.target.name]: event.target.value
-  });
+  changeTask = event => this.setState({[event.target.name]: event.target.value});
+
+
+clearCompleted = event => {
+  event.preventDefault();
+  let items = this.state.items.slice();
+  items = items.filter(item => !item.completed);
+  this.setState({items});
+}
 
   render() {
-    return ( <
-      div >
-      <
-      h1 > {
-        this.state["List title"]
-      } < /h1> <
-      TodoList listItems = {
-        this.state.items
-      }
-      /> <
-      TodoForm value = {
-        this.state.item
-      }
-      addTaskHandler = {
-        this.addTask
-      }
-      taskChangeHandler = {
-        this.changeTask
-      }
-      /> <
-      /div>
+    return ( <div>
+      <h1> {this.state["List title"]}</h1>
+      <TodoList listItems = {this.state.items}/>
+      <TodoForm value = {this.state.item} addTaskHandler = {this.addTask} taskChangeHandler = {this.changeTask} clearCompletedHandler = {this.clearCompleted} />
+      </div>
     );
   }
 }

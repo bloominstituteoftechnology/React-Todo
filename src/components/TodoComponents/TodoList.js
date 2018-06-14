@@ -4,19 +4,11 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = props => {
-  return ( <
-    ul > {
+  return ( <ul> {
       props.listItems.map(item => {
-        return <Todo key = {
-          item.id
-        }
-        item = {
-          item
-        }
-        />; 
+        return <Todo key = {item.id} item = {item} onClick={this.props.toggleComplete} />; 
       })
-    } <
-    /ul>
+    } </ul>
   );
 };
 
