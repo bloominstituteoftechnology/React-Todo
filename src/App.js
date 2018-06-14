@@ -70,10 +70,12 @@ class App extends React.Component {
             customChange={this.handleChange}
             customValue={this.state.newLine}
           />
-          <TodoList
-            passedToTodoList={this.state.todoList}
-            handleToggle={this.handleToggleLine}
-          />
+          <div id="sortable"> 
+            <TodoList
+              passedToTodoList={this.state.todoList}
+              handleToggle={this.handleToggleLine}
+            />
+          </div>
         </div>
       </div>
     );
