@@ -13,8 +13,8 @@ const TodoList = props => {
                  todo={todo}
                  />
             ))}
-            </div>
-    );
-};
+        </div>
+     );
+ };
 
 export default TodoList;

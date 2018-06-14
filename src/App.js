@@ -9,36 +9,35 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-
       todos: [
         {
-        task: "Learn how to use React",
+        task: 'Learn how to use React',
         id:1,
         completed: false
         },
         {
-        task: "Go for a walk",
-        id:2,
+        task: 'Go for a walk',
+        id: 2,
         completed: false
-          },
-        {
-        task: "Try, try again",
-        id:3,
-        completed: false
-          }
+        },
+        // {
+        // task: 'Try, try again',
+        // id: Date.now(),
+        // completed: false
+        //   }
       ],
-      todo: ""
+      todo: ''
     };
   }
 
-  addTodo = event => {
-    event.preventDefault();
+  addTodo = e => {
+    e.preventDefault();
     const todos = this.state.todos.slice();
     todos.push({ task: this.state.todo, completed: false, id: Date.now() });
-    this.setState ({ todos, todo: "" });
-  }
+    this.setState ({ todos, todo: '' });
+  };
 
-  changeTodo = event => this.setState({ [event.target.name]: event.target.value });
+  changeTodo = e => this.setState({ [e.target.name]: e.target.value });
 
   toggleTodoComplete = id => {
     let todos = this.state.todos.slice();
@@ -50,11 +49,11 @@ class App extends React.Component {
         return todo;
       }
     });
-    this.setState({ todos});
+    this.setState({ todos });
   };
 
-  clearCompletedTodos = event => {
-    event.preventDefault();
+  clearCompletedTodos = e => {
+    e.preventDefault();
     let todos = this.state.todos.slice();
     todos = todos.filter(todo => !todo.completed);
     this.setState({ todos });
@@ -62,11 +61,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app-container">
+      <div>
         <h2>What do you need to do?</h2>
-        <TodoList 
+        <TodoList
           handleToggleComplete={this.toggleTodoComplete}
-          todos={this.state.todo}
+          todos={this.state.todos}
           />
         <TodoForm 
           value={this.state.todo}
