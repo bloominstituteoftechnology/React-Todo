@@ -1,0 +1,14 @@
+body{
+  margin: 0;
+}
+.background{
+  background: url('./loose_leaf.jpg') no-repeat center center;
+  height: 500px;
+}
+
+.header{
+  text-align: center;
+  padding-top: 100px;
+}
+
+

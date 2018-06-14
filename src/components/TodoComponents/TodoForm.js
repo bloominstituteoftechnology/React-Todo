@@ -1,4 +1,5 @@
 import React from 'react';
+import './TodoForm.css'
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class TodoForm extends React.Component {
 
   render() { 
     return (    
-      <div>
+      <div className="form">
         <input onChange={this.props.onInputChangeHandler} type="text" placeholder="Add Todo item" value={this.props.inputValue} onKeyUp={this.props.onKeyUp}/>
         <button onClick={this.props.addButtonHandler}>Add</button>
         <button onClick={this.props.clearButtonHandler}>Clear</button>

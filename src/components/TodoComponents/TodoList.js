@@ -2,6 +2,7 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 import Todo from './Todo'
+import './TodoList.css'
 
 class TodoList extends React.Component{
   constructor(props){
@@ -12,7 +13,7 @@ class TodoList extends React.Component{
   render(){
     // Map over the todo Arr. Set the key, todo and onTodoClick props of the Todo component
     return (
-      <div>
+      <div className="todo-list">
         {this.props.todo.map( (todo,ind) => <Todo key={ind+todo.task} todo={todo} onTodoClick={this.props.onTodoClick}/>)}
       </div>
   )

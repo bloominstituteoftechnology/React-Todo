@@ -1,0 +1,7 @@
+.todo-list{
+  text-align: center;
+}
+
+.todo-list li{
+  list-style-type: none;
+}
