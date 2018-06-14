@@ -14,6 +14,8 @@ const TodoList = props => {
                     key={index}
                     index={index}
                     item={item}
+                    handleCompleted={props.handleCompleted}
+                    className={!item.completed ? "none" : "completed"}
                 />
             );
           })}
