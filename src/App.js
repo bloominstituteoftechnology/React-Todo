@@ -47,10 +47,6 @@ constructor(){
     this.setState({ todos: todos, item: ""});
   };
 
-//const strikeItem ={
-//	text-decoration: 'line-through', 
-//};
-
 
 toggleId = id => {
 	let todos =this.state.todos.slice();
@@ -76,7 +72,7 @@ toggleId = id => {
  render() {
     return (
       <div>
-	    <TodoList toggleIdValue={this.toggleId} listItem={this.state.todos} />
+	    <TodoList classStrike="item-strike" classRegular="item-style" toggleIdValue={this.toggleId} listItem={this.state.todos} />
 	    <TodoForm  inputEvent={this.changeListItem}  inputValue={this.state.item} addNewItem={this.addItem}  />
 
       </div>

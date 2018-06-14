@@ -8,14 +8,11 @@ const TodoList = props => {
   return (
     <ul>
       {props.listItem.map(item => {
-        return <li onClick={()=>props.toggleIdValue(item.id)}  key={item.id}>{item.task}</li>;
+        return <li className={item.completed ? props.classStrike : props.classRegular} onClick={()=>props.toggleIdValue(item.id)}  key={item.id}>{item.task}</li>;
       })}
     </ul>
   );
 };
-
-//<li style={props.strikeText} onClick={props.strikeText}}
- //key={Math.random()}>{item.task}</li>;
 
 export default TodoList;
 

@@ -1,0 +1,11 @@
+.item-style, .item-strike{
+	text-decoration: none;
+	font-size: 1.4rem;
+	color: teal;
+	font-family: Verdana
+}
+
+.item-strike{
+	text-decoration: line-through;
+	color: chocolate;
+}
