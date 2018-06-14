@@ -10,7 +10,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      heading: "To-do List MVP",
+      // an array of objects/list of todos
+      heading: "My React To-do List",
       todos: [
         {
           task: 'Organize Garage',
@@ -36,21 +37,69 @@ class App extends React.Component {
   addTodo = event => {
     event.preventDefault()
     const todos = this.state.todos.slice();
-    todos.push({ task: this.state.todo, completed: false, id: Date.now() });
+    todos.push({ 
+      task: this.state.todo, // user input
+      completed: false, // default to false
+      id: Date.now() }); // time stamp
     this.setState({ todos, todo: "" });
   };
 
+  // this toggles complete todos
+  toggleCompleteTodos = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ todos });
+  };
+  
+  // this clears todos
+  clearTodos = event => {
+    event.preventDefault()
+    let todos = this.state.todos.slice();
+    todos = todos.filter(todo => !todo.completed);
+    this.setState({ todos });
+  };
+
+ 
   render() {
+
+    let divStyles = {
+      color: 'white',
+      backgroundColor: '#222',
+      margin: '0 auto',
+      width: '50%',
+      paddingTop: '5px',
+      paddingBottom: '10px'
+
+  }
+
+    let headingStyles = {
+      color: 'white',
+      backgroundColor: '#5FBE2E',
+      padding: '5px',
+      margin: '10px auto 5px auto',
+      textAlign: 'center'
+
+  }
     
     return (
-      <div>
-        <h2>{this.state.heading}</h2>
+      <div style={divStyles}>
+        <h2 style={headingStyles}>{this.state.heading}</h2>
           <TodoForm 
           value={this.state.todo}
           typeInputNewTodo={this.inputNewTodo}
           clickAddTodo={this.addTodo}
+          clickClearTodos={this.clearTodos} // new
           />
-        <TodoList todos=
+        <TodoList
+       clickToggleComplete={this.toggleCompleteTodos} // new
+        todos=
         {this.state.todos} />
       </div>
     );
