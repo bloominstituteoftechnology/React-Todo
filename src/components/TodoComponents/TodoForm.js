@@ -13,19 +13,13 @@ const TodoForm = (props) => {
                     name="inputButton"  
                     placeholder="Enter New Task Here"
                 />
-                <input type="text" placeholder="fuck"/>
 
-
-
-                <button onClick={props.propAddTodoTask} value="fml">Add Task</button>
-
-
+                <button onClick={props.propAddTodoTask}>Add Task</button>
 
                 <button onClick={myAlert}>Delete Completed</button>
+
             </form>
-        </div>
-        
+        </div>        
     )
 }
-
 export default TodoForm ;
