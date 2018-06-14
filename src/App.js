@@ -30,7 +30,8 @@ class App extends React.Component {
     this.setState({ newLine: e.target.value })
   }
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault();
     const copyOftodoList = this.state.todoList.slice();
     const createdNewObj = {
       task: this.state.newLine,
@@ -52,7 +53,8 @@ class App extends React.Component {
     this.setState({ todoList: copyOftodoList })
   }
 
-  handleClear = () => {
+  handleClear = (e) => {
+    e.preventDefault();
     const copyOftodoList = this.state.todoList.slice();
     const filtered = copyOftodoList.filter(item => !item.completed)//filter out all items except completed: false
     this.setState({ todoList: filtered })

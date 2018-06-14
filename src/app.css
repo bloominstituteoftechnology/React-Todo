@@ -3,7 +3,7 @@
 }
 
 .wrapper {
-    max-width: 450px;
+    max-width: 480px;
     height: 100%;
     margin: 5rem auto;
     border: 1px solid rgb(163, 163, 163);
@@ -48,6 +48,9 @@ h3 {
     margin-bottom: 5rem
 }
 
+button, input {
+    font-size: 1.7rem;
+}
 button:hover {
     box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
