@@ -28,7 +28,7 @@ class App extends React.Component {
     this.setState({inputTask: e.target.value});
   };
 
-  onAddClick = (e) => {
+  onAddClick = e => {
     e.preventDefault();
     this.addTodo();
     console.log('Add clicked');
@@ -57,7 +57,7 @@ class App extends React.Component {
     console.log('Todo added');
   }
 
-  onTodoClick = (e) => {
+  onTodoClick = e => {
     const id = e.target.dataset.id;
     const newTodos = this.state.todos.slice();
     newTodos.forEach(todo => {
@@ -70,7 +70,7 @@ class App extends React.Component {
     console.log('Set completed state of', id);
   };
 
-  onClearClick = (e) => {
+  onClearClick = e => {
     e.preventDefault();
     let newTodos = this.state.todos.slice();
     newTodos = newTodos.filter(todo => todo.completed === false);
@@ -81,17 +81,18 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <TodoList 
-        todos={this.state.todos} 
-        onTodoClick={this.onTodoClick} 
-      />
-      <TodoForm 
-        inputTask={this.state.inputTask} 
-        onInputChange={this.onInputChange} 
-        onInputEnter={this.onInputEnter} 
-        onAddClick={this.onAddClick} 
-        onClearClick={this.onClearClick}
-      />
+        <h1>Todo List</h1>
+        <TodoList 
+          todos={this.state.todos} 
+          onTodoClick={this.onTodoClick} 
+        />
+        <TodoForm 
+          inputTask={this.state.inputTask} 
+          onInputChange={this.onInputChange} 
+          onInputEnter={this.onInputEnter} 
+          onAddClick={this.onAddClick} 
+          onClearClick={this.onClearClick}
+        />
       </div>
     );
   }

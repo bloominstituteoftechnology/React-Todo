@@ -1,3 +1,9 @@
+ul li {
+  opacity: 1;
+  transition: all .3s linear;
+}
+
 ul li.is-completed {
   text-decoration: line-through;
+  opacity: .5;
 }
