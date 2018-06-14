@@ -11,9 +11,9 @@ const TodoList = props => {
           props.items.map((item, index) => {
             return (
                 <Todo 
-                    key={index}
                     index={index}
                     item={item}
+                    key={item.key}
                     handleCompleted={props.handleCompleted}
                     className={!item.completed ? "none" : "completed"}
                 />
