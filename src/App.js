@@ -14,7 +14,7 @@ class App extends React.Component {
         {
           task: "Learn setState()",
           key: 1529011020237,
-          completed: true
+          completed: false
         },
         {
           task: "Style my Todo List",
@@ -39,24 +39,26 @@ class App extends React.Component {
       completed: false
     };
 
-    const listItems = this.state.listItems;
+    let listItems = this.state.listItems.slice();
     listItems.push(newItem);
     this.setState({ listItems, item: "" });
   }
 
-  handleClear = e => {
-
-  }
-
   handleCompleted = e => {
     let listItems = this.state.listItems.slice();
-    listItems = listItems.map((item, index) => {
+    listItems = listItems.map(item => {
       if(item.key === e) {
         item.completed = !item.completed;
       }
       return item;
     });
-    this.setState({listItems})
+    this.setState({listItems});
+  }
+  
+  handleClear = e => {
+    let listItems = this.state.listItems.slice();
+    listItems = listItems.filter((item) => { return item.completed === false });
+    this.setState({listItems});
   }
 
   render() {
