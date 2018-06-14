@@ -74,10 +74,11 @@ class App extends React.Component {
       backgroundColor: '#222',
       margin: '0 auto',
       width: '50vw',
-      height: '50vh',
+      height: '75vh',
       paddingTop: '5px',
       paddingBottom: '10px',
-      borderRadius: '10px'
+      borderRadius: '10px',
+      overflowY: 'scroll'
   }
 
     let headingStyles = {
@@ -88,11 +89,8 @@ class App extends React.Component {
       textAlign: 'center'
 
   }
-    
-let listStyles = {
-      overflowY: 'scroll'
-}
 
+    
     return (
       <div style={divStyles}>
         <h2 style={headingStyles}>{this.state.heading}</h2>
@@ -102,6 +100,7 @@ let listStyles = {
           clickAddTodo={this.addTodo}
           clickClearTodos={this.clearTodos} // new
           />
+     
         <TodoList
        
        clickToggleComplete={this.toggleCompleteTodos} // new
