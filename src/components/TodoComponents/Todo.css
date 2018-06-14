@@ -53,6 +53,7 @@ body {
     background-color: #83858C;
     border-radius: 0 0 8px 8px;
     box-shadow: inset 0px 0px 1px 1px #242529;
+    max-height: 80vh;
 }
 
 .todo-list ul {
@@ -92,5 +93,12 @@ body {
     font-size: 1.4rem;
     text-align: center;
     color: #63646C
+}
+.form .button {
+    margin: 0px;
+    padding: 10px 15% 10px 0;
+}
 
+.form .button:last-of-type {
+    border-top: 1px solid #63646C;
 }

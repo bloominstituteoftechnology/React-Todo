@@ -8,6 +8,11 @@ const TodoForm = props => {
         placeholder="Enter todo item"
         value={props.value}
         onChange={props.handleChange}
+        onKeyPress={(event) => {
+          if (event.key === "Enter") {
+            props.addTodo();
+          }
+        }}
       />
       <div className="button" onClick={props.addTodo}>
         Add
