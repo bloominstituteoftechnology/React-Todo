@@ -20,6 +20,11 @@ class App extends React.Component {
           task: 'Bake Cookies',
           id: 1528817084358,
           completed: false
+        },
+        {
+          task: 'Run Marathon',
+          id: 1528817084357,
+          completed: false
         }
       ],
       todo:'Add To Do'
@@ -28,7 +33,6 @@ class App extends React.Component {
 
   changeTodo = event => {
     this.setState({todo: event.target.value});
-    console.log(this.state.todo)
   }
 
   addTodo = props => {
@@ -38,12 +42,24 @@ class App extends React.Component {
     this.setState({toDos: newToDos, todo: ''});
   }
 
+  crossOut = id => {
+    let newToDos = this.state.toDos.slice();
+    newToDos.map(item => {
+      item.id === id ? item.completed = !item.completed : null;
+      return item;
+    });
+    this.setState({toDos: newToDos});
+  }
+
   render() {
     return (
       <div>
         <h1>My to do list</h1>
-        <TodoList items={this.state.toDos} />
-        <TodoForm changeEvent={this.changeTodo} handler={this.addTodo} displayText={this.state.todo} />
+        <TodoList items={this.state.toDos}
+                  handler={this.crossOut}/>
+        <TodoForm changeEvent={this.changeTodo}
+                  handler={this.addTodo}
+                  displayText={this.state.todo} />
       </div>
     );
   }

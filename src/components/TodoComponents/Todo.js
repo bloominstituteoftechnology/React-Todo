@@ -2,7 +2,7 @@ import React from 'react';
 
 const Todo = props => {
   return (
-    <li>{props.task}</li>
+    <li onClick={() => props.handler(props.id)}>{props.task}</li>
   );
 }
 
