@@ -15,43 +15,46 @@ class App extends React.Component {
   }
 
   onChange = event => {
-   return this.setState({ todo: event.target.value });
+    return this.setState({ todo: event.target.value });
   }
 
   todosAdd = event => {
     let todosCopy = this.state.todos.slice();
-    todosCopy.push({task: this.state.todo, id: Math.random(), completed:false});
+    if (this.state.todo === '') { return alert("Please enter something in field") };
+    todosCopy.push({ task: this.state.todo, id: Math.random(), completed: false });
     return this.setState({ todos: todosCopy, todo: "" });
   }
 
   onClear = event => {
     let todosCopy = this.state.todos.slice();
-    for(let i = 0; i < todosCopy.length; ++i){
-      if(todosCopy[i].completed){
-        delete todosCopy[i];
+    if (todosCopy.length === 0) {return alert("Nothing to clear")}
+      for (let i = 0; i < todosCopy.length; ++i) {
+        if (todosCopy[i].completed) {
+          delete todosCopy[i];
+        }
       }
-    }
+    
     return this.setState({ todos: todosCopy, todo: "" });
   }
 
   completedEvent = id => {
     let todosCopy = this.state.todos.slice();
-    for(let i = 0; i < todosCopy.length; ++i){
-      if(id === todosCopy[i].id){
-        todosCopy[i].completed =  !(todosCopy[i].completed)
-      }
-    }
-      // todosCopy = todosCopy.map(item => {
-      //   if(item.id === id){
-      //     item.completed = !item.completed;
-      //     return item;
-      //   }
-      //   else {
-      //     return item;
-      //   }
-      // })
+    // for(let i = 0; i < todosCopy.length; ++i){
+    //   if(id === todosCopy[i].id){
+    //     todosCopy[i].completed =  !(todosCopy[i].completed)
+    //   }
 
-    this.setState({todos: todosCopy})
+    todosCopy = todosCopy.map(item => {
+      if (item.id === id) {
+        item.completed = !item.completed;
+        return item;
+      }
+      else {
+        return item;
+      }
+    })
+
+    this.setState({ todos: todosCopy })
   }
   render() {
     console.log("RENDER CALLED!")

@@ -10,7 +10,7 @@ const TodoList = props => {
                 singleTodo={todo.task} 
                 completedTask={props.complete}
                 passedKey ={todo.id}
-                classNameProp={todo.completed ? "completed-class": null}
+               classNameProp={todo.completed ? "completed-class": null}
                 />;
             })}
         </div>);
