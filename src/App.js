@@ -11,12 +11,12 @@ class App extends React.Component {
         [
           {
             task: 'Organize garage',
-            id: Date.now(),
+            id: 1528817077286,
             completed: false
           },
           {
             task: 'Bake cookies',
-            id: Date.now(),
+            id: 1528817084358,
             completed: false
           }
         ],
@@ -39,7 +39,8 @@ class App extends React.Component {
     return (
       <div id="app">
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm />
+        <TodoForm addTodo={this.addTodo}/>
+
         <TodoList todos={this.state.todos} />
       </div>
     );

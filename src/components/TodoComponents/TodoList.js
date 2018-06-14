@@ -5,7 +5,7 @@ const TodoList = props => {
   return (
     <div className="list">      
       <ul>
-        <Todo />
+        <Todo todo={props.todo}/>
       </ul>
     </div>
   );

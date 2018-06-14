@@ -3,7 +3,7 @@ import React from 'react';
 const Todo = props => {
   return (
       props.todos.map(todo => {
-        return <li key={Date.now()}>{props.todo}</li>;
+        return <li key={Date.now()}>{todo}</li>;
       })
   );
 };
