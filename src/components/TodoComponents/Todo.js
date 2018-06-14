@@ -4,9 +4,9 @@ import "./Todo.css";
 const Todo = props => {
   return (
     <div onClick={() => props.toggleCompleted(props.todo.id)}
-         className={props.todo.completed ? "completed" : null}
+         className={props.todo.completed ? "completed" : "uncompleted"}
     >
-      {props.todo.task}
+      {props.number}. {props.todo.task}
     </div>
   );
 };

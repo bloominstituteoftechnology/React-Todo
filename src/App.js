@@ -10,22 +10,14 @@ class App extends React.Component {
 
   state = {
     todoInput: "",
-    todos: [
-      {
-        task: 'Organize Garage',
-        id: 1528817077286,
-        completed: false
-      },
-      {
-        task: 'Bake Cookies',
-        id: 1528817084358,
-        completed: false
-      }
-    ]
+    todos: []
   }
 
   addTodo = event => {
     event.preventDefault();
+    if (this.state.todoInput === "") {
+      return;
+    }
     const task = this.state.todoInput;
     const id = Date.now();
     const newTodo = { task: task, id: id, completed: false };
@@ -41,12 +33,8 @@ class App extends React.Component {
   toggleCompleted = id => {
     let todos = this.state.todos.slice();
     todos = todos.map(todo => {
-      if (todo.id === id) {
-        todo.completed = !todo.completed;
-        return todo;
-      } else {
-        return todo;
-      }
+      todo.id === id ? todo.completed = !todo.completed : null;
+      return todo;
     });
     this.setState({ todos: todos });
   }
@@ -60,14 +48,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Todo list: MVP</h2>
-        <TodoList todos={this.state.todos}
-                  toggleCompleted={this.toggleCompleted} />
-        <TodoForm addTodo={this.addTodo}
-                  todoInput={this.state.todoInput}
-                  clearCompleted={this.clearCompleted}
-                  changeTodoInput={this.changeTodoInput} />
+      <div className="container">
+        <div className="form-and-list-container">
+          <TodoForm addTodo={this.addTodo}
+                    todoInput={this.state.todoInput}
+                    clearCompleted={this.clearCompleted}
+                    changeTodoInput={this.changeTodoInput} />
+          <TodoList todos={this.state.todos}
+                    toggleCompleted={this.toggleCompleted} />
+        </div>
       </div>
     );
   }
