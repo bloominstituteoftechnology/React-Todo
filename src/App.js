@@ -65,12 +65,21 @@ class App extends React.Component {
     this.setState({ todos: todos});
   }
 
+  clearCompleted = () => {
+    let todos = this.state.todos.slice();
+    todos = todos.filter(item => {
+      return item.completed === false;
+    });
+
+    this.setState({ todos: todos});
+  }
+
   render() {
     return (
       <div>
         <h2>Todo List: MVP</h2>
         <TodoList todoProps={this.state.todos} todoComplete={this.completeTodo}/>
-        <TodoForm addTodoFunction={this.addTodo} todoSubmit={this.state.todo} todoHandler={this.todoHandler}/>
+        <TodoForm addTodoFunction={this.addTodo} todoSubmit={this.state.todo} todoHandler={this.todoHandler} clearCompleted={this.clearCompleted}/>
       </div>
     );
   }
