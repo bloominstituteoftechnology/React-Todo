@@ -70,9 +70,10 @@ class App extends React.Component {
     this.setState({toDos: newToDos});
   }
 
-  searchText = props => {
-
+  searchText = event => {
+    this.setState({search: event.target.value});
   }
+  
 
   render() {
     return (
