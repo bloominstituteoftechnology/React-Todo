@@ -1,6 +1,7 @@
 import React from 'react';
 import Todo from './components/TodoComponents/Todo';
-import ToDoList from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 
 class App extends React.Component {
@@ -10,42 +11,71 @@ class App extends React.Component {
       constructor() {
     super();
     this.state = {
-      title: "Todo List: MVP",
-      items: [
-        "Get bloodwork done",
-        "Make dentist appointment",
-        "Refine JavaScript skills",
-        "Go over React content until it starts to click; then practice",
-        "Send Sam a birthday video",
+      todos: [
+        {
+          task: 'Get bloodwork done',
+          id: 1,
+          completed: false
+        },
+        {
+          task: 'Make Dentist appointment',
+          id: 2,
+          completed: false
+        },
+        {
+          task: 'Make video for Sams Birthday',
+          id: 3,
+          completed: false
+        },
       ],
-      newItem: ""
+      todo: ""
     };
   }
 
-  changeTitleHandler = event => {
-    console.log(event.target.value);
-    this.setState({ newItem: event.target.value });
+addTodo = def => {
+    def.preventDefault();
+    const todos = this.state.todos.slice();
+    todos.push({ task: this.state.todo, completed: false, id: Date.now() });
+    this.setState({todos, todo: ""});
+  }
+
+changeTodo = def => this.setState({[def.target.name]: def.target.value});
+
+toggleTodoComplete = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      }
+      else {
+        return todo;
+      }
+    });
+    this.setState({todos});
   };
 
-  addItem = () => {
-    const items = this.state.items.slice();
-    items.push(this.state.newItem);
-    this.setState({ items: items, newItem: "" });
-  };
+clearCompletedTodos = def => {
+  preventDefault();
+  let todos = this.state.todos.slice();
+  todos = todos.filter(todeo => !todo.completed);
+  this.setState({todos});
+};
 
   render() {
-    console.log("Render Called!");
     return (
-      <div>
-        <h2>{this.state.title}</h2>
-        <input
-          type="text"
-          onChange={this.changeTitleHandler}
-          placeholder="Add newItem"
-          value={this.state.newItem}
-        />
-        <button onClick={this.addnewItem}>Add newItem </button>
-        <ToDoList newToDo={this.state.items} />
+      <div className="container">
+      <h2>To-do List</h2>
+      <ToDoList 
+      handleToggleComplete={this.toggleTodoComplete}
+      todos={this.state.todos}
+      />
+      <TodoForm 
+      value={this.state.todo}
+      handleTodoChange={this.changeTodo}
+      handleAddTodo={this.addTodo}
+      handleClearTodos={this.clearCompletedTodos}
+      />
       </div>
     );
   }
