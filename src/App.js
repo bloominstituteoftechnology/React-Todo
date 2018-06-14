@@ -47,14 +47,37 @@ constructor(){
     this.setState({ todos: todos, item: ""});
   };
 
+//const strikeItem ={
+//	text-decoration: 'line-through', 
+//};
+
+
+toggleId = id => {
+	let todos =this.state.todos.slice();
+	todos = todos.map(todo => {
+		
+	if(todo.id ===id){
+
+		todo.completed = !todo.completed;
+		return todo;
+	}	
+	
+	else{
+		return todo;
+	}	
+	
+	});	
+	this.setState({todos: todos});
+
+};
 
 
 		
  render() {
     return (
       <div>
-           <TodoList  listItem={this.state.todos} />
-<TodoForm  inputEvent={this.changeListItem}  inputValue={this.state.item} addNewItem={this.addItem}  />
+	    <TodoList toggleIdValue={this.toggleId} listItem={this.state.todos} />
+	    <TodoForm  inputEvent={this.changeListItem}  inputValue={this.state.item} addNewItem={this.addItem}  />
 
       </div>
     );
