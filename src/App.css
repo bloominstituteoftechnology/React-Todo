@@ -1,14 +1,31 @@
 body{
   margin: 0;
+  height:100%;
 }
-.background{
+
+.loose-leaf{
   background: url('./loose_leaf.jpg') no-repeat center center;
-  height: 500px;
+  height: 619px;
+  transform: rotate(-15deg);
+  position:absolute;
+  top: 8%;
+  right: 33%;
+  width: 36%
+}
+
+.desk{
+  background-image: url('./large-desk1860.png');
+  background-size: cover;
+  height:100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position:relative;
 }
 
 .header{
   text-align: center;
-  padding-top: 100px;
+  padding-top: 15px;
 }
 
 
