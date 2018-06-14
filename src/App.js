@@ -81,7 +81,7 @@ class App extends React.Component {
     // TweenMax.from(lastItem, 3, {
     //   scale: 0.5,
     //   y: 200,
-    });
+    // });
     this.setState({
       task: '',
       todos: addToDo,
