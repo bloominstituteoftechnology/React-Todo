@@ -62,7 +62,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>My to do list</h1>
+        <h1>Please, Just Do Something</h1>
         <TodoForm changeEvent={this.changeTodo}
                   handler={this.addTodo}
                   clearTodo={this.clearTodo}

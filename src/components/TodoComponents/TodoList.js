@@ -6,7 +6,7 @@ import Todo from './Todo.js';
 const TodoList = props => {
   return (
     <div>
-      <ul>
+      <ul classsName="todo-list">
         {props.items.map(item =>
           <Todo key={item.id}
                 handler={props.handler}

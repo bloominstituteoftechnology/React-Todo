@@ -9,7 +9,45 @@ body {
   flex-flow: column;
 }
 
+h1 {
+  background: linear-gradient(to right, lightblue, navy);
+  padding: 1% 7%;
+  box-shadow: 0 19px 38px rgba(0,0,0,.3), 0 19px 38px rgba(0,0,0,.3) ,0 19px 38px rgba(0,0,0,.3), 0 15px 12px rgba(0,0,0,.22);
+}
 
+.todo-form {
+  margin-top: 5%;
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.todo-input {
+  font-size: 2rem;
+}
+
+.todo-add-btn {
+  position: relative;
+  margin-top: 1%;
+  right: 12%;
+  font-size: 1rem;
+  padding: 7px 23px;
+  border-radius: 9%;
+}
+
+.todo-clear-btn {
+  position: relative;
+  margin-top: 1%;
+  right: 8%;
+  font-size: 1rem;
+  padding: 7px 23px;
+  border-radius: 9%;
+}
+
+.todo-list {
+
+}
 
 .completed {
   text-decoration: line-through;
