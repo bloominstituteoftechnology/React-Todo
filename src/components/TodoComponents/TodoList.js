@@ -1,8 +1,12 @@
 import React from 'react'
+import Todo from './Todo'
 const TodoList = props => {
-    return <ul>{props.passedTodos.map(todo => {
-        return <li key={Math.random()}>{todo}</li>
-    })} </ul>;
+    return (
+        <div>
+            {props.passedTodos.map(todo => {
+                return <Todo key={Math.random()} singleTodo={todo} />;
+            })}
+        </div>);
 }
 
 

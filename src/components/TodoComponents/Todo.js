@@ -1,13 +1,8 @@
-// import React from 'react'
-// import TodoList from './TodoList'
-// import TodoForm from './TodoForm'
+import React from 'react'
 
-// const Todo = () => {
-//     return (<div className="todo-container">
-//     <TodoForm />
-//     <TodoList />
-//     </div>
-//     )
-// }
-
-// export default Todo;
+const Todo = props => {
+    return (
+        <ul><li>{props.singleTodo}</li></ul>
+    )
+}
+export default Todo;
