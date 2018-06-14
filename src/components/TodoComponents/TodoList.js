@@ -2,20 +2,20 @@
 // feel free to change this component.js into TodoList.js
 import React from "react";
 
-class TodoList extends React.Component {
-    render() {
-        return (
-            <div>
-                <ul>
-                {
-                    this.props.list.map(todo=>{
-                        return <Todo key={todo.id} todo={todo.task} />
-                    })
-                }
-                </ul>
-            </div>
-        );
-    }
-}
+import Todo from "./Todo";
+
+const TodoList = props => {
+  return (
+    <div className="list-wrapper">
+      {props.todos.map(todo => (
+        <Todo
+          handleToggleComplete={props.handleToggleComplete}
+          key={todo.id}
+          todo={todo}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default TodoList;
