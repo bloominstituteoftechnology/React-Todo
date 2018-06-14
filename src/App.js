@@ -8,6 +8,7 @@ class App extends React.Component {
   constructor() {
    super();
    this.state = {
+    inputTask: '',
     todos: [
       {
         task: 'Example Todo 1',
@@ -23,33 +24,54 @@ class App extends React.Component {
    } 
   }
 
-  addTask = (taskName) => {
+  onInputChange = e => {
+    this.setState({inputTask: e.target.value});
+  };
+
+  onAddClick = (e) => {
+    e.preventDefault();
+    this.addTodo();
+    console.log('Add clicked');
+  };
+
+  onInputEnter = e => {
+    e.preventDefault();
+    if (e.keyCode === 13) {
+      this.addTodo();
+      console.log('Pressed enter');
+    }
+  };
+
+  addTodo() {
+    const newTask = this.state.inputTask.trim();
     const newTodos = this.state.todos.slice();
-    const randomId = `${Date.now()}${newTodos.length}`;
+    const randomId = Number(`${Date.now()}${newTodos.length}`);
+    this.setState({inputTask: ''});
+    if (newTask.length === 0) return false;
     newTodos.push({
-      task: taskName,
+      task: newTask,
       id: randomId,
       completed: false
     });
     this.setState({todos: newTodos});
-    console.log('Task added');
-  };
+    console.log('Todo added');
+  }
 
-  setCompletedState = (id) => {
+  onTodoClick = (e) => {
+    const id = e.target.dataset.id;
     const newTodos = this.state.todos.slice();
-    let newState;
     newTodos.forEach(todo => {
-      if (todo.id === id) {
+      if (todo.id === Number(id)) {
+        console.log(todo.completed);
         todo.completed = !todo.completed;
-        newState = todo.completed;
       }
     });
     this.setState({todos: newTodos});
-    console.log('Set completed state', newState);
-    return newState;
+    console.log('Set completed state of', id);
   };
 
-  clearCompleted = () => {
+  onClearClick = (e) => {
+    e.preventDefault();
     let newTodos = this.state.todos.slice();
     newTodos = newTodos.filter(todo => todo.completed === false);
     this.setState({todos: newTodos});
@@ -59,8 +81,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <TodoList todos={this.state.todos} setCompletedState={this.setCompletedState} />
-      <TodoForm addTask={this.addTask} clearCompleted={this.clearCompleted}/>
+      <TodoList 
+        todos={this.state.todos} 
+        onTodoClick={this.onTodoClick} 
+      />
+      <TodoForm 
+        inputTask={this.state.inputTask} 
+        onInputChange={this.onInputChange} 
+        onInputEnter={this.onInputEnter} 
+        onAddClick={this.onAddClick} 
+        onClearClick={this.onClearClick}
+      />
       </div>
     );
   }
