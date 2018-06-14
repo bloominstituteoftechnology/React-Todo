@@ -1,7 +1,7 @@
 import React from 'react';
 import './components/TodoComponents/Todo.css';
 import TodoList from './components/TodoComponents/TodoList';
-/*import Todo from './components/TodoComponents/Todo';*/
+import Todo from './components/TodoComponents/Todo';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 
@@ -30,16 +30,18 @@ class App extends React.Component {
     this.setState({todolist: todolist, dataInput: ''});
   }
 
- /* toggleFlag = () => {
-    todolist[].completed: true;
-  }*/
+  toggleFlag = () => {
+    this.setState({completed: true});
+    this.classList.add('completed');
+  }
 
   render() {
     return (
       <div className='container'>
         <h2 className='title'>Todo List: MVP</h2>
-       <TodoList todolist={this.state.todolist} />
+       <TodoList todolist={this.state.todolist} toggleFlag={this.toggleFlag} dataInput={this.state.dataInput}/>
        <TodoForm toDoHandler={this.toDoHandler} addTodo={this.addTodo} dataInput={this.state.dataInput} />
+       <Todo />
       </div>
     );
   }
@@ -53,3 +55,14 @@ export default App;
   // this component is going to take care of state, and any change handlers you need to work with your state
   // <TodoForm />
   //<TodoList itemslist={this.state.todolist.task} />
+  /*var Button = React.createClass({
+  getInitialState: function() {
+    return {
+      condition: false
+    }
+  },
+  handleClick: function() {
+    this.setState({
+      condition: !this.state.condition
+    });
+  },*/
