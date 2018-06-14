@@ -8,6 +8,11 @@ const TodoForm = props => {
              placeholder={props.defaultText}
              value={props.displayText}
              onChange={props.changeEvent} />
+      <input className="todo-search"
+             type="text"
+             placeholder="Search here"
+             value={props.searchText}
+             onChange={props.searchEvent} />
       <button className="todo-add-btn"
               type="submit"
               onClick={props.handler} >Add</button>

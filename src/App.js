@@ -15,20 +15,25 @@ class App extends React.Component {
         {
           task: 'Organize Garage',
           id: 1528817077286,
-          completed: false
+          completed: false,
+          color: "blue"
         },
         {
           task: 'Bake Cookies',
           id: 1528817084358,
-          completed: false
+          completed: false,
+          color: "brown"
         },
         {
           task: 'Run Marathon',
           id: 1528817084357,
-          completed: false
+          completed: false,
+          color: "yellow"
         }
       ],
-      todo:''
+      todo: '',
+      color: 3,
+      search: ''
     }
   }
 
@@ -37,10 +42,16 @@ class App extends React.Component {
   }
 
   addTodo = props => {
+    // To change the background color of new items
+    let colors = ["blue", "brown", "yellow", "lightgreen"];
+    let newColor = colors[this.state.color % 4];
+    let colorIndex = this.state.color + 1;
+
+    // To add new items
     props.preventDefault();
     const newToDos = this.state.toDos.slice();
-    newToDos.push({task: this.state.todo, completed: false, id: Date.now()});
-    this.setState({toDos: newToDos, todo: ''});
+    newToDos.push({task: this.state.todo, completed: false, id: Date.now(), color: newColor});
+    this.setState({toDos: newToDos, todo: '', color: colorIndex});
   }
 
   crossOut = id => {
@@ -59,6 +70,10 @@ class App extends React.Component {
     this.setState({toDos: newToDos});
   }
 
+  searchText = props => {
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -66,8 +81,10 @@ class App extends React.Component {
         <TodoForm changeEvent={this.changeTodo}
                   handler={this.addTodo}
                   clearTodo={this.clearTodo}
-                  defaultText="Please add item" 
-                  displayText={this.state.todo}/>
+                  defaultText="Please add item"
+                  displayText={this.state.todo}
+                  searchText={this.state.search}
+                  searchEvent={this.searchText} />
         <TodoList items={this.state.toDos}
                   handler={this.crossOut}/>
 

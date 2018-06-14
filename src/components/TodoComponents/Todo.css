@@ -61,17 +61,32 @@ h1 {
   align-items: center;
   border: 1px solid white;
   box-shadow: 0 19px 38px rgba(255,255,255,.3), 0 19px 38px rgba(0,0,0,.3) ,0 19px 38px rgba(0,0,0,.3), 0 15px 12px rgba(0,0,0,.22);
-  max-width: 12%;
+  width: 15%;
+  height: 20%;
+  max-height: 60px;
   font-size: 2rem;
   margin: 1%;
   padding: 7%;
 }
-.completed {
-  text-decoration: line-through;
-  background: red;
-
-}
 
 li {
   list-style-type: none;
+}
+
+.blue {
+  background: linear-gradient(to right, white, blue);
+}
+.brown {
+  background: linear-gradient(to right, white, brown);
+}
+.yellow {
+  background: linear-gradient(to right, white, yellow);
+}
+.lightgreen {
+  background: linear-gradient(to right, white, lightgreen);
+}
+.todo-item.completed {
+  text-decoration: line-through;
+  background-color: red;
+
 }

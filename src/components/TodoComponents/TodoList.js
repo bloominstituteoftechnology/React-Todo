@@ -12,7 +12,8 @@ const TodoList = props => {
                 handler={props.handler}
                 id={item.id}
                 completed={item.completed}
-                task={item.task}>{item.task}</Todo>)}
+                task={item.task}
+                color={item.color}>{item.task}</Todo>)}
       </ul>
     </div>
   );
