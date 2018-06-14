@@ -6,18 +6,15 @@ import Todo from './Todo';
 const TodoList = props => {
     console.log(props);
     return (
-        <ul>
+        <div>
             {props.tasks.map(task => {
-                return (
-                    <Todo
-                        task={props.tasks.task}
-                        id={Date.now()}
-                        completed={false}
-                    />
-                )
+                <Todo
+                    task={props.task}
+                    id={Date.now()}
+                    completed={false}
+                />
             })}
-        </ul>
-        
+        </div>
     );
 };
 
