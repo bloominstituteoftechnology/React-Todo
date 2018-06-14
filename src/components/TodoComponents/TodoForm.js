@@ -1,6 +1,8 @@
 import React from 'react';
 import TodoList from './TodoList';
 
+import "./Todo.css";
+
 const TodoForm = props => {
   return (
       <div className="todoForm">
@@ -9,7 +11,7 @@ const TodoForm = props => {
             <input
                 type="text"
                 onChange={props.handleChange}
-                placeHolder="...todo"
+                placeholder="...todo"
                 value={props.item}
             />
             <button type="submit">Add Todo</button>

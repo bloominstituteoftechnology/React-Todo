@@ -1,7 +1,27 @@
-.todo span:hover {
+.todo span:hover, button:hover {
     cursor: pointer;
 }
 
 .completed {
     text-decoration: line-through;
+}
+
+.hidden {
+    display: none;
+}
+
+.app {
+
+}
+
+.todoForm {
+
+}
+
+.todoList {
+
+}
+
+.todo {
+
 }

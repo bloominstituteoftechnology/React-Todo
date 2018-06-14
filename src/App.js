@@ -32,6 +32,8 @@ class App extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    
+    if(this.state.item === "") return null;
 
     const newItem = {
       task: this.state.item,
@@ -42,6 +44,16 @@ class App extends React.Component {
     let listItems = this.state.listItems.slice();
     listItems.push(newItem);
     this.setState({ listItems, item: "" });
+
+    if(typeof(Storage) !== "undefined") {
+      // Store
+      sessionStorage.setItem("task", newItem.task);
+      sessionStorage.setItem("key", newItem.key);
+      sessionStorage.setItem("completed", newItem.completed);
+      // Retrieve
+    } else {
+      document.getElementById("root").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
   }
 
   handleCompleted = e => {

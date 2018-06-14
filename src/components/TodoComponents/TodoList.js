@@ -11,6 +11,7 @@ const TodoList = props => {
         props.listItems.map((item, index) => {
           return (
             <Todo
+              key={index}
               index={index}
               task={item.task}
               id={item.key}
