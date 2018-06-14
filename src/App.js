@@ -54,7 +54,7 @@ class App extends React.Component {
 
   handleClear = () => {
     const copyOftodoList = this.state.todoList.slice();
-    const filtered = copyOftodoList.filter(item => !item.completed)//filter all items except completed: false
+    const filtered = copyOftodoList.filter(item => !item.completed)//filter out all items except completed: false
     this.setState({ todoList: filtered })
   }
   // design `App` to be the parent component of your application.

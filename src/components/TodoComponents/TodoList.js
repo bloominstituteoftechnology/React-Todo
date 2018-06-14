@@ -11,10 +11,11 @@ const TodoList = (props) => {
                 <div key={i} className='cardWrapper'>
                     <div className='cardContent'>
                         <h4
-                            style={item.completed ? { textDecoration: 'line-through' } : null }    
+                            style={item.completed ? { textDecoration: 'line-through', boxShadow: '0 0 0 15px hsl(0, 0%, 90%)' } : null }    
                             
                             onClick={() => props.handleToggle(item.id)}>{item.task}  
                         </h4>
+                        {/* <Todo  /> */}
                     </div>
                 </div>
         )
