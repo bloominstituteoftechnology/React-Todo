@@ -71,9 +71,10 @@ class App extends React.Component {
   }
 
   searchText = event => {
+    console.log(event.target.value);
     this.setState({search: event.target.value});
   }
-  
+
 
   render() {
     return (
