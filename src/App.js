@@ -45,8 +45,18 @@ class App extends React.Component {
         return anything ;
       }
     });
+    // this.setState({ tempStateArrCopyTwo })
     this.setState({ tempStateArrCopyTwo })
+
   }
+
+  deleteCompleted = event => {
+    event.preventDefault() ;
+    let tempStateArrCopyThree = this.state.ogArr.slice() ;
+    tempStateArrCopyThree = tempStateArrCopyThree.filter(apples => !apples.completed) ;
+    this.setState({ tempStateArrCopyThree })
+    console.log('greetings from deleteCompleted')
+  };
 
   render() {
     console.log("React Render Called!");
@@ -65,6 +75,7 @@ class App extends React.Component {
           value = {this.state.newArr}
           propChangeTodo = {this.changeTodo}
           propAddTodoTask = {this.addTodoTask}
+          propDeleteCompleted = {this.deleteCompleted}
         />
 
       </div>

@@ -1,6 +1,6 @@
 import React from 'react' ;
 
-const myAlert = () => {alert('don\'t touch me!') };
+// const myAlert = () => {alert('don\'t touch me!') };
 
 const TodoForm = (props) => {
     return(
@@ -16,7 +16,7 @@ const TodoForm = (props) => {
 
                 <button onClick={props.propAddTodoTask}>Add Task</button>
 
-                <button onClick={myAlert}>Delete Completed</button>
+                <button onClick={props.propDeleteCompleted}>Delete Completed</button>
 
             </form>
         </div>        

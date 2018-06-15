@@ -23,7 +23,7 @@ const TodoList = (props) => {
             {props.myPropsData.ogArr.map(bananas => (
                 <TodoToggle 
                     secondPropToggleTaskComplete={props.propToggleTaskComplete}
-                    key = {myDate++}
+                    key = {bananas.id}
                     yetAnotherTodo = {bananas}
                 />
 
