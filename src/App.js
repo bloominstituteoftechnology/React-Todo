@@ -51,6 +51,25 @@ addTodo = element => {
 };
 changeTodo = event => this.setState({ [event.target.name]: event.target.value});
 
+toggleTodoComplete = id => {
+  let todos = this.state.todos.slice();
+  todos = todos.map(todo =>{
+    if (todo.id === id) {
+      todo.completed = !todocompleted;
+      return todo;
+    } else {
+      return todo;
+    }
+  });
+  this.setState({ todos });
+}
+
+clearCompletedTodos = element => {
+  let todos = this.state.todos.slice();
+  todos = todos.filter(todo => !todo.completed);
+  this.setState({ todos });
+};
+
   render() {
     return (
       <div>
