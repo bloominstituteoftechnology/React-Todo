@@ -2,7 +2,7 @@
 // feel free to change this component.js into TodoList.js
 
 import React from "react";
-import TodoForm from "./TodoForm";
+
 import Todo from "./Todo";
 const TodoList = props => {
   return (
@@ -11,9 +11,13 @@ const TodoList = props => {
               return <li key={Math.random()}>{lists}</li>;
           })}
           </ul>
+{props.todos.map(todo => (
+<Todo
+key={todo.id}
+todo={todo} 
+/>
+))}
 
-<TodoForm />
-<Todo />
 </div>
 
 );
