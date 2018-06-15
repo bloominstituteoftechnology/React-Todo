@@ -3,8 +3,8 @@ import TodoList from './components/TodoComponents/TodoList' ;
 import TodoForm from './components/TodoComponents/TodoForm' ;
 
 class App extends React.Component {
-  constructor() {
-    super() ;
+  constructor(pontificate) {
+    super(pontificate) ;
     this.state = {
       ogArr: [
         {
@@ -46,15 +46,15 @@ class App extends React.Component {
       }
     });
     // this.setState({ tempStateArrCopyTwo })
-    this.setState({ tempStateArrCopyTwo })
-
+    this.setState({ ogArr: tempStateArrCopyTwo, newArr: ''});
   }
 
   deleteCompleted = event => {
     event.preventDefault() ;
     let tempStateArrCopyThree = this.state.ogArr.slice() ;
     tempStateArrCopyThree = tempStateArrCopyThree.filter(apples => !apples.completed) ;
-    this.setState({ tempStateArrCopyThree })
+    // this.setState({ tempStateArrCopyThree })
+    this.setState({ ogArr: tempStateArrCopyThree, newArr: ''}) ;
     console.log('greetings from deleteCompleted')
   };
 
