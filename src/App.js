@@ -3,8 +3,8 @@ import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       todos:
@@ -24,24 +24,31 @@ class App extends React.Component {
     };
   }
 
-  onChange = event => {
-    this.setState({todo: event.target.value});
-  }
+  addTodo = event => {
+    event.preventDefault();
 
-  addTodo = () => {
     const todos = this.state.todos.slice();
-    todos.push(this.state.todo);
-    this.setState({todos: todos, todo: ''});
+    todos.push({task: this.state.todo, completed: false, id: Date.now()});
+    this.setState({todos, todo: ''});
   };
 
+  changeTodo = event => {
+    this.setState({[event.target.name]: event.target.value});
+  }
 
   render() {
     return (
       <div id="app">
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm addTodo={this.addTodo}/>
+        <TodoForm 
+          value={this.state.todo}
+          handleAddTodo={this.addTodo}
+        />
 
-        <TodoList todos={this.state.todos} />
+        <TodoList 
+          todos={this.state.todos}
+          handleTodoChange={this.changeTodo}
+        />
       </div>
     );
   }
