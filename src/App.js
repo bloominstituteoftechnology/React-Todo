@@ -26,7 +26,8 @@ constructor(){
   }
 ],
 
-	item: ""
+	item: "",
+	searchItem: ""
 		
 	};
 
@@ -37,6 +38,13 @@ constructor(){
     console.log(event.target.value);
     // the way to update state in react! // LIFECYCLE FUNCTION
     this.setState({ item: event.target.value });
+  };
+
+ changeListItemSearch = event => {
+   event.preventDefault();          
+    console.log(event.target.value);
+    // the way to update state in react! // LIFECYCLE FUNCTION
+    this.setState({ searchItem: event.target.value });
   };
 
 
@@ -56,6 +64,14 @@ removeListItem = event => {
 	this.setState({ todos: todos});
 
 };
+
+searcItem = event => {
+	event.preventDefault();
+	let todos =this.state.todos.slice();
+        todos = todos.filter(todo => todo.task === this.state.searchItem);
+	this.setState({todos: todos, searchItem: ""});
+
+}
 
 
 toggleId = id => {
@@ -83,7 +99,7 @@ toggleId = id => {
     return (
       <div>
 	    <TodoList classStrike="item-strike" classRegular="item-style" toggleIdValue={this.toggleId} listItem={this.state.todos} />
-	    <TodoForm inputStyle="input-style" buttonStyle="button-style" removeItem={this.removeListItem} inputEvent={this.changeListItem}  inputValue={this.state.item} addNewItem={this.addItem}  />
+	    <TodoForm inputValueSearch={this.state.searchItem} searchInput={this.changeListItemSearch} enterKeyPress ={this.searcItem} inputStyle="input-style" buttonStyle="button-style" removeItem={this.removeListItem} inputEvent={this.changeListItem}  inputValue={this.state.item} addNewItem={this.addItem}  />
 
       </div>
     );
