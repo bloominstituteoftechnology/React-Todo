@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -62,7 +63,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Todo List:</h1>
+        <h1
+          className="header-main"
+        >
+          Todo List:
+        </h1>
         <TodoList
           handleToggleComplete={this.toggleTodoComplete}
           tasks={this.state.todos}

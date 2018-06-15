@@ -1,0 +1,35 @@
+.items {
+    text-align: center;
+    font-size: 16px;
+    margin: 5px auto;
+    font-weight: bold;
+}
+.items:hover {
+    background: darkslategray;
+    color: white;
+    border: 1px solid darkslategray;
+    border-radius: 25px;
+}
+
+.todo-form {
+    padding: 8px;
+    
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    background: darkslategray;
+    border: 2px solid rgb(38, 48, 48);
+    border-radius: 15px;
+}
+.todo-form .custom-input {
+    border-radius: 10px;
+    padding: 0 5px;
+}
+.todo-form .custom-button {
+    border-radius: 10px;
+}
+.todo-form .custom-button:hover {
+    background: darkslategray;
+    color: white;
+    border: 2px solid white;
+}
