@@ -1,6 +1,7 @@
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
-import React from 'react';
+import React from 'react' ;
+import TodoToggle from './TodoToggle' ;
 
 let myDate = Date.now() ;
 
@@ -9,7 +10,7 @@ const TodoList = (props) => {
     return(
         <div>
             
-            <ul>
+            {/* <ul>
                 {props.myPropsData.ogArr.map(bananas => {
                     return (
                             <li key = {myDate++}>
@@ -17,10 +18,23 @@ const TodoList = (props) => {
                         </li>
                     )
                 })}
-            </ul>
+            </ul> */}
+
+            {props.myPropsData.ogArr.map(bananas => (
+                <TodoToggle 
+                    secondPropToggleTaskComplete={props.propToggleTaskComplete}
+                    key = {myDate++}
+                    yetAnotherTodo = {bananas}
+                />
+
+            ))}
+
 
         </div>
     )
 }
 export default TodoList ;
+
+
+
 

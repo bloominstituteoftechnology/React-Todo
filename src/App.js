@@ -33,7 +33,20 @@ class App extends React.Component {
   changeTodo = event => { 
     console.log('UPDATING STATE!! from changeTodo') ;
     this.setState({ newArr: event.target.value}) ;
-  }  
+  } 
+  
+  toggleTaskComplete = id => {
+    let tempStateArrCopyTwo = this.state.ogArr.slice() ;
+    tempStateArrCopyTwo = tempStateArrCopyTwo.map(anything => {
+      if (anything.id === id) {
+        anything.completed = !anything.completed ;
+        return anything ;
+      }else {
+        return anything ;
+      }
+    });
+    this.setState({ tempStateArrCopyTwo })
+  }
 
   render() {
     console.log("React Render Called!");
@@ -43,7 +56,10 @@ class App extends React.Component {
         {/* PASSING STATE TO PROPS VIA A VARIABLE, VAR DECALRED HERE */}
         {/* <TodoList myPropsData={this.state.ogArr} /> */}
         
-        <TodoList myPropsData={this.state} />
+        <TodoList 
+          myPropsData={this.state} 
+          propToggleTaskComplete={this.toggleTaskComplete}
+        />
 
         <TodoForm
           value = {this.state.newArr}
