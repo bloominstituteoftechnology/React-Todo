@@ -33,7 +33,7 @@ class App extends React.Component {
   };
 
   changeTodo = event => {
-    this.setState({[event.target.name]: event.target.value});
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
@@ -42,12 +42,12 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         <TodoForm 
           value={this.state.todo}
+          handleTodoChange={this.changeTodo}
           handleAddTodo={this.addTodo}
         />
 
         <TodoList 
           todos={this.state.todos}
-          handleTodoChange={this.changeTodo}
         />
       </div>
     );
