@@ -1,0 +1,54 @@
+body {
+	padding: 50px;
+	background-color: lightcoral;
+	font-family: sans-serif;
+	margin: auto 0;
+}
+
+#root {
+	display: flex;
+	justify-content: center;
+	margin: auto 0;
+}
+.title-header {
+	font-size: 50px;
+	color: lightgray;
+	letter-spacing: 2px;
+}
+
+input {
+	width: 250px;
+	padding: 10px;
+	font-size: 16px;
+	border: 2px solid #FFF;
+}
+
+button {
+	width: 70px;
+	padding: 10px;
+	font-size: 16px;
+	margin: 10px;
+	margin-right: 0px;
+	background-color: darkblue;
+	border: 2px solid darkblue;
+	color: #fff;
+
+}
+button:hover{
+	background-color: blue;
+	cursor: pointer;
+	border: 2px solid blue;
+}
+
+li {
+	color: #333;
+	background-color: rgba(255, 255, 255, .5);
+	padding: 15px;
+	margin-bottom: 15px;
+	border-radius: 5px;
+	list-style: none;
+}
+
+ul {
+	padding: 0px;
+}
