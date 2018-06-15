@@ -33,25 +33,27 @@ class App extends React.Component {
     this.setState({todos,todo : ''})
   }
 
-  toggleTodoCompleted = id => {
-    let todos = this.state.todos.slice();
+  toggleTodoComplete = id => {
+    let todos = [...this.state.todos]
     todos.map(todo => {
       if(todo.id === id){
         todo.completed = !todo.completed
-        return todo;
+        return todo
       }
       else {
-        return todo;
+        return todo
       }
     })
+    this.setState({todos})
 
-    clearCompletedTodo = event => {
-      event.preventDefault();
-      let todos = this.state.todos.slice();
-      todos = todos.filter(todo => !todo.completed)
-      this.setState({ todos })
-    }
+  }
 
+
+  clearCompletedTodo = event => {
+    event.preventDefault();
+    let todos = this.state.todos.slice();
+    todos = todos.filter(todo => !todo.completed)
+    this.setState({ todos })
   }
   render() {
     return (
