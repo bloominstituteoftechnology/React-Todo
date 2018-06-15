@@ -76,7 +76,7 @@ searchTasks = event => {
     return ( <div className="main-content">
       <h1> {this.state["List title"]}</h1>
       <TodoSearch value={this.state.search} serachTaskHandler={this.searchTasks} searchChangeHandler={this.changeTask} />
-      <TodoList listItems = {this.state.items} toggleComplete={this.toggleCompleteHandler} />
+      <TodoList listItems = {this.state.items} toggleComplete={this.toggleCompleteHandler} searchString={this.state.search} />
       <TodoForm value = {this.state.item} addTaskHandler = {this.addTask} taskChangeHandler = {this.changeTask} clearCompletedHandler = {this.clearCompleted} />
       </div>
     );

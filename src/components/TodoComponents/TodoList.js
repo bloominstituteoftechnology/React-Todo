@@ -4,8 +4,13 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = props => {
+  let lists = props.lestItems;
+  let search = props.searchString.trim().toLowerCase();
+  if (search.length > 0) {
+    lists = lists.filter(user => return user.task.toLowerCase().match(search));
+  }
   return ( <ul> {
-      props.listItems.map(item => {
+      lists.map(item => {
         return <Todo key = {item.id} item = {item} toggleComplete={props.toggleComplete} />;
       })
     } </ul>
