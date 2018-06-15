@@ -4,10 +4,10 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = props => {
-  let lists = props.lestItems;
+  let lists = props.listItems;
   let search = props.searchString.trim().toLowerCase();
   if (search.length > 0) {
-    lists = lists.filter(user => return user.task.toLowerCase().match(search));
+    lists = lists.filter(user => {return user.task.toLowerCase().match(search)});
   }
   return ( <ul> {
       lists.map(item => {
