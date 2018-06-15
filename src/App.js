@@ -28,13 +28,16 @@ class App extends React.Component {
   onClear = event => {
     let todosCopy = this.state.todos.slice();
     if (todosCopy.length === 0) {return alert("Nothing to clear")}
-      for (let i = 0; i < todosCopy.length; ++i) {
-        if (todosCopy[i].completed) {
-          delete todosCopy[i];
-        }
-      }
-    
-    return this.setState({ todos: todosCopy, todo: "" });
+      // for (let i = 0; i < todosCopy.length; ++i) {
+      //   if (todosCopy[i].completed) {
+      //     delete todosCopy[i];
+      //   }
+      // }
+      todosCopy = todosCopy.filter(item => {
+          return item.completed === false;
+      })
+      console.log(todosCopy);
+    return this.setState({ todos: todosCopy});
   }
 
   completedEvent = id => {
