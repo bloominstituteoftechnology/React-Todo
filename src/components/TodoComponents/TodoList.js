@@ -7,12 +7,26 @@ import Todo from './Todo';
 
 const TodoList = props => {
     return (
-    <ul>
+        <div className="list-wrapper">
         {props.listTasks.map(listed => {
-            return <Todo key= {Math.random()} singleTodo = {listed.task}/>;
+         return (
+            <Todo 
+            toggleCompleted={props.toggleCompleted}
+            key= {Math.random()} 
+            singleTodo={listed} 
+            />
+        )
         })}
-    </ul>
+    </div>
     );
 };
 
 export default TodoList;
+
+
+
+
+
+  
+
+  
