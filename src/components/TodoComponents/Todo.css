@@ -3,6 +3,9 @@
   cursor:pointer;
 }
 
+li{
+  font-family: 'Kaushan Script', cursive;
+}
 .completed{
   text-decoration: line-through;
 }

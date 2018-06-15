@@ -14,7 +14,7 @@ class Todo extends React.Component{
 
       //pass the id into the todoClick Handler. It needs to be an anonymous arrow function because otherwise it would be called instantaneously
         onClick={() => this.props.onTodoClick(this.props.todo.id)}>
-        <h2>{this.props.todo.task}</h2>
+        <h4>{this.props.todo.task}</h4>
       </li>
     )
   }

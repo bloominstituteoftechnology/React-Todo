@@ -12,15 +12,31 @@ class App extends React.Component {
     this.state = {
       todos : [
         {
-          task: 'Organize Garage',
+          task: 'Start learning React',
           id: 1528817077286,
+          completed: true
+        },
+        {
+          task: 'Components, Props, State',
+          id: 1538817084358,
+          completed: true
+        },
+        {
+          task: 'Hook-up Handlers',
+          id: 1548817084358,
+          completed: true
+        },
+        {
+          task: 'Add some styling',
+          id: 1558817084358,
           completed: false
         },
         {
-          task: 'Bake Cookies',
-          id: 1528817084358,
+          task: 'Make list overflow-hidden after end of paper',
+          id: 1568817084358,
           completed: false
-        }
+        },
+
       ],
       tempTodo: ''
     }
