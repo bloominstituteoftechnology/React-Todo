@@ -61,7 +61,7 @@ class App extends React.Component {
 // Render the JSX
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Todo List:</h1>
         <TodoList
           handleToggleComplete={this.toggleTodoComplete}
