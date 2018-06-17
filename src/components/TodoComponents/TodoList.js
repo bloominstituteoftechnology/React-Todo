@@ -4,20 +4,17 @@ import React from "react";
 import Todo from "./Todo";
 
 const TodoList = props => {
-    console.log(props);
     return(
-        <ul>
-            {props.someThings.map(something => {
-                return <li key = {something.id}>{something.task}</li>
-            })}
-        </ul>
+        <div>
+            {props.things.map(things => (
+                <Todo
+                    taskToggler = {props.taskToggler}
+                    key = {things.id} 
+                    things= {things} 
+                />
+            ))}
+       </div>
     );
 };
 
 export default TodoList;
-
-//import todo into todolist , maps over todo, handle toggle complete, exports into app.
-
-/* {this.state.things.map(something=> (<li key={something.id}>{something.task}</li>))} */
-
-//li onclick() key

@@ -22,73 +22,57 @@ class App extends React.Component {
             completed: false
           }
         ],
-        tasks: ''
+        thing: ""
       };
 }
 
   changeTaskHandler = event => {
-    event.preventDefault();
-    console.log(event.target.value)
-   this.setState({tasks: event.target.value})
+   this.setState({thing: event.target.value});
   };
 
   addTask = event => {
     event.preventDefault();
     const things = this.state.things.slice();
-    console.log(things, "things");
-    let obj = {}
-    obj.task = this.state.tasks
-    obj.id= Math.random();
-    obj.completed = false;
-    things.push(obj);
-    this.setState({things: things})
+    things.push({ task : this.state.thing, id : Math.random(), completed : false });
+    this.setState({ things , thing: ""});
   };
 
+  toggleTask = id => {
+    let things = this.state.things.slice();
+    things = things.map(thing => {
+      if(thing.id===id) {
+        thing.completed = !thing.completed;
+        return thing;
+      }
+      else {
+      return thing;
+      }
+    });
+  this.setState({things});
+};
 
-  // toggleTodoComplete = id => {
-  //   let todos = this.state.todos.slice();
-  //   todos = todos.map(todo => {
-  //     if(todo.id === id){
-  //       todo.completed = !todo.completed;
-  //       return todo;
-  //     }
-  //     else {
-  //       return todo;
-  //     }
-  //   });
-  //   this.setState({todos});
-  // };
-
-  // clearCompletedTodos = e => {
-  //   e.preventDefault();
-  //   let todos = this.state.todos.slice();
-  //   todos = todos.filter(todo => !todo.completed);
-  //   this.setState({todos});
-  // };
-
+  clearCompleted = event => {
+    event.preventDefault();
+    let things = this.state.things.slice();
+    things = things.filter(thing => !thing.completed);
+    this.setState({things});
+  }
 
   render() { //invoked anytime state is updated
     console.log("render called");
     return (
       <div>
         <h2>{this.state.greeting}</h2>
-
-         {/* <input
-          type = "text"
-          onChange = {this.changeTaskHandler}
-          placeholder = "Add todo"
-          value = {this.state.tasks}
-         /> */}
-
-         <TodoForm eventHandler = {this.changeTaskHandler} addTaskEvent = {this.addTask} value = {this.state.tasks}/>
-
-         {/* <button onClick = {this.addTask}>Add Task</button> */}
-
-         {/* <TodoForm value = {this.state.tasks}/> */}
-
-        <TodoList someThings = {this.state.things} />
-        {/* <TodoForm /> */}
-        
+         <TodoForm 
+         value = {this.state.thing}
+         eventHandler = {this.changeTaskHandler}          
+         addTaskEvent = {this.addTask}
+         clear = {this.clearCompleted}
+         />
+        <TodoList 
+        things = {this.state.things}
+        taskToggler = {this.toggleTask}
+        />       
       </div>
     );
   }
