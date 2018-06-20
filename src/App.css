@@ -12,14 +12,17 @@
   margin-left: 70px;
   background: bisque;
   border: 5px solid slateblue;
+  border-style: groove;
   padding: 20px;
+  border-radius: 10px;
 }
 
 h2 {
-  font-size: 36px;
+  font-size: 48px;
   color: slateblue;
-  line-height: 48px;
+  line-height: 36px;
   font-family: system-ui; 
+  font-weight: bold;
 }
 
 .doge {

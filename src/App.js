@@ -22,6 +22,11 @@ class App extends React.Component {
           id: 3,
           completed: false
         },
+        {
+          task: 'Initialized crossed out?',
+          id: 4,
+          completed: true
+        },
       ],
       todo: ""
     };
@@ -57,7 +62,6 @@ class App extends React.Component {
     });
     this.setState({todos});
   };
-
 
   render() {
     return (
