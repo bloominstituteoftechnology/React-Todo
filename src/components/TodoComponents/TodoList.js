@@ -7,7 +7,7 @@ import Todo from './Todo.js';
 const TodoList = props => {
   return (
     <ul>{props.list.map( item => {
-      return <Todo item={item} />
+      return <Todo item={item} key={Math.random()} />
     })}
     </ul>
   )
