@@ -1,0 +1,22 @@
+.TodoForm {
+  line-height: 18px;
+  font-size: 14px;
+  margin: 10px auto;
+}
+
+button {
+    background: slateblue;
+    color: bisque;
+    display: flex;
+    font-size: 16px;
+    justify-content: center;
+}
+
+.search-form {
+    display: flex;
+    margin: 10px auto;
+    padding: 5px;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 300px;
+}

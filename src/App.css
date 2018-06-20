@@ -1,5 +1,41 @@
 .App {
-    font-family: sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
   }
-  
+
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin-left: 70px;
+  background: bisque;
+  border: 5px solid slateblue;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 36px;
+  color: slateblue;
+  line-height: 48px;
+  font-family: system-ui; 
+}
+
+.doge {
+  width: 200px;
+  height: 200px;
+  animation-name: doge;
+  animation-duration: 4s;
+  animation-direction: alternate-reverse;
+  animation-timing-function: ease-in;
+  animation-delay: 3s;
+}
+
+@keyframes doge {
+  0% {background-color: bisque; left: 0px; top: 10px;}
+  25% {background-color: bisque; left: 50px; top: 60px;}
+  50% {background-color: bisque; left: 100px; top: 110px;}
+  75% {background-color: bisque; left: 50px; top: 60px;}
+  100% {background-color: bisque; left: 0px; top: 10px;}
+}
