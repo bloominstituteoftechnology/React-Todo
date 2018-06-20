@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDom from "react-dom";
-import TodoList from "./TodoList";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       greeting: "Todo List: MVP",
-      Todo: []
+      Todo: ["ToDo"]
     };
   }
   // you will need a place to store your state in this component.
@@ -23,5 +22,11 @@ class App extends React.Component {
     );
   }
 }
+
+changeGreetingHandler = event => {
+  console.log(this);
+  this.setState({});
+  alert(TodoList);
+};
 
 export default App;
