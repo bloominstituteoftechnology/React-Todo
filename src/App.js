@@ -9,7 +9,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <h1>Learn setstate()</h1>
-        <h3> Style my Todo list</h3>
+        <h1> Style my Todo list</h1>
       </div>
     );
   }
