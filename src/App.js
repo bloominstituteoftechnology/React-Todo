@@ -8,6 +8,11 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      nextTodo: {
+        task: '',
+        id: '',
+        completed: false,
+      },
       todos: [
         {
           task: 'Organize Garage',
@@ -22,20 +27,23 @@ class App extends React.Component {
       ]
     };
   }
+
   addHandler = event => {
-    console.log('wtf');
     const list = this.state.todos.slice();
-    list.push({task:'mow the lawn', id:1234, completed:false})
-    this.setState({todos: list});
+    list.push({task: this.state.nextTodo.task, id: this.state.nextTodo.id, completed: this.state.nextTodo.completed});
+    this.setState({todos: list, nextTodo: {task: '', id: '', completed: false}});
   }
 
   textHandler = event => {
-    this.setState({
+    const nextTodo = {
       task: event.target.value,
       id: Math.random(),
       completed: false
-    });
+    };
+    this.setState({nextTodo: nextTodo})
   };
+
+  
 
   render() {
     return (
