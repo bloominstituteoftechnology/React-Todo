@@ -12,11 +12,13 @@ const TodoForm = props => {
             <input 
                 type = "text"
                 placeholder = "Add Todo"
+                // value = {this.props.todoTask}
                 />
-            <button> Add Band </button>
+            <button onclick = {this.addTodoTask}> Add Todo Task </button>
             <button> Clear Completed </button>
         </div>
     );
 }
 
 export default TodoForm;
+

@@ -1,5 +1,6 @@
 import React from 'react';
-import TodoForm from './components/TodoComponents/TodoForm.js'
+import TodoForm from './components/TodoComponents/TodoForm.js';
+import TodoList from './components/TodoComponents/TodoList.js';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -8,14 +9,25 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoData: [
+      todoTasks: [
         {
-          task: "",   // the todo title that will be shown to the user.
-          id: "",  // a unique Time Stamp that will be assigned by Date.now().
-          completed: "" //field should default to false and will be the field that we toggle when we complete a todo
-        }
+          task: "wake up",   // the todo title that will be shown to the user.
+          id: "1",  // a unique Time Stamp that will be assigned by Date.now().
+          completed: "false" //field should default to false and will be the field that we toggle when we complete a todo
+        }, 
+
+        {
+          task: "jog",   
+          id: "2",  
+          completed: "false" 
+        },
       ]
     }
+  }
+
+  addTodoTask = () => {
+    const todoTasks = this.state.todoTasks;
+    todoTasks.push(this.state.todoTask)
   }
 
   render() {
@@ -23,6 +35,10 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm />
+        
+        <h2>Todo List </h2>
+       
+        <TodoList />
       </div>
     );
   }
