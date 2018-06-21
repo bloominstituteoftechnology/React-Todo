@@ -22,6 +22,21 @@ class App extends React.Component {
       ]
     };
   }
+  addHandler = event => {
+    console.log('wtf');
+    const list = this.state.todos.slice();
+    list.push({task:'mow the lawn', id:1234, completed:false})
+    this.setState({todos: list});
+  }
+
+  textHandler = event => {
+    this.setState({
+      task: event.target.value,
+      id: Math.random(),
+      completed: false
+    });
+  };
+
   render() {
     return (
       <div>
@@ -29,7 +44,7 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         <TodoList 
           todoItems={this.state.todos} />
-        <TodoForm />
+        <TodoForm  addHandler={this.addHandler} textHandler={this.textHandler}/>
       </div>
     );
   }

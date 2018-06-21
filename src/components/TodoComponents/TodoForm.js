@@ -1,15 +1,16 @@
 import React from 'react';
 import './Todo.css'
 
-const TodoForm = () => {
+const TodoForm = (props) => {
     return (
       <div className='todo-form'>
         <input 
-          type="text"
-          placeholder="add todo"
-          name="todo"
+          onChange={props.textHandler}
+          type='text'
+          placeholder='add todo'
+          name='todo'
         />
-        <button>Add Todo</button>
+        <button onClick={props.addHandler}>Add Todo</button>
         <button>Clear Completed</button>
       </div>        
     );

@@ -22,12 +22,3 @@ const TodoList = (props) => {
 export default TodoList
 
 
-//rops.todos.map((todo) => {
-  //return (
-    //<Todo
-      //key={Math.random()}
-     // singleTodo={todo}
-    ///>
-  ////)
-//);
-//}
