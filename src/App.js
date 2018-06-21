@@ -19,7 +19,7 @@ class App extends React.Component {
       this.setState({ [event.target.name]: event.target.value });
     };
 
-    alert TodoHandler = ToDo => {
+    alertTodoHandler = ToDo => {
       alert(Todo);
     };
 
