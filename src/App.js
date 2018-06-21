@@ -21,7 +21,7 @@ class App extends React.Component {
   addTodo = event => {
     event.preventDefault();
     const newTodo = this.state.listItems.slice();
-    newTodo.push(this.state.inputListItem);
+    newTodo.push({task: this.state.inputListItem, id: Date.now(), completed: false });
     this.setState({ listItems: newTodo });
   };
 
