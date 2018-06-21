@@ -3,9 +3,9 @@ import './Todo.css';
 
 const Todo = props => {
   return(
-    <div className="item-wrapper">
+    <li onClick={props.handler} className="item-wrapper">
       {props.item}
-    </div>
+    </li>
   )
 }
 
