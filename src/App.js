@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDom from "react-dom";
-
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       greeting: "Todo List: MVP",
-      Todo: ["ToDo"]
+      Todo: [""]
     };
   }
   // you will need a place to store your state in this component.
@@ -18,15 +17,20 @@ class App extends React.Component {
         <h2>Todo List: MVP</h2>
         <h1>Learn setstate()</h1>
         <h1> Style my Todo list</h1>
+        <button onclick="displayDate()">Add Todo</button>
+        <button onclick="displayDate()">Clear Completed</button>
       </div>
     );
   }
 }
 
-changeGreetingHandler = event => {
-  console.log(this);
-  this.setState({});
-  alert(TodoList);
-};
+element.addEventListener("click", function() {
+  alert("Todo List!");
+});
+
+element.addEventListener("click", myFunction);
+function myfunction() {
+  alert("TodoList");
+}
 
 export default App;
