@@ -10,23 +10,19 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      listItems: [  {
-        task: 'Organize Garage',
-        id: 1528817077286,
-        completed: false
-      },
-      {
-        task: 'Bake Cookies',
-        id: 1528817084358,
-        completed: false
-      }],
+      listItems: [],
       inputListItem: ''
     };
   };
 
   typedInputHandler = event =>
-    this.setState({[event.target.name]: event.target.value})
+    this.setState({[event.target.name]: event.target.value});
 
+  addTodo = () => {
+    const newTodo = this.state.listItems.slice();
+    newTodo.push(this.state.inputListItem);
+    this.setState({ listItems: newTodo, inputListItem: '' });
+  };
 
   // toggleStrike = id => {
   //   let items = this.state.slice();
@@ -45,6 +41,7 @@ class App extends React.Component {
         <ToDoForm
           inputItem={this.state.inputListItem}
           typedInput={this.typedInputHandler}
+          submitTodo={this.addTodo}
         />
       </div>
     );
