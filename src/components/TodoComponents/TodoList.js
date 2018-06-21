@@ -3,11 +3,11 @@
 import React from "react";
 import Todo from './Todo';
 
-const ToDoList = props => {
+const TodoList = props => {
   return (
       <div>
-        {props.Todos.map(todo => {
-            return <Todo key={Math.random()}todo={tasks} />;
+        {props.newTodos.map(todo => {
+            return <Todo key={Math.random()}todo={todo} />;
         })}
        </div>
   );

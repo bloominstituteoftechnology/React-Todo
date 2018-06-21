@@ -1,8 +1,8 @@
 import React from 'react';
-import { render } from "react-dom";
-import Todo from "./Todo";
-import TodoList from "./TodoList";
-import TodoForm from "./TodoForm";
+// import { render } from "react-dom";
+// import Todo from "./Todo";
+import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -12,16 +12,26 @@ class App extends React.Component {
     super();
     this.state = {
       newTodo: "",
-      tasks: [],
+      todos: [
+        
+          {
+            task: 'Organize Garage',
+            id: 1528817077286,
+            completed: false
+          },
+          {
+            task: 'Bake Cookies',
+            id: 1528817084358,
+            completed: false
+          }
+        ]
+      
     };
-
+  }
     handleAddTodo = event => {
       this.setState({ [event.target.name]: event.target.value });
     };
 
-    alertTodoHandler = ToDo => {
-      alert(Todo);
-    };
 
     handleSubmitTodo = () => {
       const { tasks } = this.state;
@@ -34,18 +44,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>My To Do List</h2>
-        <TodoList {...this.state} />
-        <input
-          type="text"
-          name="newTasks"
-          value={this.state.newTodo}
-          placeholder="add tasks"
-          onChange={this.handleAddTodo}
-        />
-        <button onSubmit={this.handleSubmitTodo}>Add Todo</button>
         <TodoList
         newTodos={this.state.todos}
-        alertTodos={this.alertTodoHandler}
         />
       </div>
     );
@@ -53,4 +53,5 @@ class App extends React.Component {
 };
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+
+export default App;
