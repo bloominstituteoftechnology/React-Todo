@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-const TodoForm= () => {
+const TodoForm= props => {
     return (
         <div>
             <input
                 typer="text"
                 onChange={this.changeToDoHandler}
                 placeholder="add item"
-                //value={this.state.TodoForm}
+                value={props.items}
             /> 
 
             <button onClick= {this.addItem}>Add Item</button>
