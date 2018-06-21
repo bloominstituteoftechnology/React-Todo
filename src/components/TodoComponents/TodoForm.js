@@ -12,12 +12,11 @@ const TodoForm = (props) => {
           value={props.value}
           onChange={props.submitHandler}
         />
+        <button onClick={props.addTodo}>Add Todo</button>
+        <button onClick={props.completedTodos}>Delete Todo</button>
       </form>
-      <button onClick={props.addTodo}>Add Todo</button>
-      <button>Clear Todo</button>
     </div>
   );
 };
 
 export default TodoForm;
-//

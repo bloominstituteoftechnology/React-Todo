@@ -5,7 +5,11 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = (props) => {
-  return <div>{props.todos.map((todo) => <Todo key={todo.id} singleTodo={todo} />)}</div>;
+  return (
+    <div>
+      {props.todos.map((todo) => <Todo key={todo.id} singleTodo={todo} toggle={props.toggle} />)}
+    </div>
+  );
 };
-
+// passing singleTodo property to child Todo.js
 export default TodoList;
