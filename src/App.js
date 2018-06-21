@@ -26,9 +26,10 @@ class App extends React.Component {
     };
 
   render() {
+
     return (
-      <div style={styles}>
-        <h2>This Is My To Do List</h2>
+      <div>
+        <h2>My To Do List</h2>
         <TodoList {...this.state} />
         <input
           type="text"
@@ -37,10 +38,12 @@ class App extends React.Component {
           placeholder="add tasks"
           onChange={this.handleAddTodo}
         />
-        <button onClick={this.handleSubmitTodo}>Add Todo</button>
+        <button onSubmit={this.handleSubmitTodo}>Add Todo</button>
+
       </div>
     );
   };
 };
 
-export default App;
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);

@@ -7,7 +7,7 @@ const ToDoList = props => {
   return (
       <div>
         {props.Todos.map(todo => {
-            return <Todo key={Math.random()}todo={task} />;
+            return <Todo key={Math.random()}todo={tasks} />;
         })}
        </div>
   );
