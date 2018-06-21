@@ -9,19 +9,25 @@ class App extends React.Component {
     todos:[ { task: 'Organize Garage', id: 1528817077286, completed: false},
           { task: 'Bake Cookies', id: 1528817084358, completed: false},
           ],
-            item: ""
+          item: ""
         }
   } //Constructor 
 
-   changeToDoHandler= event => {
-     console.log (event.target.value);
-     this.setState({task: event.target.value});
-   };
+   changeToDoHandler= event =>
+     this.setState({[event.target.name]: event.target.value});
 
-  addItem= () => {
+  addItem= event => {
+    event.preventDefault();
     const todos = this.state.todos.slice();
     todos.push({task:this.state.item, id:Date.now(), completed:false});
-    this.setState({todos,todo:""});
+    this.setState({todos,item:""});
+  };
+
+  clearItem= event => {
+    event.preventDefault();
+    const todos = this.state.todos.slice();
+    todos.shift({task:this.state.item, id:Date.now(), completed:false});
+    this.setState({todos,item:""});
   };
 
   // you will need a place to store your state in this component.
@@ -30,8 +36,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm todos={this.addItem} /> 
+        <h2>To Do List</h2>
+        <TodoForm item={this.state.item} 
+        addItem={this.addItem}
+        changeToDoHandler={this.changeToDoHandler} /> 
         <TodoList items={this.state.todos} />
       </div>
     );
