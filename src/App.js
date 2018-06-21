@@ -18,10 +18,11 @@ class App extends React.Component {
   typedInputHandler = event =>
     this.setState({[event.target.name]: event.target.value});
 
-  addTodo = () => {
+  addTodo = event => {
+    event.preventDefault();
     const newTodo = this.state.listItems.slice();
     newTodo.push(this.state.inputListItem);
-    this.setState({ listItems: newTodo, inputListItem: '' });
+    this.setState({ listItems: newTodo });
   };
 
   // toggleStrike = id => {
