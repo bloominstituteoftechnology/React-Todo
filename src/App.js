@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDom from "react-dom";
+import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      greeting: "Todo List: MVP",
-      Todo: [""]
+      todos: [{}]
     };
   }
   // you will need a place to store your state in this component.
@@ -23,6 +24,12 @@ class App extends React.Component {
     );
   }
 }
+
+changeGreetingHandler = event => {
+  console.log(TodoList);
+  this.setState({});
+  alert();
+};
 
 element.addEventListener("click", function() {
   alert("Todo List!");
