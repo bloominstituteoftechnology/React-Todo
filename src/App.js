@@ -54,13 +54,25 @@ class App extends React.Component {
       this.setState({ todos });
     };
   
-  render() {
-    return (
-      <div>
-        <h2>To Do List</h2>
-      </div>
-    );
+    render() {
+      return (
+        <div className="container">
+          <h2>To Do List</h2>
+          <TodoList
+            handleToggleComplete={this.toggleTodoComplete}
+            todos={this.state.todos}
+          />
+          <TodoForm
+            value={this.state.todo}
+            handleTodoChange={this.changeTodo}
+            handleAddTodo={this.addTodo}
+            handleClearTodos={this.clearCompletedTodos}
+          />
+        </div>
+      );
+    }
   }
-}
+
+
 
 export default App;
