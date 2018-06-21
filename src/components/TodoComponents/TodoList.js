@@ -75,8 +75,6 @@ const TodoList = props => {
     return ( 
         <ul> 
             {x.map(item => {
-                // return <li key= {Math.random()}> {item} </li>
-                // return <li key= {Math.random()}> {item} </li>
                 return <Todo singleTodo = {item} />; 
             })}
         </ul>

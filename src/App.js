@@ -27,7 +27,8 @@ class App extends React.Component {
           id: "3",  
           completed: "false" 
         },
-      ]
+      ],
+      todoTask: ""
     }
   }
 
@@ -35,13 +36,20 @@ class App extends React.Component {
     const todoTasks = this.state.todoTasks.slice();
     todoTasks.push(this.state.todoTask);
     this.setState({todoTasks: todoTasks, todoTask: ""})
-  }
+  };
+
+  changeAddTodoHandler = event => {
+    console.log(event.target.value);
+    this.setState({todoTask: event.target.value});
+  };
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm />
+        <TodoForm 
+          activeValue = {this.state.todoTask}
+        />
         
         <h2> List of Todo Tasks </h2>
        
