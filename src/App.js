@@ -19,6 +19,10 @@ class App extends React.Component {
       this.setState({ [event.target.name]: event.target.value });
     };
 
+    alert TodoHandler = ToDo => {
+      alert(Todo);
+    };
+
     handleSubmitTodo = () => {
       const { tasks } = this.state;
       tasks.push(this.state.newTodo);
@@ -39,7 +43,10 @@ class App extends React.Component {
           onChange={this.handleAddTodo}
         />
         <button onSubmit={this.handleSubmitTodo}>Add Todo</button>
-
+        <TodoList
+        newTodos={this.state.todos}
+        alertTodos={this.alertTodoHandler}
+        />
       </div>
     );
   };
