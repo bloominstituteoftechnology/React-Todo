@@ -6,12 +6,23 @@ import Todo from './Todo'
 
 const TodoList = props => {
     return (
-        <ul>
-            {props.currentList.map(todoTask => {
-                return <li key={Math.random()}> {todoTask}</li>;
-            })}
-        </ul>
-    )
+        <div>
+           {/* {props.currentList.map(task => {
+               return <li key={Math.random()}> {task}</li>;
+           })} */}
+           {props.currentList.task}
+        </div>
+    );
 }
+
+// const TodoList = props => {
+//     return (
+//         <ul>
+//             {props.currentList.map(todoTask => {
+//                 return <li key={Math.random()}> {band}</li>;
+//             })}
+//         </ul>
+//     )
+// }
 
 export default TodoList;

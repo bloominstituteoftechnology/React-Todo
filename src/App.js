@@ -25,10 +25,15 @@ class App extends React.Component {
     }
   }
 
-  addTodoTask = () => {
-    const todoTasks = this.state.todoTasks;
-    todoTasks.push(this.state.todoTask)
-  }
+  // addTodoTask = () => {
+  //   const todoTasks = this.state.todoTasks;
+  //   todoTasks.push(this.state.todoTask)
+  // }
+
+  // addTodoTask = () => {
+  //   const todoTasks = this.state.todoTasks;
+  //   console.log(todoTasks)
+  // }
 
   render() {
     return (
@@ -36,9 +41,12 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         <TodoForm />
         
-        <h2>Todo List </h2>
+        <h2> List of Todo Tasks </h2>
        
-        <TodoList />
+        <TodoList 
+          currentList = {this.state.todoTasks}
+          // currentTasks = {this.state.todoTasks.task}
+        />
       </div>
     );
   }
