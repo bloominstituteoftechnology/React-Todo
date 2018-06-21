@@ -22,12 +22,15 @@ class App extends React.Component {
     event.preventDefault();
     const newTodo = this.state.listItems.slice();
     newTodo.push({task: this.state.inputListItem, id: Date.now(), completed: false });
-    this.setState({ listItems: newTodo });
+    this.setState({ listItems: newTodo, inputListItem: '' });
   };
 
-  // toggleStrike = id => {
-  //   let items = this.state.slice();
-  // };
+  toggleStrike = id => {
+    let checkOnOffList = this.state.listItems.slice();
+    checkOnOffList.map(item => {
+      if (item.)
+    });
+  };
 
   render() {
 
