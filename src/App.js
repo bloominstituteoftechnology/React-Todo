@@ -11,12 +11,12 @@ class App extends React.Component {
       this.state = {
         todos: [
           {
-            task: "",
+            task: "take nap",
             id: 1,
             completed: false
           },
           {
-            task: "",
+            task: "eat ice cream",
             id: 2,
             completed: false
           }
@@ -32,12 +32,32 @@ class App extends React.Component {
       this.setState({ todos, todo: "" });
     };
   
+    changeTodo = e => this.setState({ [e.target.name]: e.target.value });
+
+    toggleTodoComplete = id => {
+      let todos = this.state.todos.slice();
+      todos = todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+          return todo;
+        } else {
+          return todo;
+        }
+      });
+      this.setState({ todos });
+    };
   
+    clearCompletedTodos = e => {
+      e.preventDefault();
+      let todos = this.state.todos.slice();
+      todos = todos.filter(todo => !todo.completed);
+      this.setState({ todos });
+    };
   
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>To Do List</h2>
       </div>
     );
   }
