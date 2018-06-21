@@ -30,8 +30,9 @@ class App extends React.Component {
 
   addHandler = event => {
     const list = this.state.todos.slice();
+    const emptyTodo = {task: '', id: '', completed: false}
     list.push({task: this.state.nextTodo.task, id: this.state.nextTodo.id, completed: this.state.nextTodo.completed});
-    this.setState({todos: list, nextTodo: {task: '', id: '', completed: false}});
+    this.setState({todos: list, nextTodo: emptyTodo});
   }
 
   textHandler = event => {
@@ -40,7 +41,8 @@ class App extends React.Component {
       id: Math.random(),
       completed: false
     };
-    this.setState({nextTodo: nextTodo})
+    this.setState({nextTodo: nextTodo});
+    //event.target.value = '';
   };
 
   
@@ -52,7 +54,7 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         <TodoList 
           todoItems={this.state.todos} />
-        <TodoForm  addHandler={this.addHandler} textHandler={this.textHandler}/>
+        <TodoForm  addHandler={this.addHandler} textHandler={this.textHandler} next={this.state.nextTodo.task} />
       </div>
     );
   }

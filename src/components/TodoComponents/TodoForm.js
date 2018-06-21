@@ -7,8 +7,9 @@ const TodoForm = (props) => {
         <input 
           onChange={props.textHandler}
           type='text'
-          placeholder='add todo'
+          placeholder='todo...'
           name='todo'
+          value={props.next}
         />
         <button onClick={props.addHandler}>Add Todo</button>
         <button>Clear Completed</button>
