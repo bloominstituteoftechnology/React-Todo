@@ -4,11 +4,11 @@
 
 const Todo = props => {
     return (
-        <div>
+        <li>
             {props.singleTodo}
-        </div>
-    )
-}
+        </li>
+    );
+};
 
 
  export default Todo;

@@ -47,7 +47,25 @@ import Todo from './Todo'
 //     // return x;
 // }
 
+// //Best version so far. Next step is to break out the Todo component function.
+// const TodoList = props => {
+//     let x = [];
+//     for (let i = 0; i < props.currentList.length; i++) {
+//         x.push(props.currentList[i].task);
+//     }
 
+//     return ( 
+//         <ul> 
+//             {x.map(item => {
+//                 return <li key= {Math.random()}> {item} </li>
+//             })}
+//         </ul>
+//     )
+// }
+
+
+
+//breaking out the TD for seperation of concerns
 const TodoList = props => {
     let x = [];
     for (let i = 0; i < props.currentList.length; i++) {
@@ -57,14 +75,12 @@ const TodoList = props => {
     return ( 
         <ul> 
             {x.map(item => {
-                return <li key= {Math.random()}> {item} </li>
+                // return <li key= {Math.random()}> {item} </li>
+                // return <li key= {Math.random()}> {item} </li>
+                return <Todo singleTodo = {item} />; 
             })}
         </ul>
     )
-
-    
-    // console.log(x)
-    // return x;
 }
 
 
