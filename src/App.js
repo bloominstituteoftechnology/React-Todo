@@ -22,12 +22,15 @@ class App extends React.Component {
       }],
       inputListItem: ''
     };
-  }
-
-
-  toggleStrike = id => {
-    let items = this.state.slice();
   };
+
+  typedInputHandler = event =>
+    this.setState({[event.target.name]: event.target.value})
+
+
+  // toggleStrike = id => {
+  //   let items = this.state.slice();
+  // };
 
   render() {
 
@@ -41,6 +44,7 @@ class App extends React.Component {
         />
         <ToDoForm
           inputItem={this.state.inputListItem}
+          typedInput={this.typedInputHandler}
         />
       </div>
     );
