@@ -31,15 +31,11 @@ class App extends React.Component {
     }
   }
 
-  // addTodoTask = () => {
-  //   const todoTasks = this.state.todoTasks;
-  //   todoTasks.push(this.state.todoTask)
-  // }
-
-  // addTodoTask = () => {
-  //   const todoTasks = this.state.todoTasks;
-  //   console.log(todoTasks)
-  // }
+  addTodoTask = () => {
+    const todoTasks = this.state.todoTasks.slice();
+    todoTasks.push(this.state.todoTask);
+    this.setState({todoTasks: todoTasks, todoTask: ""})
+  }
 
   render() {
     return (
@@ -51,7 +47,6 @@ class App extends React.Component {
        
         <TodoList 
           currentList = {this.state.todoTasks}
-          // currentTasks = {this.state.todoTasks.task}
         />
       </div>
     );

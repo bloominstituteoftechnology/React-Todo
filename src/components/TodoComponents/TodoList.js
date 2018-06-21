@@ -29,15 +29,45 @@ import Todo from './Todo'
 
 
 
+// const TodoList = props => {
+//     let x = [];
+//     for (let i = 0; i < props.currentList.length; i++) {
+//         x.push(props.currentList[i].task);
+//     }
+//     return (
+         
+//         <ul> 
+//            <li> 
+//                {x}
+//            </li>
+//         </ul>
+//     )
+
+//     // console.log(x)
+//     // return x;
+// }
+
+
 const TodoList = props => {
     let x = [];
-    let y = [];
     for (let i = 0; i < props.currentList.length; i++) {
-        x.push(props.currentList[i].task)
+        x.push(props.currentList[i].task);
     }
-    console.log(x)
-    return x;
+
+    return ( 
+        <ul> 
+            {x.map(item => {
+                return <li key= {Math.random()}> {item} </li>
+            })}
+        </ul>
+    )
+
+    
+    // console.log(x)
+    // return x;
 }
+
+
 
 
 export default TodoList;
