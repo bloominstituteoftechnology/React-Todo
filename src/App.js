@@ -10,7 +10,7 @@ class App extends React.Component {
     // step 2. call your `constructor`
     super(); // needs to be a class because it holds onto state.
     this.state = {
-      greeting: "Hello CS11 from React",
+      greeting: "This should've been called a grocery list so we didn't have all these todos:)",
       todos: [
         {
           task: 'Finish Lambda',
@@ -44,12 +44,13 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <TodoForm />
+         
         </div>
         <h2>{this.state.greeting}</h2>
         <TodoList
         todos={this.state.todos}
         />
+         <TodoForm />
       </div>
     );
   }

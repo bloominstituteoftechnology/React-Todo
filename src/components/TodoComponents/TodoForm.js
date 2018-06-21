@@ -3,9 +3,16 @@ import React from "react";
 const TodoForm = props => {
     // single-responsibility principle: Display a single band.
     return (
-    <div>
+    <div className= "todo-form">
       <form>
-          <input type="text" name="Todo"/><button>Add Todo</button><button>Clear Completed</button>
+          <input 
+          type="text" 
+          name="Todo"
+          value={props.inputTodos}
+          onChange={props.typedInput}
+          />
+          <button>Add Todo</button>
+          <button>Clear Complete</button>
       </form>
     </div>
     )
