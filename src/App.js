@@ -21,6 +21,12 @@ class App extends React.Component {
           id: "2",  
           completed: "false" 
         },
+
+        {
+          task: "eat",   
+          id: "3",  
+          completed: "false" 
+        },
       ]
     }
   }
