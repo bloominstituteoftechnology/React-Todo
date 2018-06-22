@@ -16,41 +16,37 @@ class App extends React.Component {
           task: 'Finish Lambda',
           id: Math.random(),
           completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: Math.random(),
-          completed: false
-        },
-        {
-          task: 'Organize Garage',
-          id: Math.random(),
-          completed: false
-        },
-        {
-          task: 'Get A Job',
-          id: Math.random(),
-          completed: false
-        },
-      ]
+        }
+      ],
+      todo: ''
     };
     // state is the memory we have in our component,
     // props is the mechanism for passing that state around.
     // Not-so OLD WAY of binding our handlers // this.alertBandNameHandler = this.alertBandNameHandler.bind(this);
   }
+changedInput = event => this.setState (
+  {[event.target.name]:event.target.value})
 
-  
+  addTodo = event => {
+    event.preventDefault()
+    const todos = this.state.todos.slice(); //makes copy of state
+    // const todos = [...todos] //another way to make a copy
+    todos.push({ task: this.state.todo, id: Math.random(), completed: false });
+    this.setState({ todos, todo: '' }); // find this property on state and replace with new todo pushed in
+    // todos: todos replacing state and adding new todo to it
+    // todo: '' clears it so you can put another input
+  };
   render() {
     return (
       <div>
-        <div>
-         
-        </div>
         <h2>{this.state.greeting}</h2>
         <TodoList
         todos={this.state.todos}
         />
-         <TodoForm />
+         <TodoForm
+         todo={this.state.todo}
+         addTodo={this.addTodo}
+         changedInput={this.changedInput}/>
       </div>
     );
   }
