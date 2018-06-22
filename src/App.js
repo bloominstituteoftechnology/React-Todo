@@ -7,14 +7,14 @@ class App extends React.Component {
     super();
     this.state= {
     todos:[ { task: 'Organize Garage', id: 1528817077286, completed: false},
-          { task: 'Bake Cookies', id: 1528817084358, completed: false},
+          { task: 'Bake Cookies', id: 1528817084358, completed: false}
           ],
           item: ""
         }
   } //Constructor 
 
-   changeToDoHandler= event =>
-     this.setState({[event.target.name]: event.target.value});
+  changeToDoHandler= event =>
+    this.setState({[event.target.name]: event.target.value});
 
   addItem= event => {
     event.preventDefault();
@@ -25,9 +25,22 @@ class App extends React.Component {
 
   clearItem= event => {
     event.preventDefault();
-    const todos = this.state.todos.slice();
-    todos.shift({task:this.state.item, id:Date.now(), completed:false});
-    this.setState({todos,item:""});
+    let todos = this.state.todos.slice();
+    todos=todos.filter(item => !item.completed);
+    this.setState({ todos });
+  };
+
+  toggleItem=id => {
+    let todos=this.state.todos.slice();
+    todos=todos.map(item=> {
+    if(item.id===id){
+      item.completed=!item.completed;
+      return item;
+    } else {
+      return item;
+    }
+    });
+    this.setState({todos});
   };
 
   // you will need a place to store your state in this component.
@@ -37,10 +50,15 @@ class App extends React.Component {
     return (
       <div>
         <h2>To Do List</h2>
-        <TodoForm item={this.state.item} 
-        addItem={this.addItem}
-        changeToDoHandler={this.changeToDoHandler} /> 
-        <TodoList items={this.state.todos} />
+        <TodoForm 
+          item={this.state.item} 
+          addItem={this.addItem}
+          clearItem={this.clearItem}
+          changeToDoHandler={this.changeToDoHandler} /> 
+        <TodoList 
+          items={this.state.todos}
+          toggleItem={this.toggleItem}
+          />
       </div>
     );
   }
