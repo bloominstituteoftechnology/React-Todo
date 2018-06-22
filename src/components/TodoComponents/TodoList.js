@@ -3,13 +3,18 @@
 import React from "react";
 import Todo from './Todo';
 
+
 const TodoList = props => {
   return (
       <div>
-        {props.newTodos.map(todo => {
-            return <Todo key={Math.random()}todo={todo} />;
-        })}
-       </div>
+        {props.todos.map(todo => {
+        <Todo
+        handleToggleComplete={props.handleToggleComplete}
+        key={todo.id}
+        todo={todo}
+       />
+      })}
+     </div>
   );
 };
 
