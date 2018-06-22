@@ -12,6 +12,7 @@ const TodoList = (props) => {
           <Todo 
             key={Math.random()} 
             singleTodo={item}
+            completeHandler={props.completeHandler}
           />
         );
       })} 

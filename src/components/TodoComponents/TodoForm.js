@@ -18,7 +18,3 @@ const TodoForm = (props) => {
 }
 
 export default TodoForm
-//onClick={addHandler}
-
-//onChange={this.inputHandler}
-          //value={this.state.title}

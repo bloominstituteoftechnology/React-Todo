@@ -44,8 +44,20 @@ class App extends React.Component {
     this.setState({nextTodo: nextTodo});
     //event.target.value = '';
   };
-
   
+  completeHandler = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({todos});
+  };
+
 
   render() {
     return (
@@ -53,7 +65,7 @@ class App extends React.Component {
         <h1>Holy Crap!</h1>
         <h2>Welcome to your Todo App!</h2>
         <TodoList 
-          todoItems={this.state.todos} />
+          todoItems={this.state.todos} completeHandler={this.completeHandler} />
         <TodoForm  addHandler={this.addHandler} textHandler={this.textHandler} next={this.state.nextTodo.task} />
       </div>
     );
@@ -61,5 +73,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-/*{this.state.todos[0].task}*/
