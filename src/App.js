@@ -20,27 +20,29 @@ class App extends React.Component {
 
   addTodo = event => {
     event.preventDefault();
-    const newTodo = this.state.listItems.slice();
+    const newTodo = this.state.listItems.slice(0);
     newTodo.push({task: this.state.inputListItem, id: Date.now(), completed: false });
     this.setState({ listItems: newTodo, inputListItem: '' });
   };
 
   toggleStrike = id => {
-    let checkOnOffList = this.state.listItems.slice();
-    checkOnOffList.map(item => {
-      if (item.)
+    let checkOnOffList = this.state.listItems.map( todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+
+        return todo;
+      };
     });
+    this.setState({ listItems: checkOnOffList})
   };
 
   render() {
-
-    console.log('RENDER IS BEING CALLED')
-
     return (
       <div className='app-container'>
         <h1 className='header'>Todo List: MVP</h1>
         <ToDoList 
           list={this.state.listItems}
+          toggleStrike={this.toggleStrike}
         />
         <ToDoForm
           inputItem={this.state.inputListItem}

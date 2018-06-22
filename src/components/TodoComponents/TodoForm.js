@@ -14,7 +14,7 @@ const ToDoForm = props => {
             <button onClick={props.submitTodo}>Add Todo</button>
             <button>Clear Completed</button>
         </form>
-    );
+    ); 
 }
  
 export default ToDoForm;
