@@ -3,8 +3,11 @@ import './Todo.css';
 
 const Todo = props => {
   return(
-    <li onClick={props.handler} className="item-wrapper">
-      {props.item}
+    <li
+      onClick={() => props.handler(props.item.id)}
+      style={props.item.completed ? {textDecoration: 'line-through'}: null}
+    >
+      {props.item.task}
     </li>
   )
 }

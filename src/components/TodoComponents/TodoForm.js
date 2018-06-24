@@ -8,10 +8,11 @@ const TodoForm = props => {
         <input
         type="text"
         placeholder="Enter Item"
-        onChange={props.handler}
-        onSubmit={props.clickHandler}
+        onChange={props.changeHandler}
+        onSubmit={props.submitHandler}
         value={props.val}/>
-        <button onClick={props.clickHandler}>Enter</button>
+        <button onClick={props.submitHandler}>Enter</button>
+        <button onClick={props.clearHandler}>Clear Completed</button>
       </form>
     </div>
   )

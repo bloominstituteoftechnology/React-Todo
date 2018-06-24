@@ -9,27 +9,38 @@ class App extends React.Component {
     super();
     this.state = {
       list: [
-        {task: "milk", id: Date.now(), completed: false},
-        {task: "eggs", id: Date.now(), completed: false},
-        {task: "butter", id: Date.now(), completed: false}
+        {task: "milk", id: 1528817077286, completed: false},
+        {task: "eggs", id: 1528817084358, completed: false},
+        {task: "butter", id: 1528817093827, completed: false}
       ],
       item: ""
     };
   };
   trackInputHandler = event => {
     this.setState({item: event.target.value});
-    console.log(event.target.value);
   }
   addItem = e => {
     e.preventDefault();
     const items = this.state.list;
     items.push({task: this.state.item, id: Date.now(), completed: false});
     this.setState({list: items});
-    console.log('button worked', items);
+    this.setState({item: ""});
   }
-  toggleCompleted = e => {
-    e.target.classList.toggle('completed');
-    console.log(e.target);
+  toggleCompleted = id => {
+    let list = this.state.list.slice();
+    list=list.map(item => {
+      if (item.id === id) {
+        item.completed = !item.completed;
+        return item;
+      } else{ return item; }
+    });
+    this.setState({list: list});
+  }
+  clearCompleted = e => {
+    e.preventDefault();
+    let list = this.state.list.slice();
+    list = list.filter(item => item.completed === false);
+    this.setState({list: list});
   }
   render() {
     return (
@@ -40,9 +51,10 @@ class App extends React.Component {
           handler={this.toggleCompleted}
         />
         <TodoForm
-          handler={this.trackInputHandler}
+          changeHandler={this.trackInputHandler}
           val={this.state.item}
-          clickHandler={this.addItem}
+          submitHandler={this.addItem}
+          clearHandler={this.clearCompleted}
         />
       </div>
     );

@@ -11,7 +11,7 @@ const TodoList = props => {
         return (
           <Todo
             handler={props.handler}
-            item={item.task}
+            item={item}
             key={Math.random()}
           />)
       })}
