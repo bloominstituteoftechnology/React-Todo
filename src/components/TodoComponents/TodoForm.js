@@ -12,10 +12,10 @@ const TodoForm = props => {
             <input 
                 type = "text"
                 placeholder = "Add Todo"
-                onChange = {props.onChange}
+                onChange = {props.onChangeSignal}
                 value = {props.activeValue}
                 />
-            <button onClick = {props.addTodoTask}> Add Todo Task </button>
+            <button onClick = {props.onClickSignal}> Add Todo Task </button>
             <button> Clear Completed </button>
         </div>
     );

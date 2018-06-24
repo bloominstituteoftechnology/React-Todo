@@ -33,7 +33,8 @@ class App extends React.Component {
         task: "",
         id: "", 
         completed:""
-      }
+      }, 
+      todoTaskEntry: ""
     }
   }
 
@@ -43,15 +44,23 @@ class App extends React.Component {
   //   this.setState({todoTasks: todoTasks, todoTask: ""})
   // };
 
-  // changeAddTodoHandler = event => {
-  //   console.log(event.target.value);
-  //   this.setState({todoTask: event.target.value});
-  // };
+
+  addTodoTask = () => {
+    const todoTasks = this.state.todoTasks.slice(); 
+    const newTodoTask = {
+      task: this.state.todoTaskEntry, 
+      id: Date.now(), 
+      completed: "false"
+    }
+    todoTasks.push(newTodoTask); 
+    this.setState({todoTasks: todoTasks, todoTaskEntry: ""});
+  }
 
 
   changeAddTodoHandler = event => {
     console.log(event.target.value); 
-    this.setState({todoTask: event.target.value })
+    // this.setState({todoTask: event.target.value});
+    this.setState({todoTaskEntry:event.target.value});
   };
 
 
@@ -61,15 +70,13 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm 
-          activeValue = {this.state.todoTask.task}
-          onChange = {this.changeAddTodoHandler}
+          // activeValue = {this.state.todoTask.task}
+          activeValue = {this.state.todoTaskEntry}
+          onChangeSignal = {this.changeAddTodoHandler}
+          onClickSignal = {this.addTodoTask}
         />
         
         <h2> List of Todo Tasks </h2>
-        {/* <input 
-          type = "text"
-          onChange = {this.changeAddTodoHandler}
-          /> */}
        
         <TodoList 
           currentList = {this.state.todoTasks}
