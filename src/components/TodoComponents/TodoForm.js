@@ -12,8 +12,8 @@ const TodoForm = props => {
             <input 
                 type = "text"
                 placeholder = "Add Todo"
-                onChange = {props.changeAddTodoHandler}
-                // value = {props.activeValue}
+                onChange = {props.onChange}
+                value = {props.activeValue}
                 />
             <button onClick = {props.addTodoTask}> Add Todo Task </button>
             <button> Clear Completed </button>

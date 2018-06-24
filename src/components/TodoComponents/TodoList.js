@@ -76,6 +76,7 @@ const TodoList = props => {
         <ul> 
             {x.map(item => {
                 return <Todo singleTodo = {item} />; 
+                //Do I need to add keys in here or in Todo.js? (see lecture CS11 React: Class Components I @ ~1:07:00)
             })}
         </ul>
     )

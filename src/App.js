@@ -28,30 +28,48 @@ class App extends React.Component {
           completed: "false" 
         },
       ],
-      todoTask: ""
+      // todoTask: ""
+      todoTask: {
+        task: "",
+        id: "", 
+        completed:""
+      }
     }
   }
 
-  addTodoTask = () => {
-    const todoTasks = this.state.todoTasks.slice();
-    todoTasks.push(this.state.todoTask);
-    this.setState({todoTasks: todoTasks, todoTask: ""})
-  };
+  // addTodoTask = () => {
+  //   const todoTasks = this.state.todoTasks.slice();
+  //   todoTasks.push(this.state.todoTask);
+  //   this.setState({todoTasks: todoTasks, todoTask: ""})
+  // };
+
+  // changeAddTodoHandler = event => {
+  //   console.log(event.target.value);
+  //   this.setState({todoTask: event.target.value});
+  // };
+
 
   changeAddTodoHandler = event => {
-    console.log(event.target.value);
-    this.setState({todoTask: event.target.value});
+    console.log(event.target.value); 
+    this.setState({todoTask: event.target.value })
   };
+
+
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm 
-          activeValue = {this.state.todoTask}
+          activeValue = {this.state.todoTask.task}
+          onChange = {this.changeAddTodoHandler}
         />
         
         <h2> List of Todo Tasks </h2>
+        {/* <input 
+          type = "text"
+          onChange = {this.changeAddTodoHandler}
+          /> */}
        
         <TodoList 
           currentList = {this.state.todoTasks}
