@@ -64,7 +64,7 @@ import Todo from './Todo'
 // }
 
 
-
+//successful attempt 
 //breaking out the TD for seperation of concerns
 const TodoList = props => {
     let x = [];
@@ -75,14 +75,31 @@ const TodoList = props => {
     return ( 
         <ul> 
             {x.map(item => {
-                return <Todo singleTodo = {item} />; 
-                //Do I need to add keys in here or in Todo.js? (see lecture CS11 React: Class Components I @ ~1:07:00)
+                // return <Todo onClickToggleCompleted = {props.onClickToggleCompleted} /*key = {Math.random()}*/ key = {item.id} singleTodo = {item} />; 
+                return <Todo key = {Math.random()} singleTodo = {item} />; 
             })}
         </ul>
     )
 }
 
 
+
+
+// //unsuccessful attempt similar to solution set
+// const TodoList = props => {
+//     return (
+//         <ul>
+//             {props.currentList.map(item => (
+//                 <Todo 
+//                 singleTodo = {item} 
+//                 onClickToggleCompleted = {props.onClickToggleCompleted}
+//                 key = {Math.random()}
+//                 />
+//             ))
+//             }
+//         </ul>
+//     )
+// }
 
 
 export default TodoList;

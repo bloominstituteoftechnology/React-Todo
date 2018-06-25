@@ -28,21 +28,10 @@ class App extends React.Component {
           completed: "false" 
         },
       ],
-      // todoTask: ""
-      todoTask: {
-        task: "",
-        id: "", 
-        completed:""
-      }, 
+
       todoTaskEntry: ""
     }
   }
-
-  // addTodoTask = () => {
-  //   const todoTasks = this.state.todoTasks.slice();
-  //   todoTasks.push(this.state.todoTask);
-  //   this.setState({todoTasks: todoTasks, todoTask: ""})
-  // };
 
 
   addTodoTask = () => {
@@ -56,13 +45,25 @@ class App extends React.Component {
     this.setState({todoTasks: todoTasks, todoTaskEntry: ""});
   }
 
-
   changeAddTodoHandler = event => {
     console.log(event.target.value); 
-    // this.setState({todoTask: event.target.value});
     this.setState({todoTaskEntry:event.target.value});
   };
 
+
+toggleCompleted = id => {
+  let markedTodoTasks = this.state.todoTasks.slice(); 
+  markedTodoTasks = markedTodoTasks.map(task => { 
+    if (task.id === id) { 
+       task.completed = !task.completed;
+       return task;
+    }
+    else {
+      return task; 
+    }
+  });
+  this.setState({todoTasks: markedTodoTasks});
+};
 
 
   render() {
@@ -70,7 +71,6 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm 
-          // activeValue = {this.state.todoTask.task}
           activeValue = {this.state.todoTaskEntry}
           onChangeSignal = {this.changeAddTodoHandler}
           onClickSignal = {this.addTodoTask}
@@ -79,6 +79,7 @@ class App extends React.Component {
         <h2> List of Todo Tasks </h2>
        
         <TodoList 
+          onClickToggleCompleted = {this.toggleCompleted}
           currentList = {this.state.todoTasks}
         />
       </div>
