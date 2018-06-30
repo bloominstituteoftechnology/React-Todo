@@ -53,6 +53,21 @@ class App extends React.Component {
       }})
   };
 
+  // removeCompletedTodosHandler = () => {
+
+  // }
+
+  removeCompletedTodos = () => {
+    console.log("invoked")
+    const todoEntriesCopy = this.state.todoEntries.slice();
+    console.log(todoEntriesCopy)
+    const uncompletedTodoEntries = todoEntriesCopy.filter(todoEntry => 
+      todoEntry.completed === false
+    )
+    console.log(uncompletedTodoEntries)
+    this.setState({todoEntries: uncompletedTodoEntries})
+  }
+
   // Add the functionality to toggle your todo's completed flag from false to true.
   // Once a todo is completed, be sure to demonstrate to the user that the todo is completed 
   // by adding a line-through style property if the completed flag is true.
@@ -76,6 +91,7 @@ class App extends React.Component {
           todoEntry = {this.state.todoEntry}
           addTodoHandler = {this.addTodoHandler}
           addTodoEntry = {this.addTodoEntry}
+          removeCompletedTodos = {this.removeCompletedTodos}
         />
         
         <h2> List of Todo Tasks </h2>
