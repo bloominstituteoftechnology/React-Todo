@@ -1,16 +1,15 @@
  import React from 'react'; 
+ import '../TodoComponents/Todo.css'
 
  // <Todo /> is a component that takes in the todo data and displays the task to the screen.
 
 const Todo = props => {
     return (
-
-        <li 
-        onClick = {() => props.todoCompletedToggle(props.todoEntryId)}
-        // onClick = {props.todoCompletedToggle(props.todoTask)}
-        >
-            {props.todoEntryTask}
-        </li>
+        <div className = {`todoEntryCompleted${props.todoEntryCompleted}`}>
+            <li onClick = {() => props.todoCompletedToggle(props.todoEntryId)}>
+                {props.todoEntryTask}
+            </li>
+        </div>
     );
 };
 

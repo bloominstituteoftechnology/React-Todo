@@ -58,7 +58,6 @@ class App extends React.Component {
   // by adding a line-through style property if the completed flag is true.
 
   todoCompletedToggle = (todoEntryId) => {
-      // console.log("invoked")
       const todoEntriesCopy = this.state.todoEntries.slice();
       for (let i = 0; i < todoEntriesCopy.length; i++) {
         if (todoEntriesCopy[i].id === todoEntryId) {
@@ -66,7 +65,6 @@ class App extends React.Component {
         }
       }
       return this.setState({todoEntries: todoEntriesCopy})
-
   }
 
 
