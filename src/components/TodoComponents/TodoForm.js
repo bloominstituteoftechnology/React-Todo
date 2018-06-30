@@ -9,13 +9,15 @@ const TodoForm = props => {
     return (
         <div>
             <h2> Todo Form </h2>
+            <form onSubmit = {props.addTodoTask}>
             <input 
                 type = "text"
                 placeholder = "Add Todo"
-                onChange = {props.onChangeSignal}
-                value = {props.activeValue}
+                onChange = {props.addTodoHandler}
+                value = {props.todoTaskEntry}
                 />
-            <button onClick = {props.onClickSignal}> Add Todo Task </button>
+            </form>
+            <button onClick = {props.addTodoTask}> Add Todo Task </button>
             <button> Clear Completed </button>
         </div>
     );

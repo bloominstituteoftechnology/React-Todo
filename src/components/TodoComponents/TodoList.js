@@ -4,6 +4,20 @@ import Todo from './Todo'
 // <TodoList /> receives your Todos array and iterates over the list generating a new <Todo /> 
 // for each element in the array.
 
+const TodoList = props => {
+    return (
+        <div>
+            {props.todoTasks.map(todo => {
+                return <Todo 
+                        todoTask = {todo["task"]}
+                        todoId = {todo["id"]}
+                        key = {todo["id"]}
+                        />
+            })}
+        </div>
+    )
+}
+
 // const TodoList = props => {
 //     return (
 //         <div>
@@ -64,23 +78,23 @@ import Todo from './Todo'
 // }
 
 
-//successful attempt 
-//breaking out the TD for seperation of concerns
-const TodoList = props => {
-    let x = [];
-    for (let i = 0; i < props.currentList.length; i++) {
-        x.push(props.currentList[i].task);
-    }
+// //successful attempt 
+// //breaking out the TD for seperation of concerns
+// const TodoList = props => {
+//     let x = [];
+//     for (let i = 0; i < props.currentList.length; i++) {
+//         x.push(props.currentList[i].task);
+//     }
 
-    return ( 
-        <ul> 
-            {x.map(item => {
-                // return <Todo onClickToggleCompleted = {props.onClickToggleCompleted} /*key = {Math.random()}*/ key = {item.id} singleTodo = {item} />; 
-                return <Todo key = {Math.random()} singleTodo = {item} />; 
-            })}
-        </ul>
-    )
-}
+//     return ( 
+//         <ul> 
+//             {x.map(item => {
+//                 // return <Todo onClickToggleCompleted = {props.onClickToggleCompleted} /*key = {Math.random()}*/ key = {item.id} singleTodo = {item} />; 
+//                 return <Todo key = {Math.random()} singleTodo = {item} />; 
+//             })}
+//         </ul>
+//     )
+// }
 
 
 

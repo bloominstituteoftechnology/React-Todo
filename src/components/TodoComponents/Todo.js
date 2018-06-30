@@ -4,9 +4,8 @@
 
 const Todo = props => {
     return (
-        // <li key = {Math.random()}>
         <li>
-            {props.singleTodo}
+            {props.todoTask}
         </li>
     );
 };
