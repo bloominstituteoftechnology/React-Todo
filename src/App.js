@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm.js';
-import TodoList from './components/TodoComponents/TodoList.js';
+import TodoList from './components/TodoComponents/TodoList.js'; 
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -51,19 +51,19 @@ class App extends React.Component {
   };
 
 
-toggleCompleted = id => {
-  let markedTodoTasks = this.state.todoTasks.slice(); 
-  markedTodoTasks = markedTodoTasks.map(task => { 
-    if (task.id === id) { 
-       task.completed = !task.completed;
-       return task;
-    }
-    else {
-      return task; 
-    }
-  });
-  this.setState({todoTasks: markedTodoTasks});
-};
+// toggleCompleted = id => {
+//   let markedTodoTasks = this.state.todoTasks.slice(); 
+//   markedTodoTasks = markedTodoTasks.map(task => { 
+//     if (task.id === id) { 
+//        task.completed = !task.completed;
+//        return task;
+//     }
+//     else {
+//       return task; 
+//     }
+//   });
+//   this.setState({todoTasks: markedTodoTasks});
+// };
 
 
   render() {
