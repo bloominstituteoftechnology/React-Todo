@@ -13,7 +13,7 @@ class App extends React.Component {
         {
           task: "example task",   // the todo title that will be shown to the user.
           id: "1",  // a unique Time Stamp that will be assigned by Date.now().
-          completed: "false" //field should default to false and will be the field that we toggle when we complete a todo
+          completed: false //field should default to false and will be the field that we toggle when we complete a todo
         }, 
       ],
 
