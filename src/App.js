@@ -40,19 +40,6 @@ class App extends React.Component {
   };
 
 
-// toggleCompleted = id => {
-//   let markedTodoTasks = this.state.todoTasks.slice(); 
-//   markedTodoTasks = markedTodoTasks.map(task => { 
-//     if (task.id === id) { 
-//        task.completed = !task.completed;
-//        return task;
-//     }
-//     else {
-//       return task; 
-//     }
-//   });
-//   this.setState({todoTasks: markedTodoTasks});
-// };
 
 
   render() {
