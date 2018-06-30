@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoTasks: [
+      todoEntries: [
         {
           task: "example task",   // the todo title that will be shown to the user.
           id: "1",  // a unique Time Stamp that will be assigned by Date.now().
@@ -17,29 +17,57 @@ class App extends React.Component {
         }, 
       ],
 
-      todoTaskEntry: ""
+      todoEntry: {
+        task: "",
+        id:"",
+        completed:""
+        }
     }
   }
 
 
-  addTodoTask = (e) => {
+  addTodoEntry = (e) => {
     e.preventDefault();
-    const todoTasks = this.state.todoTasks.slice(); 
-    const newTodoTask = {
-      task: this.state.todoTaskEntry, 
+    const todoEntries = this.state.todoEntries.slice(); 
+    const todoEntry = {
+      task: this.state.todoEntry.task, 
       id: Date.now(), 
-      completed: "false"
+      completed: false
     }
-    todoTasks.push(newTodoTask); 
-    this.setState({todoTasks: todoTasks, todoTaskEntry: ""});
+    const todoEntryBlank = {
+      task: "",
+      id:"",
+      completed: false
+      }
+    todoEntries.push(todoEntry); 
+    this.setState({todoEntries: todoEntries, todoEntry: todoEntryBlank});
   }
 
   addTodoHandler = event => {
     console.log(event.target.value); 
-    this.setState({todoTaskEntry:event.target.value});
+
+    this.setState({todoEntry: {
+      task: event.target.value, 
+      id: Date.now(),
+      completed: false
+      }})
   };
 
+  // Add the functionality to toggle your todo's completed flag from false to true.
+  // Once a todo is completed, be sure to demonstrate to the user that the todo is completed 
+  // by adding a line-through style property if the completed flag is true.
 
+  todoCompletedToggle = (todoEntryId) => {
+      // console.log("invoked")
+      const todoEntriesCopy = this.state.todoEntries.slice();
+      for (let i = 0; i < todoEntriesCopy.length; i++) {
+        if (todoEntriesCopy[i].id === todoEntryId) {
+          todoEntriesCopy[i].completed = !todoEntriesCopy[i].completed;
+        }
+      }
+      return this.setState({todoEntries: todoEntriesCopy})
+
+  }
 
 
   render() {
@@ -47,16 +75,16 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm 
-          todoTaskEntry = {this.state.todoTaskEntry}
+          todoEntry = {this.state.todoEntry}
           addTodoHandler = {this.addTodoHandler}
-          addTodoTask = {this.addTodoTask}
+          addTodoEntry = {this.addTodoEntry}
         />
         
         <h2> List of Todo Tasks </h2>
        
         <TodoList 
-          onClickToggleCompleted = {this.toggleCompleted}
-          todoTasks = {this.state.todoTasks}
+          todoEntries = {this.state.todoEntries}
+          todoCompletedToggle = {this.todoCompletedToggle}
         />
       </div>
     );

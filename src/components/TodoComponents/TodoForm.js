@@ -9,15 +9,15 @@ const TodoForm = props => {
     return (
         <div>
             <h2> Todo Form </h2>
-            <form onSubmit = {props.addTodoTask}>
+            <form onSubmit = {props.addTodoEntry}>
             <input 
                 type = "text"
                 placeholder = "Add Todo"
                 onChange = {props.addTodoHandler}
-                value = {props.todoTaskEntry}
+                value = {props.todoEntry.task}
                 />
             </form>
-            <button onClick = {props.addTodoTask}> Add Todo Task </button>
+            <button onClick = {props.addTodoEntry}> Add Todo Task </button>
             <button> Clear Completed </button>
         </div>
     );

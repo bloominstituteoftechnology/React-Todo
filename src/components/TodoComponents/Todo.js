@@ -4,8 +4,12 @@
 
 const Todo = props => {
     return (
-        <li>
-            {props.todoTask}
+
+        <li 
+        onClick = {() => props.todoCompletedToggle(props.todoEntryId)}
+        // onClick = {props.todoCompletedToggle(props.todoTask)}
+        >
+            {props.todoEntryTask}
         </li>
     );
 };
