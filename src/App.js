@@ -1,7 +1,24 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm.js';
 import TodoList from './components/TodoComponents/TodoList.js'; 
+import styled from 'styled-components';
 
+const AppContainerStyles = styled.div`
+  margin-top: 50px;
+  margin-bottom:50px;
+  max-width: 800px;
+  min-height: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction:column;
+  background-color: #202020;
+  color: white;
+  align-items:center;
+  border:4px solid #1F1C1E; 
+  border:none;
+    
+`
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -12,7 +29,7 @@ class App extends React.Component {
     this.state = {
       todoEntries: [
         {
-          task: "example task",   // the todo title that will be shown to the user.
+          task: "Example task (click Todo when completed)",   // the todo title that will be shown to the user.
           id: "1",  // a unique Time Stamp that will be assigned by Date.now().
           completed: false //field should default to false and will be the field that we toggle when we complete a todo
         }, 
@@ -83,25 +100,29 @@ class App extends React.Component {
       return this.setState({todoEntries: todoEntriesCopy})
   }
 
+  
+
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm 
-          todoEntry = {this.state.todoEntry}
-          addTodoHandler = {this.addTodoHandler}
-          addTodoEntry = {this.addTodoEntry}
-          removeCompletedTodos = {this.removeCompletedTodos}
-        />
+      <AppContainerStyles> 
+          {/* <h1>Simple To-do App</h1> */}
+
+          <TodoForm 
+            todoEntry = {this.state.todoEntry}
+            addTodoHandler = {this.addTodoHandler}
+            addTodoEntry = {this.addTodoEntry}
+            removeCompletedTodos = {this.removeCompletedTodos}
+          />
+
+          {/* <h2> List of Todo Tasks </h2> */}
         
-        <h2> List of Todo Tasks </h2>
-       
-        <TodoList 
-          todoEntries = {this.state.todoEntries}
-          todoCompletedToggle = {this.todoCompletedToggle}
-        />
-      </div>
+          <TodoList 
+            todoEntries = {this.state.todoEntries}
+            todoCompletedToggle = {this.todoCompletedToggle}
+          />
+      </AppContainerStyles>
+
     );
   }
 }
