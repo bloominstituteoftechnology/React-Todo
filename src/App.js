@@ -29,7 +29,7 @@ class App extends React.Component {
     this.state = {
       todoEntries: [
         {
-          task: "Example task (click Todo when completed)",   // the todo title that will be shown to the user.
+          task: "Todo task (click on Todo task text to mark as completed)",   // the todo title that will be shown to the user.
           id: "1",  // a unique Time Stamp that will be assigned by Date.now().
           completed: false //field should default to false and will be the field that we toggle when we complete a todo
         }, 
