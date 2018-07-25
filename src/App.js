@@ -11,7 +11,8 @@ class App extends Component {
 		this.setState({current: event.target.value});
 	}
 
-	addTodo = (prevState) => {
+	addTodo = (event, prevState) => {
+		event.preventDefault();
 		let newList = this.state.todo.slice();
 		let newItem = {task: this.state.current, id: Date.now(), completed: false};
 		newList.push(newItem);
@@ -41,7 +42,7 @@ class App extends Component {
 	// this component is going to take care of state, and any change handlers you need to work with your state
 	render() {
 		return (
-			<TodoList list={this.state.todo} onChange={this.handleInputChange} onSubmit={this.addTodo} onClear={this.removeCompleted} completeTask={this.completeTask} />
+			<TodoList list={this.state.todo} onChange={this.handleInputChange} onSubmitButton={this.addTodo} onClear={this.removeCompleted} completeTask={this.completeTask} />
 		);
 	}
 }
