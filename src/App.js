@@ -21,7 +21,7 @@ class App extends React.Component {
           completed: true,
         },
         {
-          task: 'Implement Implement Flipping False',
+          task: 'Implement Toggle False',
           id: 651581981,
           completed: true,
         },

@@ -2,7 +2,7 @@ import React from 'react';
 import './Todo.css';
 
 const Todo = props => {
-  let strike = props.item.completed ? 'completed' : null;
+  let strike = props.item.completed ? 'completed' : "";
 
   return(
     <div onClick={() => props.click(props.item.id)} className={`todo-item ${strike}`}>
