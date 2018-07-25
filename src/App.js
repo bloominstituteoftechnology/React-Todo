@@ -4,7 +4,7 @@ import TodoList from './components/TodoComponents/TodoList';
 class App extends Component {
   constructor(){
     super();
-    this.state = {todo: ['abcd', 'more', 'stuff', 'to', 'test'], current: ''}
+    this.state = {todo: [], current: ''}
   }
 
   handleInputChange = event => {
@@ -13,7 +13,8 @@ class App extends Component {
 
   addTodo = (prevState) => {
     let newList = this.state.todo.slice();
-    newList.push(this.state.current);
+    let newItem = {task: this.state.current, id: Date.now(), completed: false};
+    newList.push(newItem);
     this.setState({todo: newList, current: ''})
   }
 
