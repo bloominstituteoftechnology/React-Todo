@@ -5,3 +5,50 @@
 .hide {
   display: none;
 }
+
+button {
+  border: 2px solid black;
+  width: 100px;
+  height: 50px;
+  margin: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+input {
+  border: 1px solid grey;
+  border-radius: 3px;
+  width: 250px;
+  height: 20px;
+  margin: 30px;
+  font-weight: bold;
+}
+
+input::placeholder{
+  padding-left: 10px;
+}
+
+.todo-component {
+  max-width: 1200px;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.todo-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  order: 1;
+}
+
+.todo {
+  border: 1px solid black;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.todo-item {
+  font-size: 20px;
+}

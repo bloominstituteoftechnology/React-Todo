@@ -5,14 +5,15 @@ const Todo = props => {
   const { currentList } = props;
 
   return (
-    <div>
+    <div className="todo">
+      <h2>Todo List: </h2>
       {currentList.map(todo => {
         const {task, id} = todo;
         const classes = `id-${id}`;
 
         return (
           <div className={classes} onClick={props.triggerCompleted}>
-            <p>{task}</p>
+            <p className="todo-item">{task}</p>
           </div>
         );
       })}

@@ -2,7 +2,7 @@ import React from 'react';
 
 const TodoForm = props => {
   return (
-    <div>
+    <div className="todo-form">
       <input 
         onChange={props.onChange}
         onKeyPress={props.keyPressAddToDo}

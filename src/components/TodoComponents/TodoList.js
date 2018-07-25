@@ -96,7 +96,7 @@ class TodoList extends React.Component{
 
   render() {
     return (
-      <div>
+      <div className="todo-component">
         <TodoForm
           input={this.state.input} 
           addTodo={this.handleAddTodo.bind(this)} 
@@ -105,7 +105,7 @@ class TodoList extends React.Component{
           onChange={this.handleOnChange.bind(this)}
           onSearch={this.handleOnSearch.bind(this)}
         />
-        <Todo 
+        <Todo
           currentList={this.state.todoList}
           triggerCompleted={this.handleTriggerCompleted.bind(this)}
         />
