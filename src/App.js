@@ -1,8 +1,8 @@
 import React from "react";
 
 // import Todo from './components/TodoComponents/Todo';
-// import TodoList from './components/TodoComponents/TodoList';
-
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 const myArr = [
   {
     task: "Organize Garage",
@@ -11,14 +11,14 @@ const myArr = [
   }
 ];
 
-const TodoTask = props => {
-  const { task } = props.todoDataProp;
-  return (
-    <div>
-      <h4>Name: {task}</h4>
-    </div>
-  );
-};
+// const Todo1 = props => {
+//   const { task } = props.todoDataProp;
+//   return (
+//     <div>
+//       <h4>{task}</h4>
+//     </div>
+//   );
+// };
 
 class App extends React.Component {
   constructor() {
@@ -32,7 +32,7 @@ class App extends React.Component {
     const todoData = this.state.todoData.slice();
     // clone our state todoData array.
     todoData.push({
-      task: this.state.message,
+      task: this.state.task,
       id: Date.now(),
       completed: false
     });
@@ -43,19 +43,20 @@ class App extends React.Component {
 
   handleInputChange = event => {
     // update the message field on state.
-    this.setState({ message: event.target.value });
+    this.setState({ task: event.target.value });
   };
 
   render() {
     console.log("STATE: ", this.state);
     return (
       <div>
-        {this.state.todoData.map(task => <TodoTask todoDataProp={task} />)}
+        <TodoList todoArray={this.state.task} />
+        {console.log(this.state.task)}
+        {/* {this.state.todoData.map(task => <Todo todoDataProp={task} />)} */}
         <input placeholder="...todo" onChange={this.handleInputChange} />
         <button onClick={this.handleUpdateState}>Add Todo</button>
-        {/*All events in React go through what's called the Synthetic Event*/}
-        {/*Events are tied to user interaction with our code*/}
         <button onClick={this.handleUpdateState}>Clear Completed</button>
+        <TodoForm />
       </div>
     );
   }
