@@ -3,10 +3,13 @@ import TodoList from './components/TodoComponents/TodoList';
 import Title from './components/TodoComponents/Title';
 import './App.css';
 
+let storage = window.localStorage;
+let storageList = storage.list;
+
 class App extends Component {
 	constructor(){
 		super();
-		this.state = {todo: [], current: ''}
+		this.state = {todo: JSON.parse(storageList), current: ''}
 	}
 
 	handleInputChange = event => {
@@ -20,7 +23,9 @@ class App extends Component {
 		let newList = this.state.todo.slice();
 		let newItem = {task: this.state.current, id: Date.now(), completed: false};
 		newList.push(newItem);
-		this.setState({todo: newList, current: ''})
+		this.setState({todo: newList, current: ''});
+		storage.setItem('list', JSON.stringify(newList));
+		console.log(storage.list);
 	}
 
 	completeTask = event => {
@@ -32,6 +37,8 @@ class App extends Component {
 			}
 		}
 		this.setState({todo: newList});
+		storage.setItem('list', JSON.stringify(newList));
+		console.log(storage.list);
 	}
 
 	removeCompleted = () => {
@@ -42,6 +49,8 @@ class App extends Component {
 		let currentList = this.state.todo.slice();
 		let newList = currentList.filter(todo => todo.completed === false);
 		this.setState({todo: newList});
+		storage.setItem('list', JSON.stringify(newList));
+		console.log(storage.list);
 	}
 
 	// you will need a place to store your state in this component.
