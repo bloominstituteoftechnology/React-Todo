@@ -20,7 +20,15 @@ class App extends React.Component {
   }
 
   handleSubmit = (evnt) => {
-    console.log('submit fired');
+    evnt.preventDefault();
+    const newTodo = {
+      value: this.state.inputValue,
+      done: false
+    };
+
+    const todos = this.state.todos;
+    todos.push(newTodo);
+    this.setState({ todos: todos })
   }
 
   render() {
@@ -29,7 +37,7 @@ class App extends React.Component {
         <Form
           handleChange={this.handleChange}
           inputValue={this.state.inputValue}
-          onSubmit={this.handleSubmit}
+          handleSubmit={this.handleSubmit}
         />
         <List
           todos={this.state.todos} />
