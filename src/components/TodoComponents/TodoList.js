@@ -1,11 +1,9 @@
 import React from 'react';
 
 const TodoList = props => {
-    const {task}=props.task;
+    const {task}=props.taskProp;
     return (
-      <div>
          <p>{task}</p>
-      </div>
     );
   };
 export default TodoList;
