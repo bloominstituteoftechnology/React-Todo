@@ -1,43 +1,12 @@
 import React from 'react';
+import taskArr from './taskArr';
 
-const taskArr = [
-    {
-      task: 'Organize Garage',
-      id: Date.now(),
-      completed: false,
-    },
-    {
-      task: 'Make Rice',
-      id: Date.now(),
-      completed: false
-    },
-    {
-      task: 'Complete MVP',
-      id: Date.now(),
-      completed: false
-    },
-    {
-      task: 'Go for walk',
-      id: Date.now(),
-      completed: false
-    },
-    {
-      task: 'Read documentation for future projects',
-      id: Date.now(),
-      completed: null
-    },
-    {
-      task: 'Take Grandma to Grocery Store',
-      id: Date.now(),
-      completed: false
-    }
-  ];
-  
+
   const List = (props) => {
-    const { task, completed } = props.listProp;
+    const { task } = props.listProp;
     return (
       <div>
-        <h4 class={completed}>task: {task}</h4>
+        <li>{task}</li>
       </div>
     );
   }
@@ -50,11 +19,35 @@ const taskArr = [
         todo: taskArr
       }
     }
+    handleAddTask = (event)=>{
+        const tasks = this.state.todo.slice();
+        if (event.key === 'Enter') {
+            tasks.push({
+                task: event.target.value,
+                id: Date.now(),
+                completed: false
+            });
+            this.setState({todo: tasks});
+        };
+    };
+
+    handleChangeStatus = (event)=> {
+        if (event.target.completed === false) {
+            event.target.completed = true;
+            event.target.style = 'text-decoration: line-through';
+        } else {
+            event.target.completed = false;
+            event.target.style = null;
+        }
+    };
   
     render() {
       return (
         <div className="todo">
-          {this.state.todo.map(item => <List listProp={item} />)}
+            <ul>
+                <div onClick={this.handleChangeStatus}>{this.state.todo.map(item => <List listProp={item} />)}</div>
+            </ul>
+          <input placeholder="Add Task" onKeyPress={this.handleAddTask} />
         </div>
       )
     };
