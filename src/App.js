@@ -18,12 +18,12 @@ class App extends React.Component {
         {
           task: 'Implement Adding New',
           id: 156165198,
-          completed: false,
+          completed: true,
         },
         {
           task: 'Implement Implement Flipping False',
           id: 651581981,
-          completed: false,
+          completed: true,
         },
         {
           task: 'Implement Styling',
@@ -58,18 +58,25 @@ class App extends React.Component {
   }
 
   handleInputChange = event => {
-    console.log(event);
     let newInput = event.target.value;
     this.setState({
       inputField: newInput,
     });
   }
 
+  handleCompleteTodo = event => {
+    let prevTodos = this.state.todos.slice();
+    let newTodos = prevTodos.filter(todo => todo.completed === false);
+    this.setState({
+      todos: newTodos,
+    });
+  }
+
   render() {
     return (
       <div className="app-container">
-        <TodoList list={this.state.todos}/>
-        <TodoForm handleEnter={this.handleKeyPress} change={this.handleInputChange} addClick={this.handleNewTodo} />
+        <TodoList list={this.state.todos} />
+        <TodoForm handleCompleted={this.handleCompleteTodo} text={this.state.inputField} handleEnter={this.handleKeyPress} change={this.handleInputChange} addClick={this.handleNewTodo} />
       </div>
     );
   }
