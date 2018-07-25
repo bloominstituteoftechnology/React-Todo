@@ -5,9 +5,8 @@ import './Todo.css';
 import Todo  from "./Todo";
 
 const TodoList = (props) =>{
-     return props.array.map(element =>{
-         return <div> <Todo id="{element.id}" key={element.id} task={element.task} /> </div>
-
+     return props.array.map((element,index) =>{
+         return <div> <Todo onClickMethod={props.methods} id={element.id} key={index} task={element.task} /> </div>
      })
 }
 
