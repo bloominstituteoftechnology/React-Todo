@@ -4,7 +4,7 @@ import './Todo.css';
 const Todo = (props) => {
     return (
         <div className="toDoContainer">
-            <p>{props.todo}</p>
+            {props.list.map(todo => <p>{todo}</p>)}
         </div>
     );
 }

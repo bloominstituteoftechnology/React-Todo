@@ -3,7 +3,11 @@ import './Todo.css';
 
 const TodoForm = () => {
     return (
-        <input type="text" placeholder="Add something you need to do!" />
+        <div className="form">
+            <input type="text" placeholder="Add something you need to do!" />
+            <button> Add Todo </button>
+            <button> Clear Completed </button>
+        </div>
     );
 }
 
