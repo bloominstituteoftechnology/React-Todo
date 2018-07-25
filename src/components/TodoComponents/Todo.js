@@ -1,5 +1,5 @@
 import React from 'react';
-const newTodo = props => [
+const addTodo = props => [
   {
     task: "",
     id: Date.now(),
@@ -8,4 +8,4 @@ const newTodo = props => [
 ];
 
 
-export default newTodo; 
+export default addTodo; 

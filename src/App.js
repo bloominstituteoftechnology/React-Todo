@@ -1,21 +1,25 @@
 import React from 'react';
-// import Todo from './components/TodoComponents/Todo'; 
+import addTodo from './components/TodoComponents/Todo'; 
 
-const newTodo = [
-  {
-    task: "",
-    id: Date.now(),
-    completed: false
-  }
-];
-console.log(newTodo, "hi")
+// const addTodo = [
+//   {
+//     task: "",
+//     id: Date.now(),
+//     completed: false
+//   }
+// ];
+
+// const newTodo = props =>{
+
+// }
+
 
 class App extends React.Component {
   constructor(){
     super();
     this.state ={
       message: "Todo List MVP", 
-      todo: newTodo, 
+      todo: addTodo, 
     }; 
   }
   // you will need a place to store your state in this component.
@@ -24,10 +28,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <div>{this.state.message}</div>
        <input placeholder="Enter Task" />
        <button>Add a Todo</button>
-       <button onDoubleClick={this.handleUpdateState}>Completed Todo</button>
- 
+       <button>Completed Todo</button>
       </div>
     );
   }
