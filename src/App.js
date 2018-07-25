@@ -8,14 +8,14 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      
+
     }
   }
 
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>Welcome to your Todo App! {Date.now()} </h2>
       </div>
     );
   }
