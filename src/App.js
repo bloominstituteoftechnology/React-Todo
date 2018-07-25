@@ -3,7 +3,6 @@ import React from "react";
 import Todo from './components/TodoComponents/Todo';
 import TodoList from './components/TodoComponents/TodoList';
 
-
 const myArr = [
   {
     task: "Organize Garage",
@@ -18,24 +17,29 @@ const MessageRenderer = props => {
   return <h1>{props.propsMessage}</h1>;
 };
 
-
+const TodoTask = props => {
+  const { task } = props.todoDataProp;
+  return (
+    <div>
+      <h4>Name: {task}</h4>
+    </div>
+  );
+};
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      message: "Hello",
       todoData: myArr
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleUpdateState = this.handleUpdateState.bind(this);
   }
 
   handleUpdateState = () => {
     const todoData = this.state.todoData.slice();
+    
     // clone our state todoData array.
     todoData.push({
-      task: this.state.message,
+      task: todoData.target,
       id: Date.now(),
       completed: false
     });
@@ -46,18 +50,15 @@ class App extends React.Component {
 
   handleInputChange = event => {
     // update the message field on state.
-    this.setState({ message: event.target.value });
+    this.setState({ task: event.target.value });
   };
 
   render() {
+    console.log("STATE: ", this.state);
     return (
       <div>
-        <MessageRenderer propsMessage={this.state.message} />
-        {console.log("This state to data", this.state)}
-
-        <TodoList currentInputValue={this.state}/>
-        {this.state.todoData.map(task => <Todo todoDataProp={task} />)}
-        {console.log(this.state)}
+        {/* {this.state.todoData.map(task => <Todo todoDataProp={task} />)} */}
+        <TodoList todoArray={this.state} />
         <input placeholder="...todo" onChange={this.handleInputChange} />
         <button onClick={this.handleUpdateState}>Add Todo</button>
         {/*All events in React go through what's called the Synthetic Event*/}
@@ -67,6 +68,7 @@ class App extends React.Component {
     );
   }
 }
+
 
 export default App;
 

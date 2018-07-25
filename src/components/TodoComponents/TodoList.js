@@ -4,14 +4,19 @@
 import React from "react";
 import "./Todo.css";
 
+import Todo from './Todo';
+
 const TodoList = props => {
-  const {currentInputValue} = props.this.state.todoData;
-  console.log("propsTodoList", props)
+  console.log(props);
+  const todoData = props;
   return (
     <div>
-      <p>
-        {currentInputValue}
-      </p>
+      {/* {props.todoData.map(task => (
+        <Todo
+          // id={props.id}
+          todoDataProp={task}
+        />
+      ))} */}
     </div>
   )
 };

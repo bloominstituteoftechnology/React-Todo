@@ -2,7 +2,7 @@ import React from "react";
 import "./Todo.css";
 
 const Todo = props => {
-  console.log("propsTodo", props)
+  console.log("propsTodo", props.todoDataProp)
   const { task } = props.todoDataProp;
   return (
     <div>
