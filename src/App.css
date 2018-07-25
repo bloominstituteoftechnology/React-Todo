@@ -3,11 +3,13 @@ html {
 }
 
 .wrapper {
-    margin: 0 auto;
-     width: 100px; 
+    padding: 30px;
+     text-align: center; 
 }
 
 .main-container {
+    display: inline-block;
+     padding: 50px;
     height: 800px;
     width: 600px;
     text-align: center;
@@ -27,7 +29,7 @@ html {
 }
 
 input[type=text]:focus, textarea:focus {
-    
+    outline: none;
     box-shadow: 0 0 10px #A0011E;
     padding: 3px 0px 3px 3px;
     margin: 5px 1px 3px 0px;
@@ -35,6 +37,7 @@ input[type=text]:focus, textarea:focus {
   }
 
 .onlyBtn {
+    
     width: 130px;
     height: 55px;
     display: inline-block;
@@ -53,9 +56,13 @@ input[type=text]:focus, textarea:focus {
     padding-bottom: 10px;
 }
 
+.onlyBtn:hover {
+    background-color: rgb(212, 42, 73);
+}
+
 .only-ul li{
+    list-style-type: none;
     text-decoration: none;
-    border: 3px solid #A0011E;
     font-size: 2rem;
 }
 

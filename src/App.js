@@ -5,8 +5,9 @@ import "./App.css";
 
 //remove the todo from array
 
-//stylelize
+// on click event to to do item, x elemnt pops up and on click x removes that from the array list it will add class to the to do item
 
+//connect to database and allow delete and post
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -37,17 +38,17 @@ class App extends React.Component {
   //making a copy of this.state.list so we don't directly change the state
 
   removeToDo = () => {
-    let toDoArray = this.state.list.splice();
-    this.setState({
-      list: toDoArray
-    })
-  }
+    // let toDoArray = this.state.list.splice();
+    // this.setState({
+    //   list: toDoArray
+    // });
+  };
 
   render() {
     return (
       <div className="wrapper">
         <div className="main-container">
-          <h1 className="title">To Do List by Jared Cooper</h1>
+          <h1 className="title">Lambda Notes</h1>
           <input
             className="input-form"
             onChange={e => {
