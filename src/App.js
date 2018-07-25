@@ -94,11 +94,13 @@ class App extends React.Component {
           </video>
         </div>
         <h1 className="App__title">React Todo List</h1>
-        <TodoList
-          list={this.state.todos}
-          toggler={this.toggleTodo}
-          filter={this.state.filter}
-        />
+        {this.state.todos.length > 0 ? (
+          <TodoList
+            list={this.state.todos}
+            toggler={this.toggleTodo}
+            filter={this.state.filter}
+          />
+        ) : null}
         <TodoForm
           onSumbit={this.handleSubmit}
           onChange={this.handleChange}
