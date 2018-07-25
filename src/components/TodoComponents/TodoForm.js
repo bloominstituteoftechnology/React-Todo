@@ -11,8 +11,8 @@ class TodoForm extends React.Component {
     render () {
 
         return (
-            <form onSubmit ={() => false} >
-            <Todo handleInputChange = {this.props.handleInputChange} handleEnter = {this.props.handleEnter}/>
+            <form >
+            
             
             </form>
         );

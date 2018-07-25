@@ -14,8 +14,8 @@ class Todo extends React.Component {
         return (
             <div className ="formOptions">
            { /*onChange = {this.props.handleInputChange}*/}
-                <input  onKeyDown = {this.props.handleEnter} type="text" placeholder ="...todo"/> 
-                <button>Add Todo</button>
+                <input onKeyUp = {this.props.handleenter} name="input" type="text" placeholder ="...todo" /> 
+                <button onClick = {this.props.handleClick} >Add Todo</button>
                 <button>Clear Completed</button>
             </div>
         );

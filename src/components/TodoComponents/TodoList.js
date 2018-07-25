@@ -8,13 +8,15 @@ class TodoList extends React.Component {
         super();
         this.state = {};
     }
+    
 
     render () {
 
         return (
-            <ul>
-                <li>Testing out rendering</li>
-            </ul>
+            
+            <li >{this.props.thingToDo}</li>
+            // key = {thing+count.toString()}
+            
         );
 
     }
