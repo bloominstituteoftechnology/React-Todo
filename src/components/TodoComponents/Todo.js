@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Todo = props => <p>Todo Item</p>;
+const Todo = props => <p>{props.name}</p>;
 
 export default Todo;
