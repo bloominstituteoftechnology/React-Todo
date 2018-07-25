@@ -7,18 +7,19 @@ class App extends React.Component {
   // you will need a place to store your state in this component.
   constructor (props) {
     super();
-    this.state={todoList: []};
+    this.state={todoList: [],
+    textBoxString:""}; //the other student said he was updating this state each time there was a key press in the event box, let me see if there's another way
   }
 
   addToList = () => {
     const todoListCopy = this.state.todoList;
-    
+    const inputBox = document.getElementById('todoInput').value;
     todoListCopy.push({
-      task: document.getElementById('todoInput').value , 
+      task: inputBox , 
       id: Date.now(), 
       completed: false
     })
-    document.getElementById('todoInput').value ='';
+    inputBox.value ='';
     this.setState({ todoList: todoListCopy });
   };
   clearComplete= () =>{
@@ -31,7 +32,6 @@ class App extends React.Component {
         return false;
       }
     })
-    console.log(recopy)
     this.setState({ todoList: recopy });
 
   }
@@ -60,8 +60,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>What you're putting off:</h2>
+        <div className="todoListContainer">
         <TodoList methods={this.complete} array={this.state.todoList} />
+        </div>
         <TodoForm methods={[this.addToList, this.handleKeyPress, this.clearComplete]} />
       </div>
     );

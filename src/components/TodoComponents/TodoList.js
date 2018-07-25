@@ -6,7 +6,7 @@ import Todo  from "./Todo";
 
 const TodoList = (props) =>{
      return props.array.map((element,index) =>{
-         return <div> <Todo completed={element.completed} onClickMethod={props.methods} id={element.id} key={index} task={element.task} /> </div>
+         return <div className = 'todoListItem'> <Todo completed={element.completed} onClickMethod={props.methods} id={element.id} key={index} task={element.task} /> </div>
      })
 }
 
