@@ -12,8 +12,18 @@ const myArr = [
     id: 1528817084358,
     completed: false
   }
-  
+
 ];
+
+const TodoForm = (props) => {
+  return (
+    <div>
+      <input placeholder="...todo" onChange= {props.messageProp} />
+      <button onClick={props.buttonProp}>Add Todo</button>
+      <button>Clear Completed</button>
+    </div>
+  );
+}
 
 const TodoList = props => {
   return <div>{props.toDoListProp.map(todo => <Todo toDoProp={todo} />)}</div>;
@@ -21,10 +31,7 @@ const TodoList = props => {
 
 const Todo = props => {
   const { task } = props.toDoProp
-  return (
-    <div>
-      <h4>Task: {task}</h4>
-    </div>);
+  return <div>{task}</div>;
 }
 
 
@@ -35,16 +42,33 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: myArr
+      todos: myArr,
+      message: "yo"
     };
+  }
+
+  handleUpdateState = () => {
+    const todos = this.state.todos.slice();
+    todos.push({
+      task: 'Vacuum House',
+      id: Date.now(),
+      completed: false
+    });
+    this.setState({ todos: todos });
+  }
+
+  handleInputChange = event => {
+    this.setState({ message: event.target.value });
   }
 
   render() {
     console.log("STATE: ", this.state);
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoList toDoListProp={this.state.todos}/>
+        <h2>Kyle's Todo List</h2>
+        <h2>Test: {this.state.message}</h2>
+        <TodoList toDoListProp={this.state.todos} />
+        <TodoForm buttonProp = {this.handleUpdateState} messageProp={this.handleInputChange}/>
       </div>
     );
   }
