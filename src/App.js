@@ -72,10 +72,23 @@ class App extends React.Component {
     });
   }
 
+  handleToggleComplete = targetID => {
+    let todos = this.state.todos.slice();
+    todos.map(todo => {
+      if(todo.id === targetID){
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    });
+    this.setState({
+      todos: todos,
+    });
+  }
+
   render() {
     return (
       <div className="app-container">
-        <TodoList list={this.state.todos} />
+        <TodoList list={this.state.todos} click={this.handleToggleComplete} />
         <TodoForm handleCompleted={this.handleCompleteTodo} text={this.state.inputField} handleEnter={this.handleKeyPress} change={this.handleInputChange} addClick={this.handleNewTodo} />
       </div>
     );
