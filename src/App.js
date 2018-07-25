@@ -1,57 +1,49 @@
 import React from 'react';
 
-const ItemMaker = x => {
- return  <p>{x.message}</p>
+const Task = props => {
+  return <p>hello, {props.propsMessage}</p>;
 }
 
 const newArr = [
-  {
-    task: "default",
-    id: 0,
-    completed: false
-  }
+  { id: 1},
+  { id: 2},
+  { id: 3}
 ];
 
 class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      message: "hello from state"
-    }
+      message: "this is the message from state",
+      task: newArr,
+    };
   };
 
-  addItem = () => {
-    newArr.push(
-      {
-        task: "newTask",
-        id: 0,
-        complete: false
-      }
-    )
-  }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-  updateStatus = () => {
-    this.setState({task: "heyyyyyo"});
+  addTask = () => {
+    console.log('updateStatus called')
+    this.setState({message: "this is an updated status"});
+    newArr.push({ id: 4})
+  }
+  deleteTask = () => {
+    console.log('updateStatus called')
+    this.setState({message: "this is an updated status"});
+    newArr.pop({ id: 4})
   }
 
   render() {
     return (
       <div>
         <h2>Todo App!</h2>
-        {/* {newArr[0].task} */}
-        {/* <ItemMaker props={newArr[0]}/>
-        {newArr.forEach(function(x){
-          console.log(x.task);
-          <ItemMaker props={x.task} />
-        })} */}
-        {newArr.map( x => <ItemMaker props={x} />)}
-        {/* {newArr.forEach(<ItemMaker props={this.task}/>)} */}
-        <ItemMaker x={this.state} />
-
-        <input onClick={this.updateStatus} placeholder="New Task" />
-        <button onClick={this.addItem}>Add task</button>
+        <Task propsMessage={this.state.message} />
+        <Task propsMessage={this.state.task[0].id} />
+        {this.state.task.map(x => <Task propsMessage={x.id} />)}
+        <Task propsMessage={this.state.task[0].id} />
+        <input placeholder="newtask"></input>
+        <button onClick={this.addTask}>Add task</button>
+        <button onClick={this.deleteTask}>Delete task</button>
       </div>
     );
   }

@@ -18,7 +18,7 @@ const Animal = props => {
   const { common_name, species } = props.animalProp;
   return (
     <div>
-      <h4>Name: {task}</h4>
+      <h4>Name: {common_name}</h4>
       <h4>Species: {species}</h4>
     </div>
   );
