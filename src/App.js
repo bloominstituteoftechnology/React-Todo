@@ -43,14 +43,14 @@ class App extends React.Component {
     super();
     this.state = {
       todos: myArr,
-      message: "yo"
+      message: ""
     };
   }
 
   handleUpdateState = () => {
     const todos = this.state.todos.slice();
     todos.push({
-      task: 'Vacuum House',
+      task: this.state.message,
       id: Date.now(),
       completed: false
     });
