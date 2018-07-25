@@ -1,13 +1,14 @@
 import React from 'react';
 
 const Task = props => {
-  return <p>hello, {props.propsMessage}</p>;
+  return <p>Task #{newArr.length}: {props.propsMessage}</p>;
 }
 
 const newArr = [
-  { id: 1},
-  { id: 2},
-  { id: 3}
+// {task: "grocerys"},
+// {task: "grocerys1"},
+// {task: "grocerys2"}
+// {task: "grocerys3"}
 ];
 
 class App extends React.Component {
@@ -15,7 +16,7 @@ class App extends React.Component {
     super();
     this.state = {
       message: "this is the message from state",
-      task: newArr,
+      taskList: newArr,
     };
   };
 
@@ -25,12 +26,16 @@ class App extends React.Component {
   addTask = () => {
     console.log('updateStatus called')
     this.setState({message: "this is an updated status"});
-    newArr.push({ id: 4})
+    newArr.push({task: "new"})
   }
   deleteTask = () => {
     console.log('updateStatus called')
-    this.setState({message: "this is an updated status"});
-    newArr.pop({ id: 4})
+    this.setState({message: "this is an new status"});
+    newArr.pop()
+  }
+
+  changeStateMessage = (x) => {
+    this.setState({taskList: x.target.value});
   }
 
   render() {
@@ -38,10 +43,10 @@ class App extends React.Component {
       <div>
         <h2>Todo App!</h2>
         <Task propsMessage={this.state.message} />
-        <Task propsMessage={this.state.task[0].id} />
-        {this.state.task.map(x => <Task propsMessage={x.id} />)}
-        <Task propsMessage={this.state.task[0].id} />
-        <input placeholder="newtask"></input>
+        {/* <Task propsMessage={this.state.task[0].id} /> */}
+        {/* {this.state.task.map(x => <Task propsMessage={x.task} />)} */}
+        {this.state.taskList.map(x => <Task propsMessage={this.state.message} />)}
+        <input placeholder="newtask" onChange={this.changeStateMessage}></input>
         <button onClick={this.addTask}>Add task</button>
         <button onClick={this.deleteTask}>Delete task</button>
       </div>
