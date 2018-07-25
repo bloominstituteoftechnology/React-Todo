@@ -18,7 +18,6 @@ class App extends React.Component {
   }
 
   handleClick = (index) => {
-    console.log('button clicked', index);
     const todos = this.state.todos;
     todos[index].done = !todos[index].done;
     this.setState({ todos });
