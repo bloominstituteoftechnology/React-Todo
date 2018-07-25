@@ -1,9 +1,13 @@
 import React from 'react';
 import './Todo.css';
+import Todo from './Todo';
 
 const TodoForm = () => {
     return (
-        <input type="text" placeholder="Add to list" />
+        <form action="">
+        <Todo />
+        
+        </form>
     );
 }
 
