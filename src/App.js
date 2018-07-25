@@ -46,6 +46,13 @@ class App extends React.Component {
       })
     }));
 
+  removeCompleted = () =>
+    this.setState(prevState => ({
+      todos: prevState.todos.filter(todo => !todo.completed)
+    }));
+
+  removeAll = () => this.setState({ todos: [] });
+
   handleSubmit = () => this.addTodo(this.state.input);
 
   handleChange = event => {
@@ -72,7 +79,10 @@ class App extends React.Component {
           onChange={this.handleChange}
           value={this.state.input}
         />
-        <TodoActions />
+        <TodoActions
+          removeCompleted={this.removeCompleted}
+          removeAll={this.removeAll}
+        />
       </div>
     );
   }

@@ -1,10 +1,14 @@
 import React from 'react';
 
-const TodoActions = () => (
+const TodoActions = ({ removeCompleted, removeAll }) => (
   <div className="TodoActions">
     <div className="TodoActions__desc">ACTIONS:</div>
-    <button className="TodoActions__button">Remove completed</button>
-    <button className="TodoActions__button">Remove all</button>
+    <button className="TodoActions__button" onClick={removeCompleted}>
+      Remove completed
+    </button>
+    <button className="TodoActions__button" onClick={removeAll}>
+      Remove all
+    </button>
   </div>
 );
 
