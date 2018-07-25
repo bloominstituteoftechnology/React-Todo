@@ -1,13 +1,11 @@
-
-function todoNew(){
-
-const newTodo = [
+import React from 'react';
+const newTodo = props => [
   {
     task: "",
     id: Date.now(),
     completed: false
   }
 ];
-}
 
-export default todoNew; 
+
+export default newTodo; 

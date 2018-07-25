@@ -1,13 +1,14 @@
 import React from 'react';
+// import Todo from './components/TodoComponents/Todo'; 
 
-  const newTodo = [
-    {
-      task: "",
-      id: Date.now(),
-      completed: false
-    }
-  ];
-  
+const newTodo = [
+  {
+    task: "",
+    id: Date.now(),
+    completed: false
+  }
+];
+console.log(newTodo, "hi")
 
 class App extends React.Component {
   constructor(){
@@ -23,7 +24,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-
+       <input placeholder="Enter Task" />
+       <button>Add a Todo</button>
+       <button onDoubleClick={this.handleUpdateState}>Completed Todo</button>
+ 
       </div>
     );
   }
