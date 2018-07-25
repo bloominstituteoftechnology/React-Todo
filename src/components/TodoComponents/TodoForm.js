@@ -4,10 +4,14 @@ import './Todo.css';
 const TodoForm = (props) => {
     return (
         <div>
-        <input type="text" placeholder="Type Something" />
-        <button>Add Todo</button>
+        <input onKeyPress={ props.onKeyPress } onChange={ props.onChange } type="text"  value={ props.value }/>
+        <button  onClick={ props.onClick }>Add Todo</button>
         <button>Clear Completed</button>
         </div>
-
     );
 }
+
+export default TodoForm;
+
+// onKeyPress={ props.onKeyPress }
+

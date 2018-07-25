@@ -1,16 +1,71 @@
-import React from 'react';
+import React from "react";
+import TodoForm from "./components/TodoComponents/TodoForm";
+import TodoList from "./components/TodoComponents/TodoList";
+
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-  render() {
-    return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-      </div>
-    );
+	constructor() {
+		super();
+
+		this.state = {
+			stateArray: [
+        {
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
+      ],
+      msg: "",
+
+
+		}
   }
+
+  handleCompleted = (ident) => {
+    const idArray = this.state.stateArray.slice();
+    idArray.map( e => {
+      if (ident === e.id) {
+        e.completed = !e.completed;
+      }
+      return e;
+    });
+    this.setState({ stateArray : idArray });
+  }
+  
+  handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      this.handleUpdateState();
+    }
+  }
+
+	handleUpdateState = (event) => {
+    const taskArray = this.state.stateArray.slice();
+    taskArray.push({
+      task: this.state.msg,
+      id: Date.now(),
+      completed: false,
+    });
+
+    this.setState({ stateArray : taskArray, msg: "",});
+  };
+  
+  handleInputChange = event => {
+    this.setState({ msg: event.target.value })
+  }
+
+	render() {
+		return (
+			<div>
+				<TodoList onClick={ this.handleCompleted } array={ this.state.stateArray }/>
+				<TodoForm value={ this.state.msg } onKeyPress = { this.handleKeyPress } onClick= {this.handleUpdateState } onChange={ this.handleInputChange }/>
+			</div>
+		);
+	}
 }
 
 export default App;
