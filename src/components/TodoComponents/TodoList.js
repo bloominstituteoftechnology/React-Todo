@@ -10,6 +10,7 @@ import TodoForm from './TodoForm';
 const TodoList = () => {
     return (
         <div className="className">
+            <Todo/>
             <TodoForm formStyle="input-style" placeholder="....todo"/>
         </div>
     );

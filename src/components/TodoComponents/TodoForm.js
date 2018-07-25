@@ -4,9 +4,9 @@ import './Todo.css';
 const TodoForm = props => {
     return (
         <div>
-        <input className={props.formStyle} placeholder={props.placeholder}/>
-        <button onClick={this.todo}>Add Todo</button>
-        <button>Clear Completed</button>
+            <input className={props.formStyle} placeholder={props.placeholder}/>
+            <button onClick={props.addTodo}>Add Todo</button>
+            <button onClick={props.removeTodo}>Clear Completed</button>
         </div>
     );
 }
