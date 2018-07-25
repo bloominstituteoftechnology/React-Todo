@@ -6,28 +6,45 @@ class TodoForm extends React.Component {
         super();
         this.state ={
             list: todoArray,
-            taskVal: ''
+            nuTaskVal: ''
         };
     }
 
     handleInput = (e) => {
         let nuVal = e.target.value;
-        console.log(nuVal);
+        this.setState({
+            nuTaskVal: nuVal
+        });
     };
 
-    createItem(val){
+    createItem = () =>{
         let nuItem = {
-
-        }
+            completed: false,
+            task: this.state.nuTaskVal
+        };
+        this.pushToList(nuItem);
     }
 
+    pushToList = (obj) => {
+        todoArray.push(obj);
+        console.log(todoArray);
+        this.setState({
+            list: todoArray
+        });
+        this.clearInput();
+    };
+
+    clearInput = () => {
+        this.setState({
+            nuTaskVal : ''
+        });
+    }
 
     render(){
-        todoArray.push({ completed: false, task: 'House in woods' })
         return (
             <div>
                 <TodoList tasks={this.state.list}/>
-                <input placeholder="Another thing to ignore" onChange={this.handleInput}/>
+                <input className="input-field" value={this.state.nuTaskVal} placeholder="Another thing to ignore" onChange={this.handleInput}/>
                 <button onClick={this.createItem}>Add ToDo</button>
                 <button>Clear Selected</button>
             </div>

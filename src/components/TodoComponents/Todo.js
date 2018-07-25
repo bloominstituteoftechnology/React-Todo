@@ -1,5 +1,9 @@
 import React from 'react';
 
+const style = {
+    textDecoration: 'none'
+};
+
 class Todo extends React.Component {
     constructor(props){
         super();
@@ -8,13 +12,21 @@ class Todo extends React.Component {
             task: task,
             completed: completed
         };
+        console.log(this.state);
+        
     }
 
-    
+    handleCompleted = () => {
+        let comp = this.state.completed === true ? false : true;
+        console.log(comp);
+        this.setState({
+            completed : comp
+        });
+    }
     
     render(){
         return (
-            <div>{this.state.task}</div>
+            <div onClick={this.handleCompleted} style={this.state.completed ? { textDecoration: 'line-through' } : { textDecoration: 'none' }}>{this.state.task}</div>
         )
     }
 };
