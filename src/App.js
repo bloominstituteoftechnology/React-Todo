@@ -23,7 +23,7 @@ class App extends React.Component {
   }
 
   addHandler = (e) => {
-    const arr = this.state.todo.slice();
+    const arr = this.state.todos.slice();
     let input = document.getElementById("inputBtn").value;
 
     arr.push(
