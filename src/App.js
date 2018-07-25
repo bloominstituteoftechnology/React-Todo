@@ -10,18 +10,18 @@ class App extends React.Component {
       TodoList: "Things to do",
       Todo: [
         {
-          task: 'Take Nap',
+          task: 'Clean Kitchen',
           id: 100,
           completed: false,
         },
         {
-          task: 'Mow Lawn',
+          task: 'Cook Dinner',
           id: 101,
           completed: false,
         },
 
         {
-          task: 'Fix Fence',
+          task: 'Do Laundry',
           id: 102,
           completed: false,
         },
