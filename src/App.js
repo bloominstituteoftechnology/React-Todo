@@ -38,6 +38,7 @@ class App extends React.Component {
       this.setState({thingsToDo:thingsToDo}) 
       console.log("enter key pressed");
       console.log(this.state)
+      
     }
 
     
@@ -46,9 +47,11 @@ class App extends React.Component {
   handleClick = event => {
     console.log("clicked");
     this.setState({clicked: true});
-    // const {thingsToDo} = this.state;
+    const {thingsToDo} = this.state;
+    thingsToDo.push(this.state.temp);
     // thingsToDo.push(event.target.value);
-    // this.setState({thingsToDo:thingsToDo});
+    this.setState({thingsToDo:thingsToDo});
+
   }
 
   render() {
@@ -57,11 +60,10 @@ class App extends React.Component {
         <h1>Todo List: MVP</h1>
         
         <p>{this.state.temp}</p>
-        <input type="text" value={this.state.temp} onChange={this.handleChange} />
         <ul> 
-    {this.state.thingsToDo.map(thing => <TodoList thingToDo = {thing}/> )}
+          {this.state.thingsToDo.map(thing => <TodoList thingToDo = {thing}/> )}
         </ul>
-        <Todo handleClick = {this.handleClick} handleenter = {this.handleEnter}/>
+        <Todo handleClick = {this.handleClick} handleenter = {this.handleEnter} value={this.state.temp} onChange={this.handleChange} />
         
       </div>
     );
