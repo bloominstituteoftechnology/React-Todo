@@ -3,12 +3,12 @@ import React from 'react';
 class Form extends React.Component {
 
     state = {
-        inputValue: "Hello you"
+        inputValue: ""
 
     }
 
-    handlechange = () => {
-        console.log('changed');
+    handleChange = (evnt) => {
+        this.setState({ inputValue: evnt.target.value });
     }
 
     render() {
@@ -16,8 +16,7 @@ class Form extends React.Component {
             <div className="Form">
                 <form>
                     <input
-
-                        onChange={this.handleChange}
+                        onChange={(evnt) => this.handleChange(evnt)}
                         value={this.state.inputValue}
                     />
                 </form>
