@@ -34,10 +34,12 @@ class App extends React.Component {
       ],
     };
   }
+
   render() {
     return (
       <div className="app-container">
         <TodoList list={this.state.todos}/>
+        <TodoForm />
       </div>
     );
   }
