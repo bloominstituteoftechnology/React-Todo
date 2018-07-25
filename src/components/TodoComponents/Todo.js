@@ -11,7 +11,7 @@ class Task extends React.Component {
                 }}>
                     {this.props.todo.value}
                 </span>
-                <button onClick={this.props.handleClick}>{this.props.todo.done ? 'Undo' : 'Complete'}</button>
+                <button onClick={() => this.props.handleClick(this.props.index)}>{this.props.todo.done ? 'Undo' : 'Complete'}</button>
             </div>
         );
     }

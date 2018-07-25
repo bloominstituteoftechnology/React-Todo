@@ -9,8 +9,6 @@ class App extends React.Component {
   state = {
     inputValue: '',
     todos: [
-      { value: 'Clean kitchen', done: false },
-      { value: 'Wash clothes', done: true }
     ]
 
   }
@@ -19,8 +17,11 @@ class App extends React.Component {
     this.setState({ inputValue: evnt.target.value });
   }
 
-  handleClick = () => {
-    console.log('button clicked');
+  handleClick = (index) => {
+    console.log('button clicked', index);
+    const todos = this.state.todos;
+    todos[index].done = !todos[index].done;
+    this.setState({ todos });
   }
 
   handleSubmit = (evnt) => {
@@ -32,7 +33,7 @@ class App extends React.Component {
 
     const todos = this.state.todos;
     todos.push(newTodo);
-    this.setState({ todos: todos, inputValue: '' })
+    this.setState({ todos, inputValue: '' })
   }
 
   render() {
