@@ -12,10 +12,10 @@ const TodoActions = ({ removeCompleted, removeAll, filter, setFilter }) => (
           id="all"
           name="filter"
           checked={filter === 'all'}
-          onClick={() => setFilter('all')}
+          onChange={() => setFilter('all')}
         />
-        <label for="all" className="TodoActions__radio-label">
-          <span class="TodoActions__radio-button" />
+        <label htmlFor="all" className="TodoActions__radio-label">
+          <span className="TodoActions__radio-button" />
           ALL
         </label>
       </div>
@@ -27,10 +27,10 @@ const TodoActions = ({ removeCompleted, removeAll, filter, setFilter }) => (
           id="active"
           name="filter"
           checked={filter === 'active'}
-          onClick={() => setFilter('active')}
+          onChange={() => setFilter('active')}
         />
-        <label for="active" className="TodoActions__radio-label">
-          <span class="TodoActions__radio-button" />
+        <label htmlFor="active" className="TodoActions__radio-label">
+          <span className="TodoActions__radio-button" />
           ACTIVE
         </label>
       </div>
@@ -42,10 +42,10 @@ const TodoActions = ({ removeCompleted, removeAll, filter, setFilter }) => (
           id="completed"
           name="filter"
           checked={filter === 'completed'}
-          onClick={() => setFilter('completed')}
+          onChange={() => setFilter('completed')}
         />
-        <label for="completed" className="TodoActions__radio-label">
-          <span class="TodoActions__radio-button" />
+        <label htmlFor="completed" className="TodoActions__radio-label">
+          <span className="TodoActions__radio-button" />
           COMPLETED
         </label>
       </div>

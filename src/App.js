@@ -26,33 +26,45 @@ class App extends React.Component {
     filter: 'all'
   };
 
+  updateLocalStorage = () =>
+    localStorage.setItem('todos', JSON.stringify(this.state.todos));
+
   addTodo = text =>
-    this.setState(prevState => ({
-      todos: [
-        ...prevState.todos,
-        {
-          id: Date.now(),
-          task: text,
-          completed: false
-        }
-      ],
-      input: ''
-    }));
+    this.setState(
+      prevState => ({
+        todos: [
+          ...prevState.todos,
+          {
+            id: Date.now(),
+            task: text,
+            completed: false
+          }
+        ],
+        input: ''
+      }),
+      this.updateLocalStorage
+    );
 
   toggleTodo = id =>
-    this.setState(prevState => ({
-      todos: prevState.todos.map(todo => {
-        if (todo.id !== id) return todo;
-        return { ...todo, completed: !todo.completed };
-      })
-    }));
+    this.setState(
+      prevState => ({
+        todos: prevState.todos.map(todo => {
+          if (todo.id !== id) return todo;
+          return { ...todo, completed: !todo.completed };
+        })
+      }),
+      this.updateLocalStorage
+    );
 
   removeCompleted = () =>
-    this.setState(prevState => ({
-      todos: prevState.todos.filter(todo => !todo.completed)
-    }));
+    this.setState(
+      prevState => ({
+        todos: prevState.todos.filter(todo => !todo.completed)
+      }),
+      this.updateLocalStorage
+    );
 
-  removeAll = () => this.setState({ todos: [] });
+  removeAll = () => this.setState({ todos: [] }, this.updateLocalStorage);
 
   setFilter = filter => this.setState({ filter });
 
@@ -64,6 +76,12 @@ class App extends React.Component {
       input: event.target.value
     });
   };
+
+  componentDidMount() {
+    this.setState({
+      todos: JSON.parse(localStorage.getItem('todos')) || []
+    });
+  }
 
   render() {
     return (
