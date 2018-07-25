@@ -35,9 +35,10 @@ class App extends React.Component {
     if(event.keyCode === 13 || this.state.clicked){
       this.setState({clicked: false});
       thingsToDo.push(event.target.value);
-      this.setState({thingsToDo:thingsToDo}) 
+      this.setState({thingsToDo:thingsToDo, temp: ""}) 
       console.log("enter key pressed");
       console.log(this.state)
+
       
     }
 
@@ -50,7 +51,7 @@ class App extends React.Component {
     const {thingsToDo} = this.state;
     thingsToDo.push(this.state.temp);
     // thingsToDo.push(event.target.value);
-    this.setState({thingsToDo:thingsToDo});
+    this.setState({thingsToDo:thingsToDo, temp: ""});
 
   }
 
