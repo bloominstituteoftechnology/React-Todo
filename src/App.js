@@ -26,6 +26,18 @@ class App extends React.Component {
   }
 
   // change handlers 
+  // ADD TODO
+  addTodo = event => {
+    event.preventDefault();
+    // here we are making a new todos array
+    const todos = this.state.todos.slice();
+    // pushing new todo onto sliced todos array
+    todos.push({ task: this.state.todo, completed: false, id: Date.now() });
+    this.setState({ todos, todo: '' });
+  };
+
+  // TODO Change
+  changeTodo = event => this.setState({ [event.target.name]: event.target.value });
 
 
  // the this keyword gives you access to the constructor
@@ -34,7 +46,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
-       <TodoForm />
+      <TodoList
+        todos={this.state.todos}
+        
+       />
+       <TodoForm
+        value={this.state.todo}
+        handleAddTodo={this.addTodo}
+        handleTodoChange={this.changeTodo}
+      />
       </div>
     );
   }
