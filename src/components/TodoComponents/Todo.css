@@ -2,3 +2,12 @@ ul {
     padding: 0;
     list-style: none;
 }
+
+.true {
+    
+    text-decoration: line-through;
+}
+
+.false {
+    text-decoration: none;
+}

@@ -12,7 +12,7 @@ const sample = [
   {
     task: 'Bake Cookies',
     id: 1528817084358,
-    completed: false
+    completed: true
   }
 ];
 
@@ -39,12 +39,23 @@ class App extends React.Component {
     this.setState({task: event.target.value})
   }
 
+  updateTask = event => {
+    event.target.className = event.target.className === 'false' ? 'true' : 'false'
+  }
+
+  handleCompleted = () => {
+    const list = this.state.list.slice();
+    const newList = list.filter(item => !item.completed)
+    
+    this.setState({ list: newList});
+  }
+
   render() {
     // console.log("STATE: ", this.state);
     return (
       <div>
-        <TodoList list={this.state.list}/>
-        <TodoForm inputChange={this.handleInputChange} dataChange={this.handleUpdateState} />
+        <TodoList list={this.state.list} updateTask={this.updateTask}/>
+        <TodoForm inputChange={this.handleInputChange} dataChange={this.handleUpdateState} clearCompleted={this.handleCompleted}/>
       </div>
     );
   }
