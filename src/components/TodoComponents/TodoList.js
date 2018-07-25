@@ -6,7 +6,7 @@ const TodoList = props => {
         <div>
             <h2>Todo List</h2>
             {props.todoArr.map(item => {
-                return <Todo key={item.id} name={item.task} />
+                return <Todo key={item.id} unique={item.id} name={item.task} onClick={props.onItemClick} />
             })}
         </div>
     );
