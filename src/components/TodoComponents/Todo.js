@@ -8,7 +8,7 @@ const Todo = props => {
     <div>
       {currentList.map(todo => {
         const {task, id} = todo;
-        const classes = `${id}`;
+        const classes = `id-${id}`;
 
         return (
           <div className={classes} onClick={props.triggerCompleted}>

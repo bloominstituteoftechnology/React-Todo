@@ -7,8 +7,9 @@ class TodoList extends React.Component{
     super();
     this.state = {
       input: '',
+      search: '',
       // todolist array
-      todoList: [
+      todoList:  JSON.parse(localStorage.getItem('todo')) || [
         {
           task: 'Organize Garage',
           id: 1528817077286,
@@ -29,6 +30,11 @@ class TodoList extends React.Component{
   }
 
   handleAddTodo(e) {
+    if (this.state.input === '') {
+      console.log('please type something');
+      return;
+    };
+
     const newTodoItem = {
       task: this.state.input,
       id: this.state.todoList[this.state.todoList.length - 1].id + Math.floor(Math.random() * 10),
@@ -37,6 +43,14 @@ class TodoList extends React.Component{
     const newTodoList = this.state.todoList.slice().concat(newTodoItem);
     this.setState({ todoList: newTodoList });
     this.setState({ input: '' });
+
+    localStorage.setItem('todo', `${JSON.stringify(newTodoList)}`);
+  }
+
+  handleKeyPressAddToDo(e) {
+    if (e.key === 'Enter') {
+      this.handleAddTodo();
+    }
   }
 
   handleTriggerCompleted(e) {
@@ -62,14 +76,34 @@ class TodoList extends React.Component{
     this.setState({ todoList: newTodoList });
   }
 
+  handleOnSearch(e) {
+    const searchValue = e.target.value;
+
+    // reset the DOM 
+    this.state.todoList.forEach(item => {
+      const element = document.querySelector(`.id-${item.id}`);
+      element.classList.remove('hide');
+    })
+
+    // searching list via DOM 
+    this.state.todoList.filter(item => {
+                          return ! item.task.includes(searchValue);
+                        }).forEach(item => {
+                          const element = document.querySelector(`.id-${item.id}`);
+                          element.classList.add('hide');
+                        })
+  }
+
   render() {
     return (
       <div>
         <TodoForm
           input={this.state.input} 
           addTodo={this.handleAddTodo.bind(this)} 
+          keyPressAddToDo={this.handleKeyPressAddToDo.bind(this)}
           clearCompleted={this.handleClearCompleted.bind(this)}
           onChange={this.handleOnChange.bind(this)}
+          onSearch={this.handleOnSearch.bind(this)}
         />
         <Todo 
           currentList={this.state.todoList}

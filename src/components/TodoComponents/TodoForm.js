@@ -5,9 +5,15 @@ const TodoForm = props => {
     <div>
       <input 
         onChange={props.onChange}
+        onKeyPress={props.keyPressAddToDo}
         value={props.input}
         type="text" 
         placeholder="add your todo item here" 
+      />
+      <input
+        onChange={props.onSearch} 
+        type="text" 
+        placeholder="search" 
       />
       <button onClick={props.addTodo}>Add todo</button>
       <button onClick={props.clearCompleted}>Clear Completed</button>
