@@ -24,7 +24,7 @@ class App extends React.Component {
 
   addHandler = (e) => {
     const arr = this.state.todo.slice();
-    let input = document.getElementsByTagName("input").value;
+    let input = document.getElementById("inputBtn").value;
 
     arr.push(
       {
@@ -32,7 +32,10 @@ class App extends React.Component {
         id: Date.now(),
         completed: false
       }
-    )
+    );
+    this.setState({todos: arr});
+    document.getElementById("inputBtn").value = null;
+
   }
   
   // you will need a place to store your state in this component.
