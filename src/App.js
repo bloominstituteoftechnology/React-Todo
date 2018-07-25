@@ -5,11 +5,6 @@ const myArr = [
     task: "Organize Garage",
     id: 1528817077286,
     completed: false
-  },
-  {
-    task: "Bake Cookies",
-    id: 1528817084358,
-    completed: false
   }
 ];
 
@@ -19,7 +14,7 @@ const MessageRenderer = props => {
   return <h1>{props.propsMessage}</h1>;
 };
 
-const Animal = props => {
+const TodoTask = props => {
   const { task } = props.todoDataProp;
   return (
     <div>
@@ -42,10 +37,10 @@ class App extends React.Component {
     // clone our state todoData array.
     todoData.push({
       task: this.state.message,
-      id: 1528817084358,
+      id: Date.now(),
       completed: false
     });
-    // push our new animal item into the todoData array.
+    // push our new task item into the todoData array.
     this.setState({ todoData: todoData });
     // FROM REACT API the ONLY way to change state.
   };
@@ -61,7 +56,7 @@ class App extends React.Component {
       <div>
         {/*<MessageRenderer propsMessage={this.state.message} />*/}
         <div>Hello: {this.state.message}</div>
-        {this.state.todoData.map(animal => <Animal todoDataProp={animal} />)}
+        {this.state.todoData.map(task => <TodoTask todoDataProp={task} />)}
         <input placeholder="...todo" onChange={this.handleInputChange} />
         <button onClick={this.handleUpdateState}>Add Todo</button>
         {/*All events in React go through what's called the Synthetic Event*/}
