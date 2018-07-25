@@ -1,5 +1,6 @@
 import React from 'react';
 
-const Todo=()=><div></div>
+
+const Todo=props=><p>{props.taskProp.task}</p>
 
 export default Todo;

@@ -1,9 +1,8 @@
 import React from 'react';
-
+import Todo from './Todo.js';
 const TodoList = props => {
-    const {task}=props.taskProp;
     return (
-         <p>{task}</p>
+         props.taskProp.map(task=><Todo taskProp={task}/>)
     );
   };
 export default TodoList;
