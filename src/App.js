@@ -7,7 +7,7 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   state = {
-    inputValue: "Some value",
+    inputValue: '',
     todos: [
       { value: 'Clean kitchen', done: false },
       { value: 'Wash clothes', done: true }
@@ -28,7 +28,7 @@ class App extends React.Component {
 
     const todos = this.state.todos;
     todos.push(newTodo);
-    this.setState({ todos: todos })
+    this.setState({ todos: todos, inputValue: '' })
   }
 
   render() {
