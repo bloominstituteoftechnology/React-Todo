@@ -9,7 +9,7 @@ class Form extends React.Component {
     render() {
         return (
             <div className="Form">
-                <form>
+                <form onSubmit={(evnt) => this.props.handleSubmit(evnt)}>
                     <input
                         onChange={(evnt) => this.props.handleChange(evnt)}
                         value={this.props.inputValue}

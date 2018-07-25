@@ -6,18 +6,10 @@ import Task from './Todo.js';
 
 class List extends React.Component {
 
-    state = {
-        todos: [
-            { value: 'Clean kitchen', done: false },
-            { value: 'Wash clothes', done: true }
-        ]
-
-    }
-
     render() {
         return (
             <div className="List">
-                {this.state.todos.map((todo, index) => {
+                {this.props.todos.map((todo, index) => {
                     return (
                         <Task
                             key={index}
