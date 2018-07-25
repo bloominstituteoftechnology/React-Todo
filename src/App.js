@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -19,7 +20,8 @@ class App extends React.Component {
           id: 1528817084358,
           completed: false
         }
-      ]
+      ],
+      newTodo: ''
     };
   }
 
@@ -33,15 +35,7 @@ class App extends React.Component {
       <div>
         <h2>TO DO LIST</h2>
         <ul>{this.state.list.map(x => <li>{x.task}</li>)}</ul>
-        <input
-          type="text"
-          placeholder="...todo"
-          onChange={this.handleInputChange}
-          value={this.state.title}
-          name="title"
-        />
-        <button onSubmit={this.state.list}>Add Todo</button>
-        <button onSubmit={this.state.list}>Clear Completed</button>
+        <TodoForm />
       </div>
       
     );
