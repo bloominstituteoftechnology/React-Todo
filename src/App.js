@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import TodoList from './components/TodoComponents/TodoList';
+import Title from './components/TodoComponents/Title';
+import './App.css';
 
 class App extends Component {
 	constructor(){
@@ -47,7 +49,12 @@ class App extends Component {
 	// this component is going to take care of state, and any change handlers you need to work with your state
 	render() {
 		return (
-			<TodoList list={this.state.todo} onChange={this.handleInputChange} onSubmitButton={this.addTodo} onClear={this.removeCompleted} completeTask={this.completeTask} />
+			<div className="background">
+				<div className="container">
+					<Title />
+					<TodoList list={this.state.todo} onChange={this.handleInputChange} onSubmitButton={this.addTodo} onClear={this.removeCompleted} completeTask={this.completeTask} />
+				</div>
+			</div>
 		);
 	}
 }

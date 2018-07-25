@@ -1,0 +1,96 @@
+.title {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.title h1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 64px;
+    color: #2d3436;
+}
+
+.title h4 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    font-size: 16px;
+    color: #636e72;
+}
+
+.title a {
+    text-decoration: underline;
+    color: #636e72;
+}
+
+.title a:visited {
+    color: #636e72;
+}
+
+form .toDoInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 24px;
+    border: 2px solid #2d3436;
+    border-radius: 8px;
+    color: #2d3436;
+    font-family: 'Archivo Narrow', serif;
+}
+
+form .toDoInput:focus {
+    outline: none;
+}
+
+form .toDoInput::placeholder {
+    color: #b2bec3
+}
+
+form .buttons {
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+form button {
+    padding: 10px;
+    margin: 0px 10px;
+    background-color: #2d3436;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Archivo Narrow', serif;
+    letter-spacing: 2px;
+}
+
+form button:focus {
+    outline: none;
+}
+
+.toDoContainer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.toDoContainer p {
+    cursor: pointer;
+    font-size: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #636e72;
+}
+
+.toDoContainer p:last-child {
+    border-bottom: none;
+}

@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html, #root {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: 'Archivo Narrow', serif;
+}
+
+.background {
+    background-image: url('img/background.jpg');
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
