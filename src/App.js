@@ -1,5 +1,8 @@
 import React from "react";
 
+import Todo from './components/TodoComponents/Todo';
+import TodoList from './components/TodoComponents/TodoList';
+
 const myArr = [
   {
     task: "Organize Garage",
@@ -10,18 +13,8 @@ const myArr = [
 
 // CCR - "Class", "Constructor", "Render"
 
-const MessageRenderer = props => {
-  return <h1>{props.propsMessage}</h1>;
-};
 
-const Todo = props => {
-  const { task } = props.todoDataProp;
-  return (
-    <div>
-      <h4>Name: {task}</h4>
-    </div>
-  );
-};
+
 
 class App extends React.Component {
   constructor() {
@@ -54,8 +47,7 @@ class App extends React.Component {
     console.log("STATE: ", this.state);
     return (
       <div>
-        {/*<MessageRenderer propsMessage={this.state.message} />*/}
-        <div>Hello: {this.state.message}</div>
+        <TodoList propsMessage={this.state.message} />
         {this.state.todoData.map(task => <Todo todoDataProp={task} />)}
         <input placeholder="...todo" onChange={this.handleInputChange} />
         <button onClick={this.handleUpdateState}>Add Todo</button>
