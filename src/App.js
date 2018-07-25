@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from "react-dom";
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -14,21 +15,36 @@ const sample = [
     completed: false
   }
 ];
+
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-  constructor (){
+  constructor() {
     super();
     this.state = {
+      task: "",
       list: sample
-    }
+    };
   }
+
+  handleUpdateState = () => {
+    const list = this.state.list.slice();
+    list.push({
+      task: this.state.task,
+      id: new Date(),
+      completed: false
+    });
+    this.setState({ list: list });
+  };
+
+  handleInputChange = event => {
+    this.setState({task: event.target.value})
+  }
+
   render() {
+    // console.log("STATE: ", this.state);
     return (
       <div>
         <TodoList list={this.state.list}/>
-        <TodoForm />
+        <TodoForm inputChange={this.handleInputChange} dataChange={this.handleUpdateState} />
       </div>
     );
   }
