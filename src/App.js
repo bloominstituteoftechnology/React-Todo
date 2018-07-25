@@ -14,7 +14,7 @@ const MessageRenderer = props => {
   return <h1>{props.propsMessage}</h1>;
 };
 
-const TodoTask = props => {
+const Todo = props => {
   const { task } = props.todoDataProp;
   return (
     <div>
@@ -56,7 +56,7 @@ class App extends React.Component {
       <div>
         {/*<MessageRenderer propsMessage={this.state.message} />*/}
         <div>Hello: {this.state.message}</div>
-        {this.state.todoData.map(task => <TodoTask todoDataProp={task} />)}
+        {this.state.todoData.map(task => <Todo todoDataProp={task} />)}
         <input placeholder="...todo" onChange={this.handleInputChange} />
         <button onClick={this.handleUpdateState}>Add Todo</button>
         {/*All events in React go through what's called the Synthetic Event*/}
