@@ -1,0 +1,10 @@
+body h1, h2, h3, h4, h5, h6, p{
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+}
+
+.container{
+    width: 50%;
+    text-align: center;
+}
+

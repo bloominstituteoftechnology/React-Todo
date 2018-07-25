@@ -1,0 +1,22 @@
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+button{
+    font-family: 'Comfortaa', cursive;
+    width: 100%;
+    height: 40px;
+    margin: 20px;
+    border-radius: 6px;
+}
+
+input{
+    width: 100%;
+    height: 40px;
+    margin: 20px;
+    font-family: 'Comfortaa', cursive;
+    border-radius: 6px;
+}
