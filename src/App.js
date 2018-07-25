@@ -48,10 +48,16 @@ class App extends Component {
     });
   };
 
+  clearAll = e => {
+    e.preventDefault();
+    this.setState({
+      todos: [],
+    });
+  };
+
   componentWillMount() {
     localStorage.getItem('todos') && this.setState({
-      todos: JSON.parse(localStorage.getItem('todos')),
-      isLoading: false
+      todos: JSON.parse(localStorage.getItem('todos'))
     });
   }
 
@@ -63,7 +69,7 @@ class App extends Component {
     return (
       <div className="container">
         <TodoList todoArr={this.state.todos} onItemClick={this.handleItemClick} />
-        <TodoForm onInputChange={this.handleInputChange} onSubmit={this.addTodo} onClear={this.clearTodo} />
+        <TodoForm onInputChange={this.handleInputChange} onSubmit={this.addTodo} onClear={this.clearTodo} onClearAll={this.clearAll} />
       </div>
     );
   }
