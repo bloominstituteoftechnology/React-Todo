@@ -22,7 +22,8 @@ class App extends React.Component {
         id: 1528817084358,
         completed: true
       }
-    ]
+    ],
+    filter: 'all'
   };
 
   addTodo = text =>
@@ -53,6 +54,8 @@ class App extends React.Component {
 
   removeAll = () => this.setState({ todos: [] });
 
+  setFilter = filter => this.setState({ filter });
+
   handleSubmit = () => this.addTodo(this.state.input);
 
   handleChange = event => {
@@ -73,7 +76,11 @@ class App extends React.Component {
           </video>
         </div>
         <h1 className="App__title">React Todo List</h1>
-        <TodoList list={this.state.todos} toggler={this.toggleTodo} />
+        <TodoList
+          list={this.state.todos}
+          toggler={this.toggleTodo}
+          filter={this.state.filter}
+        />
         <TodoForm
           onSumbit={this.handleSubmit}
           onChange={this.handleChange}
@@ -82,6 +89,8 @@ class App extends React.Component {
         <TodoActions
           removeCompleted={this.removeCompleted}
           removeAll={this.removeAll}
+          filter={this.state.filter}
+          setFilter={this.setFilter}
         />
       </div>
     );
