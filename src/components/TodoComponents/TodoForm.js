@@ -2,11 +2,6 @@ import React from 'react';
 
 class Form extends React.Component {
 
-    state = {
-        inputValue: ""
-
-    }
-
     handleChange = (evnt) => {
         this.setState({ inputValue: evnt.target.value });
     }
@@ -16,8 +11,8 @@ class Form extends React.Component {
             <div className="Form">
                 <form>
                     <input
-                        onChange={(evnt) => this.handleChange(evnt)}
-                        value={this.state.inputValue}
+                        onChange={(evnt) => this.props.handleChange(evnt)}
+                        value={this.props.inputValue}
                     />
                 </form>
             </div>
