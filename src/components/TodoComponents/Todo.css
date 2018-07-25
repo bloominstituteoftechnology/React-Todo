@@ -19,6 +19,7 @@
   font-weight: 300;
   padding: 1rem;
   cursor: pointer;
+  transition: all .3s;
 }
 
 .Todo__item:not(:last-child) {
@@ -27,7 +28,7 @@
 
 .Todo__item--completed {
   text-decoration: line-through;
-  color: #dedede;
+  opacity: 0.7;
 }
 
 .Todo__form {

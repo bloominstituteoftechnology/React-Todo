@@ -4,9 +4,13 @@ import React from 'react';
 import Todo from './Todo';
 import './Todo.css';
 
-const TodoList = ({ list }) => (
+const TodoList = ({ list, toggler }) => (
   <ul className="Todo__list text-primary-color">
-    <div>{list.map(item => <Todo key={item.id} {...item} />)}</div>
+    <div>
+      {list.map(item => (
+        <Todo key={item.id} {...item} onClick={() => toggler(item.id)} />
+      ))}
+    </div>
   </ul>
 );
 
