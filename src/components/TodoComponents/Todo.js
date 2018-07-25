@@ -4,7 +4,7 @@ import './Todo.css';
 const Todo = (props) => {
     return (
         <div className="toDoContainer">
-            {props.list.map(todo => <p>{todo.task}</p>)}
+            {props.list.map(todo => <p onClick={props.completeTask}>{todo.task}</p>)}
         </div>
     );
 }

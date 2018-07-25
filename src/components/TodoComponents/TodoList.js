@@ -10,7 +10,7 @@ const TodoList = (props) => {
     return(
         <div className="toDoListContainer">
             <TodoForm onChange={props.onChange} onSubmit={props.onSubmit} onClear={props.onClear} />
-            <Todo list={props.list} />
+            <Todo list={props.list} completeTask={props.completeTask} />
         </div>
     );
 }
