@@ -57,14 +57,13 @@ class TodoList extends React.Component{
     const parent = e.target.parentElement;
     const id = parent.classList[0];
     
-    // update state
     this.state.todoList.forEach(item => {
-      if (item.id ===  Number(id)) {
+      if (`id-${item.id}` ===  id) {
+        console.log(this.state.todoList);
         item.completed = true;
       }
     })
 
-    // update DOM
     parent.classList.toggle('isCompleted');
   }
 

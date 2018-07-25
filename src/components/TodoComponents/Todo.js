@@ -12,8 +12,13 @@ const Todo = props => {
         const classes = `id-${id}`;
 
         return (
-          <div className={classes} onClick={props.triggerCompleted}>
-            <p className="todo-item">{task}</p>
+          <div className={classes}>
+            <p 
+              onClick={props.triggerCompleted} 
+              className="todo-item"
+            >
+              {task}
+            </p>
           </div>
         );
       })}
