@@ -51,7 +51,14 @@ class App extends React.Component {
     }
   }
 
+  handleKeyPress = event => {
+    if(event.key === "Enter"){
+      this.handleNewTodo();
+    }
+  }
+
   handleInputChange = event => {
+    console.log(event);
     let newInput = event.target.value;
     this.setState({
       inputField: newInput,
@@ -62,7 +69,7 @@ class App extends React.Component {
     return (
       <div className="app-container">
         <TodoList list={this.state.todos}/>
-        <TodoForm change={this.handleInputChange} addClick={this.handleNewTodo} />
+        <TodoForm handleEnter={this.handleKeyPress} change={this.handleInputChange} addClick={this.handleNewTodo} />
       </div>
     );
   }
