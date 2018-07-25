@@ -19,6 +19,10 @@ class App extends React.Component {
     this.setState({ inputValue: evnt.target.value });
   }
 
+  handleClick = () => {
+    console.log('button clicked');
+  }
+
   handleSubmit = (evnt) => {
     evnt.preventDefault();
     const newTodo = {
@@ -40,6 +44,7 @@ class App extends React.Component {
           handleSubmit={this.handleSubmit}
         />
         <List
+          handleClick={this.handleClick}
           todos={this.state.todos} />
       </div>
     );

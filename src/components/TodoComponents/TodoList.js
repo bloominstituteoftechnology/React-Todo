@@ -13,6 +13,7 @@ class List extends React.Component {
                     return (
                         <Task
                             key={index}
+                            handleClick={this.props.handleClick}
                             todo={todo}
                         />
                     )
