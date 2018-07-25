@@ -3,10 +3,14 @@ import React from 'react';
 class Todo extends React.Component {
     constructor(props){
         super();
+        let { completed, task } = props.task;
         this.state = {
-            task: props.task
+            task: task,
+            completed: completed
         };
     }
+
+    
     
     render(){
         return (
