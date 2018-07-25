@@ -32,6 +32,10 @@ class App extends Component {
 	}
 
 	removeCompleted = () => {
+		if (this.state.todo.length > 0) {
+			let text = document.querySelector('.toDoContainer p');
+			text.style.textDecoration = 'none';
+		}
 		let currentList = this.state.todo.slice();
 		let newList = currentList.filter(todo => todo.completed === false);
 		this.setState({todo: newList});
