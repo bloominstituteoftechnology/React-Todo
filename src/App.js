@@ -1,13 +1,39 @@
 import React from 'react';
+import Todo from './components/TodoComponents/Todo';
+
+
+
+
+const myList = ['groceries', 'pay bills', 'pay rent', 'learn react']
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  constructor(){
+    super();
+    this.state = {
+     items: myList 
+    };
+  }
+
+  updateStateHandler = () => {
+  
+    const myClonedItems = this.state.items.slice(); 
+  
+    myClonedItems.push('buying more cats')
+
+    this.setState({items: myClonedItems});
+  };
+
+
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        
+        {this.state.items.map(items => <Todo toDoItemProp={items}/>
+        )}
+        
+        <input type="text" onChange={this.updateStateHandler}/>
+
       </div>
     );
   }
