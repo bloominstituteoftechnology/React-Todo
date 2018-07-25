@@ -40,6 +40,7 @@ class TodoList extends React.Component{
       id: this.state.todoList[this.state.todoList.length - 1].id + Math.floor(Math.random() * 10),
       completed: false
     }
+    
     const newTodoList = this.state.todoList.slice().concat(newTodoItem);
     this.setState({ todoList: newTodoList });
     this.setState({ input: '' });
