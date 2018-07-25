@@ -8,6 +8,9 @@ import "./App.css";
 // on click event to to do item, x elemnt pops up and on click x removes that from the array list it will add class to the to do item
 
 //connect to database and allow delete and post
+
+
+//json.stringify and then .setLocalStorage because only strings can be saved in local storage
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -26,7 +29,7 @@ class App extends React.Component {
     //if the input has a length then execute
     if (input.length) {
       let toDoArray = this.state.list;
-      toDoArray.push(input);
+      toDoArray.push({ id: Date.now(), task: input, complete: false });
       this.setState({
         list: toDoArray,
         //sets
@@ -38,12 +41,28 @@ class App extends React.Component {
   //making a copy of this.state.list so we don't directly change the state
 
   removeToDo = () => {
-    // let toDoArray = this.state.list.splice();
-    // this.setState({
-    //   list: toDoArray
-    // });
+    let toDoArray = this.state.list.filter(todo => {
+      return !todo.complete;
+    });
+    this.setState({
+      list: toDoArray
+    });
   };
 
+  onClickHandle = id => {
+    let modifiedArray = this.state.list.map(item => {
+      if (id === item.id) {
+        //toggling the state
+        item.complete = !item.complete;
+        return item;
+      } else {
+        return item;
+      }
+    });
+    this.setState({
+      list: modifiedArray
+    });
+  };
   render() {
     return (
       <div className="wrapper">
@@ -77,7 +96,19 @@ class App extends React.Component {
           </button>
 
           <ul className="only-ul">
-            {this.state.list.map((item, i) => <li key={i}>{item}</li>)}
+            {this.state.list.map((item, i) => (
+              <li
+                onClick={e => {
+                  this.onClickHandle(item.id);
+                }}
+                key={item.id}
+                style={{
+                  textDecoration: item.complete ? "line-through" : "none"
+                }}
+              >
+                {item.task}
+              </li>
+            ))}
           </ul>
         </div>
       </div>
