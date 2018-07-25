@@ -50,7 +50,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <TodoList todoArr={this.state.todos} onItemClick={this.handleItemClick} />
         <TodoForm onInputChange={this.handleInputChange} onSubmit={this.addTodo} onClear={this.clearTodo} />
       </div>

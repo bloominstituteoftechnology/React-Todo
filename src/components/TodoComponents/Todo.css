@@ -1,3 +1,40 @@
+.container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.todo-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.todo-items .todo-item {
+    margin: 25px;
+}
+
 .completed {
     text-decoration: line-through greenyellow;
+}
+
+.todoInput {
+    width: 200px;
+    padding: 2px 5px;
+}
+
+.btn {
+    background: #fff;
+    border-radius: 5px;
+    border-style: solid;
+    margin: 5px 2px;
+}
+
+.btn:hover {
+    background: lightgray;
+    color: #fff;
+    transform: scale(1.2);
+    transition-duration: 500ms;
+    transition-timing-function: ease;
 }
