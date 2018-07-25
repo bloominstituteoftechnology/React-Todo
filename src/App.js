@@ -4,12 +4,15 @@ import Title from './components/TodoComponents/Title';
 import './App.css';
 
 let storage = window.localStorage;
-let storageList = storage.list;
+let storageList = [];
+if (storage.list !== undefined){
+	storageList = JSON.parse(storage.list);
+}
 
 class App extends Component {
 	constructor(){
 		super();
-		this.state = {todo: JSON.parse(storageList), current: ''}
+		this.state = {todo: storageList, current: ''}
 	}
 
 	handleInputChange = event => {
@@ -25,7 +28,6 @@ class App extends Component {
 		newList.push(newItem);
 		this.setState({todo: newList, current: ''});
 		storage.setItem('list', JSON.stringify(newList));
-		console.log(storage.list);
 	}
 
 	completeTask = event => {
@@ -38,7 +40,6 @@ class App extends Component {
 		}
 		this.setState({todo: newList});
 		storage.setItem('list', JSON.stringify(newList));
-		console.log(storage.list);
 	}
 
 	removeCompleted = () => {
@@ -50,7 +51,6 @@ class App extends Component {
 		let newList = currentList.filter(todo => todo.completed === false);
 		this.setState({todo: newList});
 		storage.setItem('list', JSON.stringify(newList));
-		console.log(storage.list);
 	}
 
 	// you will need a place to store your state in this component.
