@@ -12,7 +12,7 @@ class TodoForm extends React.Component {
 
         return (
             <form action="">
-            <Todo />
+            <Todo handleInputChange = {this.props.handleInputChange}/>
             
             </form>
         );
