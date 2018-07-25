@@ -13,6 +13,9 @@ class App extends Component {
 
 	addTodo = (event, prevState) => {
 		event.preventDefault();
+		let clear = document.querySelector('.toDoForm input');
+		console.log(clear.value);
+		clear.value = '';
 		let newList = this.state.todo.slice();
 		let newItem = {task: this.state.current, id: Date.now(), completed: false};
 		newList.push(newItem);
