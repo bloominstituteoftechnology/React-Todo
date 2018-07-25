@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todo.css';
 
 
 const TodoForm = props => {
@@ -8,6 +9,7 @@ const TodoForm = props => {
         <input type="text" placeholder="submit" />
         <button type="submit">Submit</button>
       </form>
+      <button type="submit" onClick={props.clearMe}>Clear All</button>
     </div>
   );
 }

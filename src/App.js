@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './components/TodoComponents/Todo.css';
 
 
 
@@ -11,15 +12,15 @@ class App extends React.Component {
       list: [
         {
           task: 'Learn React',
-          id: 1979,
+          id: 2049,
           completed: false
         }
       ]
-    } 
+    }
   }
 
   addTodo = (e) => {
-    const list = this.state.list.slice();
+    let list = this.state.list.slice();
     let value = e.target.firstChild.value;
     list.push({
       task: value,
@@ -31,11 +32,26 @@ class App extends React.Component {
     e.preventDefault();
   }
 
+  crossTodo = (e) => {
+    e.target.classList.toggle('crossOut');
+    let list = this.state.list.slice();
+    let crossItem = list.filter(item => item.task === e.target.textContent);
+    crossItem.forEach(item => item.completed = true);
+    this.setState({ list: list });
+  }
+
+  clearCompletedTodos = (e) => {
+    let list = this.state.list.slice();
+    let newList = list.filter(item => item.completed !== true);
+    this.setState({ list: newList });
+  }
+
   render() {
     return (
-      <div>
-        {this.state.list.map(item => <TodoList key={item.id} itemProp={item.task} />)}
-        <TodoForm addMe={this.addTodo} />
+      <div className="main-container">
+        <h1>Let's Add Some ToDo Items!</h1>
+        <TodoForm addMe={this.addTodo} clearMe={this.clearCompletedTodos} />
+        {this.state.list.map(item => <TodoList key={item.id} itemProp={item.task} crossItem={this.crossTodo} />)}
       </div>
     )
   }

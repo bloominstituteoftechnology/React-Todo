@@ -1,0 +1,13 @@
+
+.main-container {
+  border: solid 1px red;
+  border-bottom: none; 
+  margin: auto;
+  max-width: 750px;
+  min-width: 200px;
+  text-align: center;
+}
+
+.crossOut {
+  text-decoration: line-through;
+}
