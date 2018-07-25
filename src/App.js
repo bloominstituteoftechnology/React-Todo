@@ -17,13 +17,29 @@ const List = props => {
   );
 }
 
+
 class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      dontknowyet: "hi"
+      lists: [],
+      input: ""
     };
   }
+  addItem = () => {
+    const lists = this.state.lists.slice();
+    lists.push({
+      id: Date.now(),
+      task: this.state.input,
+      complete: false,
+    })
+    this.setState({lists: lists});
+  };
+
+  inputChange = event => {
+    this.setState({input: event.target.value})
+  };
+  
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -31,7 +47,10 @@ class App extends React.Component {
     return (
       <div>
         <h1>Todo List:</h1>
-        {listArr.map(item => <List listprop={item}/>)}
+        {this.state.lists.map(item => <List listprop={item}/>)}
+        <input placeholder="whatchu need 2 do" onChange={this.inputChange}/>
+        <button onClick={this.addItem}>Add</button>
+        <button>Clear Completed</button>
       </div>
     );
   }
