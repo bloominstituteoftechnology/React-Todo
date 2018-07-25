@@ -18,12 +18,18 @@ class App extends Component {
     this.setState({todo: newList, current: ''})
   }
 
+  removeCompleted = () => {
+    let currentList = this.state.todo.slice();
+    let newList = currentList.filter(todo => todo.completed === false);
+    this.setState({todo: newList});
+  }
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <TodoList list={this.state.todo} onChange={this.handleInputChange} onSubmit={this.addTodo} />
+      <TodoList list={this.state.todo} onChange={this.handleInputChange} onSubmit={this.addTodo} onClear={this.removeCompleted} />
     );
   }
 }
