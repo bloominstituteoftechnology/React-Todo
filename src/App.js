@@ -9,6 +9,7 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   state = {
+    input: '',
     todos: [
       {
         task: 'Organize Garage',
@@ -23,6 +24,36 @@ class App extends React.Component {
     ]
   };
 
+  addTodo = text =>
+    this.setState(prevState => ({
+      todos: [
+        ...prevState.todos,
+        {
+          id: Date.now(),
+          task: text,
+          completed: false
+        }
+      ],
+      input: ''
+    }));
+
+  toggleTodo = id =>
+    this.setState(prevState => ({
+      todos: prevState.todos.map(todo => {
+        if (todo.id !== id) return todo;
+        return { ...todo, completed: !todo.completed };
+      })
+    }));
+
+  handleSubmit = () => this.addTodo(this.state.input);
+
+  handleChange = event => {
+    event.preventDefault();
+    this.setState({
+      input: event.target.value
+    });
+  };
+
   render() {
     return (
       <div className="App__container primary-text-color">
@@ -34,8 +65,12 @@ class App extends React.Component {
           </video>
         </div>
         <h1 className="App__title">React Todo List</h1>
-        <TodoList list={this.state.todos} />
-        <TodoForm />
+        <TodoList list={this.state.todos} onClick={this.toggleTodo} />
+        <TodoForm
+          onSumbit={this.handleSubmit}
+          onChange={this.handleChange}
+          value={this.state.input}
+        />
       </div>
     );
   }

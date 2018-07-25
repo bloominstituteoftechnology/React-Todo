@@ -1,8 +1,14 @@
 import React from 'react';
 
-const TodoForm = () => (
-  <form action="#" className="Todo__form">
-    <input type="text" className="Todo__input" placeholder="New task" />
+const TodoForm = ({ onSumbit, onChange, value }) => (
+  <form action="#" className="Todo__form" onSubmit={onSumbit}>
+    <input
+      onChange={onChange}
+      value={value}
+      type="text"
+      className="Todo__input"
+      placeholder="New task"
+    />
   </form>
 );
 

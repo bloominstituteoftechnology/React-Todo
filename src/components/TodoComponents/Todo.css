@@ -1,11 +1,12 @@
 .Todo__list {
   list-style: none;
-  padding: 3rem 5rem;
+  padding: 1rem 5rem;
   background-color: rgba(104, 58, 183, 0.85);
   border-radius: 4px;
   transform: skewX(-7deg);
   margin-bottom: 5rem;
   box-shadow: 0 1rem 2rem rgba(0,0,0, 0.2);
+  transition: all .3s;
 }
 
 .Todo__list > * {
@@ -36,7 +37,7 @@
 .Todo__input {
   width: 100%;
   padding: 1.5rem 2rem;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.85);
   border: none;
   border-radius: 2px;
   font-family: inherit;
