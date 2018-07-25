@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoForm from './components/TodoComponents/TodoForm';
+// import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 import Todo from './components/TodoComponents/Todo';
 
@@ -17,12 +17,9 @@ class App extends React.Component {
     const {thingsToDo} = this.state;
     let newItem = event.target.value; 
     thingsToDo.push(newItem);
-    //this.setState({thingsToDo:thingsToDo}); 
-    console.log(this.state); 
   }
 
   handleChange = event => {
-    console.log(event.target.value);
     this.setState(
       {temp: event.target.value}
     )
@@ -30,27 +27,19 @@ class App extends React.Component {
 
   handleEnter = event => {
     const {thingsToDo} = this.state;
-    console.log(this.state);
      
-    if(event.keyCode === 13 || this.state.clicked){
+    if(event.keyCode === 13 ){
       this.setState({clicked: false});
       thingsToDo.push(event.target.value);
       this.setState({thingsToDo:thingsToDo, temp: ""}) 
-      console.log("enter key pressed");
-      console.log(this.state)
-
-      
     }
 
-    
 
   }
   handleClick = event => {
-    console.log("clicked");
     this.setState({clicked: true});
     const {thingsToDo} = this.state;
     thingsToDo.push(this.state.temp);
-    // thingsToDo.push(event.target.value);
     this.setState({thingsToDo:thingsToDo, temp: ""});
 
   }
