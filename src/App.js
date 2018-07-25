@@ -3,16 +3,20 @@ import React from "react";
 import Todo from './components/TodoComponents/Todo';
 import TodoList from './components/TodoComponents/TodoList';
 
+
 const myArr = [
   {
     task: "Organize Garage",
-    id: 1528817077286,
+    id: Date.now(),
     completed: false
   }
 ];
 
 // CCR - "Class", "Constructor", "Render"
 
+const MessageRenderer = props => {
+  return <h1>{props.propsMessage}</h1>;
+};
 
 
 
@@ -23,6 +27,8 @@ class App extends React.Component {
       message: "Hello",
       todoData: myArr
     };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleUpdateState = this.handleUpdateState.bind(this);
   }
 
   handleUpdateState = () => {
@@ -44,11 +50,14 @@ class App extends React.Component {
   };
 
   render() {
-    console.log("STATE: ", this.state);
     return (
       <div>
-        <TodoList propsMessage={this.state.message} />
+        <MessageRenderer propsMessage={this.state.message} />
+        {console.log("This state to data", this.state)}
+
+        <TodoList currentInputValue={this.state}/>
         {this.state.todoData.map(task => <Todo todoDataProp={task} />)}
+        {console.log(this.state)}
         <input placeholder="...todo" onChange={this.handleInputChange} />
         <button onClick={this.handleUpdateState}>Add Todo</button>
         {/*All events in React go through what's called the Synthetic Event*/}
