@@ -6,7 +6,7 @@ const TodoForm = props => {
             <input 
             type="text"
             name="todo"
-            placeholder="..todo"
+            placeholder="...todo"
             />
             <button>Add Todo</button>
             <button>Clear Completed</button>
