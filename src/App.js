@@ -4,14 +4,25 @@ import TodoList from './components/TodoComponents/TodoList';
 class App extends Component {
   constructor(){
     super();
-    this.state = {todo: ['abcd', 'more', 'stuff', 'to', 'test']}
+    this.state = {todo: ['abcd', 'more', 'stuff', 'to', 'test'], current: ''}
   }
+
+  handleInputChange = event => {
+    this.setState({current: event.target.value});
+  }
+
+  addTodo = (prevState) => {
+    let newList = this.state.todo.slice();
+    newList.push(this.state.current);
+    this.setState({todo: newList, current: ''})
+  }
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <TodoList list={this.state.todo} />
+      <TodoList list={this.state.todo} onChange={this.handleInputChange} onSubmit={this.addTodo} />
     );
   }
 }
