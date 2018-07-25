@@ -10,13 +10,24 @@ class App extends React.Component {
     super();
     this.state = {thingsToDo: []};
   }
+
   handleInputChange = event => {
-    const {thingsToDo} = this.state; 
+    const {thingsToDo} = this.state;
     thingsToDo.push(event.target.value);
     this.setState({thingsToDo:thingsToDo}); 
     console.log(this.state); 
   }
 
+  handleEnter = event => {
+    const {thingsToDo} = this.state;
+    console.log(this.state);
+    if(event.keyCode === 13){
+      
+      thingsToDo.push(event.target.value);
+      this.setState({thingsToDo:thingsToDo}); 
+      console.log("enter key pressed");
+    }
+  }
 
   render() {
     return (
@@ -24,7 +35,7 @@ class App extends React.Component {
         <h1>Todo List: MVP</h1>
         <p>{this.state.thingsToDo}</p>
         <TodoList />
-        <TodoForm handleInputChange = {this.handleInputChange}/>
+        <TodoForm handleInputChange = {this.handleInputChange} handleEnter = {this.handleEnter}/>
         
       </div>
     );
