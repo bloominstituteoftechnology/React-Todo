@@ -1,0 +1,63 @@
+html {
+    font-family: 'PT Sans', sans-serif;
+}
+
+.wrapper {
+    margin: 0 auto;
+     width: 100px; 
+}
+
+.main-container {
+    height: 800px;
+    width: 600px;
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.input-form {
+    text-align: center;
+    width: 300px;
+    height: 50px;
+    font-size: 30px;
+    color: #A0011E
+}
+
+input[type=text]:focus, textarea:focus {
+    
+    box-shadow: 0 0 10px #A0011E;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #A0011E;
+  }
+
+.onlyBtn {
+    width: 130px;
+    height: 55px;
+    display: inline-block;
+    background-color: #A0011E;
+    color: #FFFFFF;
+    font-family: europa, sans-serif;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 1;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 14px 22px;
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+
+.only-ul li{
+    text-decoration: none;
+    border: 3px solid #A0011E;
+    font-size: 2rem;
+}
+
+
+
