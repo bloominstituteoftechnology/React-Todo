@@ -14,7 +14,6 @@ class App extends Component {
 	addTodo = (event, prevState) => {
 		event.preventDefault();
 		let clear = document.querySelector('.toDoForm input');
-		console.log(clear.value);
 		clear.value = '';
 		let newList = this.state.todo.slice();
 		let newItem = {task: this.state.current, id: Date.now(), completed: false};
@@ -26,8 +25,7 @@ class App extends Component {
 		event.target.style.textDecoration = 'line-through';
 		let newList = this.state.todo.slice();
 		for (let todo in newList){
-			console.log(newList[todo]);
-			if (newList[todo].task === event.target.innerText){
+			if (newList[todo].task === event.target.innerText && newList[todo].id === Number(event.target.dataset.id)){
 				newList[todo].completed = true;
 			}
 		}
