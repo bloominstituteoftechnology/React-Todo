@@ -1,28 +1,32 @@
 import React from 'react';
 import Todo from './components/TodoComponents/Todo.js';
+import TodoList from './components/TodoComponents/TodoList.js';
 import TodoForm from './components/TodoComponents/TodoForm.js';
+
+
 
 class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      task: ''
+      tasks: [{task: 'do homework'},{task: 'complete MVP'}]
       }
     }
-  handleUpdateState(){
-    
-  };
-  handleInputChange = event => {
-    this.setState({task: event.target.value});
-  }
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  // handleUpdateState(){
+  //   const tasks = this.state.tasks.slice();
+  //   tasks.push('new data');
+  //   this.setState({tasks: tasks});
+  // };
+  // handleInputChange = event => {
+  //   this.setState({tasks: event.target.value});
+  // }
   render() {
     return (
       <div>
-        <TodoForm />
+        <h1> Todo List MVP</h1>
+        <TodoList list={this.state.tasks}/>
 
+        <TodoForm />
       </div>
     );
   }

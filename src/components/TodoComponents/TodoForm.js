@@ -5,10 +5,10 @@ const TodoForm = () =>{
     return(
         <div>
             <input placeholder='Todo task' onChange={this.handleInputChange} />
-            <button>Add Todo</button>
+            <button onClick={this.handleUpdateState}>Add Todo</button>
             <button>Clear Completed</button>
         </div>
-    )
+    );
 }
 
 export default TodoForm;
