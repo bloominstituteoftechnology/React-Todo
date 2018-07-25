@@ -12,7 +12,11 @@ class Todo extends React.Component {
     render () {
 
         return (
-            <div></div>
+            <div className ="formOptions">
+                <input type="text" placeholder ="...todo"/> 
+                <button>Add Todo</button>
+                <button>Clear Completed</button>
+            </div>
         );
 
     }

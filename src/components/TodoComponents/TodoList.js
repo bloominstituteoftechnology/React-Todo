@@ -12,7 +12,9 @@ class TodoList extends React.Component {
     render () {
 
         return (
-            <div></div>
+            <ul>
+                <li>Testing out rendering</li>
+            </ul>
         );
 
     }
