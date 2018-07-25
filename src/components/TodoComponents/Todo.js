@@ -13,7 +13,8 @@ class Todo extends React.Component {
 
         return (
             <div className ="formOptions">
-                <input onChange = {this.props.handleInputChange} onKeyDown = {this.props.handleEnter} type="text" placeholder ="...todo"/> 
+           { /*onChange = {this.props.handleInputChange}*/}
+                <input  onKeyDown = {this.props.handleEnter} type="text" placeholder ="...todo"/> 
                 <button>Add Todo</button>
                 <button>Clear Completed</button>
             </div>

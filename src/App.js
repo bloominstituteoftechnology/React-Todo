@@ -13,19 +13,24 @@ class App extends React.Component {
 
   handleInputChange = event => {
     const {thingsToDo} = this.state;
-    thingsToDo.push(event.target.value);
-    this.setState({thingsToDo:thingsToDo}); 
+    let newItem = event.target.value; 
+    thingsToDo.push(newItem);
+    //this.setState({thingsToDo:thingsToDo}); 
     console.log(this.state); 
   }
 
   handleEnter = event => {
     const {thingsToDo} = this.state;
+    // event.target.value.preventDefault()
+    // event.preventDefault();
     console.log(this.state);
+     
     if(event.keyCode === 13){
       
       thingsToDo.push(event.target.value);
-      this.setState({thingsToDo:thingsToDo}); 
+      this.setState({thingsToDo:thingsToDo}) 
       console.log("enter key pressed");
+      console.log(this.state)
     }
   }
 
