@@ -1,5 +1,4 @@
 import React from 'react';
-// import '.Todo.css';
 
 // Custom Button
 const TodoForm = props => {
