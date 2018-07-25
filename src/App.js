@@ -32,14 +32,37 @@ class App extends React.Component {
         },
 
       ],
+      inputField: "",
     };
+  }
+
+  handleNewTodo = event => {
+    if(this.state.inputField !== ""){
+      const newTodos = this.state.todos.slice();
+      newTodos.push({
+        task: this.state.inputField,
+        id: Date.now(),
+        completed: false,
+      });
+      this.setState({
+        todos: newTodos,
+        inputField: "",
+      });
+    }
+  }
+
+  handleInputChange = event => {
+    let newInput = event.target.value;
+    this.setState({
+      inputField: newInput,
+    });
   }
 
   render() {
     return (
       <div className="app-container">
         <TodoList list={this.state.todos}/>
-        <TodoForm />
+        <TodoForm change={this.handleInputChange} addClick={this.handleNewTodo} />
       </div>
     );
   }
