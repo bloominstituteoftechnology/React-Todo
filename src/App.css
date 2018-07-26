@@ -1,0 +1,34 @@
+body {
+    background-color:#e0f2f1;
+}
+
+h2 {
+    font-size: 50px; 
+    color: #e57373;
+    font-weight: bold; 
+    font-family: 'Merienda', cursive;
+    text-align:center; 
+}
+
+.to-do-items {
+    display: flex; 
+    flex-wrap: wrap; 
+}
+
+.to-do-form {
+    width: 50%; 
+    margin: 0 auto; 
+}
+
+.add-button {
+    margin-right: 3%; 
+}
+
+.buttons {
+    display: flex; 
+    justify-content: center; 
+    margin-bottom: 50px; 
+}
+
+
+
