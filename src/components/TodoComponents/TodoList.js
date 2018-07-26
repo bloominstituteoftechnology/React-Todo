@@ -17,7 +17,7 @@ class TodoList extends React.Component {
         
         return (
             
-            <li className = "unCompleted" onClick ={this.props.handleLiClick}>
+            <li className = {this.props.completed.toString() === "false" ? "unCompleted": "completed"} completed = {this.props.completed.toString()} onClick ={this.props.handleLiClick}>
             {this.props.thingToDo}</li>
             
         );
