@@ -51,7 +51,7 @@ class App extends React.Component {
   handleLiClick = event => {
     event.target.style.textDecoration === "line-through" ? event.target.style.textDecoration = 'none': event.target.style.textDecoration = "line-through";
     
-    event.class === 'completed' ? event.class = 'unCompleted' : event.class = 'completed'
+    //event.class === 'completed' ? event.class = 'unCompleted' : event.class = 'completed'
      
 
     event.target.className === 'completed' ? event.target.className = 'unCompleted' : event.target.className = 'completed'
@@ -70,6 +70,7 @@ class App extends React.Component {
       
       }
      }
+     console.log(event.className)
 
 }
 
@@ -77,7 +78,7 @@ class App extends React.Component {
     
     const things = Object.values(this.state.completed);
     let thingsToDo = this.state.thingsToDo 
-    thingsToDo = thingsToDo.filter( thing => !things.includes(thing));
+    thingsToDo = thingsToDo.filter( thing => !things.includes(thing.task));
     
     this.setState({thingsToDo: thingsToDo}); 
   }
@@ -90,7 +91,7 @@ class App extends React.Component {
         
         <ul>   
           {this.state.thingsToDo.map(thing => <TodoList thingToDo = {thing.task} handleLiClick = {this.handleLiClick} completed ={this.state.completed}
-          key={thing} /> )}
+          key={thing.id} /> )}
           {this.state.temp}
         </ul>
         <Todo handleClick = {this.handleClick} handleenter = {this.handleEnter} value={this.state.temp}
