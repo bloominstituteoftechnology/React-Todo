@@ -90,13 +90,18 @@ form button:focus {
 .toDoContainer p {
     cursor: pointer;
     font-size: 24px;
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: center;
     padding-bottom: 20px;
+    margin-top: 0;
     border-bottom: 1px solid #636e72;
 }
 
 .toDoContainer p:last-child {
     border-bottom: none;
+}
+
+.toDoContainer .completed {
+    text-decoration: line-through;
 }

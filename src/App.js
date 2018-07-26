@@ -31,11 +31,10 @@ class App extends Component {
 	}
 
 	completeTask = event => {
-		event.target.style.textDecoration = 'line-through';
 		let newList = this.state.todo.slice();
 		for (let todo in newList){
 			if (newList[todo].task === event.target.innerText && newList[todo].id === Number(event.target.dataset.id)){
-				newList[todo].completed = true;
+				newList[todo].completed = !newList[todo].completed;
 			}
 		}
 		this.setState({todo: newList});
@@ -43,10 +42,6 @@ class App extends Component {
 	}
 
 	removeCompleted = () => {
-		if (this.state.todo.length > 0) {
-			let text = document.querySelector('.toDoContainer p');
-			text.style.textDecoration = 'none';
-		}
 		let currentList = this.state.todo.slice();
 		let newList = currentList.filter(todo => todo.completed === false);
 		this.setState({todo: newList});
