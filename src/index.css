@@ -1,0 +1,9 @@
+.main-div {
+  border: 1px solid red;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  background-color: midnightblue;
+  color: white;
+  height: 400px;
+}
