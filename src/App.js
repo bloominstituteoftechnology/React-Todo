@@ -15,7 +15,6 @@ class App extends React.Component {
   }
 
   handleTaskChange = e => {
-    console.log(e.target.value);
     this.setState({task: e.target.value});
   };
 
@@ -23,11 +22,10 @@ class App extends React.Component {
     e.preventDefault();
     const todos = this.state.todo_items.slice();
     todos.push({task: this.state.task, id: Date.now(), completed: false});
-    this.setState({todos: todos});
+    this.setState({todo_items: todos});
   };
 
   render() {
-    console.log(`State ${this.state.task}`);
     return (
       <div>
         <h2>Todo List: MVP</h2>
