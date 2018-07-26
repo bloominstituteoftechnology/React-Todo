@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import Todo from './components/TodoComponents/Todo'
 import TodoForm from './components/TodoComponents/TodoForm'
 import TodoList from './components/TodoComponents/TodoList'
 
@@ -57,7 +56,7 @@ toggleTodoStatus = id => {
 clear = a => {
   a.preventDefault();
   let todo = this.state.todo.slice( );
-  todo = todo.filter(done => !todo.status);
+  todo = todo.filter(done => !done.status);
   this.setState({ todo });
 };
 
