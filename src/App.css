@@ -1,0 +1,33 @@
+.mainbody {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #81B29A;
+  flex-direction: column;
+}
+
+.content {
+  height: 80%;
+  width: 40%;
+  background-color: #81B29A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.addNewBtn {
+  margin-top: -25px;
+  height: 50px;
+  width: 50px;
+  color: #F3CEC4;
+  box-shadow: -3px 2px 7px #66382C;
+  border-radius: 50%;
+  background-color: #E07A5F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}

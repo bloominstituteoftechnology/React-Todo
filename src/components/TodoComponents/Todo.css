@@ -1,0 +1,21 @@
+.completed {
+  text-decoration: line-through;
+}
+
+.todo-list {
+  height: 75%;
+  width: 80%;
+  border-radius: 5px;
+  background-color: #F2CC8F;
+}
+
+.todo-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.todo-input {
+  width: 60%;
+  height: 30px;
+}

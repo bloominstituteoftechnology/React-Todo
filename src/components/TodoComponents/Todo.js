@@ -1,11 +1,15 @@
 import React from "react";
 
 const Todo = props => {
-  const { task } = props.todos;
-
+  const { task, completed, id } = props.todos;
+  const clicked = () => {
+    props.handleCompleted(id);
+  }
   return (
-    <div>
-      <h4> {task} </h4>
+    <div
+      className={completed ? "completed" : null} 
+      onClick={clicked}>
+      {task}
     </div>
   );
 };
