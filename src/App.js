@@ -44,12 +44,14 @@ class App extends React.Component {
     super ();
     this.state = {
       toDo: toDos,
+      newItem: ""
     }
   }
 
   handleAddToDo = event => {
+    event.preventDefault();
     const items = this.state.toDo.slice();
-    let input = document.getElementById("taskInput").value;
+    let input = this.state.newItem;
 
     items.push(
       {
@@ -59,15 +61,22 @@ class App extends React.Component {
       }
     );
 
-    this.setState({toDo: items});
-    document.getElementById("taskInput").value = null;
+    this.setState({toDo: items, newItem: ""});
   }
+
+  inputAddToDo = event => {
+    this.setState({newItem: event.target.value})
+  }
+
+  // handleClearToDo = event => {
+  //   const
+  // }
 
   render() {
     return (
       <div>
         <TodoList array={this.state.toDo}/>
-        <TodoForm add={this.handleAddToDo}/>
+        <TodoForm value={this.state.newItem} itemAdd={this.inputAddToDo} add={this.handleAddToDo} clear={this.handleClearToDo}/>
       </div>
     );
   }

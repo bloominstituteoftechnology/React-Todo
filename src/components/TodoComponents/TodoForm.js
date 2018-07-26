@@ -2,11 +2,11 @@ import React from 'react';
 
 const TodoForm = (props) => {
   return (
-    <div>
-      <input id="taskInput" placeholder="...todo item" />
+    <form>
+      <input id="taskInput" placeholder="...todo item" onChange={props.itemAdd} value={props.value}/>
       <button onClick={props.add}>Add ToDo</button>
       <button onClick={props.clear}>Clear Completed</button>
-    </div>
+    </form>
   )
 }
 
