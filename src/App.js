@@ -26,7 +26,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList />
+        <TodoList todo = {this.state.todos.task}/>
         <TodoForm onChange={this.formHandler}/>
       </div>
     );
