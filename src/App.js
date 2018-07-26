@@ -10,7 +10,8 @@ class App extends React.Component {
     super();
     this.state = {
       inputData: '',
-      todoItems: []
+      todoItems: [],
+      title: 'My ToDo List first ever React App!'
     };
   } 
   
@@ -20,6 +21,9 @@ class App extends React.Component {
   }
 
   addTask = () => {
+    if (this.state.inputData === '') {
+      return this.state.inputData;
+    } 
     const todoItems = this.state.todoItems.slice();
     todoItems.push({
       "task": this.state.inputData,
@@ -28,12 +32,36 @@ class App extends React.Component {
     });
     this.setState({todoItems: todoItems, inputData: ''});
   }
+
+  idToggler = id => {
+    let todoItems = this.state.todoItems.slice();
+    
+    todoItems = todoItems.map(todoItem => {
+      if (todoItem.id === id) {
+        todoItem.completed = !todoItem.completed;
+        return todoItem;
+      } else {
+        return todoItem;
+      }
+    });
+    this.setState({todoItems: todoItems});
+  }
+
+  removeItem = (event) => {
+    event.preventDefault();
+
+    let todoItems = this.state.todoItems.slice();
+    todoItems = todoItems.filter(todoItem => !todoItem.completed);
+
+    this.setState({todoItems: todoItems});
+  }
+
   
   render() {
     return (
       <div>
-          <TodoList listItem={this.state.todoItems} />
-          <TodoForm inputEvent={this.changeList} inputValue={this.state.inputData} addNewTask={this.addTask}/>
+          <TodoList  crossedText="crossedText" regularText="normalText" listItem={this.state.todoItems} toggleId={this.idToggler} />
+          <TodoForm removeItem={this.removeItem} inputEvent={this.changeList} inputValue={this.state.inputData} addNewTask={this.addTask}/>
           
       </div>
     );

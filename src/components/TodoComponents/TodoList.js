@@ -6,11 +6,15 @@ import './Todo.css';
 
 const TodoList = props => {
   return (
-    <ul>
+    <div>
       {props.listItem.map((item, index) => {
-        return <li key={index}>{item.task}</li>;
+        let orderNumber = index + 1;
+        return <div
+        className={item.completed ? props.crossedText : props.regularText} 
+        onClick={()=>props.toggleId(item.id)}
+        key={item.id}>Task {orderNumber}: {item.task}</div>;
       })}
-    </ul>
+    </div>
   );
 };
 
