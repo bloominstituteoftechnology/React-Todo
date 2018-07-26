@@ -1,15 +1,15 @@
 import React from 'react';
-import './Todo.css';
+import "./Todo.css";
 
 const TodoForm = (props) => {
     return (
         <div>
 
-            <input onKeyPress={ props.onKeyPress }
+            <input required={true} className="form__input" onKeyPress={ props.onKeyPress }
             onChange={ props.onChange } type="text"  value={ props.value }/>
 
-            <button onClick={ props.onClick }>Add Todo</button>
-            <button onClick={ props.onClear }>Clear Completed</button>
+            <button className="form__button" onClick={ props.onClick }>Add Todo</button>
+            <button className="form__button" onClick={ props.onClear }>Clear Completed</button>
 
         </div>
     );

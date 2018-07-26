@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
 
@@ -24,8 +25,6 @@ class App extends React.Component {
 
       headerSwitch: false,
       headerMessage: "Click me to rename!",
-
-
 		}
   }
 
@@ -75,26 +74,30 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className = "appWrapper">
+        <div className = "appWrapper__justify">
+          <div className= "headdingWrapper">
 
         { this.state.headerSwitch ?
-          <input onKeyPress={ event => {
+          <input required={true} className = "form__input"
+          onKeyPress={ event => {
             if (event.key === 'Enter') {
               this.setState ( { headerSwitch: false, headerMessage : event.target.value } )
             }
           }
 
           }/> :
-          <h1
+          <h1 className = "headding"
             onClick={ ()=> this.setState( {headerSwitch: true} ) }>
             { this.state.headerMessage }
           </h1>
         }
-
+        </div>
 				<TodoList onClick={ this.handleCompleted } array={ this.state.stateArray }/>
 				<TodoForm value={ this.state.msg } onKeyPress = { this.handleKeyPress }
         onClear = { this.handleClear } onClick= { this.handleUpdateState }
         onChange={ this.handleInputChange }/>
+        </div>
 			</div>
 		);
 	}

@@ -1,3 +1,12 @@
 .strikethrough{
     text-decoration: line-through;
+    opacity: .8;
 };
+
+/* .form__input{
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 3px;
+    border: none;
+} */
