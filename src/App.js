@@ -6,32 +6,32 @@ import TodoForm from './components/TodoComponents/TodoForm.js';
 class App extends React.Component {
   constructor () {
     super();
-    this.state = {
-      todoList: [{
-        task: 'clean basement',
-        id: Date.now(),
-        completed: false
-      }],
+    this.state = { //sets initial state
+      todoList0: [{
+                   todoListTask: 'clean basement',
+                   id: Date.now(),
+                   completed: false
+                 }],
       emptyTask: '',
     };
   };
 
-  handleInputChange = typeEvent => {
+  handleInputChange = typingEvent => {
     this.setState({
-      task: typeEvent.target.value
+      task2: typingEvent.target.value
     });
   };
 
   handleButtonOnSumbit = buttonEvent => {
     buttonEvent.preventDefault(); //will stop the form from submitting the page
-    const todoListCopy = this.state.todoList.slice();
+    const todoListCopy = this.state.todoList0.slice();
     todoListCopy.push({
-      task: this.state.task,
+      task: this.state.task2,
       id: Date.now(),
       completed: false
     });
     this.setState({
-      todoList: todoListCopy
+      todoList0: todoListCopy
     });
   }
 
@@ -40,8 +40,7 @@ class App extends React.Component {
       <div className="main-div">
         hello
         <br />
-
-        <TodoList todoList={this.state.todoList} />
+        <TodoList todoList0={this.state.todoList0} />
         <TodoForm handleButton={this.handleButtonOnSumbit} handleInput={this.handleInputChange} />
       </div>
     )

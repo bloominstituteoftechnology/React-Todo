@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TodoItem = props => {
+const TodoItem = TodoItemProps => {
   return (
     <div>
-      task: {props.data.task} (from 'TodoItem')
+      Task: {TodoItemProps.data.task} (from 'TodoItem')
     </div>
   )
 }
