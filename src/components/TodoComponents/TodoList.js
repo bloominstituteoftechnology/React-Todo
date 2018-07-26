@@ -5,7 +5,9 @@ import './Todo.css';
 
 const TodoList = props => {
   return (
-    <Todo listItem={props.itemProp} crossMe={props.crossItem} />
+    <div className="todo-list__item-container">
+      <Todo listItem={props.itemProp} crossMe={props.crossItem} />
+    </div>
   );
 }
 

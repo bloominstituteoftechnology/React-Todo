@@ -11,7 +11,7 @@ class App extends React.Component {
     this.state = {
       list: [
         {
-          task: 'Learn React',
+          task: 'Nothing To Do 😃',
           id: 2049,
           completed: false
         }
@@ -25,8 +25,11 @@ class App extends React.Component {
   }
 
   addTodo = (e) => {
-    console.log('Hello', <TodoForm />)
     let list = this.state.list.slice();
+    if (list[0].id === 2049) {
+      list.length = 0;
+      this.setState({ list: list });
+    }
     let value = e.target.firstChild.value;
     list.push({
       task: value,
@@ -38,7 +41,10 @@ class App extends React.Component {
   }
 
   crossTodo = (e) => {
-    e.target.classList.toggle('crossOut');
+    console.log(e.target)
+    if (e.target.textContent !== 'Nothing To Do 😃') {
+      e.target.classList.toggle('crossOut');
+    }
     let list = this.state.list.slice();
     let crossItem = list.filter(item => item.task === e.target.textContent);
     crossItem.forEach(item => item.completed = true);
@@ -48,7 +54,16 @@ class App extends React.Component {
   clearCompletedTodos = (e) => {
     let list = this.state.list.slice();
     let newList = list.filter(item => item.completed !== true);
-    this.setState({ list: newList });
+    if (newList.length === 0) {
+      newList.push({
+        task: 'Nothing To Do :D',
+        id: 2049,
+        completed: false
+      });
+      this.setState({ list: newList });
+    } else {
+      this.setState({ list: newList });
+    }
   }
 
   render() {
@@ -61,7 +76,9 @@ class App extends React.Component {
           inputValue={this.state.input}  
           inputChange={this.handleChange} 
         />
+        <div className="todo-list-container">
         {this.state.list.map(item => <TodoList key={item.id} itemProp={item.task} crossItem={this.crossTodo} />)}
+        </div>
       </div>
     )
   }

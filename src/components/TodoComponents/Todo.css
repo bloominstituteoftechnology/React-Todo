@@ -1,13 +1,202 @@
+/*------------------------------------*\
+RESET
+\*------------------------------------*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+v2.0b1 | 201101 
+NOTE:WORK IN PROGRESS
+USE WITH CAUTION AND TEST WITH ABANDON */
+
+html,body,div,span,applet,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,code,
+del,dfn,em,img,ins,kbd,q,s,samp,
+small,strike,strong,sub,sup,tt,var,
+b,u,i,center,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary,
+time,mark,audio,video{
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  font:inherit;
+  vertical-align:baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section{
+  display:block;
+}
+body{
+  line-height:1;
+}
+ol,ul{
+  list-style:none;
+}
+blockquote,q{
+  quotes:none;
+}
+blockquote:before,blockquote:after,
+q:before,q:after{
+  content:’’;
+  content:none;
+}
+ins{
+  text-decoration:none;
+}
+del{
+  text-decoration:line-through;
+}
+
+table{
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+
+
+/*------------------------------------*\
+General Styles
+\*------------------------------------*/
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: sans-serif;
+  font-size: 62.5%;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+body {
+  background: url('zen.jpg');
+  background-size: cover;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 4.5rem;
+  color: #222;
+  text-shadow: 1px 1px rgba(77,74,165,.6);
+}
+
+@media (max-width: 700px) {
+  h1 {
+    font-size: 3.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 3.2rem;
+  }
+}
+
+p {
+  font-size: 2.3rem;
+  color: #222;
+  text-shadow: .5px .5px rgba(77,74,165,.4);
+}
+
+
+
+/*------------------------------------*\
+Main
+\*------------------------------------*/
 
 .main-container {
-  border: solid 1px red;
-  border-bottom: none; 
+  border: solid 2px rgba(200, 200, 200, 0.4);
+  border-radius: 10px;
+  box-shadow: 1px 1px 50px 1px rgba(0,0,0,.2);
+  background: rgba(255, 255, 255, .9);
   margin: auto;
+  margin-top: 30px;
   max-width: 750px;
   min-width: 200px;
   text-align: center;
+  padding: 15px;
+  padding-bottom: 25px;
 }
 
+/* Form */
+.todo-form-container {
+  margin-top: 30px;
+}
+
+.todo-form__input {
+  padding: 5px 10px;
+  font-size: 2rem;
+  border-radius: 10px;
+}
+
+.todo-form__input:focus {
+  outline-style: none;
+}
+
+.btn {
+  background: rgba(77,74,165,.6);
+  border: solid 1px gray;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 10px;
+  font-size: 2rem;
+}
+
+.btn:hover {
+  box-shadow: .5px 2px 10px 1px rgba(0,0,0,.2);
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline-style: none;
+}
+
+.btn-sub {
+  margin-left: 5px;
+}
+
+.btn-clr {
+  margin-top: 5px;
+}
+
+/* ToDo List */
+.todo-list-container {
+  margin-top: 30px;
+}
+
+.todo-list__item-container {
+  border: solid 1px gray;
+}
+
+.todo-list__item-container:first-child {
+  border-radius: 10px 10px 0 0;
+}
+
+.todo-list__item-container:last-child {
+  border-bottom-width: 2px;
+}
+
+.todo-list__item-container:hover {
+  box-shadow: .5px 2px 10px 1px rgba(0,0,0,.2);
+  cursor: pointer;
+}
+
+.todo-list__item {
+  padding: 20px;
+}
+
+/* Toggle */
 .crossOut {
   text-decoration: line-through;
+  color: red;
 }
