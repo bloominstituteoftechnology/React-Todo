@@ -8,7 +8,7 @@ const TodoForm = props =>{
       <button onClick={props.addClick} className="btn add-btn">Add a Task!</button>
       <button onClick={props.handleCompleted} className="btn clear-btn">Clear Completed!</button>
     </div>
-  )
-}
+  );
+};
 
 export default TodoForm;

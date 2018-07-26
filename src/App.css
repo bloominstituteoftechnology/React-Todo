@@ -12,7 +12,21 @@ body{
 }
 
 .app-container{
-  max-width: 880px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  justify-content: center;
+}
+
+.app-container .todo-listing-container{
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.app-container .todo-listing-container .todo-app-container{
   width: 40%;
   margin: 50px auto;
   display: flex;
@@ -24,31 +38,51 @@ body{
   background: white;
 }
 
-.app-container .header-input{
-  width: 80%;
-  text-align: center;
-  height: 40px;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  font-weight: bold;
-  font-size: 1.8rem;
+
+.app-container .todo-listing-container .new-list-container{
+  width: 40%;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid lightblue;
   border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(173,216,230,0.5);
+  opacity: 0.4;
+  background: white;
+  z-index: 3;
+  cursor: pointer;
+  height: 500px;
 }
 
-.app-container .todo-title {
-  margin-top: 20px;
-  font-weight: bold;
-  font-size: 2rem;
+.app-container .todo-listing-container .new-list-container:hover{
+  opacity: 0.8;
+}
+
+.app-container .todo-listing-container .new-list-container .new-list-button{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 679px) {
-  .app-container{
+  .todo-app-container{
+    width: 75%;
+  }
+
+  .app-container .new-list-container{
     width: 75%;
   }
 }
 
 @media (max-width: 450px) {
-  .app-container{
+  .todo-app-container{
     width: 90%
+  }
+
+  .app-container .new-list-container{
+    width: 90%;
   }
 }
