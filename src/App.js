@@ -32,6 +32,7 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     });
+    document.getElementById('myInput').value = ''
     this.setState({ list: list });
   };
 
