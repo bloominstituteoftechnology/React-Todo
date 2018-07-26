@@ -6,7 +6,7 @@ const Todo = props => {
     return (
         
         <div>
-            <p onClick={props.toggleCompleted}>{props.task}</p>
+            <p onClick={(e) => {props.toggleCompleted(e, props.id, props.completed)}}>{props.task}</p>
         </div>
     )
 }

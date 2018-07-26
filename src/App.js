@@ -24,21 +24,29 @@ class App extends React.Component {
   }
 
   clearCompleted = () => {
-    this.state.arr.forEach(item => {
-      // console.log(item);
-      if(item.completed === true) {
-        item.style.display = "none";
-      }
-    })
+    let toDoArray = this.state.arr.filter(todo => {
+      return !todo.completed;
+    });
+    this.setState({arr: toDoArray});
   }
 
   handleInputChange = (event) => {
     this.setState({[event.target.name]: event.target.value});
   }
 
-  toggleCompleted = (event) => {
-    console.log(event);
-    event.target.style.textDecoration = "line-through";
+  toggleCompleted = (event, id, completed) => {
+    // console.log('target', event.target);
+    event.target.style.textDecoration = !completed ? "line-through" : "none" ;
+
+    let modifiedArr = this.state.arr.map(item => {
+      if (id === item.id) {
+        item.completed = !item.completed;
+        return item;
+      } else {
+        return item;
+      }
+    });
+    this.setState({arr: modifiedArr});
   }
 
   render() {
