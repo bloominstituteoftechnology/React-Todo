@@ -19,18 +19,37 @@ constructor(){
         completed: false
       }
     ],
-  
+  }
   };
+
+addHandler = event => {
+  const items = this.state.todos.slice();
+  let input = document.getElementById("Input").value;
+
+
+  items.push(
+    {
+      task:input,
+      id: Date.now(),
+      completed:false
+    }
+  );
+  this.setState({todos: items});
+  document.getElementById("Input").value = null;
 }
 
 
 
 
-  render() {
+ render() {
     return (
       <div>
        <TodoList list={this.state.todos}/>
-       <TodoForm/>
+       <TodoForm 
+        add= {this.addHandler}
+        clear={this.clearHandler}
+       
+       />
       </div>
     );
   }
