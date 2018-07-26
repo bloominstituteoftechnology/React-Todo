@@ -17,7 +17,7 @@ class App extends React.Component {
 
         },
         {
-          task: 'Kill Self',
+          task: 'Conquer Universe',
           id:1528817084358,
           status: false
 
@@ -30,7 +30,8 @@ class App extends React.Component {
 //constructor for todos array so for current tasks preventDefault to allow for inputs a is the input being passed here
 createTodo = a => {
   a.preventDefault();
-  const todo = this.state.todo.slice( )
+  // const todo = this.state.todo.slice( )
+  const todo = this.state.todo
   todo.push({ task: this.state.done, status: false, id: Date.now() });
   this.setState({ todo, done: '' });
 };
@@ -40,10 +41,11 @@ toggleTodo = a => this.setState({ [a.target.name]: a.target.value})
 
 //constructor for done array so for status stuff
 toggleTodoStatus = id => {
-  let todo = this.state.todo.slice( );
+  // let todo = this.state.todo.slice( );
+  let todo = this.state.todo
   todo = todo.map(done => {
     if (done.id === id) { //checks if unique data now attribute is shared in both arrays?
-      done.status = !done.status; // complete is a
+      done.status = !done.status; // complete is amap
       return done;
     } else {
       return done;
@@ -55,7 +57,9 @@ toggleTodoStatus = id => {
 //remove the status items:
 clear = a => {
   a.preventDefault();
-  let todo = this.state.todo.slice( );
+  // let todo = this.state.todo.slice( );
+  // So you need the shallow copy otherwise you can't add tasks
+  let todo = this.state.todo
   todo = todo.filter(done => !done.status);
   this.setState({ todo });
 };
@@ -64,6 +68,7 @@ clear = a => {
   render() {
     return (
       <div>
+        <h1> React Todo MVP </h1>
         <TodoList
         handleComplete = {this.toggleTodoStatus}
         todo = {this.state.todo}/>
