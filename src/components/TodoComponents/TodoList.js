@@ -7,7 +7,7 @@ import "./Todo.css";
 const TodoList = (props) => {
     return (
         <div className='myTodoListDiv'>
-            {props.array.map(e => <Todo onClick={ props.onClick } item={ e } />)}
+            { props.array.map(e => <Todo key={ e.id } onClick={ props.onClick } item={ e } />) }
         </div>
     );
 }
