@@ -1,9 +1,15 @@
 .main-div {
   border: 1px solid red;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
   background-color: midnightblue;
   color: white;
   height: 400px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
 }

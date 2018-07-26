@@ -9,16 +9,41 @@ class App extends React.Component {
     this.state = { //sets initial state
       todoList0: [],
       emptyTask: '',
+      inputValue: ''
     };
   };
 
   handleInputChange = typingEvent => {
+    console.log(this.state)
     this.setState({
-      task2: typingEvent.target.value
+      task2: typingEvent.target.value,
+      inputValue: typingEvent.target.value
     });
   };
 
-  handleButtonOnSumbit = buttonEvent => {
+  handleDestroyButtonOnSumbit = destroyEvent => {
+    destroyEvent.preventDefault();
+    this.setState({
+      todoList0: []
+    })
+  }
+
+  handleDeleteButtonOnSumbit = deleteEvent => {
+    deleteEvent.preventDefault();
+    const todoListCopy = this.state.todoList0.slice();
+    todoListCopy.pop();
+    this.setState({
+      todoList0: todoListCopy
+    });
+  }
+
+  // resetForm = e => {
+  //   this.setState({
+  //     inputValue: ''
+  //   })
+  // }
+
+  handleAddButtonOnSumbit = buttonEvent => {
     buttonEvent.preventDefault(); //will stop the form from submitting the page
     const todoListCopy = this.state.todoList0.slice();
     todoListCopy.push({
@@ -28,17 +53,26 @@ class App extends React.Component {
       completed: false
     });
     this.setState({
-      todoList0: todoListCopy
+      todoList0: todoListCopy,
+      inputValue: ''
     });
+
+    // this.resetForm();
   }
 
   render() {
     return (
       <div className="main-div">
-        hello
+        <h1>Todo List</h1>
         <br />
         <DisplayTodoList todoList0={this.state.todoList0} />
-        <TodoForm handleButton={this.handleButtonOnSumbit} handleInput={this.handleInputChange} />
+        <TodoForm
+          handleDestroyButton={this.handleDestroyButtonOnSumbit}
+          handleAddButton={this.handleAddButtonOnSumbit}
+          handleDeleteButton={this.handleDeleteButtonOnSumbit}
+          handleInput={this.handleInputChange}
+          inputValue={this.state.inputValue}
+          reset={this.resetForm} />
       </div>
     )
   }
