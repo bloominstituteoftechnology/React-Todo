@@ -1,12 +1,11 @@
-// import React from 'react';
+import React from 'react';
 
-// const Todo = props => {
-//     const { task } = props.toDoProp
-//     return (
-//       <div>
-//         <span> {task} </span>
-//       </div>
-//     );
-// }
+const Todo = props => {
+    return (
+      <div>
+        <span> {props.task} </span>
+      </div>
+    );
+}
 
-// export default Todo;
+export default Todo;
