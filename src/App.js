@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import './App.css'
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import { changeExt } from 'upath';
 
 const sample = [
   {
@@ -33,11 +34,12 @@ const days  = ["Sunday 🖖","Monday 💪😀","Tuesday 😜","Wednesday 😌☕
 class App extends React.Component {
   constructor() {
     super();
-    const cache = localStorage.getItem('list')
+    const cache = JSON.parse(localStorage.getItem('list'))
     console.log(cache)
+    if(cache == undefined) cache.push(sample)
     this.state = {
       task: "",
-      list: cache == undefined ? cache: sample,
+      list: cache,
       search: "",
       sList: []
     }
@@ -68,7 +70,6 @@ class App extends React.Component {
   handleSearchUpdate = () => {
     const list = this.state.list.slice();
     const newList = list.filter(todo => {
-      console.log("STRING SEARCH")
       return todo.task.includes(this.state.search)
     })
     document.getElementById('searchInput').value = ''
@@ -99,12 +100,9 @@ class App extends React.Component {
   }
 
   render() {
-    console.log("STATE")
-    console.log(this.state)
-    localStorage.setItem('list', [this.state.list])
+    localStorage.setItem('list', JSON.stringify(this.state.list))
     const s = localStorage.getItem('list')
     console.log(s)
-    // console.log("STATE: ", this.state);
     return (
       <div class="container">
         <div class="dayContainer">
