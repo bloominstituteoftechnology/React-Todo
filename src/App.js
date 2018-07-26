@@ -56,16 +56,21 @@ class App extends React.Component {
           } else return todo
         })
       }
-    })
+    });
   }
 
-
+  clearCompleted = event => {
+    event.preventDefault();
+    let todos = this.state.todos.slice();
+    todos = todos.filter(todo => !todo.completed);
+    this.setState({ todos });
+  }
 
   render() {
     return (
       <div>
         <h3><TodoList todos={this.state.todos} toggleHandler={this.toggleCompleted} /></h3>
-        <TodoForm value={this.state.todo} handlerTodoInput={this.todoInput} handlerAddTodo={this.addTodo} />
+        <TodoForm value={this.state.todo} handlerTodoInput={this.todoInput} handlerAddTodo={this.addTodo} clearCompletedHandler={this.clearCompleted} />
       </div>
     );
   }
