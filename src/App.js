@@ -5,6 +5,8 @@ import Todo from './components/TodoComponents/Todo';
 import Search from './components/TodoComponents/Search';
 import SimpleStorage from "react-simple-storage"; 
 import './app.css';
+import TimerStart from './components/TodoComponents/Timer';
+import TimerOnScreen from './components/TodoComponents/TimerOnScreen';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -13,7 +15,7 @@ class App extends React.Component {
   
   constructor(){
     super();
-    this.state = {thingsToDo: [], temp: "",  completed: {}, searchText: "" };
+    this.state = {thingsToDo: [], temp: "",  completed: {}, searchText: "", timerCount: 25, so:0, mh:0, st:0, mt:0, intervalID:20 };
   }
 
   handleChange = event => {
@@ -24,22 +26,10 @@ class App extends React.Component {
 
 
   handleSearchChange = event => {
-    
-    console.log(this.state.searchText.toLowerCase()); 
-    const prevThingsToDo = this.state.thingsToDo.slice(); 
-    const thingsToDo = this.state.thingsToDo.slice(); 
-    thingsToDo.filter( thing => {
-      thing.task.toLowerCase().search(this.state.searchText.toLowerCase()) !== -1;
-    });
-    
-    this.setState({thingsToDo: thingsToDo}); 
-
     this.setState(
       {searchText: event.target.value}
     );
-    if(this.state.searchText === ""){
-      this.setState({thingsToDo: prevThingsToDo}); 
-    }
+    
   }
 
 
@@ -86,14 +76,124 @@ class App extends React.Component {
     this.setState({thingsToDo: thingsToDo}); 
   }
 
+  handleTimerStart = () => {
+    let timerCount = 10000;
+    console.log("clicked");
+    
+
+    
+    this.setState({timerCount: timerCount}); 
+  }
+
+  startTimer = () => {
+    let mh = this.state.mh;
+    let mt = this.state.mt;
+    let so = this.state.so;
+    let st = this.state.st; 
+    mh++; 
+    if(mh ===10){
+        mh = 0; 
+        mt++; 
+    }
+   if (mt === 10){
+       mt = 0; 
+       so++;
+   }
+   if(so === 10){
+       so = 0;
+       st++;
+   }
+   
+//    msHundreds.innerHTML = mh;
+//    msDigits.innerHTML = mt;
+//    secondOnes.innerHTML = so; 
+//    secondTens.innerHTML = st;
+   if (st === 1){
+    //    digitsClass.style.color = "Red";
+        this.stopTimer(); 
+    }
+
+    this.setState({mh:mh, so:so, st:st, mt:mt})
+
+   }
+   
+   
+   stopTimer = () =>{
+    clearInterval(this.state.intervalID); 
+    
+   }
+   resetTimer = () => {
+       
+       this.setState({so:0, mh:0, st:0, mt:0});
+    //    msHundreds.innerHTML = mh;
+    //    msDigits.innerHTML = mt;
+    //    secondOnes.innerHTML = so; 
+    //    secondTens.innerHTML = st;
+   }
+   
+//    let msDigits = document.querySelector("#msTens"); 
+//    let msHundreds = document.querySelector("#msHundreds");
+//    let secondOnes = document.querySelector("#secondOnes");
+//    let secondTens = document.querySelector("#secondTens"); 
+   
+//    let so = 0;
+//    let mh = 0;
+//    let st = 0;
+//    let mt = 0;
+   //^four variables for each digit. 
+   
+//    let digitsClass = document.querySelector(".digits"); 
+    
+   
+//    let start = document.createElement("button"); 
+//    let stop = document.createElement("button"); 
+//    let reset = document.createElement("button");
+   
+//    let startText = document.createTextNode("Start");//Sets Place for text;
+//    let stopText = document.createTextNode("Stop");//Sets Place for text;
+//    let resetText = document.createTextNode("Reset");
+   
+//    start.appendChild(startText);
+//    stop.appendChild(stopText); 
+//    reset.appendChild(resetText); 
+   
+//    let body = document.querySelector("body");
+//    body.appendChild(start);
+//    body.appendChild(stop); 
+//    body.appendChild(reset); 
+   
+//    let buttons = document.querySelectorAll("button");
+   
+//    let intervalID; 
+   
+   timerGo = () => {
+    let intervalID = this.state.intervalID
+    intervalID = window.setInterval(this.startTimer, 10);
+    this.setState({intervalID: intervalID}); 
+   }
+   
+//    buttons[0].addEventListener("click", timerGo, false); 
+    
+//    buttons[1].addEventListener("click", stopTimer, false); 
+//    buttons[2].addEventListener("click", resetTimer, false)
+
+
+
+
+
+
+
+
 
   render() {
     let filteredThings = this.state.thingsToDo.filter((thing) => {return thing.task.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1} ); 
     return (
       <div className = "appContainer">
         <SimpleStorage parent={this} />
-        <h1>Todo List: MVP</h1>
-        
+        <h1>Todo List:</h1>
+        <h2>Timer {this.state.timerCount}</h2>
+        <TimerStart timerCount= {this.state.timerCount} handleClick = {this.handleTimerStart}/>
+        <TimerOnScreen secondTens = {this.state.st} secondOnes={this.state.so} msHundreds={this.state.mh} msTens={this.state.mt}/> 
         <ul>  
         {/* //this.state.thingsToDo  */}
           {filteredThings.map(thing => <TodoList thingToDo = {thing.task} handleLiClick = {this.handleLiClick} completed ={thing.completed}

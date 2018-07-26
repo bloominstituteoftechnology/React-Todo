@@ -19,4 +19,10 @@ button:hover {
 
 .search {
     margin-top: 40px; 
+    margin-bottom:40px; 
+}
+
+.digits {
+    display: flex;
+    flex-direction: row;
 }
