@@ -1,75 +1,56 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-
-const myArr = [
-  {
-    id: 1,
-    common_name: "Chilean flamingo",
-    species: "Phoenicopterus chilensis"
-  }
-];
+import Todo from './components/TodoComponents/Todo'
+import TodoForm from './components/TodoComponents/TodoForm'
+import TodoList from './components/TodoComponents/TodoList'
 
 // CCR - "Class", "Constructor", "Render"
-
-const MessageRenderer = props => {
-  return <h1>{props.propsMessage}</h1>;
-};
-
-const Animal = props => {
-  const { common_name, species } = props.animalProp;
-  return (
-    <div>
-      <h4>Name: {common_name}</h4>
-      <h4>Species: {species}</h4>
-    </div>
-  );
-};
-
+//class
 class App extends React.Component {
   constructor() {
-    super();
+    super(); //don't want to pass props here
     this.state = {
-      message: "Hello",
-      animals: myArr
+      todo: [
+        {
+          task: 'Learn React',
+          status: false,
+          id: 1528817077286
+        },
+        {
+          task: 'Kill Self',
+          status: false,
+          id:1528817084358
+        }
+      ],
     };
   }
 
-  handleUpdateState = () => {
-    const animals = this.state.animals.slice();
-    // clone our state animals array.
-    animals.push({
-      id: 4,
-      common_name: "Australian brush turkey",
-      species: "Alectura lathami"
-    });
-    // push our new animal item into the animals array.
-    this.setState({ animals: animals });
-    // FROM REACT API the ONLY way to change state.
-  };
 
-  handleInputChange = event => {
-    // update the message field on state.
-    this.setState({ message: event.target.value });
-  };
+//constructor for todos array so for current tasks preventDefault to allow for inputs a is the input being passed here
+createTodo = a => {
+  a.preventDefault();
+  const todo = this.state.todo.
+  done.push({ task: this.state.done, status: false, id: Date.now() });
+  this.setState({ todo, done: '' });
+};
 
+//state changer
+toggleTodo = a => this.setState({ [a.target.name]: a.target.value})
+
+//constructor for done array so for completed stuff
+
+
+//render
   render() {
-    console.log("STATE: ", this.state);
     return (
       <div>
-        {/*<MessageRenderer propsMessage={this.state.message} />*/}
-        <div>Hello: {this.state.message}</div>
-        {this.state.animals.map(animal => <Animal animalProp={animal} />)}
-        <button onClick={this.handleUpdateState}>Click to Add Animal</button>
-        {/*All events in React go through what's called the Synthetic Event*/}
-        {/*Events are tied to user interaction with our code*/}
-        <button onDoubleClick={this.handleUpdateState}>Click to Double</button>
-        <input placeholder="capture" onChange={this.handleInputChange} />
+        <TodoList/>
+        <TodoForm/>
       </div>
     );
   }
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
 
-export default App;
+  export default App;
+  console.log("hello");
