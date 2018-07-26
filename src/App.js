@@ -29,7 +29,7 @@ class App extends React.Component {
     const list = this.state.list.slice();
     list.push({
       task: this.state.task,
-      id: new Date(),
+      id: Date.now(),
       completed: false
     });
     this.setState({ list: list });
@@ -40,6 +40,14 @@ class App extends React.Component {
   }
 
   updateTask = event => {
+    const list = this.state.list.slice();
+    const id = event.target.id
+    const newList = list.map(todo => {
+      if (todo.id == id)
+        todo.completed = !todo.completed
+      return todo  
+    })
+    this.setState({list: newList})
     event.target.className = event.target.className === 'false' ? 'true' : 'false'
   }
 
@@ -51,6 +59,8 @@ class App extends React.Component {
   }
 
   render() {
+    console.log("STATE")
+    console.log(this.state)
     // console.log("STATE: ", this.state);
     return (
       <div>

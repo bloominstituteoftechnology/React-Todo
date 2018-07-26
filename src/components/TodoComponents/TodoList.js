@@ -7,8 +7,7 @@ import './Todo.css'
 
 function TodoList (props){
     const list = props.list;
-    console.log(list)
-    const listItems = list.map(todo => <Todo styles={todo.completed} task={todo.task} updateTask={props.updateTask}/>)
+    const listItems = list.map(todo => <Todo id={todo.id} styles={todo.completed} task={todo.task} updateTask={props.updateTask}/>)
     return (
         <ul>{listItems}</ul>
     )
