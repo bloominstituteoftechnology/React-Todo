@@ -18,7 +18,7 @@ import TodoList from './components/TodoComponents/TodoList';
 
 // const Todo = props => {
 //   const { task } = props.toDoProp
-//   return <div>{task}</div>;
+//   return <div onClick={thing here to toggle class}>{task}</div>;
 // }
 
 
@@ -32,7 +32,7 @@ class App extends React.Component {
       todos: [],
       message: ""
     };
-  }
+  };
 
   handleUpdateState = event => {
     event.preventDefault();
@@ -43,26 +43,33 @@ class App extends React.Component {
       completed: false
     });
     this.setState({ todos: todos });
-  }
+  };
 
 
 
   handleInputChange = event => {
     this.setState({ message: event.target.value });
-  }
+  };
 
 
+
+  handleToggleCompleted = event => {
+    const todos = this.state.todos.slice();
+    todos.map(todo => {if(todo.task === event.target.innerText) {
+      todo.completed =! todo.completed
+    }});
+    this.setState({ todos: todos });
+  };
 
   render() {
     return (
       <div>
         <h2>Kyle's Todo List</h2>
-        {/* <h2>Test: {this.state.message}</h2> */}
-        <TodoList toDoListProp={this.state.todos} />
+        <TodoList completedProp ={this.handleToggleCompleted} toDoListProp={this.state.todos} />
         <TodoForm buttonProp={this.handleUpdateState} messageProp={this.handleInputChange} />
       </div>
     );
-  }
-}
+  };
+};
 
 export default App;

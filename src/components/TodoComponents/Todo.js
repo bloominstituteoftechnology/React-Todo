@@ -3,7 +3,7 @@ import './Todo.css';
 
 const Todo = props => {
     const { task } = props.toDoProp
-    return <div>{task}</div>;
+    return <div onClick={props.completedProp}>{task}</div>;
 };
 
 

@@ -6,7 +6,7 @@ import './Todo.css';
 import Todo from './Todo';
 
 const TodoList = props => {
-    return <div>{props.toDoListProp.map(todo => <Todo key={todo.id} toDoProp={todo} />)}</div>;
+    return <div>{props.toDoListProp.map(todo => <Todo completedProp={props.completedProp} key={todo.id} toDoProp={todo} />)}</div>;
 };
 
 
