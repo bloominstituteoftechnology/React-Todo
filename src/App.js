@@ -1,4 +1,5 @@
 import React from 'react';
+import './components/TodoComponents/Todo.css'
 import TodoList from './components/TodoComponents/TodoList.js';
 import TodoForm from './components/TodoComponents/TodoForm.js';
 
@@ -68,14 +69,17 @@ class App extends React.Component {
     this.setState({newItem: event.target.value})
   }
 
-  // handleClearToDo = event => {
-  //   const
-  // }
+  handleClearToDo = event => {
+    event.preventDefault();
+    let items = this.state.toDo.slice();
+    items = items.filter(item => item.completed === false);
+    this.setState({toDo: items});
+  }
 
   render() {
     return (
       <div>
-        <TodoList array={this.state.toDo}/>
+        <TodoList array={this.state.toDo} taskChange={this.handleTaskChange}/>
         <TodoForm value={this.state.newItem} itemAdd={this.inputAddToDo} add={this.handleAddToDo} clear={this.handleClearToDo}/>
       </div>
     );
