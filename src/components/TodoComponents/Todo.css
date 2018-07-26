@@ -1,8 +1,8 @@
 li {
     margin:10px;
-    /* border: 20px inset gray;
+    border: 20px inset gray;
     text-align: center;
-    width: 250px;   */
+    width: 250px;  
 }
 li:hover{
     cursor:pointer;
@@ -13,4 +13,5 @@ button:hover {
 
 .formsOptions {
     margin:40px;
+    padding-bottom: 20px;
 }

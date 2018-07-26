@@ -1,4 +1,4 @@
-/* .appContainer {
+.appContainer { 
     display: flex; 
     flex-direction: column;
     justify-content: center;
@@ -6,7 +6,7 @@
     width: 800px; 
     border: 30px inset grey; 
     
-} */
+} 
 
 
 ul {

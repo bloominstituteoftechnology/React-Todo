@@ -14,12 +14,6 @@ class App extends React.Component {
     this.state = {thingsToDo: [], temp: "",  completed: {}, };
   }
 
-  handleInputChange = event => {
-    const {thingsToDo} = this.state;
-    let newItem = event.target.value; 
-    thingsToDo.push(newItem);
-  }
-
   handleChange = event => {
     this.setState(
       {temp: event.target.value}
@@ -42,7 +36,7 @@ class App extends React.Component {
     let key = this.state.key; 
     const {thingsToDo} = this.state;
     thingsToDo.push({task: this.state.temp, id: Date.now(), completed: false});
-    this.setState({thingsToDo:thingsToDo, temp: "", count: count, key: key});
+    this.setState({thingsToDo:thingsToDo, temp: ""});
   }
 
   handleLiClick = event => {
