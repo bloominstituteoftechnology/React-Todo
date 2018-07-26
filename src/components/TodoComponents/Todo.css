@@ -1,3 +1,32 @@
+body{
+    background: radial-gradient(  black, #4C4C4C);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#root{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+.container{
+    width: 400px;
+    background: grey;
+    border-radius: 7px;
+    color:white;
+    padding: 10px 20px;
+    word-wrap: break-word;
+    font-size: 20px;
+
+    
+}
+input{
+    width: 100%;
+}
+
 .complete{
     text-decoration: line-through;
 }
@@ -5,4 +34,32 @@
 .todoListContainer{
     height: 30vh;
     overflow: auto;
+}
+
+.todoinput{
+    display:flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 4px;
+
+    
+}
+
+input{
+    font-size: 20px;
+    border-radius: 4px;
+
 }

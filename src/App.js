@@ -6,22 +6,36 @@ import TodoForm from './components/TodoComponents/TodoForm';
 class App extends React.Component {
   // you will need a place to store your state in this component.
   constructor (props) {
-    super();
+    super(props);
     this.state={todoList: [],
-    textBoxString:""}; //the other student said he was updating this state each time there was a key press in the event box, let me see if there's another way
+    textBoxString:""}; 
   }
+  writeToLS = () =>{
+    localStorage.setItem('taskList', JSON.stringify(this.state.todoList));
+  }
+  readLS = () =>{
+    
+    let output = JSON.parse(localStorage.getItem('taskList'));
+    this.setState({ todoList: output });
 
-  addToList = () => {
+  }
+  addToList = (event) => {
+    if (this.state.textBoxString ===''){
+      return;
+    }
     const todoListCopy = this.state.todoList;
-    const inputBox = document.getElementById('todoInput').value;
+    const inputBox = this.state.textBoxString;
     todoListCopy.push({
       task: inputBox , 
       id: Date.now(), 
       completed: false
     })
-    inputBox.value ='';
-    this.setState({ todoList: todoListCopy });
+    document.getElementById('todoInput').value = '';
+    this.setState({ todoList: todoListCopy, textBoxString:"" },()=>{
+      this.writeToLS();
+    });
   };
+
   clearComplete= () =>{
     const todoListCopy = this.state.todoList;
     let recopy = todoListCopy.filter(element =>{
@@ -32,9 +46,15 @@ class App extends React.Component {
         return false;
       }
     })
-    this.setState({ todoList: recopy });
 
-  }
+    this.setState({ todoList: recopy },()=>{
+      this.writeToLS();
+    });
+    
+
+
+  };
+
   complete = (event) =>{
     const todoListCopy = this.state.todoList;
     // event.target.classList.toggle('complete');
@@ -45,8 +65,9 @@ class App extends React.Component {
 
       return element;
     });
-    
-    this.setState({ todoList: recopy });
+    this.setState({ todoList: recopy },()=>{
+      this.writeToLS();
+    });
 
   }
   
@@ -54,12 +75,19 @@ class App extends React.Component {
     if(event.key === 'Enter'){
       this.addToList();
     }
+    this.setState({ textBoxString: event.target.value });
+
   }
+  componentDidMount(){
+    this.readLS();
+  }
+
+  
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div>
+      <div className="container">
         <h2>What you're putting off:</h2>
         <div className="todoListContainer">
         <TodoList methods={this.complete} array={this.state.todoList} />
