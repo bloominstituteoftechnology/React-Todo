@@ -6,23 +6,13 @@ class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      todos: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ],
+      todos: [],
       todo: ''
     }
   }
 
   addHandler = (e) => {
+    e.preventDefault();
     const arr = this.state.todos.slice();
     let input = document.getElementById("inputBtn").value;
 
