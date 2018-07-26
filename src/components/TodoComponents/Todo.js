@@ -1,6 +1,6 @@
 import React from 'react';
 
 
-const Todo=props=><p>{props.taskProp.task}</p>
+const Todo=props=><p className='flow-text'>{props.taskProp.task}</p>
 
 export default Todo;
