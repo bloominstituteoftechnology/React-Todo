@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import Todo from './components/TodoComponents/Todo';
 
 class App extends React.Component {
@@ -44,14 +45,9 @@ class App extends React.Component {
     this.setState({ list: lists });
   };
 
-  clearComplete = event => {
+  clearComplete = () => {
     let list = this.state.list;
-    for(let i=0;i<list.length;i++){
-      if (list[i].completed) {
-        list.splice(i,1);
-        i--;
-      }
-    }
+    list = list.filter(e => !e.completed);
     this.setState({ list: list });
   }
 
