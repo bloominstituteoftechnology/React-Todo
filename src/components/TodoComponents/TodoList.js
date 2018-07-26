@@ -37,10 +37,10 @@ class TodoList extends React.Component{
 
     const newTodoItem = {
       task: this.state.input,
-      id: this.state.todoList[this.state.todoList.length - 1].id + Math.floor(Math.random() * 10),
+      id: this.state.todoList.length !== 0 ? this.state.todoList[this.state.todoList.length - 1].id + Math.floor(Math.random() * 10) : 1528817184358,
       completed: false
     }
-    
+
     const newTodoList = this.state.todoList.slice().concat(newTodoItem);
     this.setState({ todoList: newTodoList });
     this.setState({ input: '' });
@@ -60,8 +60,7 @@ class TodoList extends React.Component{
     
     this.state.todoList.forEach(item => {
       if (`id-${item.id}` ===  id) {
-        console.log(this.state.todoList);
-        item.completed = true;
+        item.completed = !item.completed;
       }
     })
 
