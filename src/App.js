@@ -89,6 +89,7 @@ class App extends React.Component {
   }
   componentDidMount(){
     this.readLS();
+    document.title = "Hey Look a React Todo App";
   }
 
   search(){
