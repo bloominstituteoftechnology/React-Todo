@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+// import Todo from './components/TodoComponents/Todo.js';
 import TodoList from './components/TodoComponents/TodoList.js';
 import TodoForm from './components/TodoComponents/TodoForm.js';
 
@@ -22,7 +23,7 @@ class App extends React.Component {
     this.setState({
       tasks: this.state.tasks.concat([{
         id: Date.now(),
-        task:this.state.current,
+        task: this.state.current,
         completed: false,
       }]),
       current: ''
@@ -31,15 +32,26 @@ class App extends React.Component {
   handleInputChange = event => {
     this.setState({current: event.target.value});
   }
-  completed = event => {
-    this.setState({completed:true})
+  completed = () => {
+    this.setState(prevState => {
+      return {completed:!prevState.completed}
+    });
+  }
+  removeTasks = () => {
+    let remain = this.state.tasks.filter(completed => completed===false)
+    console.log(remain);
+    return remain;
   }
   render() {
+    console.log(this.state);
     return (
       <div className='container'>
         <h1 className='title'> Todo List MVP</h1>
-        <TodoList list={this.state.tasks}/>
-        <TodoForm clear={this.completed} handle={this.handleInputChange} update={this.handleUpdateState} />
+        <TodoList list={this.state.tasks} clear={this.completed}/>
+        <TodoForm handle={this.handleInputChange} 
+                  update={this.handleUpdateState}
+                  remove={this.removeTasks}
+        />
       </div>
     );
   }

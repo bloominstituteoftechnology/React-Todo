@@ -3,7 +3,7 @@ import './Todo.css';
 
 const Todo = props => {
     return(
-        <div className='task'>
+        <div onClick={props.clear} className='task'>
             {props.item}
         </div>
     );
