@@ -8,6 +8,9 @@ class Todo extends React.Component {
         this.state = {};
     }
 
+    handleClearClick = () => {
+        return "something for now"; 
+    }
 
     render () {
 
@@ -16,7 +19,7 @@ class Todo extends React.Component {
            { /*onChange = {this.props.handleInputChange}*/}
                 <input onKeyUp = {this.props.handleenter} name="input" type="text" placeholder ="...todo" value = {this.props.value} onChange = {this.props.onChange} /> 
                 <button onClick = {this.props.handleClick} >Add Todo</button>
-                <button>Clear Completed</button>
+                <button onClick = {this.props.handleClearClick}>Clear Completed</button>
             </div>
         );
 

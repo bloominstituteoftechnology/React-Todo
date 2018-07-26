@@ -1,0 +1,16 @@
+li {
+    margin:10px;
+    /* border: 20px inset gray;
+    text-align: center;
+    width: 250px;   */
+}
+li:hover{
+    cursor:pointer;
+}
+button:hover {
+    cursor: pointer; 
+}
+
+.formsOptions {
+    margin:40px;
+}

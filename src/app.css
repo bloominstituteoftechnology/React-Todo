@@ -1,0 +1,21 @@
+/* .appContainer {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 800px; 
+    border: 30px inset grey; 
+    
+} */
+
+
+ul {
+    list-style-type: none;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+.unCompleted {
+    text-decoration: none; 
+}

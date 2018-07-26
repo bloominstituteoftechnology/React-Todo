@@ -6,16 +6,19 @@ import React from 'react';
 class TodoList extends React.Component {
     constructor(){
         super();
-        this.state = {};
+        this.state = {count: 0, thing: "thing_"};
+        this.count = 0;
     }
+    
     
 
     render () {
-
+         
+        
         return (
             
-            <li >{this.props.thingToDo}</li>
-            // key = {thing+count.toString()}
+            <li className = "unCompleted" onClick ={this.props.handleLiClick}>
+            {this.props.thingToDo}</li>
             
         );
 
