@@ -3,6 +3,7 @@ import React from 'react';
 //it is also attaching the ability to choose whether the task is complete or not. 
 //the style line is essentially saying that if the todo is false no line through, 
 // but if it is true then a line can be put through it. 
+
 const Todo = props => {
   return (
     <div

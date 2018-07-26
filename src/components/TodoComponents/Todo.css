@@ -1,0 +1,49 @@
+body {
+  background: lightyellow;
+}
+.creation {
+  width: 300px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto;
+  font-family: "Kirang Haerang", cursive;
+}
+h1 {
+  margin: auto;
+  font-size: 45px; 
+}
+.list {
+  width: 300px;
+  height: 300px;
+  background: lightsalmon;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25px;
+  color: white;
+  cursor: pointer;
+}
+.input-1 {
+  width: 295px;
+  height: 50px;
+  font-size: 25px;
+  font-family: "Kirang Haerang", cursive;
+}
+
+.btn-1 {
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  background: lightcoral;
+  font-family: "Kirang Haerang", cursive;
+}
+.btn-2 {
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  background-color: lightseagreen;
+  font-family: "Kirang Haerang", cursive;
+}

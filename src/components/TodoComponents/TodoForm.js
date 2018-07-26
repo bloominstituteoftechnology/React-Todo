@@ -12,19 +12,21 @@ import React from 'react';
 //and the handles are essentially the same name as the functions but with handle infront. 
 //All this is doing is assinging these handles to the buttons and input so that when on
 //App.js all that needs to happen is to put it equal with the right function. 
+
 const TodoForm = props => {
   return (
     <form>
     {/*make an input*/}
       <input
+        className="input-1"
         onChange={props.handleTodoChange}
         type="text"
         name="todo"
         value={props.value}
         placeholder="Type your Todo"
       />
-      <button onClick={props.handleAddTodo}>Add Todo</button>
-      <button onClick={props.handleClearTodos}>Clear Completed</button>
+      <button className="btn-1" onClick={props.handleAddTodo}>Add Todo</button>
+      <button className="btn-2" onClick={props.handleClearTodos}>Clear Completed</button>
     </form>
   );
 };
