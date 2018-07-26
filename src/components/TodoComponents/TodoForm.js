@@ -18,6 +18,11 @@ class TodoForm extends React.Component {
         };
     }
 
+    componentDidMount(){
+        this.setLocalStorage(this.state.list);
+        let storedList = JSON.parse(localStorage.getItem('list'));
+    }
+
     handleInput = (e) => {
         let nuVal = e.target.value;
         this.setState({
@@ -42,6 +47,11 @@ class TodoForm extends React.Component {
             list: list
         });
         this.clearInput();
+        this.setLocalStorage(list);
+    };
+
+    setLocalStorage = (list) => {
+        localStorage.setItem('list', JSON.stringify(list));
     };
 
     handleCompleted = (id) => {
@@ -67,6 +77,7 @@ class TodoForm extends React.Component {
             }
         });
         this.setState({ list : nuList});
+        this.setLocalStorage();
     };
 
     clearInput = () => {
