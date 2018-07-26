@@ -34,7 +34,7 @@ class App extends React.Component {
     for (let i=0,n=list.length; i<n; i++) {
       if (list[i]['task']===task){
         list[i]['completed']=!(list[i]['completed']);
-        list[i]['completed']===true ? event.target.classList.add('completed'):event.target.classList.remove('completed');
+        list[i]['completed']===true ? event.target.style.textDecoration='line-through' :event.target.style.textDecoration='none';
       }
     }
     return this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
