@@ -17,7 +17,11 @@ class App extends React.Component {
       tasks: [],
       current: ''
     }
+    this.handleUpdateState = this.handleUpdateState.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.completed = this.completed.bind(this);
   }
+  
   handleUpdateState = event => {
     event.preventDefault();
     this.setState({
@@ -27,7 +31,8 @@ class App extends React.Component {
         completed: false,
       }]),
       current: ''
-    });
+    }
+    );
   };
   handleInputChange = event => {
     this.setState({current: event.target.value});
@@ -38,16 +43,15 @@ class App extends React.Component {
     });
   }
   removeTasks = () => {
-    let remain = this.state.tasks.filter(completed => completed===false)
-    console.log(remain);
-    return remain;
+    let remain = this.state.tasks.filter(element => element.completed===false)
+    this.setState({tasks:remain})
   }
   render() {
     console.log(this.state);
     return (
       <div className='container'>
         <h1 className='title'> Todo List MVP</h1>
-        <TodoList list={this.state.tasks} clear={this.completed}/>
+        <TodoList list={this.state.tasks} done={this.completed}/>
         <TodoForm handle={this.handleInputChange} 
                   update={this.handleUpdateState}
                   remove={this.removeTasks}
