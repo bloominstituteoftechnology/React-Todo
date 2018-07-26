@@ -7,20 +7,25 @@ import "./App.css";
 
 
 
-const myTodoList = [
-];
+const myTodoList = [];
+
+
+
 
 class App extends React.Component {
   constructor(){
     super(); 
     this.state = {
-      list: myTodoList, 
+      list: JSON.parse(window.localStorage.list) || myTodoList, 
       input: null, 
     }
   }
 
+  
+
   inputChangeHandler = (e) => {
   this.setState({input: e.target.value}); 
+   
 
   }
 
@@ -31,13 +36,14 @@ class App extends React.Component {
     let list = this.state.list.slice(); 
     list.push({task: this.state.input, id: id, completed: false})
     this.setState({list: list, input: null})
+    window.localStorage.setItem("list" , JSON.stringify(list)); 
     document.getElementById('input').value = null; 
+    
     }
   }
   
   toDoClickHandler = (e) => {
     
-      
       let newList = this.state.list.slice(); 
       for(let todo in newList){
         if(newList[todo].task === e.target.innerText){
@@ -52,6 +58,7 @@ class App extends React.Component {
        
       }
       this.setState({todo: newList})
+      window.localStorage.setItem('list', JSON.stringify(newList));
   }
 
   clearClickHandler = (e) => {
@@ -59,6 +66,7 @@ class App extends React.Component {
     let newList = list.filter(todo => todo.completed === false)
     console.log(newList)
     this.setState({list: newList})
+    window.localStorage.setItem('list', JSON.stringify(newList)); 
   }
 
   

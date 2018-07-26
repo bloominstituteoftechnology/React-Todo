@@ -5,7 +5,7 @@ const TodoForm = props => {
     return (
     <div className = "todo-form">
         <Input id = "input" placeholder = "Enter todos..." type= "text" onChange = {props.change} />
-        <div class= "buttons">
+        <div className= "buttons">
         <Button waves='light' onClick = {props.click} className = "add-button amber darken-3">Add todo</Button>
         <Button waves = 'light' onClick ={props.click2} className = "clear-completed red darken-1">Clear Completed</Button>
         </div>
