@@ -1,0 +1,16 @@
+h2 {
+    text-align: center;
+    width: 100%;
+}
+
+.todo-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.todo-list {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

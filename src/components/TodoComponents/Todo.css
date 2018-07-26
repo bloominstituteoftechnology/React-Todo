@@ -1,0 +1,39 @@
+.form-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-items input {
+    width: 300px;
+    margin: 5% 0;
+    height: 50px;
+    font-size: 25px;
+}
+
+.form-items button {
+    margin: 5% 0;
+    height: 50px;
+    font-size: 20px;
+}
+
+.form-items button:hover {
+    cursor: pointer;
+    background: grey;
+    color: white;
+}
+
+.todo-item {
+    padding: 5% 0;
+    margin: 5% 0;
+    width: 280px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 5px;
+    border-style: outset;
+}
+
+.todo-item:hover {
+    cursor: pointer;
+    text-shadow: .5px .5px grey;
+    transform: scale(1.1);
+}
