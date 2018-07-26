@@ -1,7 +1,15 @@
 import React from 'react';
-import TodoItem from './TodoItem';
+// import TodoItem from './TodoItem';
 
-const TodoList = TodoListProps => {
+const TodoItem = TodoItemProps => {
+  return (
+    <div>
+      Task {TodoItemProps.data.taskNumber}: {TodoItemProps.data.taskFromCopy}
+    </div>
+  );
+};
+
+const DisplayTodoList = TodoListProps => {
   return (
     <div>
       {TodoListProps.todoList0.map( x => <TodoItem key={x.id} data={x} />)}
@@ -9,4 +17,4 @@ const TodoList = TodoListProps => {
   );
 };
 
-export default TodoList;
+export default DisplayTodoList;
