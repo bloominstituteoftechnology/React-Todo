@@ -13,3 +13,4 @@ const Todo = props => {
 }
 
 export default Todo;
+// onClick = {props.bool}

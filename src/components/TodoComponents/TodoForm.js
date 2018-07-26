@@ -10,7 +10,7 @@ on the Submit Button to add a todo to your list.
 const TodoForm = props => {
     return (
     <form>
-    <input placeholder = "...todo" onChange = {props.change} onKeyUp = {props.enter} />
+    <input placeholder = "...todo" onChange = {props.change} />
     <button onClick = {props.click}>Add Todo</button>
     <button>Clear Completed</button>
     </form>

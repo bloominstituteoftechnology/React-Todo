@@ -7,7 +7,11 @@ a new <Todo /> for each element in the array. */
 
 
 const TodoList = props => {
-    return props.list.map(param => <Todo key = {param.id} task = {param.task}/>); 
+    return (
+    props.list.map(param => <Todo key = {param.id} task = {param.task}/>)
+    ); 
 }
 
 export default TodoList; 
+
+// bool = {param.completed}

@@ -12,28 +12,34 @@ import TodoForm from './components/TodoComponents/TodoForm';
     constructor() {
       super();
       this.state = {
-        list: [{task: '', id: Date.now(), completed: false}]
+        list: [],
+        task: '',
+        completed: false
       };
     }
 
   inputChangeHandler = (event) => {
     this.setState({task: event.target.value});
-  }
-
-  onEnterHandler = (event) => {
-    event.preventDefault();
-    let copy = this.state.list.slice();
     if(event.keyCode === 13){ 
-      copy.push({task: this.state.task, id: Date.now(), completed: false})
+      let copy = this.state.list.slice();
+      copy.push({task: this.state.task, id: Date.now(), completed: this.state.completed})
       this.setState({list: copy})
+      console.log(copy);
     }
   }
 
   buttonClickHandler = (event) => {
     event.preventDefault();
     let copy = this.state.list.slice();
-    copy.push({task: this.state.task, id: Date.now(), completed: false})
+    copy.push({task: this.state.task, id: Date.now(), completed: this.state.completed})
     this.setState({list: copy})
+    console.log(copy);
+  }
+
+  strikethroughHandler = () => {
+    console.log("item was clicked");
+    //let someBool = false;
+    //someBool ? console.log('incomplete') : console.log('complete')
   }
 
   render() {
@@ -42,8 +48,7 @@ import TodoForm from './components/TodoComponents/TodoForm';
         <h2>My Todo List:</h2>
         <TodoList list = {this.state.list}/>
         <TodoForm change = {this.inputChangeHandler}
-                  click = {this.buttonClickHandler}
-                  enter = {this.onEnterHandler} />
+                  click = {this.buttonClickHandler} />
       </div>
     );
   }
