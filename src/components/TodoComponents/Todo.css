@@ -1,8 +1,36 @@
 
-.crossedTexted {
-    text-decoration: line-through;
+.todoForm {
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.list {
+    width: 600px;
+    height: 600px;
+    text-align: center;
+}
+
+.crossedText {
+    background: black;
+    color: white;
+
 }
 
 .normalText {
-    text-decoration: none;
+    background: white;
+
+}
+
+.buttonHolder {
+    display: flex;
+}
+
+.button {
+    width: 300px;
+    height: 50px;
+    background: white;
+    cursor: pointer;
 }

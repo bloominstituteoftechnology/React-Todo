@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
@@ -11,7 +12,7 @@ class App extends React.Component {
     this.state = {
       inputData: '',
       todoItems: [],
-      title: 'My ToDo List first ever React App!'
+      title: 'My TODO LIST first ever React App!'
     };
   } 
   
@@ -31,6 +32,13 @@ class App extends React.Component {
       "completed": false
     });
     this.setState({todoItems: todoItems, inputData: ''});
+  }
+
+  enterHandle = (event) => {
+    if (event.which === 13 || event.keyCode === 13){
+      event.preventDefault();
+      this.addTask();
+    }
   }
 
   idToggler = id => {
@@ -59,10 +67,10 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className="wrap">
+        <div className="title">{this.state.title}</div>
+          <TodoForm addNewTaskOnEnter={this.enterHandle} removeItem={this.removeItem} inputEvent={this.changeList} inputValue={this.state.inputData} addNewTask={this.addTask}/>
           <TodoList  crossedText="crossedText" regularText="normalText" listItem={this.state.todoItems} toggleId={this.idToggler} />
-          <TodoForm removeItem={this.removeItem} inputEvent={this.changeList} inputValue={this.state.inputData} addNewTask={this.addTask}/>
-          
       </div>
     );
   }

@@ -6,7 +6,7 @@ import './Todo.css';
 
 const TodoList = props => {
   return (
-    <div>
+    <div className="list">
       {props.listItem.map((item, index) => {
         let orderNumber = index + 1;
         return <div
