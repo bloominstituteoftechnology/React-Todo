@@ -1,0 +1,57 @@
+body {
+    background-color: dodgerblue;
+}
+
+.container, .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    margin-top: 20vh;
+}
+
+.inputField {
+    background-color: black;
+    color: white;
+    height: 100px;
+    width: 400px;
+    font-size: 64px;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    font-family: sans-serif;
+}
+
+.paragraph {
+    font-size: 48px;
+    color: white;
+    font-family: sans-serif;
+    line-height: 48px;
+    margin: 10px;
+}
+
+.addButton {
+    background-color: green;
+    color: white;
+    height: 50px;
+    width: 200px;
+    font-size: 36px;
+    border: 3px solid lightgreen;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: sans-serif;
+}
+
+.clearButton {
+    background-color: lightcoral;
+    color: black;
+    height: 50px;
+    width: 300px;
+    font-size: 36px;
+    border: 3px solid red;
+    border-radius: 5px;
+    font-family: sans-serif;
+}
