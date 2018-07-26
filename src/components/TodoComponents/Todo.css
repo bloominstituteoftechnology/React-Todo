@@ -1,10 +1,68 @@
 .btn {
-    background:paleturquoise;
+    height:48px;
+    width: 100%;
+}
+
+
+button {
+    background: white;
+    border: none;
+    font-size: 16px;
+}
+
+.btn-add {
+    background:black;
+    color: white;
+    margin: 0 10px;
 }
 .btn-complete {
-    background: palevioletred;
+    background: white;
+    background-color: white;
+    color: black;
+    margin: 0 10px;
+    border: 1px solid black;
 }
 
 .line-through {
     text-decoration: line-through;
+}
+
+.list-style {
+    max-width: 400px;
+    margin: 20px;
+    width: 400;
+    font-size: 16px;
+}
+.input-style {
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 48px;
+    width: 100%;
+    border: 1px solid black;
+    font-size: 16px;
+    color: black;
+}
+
+input::placeholder {
+    padding-left: 10px;
+    color: black;
+}
+
+form {
+    width: 400px;
+}
+
+.btn-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

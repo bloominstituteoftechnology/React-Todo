@@ -9,7 +9,7 @@ import React from 'react';
     return (
       <div 
       onClick={() => props.handleToggleCompleted(props.todo.id)}
-      className={props.todo.completed ? `line-through` : null}
+      className={`list-style ${props.todo.completed ? `line-through` : null}`}
       >
         {props.todo.task}
       </div>
