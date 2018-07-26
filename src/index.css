@@ -13,3 +13,10 @@
   display: flex;
   flex-direction: column;
 }
+
+.todo-item:hover {
+  background-color: white;
+  color: black;
+  text-decoration: line-through;
+
+}

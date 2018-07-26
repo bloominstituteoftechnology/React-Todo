@@ -3,7 +3,7 @@ import React from 'react';
 
 const TodoItem = TodoItemProps => {
   return (
-    <div>
+    <div className="todo-item" >
       Task {TodoItemProps.data.taskNumber}: {TodoItemProps.data.taskFromCopy}
     </div>
   );
@@ -12,7 +12,10 @@ const TodoItem = TodoItemProps => {
 const DisplayTodoList = TodoListProps => {
   return (
     <div>
-      {TodoListProps.todoList0.map( x => <TodoItem key={x.id} data={x} />)}
+      {TodoListProps.todoList0.map( (x) => <TodoItem
+        key={x.id}
+        data={x}
+        onClick={TodoListProps.complete}/>)}
     </div>
   );
 };

@@ -17,7 +17,8 @@ class App extends React.Component {
     console.log(this.state)
     this.setState({
       task2: typingEvent.target.value,
-      inputValue: typingEvent.target.value
+      inputValue: typingEvent.target.value,
+      completed: false
     });
   };
 
@@ -25,8 +26,8 @@ class App extends React.Component {
     destroyEvent.preventDefault();
     this.setState({
       todoList0: []
-    })
-  }
+    });
+  };
 
   handleDeleteButtonOnSumbit = deleteEvent => {
     deleteEvent.preventDefault();
@@ -35,13 +36,7 @@ class App extends React.Component {
     this.setState({
       todoList0: todoListCopy
     });
-  }
-
-  // resetForm = e => {
-  //   this.setState({
-  //     inputValue: ''
-  //   })
-  // }
+  };
 
   handleAddButtonOnSumbit = buttonEvent => {
     buttonEvent.preventDefault(); //will stop the form from submitting the page
@@ -54,10 +49,16 @@ class App extends React.Component {
     });
     this.setState({
       todoList0: todoListCopy,
-      inputValue: ''
+      inputValue: '', //resets input field
+      task2: '' //resets task2
     });
+  }
 
-    // this.resetForm();
+  markComplete = () => {
+    console.log("markComplete envoked");
+    // if (this.task.completed === false){
+    //   console.log('task complete');
+    // }
   }
 
   render() {
@@ -65,7 +66,7 @@ class App extends React.Component {
       <div className="main-div">
         <h1>Todo List</h1>
         <br />
-        <DisplayTodoList todoList0={this.state.todoList0} />
+        <DisplayTodoList complete={this.markComplete} todoList0={this.state.todoList0} />
         <TodoForm
           handleDestroyButton={this.handleDestroyButtonOnSumbit}
           handleAddButton={this.handleAddButtonOnSumbit}
