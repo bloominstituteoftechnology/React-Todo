@@ -24,6 +24,23 @@ body{
   background: white;
 }
 
+.app-container .header-input{
+  width: 80%;
+  text-align: center;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 1.8rem;
+  border-radius: 5px;
+}
+
+.app-container .todo-title {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
 @media (max-width: 679px) {
   .app-container{
     width: 75%;

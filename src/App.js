@@ -8,6 +8,8 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      header: "To Do List: (click me)",
+      editing: false,
       todos:
       [
         {
@@ -40,7 +42,7 @@ class App extends React.Component {
       inputField: "",
     };
   }
-
+//39 is max letters at mobile, add check & fail state
   handleNewTodo = event => {
     if(this.state.inputField !== ""){
       const newTodos = this.state.todos.slice();
@@ -78,10 +80,13 @@ class App extends React.Component {
   }
 
   handleToggleComplete = targetID => {
-    let todos = this.state.todos.slice();
-    todos.map(todo => {
+    let todos = this.state.todos.slice().map(todo => {
       if(todo.id === targetID){
-        todo.completed = !todo.completed;
+        let newTodo = {
+          ...todo
+        };
+        newTodo.completed = !newTodo.completed;
+        return newTodo;
       }
       return todo;
     });
@@ -90,9 +95,20 @@ class App extends React.Component {
     });
   }
 
+  handleHeaderChange = event =>{
+    if(event.key === 'Enter' && event.target.value !== ""){
+      let newHeading = event.target.value;
+      this.setState({
+        header: newHeading,
+        editing: false,
+     });
+   }
+  }
+
   render() {
     return (
       <div className="app-container">
+        { this.state.editing ? <input className="header-input" type="text" onKeyPress={this.handleHeaderChange} onBlur={()=>this.setState({editing: false,})} autoFocus /> : <h3 className="todo-title" onClick={()=>this.setState({editing: true,})}>{this.state.header}</h3> }
         <TodoList list={this.state.todos} click={this.handleToggleComplete} />
         <TodoForm handleCompleted={this.handleCompleteTodo} text={this.state.inputField} handleEnter={this.handleKeyPress} change={this.handleInputChange} addClick={this.handleNewTodo} />
       </div>
