@@ -5,6 +5,9 @@
 .input {
     margin-top: 30px;
 }
+.input-field {
+    color: #FFF;
+}
 .ccbtn {
     margin-top: 10px;
     margin-right: 20px;
@@ -19,6 +22,7 @@ body {
     display: flex;
     justify-content: center;
     margin-right: 6%;
+    background-color: #778899;
 }
 p{
     letter-spacing: 1px;
