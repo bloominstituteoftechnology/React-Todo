@@ -2,6 +2,7 @@ import React from 'react';
 // import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 import Todo from './components/TodoComponents/Todo';
+import Search from './components/TodoComponents/Search';
 import SimpleStorage from "react-simple-storage"; 
 import './app.css';
 
@@ -12,12 +13,18 @@ class App extends React.Component {
   
   constructor(){
     super();
-    this.state = {thingsToDo: [], temp: "",  completed: {}, };
+    this.state = {thingsToDo: [], temp: "",  completed: {}, searchText: "" };
   }
 
   handleChange = event => {
     this.setState(
       {temp: event.target.value}
+    )
+  }
+
+  handleSearchChange = event => {
+    this.setState(
+      {searchText: event.target.value}
     )
   }
 
@@ -80,6 +87,7 @@ class App extends React.Component {
         <Todo handleClick = {this.handleClick} handleenter = {this.handleEnter} value={this.state.temp}
          onChange={this.handleChange}  handleClearClick = {this.handleClearClick} 
          />
+        <Search onChange={this.handleSearchChange} value={this.state.searchText}/>
         
       </div>
     );
