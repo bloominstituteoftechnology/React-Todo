@@ -7,6 +7,11 @@ import React from 'react';
 //onChange occurs when the value of an element has been changed. 
 //value is the task that the user puts into the input. 
 //onClick is allowing an Event to occur when clicked. 
+//these handles will be used in the App.js render when you put them equal to the 
+//different functions that were created. Like addTodo, toggleTodoComplete, etc... 
+//and the handles are essentially the same name as the functions but with handle infront. 
+//All this is doing is assinging these handles to the buttons and input so that when on
+//App.js all that needs to happen is to put it equal with the right function. 
 const TodoForm = props => {
   return (
     <form>

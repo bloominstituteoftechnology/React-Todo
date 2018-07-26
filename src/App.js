@@ -56,7 +56,8 @@ class App extends React.Component {
     todos = todos.filter(todo => !todo.completed);
     this.setState({ todos });
   };
-
+{/*In the render you will need to assign the handles created in the other files with the 
+  functions created above.  */}
   render() {
     return (
       <div>
