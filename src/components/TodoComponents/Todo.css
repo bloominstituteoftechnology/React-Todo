@@ -7,6 +7,10 @@
   min-height: 300px;
 }
 
+button {
+  background-color: white;
+}
+
 p {
   color: white;
   letter-spacing: 6px;
