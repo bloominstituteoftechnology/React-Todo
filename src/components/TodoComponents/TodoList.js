@@ -4,7 +4,7 @@ import React from 'react';
 
 const TodoList = props => {
   return (
-    <div>
+    <div className='list'>
       {(props.todoList.map(item => {
         return <p onClick={props.toggleComplete} className={item.classname} id={item.id} key={item.id}>{item.item}</p>
       }))}

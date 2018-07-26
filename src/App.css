@@ -1,0 +1,14 @@
+.container {
+  background-image: url('https://images.pexels.com/photos/583846/pexels-photo-583846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  min-height: 1000px;
+}
+
+h2 {
+  color: #e2e1e1;
+  font-size: 72px;
+  text-align: center;
+}

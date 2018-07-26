@@ -55,7 +55,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='container'>
         <h2>My Todo App!</h2>
         <Todo annihilate={this.annihilate} clearComplete={this.clearComplete} toggleComplete={this.toggleComplete} todoList={this.state.list} submit={this.inputHandler} onchange={this.handleInputChange}/>
       </div>
