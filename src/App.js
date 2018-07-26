@@ -44,15 +44,21 @@ class App extends React.Component {
   handleInputChange = event => {
     // update the message field on state.
     this.setState({ [event.target.name]: event.target.value });
-    
   };
+
+  // toggle completed todos
+  toggleCompletedTasks = id => {
+    console.log(id);
+  }
 
   render() {
     console.log("STATE: ", this.state);
     return (
       <div>
-        <TodoList todoArray={this.state.todoData} />
-        {/* {this.state.todoData.map(task => <Todo todoDataProp={task} />)} */}
+        <TodoList 
+          handleToggleComplete={this.toggleCompletedTasks}
+          todoArray={this.state.todoData} 
+        />
         <TodoForm
           value={this.state.todo}
           handleTodoChange={this.handleInputChange}

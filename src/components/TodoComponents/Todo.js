@@ -5,7 +5,9 @@ const Todo = props => {
   console.log("propsTodo", props.todoDataProp)
   const { task } = props.todoDataProp;
   return (
-    <div>
+    <div
+        onClick={() => props.handleToggleComplete(props.todoDataProp.id)}
+    >
       <h4>Name: {task}</h4>
     </div>
   );
