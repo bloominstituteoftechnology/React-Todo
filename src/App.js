@@ -6,11 +6,9 @@ import TodoForm from './components/TodoComponents/TodoForm';
 const todos  = [
   {
     task: 'Fold Laundry',
-    id: 1,
   },
   {
     task: 'Wash Car',
-    id: 2,
   }
 ];
 
@@ -22,8 +20,7 @@ const ListItem = props => {
   const {task, id} = props.listProp;
   return(
     <div>
-      <h4>Item: {task}</h4>
-      <h4>ID: {id}</h4>
+      <h4>task: {task}</h4>
     </div>
   );
 };
@@ -36,30 +33,35 @@ class App extends React.Component {
     constructor() {
       super();
       this.state = {
-        list: "",
-        todos: todos,
+        thingsToDo: [],
+        temp: '',
       };
     }
 
-    handleUpdateState = () => {
+    addItem = event => {
+      event.preventDefault();
       const todos = this.state.todos.slice();
-      this.setState({todos: todos});
+      todos.push({task: this.state.todo });
+      this.setState({todos, todo: ''});
     };
 
-    handleInputChange = event => {
+    handleChange = event => {
       console.log(event.target.value);
-      this.setState({list: event.target.value });
+      this.setState({temp: event.target.value}
+      );
     };
+
+
  
   render() {
-    console.log("STATE: ", this.state);
     return (
       <div>
-       <div>{this.state.list}</div>
-       {this.state.todos.map(todo =><ListItem listProp = {todo}   />)}
-        <button onClick = {this.handleUpdateState}>Click to add item</button>
-        <button>Clear Completed</button>
-        <input placeholder = "enter" onChange = {this.handleInputChange} />
+       
+        <h1> To-do List</h1>
+
+        <p> {this.state.thingsToDo}</p>
+
+        <input type="text" value = {this.state.temp} onChange = {this.handleChange} />
       </div>  
     );
   }
