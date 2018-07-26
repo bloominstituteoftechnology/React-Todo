@@ -3,6 +3,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import Todo from './components/TodoComponents/Todo';
 import './app.css';
+import SimpleStorage from "react-simple-storage"; 
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -14,11 +15,38 @@ class App extends React.Component {
     this.state = {thingsToDo: [], temp: "",  completed: {}, };
   }
 
+  // handleSaveToLocalStorage = () => {
+  //   // for every item in React state
+  //   for (let key in this.state) {
+  //     // save to localStorage
+  //     localStorage.setItem(key, JSON.stringify(this.state[key]));
+  //   }
+  // }
+
+  // handleHydrateState = () => {
+  //   let value; 
+  //   for (let key in this.state){
+  //     //If they key is available in localStorage 
+  //     if (localStorage.hasOwnProperty(key)){
+  //       value = localStorage.getItem(key); 
+  //     }
+  //     try {
+  //       value = JSON.parse(value); 
+  //       this.setState({ [key]: value });
+  //     } catch (e) {
+  //       this.setState({[key]: value}); 
+  //     }
+  //   }
+  // }
 
   handleLocalStorage = () => {
     const currentState = this.state; 
 
     this.setState(currentState);
+
+    //update localStorage after^react state updated
+
+    localStorage.setItem()
   }
 
 
@@ -75,6 +103,7 @@ class App extends React.Component {
   render() {
     return (
       <div className = "appContainer">
+      <SimpleStorage parent={this}/>
         <h1>Todo List: MVP</h1>
         
         <ul>   
