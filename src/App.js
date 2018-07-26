@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -12,30 +13,40 @@ class App extends React.Component {
       list: [
         {
           task: 'Organize Garage',
-          id: 1528817077286,
+          id: Date.now(),
           completed: false
         },
         {
           task: 'Bake Cookies',
-          id: 1528817084358,
+          id: Date.now(),
           completed: false
         }
       ],
-      newTodo: ''
+      task: ''
     };
   }
 
-  changeGreetingHandler = event => {
-    console.log(event.target.value);
-    this.setState({ list: event.target.value });
-  };
+  handleTaskChange = e => {
+    this.setState({ task: e.target.value});
+  }
+
+  handleAddTodoSubmit = e => {
+    e.preventDefault();
+    const list = this.state.list.slice();
+    list.push({ task: this.state.task, id: Date.now(), completed: false });
+    this.setState({ list: list });
+  }
+
   
   render() {
     return (
-      <div>
-        <h2>TO DO LIST</h2>
-        <ul>{this.state.list.map(x => <li>{x.task}</li>)}</ul>
-        <TodoForm />
+      <div className='App'>
+        <h2>TASK LIST</h2>
+        <TodoList list={this.state.list} />
+        <TodoForm 
+          handleAddTodo={this.handleAddTodoSubmit}
+          handleTask={this.handleTaskChange}
+        />
       </div>
       
     );

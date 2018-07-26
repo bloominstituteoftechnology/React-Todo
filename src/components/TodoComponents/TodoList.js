@@ -4,18 +4,12 @@
 import React from 'react';
 import Todo from './Todo';
 
-function TodoList(props) {
+const TodoList = (props) => {
     return (
         <div>
-          {props.todoList.map((todo, index) => {
-            if (!todo.task.toLowerCase().includes(props.searchText.toLowerCase())) {
-              return;
-            }
-            return <Todo onClick={() => props.clickToggle(index)} key={todo.id} todo={todo}/>
-          })}
-          
+            {props.list.map(list => <Todo key={list.id} data={list} />)}
         </div>
     );
 }
-
+ 
 export default TodoList;
