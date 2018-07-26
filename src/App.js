@@ -27,23 +27,42 @@ class App extends React.Component {
 
   addTodo = event => {
     event.preventDefault();
-    const todoList = this.state.todoList.slice();
+    let todoList = this.state.todoList.slice();
     todoList.push({ task: this.state.todo, id : Date.now(), completed: false })
-    this.setState( { todoList: todoList, todo: "" })
-    console.log("clicked")
+    this.setState( { todoList: todoList, todo: "" })    
   }
 
-  render() {console.log(this.state.todo);
+  toggleComplete = id => {
+    let todoList = this.state.todoList.slice();
+    todoList = todoList.map( todo => {
+      if (todo.id === id){
+        todo.completed = !todo.completed;
+        return todo;
+      }
+    });
+    this.setState({todoList})
+  }
+
+  clearComplete = event => {
+    event.preventDefault();
+    let todoList = this.state.todoList.slice();
+    todoList = todoList.filter(todo => !todo.completed);
+    this.setState({todoList});
+  }
+
+  render() {console.log(this.state.todoList);
     return (
       
       <div>
         <TodoList 
         todoList = {this.state.todoList} 
+        handleComplete = {this.toggleComplete}
         />
         <TodoForm   
         value = {this.state.todo}
         handleAdd = {this.addTodo}    
         handleUpdate = {this.updateTodo}
+        handleComplete = {this.clearComplete}
         />
       </div>
     );
