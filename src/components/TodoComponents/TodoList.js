@@ -7,7 +7,10 @@ import Todo from './Todo';
 const TodoList = props => {
     return (
         <div>
-            <Todo />
+             {/* <TodoList /> receives your Todos array and iterates over the list generating a new <Todo /> for each element in the array. */}
+            {props.todos.map(todo => (
+              <Todo handleToggleComplete={props.handleToggleComplete} key={todo.id} todo={todo} />  
+            ))}
         </div>
     );
 };

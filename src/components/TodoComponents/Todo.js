@@ -2,9 +2,12 @@ import React from 'react';
 
 const Todo = props => {
     return (
-        <div>
-            {/* <TodoList /> receives your Todos array and iterates over the list generating a new <Todo /> for each element in the array. */}
-            
+        <div style={props.todo.completed ? { textDecoration: 'line-through' } : null} 
+        onClick={() => props.handleToggleComplete(props.todo.id)}
+        >
+        {props.todo.task}
+            {/* <Todo /> is a component that takes in the todo data and displays the task to the screen. */}
+
         </div>
     );
 };
