@@ -1,6 +1,7 @@
 import React from 'react';
 import {ToDoInput, ToDoButton, ClearCompletedButton} from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import './components/TodoComponents/Todo.css';
 
 const Todos=[];
 
@@ -25,6 +26,7 @@ class App extends React.Component {
     document.querySelector('.input-field').value='';
   }
   completedTask=event=>{
+    event.target.classList.toggle('completed');
     console.log(event.target.textContent);
   }
   render() {
