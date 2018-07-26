@@ -9,7 +9,7 @@ const Todo = props => {
       style={props.done.status ? { textDecoration: 'line-through' } : null}
       onClick={( ) => props.handleComplete(props.done.id)}
     >
-      {props.done.task}
+        {props.done.task}
     </div>
   );
 };

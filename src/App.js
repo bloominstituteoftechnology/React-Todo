@@ -44,7 +44,7 @@ toggleTodoStatus = id => {
   let todo = this.state.todo.slice( );
   todo = todo.map(done => {
     if (done.id === id) { //checks if unique data now attribute is shared in both arrays?
-      todo.status = !todo.status; // complete is a
+      done.status = !done.status; // complete is a
       return done;
     } else {
       return done;
