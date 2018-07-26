@@ -2,24 +2,6 @@ import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
-// const TodoForm = (props) => {
-//   return (
-//     <form>
-//       <input placeholder="...todo" onChange={props.messageProp} onSubmit={props.buttonProp} />
-//       <button onClick={props.buttonProp}>Add Todo</button>
-//       <button>Clear Completed</button>
-//     </form>
-//   );
-// }
-
-// const TodoList = props => {
-//   return <div>{props.toDoListProp.map(todo => <Todo key={todo.id} toDoProp={todo} />)}</div>;
-// }
-
-// const Todo = props => {
-//   const { task } = props.toDoProp
-//   return <div onClick={thing here to toggle class}>{task}</div>;
-// }
 
 
 class App extends React.Component {
@@ -61,15 +43,20 @@ class App extends React.Component {
     this.setState({ todos: todos });
   };
 
+  handleClearCompleted = event => {
+    event.preventDefault();
+    const todos = this.state.todos.slice();
+    const newTodos = todos.filter(todo => todo.completed === false);
+    this.setState({todos: newTodos});
+  }
 
-  
 
   render() {
     return (
       <div>
         <h2>Kyle's Todo List</h2>
         <TodoList completedProp ={this.handleToggleCompleted} toDoListProp={this.state.todos} />
-        <TodoForm buttonProp={this.handleUpdateState} messageProp={this.handleInputChange} />
+        <TodoForm clearProp={this.handleClearCompleted} buttonProp={this.handleUpdateState} messageProp={this.handleInputChange} />
       </div>
     );
   };
