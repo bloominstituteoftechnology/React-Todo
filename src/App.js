@@ -41,11 +41,11 @@ class App extends Component {
   // ============== Event Handler Methods ==============
 
   handleItemClick = e => {
-    e.target.classList.toggle('completed');
+    e.target.classList.toggle('completed'); // line-through
     
     let newTodo = this.state.todos.slice();
     for (let item of newTodo) {
-      if (item.id === +e.target.dataset.id) {
+      if (item.id === +e.target.dataset.id) { // + used to convert from str to int
         item.completed = !item.completed;
         this.setState({
           todos: newTodo,
@@ -63,7 +63,7 @@ class App extends Component {
   };
 
   addTodo = e => {
-    e.preventDefault();
+    e.preventDefault(); // stop submit/reload
     this.setState({
       todos: this.state.todos.concat([{ // add current todo (from input) to todos
         task: this.state.current,

@@ -20,7 +20,6 @@ html {
 /* ======= Todo List Styles ======= */
 
 .titleHolder {
-    height: 150%;
     background: linear-gradient(to left bottom, #434853, #4286f4);
     border-bottom: 1px solid black;
     margin-bottom: 5px;
@@ -34,7 +33,7 @@ html {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    font-family: cursive, sans-serif;
+    font-family: 'Kalam', cursive, sans-serif;
 }
 
 .todo-items .todo-item {
