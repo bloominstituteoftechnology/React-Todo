@@ -13,7 +13,7 @@ class App extends React.Component {
         {
           task: 'Implement Displaying',
           id: 15566521651,
-          completed: false,
+          completed: true,
         },
         {
           task: 'Implement Adding New',
@@ -21,8 +21,13 @@ class App extends React.Component {
           completed: true,
         },
         {
-          task: 'Implement Toggle False',
+          task: 'Implement Toggle Complete',
           id: 651581981,
+          completed: true,
+        },
+        {
+          task: 'Implement Remove Completed',
+          id: 651581982,
           completed: true,
         },
         {

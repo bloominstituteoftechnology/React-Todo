@@ -23,3 +23,15 @@ body{
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   background: white;
 }
+
+@media (max-width: 679px) {
+  .app-container{
+    width: 75%;
+  }
+}
+
+@media (max-width: 450px) {
+  .app-container{
+    width: 90%
+  }
+}
