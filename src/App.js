@@ -8,9 +8,20 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
-    this.state = {list: [{id: Date.now(), item: 'Sample', completed: false, classname: ''}], message: ''};
+    let storedState = localStorage.getItem('state');
+    if(storedState){
+      this.state = JSON.parse(storedState);
+    }else{
+      this.state = {list: [{id: Date.now(), item: 'Sample', completed: false, classname: ''}], message: ''};
+    }
     this.inputHandler = this.inputHandler.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  saveState = () => {
+    let temp = JSON.stringify(this.state);
+    localStorage.setItem('state', temp);
+    console.log(JSON.parse(localStorage.getItem('state')));
   }
 
   inputHandler() {
@@ -54,6 +65,7 @@ class App extends React.Component {
   annihilate = () => this.setState({ list: [] });
 
   render() {
+    this.saveState();
     return (
       <div className='container'>
         <h2>My Todo App!</h2>
