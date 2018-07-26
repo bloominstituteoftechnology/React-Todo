@@ -13,6 +13,15 @@ export default class App extends React.Component {
       addNew: false
     };
   }
+  componentDidMount() {
+    const todolist = JSON.parse(localStorage.getItem('todos'))
+    this.setState({ todos: todolist })
+  }
+  componentDidUpdate(prevState) {
+    if (prevState.todos !== this.state.todos) {
+      localStorage.setItem('todos', JSON.stringify(this.state.todos))
+    }
+  }
   handleAddNew = () => {
     this.setState({ addNew: true })
   }
