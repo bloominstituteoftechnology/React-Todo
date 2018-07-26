@@ -52,7 +52,7 @@ body{
   background: white;
   z-index: 3;
   cursor: pointer;
-  height: 500px;
+  height: 300px;
 }
 
 .app-container .todo-listing-container .new-list-container:hover{
@@ -72,7 +72,7 @@ body{
     width: 75%;
   }
 
-  .app-container .todo-listing-container .app-container .new-list-container{
+  .app-container .todo-listing-container .new-list-container{
     width: 75%;
   }
 }
@@ -82,7 +82,7 @@ body{
     width: 90%
   }
 
-  .app-container .todo-listing-container .app-container .new-list-container{
+  .app-container .todo-listing-container .new-list-container{
     width: 90%;
   }
 }
