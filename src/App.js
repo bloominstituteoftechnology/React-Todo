@@ -28,15 +28,29 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: todoArray
+      todos: todoArray,
+      todo: ''
     }
   }
+
+  addTodo = event => {
+    event.preventDefault();
+    const todos = this.state.todos.slice();
+    todos.push({ task: this.state.todo, completed: false, id: Date.now() });
+    this.setState({ todos, todo: '' });
+  }
+
+  todoInput = event => {
+    this.setState({ todo: event.target.value });
+  }
+
+
 
   render() {
     return (
       <div>
         <h3><TodoList todos={this.state.todos} /></h3>
-        <TodoForm />
+        <TodoForm value={this.state.todo} handlerTodoInput={this.todoInput} handlerAddTodo={this.addTodo} />
       </div>
     );
   }
