@@ -35,11 +35,16 @@ class App extends React.Component {
   }
     this.setState({list:list});
   }
+  removeCompleted=()=>{
+    let list=this.state.list;
+    list=list.filter((e)=>e.completed===false);
+    this.setState({list:list});
+  }
   render() {
     return (
       <div>
         <div onKeyPress={ (e) => {if (e.key === 'Enter') {this.addTodos()}}}><ToDoInput/></div>
-        <ClearCompletedButton />
+        <div onClick={this.removeCompleted}><ClearCompletedButton /></div>
         <div onClick={this.addTodos}><ToDoButton /></div>
         <div onClick={this.updateTask}><TodoList taskProp={this.state.list} /></div>
       </div>
