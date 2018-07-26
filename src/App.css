@@ -1,6 +1,7 @@
 h2 {
     text-align: center;
     width: 100%;
+    font-size: 50px;
 }
 
 .todo-form {
@@ -12,5 +13,5 @@ h2 {
 .todo-list {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 5px;
 }
