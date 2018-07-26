@@ -5,7 +5,13 @@ class TodoForm extends React.Component {
     constructor(props){
         super();
         this.state ={
-            list: todoArray,
+            list: [
+                {
+                    id: 'Go through neighbors garbage',
+                    completed: false,
+                    task: 'Go through neighbors garbage'
+                }
+            ],
             nuTaskVal: '',
             nuId: '',
             nuCompleted: false
@@ -17,7 +23,6 @@ class TodoForm extends React.Component {
 
     handleInput = (e) => {
         let nuVal = e.target.value;
-        let list = this.state.list.splice();
         this.setState({
             nuTaskVal: nuVal,
             nuId: nuVal
@@ -34,10 +39,10 @@ class TodoForm extends React.Component {
     };
 
     pushToList = (obj) => {
-        todoArray.push(obj);
-        console.log(todoArray);
+        let list = this.state.list;
+        list.push(obj);
         this.setState({
-            list: todoArray
+            list: list
         });
         this.clearInput();
     };
@@ -60,7 +65,7 @@ class TodoForm extends React.Component {
     }
 
     removeCompleted = () => {
-        let list = this.state.list;
+        let list = this.state.list.slice();
         let nuList = list.filter((elem)=>{
             if(elem.completed != true){
                 return elem;
@@ -68,6 +73,8 @@ class TodoForm extends React.Component {
         });
         console.log(nuList);
         this.setState({ list : nuList});
+        console.log(this.state.list);
+        
     };
 
     clearInput = () => {
