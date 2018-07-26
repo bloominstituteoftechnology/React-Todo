@@ -3,11 +3,10 @@ import './App.css';
 // import Todo from './components/TodoComponents/Todo.js';
 import TodoList from './components/TodoComponents/TodoList.js';
 import TodoForm from './components/TodoComponents/TodoForm.js';
+import { getPortPromise } from '../node_modules/portfinder';
 
 // const arr = [
 //   {id: 1, task: 'learn React', completed: false},
-//   {id: 2, task: 'complete MVP', completed: false},
-//   {id: 3, task: 'do laundry', completed: false}
 // ]
 
 class App extends React.Component {
@@ -17,22 +16,18 @@ class App extends React.Component {
       tasks: [],
       current: ''
     }
-    this.handleUpdateState = this.handleUpdateState.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.completed = this.completed.bind(this);
   }
-  
   handleUpdateState = event => {
-    event.preventDefault();
-    this.setState({
-      tasks: this.state.tasks.concat([{
+    let tasks = this.state.tasks.slice();
+    tasks = tasks.push([{
         id: Date.now(),
         task: this.state.current,
         completed: false,
-      }]),
+      }])
+    this.setState({
+      tasks: tasks,
       current: ''
-    }
-    );
+    });
   };
   handleInputChange = event => {
     this.setState({current: event.target.value});

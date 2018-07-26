@@ -8,8 +8,10 @@ const TodoList = props => {
                 <Todo 
                     key={element.id}
                     item={element.task}
-                    onClick={props.clear}
-                />)}
+                    completed={element.completed}
+                    onClick={props.done}
+                />
+            )}
         </div>
     );
 }
