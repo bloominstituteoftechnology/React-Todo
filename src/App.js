@@ -29,7 +29,7 @@ class App extends React.Component {
 //constructor for todos array so for current tasks preventDefault to allow for inputs a is the input being passed here
 createTodo = a => {
   a.preventDefault();
-  const todo = this.state.todo.
+  const todo = this.state.todo
   done.push({ task: this.state.done, status: false, id: Date.now() });
   this.setState({ todo, done: '' });
 };
