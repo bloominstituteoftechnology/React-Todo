@@ -22,6 +22,9 @@ class App extends React.Component {
       ],
       msg: "",
 
+      headerSwitch: false,
+      headerMessage: "Click me to rename!",
+
 
 		}
   }
@@ -56,23 +59,42 @@ class App extends React.Component {
     });
 
     this.setState({ stateArray : taskArray, msg: "",});
-    
+
   };
 
   handleInputChange = event => {
     this.setState({ msg: event.target.value })
   }
 
-  handleClear = even => {
+  handleClear = () => {
     const clearArray = this.state.stateArray.slice().filter( e => e.completed === false);
     this.setState ({ stateArray : clearArray });
   }
 
+
+
 	render() {
 		return (
 			<div>
+
+        { this.state.headerSwitch ?
+          <input onKeyPress={ event => {
+            if (event.key === 'Enter') {
+              this.setState ( { headerSwitch: false, headerMessage : event.target.value } )
+            }
+          }
+
+          }/> :
+          <h1
+            onClick={ ()=> this.setState( {headerSwitch: true} ) }>
+            { this.state.headerMessage }
+          </h1>
+        }
+
 				<TodoList onClick={ this.handleCompleted } array={ this.state.stateArray }/>
-				<TodoForm value={ this.state.msg } onKeyPress = { this.handleKeyPress } onClear = { this.handleClear } onClick= { this.handleUpdateState } onChange={ this.handleInputChange }/>
+				<TodoForm value={ this.state.msg } onKeyPress = { this.handleKeyPress }
+        onClear = { this.handleClear } onClick= { this.handleUpdateState }
+        onChange={ this.handleInputChange }/>
 			</div>
 		);
 	}
