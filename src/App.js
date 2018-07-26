@@ -14,7 +14,7 @@ class App extends React.Component {
       list: Todos
     }
   }
-  updateTodos=()=>{
+  addTodos=()=>{
     const list=this.state.list;
     list.push({
       'task': document.querySelector('.input-field').value,
@@ -24,13 +24,16 @@ class App extends React.Component {
     this.setState({list:list});
     document.querySelector('.input-field').value='';
   }
+  completedTask=event=>{
+    console.log(event.target.textContent);
+  }
   render() {
     return (
       <div>
-        <div onKeyPress={ (e) => {if (e.key === 'Enter') {this.updateTodos()}}}><ToDoInput/></div>
+        <div onKeyPress={ (e) => {if (e.key === 'Enter') {this.addTodos()}}}><ToDoInput/></div>
         <ClearCompletedButton />
-        <div onClick={this.updateTodos}><ToDoButton /></div>
-        <TodoList taskProp={this.state.list} />
+        <div onClick={this.addTodos}><ToDoButton /></div>
+        <div onClick={this.completedTask}><TodoList taskProp={this.state.list} /></div>
       </div>
     );
   }
