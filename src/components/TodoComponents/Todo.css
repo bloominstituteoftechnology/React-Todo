@@ -1,11 +1,12 @@
 li {
     margin:10px;
-    border: 20px inset gray;
+    border: 20px inset black;
     text-align: center;
     width: 250px;  
 }
 li:hover{
     cursor:pointer;
+    box-shadow: 10px 10px red;
 }
 button:hover {
     cursor: pointer; 

@@ -14,6 +14,14 @@ class App extends React.Component {
     this.state = {thingsToDo: [], temp: "",  completed: {}, };
   }
 
+
+  handleLocalStorage = () => {
+    const currentState = this.state; 
+
+    this.setState(currentState);
+  }
+
+
   handleChange = event => {
     this.setState(
       {temp: event.target.value}
