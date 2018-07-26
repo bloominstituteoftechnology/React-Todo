@@ -15,6 +15,7 @@
   margin-top: 20px;
   font-weight: bold;
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .todo-list-container{
