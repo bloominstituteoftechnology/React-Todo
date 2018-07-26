@@ -4,21 +4,20 @@
 import React from "react";
 import "./Todo.css";
 
-import Todo from './Todo';
+import Todo from "./Todo";
 
 const TodoList = props => {
-    let todoArray = props.todoArray;
-    console.log('todoArray equals ', props);
-    return (
-        <div>
-            {todoArray.map(task => (
-                <Todo
-                    handleToggleComplete={props.handleToggleComplete}
-                    todoDataProp={task}
-                />
-            ))}
-        </div>
-    )
+  let todoArray = props.todoArray;
+  return (
+    <div>
+      {todoArray.map(task => (
+        <Todo
+          handleToggleComplete={props.handleToggleComplete}
+          todoDataProp={task}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default TodoList;

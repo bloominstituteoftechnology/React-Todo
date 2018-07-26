@@ -46,6 +46,13 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  handleInputEnter = event => {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+      this.setState({ [event.target.name]: event.target.value });
+    }
+  }
+  
   // toggle completed todos
   toggleCompletedTasks = id => {
     // use slice to return a shallow copy of the array
@@ -74,7 +81,6 @@ class App extends React.Component {
     let todoData = this.state.todoData.slice();
     todoData = todoData.filter(task => !task.completed);
     this.setState({ todoData })
-
   }
   render() {
     console.log("STATE: ", this.state);
