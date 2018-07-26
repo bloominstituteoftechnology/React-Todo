@@ -2,8 +2,6 @@ import React from "react";
 import "./Todo.css";
 
 const Todo = props => {
-  console.log("props.completed", props.todoDataProp.completed)
-
   const {task}  = props.todoDataProp;
   return (
     <div

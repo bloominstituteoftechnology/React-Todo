@@ -4,7 +4,7 @@ import React from "react";
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
-const myArr = [
+const arrayOfTasks = [
   {
     task: "Organize Garage",
     id: Date.now(),
@@ -21,7 +21,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoData: myArr,
+      todoData: arrayOfTasks,
       todo: ""
     };
   }
@@ -35,10 +35,7 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     });
-    // push our new animal item into the todoData array.
     this.setState({ todoData, todo: '' });
-
-    // FROM REACT API the ONLY way to change state.
   };
 
   handleInputChange = event => {
@@ -48,16 +45,19 @@ class App extends React.Component {
 
   handleInputEnter = event => {
     event.preventDefault();
+    // if keys is equal to 13 (enter) update value
     if (event.keyCode === 13) {
       this.setState({ [event.target.name]: event.target.value });
     }
   }
-  
+
   // toggle completed todos
   toggleCompletedTasks = id => {
-    // use slice to return a shallow copy of the array
+    // set state to array
     let todoData = this.state.todoData.slice();
     todoData = todoData.map(task => {
+      // basically, if you click and id equals id, which
+      // it always does, toggle task completed into false version
       if (task.id === id) {
         task.completed = !task.completed;
         return task;
@@ -67,23 +67,15 @@ class App extends React.Component {
       }
     })
     this.setState({todoData})
-    // console.log("ID", id);
-    // todoData = todoData.map(task => {
-    //   console.log("todo.id", task.id)
-    //   console.log("task.completed", task.completed)
-    // })
   }
 
   clearCompletedTasks = event => {
     event.preventDefault();
-    // use return copy of todoData as to not
-    // modify the original
     let todoData = this.state.todoData.slice();
     todoData = todoData.filter(task => !task.completed);
     this.setState({ todoData })
   }
   render() {
-    console.log("STATE: ", this.state);
     return (
       <div>
         <TodoList 
