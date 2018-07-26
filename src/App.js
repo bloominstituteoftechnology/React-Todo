@@ -1,6 +1,6 @@
 import React from 'react';
 import ToDoList from './components/TodoComponents/TodoList';
-// import ToDoForm from './components/TodoComponents/TodoForm';
+import ToDoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -9,7 +9,7 @@ class App extends React.Component {
     constructor() {
       super();
       this.state = {
-        toDos: [
+        todos: [
             {
               task: 'Organize Garage',
               id: 1528817077286,
@@ -21,18 +21,56 @@ class App extends React.Component {
               completed: false
             }
         ],
-        toDo: '',
+        tasks: '',
       }
     }
 
+    handleTaskChange = e => {
+      this.setState({ task: e.target.value });
+    };
+
+    handleAddSubmit = e => {
+      e.preventDefault();
+      const todos = this.state.todos.slice();
+      todos.push({ task: this.state.task, id: Date.now(), completed: false })
+      this.setState({ todos: todos });
+    };
+
+   
+  toggleComplete = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+        });
+    this.setState({ todos }); 
+   };
+
+    clearCompleted = e => {
+      e.preventDefault();
+      let todos = this.state.todos.slice();
+      todos = todos.filter(todo => !todo.completed);
+      this.setState({ todos });
+    };
+
   render() {
+    // console.log(this.state);
     return (
       <div>
         <h2>Welcome to my Todo App!</h2>
-        <ToDoList
+        <ToDoList 
+        handleToggleComplete={this.toggleComplete}
         todos={this.state.todos}
          />
-        {/* <ToDoForm /> */}
+        <ToDoForm 
+        handleAddTodo={this.handleAddSubmit}
+        handleTask={this.handleTaskChange}
+        handleClearTodos={this.clearCompleted}
+        />
       </div>
     );
   }
