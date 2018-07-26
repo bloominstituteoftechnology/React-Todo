@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import TodoForm from './components/TodoComponents/TodoForm'
 import TodoList from './components/TodoComponents/TodoList'
+import './App.css'
 
 // CCR - "Class", "Constructor", "Render"
 //class
@@ -67,7 +68,7 @@ clear = a => {
 //render
   render() {
     return (
-      <div>
+      <div className = "container d-flex justify-content-center flex-column">
         <h1> React Todo MVP </h1>
         <TodoList
         handleComplete = {this.toggleTodoStatus}

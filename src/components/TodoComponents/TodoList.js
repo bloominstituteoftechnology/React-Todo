@@ -9,7 +9,7 @@ import Todo from './Todo'
 //list functional component. setting to props
 const TodoList = props => {
   return (
-    <div>
+    <div className = "List">
       {props.todo.map(done => ( //creates array of new divs  from props, other funtoin hanlders allow for the actual creation of DOM elements. props allows access to base contructor.
         <Todo
             handleComplete = {props.handleComplete}
