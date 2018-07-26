@@ -2,8 +2,10 @@
     text-decoration: line-through;
 }
 
-.input {
+h1{
     margin-top: 30px;
+    text-align: center;
+    color: #FFF;
 }
 .input-field {
     color: #FFF;
@@ -21,12 +23,14 @@
 body {
     display: flex;
     justify-content: center;
-    margin-right: 6%;
     background-color: #708090;
 }
 p{
     letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
 }
+
 .card {
     margin-top: 20px;
 }
