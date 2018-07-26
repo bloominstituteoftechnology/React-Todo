@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 function Todo (props){
     return (
-        <li id={props.id} className={`${props.styles}`}  onClick={props.updateTask}>{props.task}</li>
+        <li id={props.id} className={`todo ${props.styles}`}  onClick={props.updateTask}>{props.task}</li>
     )
 }
 

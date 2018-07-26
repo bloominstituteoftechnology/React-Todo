@@ -3,6 +3,15 @@ ul {
     list-style: none;
 }
 
+.todo{
+    background: #dbdcdd;
+    border-radius: 5px;
+    margin-bottom: 7px;
+    position: relative;
+    word-break: break-word;
+    padding: 10px;
+}
+
 .true {
     
     text-decoration: line-through;

@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box; 
+}
+
+.container {
+    margin: 0 auto;
+    width: 50%;
+    border: solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.dayContainer {
+    margin: auto;
+}
+
+.todoContainer {
+    margin: auto;
+}

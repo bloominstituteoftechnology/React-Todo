@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from "react-dom";
+import './App.css'
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -16,6 +17,19 @@ const sample = [
   }
 ];
 
+const randomWord = [
+  "Oh my, it's ",
+  "Whoop, it's ",
+  "Happy ",
+  "Seems it's ",
+  "Awesome, it's ",
+  "Have a nice ",
+  "Happy fabulous ",
+  "Enjoy your "
+]
+
+const days  = ["Sunday 🖖","Monday 💪😀","Tuesday 😜","Wednesday 😌☕️","Thursday 🤗","Friday 🍻","Saturday 😴"]
+
 class App extends React.Component {
   constructor() {
     super();
@@ -23,6 +37,9 @@ class App extends React.Component {
       task: "",
       list: sample
     };
+    this.date = new Date();
+    this.randomWord = randomWord[Math.floor(Math.random() * (8 - 1) + 1)]
+    this.day = days[this.date.getDay()]
   }
 
   handleUpdateState = () => {
@@ -64,9 +81,14 @@ class App extends React.Component {
     console.log(this.state)
     // console.log("STATE: ", this.state);
     return (
-      <div>
-        <TodoList list={this.state.list} updateTask={this.updateTask}/>
+      <div class="container">
+        <div class="dayContainer">
+          <h1>{`${this.randomWord} ${this.day}`}</h1>
+        </div>
+        <div class="todoContainer">
         <TodoForm inputChange={this.handleInputChange} dataChange={this.handleUpdateState} clearCompleted={this.handleCompleted}/>
+          <TodoList list={this.state.list} updateTask={this.updateTask}/>
+        </div>
       </div>
     );
   }
