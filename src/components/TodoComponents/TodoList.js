@@ -8,7 +8,6 @@ import Todo from './Todo';
 const TodoList = props => {
     return (
         <div>
-        {/* {props.task} */}
         {props.todos.map(todo => (
             <Todo todo={todo} />
         ) ) }

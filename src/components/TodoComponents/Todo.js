@@ -1,9 +1,10 @@
 import React from 'react';
+import './Todo.css';
 
 const Todo = props => {
-    const { task, id } = props.todo;
+    const { task, id, completed } = props.todo;
     return (
-        <div>{task}</div>
+        <div className={completed ? "strike" : null} >{task}</div>
     );
 };
 

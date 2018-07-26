@@ -16,7 +16,7 @@ const todoArray = [
   {
       task: 'Book Hotel',
       id: 1528817077285,
-      completed: false
+      completed: true
   },
 ];
 
@@ -43,6 +43,12 @@ class App extends React.Component {
   todoInput = event => {
     this.setState({ todo: event.target.value });
   }
+
+  // toggleCompleted = () {
+  //   this.setState(prevState => {
+  //     return {}
+  //   })
+  // }
 
 
 
