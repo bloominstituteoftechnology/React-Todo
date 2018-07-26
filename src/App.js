@@ -30,18 +30,34 @@ class App extends React.Component {
 
   // ADD TODO -  <button onClick={props.handleAddTodo}>Add Todo</button>
   addTodo = event => {
+    // prevent page from refreshing
     event.preventDefault();
     // here we are making a new todos array
     const todos = this.state.todos.slice();
     console.log(todos)
     // pushing new todo onto sliced todos array
     todos.push({ task: this.state.todo, completed: false, id: Date.now() });
+    // 
     this.setState({ todos, todo: '' });
   };
 
   // UPDATE INPUT on change - see TodoForm.js ...onChange={props.handleInputChange} 
   updateInput = event => this.setState({ [event.target.name]: event.target.value });
 
+ // TOGGLE COMPLETED - takes a id as a para, then slice the the todos array
+ toggleCompleted = id => {
+   let todos = this.state.todos.slice();
+   //map over the todos array of objects
+   todos = todos.map(todo => {
+     if(todo.id === id) {
+       todo.completed = !todo.completed
+       return todo;
+     } else {
+       return todo;
+     }
+   })
+   this.setState({ todos })
+ }  
   // CLEAR COMPLETED TODOS - <button onClick={props.handleClearCompleted}>Add Todo</button> .....@render handleClearCompleted={this.clearCompleted}
 
 
@@ -55,6 +71,7 @@ class App extends React.Component {
       <div className="flex">
       <TodoList
         todos={this.state.todos}
+        handleToggleCompleted={this.toggleCompleted}
        />
        <TodoForm
         value={this.state.todo}

@@ -4,3 +4,7 @@
 .btn-complete {
     background: palevioletred;
 }
+
+.line-through {
+    text-decoration: line-through;
+}
