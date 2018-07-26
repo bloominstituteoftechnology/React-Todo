@@ -9,8 +9,36 @@ class App extends Component {
     this.state = {
       todos: [],
       current: '',
+      query: '',
     };
   }
+
+  render() {
+    let filteredTodos = this.state.todos.filter(
+      todo => {
+        if (todo.task === '') return;
+        if (todo.task.length > 30) return;
+        return todo.task.toLowerCase().indexOf(this.state.query.toLowerCase()) !== -1;
+      }
+    );
+    return (
+      <div className="container">
+        <TodoList 
+          todoArr={filteredTodos} 
+          onItemClick={this.handleItemClick}
+        />
+        <TodoForm 
+          onInputChange={this.handleInputChange} 
+          onSubmit={this.addTodo} 
+          onClear={this.clearTodo} 
+          onClearAll={this.clearAll}
+          onSearch={this.handleSearchChange}
+        />
+      </div>
+    );
+  }
+
+  // ============== Event Handler Methods ==============
 
   handleItemClick = e => {
     e.target.classList.toggle('completed');
@@ -30,10 +58,14 @@ class App extends Component {
     this.setState({current: e.target.value});
   };
 
+  handleSearchChange = e => {
+    this.setState({query: e.target.value});
+  };
+
   addTodo = e => {
     e.preventDefault();
     this.setState({
-      todos: this.state.todos.concat([{
+      todos: this.state.todos.concat([{ // add current todo (from input) to todos
         task: this.state.current,
         id: Date.now(),
         completed: false,
@@ -44,7 +76,7 @@ class App extends Component {
   clearTodo = e => {
     e.preventDefault();
     this.setState({
-      todos: this.state.todos.filter(item => item.completed === false),
+      todos: this.state.todos.filter(item => !item.completed), // array of incomplete todos
     });
   };
 
@@ -55,23 +87,16 @@ class App extends Component {
     });
   };
 
-  componentWillMount() {
+  // ============== Life Cycle Methods ==============
+
+  componentWillMount() { // set todos IF they're stored locally
     localStorage.getItem('todos') && this.setState({
       todos: JSON.parse(localStorage.getItem('todos'))
     });
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  componentWillUpdate(nextProps, nextState) { // store todos locally
     localStorage.setItem('todos', JSON.stringify(nextState.todos));
-  }
-
-  render() {
-    return (
-      <div className="container">
-        <TodoList todoArr={this.state.todos} onItemClick={this.handleItemClick} />
-        <TodoForm onInputChange={this.handleInputChange} onSubmit={this.addTodo} onClear={this.clearTodo} onClearAll={this.clearAll} />
-      </div>
-    );
   }
 }
 

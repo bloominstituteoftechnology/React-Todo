@@ -1,8 +1,32 @@
+/* ======= General Styles ======= */
+html {
+    height: 100%;
+    background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .container {
     width: 100%;
     max-width: 400px;
     text-align: center;
     margin: 0 auto;
+    border: 1px solid black;
+    padding-bottom: 10px;
+    background: linear-gradient(to left bottom, #bdc3c7, #2c3e50);
+}
+
+
+/* ======= Todo List Styles ======= */
+
+.titleHolder {
+    height: 150%;
+    background: linear-gradient(to left bottom, #434853, #4286f4);
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: cursive, sans-serif;
 }
 
 .todo-items {
@@ -12,16 +36,31 @@
 }
 
 .todo-items .todo-item {
-    margin: 25px;
+    margin: 25px 20px;
+    padding: 0 5px;
+    border: 1px solid black;
+    background: royalblue;
+    cursor: pointer;
+    color: lightgray;
 }
 
 .completed {
     text-decoration: line-through greenyellow;
 }
 
-.todoInput {
+
+/* ======= Todo Form Styles ======= */
+
+.todo-search {
+    margin-bottom: 5px;
+}
+
+.todo-input {
     width: 200px;
     padding: 2px 5px;
+    background: #fff;
+    border-style: solid;
+    border-radius: 5px;
 }
 
 .btn {
@@ -32,8 +71,8 @@
 }
 
 .btn:hover {
-    background: lightgray;
-    color: #fff;
+    background: royalblue;
+    color: lightcyan;
     transform: scale(1.2);
     transition-duration: 500ms;
     transition-timing-function: ease;
