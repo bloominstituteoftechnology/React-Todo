@@ -18,7 +18,7 @@ const myArr = [
 const TodoForm = (props) => {
   return (
     <div>
-      <input placeholder="...todo" onChange= {props.messageProp} />
+      <input placeholder="...todo" onChange={props.messageProp} onSubmit={props.buttonProp} />
       <button onClick={props.buttonProp}>Add Todo</button>
       <button>Clear Completed</button>
     </div>
@@ -26,7 +26,7 @@ const TodoForm = (props) => {
 }
 
 const TodoList = props => {
-  return <div>{props.toDoListProp.map(todo => <Todo toDoProp={todo} />)}</div>;
+  return <div>{props.toDoListProp.map(todo => <Todo key={todo.id} toDoProp={todo} />)}</div>;
 }
 
 const Todo = props => {
@@ -42,12 +42,13 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: myArr,
+      todos: myArr, //set to empty array
       message: ""
     };
   }
 
-  handleUpdateState = () => {
+  handleUpdateState = event => {
+    event.preventDefault();
     const todos = this.state.todos.slice();
     todos.push({
       task: this.state.message,
@@ -57,18 +58,22 @@ class App extends React.Component {
     this.setState({ todos: todos });
   }
 
+
+
   handleInputChange = event => {
     this.setState({ message: event.target.value });
   }
+
+
 
   render() {
     console.log("STATE: ", this.state);
     return (
       <div>
         <h2>Kyle's Todo List</h2>
-        <h2>Test: {this.state.message}</h2>
+        {/* <h2>Test: {this.state.message}</h2> */}
         <TodoList toDoListProp={this.state.todos} />
-        <TodoForm buttonProp = {this.handleUpdateState} messageProp={this.handleInputChange}/>
+        <TodoForm buttonProp={this.handleUpdateState} messageProp={this.handleInputChange} />
       </div>
     );
   }
