@@ -59,9 +59,13 @@ button {
 
     
 }
+button:hover{
+    background-color: rgb(48, 117, 50); /* Green */
+}
 
 input{
     font-size: 20px;
     border-radius: 4px;
-
+    padding: 10px;
+    text-align: center;
 }

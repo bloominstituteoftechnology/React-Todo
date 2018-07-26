@@ -17,9 +17,11 @@ class App extends React.Component {
   }
   readLS = () =>{
     
-    let output = JSON.parse(localStorage.getItem('taskList'));
-    this.setState({ todoList: output, display: output });
-
+      let output = JSON.parse(localStorage.getItem('taskList'));
+      this.setState({ todoList: output, display: output });
+  
+    
+   
   }
   addToList = (event) => {
     if (this.state.textBoxString ===''){
@@ -88,8 +90,15 @@ class App extends React.Component {
 
   }
   componentDidMount(){
-    this.readLS();
+    
     document.title = "Hey Look a React Todo App";
+    if(localStorage.getItem("taskList")===null){
+      
+      localStorage.setItem('taskList', '[]');
+    }
+    else{
+      this.readLS();
+    }
   }
 
   search(){
