@@ -15,11 +15,17 @@ class App extends React.Component {
           id: 2049,
           completed: false
         }
-      ]
+      ],
+      input: '',
     }
   }
 
+  handleChange = (e) => {
+    this.setState({ input: e.target.value })
+  }
+
   addTodo = (e) => {
+    console.log('Hello', <TodoForm />)
     let list = this.state.list.slice();
     let value = e.target.firstChild.value;
     list.push({
@@ -27,8 +33,7 @@ class App extends React.Component {
       id: 2049 + Math.random(),
       completed: false
     });
-    this.setState({ list: list });
-    e.target.firstChild.value = '';
+    this.setState({ list: list, input: '' });
     e.preventDefault();
   }
 
@@ -50,7 +55,12 @@ class App extends React.Component {
     return (
       <div className="main-container">
         <h1>Let's Add Some ToDo Items!</h1>
-        <TodoForm addMe={this.addTodo} clearMe={this.clearCompletedTodos} />
+        <TodoForm 
+          addMe={this.addTodo} 
+          clearMe={this.clearCompletedTodos} 
+          inputValue={this.state.input}  
+          inputChange={this.handleChange} 
+        />
         {this.state.list.map(item => <TodoList key={item.id} itemProp={item.task} crossItem={this.crossTodo} />)}
       </div>
     )
