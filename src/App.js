@@ -54,7 +54,7 @@ class App extends React.Component {
     });
   }
 
-  markComplete = () => {
+  markComplete = (x) => {
     console.log("markComplete envoked");
     // if (this.task.completed === false){
     //   console.log('task complete');
@@ -66,7 +66,8 @@ class App extends React.Component {
       <div className="main-div">
         <h1>Todo List</h1>
         <br />
-        <DisplayTodoList complete={this.markComplete} todoList0={this.state.todoList0} />
+        <DisplayTodoList
+          complete={this.markComplete} todoList0={this.state.todoList0} />
         <TodoForm
           handleDestroyButton={this.handleDestroyButtonOnSumbit}
           handleAddButton={this.handleAddButtonOnSumbit}
