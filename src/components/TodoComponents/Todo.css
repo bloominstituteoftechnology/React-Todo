@@ -26,19 +26,21 @@ html {
     margin-bottom: 5px;
     font-size: 28px;
     font-weight: bold;
-    font-family: cursive, sans-serif;
+    font-family: 'Bungee', cursive, sans-serif;
 }
 
 .todo-items {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    font-family: cursive, sans-serif;
 }
 
 .todo-items .todo-item {
     margin: 25px 20px;
     padding: 0 5px;
     border: 1px solid black;
+    border-radius: 3px;
     background: royalblue;
     cursor: pointer;
     color: lightgray;
@@ -76,4 +78,5 @@ html {
     transform: scale(1.2);
     transition-duration: 500ms;
     transition-timing-function: ease;
+    cursor: pointer;
 }

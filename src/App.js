@@ -71,6 +71,7 @@ class App extends Component {
         completed: false,
       }]),
     });
+    if (this.state.current.length > 30) alert('Your task is too long!');
   };
 
   clearTodo = e => {
