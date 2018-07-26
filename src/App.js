@@ -11,26 +11,24 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
-    this.state={
-      list: Todos,
-      savedList: localStorage.getItem('taskListItems')
+    let savedTaskList=localStorage.getItem('taskListItems');
+    if (savedTaskList) {
+      this.state=({list:JSON.parse(savedTaskList)});
+    } else {
+      this.state={
+        list: Todos
+      }
     }
   }
   addTodos=()=>{
     if (document.querySelector('.input-field').value.length>=1){
       const list=this.state.list.slice(0);
       list.push({'task': document.querySelector('.input-field').value, 'id':Date.now(),'completed':false});
-      this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(this.state.list)));
+      this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
       document.querySelector('.input-field').value='';
     } 
   }
-  componentDidMount() {
-    console.log(this.state.savedList)
-    if (this.state.savedList) {
-      this.setState({list:JSON.parse(this.state.savedList)});
-    }
-  }
- 
+  
   updateTaskStatus=event=>{
     const list=this.state.list.slice(0);
     const task=event.target.textContent;
@@ -40,12 +38,12 @@ class App extends React.Component {
         list[i]['completed']===true ? event.target.classList.add('completed'):event.target.classList.remove('completed');
       }
     }
-    this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(this.state.list)));;
+    return this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
   }
   removeCompleted=()=>{
     let list=this.state.list.slice(0);
     list=list.filter((e)=>e.completed===false);
-    this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(this.state.list)));
+    return this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
   }
   render() {
     return (
