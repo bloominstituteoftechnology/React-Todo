@@ -16,7 +16,7 @@ const todoArray = [
   {
       task: 'Book Hotel',
       id: 1528817077285,
-      completed: true
+      completed: false
   },
 ];
 
@@ -44,18 +44,27 @@ class App extends React.Component {
     this.setState({ todo: event.target.value });
   }
 
-  // toggleCompleted = () {
-  //   this.setState(prevState => {
-  //     return {}
-  //   })
-  // }
+  toggleCompleted = (id) => {
+    console.log(id);
+    this.setState(prevState => {
+      return {
+        todos: prevState.todos.map(todo => {
+          if (id === todo.id) {
+            return {
+              ...todo, completed: !todo.completed
+            }
+          } else return todo
+        })
+      }
+    })
+  }
 
 
 
   render() {
     return (
       <div>
-        <h3><TodoList todos={this.state.todos} /></h3>
+        <h3><TodoList todos={this.state.todos} toggleHandler={this.toggleCompleted} /></h3>
         <TodoForm value={this.state.todo} handlerTodoInput={this.todoInput} handlerAddTodo={this.addTodo} />
       </div>
     );
