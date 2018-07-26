@@ -70,7 +70,7 @@ General Styles
 
 html, body {
   height: 100%;
-  font-family: sans-serif;
+  font-family: 'Merienda', cursive;
   font-size: 62.5%;
 }
 
@@ -85,20 +85,20 @@ body {
 }
 
 h1 {
-  font-size: 4.5rem;
+  font-size: 4.3rem;
   color: #222;
   text-shadow: 1px 1px rgba(77,74,165,.6);
 }
 
 @media (max-width: 700px) {
   h1 {
-    font-size: 3.7rem;
+    font-size: 3.4rem;
   }
 }
 
 @media (max-width: 600px) {
   h1 {
-    font-size: 3.2rem;
+    font-size: 3rem;
   }
 }
 
@@ -175,11 +175,16 @@ Main
 }
 
 .todo-list__item-container {
-  border: solid 1px gray;
+  border: solid 1px rgb(77,74,165);
+  border-bottom-color: #CCC;
 }
 
 .todo-list__item-container:first-child {
   border-radius: 10px 10px 0 0;
+}
+
+.todo-list__item-container:not(:first-child) {
+  border-top-color: #CCC;
 }
 
 .todo-list__item-container:last-child {
