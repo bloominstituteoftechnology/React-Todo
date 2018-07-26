@@ -16,8 +16,8 @@ class App extends Component {
   render() {
     let filteredTodos = this.state.todos.filter(
       todo => {
-        if (todo.task === '') return;
-        if (todo.task.length > 30) return;
+        if (todo.task === '') return null;
+        if (todo.task.length > 30) return null;
         return todo.task.toLowerCase().indexOf(this.state.query.toLowerCase()) !== -1;
       }
     );

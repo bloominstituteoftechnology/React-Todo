@@ -1,4 +1,5 @@
 /* ======= General Styles ======= */
+
 html {
     height: 100%;
     background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
@@ -16,7 +17,6 @@ html {
     background: linear-gradient(to left bottom, #bdc3c7, #2c3e50);
 }
 
-
 /* ======= Todo List Styles ======= */
 
 .titleHolder {
@@ -27,6 +27,7 @@ html {
     font-size: 28px;
     font-weight: bold;
     font-family: 'Bungee', cursive, sans-serif;
+    user-select: none;
 }
 
 .todo-items {
@@ -49,7 +50,6 @@ html {
 .completed {
     text-decoration: line-through greenyellow;
 }
-
 
 /* ======= Todo Form Styles ======= */
 
