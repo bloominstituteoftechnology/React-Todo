@@ -13,12 +13,14 @@ class TodoList extends React.Component{
         {
           task: 'Organize Garage',
           id: 1528817077286,
-          completed: false
+          completed: false,
+          isShown: true
         },
         {
           task: 'Bake Cookies',
           id: 1528817084358,
-          completed: false
+          completed: false,
+          isShown: true
         }
       ]
     }
@@ -38,7 +40,8 @@ class TodoList extends React.Component{
     const newTodoItem = {
       task: this.state.input,
       id: this.state.todoList.length !== 0 ? this.state.todoList[this.state.todoList.length - 1].id + Math.floor(Math.random() * 10) : 1528817184358,
-      completed: false
+      completed: false,
+      isShown: true
     }
 
     const newTodoList = this.state.todoList.slice().concat(newTodoItem);
@@ -74,23 +77,42 @@ class TodoList extends React.Component{
 
     this.setState({ todoList: newTodoList });
   }
-
+  
+  // refactor it to state 
+  // using boolean like isShown
   handleOnSearch(e) {
+    // console.log('hi');
     const searchValue = e.target.value;
 
     // reset the DOM 
-    this.state.todoList.forEach(item => {
-      const element = document.querySelector(`.id-${item.id}`);
-      element.classList.remove('hide');
-    })
+    // this.state.todoList.forEach(item => {
+    //   const element = document.querySelector(`.id-${item.id}`);
+    //   element.classList.remove('hide');
+    // })
 
     // searching list via DOM 
-    this.state.todoList.filter(item => {
-                          return ! item.task.includes(searchValue);
-                        }).forEach(item => {
-                          const element = document.querySelector(`.id-${item.id}`);
-                          element.classList.add('hide');
-                        })
+    // this.state.todoList.filter(item => {
+    //                       return ! item.task.includes(searchValue);
+    //                     }).forEach(item => {
+    //                       const element = document.querySelector(`.id-${item.id}`);
+    //                       element.classList.add('hide');
+    //                     })
+
+    // reset the state 
+    this.state.todoList.forEach(item => {
+      item.isShown = true;
+      return;
+    })
+
+    // searching list via state 
+    const newTodo = this.state.todoList.map(item => {
+      if (! item.task.includes(searchValue)) {
+        item.isShown = false;
+      }
+      return item;
+    })
+
+    this.setState({todoList: newTodo});
   }
 
   render() {
