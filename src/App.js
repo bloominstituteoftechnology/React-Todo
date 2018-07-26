@@ -3,8 +3,7 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import './App.css'
 
-
-
+//CCR: Class Constructor Render
 // design `App` to be the parent component of your application
 class App extends React.Component {
   // state store
@@ -27,8 +26,9 @@ class App extends React.Component {
     }
   }
 
-  // CHANGE HANDLERS
-  // ADD TODO
+  // CHANGE HANDLERS -----------------------
+
+  // ADD TODO -  <button onClick={props.handleAddTodo}>Add Todo</button>
   addTodo = event => {
     event.preventDefault();
     // here we are making a new todos array
@@ -38,13 +38,18 @@ class App extends React.Component {
     todos.push({ task: this.state.todo, completed: false, id: Date.now() });
     this.setState({ todos, todo: '' });
   };
-  // HANDLE INPUT CHANGES 
+
+  // UPDATE INPUT on change - see TodoForm.js ...onChange={props.handleInputChange} 
   updateInput = event => this.setState({ [event.target.name]: event.target.value });
 
+  // CLEAR COMPLETED TODOS - <button onClick={props.handleClearCompleted}>Add Todo</button> .....@render handleClearCompleted={this.clearCompleted}
 
+
+
+
+// RENDER -----------------------------------
  // the this keyword gives you access to the constructor
 // when there are updates to state render gets called again
-// RENDER METHOD
   render() {
     return (
       <div className="flex">
@@ -55,6 +60,7 @@ class App extends React.Component {
         value={this.state.todo}
         handleAddTodo={this.addTodo}
         handleInputChange={this.updateInput}
+        handleClearCompleted={this.clearCompleted}
       />
       </div>
     );
