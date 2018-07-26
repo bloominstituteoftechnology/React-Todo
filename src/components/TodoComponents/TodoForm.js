@@ -59,6 +59,17 @@ class TodoForm extends React.Component {
         });
     }
 
+    removeCompleted = () => {
+        let list = this.state.list;
+        let nuList = list.filter((elem)=>{
+            if(elem.completed != true){
+                return elem;
+            }
+        });
+        console.log(nuList);
+        this.setState({ list : nuList});
+    };
+
     clearInput = () => {
         this.setState({
             nuTaskVal : ''
@@ -73,7 +84,7 @@ class TodoForm extends React.Component {
                 <input className="input-field" value={this.state.nuTaskVal} placeholder="Another thing to ignore" onChange={this.handleInput}/>
 
                 <button onClick={this.createItem}>Add ToDo</button>
-                <button>Clear Selected</button>
+                <button onClick={this.removeCompleted}>Clear Selected</button>
             </div>
         );
     }
