@@ -6,10 +6,10 @@ import './Todo.css';
 const Todo = props => {
   return (
     <div
-      style={props.todo.completed ? { textDecoration: 'line-through' } : null}
-      onClick={() => props.handleToggleComplete(props.todo.id)}
+      style={props.done.status ? { textDecoration: 'line-through' } : null}
+      onClick={() => props.handlecomplete(props.done.id)}
     >
-      {props.todo.task}
+      {props.done.task}
     </div>
   );
 };
