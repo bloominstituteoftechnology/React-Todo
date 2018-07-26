@@ -1,6 +1,7 @@
 
 
 h2 {
+    margin-top: 75px; 
     font-size: 50px; 
     color: #e57373;
     font-weight: bold; 
@@ -15,7 +16,8 @@ h2 {
 
 .to-do-form {
     width: 50%; 
-    margin: 0 auto; 
+    margin: 0 auto;  
+    padding: 20px; 
 }
 
 .add-button {

@@ -31,16 +31,25 @@ class App extends React.Component {
     let list = this.state.list.slice(); 
     list.push({task: this.state.input, id: id, completed: false})
     this.setState({list: list, input: null})
+    document.getElementById('input').value = null; 
     }
   }
   
   toDoClickHandler = (e) => {
-      e.target.style.textDecoration = "line-through";  
+    
+      
       let newList = this.state.list.slice(); 
       for(let todo in newList){
         if(newList[todo].task === e.target.innerText){
-          newList[todo].completed = true; 
+          if(newList[todo].completed === false){
+            newList[todo].completed = true; 
+            e.target.style.textDecoration = "line-through";  
+          }else if(newList[todo].completed === true){
+            newList[todo].completed = false; 
+            e.target.style.textDecoration = "none" 
+          }
         }
+       
       }
       this.setState({todo: newList})
   }
@@ -61,7 +70,7 @@ class App extends React.Component {
             <TodoForm  change = {this.inputChangeHandler} click = {this.buttonClickHandler} click2 = {this.clearClickHandler} />
           </div>
           <div className = "to-do-items">
-            {this.state.list.map(todo =><Todo task = {todo.task} key = {todo.id} click = {this.toDoClickHandler} />)}
+          <TodoList todo = {this.state.list} click = {this.toDoClickHandler}/>
         </div>
       </div>
     );
