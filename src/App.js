@@ -49,9 +49,8 @@ class App extends React.Component {
   // toggle completed todos
   toggleCompletedTasks = id => {
     // use slice to return a shallow copy of the array
-    // to store completed values
-    let todoDataCopy = this.state.todoData.slice();
-    todoDataCopy = todoDataCopy.map(task => {
+    let todoData = this.state.todoData.slice();
+    todoData = todoData.map(task => {
       if (task.id === id) {
         task.completed = !task.completed;
         return task;
@@ -60,14 +59,23 @@ class App extends React.Component {
         return task;
       }
     })
-    this.setState({todoDataCopy})
+    this.setState({todoData})
     // console.log("ID", id);
-    // todoDataCopy = todoDataCopy.map(task => {
+    // todoData = todoData.map(task => {
     //   console.log("todo.id", task.id)
     //   console.log("task.completed", task.completed)
     // })
   }
 
+  clearCompletedTasks = event => {
+    event.preventDefault();
+    // use return copy of todoData as to not
+    // modify the original
+    let todoData = this.state.todoData.slice();
+    todoData = todoData.filter(task => !task.completed);
+    this.setState({ todoData })
+
+  }
   render() {
     console.log("STATE: ", this.state);
     return (
@@ -80,6 +88,7 @@ class App extends React.Component {
           value={this.state.todo}
           handleTodoChange={this.handleInputChange}
           handleAddTodo={this.handleUpdateState}
+          handleClearTodos={this.clearCompletedTasks}
         />
       </div>
     );

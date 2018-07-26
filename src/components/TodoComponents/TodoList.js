@@ -14,7 +14,7 @@ const TodoList = props => {
             {todoArray.map(task => (
                 <Todo
                     handleToggleComplete={props.handleToggleComplete}
-                    todoDataProp={task} 
+                    todoDataProp={task}
                 />
             ))}
         </div>
