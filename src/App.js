@@ -8,7 +8,15 @@ class App extends React.Component {
     super();
     this.state = {
       todos: [
-    
+        {
+          task: 'Finish MVP',     
+          completed: false
+        },
+        {
+          task: 'Get Job',      
+          completed: false
+        }
+      ],
       todo: ''
     };
   }
@@ -25,9 +33,6 @@ class App extends React.Component {
   changeTodo = e => this.setState({ [e.target.name]: e.target.value });
 
 
-    });
-    this.setState({ todos });
-  };
 
 
 
@@ -35,8 +40,14 @@ class App extends React.Component {
     return (
       <div>
         <TodoList
+          handleToggleComplete={this.toggleTodoComplete}
+          todos={this.state.todos}
         />
         <TodoForm
+          value={this.state.todo}
+          handleTodoChange={this.changeTodo}
+          handleAddTodo={this.addTodo}
+          handleClearTodos={this.clearCompletedTodos}
         />
       </div>
     );
