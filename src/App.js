@@ -27,7 +27,13 @@ class App extends React.Component {
   }
   completedTask=event=>{
     event.target.classList.toggle('completed');
-    console.log(event.target.textContent);
+    const list=this.state.list;
+    for (let i=0; i<list.length; i++) {
+    if (list[i]['task']===event.target.textContent){
+      list[i]['completed']=true;
+      this.setState({list:list});
+    }
+  }
   }
   render() {
     return (
