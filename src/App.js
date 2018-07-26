@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 const todoArray = [
   {
@@ -9,7 +10,7 @@ const todoArray = [
   },
   {
       task: 'Pack Suitcase',
-      id: 1528817077289,
+      id: Date.now(),
       completed: false
   },
   {
@@ -34,8 +35,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App! {Date.now()} </h2>
         <h3><TodoList todos={this.state.todos} /></h3>
+        <TodoForm />
       </div>
     );
   }
