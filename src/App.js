@@ -25,16 +25,15 @@ class App extends React.Component {
     this.setState({list:list});
     document.querySelector('.input-field').value='';
   }
-  completedTask=event=>{
+  updateTask=event=>{
     event.target.classList.toggle('completed');
     const list=this.state.list;
     for (let i=0; i<list.length; i++) {
-      if (list[i]['task']===event.target.textContent && list[i]['completed']===false){
-        list[i]['completed']=true;
-        this.setState({list:list});
-        break;
-      }
+      if (list[i]['task']===event.target.textContent){
+        event.target.classList.contains('completed') ? list[i]['completed']=true:list[i]['completed']=false;
     }
+  }
+    this.setState({list:list});
   }
   render() {
     return (
@@ -42,7 +41,7 @@ class App extends React.Component {
         <div onKeyPress={ (e) => {if (e.key === 'Enter') {this.addTodos()}}}><ToDoInput/></div>
         <ClearCompletedButton />
         <div onClick={this.addTodos}><ToDoButton /></div>
-        <div onClick={this.completedTask}><TodoList taskProp={this.state.list} /></div>
+        <div onClick={this.updateTask}><TodoList taskProp={this.state.list} /></div>
       </div>
     );
   }
