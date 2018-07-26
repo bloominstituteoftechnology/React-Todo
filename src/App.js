@@ -18,15 +18,33 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      todo: todoArr
+      todoList: todoArr,
+      todo: ''
     };
   }
 
-  render() {
+  updateTodo = event => this.setState({ todo : event.target.value})
+
+  addTodo = event => {
+    event.preventDefault();
+    const todoList = this.state.todoList.slice();
+    todoList.push({ task: this.state.todo, id : Date.now(), completed: false })
+    this.setState( { todoList: todoList, todo: "" })
+    console.log("clicked")
+  }
+
+  render() {console.log(this.state.todo);
     return (
+      
       <div>
-        <TodoList todo = {this.state.todo} />
-        <TodoForm />
+        <TodoList 
+        todoList = {this.state.todoList} 
+        />
+        <TodoForm   
+        value = {this.state.todo}
+        handleAdd = {this.addTodo}    
+        handleUpdate = {this.updateTodo}
+        />
       </div>
     );
   }

@@ -6,7 +6,7 @@ const Todo = props => {
     
     return(
         <div>
-            {props.todoProp.task}
+            {props.todos.task}
         </div>
     );   
 };
