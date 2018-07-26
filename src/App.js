@@ -13,13 +13,15 @@ class App extends React.Component {
       todo: [
         {
           task: 'Learn React',
-          status: false,
-          id: 1528817077286
+          id: 1528817077286,
+          status: false
+
         },
         {
           task: 'Kill Self',
-          status: false,
-          id:1528817084358
+          id:1528817084358,
+          status: false
+
         }
       ],
     };
@@ -29,7 +31,7 @@ class App extends React.Component {
 //constructor for todos array so for current tasks preventDefault to allow for inputs a is the input being passed here
 createTodo = a => {
   a.preventDefault();
-  const todo = this.state.todo.slice()
+  const todo = this.state.todo.slice( )
   todo.push({ task: this.state.done, status: false, id: Date.now() });
   this.setState({ todo, done: '' });
 };
@@ -39,7 +41,7 @@ toggleTodo = a => this.setState({ [a.target.name]: a.target.value})
 
 //constructor for done array so for status stuff
 toggleTodoStatus = id => {
-  let todo = this.state.todo.slice();
+  let todo = this.state.todo.slice( );
   todo = todo.map(done => {
     if (done.id === id) { //checks if unique data now attribute is shared in both arrays?
       todo.status = !todo.status; // complete is a
@@ -54,7 +56,7 @@ toggleTodoStatus = id => {
 //remove the status items:
 clear = a => {
   a.preventDefault();
-  let todo = this.state.todo.slice();
+  let todo = this.state.todo.slice( );
   todo = todo.filter(done => !todo.status);
   this.setState({ todo });
 };
@@ -64,9 +66,14 @@ clear = a => {
     return (
       <div>
         <TodoList
-        handlecomplete = {this.toggleTodoStatus}
+        handleComplete = {this.toggleTodoStatus}
         todo = {this.state.todo}/>
-        <TodoForm/>
+        <TodoForm
+          value = {this.state.done}
+          handleToggle = {this.toggleTodo}
+          handleCreate =  {this.createTodo}
+          handleClear = {this.clear}
+       />
       </div>
     );
   }
