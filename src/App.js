@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo_items: [{task: "clean basement", id: Date.now(), completed: false }],
+      todo_items: [],
       task: ""
     };
   }
@@ -25,11 +25,26 @@ class App extends React.Component {
     this.setState({todo_items: todos});
   };
 
+  addLineThrough = id => {
+    let todos = this.state.todo_items.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    
+    this.setState({ todos });
+
+  }
+
   render() {
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        <TodoList todos={this.state.todo_items}/>
+        <TodoList addLineThrough={this.addLineThrough} todos={this.state.todo_items}/>
         <TodoForm
           handleAddTodo={this.handleAddTodoSubmit}
           handleTask={this.handleTaskChange}

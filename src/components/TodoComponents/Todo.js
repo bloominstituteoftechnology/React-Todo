@@ -3,7 +3,10 @@ import './Todo.css';
 
 const Todo = props => {
   return (
-    <div>
+    <div
+      onClick={() => props.addLineThrough(props.data.id)} 
+      className={`${props.data.completed ? "line-through" : null}`}
+      >
       {props.data.task}
     </div>
   )

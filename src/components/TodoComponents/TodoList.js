@@ -7,7 +7,7 @@ import './Todo.css';
 const TodoList = props => {
   return (
     <div>
-      {props.todos.map(todo => <Todo key={todo.id} data={todo} />)}
+      {props.todos.map(todo => <Todo key={todo.id} data={todo} addLineThrough={props.addLineThrough} />)}
     </div>
   )
 };
