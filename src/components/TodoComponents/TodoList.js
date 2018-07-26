@@ -5,13 +5,14 @@ import Todo from './Todo';
 /* <TodoList /> receives your Todos array and iterates over the list generating
 a new <Todo /> for each element in the array. */
 
-
 const TodoList = props => {
     return (
-    props.list.map(param => <Todo key = {param.id} task = {param.task}/>)
-    ); 
-}
+    <div>
+    {props.toDoListProp.map(todo => 
+        <Todo completedProp={props.completedProp} key={todo.id} toDoProp={todo} />)}
+    </div>
+    );
+};
 
-export default TodoList; 
+export default TodoList;
 
-// bool = {param.completed}

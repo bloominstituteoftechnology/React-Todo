@@ -36,23 +36,34 @@ import TodoForm from './components/TodoComponents/TodoForm';
     console.log(copy);
   }
 
-  strikethroughHandler = () => {
-    console.log("item was clicked");
-    //let someBool = false;
-    //someBool ? console.log('incomplete') : console.log('complete')
+  handleToggleCompleted = (event) => {
+    const copy = this.state.list.slice();
+    copy.map(todo => {if(todo.task === event.target.innerText) {
+      todo.completed =! todo.completed
+    }});
+    this.setState({ list: copy });
+  };
+
+  handleClearCompleted = (event) => {
+    event.preventDefault();
+    const copy = this.state.list.slice();
+    const newTodos = copy.filter(todo => todo.completed === false);
+    this.setState({list: newTodos});
   }
 
   render() {
     return (
       <div>
         <h2>My Todo List:</h2>
-        <TodoList list = {this.state.list}/>
+        <TodoList completedProp ={this.handleToggleCompleted}
+                  toDoListProp = {this.state.list} />
         <TodoForm change = {this.inputChangeHandler}
-                  click = {this.buttonClickHandler} />
+                  click = {this.buttonClickHandler} 
+                  clear ={this.handleClearCompleted}
+                  />
       </div>
     );
   }
-
 }
 
 export default App;

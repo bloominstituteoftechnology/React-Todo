@@ -5,12 +5,11 @@ import './Todo.css';
 
 
 const Todo = props => {
-    return (
-    <div>
-        {props.task}
-    </div>
-    );
-}
+    const {task} = props.toDoProp;
+    const {completed} = props.toDoProp;
+    return <div className={`${completed ? 'completed' : null }`} onClick={props.completedProp}>{task}</div>;
+};
+
 
 export default Todo;
-// onClick = {props.bool}
+
