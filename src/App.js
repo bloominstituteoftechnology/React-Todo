@@ -59,7 +59,14 @@ class App extends React.Component {
    this.setState({ todos })
  }  
   // CLEAR COMPLETED TODOS - <button onClick={props.handleClearCompleted}>Add Todo</button> .....@render handleClearCompleted={this.clearCompleted}
-
+clearCompleted = event => {
+ event.preventDefault();
+  let todos = this.state.todos.slice();
+  todos = todos.filter(todo => {
+    return !todo.completed;
+  });
+  this.setState({ todos })
+}
 
 
 
