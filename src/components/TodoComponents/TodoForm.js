@@ -16,9 +16,6 @@ class TodoForm extends React.Component {
             nuId: '',
             nuCompleted: false
         };
-        console.log(this.state.list);
-        
-        
     }
 
     handleInput = (e) => {
@@ -39,7 +36,7 @@ class TodoForm extends React.Component {
     };
 
     pushToList = (obj) => {
-        let list = this.state.list;
+        let list = this.state.list.slice();
         list.push(obj);
         this.setState({
             list: list
@@ -52,8 +49,6 @@ class TodoForm extends React.Component {
         nuList = nuList.map((item)=>{
             if(item.id === id){
                 item.completed = !item.completed;
-                console.log(item);
-                
                 return item;
             } else {
                 return item;
@@ -71,10 +66,7 @@ class TodoForm extends React.Component {
                 return elem;
             }
         });
-        console.log(nuList);
         this.setState({ list : nuList});
-        console.log(this.state.list);
-        
     };
 
     clearInput = () => {
@@ -86,12 +78,11 @@ class TodoForm extends React.Component {
     render(){
         return (
             <div>
-                <TodoList tasks={this.state.list} handleCompleted={this.handleCompleted}/>
-
-                <input className="input-field" value={this.state.nuTaskVal} placeholder="Another thing to ignore" onChange={this.handleInput}/>
+                <input className="input-field" value={this.state.nuTaskVal} placeholder="Another thing to ignore" onChange={this.handleInput} />
 
                 <button onClick={this.createItem}>Add ToDo</button>
                 <button onClick={this.removeCompleted}>Clear Selected</button>
+                <TodoList tasks={this.state.list} handleCompleted={this.handleCompleted}/>
             </div>
         );
     }
