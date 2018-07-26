@@ -8,7 +8,7 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
-    this.state = {list: [{id: Date.now(), item: 'Sample', completed: false}], message: ''};
+    this.state = {list: [{id: Date.now(), item: 'Sample', completed: false, classname: ''}], message: ''};
     this.inputHandler = this.inputHandler.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -35,10 +35,10 @@ class App extends React.Component {
       if (lists[i].id == event.target.id) {
         if(lists[i].completed) {
           lists[i].completed = false;
-          event.target.classList.replace('complete', 'incomplete');
+          lists[i].classname = '';
         }else {
           lists[i].completed = true;
-          event.target.classList.replace('incomplete', 'complete');
+          lists[i].classname = 'complete';
         }
       }
     }

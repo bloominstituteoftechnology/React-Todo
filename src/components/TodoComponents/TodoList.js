@@ -6,7 +6,7 @@ const TodoList = props => {
   return (
     <div>
       {(props.todoList.map(item => {
-        return <p onClick={props.toggleComplete} className={item.completed ? 'complete' : 'incomplete'} id={item.id} key={item.id}>{item.item}</p>
+        return <p onClick={props.toggleComplete} className={item.classname} id={item.id} key={item.id}>{item.item}</p>
       }))}
     </div>
   )
