@@ -1,27 +1,14 @@
 import React from 'react';
 
 
-const myArr = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
-
-];
 
 const TodoForm = (props) => {
   return (
-    <div>
+    <form>
       <input placeholder="...todo" onChange={props.messageProp} onSubmit={props.buttonProp} />
       <button onClick={props.buttonProp}>Add Todo</button>
       <button>Clear Completed</button>
-    </div>
+    </form>
   );
 }
 
@@ -42,7 +29,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: myArr, //set to empty array
+      todos: [],
       message: ""
     };
   }
