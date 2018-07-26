@@ -1,38 +1,38 @@
-import React from 'react';
+import React from "react";
 import "./components/TodoComponents/Todo.css";
-import TodoList from './components/TodoComponents/TodoList';
-import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 //todos=empty array.
-//todo=new items that will be added. 
+//todo=new items that will be added.
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [ ],
-      todo: ''
+      todos: [],
+      todo: ""
     };
   }
-//this function is creating new items on the list, and is also pushing the 
-//new items onto the list. this.setState({todos, todo: ''})
-// is allowing the two states to change. 
+  //this function is creating new items on the list, and is also pushing the
+  //new items onto the list. this.setState({todos, todo: ''})
+  // is allowing the two states to change.
 
   addTodo = e => {
     e.preventDefault();
     const todos = this.state.todos.slice();
     todos.push({
-       task: this.state.todo,
-       completed: false, 
-       id: Date.now() 
-      });
-    this.setState({ todos, todo: '' });
+      task: this.state.todo,
+      completed: false,
+      id: Date.now()
+    });
+    this.setState({ todos, todo: "" });
   };
 
   changeTodo = e => this.setState({ [e.target.name]: e.target.value });
 
-//this function is allowing the user to choose whether the task kis complete or not.
-//todos.map(todo =>... is mapping through the list and is allowing there to be change on each
-// of the items on the list. then saying that the item can either be false or true. 
-//todo.complete=false !todo.complete=true. mainly using the id to choose this. 
+  //this function is allowing the user to choose whether the task kis complete or not.
+  //todos.map(todo =>... is mapping through the list and is allowing there to be change on each
+  // of the items on the list. then saying that the item can either be false or true.
+  //todo.complete=false !todo.complete=true. mainly using the id to choose this.
   toggleTodoComplete = id => {
     let todos = this.state.todos.slice();
     todos = todos.map(todo => {
@@ -45,12 +45,12 @@ class App extends React.Component {
     });
     this.setState({ todos });
   };
-//this is for day 2, it clears the todo tasks
-//what this function is doing is taking !todo.complete and putting it in this function
-//to allow the user to clear the task off of the list. 
-//todos.filter, will filter through the list trying to find the items on the 
-//list that are now !todo.complete=true. 
-//this makes it possible to get rid of the task on the list. 
+  //this is for day 2, it clears the todo tasks
+  //what this function is doing is taking !todo.complete and putting it in this function
+  //to allow the user to clear the task off of the list.
+  //todos.filter, will filter through the list trying to find the items on the
+  //list that are now !todo.complete=true.
+  //this makes it possible to get rid of the task on the list.
   clearCompletedTodos = e => {
     e.preventDefault();
     let todos = this.state.todos.slice();
@@ -61,7 +61,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="creation">
-      <h1>Todo List</h1>
+        <h1>Todo List</h1>
         <TodoList
           handleToggleComplete={this.toggleTodoComplete}
           todos={this.state.todos}
