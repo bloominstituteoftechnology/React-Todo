@@ -1,25 +1,25 @@
 import React from 'react';
+import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
 
+// const TodoForm = (props) => {
+//   return (
+//     <form>
+//       <input placeholder="...todo" onChange={props.messageProp} onSubmit={props.buttonProp} />
+//       <button onClick={props.buttonProp}>Add Todo</button>
+//       <button>Clear Completed</button>
+//     </form>
+//   );
+// }
 
+// const TodoList = props => {
+//   return <div>{props.toDoListProp.map(todo => <Todo key={todo.id} toDoProp={todo} />)}</div>;
+// }
 
-const TodoForm = (props) => {
-  return (
-    <form>
-      <input placeholder="...todo" onChange={props.messageProp} onSubmit={props.buttonProp} />
-      <button onClick={props.buttonProp}>Add Todo</button>
-      <button>Clear Completed</button>
-    </form>
-  );
-}
-
-const TodoList = props => {
-  return <div>{props.toDoListProp.map(todo => <Todo key={todo.id} toDoProp={todo} />)}</div>;
-}
-
-const Todo = props => {
-  const { task } = props.toDoProp
-  return <div>{task}</div>;
-}
+// const Todo = props => {
+//   const { task } = props.toDoProp
+//   return <div>{task}</div>;
+// }
 
 
 class App extends React.Component {
@@ -54,7 +54,6 @@ class App extends React.Component {
 
 
   render() {
-    console.log("STATE: ", this.state);
     return (
       <div>
         <h2>Kyle's Todo List</h2>
