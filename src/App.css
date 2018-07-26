@@ -67,22 +67,22 @@ body{
   align-items: center;
 }
 
-@media (max-width: 679px) {
-  .todo-app-container{
+@media (max-width: 730px) {
+  .app-container .todo-listing-container .todo-app-container{
     width: 75%;
   }
 
-  .app-container .new-list-container{
+  .app-container .todo-listing-container .app-container .new-list-container{
     width: 75%;
   }
 }
 
 @media (max-width: 450px) {
-  .todo-app-container{
+  .app-container .todo-listing-container .todo-app-container{
     width: 90%
   }
 
-  .app-container .new-list-container{
+  .app-container .todo-listing-container .app-container .new-list-container{
     width: 90%;
   }
 }
