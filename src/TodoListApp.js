@@ -14,31 +14,10 @@ class TodoListApp extends React.Component {
       todos:
       [
         {
-          task: 'Implement Displaying',
+          task: 'Create a List!',
           id: 15566521651,
           completed: true,
         },
-        {
-          task: 'Implement Adding New',
-          id: 156165198,
-          completed: true,
-        },
-        {
-          task: 'Implement Toggle Complete',
-          id: 651581981,
-          completed: true,
-        },
-        {
-          task: 'Implement Remove Completed',
-          id: 651581982,
-          completed: true,
-        },
-        {
-          task: 'Implement Styling',
-          id: 351965109,
-          completed: false,
-        },
-
       ],
       inputField: "",
     };
