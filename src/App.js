@@ -25,11 +25,13 @@ class App extends React.Component {
   }
 
   buttonClickHandler = (e) => {
+    if(this.state.input != null){
     let id = Date.now(); 
     this.setState({buttonClick: true})
     let list = this.state.list.slice(); 
     list.push({task: this.state.input, id: id, completed: false})
     this.setState({list: list, input: null})
+    }
   }
   
   toDoClickHandler = (e) => {
