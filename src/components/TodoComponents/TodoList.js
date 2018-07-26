@@ -1,6 +1,3 @@
-// your components will all go in this `component` directory.
-// feel free to change this component.js into TodoList.js
-
 import React from "react";
 import "./Todo.css";
 
@@ -14,6 +11,8 @@ const TodoList = props => {
         <Todo
           handleToggleComplete={props.handleToggleComplete}
           todoDataProp={task}
+          // add key below to remove error message about
+          // needing unique key for each child
           key={task.id}
         />
       ))}
