@@ -3,7 +3,6 @@ import {ToDoInput, ToDoButton, ClearCompletedButton} from './components/TodoComp
 import TodoList from './components/TodoComponents/TodoList';
 import './components/TodoComponents/Todo.css';
 
-const Todos=[];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -16,7 +15,7 @@ class App extends React.Component {
       this.state=({list:JSON.parse(savedTaskList)});
     } else {
       this.state={
-        list: Todos
+        list: []
       }
     }
   }
