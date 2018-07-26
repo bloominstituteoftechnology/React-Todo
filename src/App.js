@@ -9,6 +9,11 @@ const myArr = [
     task: "Organize Garage",
     id: Date.now(),
     completed: false
+  },
+  {
+    task: 'Bake Cookies',
+    id: 1528817084358,
+    completed: false
   }
 ];
 
@@ -21,7 +26,8 @@ class App extends React.Component {
     };
   }
 
-  handleUpdateState = () => {
+  handleUpdateState = (event) => {
+    event.preventDefault();
     const todoData = this.state.todoData.slice();
     // clone our state todoData array.
     todoData.push({
@@ -31,12 +37,14 @@ class App extends React.Component {
     });
     // push our new animal item into the todoData array.
     this.setState({ todoData, todo: '' });
+
     // FROM REACT API the ONLY way to change state.
   };
 
   handleInputChange = event => {
     // update the message field on state.
     this.setState({ [event.target.name]: event.target.value });
+    
   };
 
   render() {

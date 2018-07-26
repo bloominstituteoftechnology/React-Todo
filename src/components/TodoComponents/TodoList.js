@@ -7,14 +7,17 @@ import "./Todo.css";
 import Todo from './Todo';
 
 const TodoList = props => {
-  let todoArray = props.todoArray;
-  console.log('todoArray equals ', props);
-  return (
-    
-        todoArray.map(task => {
-        return <Todo todoDataProp={task} />
-        }))
-    
+    let todoArray = props.todoArray;
+    console.log('todoArray equals ', props);
+    return (
+        <div>
+            {todoArray.map(task => (
+                <Todo 
+                    todoDataProp={task} 
+                />
+            ))}
+        </div>
+    )
 };
 
 export default TodoList;
