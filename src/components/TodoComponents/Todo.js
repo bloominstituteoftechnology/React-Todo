@@ -1,5 +1,7 @@
 import React from 'react';
-
+//this function is each of the items on the TodoList. 
+//it is also attaching the ability to choose whether the task is complete or not. 
+//
 const Todo = props => {
   return (
     <div
