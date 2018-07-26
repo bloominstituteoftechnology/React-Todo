@@ -1,36 +1,50 @@
 import React from 'react';
-import TodoList from './components/TodoComponents/TodoList';
+// import TodoList from './components/TodoComponents/TodoList';
+
+const TodoItem = props => {
+  const { task } = props.todoItem;
+  return (
+    <div>
+      <ul>
+        <li>{task}</li>
+      </ul>
+    </div>
+  )
+}
+
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
     this.state = {
-      data: ['todoItem1']
+      todos: [{task: "Organize Garage", id: Date.now(), completed: false}],
+      task: ''
     }
   }
 
-  addTodo(props) {
-    const items = this.state.data.slice();
+  taskChange = e => {
+    this.setState({task: e.target.value});
+  }
 
-    // items.push({
-    //   task: {task},
-    //   id: 434343434,
-    //   completed: false
-    // })
-    this.setState({items: items});
+  addTodo = e => {
+    e.preventDefault();
+    const todos = this.state.todos.slice();
+    todos.push({ task: this.state.task, id: Date.now(), completed: false});
+    this.setState({todos: todos});
   }
-  
-  removeTodo = event => {
-    this.setState({data: event.target.value});
-  }
+
   render() {
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <TodoList/>
+        <div>{this.state.task}</div>
+        {this.state.todos.map(item => <TodoItem todoItem={item}/> )}
+        
+        {<input placeholder="....todo" onChange={this.taskChange}/> /*This is working */}
+
+        <button onClick={this.addTodo}>Add Todo</button>
+
+        {/* <button onClick={this.displayTodo}>Clear Completed</button> */}
       </div>
     );
   }
