@@ -1,0 +1,10 @@
+.container{
+    max-width: 400px;
+    margin: 0 auto;
+    border: 3px solid black;
+    background: darkblue;
+}
+
+.title{
+    background: yellow;
+}
