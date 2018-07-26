@@ -55,7 +55,7 @@ class App extends React.Component {
     let newList = list.filter(item => item.completed !== true);
     if (newList.length === 0) {
       newList.push({
-        task: 'Nothing To Do :D',
+        task: 'Nothing To Do 😃',
         id: 2049,
         completed: false
       });
