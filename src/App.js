@@ -4,12 +4,17 @@ const Task = props => {
   return <p>Task #{newArr.length}: {props.propsMessage}</p>;
 }
 
+
+
 const newArr = [
-// {task: "grocerys"},
-// {task: "grocerys1"},
-// {task: "grocerys2"}
-// {task: "grocerys3"}
+{ id: 0,
+  task: {}}
 ];
+
+const newObj = {
+  id: 1,
+  task: {}
+};
 
 class App extends React.Component {
   constructor () {
@@ -20,22 +25,25 @@ class App extends React.Component {
     };
   };
 
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-  addTask = () => {
+  addTask = (y) => {
     console.log('updateStatus called')
-    this.setState({message: "this is an updated status"});
-    newArr.push({task: "new"})
+    this.setState({message: "a task was added"});
+    this.setState({tasklist: newArr.push(newObj.task = "hello")});
   }
+
   deleteTask = () => {
     console.log('updateStatus called')
-    this.setState({message: "this is an new status"});
+    this.setState({message: "a task was deleted"});
     newArr.pop()
   }
 
   changeStateMessage = (x) => {
-    this.setState({taskList: x.target.value});
+    console.log(x.target.value);
+    return x.target.value;
   }
 
   render() {
@@ -45,7 +53,7 @@ class App extends React.Component {
         <Task propsMessage={this.state.message} />
         {/* <Task propsMessage={this.state.task[0].id} /> */}
         {/* {this.state.task.map(x => <Task propsMessage={x.task} />)} */}
-        {this.state.taskList.map(x => <Task propsMessage={this.state.message} />)}
+        {this.state.taskList.map(x => <Task propsMessage={this.state.taskList[1]} />)}
         <input placeholder="newtask" onChange={this.changeStateMessage}></input>
         <button onClick={this.addTask}>Add task</button>
         <button onClick={this.deleteTask}>Delete task</button>
