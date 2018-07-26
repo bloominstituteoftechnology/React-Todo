@@ -2,10 +2,8 @@ import React from 'react';
 
 const Todo = props => {
     return (
-      <div>
-        <span> {props.task} </span>
-      </div>
-    );
+      <div>task: {props.data.task}</div>
+    ); 
 }
 
 export default Todo;

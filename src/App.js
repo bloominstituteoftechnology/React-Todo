@@ -7,34 +7,31 @@ class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      myArray: [
-        {
-          task: 'Organize Garage',
-          id: Date.now(),
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: Date.now(),
-          completed: false
-        }
-      ]
+      todos: [{ task: "Organize Garage", id: Date.now(), completed: false }, { task: "Bake Cookies", id: Date.now(), completed: false}],
+      task: "",
     };
   }
 
-  handleInputChange = event => {
-
-  };
-
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  handleTaskChange = event => {
+    this.setState({ task: event.target.value });
+  }
+  handleAddTodoSubmit = event => {
+    event.preventDefault();
+    const todos = this.state.todos.slice();
+    todos.push({ task: this.state.task, id: Date.now(), completed: false });
+    this.setState({ todos: todos });
+  }
+  // handleClearTodos
+ 
   render() {
     return (
-      <div>
+      <div className="App">
         <h2>Todo List: MVP</h2>
-        <TodoList array= {this.state.myArray}/>
-        <TodoForm />
+        <TodoList todos= {this.state.todos} />
+        <TodoForm 
+          handleAddTodo={this.handleAddTodoSubmit}
+          handleTask={this.handleTaskChange} 
+        />
       </div>
     );
   }
