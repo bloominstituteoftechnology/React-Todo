@@ -41,14 +41,13 @@ class App extends React.Component {
   }
 
   crossTodo = (e) => {
-    console.log(e.target)
-    if (e.target.textContent !== 'Nothing To Do 😃') {
-      e.target.classList.toggle('crossOut');
-    }
     let list = this.state.list.slice();
-    let crossItem = list.filter(item => item.task === e.target.textContent);
-    crossItem.forEach(item => item.completed = true);
-    this.setState({ list: list });
+    if (list[0].id !== 2049) {
+      e.target.classList.toggle('crossOut');
+      let crossItem = list.filter(item => item.task === e.target.textContent);
+      crossItem.forEach(item => item.completed = true);
+      this.setState({ list: list });
+    }
   }
 
   clearCompletedTodos = (e) => {
@@ -61,9 +60,8 @@ class App extends React.Component {
         completed: false
       });
       this.setState({ list: newList });
-    } else {
-      this.setState({ list: newList });
     }
+    this.setState({ list: newList });
   }
 
   render() {
