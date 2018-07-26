@@ -48,7 +48,23 @@ class App extends React.Component {
 
   // toggle completed todos
   toggleCompletedTasks = id => {
-    console.log(id);
+    // use slice to return a shallow copy of the array
+    let todoDataCopy = this.state.todoData.slice();
+    todoDataCopy = todoDataCopy.map(task => {
+      if (task.id === id) {
+        task.completed = !task.completed;
+        return task;
+      }
+      else {
+        return task;
+      }
+    })
+    this.setState({todoDataCopy})
+    // console.log("ID", id);
+    // todoDataCopy = todoDataCopy.map(task => {
+    //   console.log("todo.id", task.id)
+    //   console.log("task.completed", task.completed)
+    // })
   }
 
   render() {
