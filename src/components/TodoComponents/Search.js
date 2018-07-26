@@ -11,7 +11,7 @@ class Search extends React.Component {
 
     render() {
 
-        return <input class="search" type="text" placeholder="Search" value={this.props.value} onChange = {this.props.onChange}/>
+        return <input className="search" type="text" placeholder="Search" value={this.props.value} onChange = {this.props.onChange}/>
 
     }
 }

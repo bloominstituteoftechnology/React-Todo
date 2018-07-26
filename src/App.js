@@ -22,11 +22,26 @@ class App extends React.Component {
     )
   }
 
+
   handleSearchChange = event => {
+    
+    console.log(this.state.searchText.toLowerCase()); 
+    const prevThingsToDo = this.state.thingsToDo.slice(); 
+    const thingsToDo = this.state.thingsToDo.slice(); 
+    thingsToDo.filter( thing => {
+      thing.task.toLowerCase().search(this.state.searchText.toLowerCase()) !== -1;
+    });
+    
+    this.setState({thingsToDo: thingsToDo}); 
+
     this.setState(
       {searchText: event.target.value}
-    )
+    );
+    if(this.state.searchText === ""){
+      this.setState({thingsToDo: prevThingsToDo}); 
+    }
   }
+
 
   handleEnter = event => {
     const {thingsToDo} = this.state;
@@ -40,8 +55,7 @@ class App extends React.Component {
   }
 
   handleClick = event => {
-    let count = this.state.count; 
-    let key = this.state.key; 
+    
     const {thingsToDo} = this.state;
     thingsToDo.push({task: this.state.temp, id: Date.now(), completed: false});
     this.setState({thingsToDo:thingsToDo, temp: ""});
@@ -61,7 +75,7 @@ class App extends React.Component {
       
     });
     this.setState({thingsToDo: thingsToDo});
-    console.log
+    
      
 }
 
@@ -74,13 +88,15 @@ class App extends React.Component {
 
 
   render() {
+    let filteredThings = this.state.thingsToDo.filter((thing) => {return thing.task.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1} ); 
     return (
       <div className = "appContainer">
         <SimpleStorage parent={this} />
         <h1>Todo List: MVP</h1>
         
-        <ul>   
-          {this.state.thingsToDo.map(thing => <TodoList thingToDo = {thing.task} handleLiClick = {this.handleLiClick} completed ={thing.completed}
+        <ul>  
+        {/* //this.state.thingsToDo  */}
+          {filteredThings.map(thing => <TodoList thingToDo = {thing.task} handleLiClick = {this.handleLiClick} completed ={thing.completed}
           key={thing.id} /> )}
           {this.state.temp}
         </ul>
