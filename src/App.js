@@ -3,7 +3,6 @@ import './App.css';
 // import Todo from './components/TodoComponents/Todo.js';
 import TodoList from './components/TodoComponents/TodoList.js';
 import TodoForm from './components/TodoComponents/TodoForm.js';
-import { getPortPromise } from '../node_modules/portfinder';
 
 // const arr = [
 //   {id: 1, task: 'learn React', completed: false},
@@ -13,29 +12,34 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      tasks: [],
+      tasks: [{id: 1, task: 'learn React', completed: true}],
       current: ''
     }
   }
-  handleUpdateState = event => {
+  handleUpdateState = e => {
+    e.preventDefault();
     let tasks = this.state.tasks.slice();
-    tasks = tasks.push([{
+    tasks.push({
         id: Date.now(),
         task: this.state.current,
         completed: false,
-      }])
-    this.setState({
-      tasks: tasks,
-      current: ''
-    });
+      })
+    this.setState({tasks,current: ''});
   };
-  handleInputChange = event => {
-    this.setState({current: event.target.value});
+  handleInputChange = e => {
+    this.setState({current: e.target.value});
   }
-  completed = () => {
-    this.setState(prevState => {
-      return {completed:!prevState.completed}
+  completed = id => {
+    let tasks = this.state.tasks.slice();
+    tasks = tasks.map(task => {
+      if (task.id === id) {
+        task.completed = !task.completed;
+        return task;
+      } else {
+        return task;
+      }
     });
+    this.setState({tasks});
   }
   removeTasks = () => {
     let remain = this.state.tasks.filter(element => element.completed===false)
@@ -45,8 +49,8 @@ class App extends React.Component {
     console.log(this.state);
     return (
       <div className='container'>
-        <h1 className='title'> Todo List MVP</h1>
-        <TodoList list={this.state.tasks} done={this.completed}/>
+        <h1 className='title'>Todo List</h1>
+        <TodoList list={this.state.tasks} completed={this.completed} />
         <TodoForm handle={this.handleInputChange} 
                   update={this.handleUpdateState}
                   remove={this.removeTasks}

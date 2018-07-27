@@ -5,11 +5,10 @@ const TodoList = props => {
     return (
         <div>
             {props.list.map(element => 
-                <Todo 
+                <Todo
+                    completed={element.completed}
                     key={element.id}
                     item={element.task}
-                    completed={element.completed}
-                    onClick={props.done}
                 />
             )}
         </div>
