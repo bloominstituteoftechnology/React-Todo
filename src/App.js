@@ -15,17 +15,17 @@ class App extends React.Component {
       this.state=({list:JSON.parse(savedTaskList)});
     } else {
       this.state={
-        list: []
+        list: [],
+        newTask:''
       }
     }
   }
   addTodos=()=>{
-    if (document.querySelector('.input-field').value.length>=1){
+    if (this.state.newTask.length>=1){
       const list=this.state.list.slice(0);
-      list.push({'task': document.querySelector('.input-field').value, 'id':Date.now(),'completed':false});
-      document.querySelector('.input-field').value='';
+      list.push({'task': this.state.newTask, 'id':Date.now(),'completed':false});
+      this.setState({newTask:''});
       return this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
-      
     } 
   }
   
@@ -45,11 +45,15 @@ class App extends React.Component {
     list=list.filter((e)=>e.completed===false);
     return this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
   }
+  concatenateTask=event=>{
+    this.setState({newTask: event.target.value});
+  }
+
   render() {
     return (
       <div className='tasklist'>
         <h1>Task List</h1>
-        <div className='input' onKeyPress={ (e) => {if (e.key === 'Enter') {this.addTodos()}}}><ToDoInput/></div>
+        <div className='input' onChange={this.concatenateTask} onKeyPress={ (e) => {if (e.key === 'Enter') {this.addTodos()}}}><ToDoInput newTask={this.state.newTask} /></div>
         <div className="waves-effect waves-light btn ccbtn" onClick={this.removeCompleted}><ClearCompletedButton /></div>
         <div className="waves-effect waves-light btn todobtn" onClick={this.addTodos}><ToDoButton /></div>
         <div onClick={this.updateTaskStatus}><TodoList taskProp={this.state.list} /></div>
