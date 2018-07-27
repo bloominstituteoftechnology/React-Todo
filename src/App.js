@@ -12,7 +12,7 @@ class App extends React.Component {
     if(storedState){
       this.state = JSON.parse(storedState);
     }else{
-      this.state = {list: [{id: Date.now(), item: 'Sample', completed: false, classname: ''}], message: ''};
+      this.state = {list: [{id: Date.now(), item: 'Sample', completed: false, classname: ''}], message: '', searchTerm: ''};
     }
     this.inputHandler = this.inputHandler.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -21,14 +21,13 @@ class App extends React.Component {
   saveState = () => {
     let temp = JSON.stringify(this.state);
     localStorage.setItem('state', temp);
-    console.log(JSON.parse(localStorage.getItem('state')));
   }
 
   inputHandler() {
     if(this.state.message.length > 0){
       const todoList = this.state.list;
       todoList.push({
-        id: Date.now(), item: this.state.message, completed: false
+        id: Date.now(), item: this.state.message, completed: false, classname: ''
       });
       this.setState({ list: todoList });
       this.setState({ message: '' });
@@ -64,12 +63,33 @@ class App extends React.Component {
 
   annihilate = () => this.setState({ list: [] });
 
+  submitSearch = () => {
+    let list = this.state.list;
+    let term = this.state.searchTerm;
+    list.map(item => {
+      console.log(item);
+      if (item.classname.includes('complete')) {
+        item.classname = 'complete';
+      } else {
+        item.classname = '';
+      }
+      if (!item.item.includes(term)) {
+        item.classname += ' hidden';
+      }
+    });
+    this.setState({ list: list});
+  }
+
+  onchangeSearch = event => {
+    this.setState({ searchTerm: event.target.value });
+  }
+
   render() {
     this.saveState();
     return (
       <div className='container'>
         <h2>My Todo App!</h2>
-        <Todo annihilate={this.annihilate} clearComplete={this.clearComplete} toggleComplete={this.toggleComplete} todoList={this.state.list} submit={this.inputHandler} onchange={this.handleInputChange}/>
+        <Todo submitSearch={this.submitSearch} onchangeSearch={this.onchangeSearch} annihilate={this.annihilate} clearComplete={this.clearComplete} toggleComplete={this.toggleComplete} todoList={this.state.list} submit={this.inputHandler} onchange={this.handleInputChange}/>
       </div>
     );
   }

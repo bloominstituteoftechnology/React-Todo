@@ -3,6 +3,10 @@
   color: grey;
 }
 
+.hidden {
+  display: none;
+}
+
 .list {
   min-height: 300px;
 }
@@ -55,6 +59,37 @@ p {
 }
 
 .submit:focus {
+  outline: none;
+}
+
+.search-container {
+  margin-top: 10px;
+}
+
+.search {
+  width: 300px;
+  font-size: 18px;
+  height: 50px;
+  border-radius: 0 20px;
+}
+
+.submit-search {
+  height: 56px;
+  width: 100px;
+  margin-left: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.submit-search:hover {
+  cursor: pointer;
+  color: white;
+  background-color: aqua;
+  border: 1px solid aqua;
+  box-shadow: 0 0 10px 5px aqua;
+}
+
+.submit-search:focus {
   outline: none;
 }
 
