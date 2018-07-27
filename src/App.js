@@ -24,13 +24,13 @@ class App extends React.Component {
       },
       {
         task: 'Build Garage',
-        id: 1528817077286,
+        id: 1528817077285,
         completed: false,
         listID: 1528817084358
       },
       {
         task: 'Learn react',
-        id: 1528817084358,
+        id: 1528817084359,
         completed: true,
         listID: 1528817084358
       }
@@ -53,7 +53,7 @@ class App extends React.Component {
   updateLocalStorage = () => {};
   // localStorage.setItem('todos', JSON.stringify(this.state.todos));
 
-  addTodo = text =>
+  addTodo = (text, listID) => {
     this.setState(
       prevState => ({
         todos: [
@@ -61,13 +61,17 @@ class App extends React.Component {
           {
             id: Date.now(),
             task: text,
-            completed: false
+            completed: false,
+            listID: listID
           }
         ],
-        input: ''
+        lists: prevState.lists.map(
+          list => (list.id === listID ? { ...list, input: '' } : list)
+        )
       }),
       this.updateLocalStorage
     );
+  };
 
   toggleTodo = id =>
     this.setState(
@@ -92,7 +96,8 @@ class App extends React.Component {
 
   setFilter = filter => this.setState({ filter });
 
-  handleSubmit = () => this.addTodo(this.state.input);
+  handleSubmit = id => () =>
+    this.addTodo(this.state.lists.find(list => list.id === id).input, id);
 
   handleChange = id => input => {
     this.setState(prevState => ({
@@ -122,15 +127,17 @@ class App extends React.Component {
 
         <div className="App__lists-container">
           {this.state.lists.map(list => (
-            <TodoList
-              list={this.state.todos.filter(todo => todo.listID === list.id)}
-              title={list.title}
-              toggler={this.toggleTodo}
-              filter={this.state.filter}
-              handleSubmit={this.handleSubmit}
-              handleChange={this.handleChange(list.id)}
-              input={list.input}
-            />
+            <div key={list.id}>
+              <TodoList
+                list={this.state.todos.filter(todo => todo.listID === list.id)}
+                title={list.title}
+                toggler={this.toggleTodo}
+                filter={this.state.filter}
+                handleSubmit={this.handleSubmit(list.id)}
+                handleChange={this.handleChange(list.id)}
+                input={list.input}
+              />
+            </div>
           ))}
 
           <div>

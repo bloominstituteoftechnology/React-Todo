@@ -2,10 +2,18 @@ import React from 'react';
 
 const TodoForm = ({ onSubmit, onChange, value }) => {
   return (
-    <form action="#" className="Todo__form" onSubmit={onSubmit}>
+    <form
+      action="#"
+      className="Todo__form"
+      onSubmit={e => {
+        e.preventDefault();
+        onSubmit();
+      }}
+    >
       <input
         onChange={e =>
           // console.log(e.target);
+
           onChange(e.target.value)
         }
         value={value}
