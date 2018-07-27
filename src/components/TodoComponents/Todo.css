@@ -20,13 +20,14 @@ form {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  padding-bottom: .5rem;
 }
 
 form input {
   height: 2rem;
   width: 35%;
   background-color: white;
-  color: white;
+  color: #1C1F33;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
@@ -34,7 +35,11 @@ form input {
   font-size: 1rem;
   letter-spacing: 1px;
   padding: 0 .5rem;
+  /* gets rid of chrome auto complete
+  which turn bg yellow */
+  -webkit-box-shadow: 0 0 0 30px white inset;
 }
+
 
 form button {
   height: 2rem;

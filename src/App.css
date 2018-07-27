@@ -1,7 +1,22 @@
+body {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1c1f33+0,207cca+0,1c1f33+0,82204a+100 */
+background: #1c1f33; /* Old browsers */
+background-size: cover;
+background: -moz-linear-gradient(top, #1c1f33 0%, #82204a 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #1c1f33 0%, #82204a 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #1c1f33 0%, #82204a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c1f33', endColorstr='#82204a',GradientType=0 ); /* IE6-9 */
+}
+
+#root {
+  padding-bottom: 43%;
+}
 .app-wrapper {
   max-width: 452px;
   margin: 0 auto;
   background: #1C1F33;
+  opacity: .9;
+  border-radius: 4px;
 }
 
 .app-wrapper h1 {
