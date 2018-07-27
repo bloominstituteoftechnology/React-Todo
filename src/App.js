@@ -27,7 +27,7 @@ addHandler = event => {
   let input = document.getElementById("Input").value;
 
 
-  items.push(
+    items.push(
     {
       task:input,
       id: Date.now(),
@@ -38,16 +38,39 @@ addHandler = event => {
   document.getElementById("Input").value = null;
 }
 
+clear= event => {
+  event.preventDefault();
+  let todos= this.state.todos.slice();
+  todos=todos.filter(todo => !todo.completed);
+  this.setState({todos});
+}
 
-
+toggleComplete = (id) => {
+  const todos = this.state.todos.slice();
+  todos.map(todo => {
+    if (todo.id === id ){
+      todo.completed = !todo.completed;
+      console.log(todo.completed);
+      return (
+        todo
+      );
+    } else {
+      return (
+        todo
+      );
+    }
+  });
+};
 
  render() {
     return (
       <div>
-       <TodoList list={this.state.todos}/>
+       <TodoList 
+       handleToggleComplete={this.toggleComplete}
+       list={this.state.todos}/>
        <TodoForm 
         add= {this.addHandler}
-        clear={this.clearHandler}
+        clear={this.clear}
        
        />
       </div>
