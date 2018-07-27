@@ -23,8 +23,9 @@ class App extends React.Component {
     if (document.querySelector('.input-field').value.length>=1){
       const list=this.state.list.slice(0);
       list.push({'task': document.querySelector('.input-field').value, 'id':Date.now(),'completed':false});
-      this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
       document.querySelector('.input-field').value='';
+      return this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
+      
     } 
   }
   
@@ -34,11 +35,11 @@ class App extends React.Component {
       for (let i=0,n=list.length; i<n; i++) {
         if (list[i]['id']==event.target.id){
           list[i]['completed']=!(list[i]['completed']);
+          return this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
+        }
       }
-    }
   }
-    return this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
-  }
+}
   removeCompleted=()=>{
     let list=this.state.list.slice(0);
     list=list.filter((e)=>e.completed===false);
