@@ -1,6 +1,6 @@
 import React from "react";
 
-// import Todo from './components/TodoComponents/Todo';
+import "./App.css";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
@@ -13,7 +13,7 @@ const arrayOfTasks = [
   {
     task: "Bake Cookies",
     id: 1528817084358,
-    completed: false
+    completed: true
   }
 ];
 
@@ -53,11 +53,14 @@ class App extends React.Component {
 
   // toggle completed todos
   toggleCompletedTasks = id => {
-    // set state to array
     let todoData = this.state.todoData.slice();
+    console.log("task.id", todoData[0].id)
+    console.log("id", id)
     todoData = todoData.map(task => {
-      // basically, if you click and id equals id, which
-      // it always does, toggle task completed into false version
+      // if the todoData element id
+      // equals the id of the one we click
+      // we change to the opposite of what 
+      // it is, true to false, f to t
       if (task.id === id) {
         task.completed = !task.completed;
         return task;
@@ -76,7 +79,8 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div className="app-wrapper">
+        <h1>Todo List</h1>
         <TodoList
           handleToggleComplete={this.toggleCompletedTasks}
           todoArray={this.state.todoData}

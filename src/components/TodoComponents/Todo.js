@@ -4,14 +4,16 @@ import "./Todo.css";
 const Todo = props => {
   const { task } = props.todoDataProp;
   return (
-    <div
+    <ul
       style={
-        props.todoDataProp.completed ? { textDecoration: "line-through" } : null
+        props.todoDataProp.completed ? { textDecoration: "line-through", textDecorationColor: "#FF220C"} : null
       }
       onClick={() => props.handleToggleComplete(props.todoDataProp.id)}
     >
-      <h4>Name: {task}</h4>
-    </div>
+      <li>
+        <h4>{task}</h4>
+      </li>
+    </ul>
   );
 };
 

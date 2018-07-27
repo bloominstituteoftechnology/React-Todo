@@ -1,0 +1,16 @@
+.app-wrapper {
+  max-width: 452px;
+  margin: 0 auto;
+  background: #1C1F33;
+}
+
+.app-wrapper h1 {
+  color: white;
+  font-family: 'Righteous', cursive;
+  box-shadow:
+    inset 0 -0.1em white,
+    inset 0 -0.2em #FF220C;
+  font-size: 3rem;
+  padding: .5rem;
+}
+
