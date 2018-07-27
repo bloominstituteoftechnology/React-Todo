@@ -49,15 +49,12 @@ class App extends React.Component {
     this.setState({ todos: toggler });
   };
 
-  // done = (id) => {
-  //   const doner = this.state.todos.slice();
-  //   doner.map(item => {
-  //     if (item.completed) {
-        
-  //     }
-  //   })
-
-  // }
+  done = (event) => {
+    event.preventDefault();
+    let donut = this.state.todos.slice();
+    donut= donut.filter(item => !item.completed);
+    this.setState({todos:donut})
+  }
 
   render() {
     return (
@@ -65,13 +62,14 @@ class App extends React.Component {
         <h1> TO DO or NOT TO DO? </h1>
         <h3> ...that is the question </h3>
   
-
+        
         <ToDoList arrayProp={this.state.todos}
         toggleComplete={this.toggleComplete} />
         <ToDoForm
           value={this.state.stuff}
           handleInputChange={this.handleInputChange}
           addToDo={this.addToDo}
+          done={this.done}
         />
       </div>
     );
