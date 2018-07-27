@@ -11,7 +11,8 @@ const TodoList = ({
   filter,
   handleSubmit,
   handleChange,
-  input
+  input,
+  title
 }) => {
   if (filter !== 'all') {
     list = list.filter(todo => {
@@ -21,7 +22,7 @@ const TodoList = ({
 
   return (
     <ul className="Todo__list text-primary-color">
-      <h2>A big list</h2>
+      <h2>{title}</h2>
       <div>
         {list.map(item => (
           <Todo key={item.id} {...item} onClick={() => toggler(item.id)} />
@@ -30,6 +31,7 @@ const TodoList = ({
           onSubmit={handleSubmit}
           onChange={handleChange}
           value={input}
+          placeholderText="New Task"
         />
       </div>
     </ul>

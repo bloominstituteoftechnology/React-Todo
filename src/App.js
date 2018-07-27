@@ -3,12 +3,14 @@ import TodoList from './components/TodoComponents/TodoList';
 import './palette.css';
 import './App.css';
 import TodoActions from './components/TodoComponents/TodoActions';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   state = {
+    newListInput: '',
     todos: [
       {
         task: 'Organize Garage',
@@ -50,8 +52,13 @@ class App extends React.Component {
     filter: 'all'
   };
 
-  updateLocalStorage = () => {};
-  // localStorage.setItem('todos', JSON.stringify(this.state.todos));
+  updateLocalStorage = () => {
+    const state = JSON.stringify({
+      lists: this.state.lists,
+      todos: this.state.todos
+    });
+    localStorage.setItem('todos-state', state);
+  };
 
   addTodo = (text, listID) => {
     this.setState(
@@ -96,8 +103,27 @@ class App extends React.Component {
 
   setFilter = filter => this.setState({ filter });
 
-  handleSubmit = id => () =>
-    this.addTodo(this.state.lists.find(list => list.id === id).input, id);
+  handleListSubmit = () => {
+    this.setState(prevState => ({
+      lists: [
+        ...prevState.lists,
+        { id: Date.now(), input: '', title: prevState.newListInput }
+      ],
+      newListInput: ''
+    }));
+  };
+
+  handleSubmit = id => () => {
+    const input = this.state.lists.find(list => list.id === id).input;
+    if (input.trim() === '') return;
+    this.addTodo(input, id);
+  };
+
+  handleListChange = listName => {
+    this.setState({
+      newListInput: listName
+    });
+  };
 
   handleChange = id => input => {
     this.setState(prevState => ({
@@ -108,9 +134,11 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    // this.setState({
-    //   todos: JSON.parse(localStorage.getItem('todos')) || []
-    // });
+    const state = JSON.parse(localStorage.getItem('todos-state')) || {
+      lists: [],
+      todos: []
+    };
+    this.setState(state);
   }
 
   render() {
@@ -141,7 +169,12 @@ class App extends React.Component {
           ))}
 
           <div>
-            <button className="App__button">Add new list</button>
+            <TodoForm
+              onSubmit={this.handleListSubmit}
+              onChange={this.handleListChange}
+              value={this.state.newListInput}
+              placeholderText="Add new list"
+            />
           </div>
         </div>
 
