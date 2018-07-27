@@ -14,7 +14,7 @@ class App extends React.Component {
   };
 
   handleInputChange = typingEvent => {
-    console.log(this.state)
+    // console.log(this.state)
     this.setState({
       task2: typingEvent.target.value,
       inputValue: typingEvent.target.value,
@@ -54,10 +54,21 @@ class App extends React.Component {
     });
   }
 
-  markComplete = (x) => {
+  markComplete = (id, event) => {
     console.log("markComplete envoked");
-    // if (this.task.completed === false){
-    //   console.log('task complete');
+    console.log(id);
+
+
+    let copy = this.state.todoList0.map( (each) => {
+      if (each.id === id) each.completed = !each.completed; //the band (!) toggles the true to false and false to true
+      return each;
+    })
+    this.setState({todolist0: copy})
+
+    // if (e.target.data.completed === false){
+    //   console.log('complete is false');
+    // } else {
+    //   console.log('completed is true')
     // }
   }
 

@@ -1,13 +1,18 @@
 import React from 'react';
 // import TodoItem from './TodoItem';
 
-const TodoItem = TodoItemProps => {
+
+
+const TodoItem = ({data, handleClick} ) => {
   // console.log(TodoItemProps.complete)
 
   return (
     <div
-      className="todo-item" onClick={TodoItemProps.handleClick}>
-      Task {TodoItemProps.data.taskNumber}: {TodoItemProps.data.taskFromCopy}
+      className="todo-item" className={data.completed ? "todo-item-completed" : null} // if data.completed is true change to "todo-item-completed" if it is not set it to nothing. 
+
+      data={data}
+      onClick={ (event) => handleClick(data.id , event)}>
+      Task {data.taskNumber}: {data.taskFromCopy}
     </div>
   );
 };

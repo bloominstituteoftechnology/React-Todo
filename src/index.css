@@ -14,7 +14,7 @@
   flex-direction: column;
 }
 
-.todo-item:hover {
+.todo-item-completed {
   background-color: white;
   color: black;
   text-decoration: line-through;
