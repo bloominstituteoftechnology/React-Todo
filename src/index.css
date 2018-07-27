@@ -6,17 +6,51 @@
   align-items: center;
   background-color: midnightblue;
   color: white;
+  box-sizing: border-box;
   height: 400px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+}
+.form button{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.form button:hover {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: lightgray;
+}
+
+.todo-item {
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.todo-item:hover  {
+  box-sizing: border-box;
+  text-decoration: line-through;
 }
 
 .todo-item-completed {
-  background-color: white;
-  color: black;
+  /* background-color: white; */
+  /* color: black; */
+  padding: 10px;
+  box-sizing: border-box;
   text-decoration: line-through;
+}
+
+.todo-item-completed:hover {
+  /* background-color: white; */
+  /* color: black; */
+  box-sizing: border-box;
+  padding: 10px;
+  text-decoration: underline;
+  border: 1px solid white;
 
 }

@@ -8,7 +8,7 @@ const TodoItem = ({data, handleClick} ) => {
 
   return (
     <div
-      className="todo-item" className={data.completed ? "todo-item-completed" : null} // if data.completed is true change to "todo-item-completed" if it is not set it to nothing. 
+       className={data.completed ? "todo-item-completed" : "todo-item"}   // if data.completed is true change to "todo-item-completed" if it is not set it to nothing. 
 
       data={data}
       onClick={ (event) => handleClick(data.id , event)}>
