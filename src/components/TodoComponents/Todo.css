@@ -4,33 +4,79 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin: 30px auto 0 auto;
+
 
 }
 
 .list {
-    width: 600px;
-    height: 600px;
-    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    margin: 60px auto 30px auto;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 10px;
+    
+
 }
 
-.crossedText {
-    background: black;
-    color: white;
+.deleteTask {
+    background: lightskyblue;
+    font-size: 30px;
+    width: 100%;
+    height: 50px;
+    border: 1px solid lightblue;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: 0.3s;
 
 }
 
-.normalText {
+.initialTask {
     background: white;
+    font-size: 30px;
+    width: 100%;
+    height: 50px;
+    border: 1px solid lightskyblue;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
 
+.initialTask:hover, .deleteTask:hover{
+    cursor: pointer;
 }
 
 .buttonHolder {
     display: flex;
+    margin-top: 20px;
+    justify-content: space-evenly;
 }
 
 .button {
-    width: 300px;
+    width: 150px;
     height: 50px;
     background: white;
     cursor: pointer;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    font-size: 18px;
+    margin: 10px;
+}
+input {
+    height: 50px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    width: 100%;
+    max-width: 600px; 
 }

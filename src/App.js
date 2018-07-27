@@ -70,7 +70,7 @@ class App extends React.Component {
       <div className="wrap">
         <div className="title">{this.state.title}</div>
           <TodoForm addNewTaskOnEnter={this.enterHandle} removeItem={this.removeItem} inputEvent={this.changeList} inputValue={this.state.inputData} addNewTask={this.addTask}/>
-          <TodoList  crossedText="crossedText" regularText="normalText" listItem={this.state.todoItems} toggleId={this.idToggler} />
+          <TodoList  deleteTask="deleteTask" initialTask="initialTask" listItem={this.state.todoItems} toggleId={this.idToggler} />
       </div>
     );
   }
