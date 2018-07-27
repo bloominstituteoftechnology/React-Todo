@@ -10,6 +10,12 @@
   height: 400px;
 }
 
+.lower-div {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
 .form {
   display: flex;
   flex-direction: column;

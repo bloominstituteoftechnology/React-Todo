@@ -9,7 +9,7 @@ const TodoForm = TodoFormProps => {
         <button onClick={TodoFormProps.handleAddButton}>Add Todo</button>
         <button onClick={TodoFormProps.handleDeleteButton}>Delete Last Task</button>
         <button onClick={TodoFormProps.handleDestroyButton}>DESTROY ALL TASKS</button>
-        <button onClick={TodoFormProps.handleDeleteButton}>Delete Tasks marked complete</button>
+        <button onClick={TodoFormProps.handleDeleteCompletedButton}>Delete Tasks marked complete</button>
       </div>
     </form>
   )

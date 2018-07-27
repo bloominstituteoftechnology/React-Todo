@@ -58,18 +58,16 @@ class App extends React.Component {
     console.log("markComplete envoked");
     console.log(id);
 
-
     let copy = this.state.todoList0.map( (each) => {
       if (each.id === id) each.completed = !each.completed; //the band (!) toggles the true to false and false to true
       return each;
     })
     this.setState({todolist0: copy})
+  }
 
-    // if (e.target.data.completed === false){
-    //   console.log('complete is false');
-    // } else {
-    //   console.log('completed is true')
-    // }
+  handleDeleteCompletedButtonOnSubmit = (e) => {
+    e.preventDefault();
+    console.log("put together a")
   }
 
   render() {
@@ -77,15 +75,19 @@ class App extends React.Component {
       <div className="main-div">
         <h1>Todo List</h1>
         <br />
-        <DisplayTodoList
-          complete={this.markComplete} todoList0={this.state.todoList0} />
-        <TodoForm
-          handleDestroyButton={this.handleDestroyButtonOnSumbit}
-          handleAddButton={this.handleAddButtonOnSumbit}
-          handleDeleteButton={this.handleDeleteButtonOnSumbit}
-          handleInput={this.handleInputChange}
-          inputValue={this.state.inputValue}
-          reset={this.resetForm} />
+        <div className="lower-div">
+          <TodoForm
+            handleDestroyButton={this.handleDestroyButtonOnSumbit}
+            handleAddButton={this.handleAddButtonOnSumbit}
+            handleDeleteButton={this.handleDeleteButtonOnSumbit}
+            handleDeleteCompletedButton={this.handleDeleteCompletedButtonOnSubmit}
+            handleInput={this.handleInputChange}
+            inputValue={this.state.inputValue}
+            reset={this.resetForm} />
+          <DisplayTodoList
+            complete={this.markComplete} todoList0={this.state.todoList0} />
+        </div>
+
       </div>
     )
   }
