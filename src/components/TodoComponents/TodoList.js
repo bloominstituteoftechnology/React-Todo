@@ -6,9 +6,10 @@ import Todo from './Todo.js';
 
 
 const TodoList = (props) => {
+  let list = props.array.map(item => <Todo taskItem={item.task} taskChange={props.taskChange} completion={item.completed} />)
   return (
     <div>
-      {props.array.map(item => <Todo taskItem={item.task} taskChange={props.taskChange} completion={item.completed} />)}
+      {list}
     </div>
   )
 }

@@ -72,8 +72,8 @@ class App extends React.Component {
   handleClearToDo = event => {
     event.preventDefault();
     let items = this.state.toDo.slice();
-    items = items.filter(item => item.completed === false);
-    this.setState({toDo: items});
+    items = items.filter(item => item.state.completion === !true);
+    console.log(items);
   }
 
   render() {
