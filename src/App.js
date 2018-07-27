@@ -53,11 +53,11 @@ class App extends React.Component {
     this.setState({lists: lists})
   };
 
+ 
   done = (event) => {
-   
     event.preventDefault();
     let lists = this.state.lists.slice();
-    lists.filter(item => !item.complete);
+    lists = lists.filter(item => !item.complete);
     this.setState({lists: lists})
   };
 
