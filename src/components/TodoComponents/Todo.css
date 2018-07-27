@@ -3,30 +3,40 @@ h1{
     text-align: center;
     color: #FFF;
 }
-.input-field {
+input{
     color: #FFF;
+    display: block;
 }
 .ccbtn {
     margin-top: 10px;
-    margin-right: 20px;
+    margin-left: 10px;;
+    margin-right: 15px;
     letter-spacing: 1px;
 }
 .todobtn {
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 15px;
+    margin-right: 10px;
     letter-spacing: 1px;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
 }
 body {
     display: flex;
     justify-content: center;
     background-color: #708090;
 }
+.taskList{
+    display: flex;
+    justify-content: center;
+}
 p{
     letter-spacing: 1px;
     text-align: center;
     text-decoration: none;
 }
-
 .card {
     margin-top: 20px;
 }

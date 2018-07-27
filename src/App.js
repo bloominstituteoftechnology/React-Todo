@@ -11,52 +11,53 @@ class App extends React.Component {
   constructor() {
     super();
     let savedTaskList=localStorage.getItem('taskListItems');
-    if (savedTaskList) {
-      this.state=({list:JSON.parse(savedTaskList)});
-    } else {
-      this.state={
-        list: [],
-        newTask:''
-      }
+    savedTaskList?this.state={list:JSON.parse(savedTaskList),newTask:''}:this.state={list: [],newTask:''};
     }
-  }
   addTodos=()=>{
     if (this.state.newTask.length>=1){
       const list=this.state.list.slice(0);
       list.push({'task': this.state.newTask, 'id':Date.now(),'completed':false});
       this.setState({newTask:''});
-      return this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
+      return this.updateState(list);
     } 
   }
-  
   updateTaskStatus=event=>{
     if (event.target.id!==undefined) {
       const list=this.state.list.slice(0);
       for (let i=0,n=list.length; i<n; i++) {
         if (list[i]['id']==event.target.id){
           list[i]['completed']=!(list[i]['completed']);
-          return this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
+          return this.updateState(list);
         }
       }
+    }
   }
-}
   removeCompleted=()=>{
     let list=this.state.list.slice(0);
     list=list.filter((e)=>e.completed===false);
+    return this.updateState(list);
+  }
+  updateState=(list)=>{
     return this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
   }
   concatenateTask=event=>{
-    this.setState({newTask: event.target.value});
+    return this.setState({newTask: event.target.value});
   }
-
+  triggerTodos=event=>{
+    if (event.key === 'Enter') {
+      return this.addTodos();
+    }
+  }
   render() {
     return (
       <div className='tasklist'>
         <h1>Task List</h1>
-        <div className='input' onChange={this.concatenateTask} onKeyPress={ (e) => {if (e.key === 'Enter') {this.addTodos()}}}><ToDoInput newTask={this.state.newTask} /></div>
-        <div className="waves-effect waves-light btn ccbtn" onClick={this.removeCompleted}><ClearCompletedButton /></div>
-        <div className="waves-effect waves-light btn todobtn" onClick={this.addTodos}><ToDoButton /></div>
-        <div onClick={this.updateTaskStatus}><TodoList taskProp={this.state.list} /></div>
+        <ToDoInput newTask={this.state.newTask} onChange={this.concatenateTask} onKeyPress={this.triggerTodos}/>
+        <div className='button-container'>
+        <ClearCompletedButton onClick={this.removeCompleted}/>
+        <ToDoButton onClick={this.addTodos}/>
+        </div>
+        <TodoList taskProp={this.state.list} onClick={this.updateTaskStatus}/>
       </div>
     );
   }
