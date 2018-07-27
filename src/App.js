@@ -1,4 +1,5 @@
 import React from 'react';
+import './components/TodoComponents/Todo.css'
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -47,19 +48,18 @@ clear= event => {
 
 toggleComplete = (id) => {
   const todos = this.state.todos.slice();
+  console.log(id);
   todos.map(todo => {
+    console.log(todo.id);
     if (todo.id === id ){
       todo.completed = !todo.completed;
       console.log(todo.completed);
-      return (
-        todo
-      );
+      return todo;
     } else {
-      return (
-        todo
-      );
+      return todo;
     }
   });
+  this.setState({ todos });
 };
 
  render() {
@@ -71,7 +71,6 @@ toggleComplete = (id) => {
        <TodoForm 
         add= {this.addHandler}
         clear={this.clear}
-       
        />
       </div>
     );
