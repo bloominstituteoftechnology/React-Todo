@@ -1,6 +1,5 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
-import TodoForm from './components/TodoComponents/TodoForm';
 import './palette.css';
 import './App.css';
 import TodoActions from './components/TodoComponents/TodoActions';
@@ -10,24 +9,49 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   state = {
-    input: '',
     todos: [
       {
         task: 'Organize Garage',
         id: 1528817077286,
-        completed: false
+        completed: false,
+        listID: 1528817077286
       },
       {
         task: 'Bake Cookies',
         id: 1528817084358,
-        completed: true
+        completed: true,
+        listID: 1528817077286
+      },
+      {
+        task: 'Build Garage',
+        id: 1528817077286,
+        completed: false,
+        listID: 1528817084358
+      },
+      {
+        task: 'Learn react',
+        id: 1528817084358,
+        completed: true,
+        listID: 1528817084358
+      }
+    ],
+    lists: [
+      {
+        id: 1528817077286,
+        input: '',
+        title: 'List I'
+      },
+      {
+        id: 1528817084358,
+        input: '',
+        title: 'List II'
       }
     ],
     filter: 'all'
   };
 
-  updateLocalStorage = () =>
-    localStorage.setItem('todos', JSON.stringify(this.state.todos));
+  updateLocalStorage = () => {};
+  // localStorage.setItem('todos', JSON.stringify(this.state.todos));
 
   addTodo = text =>
     this.setState(
@@ -70,17 +94,18 @@ class App extends React.Component {
 
   handleSubmit = () => this.addTodo(this.state.input);
 
-  handleChange = event => {
-    event.preventDefault();
-    this.setState({
-      input: event.target.value
-    });
+  handleChange = id => input => {
+    this.setState(prevState => ({
+      lists: prevState.lists.map(
+        list => (list.id === id ? { ...list, input } : list)
+      )
+    }));
   };
 
   componentDidMount() {
-    this.setState({
-      todos: JSON.parse(localStorage.getItem('todos')) || []
-    });
+    // this.setState({
+    //   todos: JSON.parse(localStorage.getItem('todos')) || []
+    // });
   }
 
   render() {
@@ -94,18 +119,25 @@ class App extends React.Component {
           </video>
         </div>
         <h1 className="App__title">React Todo List</h1>
-        {this.state.todos.length > 0 ? (
-          <TodoList
-            list={this.state.todos}
-            toggler={this.toggleTodo}
-            filter={this.state.filter}
-          />
-        ) : null}
-        <TodoForm
-          onSumbit={this.handleSubmit}
-          onChange={this.handleChange}
-          value={this.state.input}
-        />
+
+        <div className="App__lists-container">
+          {this.state.lists.map(list => (
+            <TodoList
+              list={this.state.todos.filter(todo => todo.listID === list.id)}
+              title={list.title}
+              toggler={this.toggleTodo}
+              filter={this.state.filter}
+              handleSubmit={this.handleSubmit}
+              handleChange={this.handleChange(list.id)}
+              input={list.input}
+            />
+          ))}
+
+          <div>
+            <button className="App__button">Add new list</button>
+          </div>
+        </div>
+
         <TodoActions
           removeCompleted={this.removeCompleted}
           removeAll={this.removeAll}

@@ -17,10 +17,18 @@
 }
 
 .App__container {
-  max-width: 768px;
+  max-width: 1200px;
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
+}
+
+.App__lists-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 300px;
+  grid-gap: 3rem;
+  margin-bottom: 5rem;
 }
 
 .App__title {
@@ -37,4 +45,31 @@
   -webkit-background-clip: text;
   color: transparent;
   text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+.App__button {
+  background-color: #FF4081;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  border-radius: 3px;
+  transition: all .3s;
+  backface-visibility: hidden;
+}
+
+.App__button:hover {
+  outline: none;
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 1.5rem rgba(0,0,0, 0.2);
+}
+
+.App__button:active,
+.App__button:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0, 0.3);
 }
