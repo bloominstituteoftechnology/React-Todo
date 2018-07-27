@@ -29,16 +29,14 @@ class App extends React.Component {
   handleInputChange = e => {
     this.setState({current: e.target.value});
   }
-  completed = id => {
-    let tasks = this.state.tasks.slice();
-    tasks = tasks.map(task => {
+  toggleCompleted = id => {
+    let tasks = this.state.tasks.slice(); 
+    tasks.forEach(task => {
       if (task.id === id) {
         task.completed = !task.completed;
-        return task;
-      } else {
-        return task;
       }
     });
+
     this.setState({tasks});
   }
   removeTasks = () => {
@@ -50,7 +48,8 @@ class App extends React.Component {
     return (
       <div className='container'>
         <h1 className='title'>Todo List</h1>
-        <TodoList list={this.state.tasks} completed={this.completed} />
+
+        <TodoList list={this.state.tasks} crossout={this.toggleCompleted}/>
         <TodoForm handle={this.handleInputChange} 
                   update={this.handleUpdateState}
                   remove={this.removeTasks}
