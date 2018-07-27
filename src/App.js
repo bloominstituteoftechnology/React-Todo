@@ -30,13 +30,13 @@ class App extends React.Component {
   
   updateTaskStatus=event=>{
     const list=this.state.list.slice(0);
-    const task=event.target.textContent;
+    if (event.target.id!==undefined) {
     for (let i=0,n=list.length; i<n; i++) {
-      if (list[i]['task']===task){
+      if (list[i]['id']==event.target.id){
         list[i]['completed']=!(list[i]['completed']);
-        list[i]['completed']===true ? event.target.style.textDecoration='line-through' :event.target.style.textDecoration='none';
       }
     }
+  }
     return this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
   }
   removeCompleted=()=>{
