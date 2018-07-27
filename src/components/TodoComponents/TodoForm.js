@@ -13,7 +13,7 @@ const TodoForm = props => {
         onKeyUp={props.handleInputEnter}
       />
       <button onClick={props.handleAddTodo}>Add Todo</button>
-      <button onClick={props.handleClearTodos}>Clear Completed</button>
+      <button onClick={props.handleClearTodos}>Clear</button>
     </form>
   );
 };

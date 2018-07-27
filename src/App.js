@@ -80,7 +80,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-wrapper">
-        <h1>Todo List</h1>
+        <h1 className="img-underline">Todo List</h1>
         <TodoList
           handleToggleComplete={this.toggleCompletedTasks}
           todoArray={this.state.todoData}
