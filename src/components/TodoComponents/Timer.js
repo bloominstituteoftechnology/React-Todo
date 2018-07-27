@@ -15,9 +15,9 @@ class TimerStart extends React.Component {
 
         return (
             <div>
-                <button className="timer" onClick = {this.props.handleClick}>Start Pomodoro</button>
-                <button className="timer">Stop Pomodoro</button>
-                <button className="timer">Reset Pomodoro</button>
+                <button className="timer" onClick = {this.props.handleStart}>Start Pomodoro</button>
+                <button className="timer" onClick = {this.props.handleStop}>Stop Pomodoro</button>
+                <button className="timer" onClick = {this.props.handleReset}>Reset Pomodoro</button>
                 
             </div>
         )

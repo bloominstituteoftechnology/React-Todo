@@ -192,7 +192,7 @@ class App extends React.Component {
         <SimpleStorage parent={this} />
         <h1>Todo List:</h1>
         <h2>Timer {this.state.timerCount}</h2>
-        <TimerStart timerCount= {this.state.timerCount} handleClick = {this.handleTimerStart}/>
+        <TimerStart timerCount= {this.state.timerCount} handleStart = {this.timerGo} handleStop = {this.stopTimer} handleReset={this.resetTimer}/>
         <TimerOnScreen secondTens = {this.state.st} secondOnes={this.state.so} msHundreds={this.state.mh} msTens={this.state.mt}/> 
         <ul>  
         {/* //this.state.thingsToDo  */}
