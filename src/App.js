@@ -29,11 +29,11 @@ class App extends React.Component {
   }
   
   updateTaskStatus=event=>{
-    const list=this.state.list.slice(0);
     if (event.target.id!==undefined) {
-    for (let i=0,n=list.length; i<n; i++) {
-      if (list[i]['id']==event.target.id){
-        list[i]['completed']=!(list[i]['completed']);
+      const list=this.state.list.slice(0);
+      for (let i=0,n=list.length; i<n; i++) {
+        if (list[i]['id']==event.target.id){
+          list[i]['completed']=!(list[i]['completed']);
       }
     }
   }
