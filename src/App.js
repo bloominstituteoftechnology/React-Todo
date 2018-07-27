@@ -15,7 +15,7 @@ class App extends React.Component {
   
   constructor(){
     super();
-    this.state = {thingsToDo: [], temp: "",  completed: {}, searchText: "", timerCount: 25, so:0, mh:0, st:0, mt:0, intervalID:20 };
+    this.state = {thingsToDo: [], temp: "",  completed: {}, searchText: "", timerCount: 25, so:0, mh:0, st:0, mt:0, sm:0, tm:0, intervalID:20 };
   }
 
   handleChange = event => {
@@ -89,7 +89,9 @@ class App extends React.Component {
     let mh = this.state.mh;
     let mt = this.state.mt;
     let so = this.state.so;
-    let st = this.state.st; 
+    let st = this.state.st;
+    let sm = this.state.sm;
+    let tm = this.state.tm;
     mh++; 
     if(mh ===10){
         mh = 0; 
@@ -124,7 +126,7 @@ class App extends React.Component {
    }
    resetTimer = () => {
        
-       this.setState({so:0, mh:0, st:0, mt:0});
+       this.setState({so:0, mh:0, st:0, mt:0, sm:0, tm:0});
     //    msHundreds.innerHTML = mh;
     //    msDigits.innerHTML = mt;
     //    secondOnes.innerHTML = so; 
@@ -193,7 +195,8 @@ class App extends React.Component {
         <h1>Todo List:</h1>
         <h2>Timer {this.state.timerCount}</h2>
         <TimerStart timerCount= {this.state.timerCount} handleStart = {this.timerGo} handleStop = {this.stopTimer} handleReset={this.resetTimer}/>
-        <TimerOnScreen secondTens = {this.state.st} secondOnes={this.state.so} msHundreds={this.state.mh} msTens={this.state.mt}/> 
+        <TimerOnScreen secondTens = {this.state.st} secondOnes={this.state.so} msHundreds={this.state.mh} msTens={this.state.mt}
+        singleMinute = {this.state.sm} tensMinute = {this.state.tm}/> 
         <ul>  
         {/* //this.state.thingsToDo  */}
           {filteredThings.map(thing => <TodoList thingToDo = {thing.task} handleLiClick = {this.handleLiClick} completed ={thing.completed}
