@@ -1,5 +1,5 @@
 import React from 'react';
-import {ToDoInput, ToDoButton, ClearCompletedButton} from './components/TodoComponents/TodoForm';
+import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 import './components/TodoComponents/Todo.css';
 
@@ -13,51 +13,39 @@ class App extends React.Component {
     let savedTaskList=localStorage.getItem('taskListItems');
     savedTaskList?this.state={list:JSON.parse(savedTaskList),newTask:''}:this.state={list: [],newTask:''};
     }
-  addTodos=()=>{
-    if (this.state.newTask.length>=1){
-      const list=this.state.list.slice(0);
+  addTodos=event=>{
+    if (this.state.newTask.length>=1) {
+      event.preventDefault();
+      const list=this.state.list.slice();
       list.push({'task': this.state.newTask, 'id':Date.now(),'completed':false});
-      this.setState({newTask:''});
-      return this.updateState(list);
-    } 
-  }
-  updateTaskStatus=event=>{
-    if (event.target.id!==undefined) {
-      const list=this.state.list.slice(0);
-      for (let i=0,n=list.length; i<n; i++) {
-        if (list[i]['id']==event.target.id){
-          list[i]['completed']=!(list[i]['completed']);
-          return this.updateState(list);
-        }
-      }
+      this.setState({newTask:'',list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
     }
   }
-  removeCompleted=()=>{
-    let list=this.state.list.slice(0);
+  updateTaskStatus=id=>{
+      const list=this.state.list.slice();
+      list.map((e)=>{if (e.id===id){return e.completed=!e.completed}});
+      return this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
+    }
+  removeCompleted=event=>{
+    event.preventDefault();
+    let list=this.state.list.slice();
     list=list.filter((e)=>e.completed===false);
-    return this.updateState(list);
-  }
-  updateState=(list)=>{
     return this.setState({list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
   }
   concatenateTask=event=>{
     return this.setState({newTask: event.target.value});
   }
-  triggerTodos=event=>{
-    if (event.key === 'Enter') {
-      return this.addTodos();
-    }
-  }
   render() {
     return (
       <div className='tasklist'>
         <h1>Task List</h1>
-        <ToDoInput newTask={this.state.newTask} onChange={this.concatenateTask} onKeyPress={this.triggerTodos}/>
-        <div className='button-container'>
-        <ClearCompletedButton onClick={this.removeCompleted}/>
-        <ToDoButton onClick={this.addTodos}/>
-        </div>
-        <TodoList taskProp={this.state.list} onClick={this.updateTaskStatus}/>
+        <TodoForm
+          newTask={this.state.newTask}
+          newTaskChange={this.concatenateTask}
+          addToDo={this.addTodos}
+          clearCompletedToDos={this.removeCompleted}
+        />
+        <TodoList taskProp={this.state.list} updateTaskStatus={this.updateTaskStatus}/>
       </div>
     );
   }
