@@ -19,13 +19,20 @@ class App extends React.Component {
       ],
       input: ''
     }
+    const inputHandler = e => this.setState({ input: e.target.value })
+    const addItem = e => {
+      e.preventDefault();
+      const list = this.state.list.slice();
+      list.push({ task: this.state.input, completed: false, id: Date.now() });
+      this.setState({ list, input: ' '});
+    }
   }
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList list={this.state.list} />
-        <TodoForm />
+        <TodoForm onClick={this.state.inputHandler} onClick={this.state.addItem}/>
       </div>
     );
   }

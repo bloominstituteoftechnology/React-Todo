@@ -2,12 +2,12 @@ import React from 'react';
 
 const TodoForm = props => {
     return (
-    <div>
-        <input type="text" placeholder="Enter Text" />
-        <button>Add ToDo</button>
+    <form>
+        <input type="text" placeholder="Enter Text" onChange={props.inputHandler} name="input" value={props.value} />
+        <button onClick={props.addItem}>Add ToDo</button>
         <button>Clear Completed</button>
-    </div>
-    )
-}
+    </form>
+    );
+};
 
 export default TodoForm;
