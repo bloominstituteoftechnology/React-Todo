@@ -19,6 +19,7 @@ class TimerStart extends React.Component {
                 <button className="timer" onClick = {this.props.handleStop}>Stop Pomodoro</button>
                 <button className="timer" onClick = {this.props.handleReset}>Reset Pomodoro</button>
                 
+                
             </div>
         )
     }

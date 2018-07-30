@@ -15,8 +15,10 @@ class App extends React.Component {
   
   constructor(){
     super();
-    this.state = {thingsToDo: [], temp: "",  completed: {}, searchText: "", timerCount: 25, so:0, mh:0, st:0, mt:0, sm:0, tm:0, intervalID:20 };
+    this.state = {thingsToDo: [], temp: "",  completed: {}, searchText: "", timerCount: 0, so:0, st:0, sm:0, tm:0, items : 0, timerStop: true};
+    this.timer = ""; 
   }
+
 
   handleChange = event => {
     this.setState(
@@ -48,7 +50,7 @@ class App extends React.Component {
     
     const {thingsToDo} = this.state;
     thingsToDo.push({task: this.state.temp, id: Date.now(), completed: false});
-    this.setState({thingsToDo:thingsToDo, temp: ""});
+    this.setState({thingsToDo:thingsToDo, temp: "", items:thingsToDo.length});
   }
 
   handleLiClick = event => {
@@ -64,7 +66,7 @@ class App extends React.Component {
       }
       
     });
-    this.setState({thingsToDo: thingsToDo});
+    this.setState({thingsToDo: thingsToDo, items: thingsToDo.length});
     
      
 }
@@ -73,118 +75,69 @@ class App extends React.Component {
     let thingsToDo = this.state.thingsToDo 
     thingsToDo = thingsToDo.filter( thing => thing.completed === false );
     
-    this.setState({thingsToDo: thingsToDo}); 
+    this.setState({thingsToDo: thingsToDo, items: thingsToDo.length}); 
   }
 
-  handleTimerStart = () => {
-    let timerCount = 10000;
-    console.log("clicked");
-    
-
-    
-    this.setState({timerCount: timerCount}); 
-  }
+  
 
   startTimer = () => {
-    let mh = this.state.mh;
-    let mt = this.state.mt;
-    let so = this.state.so;
-    let st = this.state.st;
-    let sm = this.state.sm;
-    let tm = this.state.tm;
-    mh++; 
-    if(mh ===10){
-        mh = 0; 
-        mt++; 
+    let value = document.getElementById("minutes");
+    // console.log(value); 
+    let valueInt = parseInt(value.options[value.selectedIndex].value, 10);
+    
+    let so = this.state.so; //single ones
+    let st = this.state.st; //second tens// 
+    let sm = this.state.sm; // single minutes
+    let tm = this.state.tm; //tens minutes 
+    so++
+    if(so === 10){
+      st++;
+      so = 0; 
     }
-   if (mt === 10){
-       mt = 0; 
-       so++;
-   }
-   if(so === 10){
-       so = 0;
-       st++;
-   }
-   
-//    msHundreds.innerHTML = mh;
-//    msDigits.innerHTML = mt;
-//    secondOnes.innerHTML = so; 
-//    secondTens.innerHTML = st;
-   if (st === 1){
-    //    digitsClass.style.color = "Red";
-        this.stopTimer(); 
+    if (st === 6){
+      so = 0;
+      st = 0;
+      sm ++; 
+      console.log(parseInt(tm+sm,10), typeof parseInt(tm+sm,10));
     }
+    if (sm === 10){
+      so = 0; 
+      st = 0; 
+      sm = 0;
+      tm++;
+      
+      
 
-    this.setState({mh:mh, so:so, st:st, mt:mt})
+    }
+    if (parseInt(tm+sm , 10) >= valueInt){
+      window.clearInterval(this.timer); 
+    }
+    
+    this.setState({
+      timerCount: this.state.timerCount + 1, so:so, st:st, sm:sm, tm:tm
+    });
+
+    
 
    }
-   
    
    stopTimer = () =>{
-    clearInterval(this.state.intervalID); 
+    window.clearInterval(this.timer); 
+    let timerStop = true; 
+    this.setState({timerStop: timerStop})
     
    }
    resetTimer = () => {
-       
-       this.setState({so:0, mh:0, st:0, mt:0, sm:0, tm:0});
-    //    msHundreds.innerHTML = mh;
-    //    msDigits.innerHTML = mt;
-    //    secondOnes.innerHTML = so; 
-    //    secondTens.innerHTML = st;
+    window.clearInterval(this.timer);
+    let timerStop = true; 
+    this.setState({so:0, mh:0, st:0, mt:0, sm:0, tm:0, tick:0, timerCount: 0,timerStop: timerStop});
+   
    }
    
-//    let msDigits = document.querySelector("#msTens"); 
-//    let msHundreds = document.querySelector("#msHundreds");
-//    let secondOnes = document.querySelector("#secondOnes");
-//    let secondTens = document.querySelector("#secondTens"); 
-   
-//    let so = 0;
-//    let mh = 0;
-//    let st = 0;
-//    let mt = 0;
-   //^four variables for each digit. 
-   
-//    let digitsClass = document.querySelector(".digits"); 
-    
-   
-//    let start = document.createElement("button"); 
-//    let stop = document.createElement("button"); 
-//    let reset = document.createElement("button");
-   
-//    let startText = document.createTextNode("Start");//Sets Place for text;
-//    let stopText = document.createTextNode("Stop");//Sets Place for text;
-//    let resetText = document.createTextNode("Reset");
-   
-//    start.appendChild(startText);
-//    stop.appendChild(stopText); 
-//    reset.appendChild(resetText); 
-   
-//    let body = document.querySelector("body");
-//    body.appendChild(start);
-//    body.appendChild(stop); 
-//    body.appendChild(reset); 
-   
-//    let buttons = document.querySelectorAll("button");
-   
-//    let intervalID; 
-   
-   timerGo = () => {
-    let intervalID = this.state.intervalID
-    intervalID = window.setInterval(this.startTimer, 10);
-    this.setState({intervalID: intervalID}); 
+   handleStartTimer = () => {
+    this.timer = window.setInterval(this.startTimer, 1000);
+    this.setState({ timerStop: false}); 
    }
-   
-//    buttons[0].addEventListener("click", timerGo, false); 
-    
-//    buttons[1].addEventListener("click", stopTimer, false); 
-//    buttons[2].addEventListener("click", resetTimer, false)
-
-
-
-
-
-
-
 
 
   render() {
@@ -192,9 +145,16 @@ class App extends React.Component {
     return (
       <div className = "appContainer">
         <SimpleStorage parent={this} />
-        <h1>Todo List:</h1>
-        <h2>Timer {this.state.timerCount}</h2>
-        <TimerStart timerCount= {this.state.timerCount} handleStart = {this.timerGo} handleStop = {this.stopTimer} handleReset={this.resetTimer}/>
+        <h1>Todo List: {this.state.items} {this.state.items > 1 ? "items" : "item"} remain.</h1>
+        <h2>Timer</h2>
+        <select name="minutes" id="minutes">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+        </select>
+        <TimerStart timerCount= {this.state.timerCount} handleStart = {this.handleStartTimer} handleStop = {this.stopTimer} handleReset={this.resetTimer}/>
         <TimerOnScreen secondTens = {this.state.st} secondOnes={this.state.so} msHundreds={this.state.mh} msTens={this.state.mt}
         singleMinute = {this.state.sm} tensMinute = {this.state.tm}/> 
         <ul>  
