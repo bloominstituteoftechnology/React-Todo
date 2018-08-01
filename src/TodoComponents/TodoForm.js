@@ -4,6 +4,9 @@
 
 
 import React from 'react';
+import ReactDOM from "react-dom";
+
+
 import App from '../App';
 
 
@@ -14,8 +17,13 @@ const TodoForm = () => {
                 <div>Todo List: MVP</div>
                 <div>Learn setState()</div>
             </div>
+            <div className="newTodos">
+                <div>new todos go here</div>
+            </div>
+            <input placeholder= "New Todos" type="text" className="input-todos"/>  
             <div className="todoButtons">
-                <div>some buttons</div>
+                <button className="addTodo">Add Todo</button>
+                <button className="clear-btn">Clear Completed</button>
             </div>
         </form>
                 
