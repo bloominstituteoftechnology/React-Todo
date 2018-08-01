@@ -1,5 +1,18 @@
 import React from 'react';
 
+const tasksArray = [
+  {
+    task: 'Organize Garage',
+    id: 1528817077286,
+    completed: false
+  },
+  {
+    task: 'Bake Cookies',
+    id: 1528817084358,
+    completed: false
+  }
+]
+
 class App extends React.Component {
   constructor() {
     super();
@@ -7,19 +20,13 @@ class App extends React.Component {
       
       title: "Todo List: MVP",
 
-      tasksArray: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ],
+      tasks: tasksArray,
+      
     }
+  }
+
+  handleUpdateState = () => {
+    const tasks = this.state.tasks.slice();
   }
 
   render() {
