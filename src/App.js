@@ -21,19 +21,27 @@ class App extends React.Component {
       title: "Todo List: MVP",
 
       tasks: tasksArray,
+
+      value: '',
       
     }
   }
 
+  
+
   handleUpdateState = () => {
     const tasks = this.state.tasks.slice();
   }
+  
+  handleInputChange = event => {
+   this.setState ({value: event.target.value}
+    ) 
+  }
+
 
   render() {
     return (
-         <div>
-           <h1>{this.state.title}</h1>
-         </div>
+         
     );
   }
 }
