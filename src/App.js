@@ -14,3 +14,5 @@ class App extends React.Component {
 }
 
 export default App;
+
+// [Initial Commit]
