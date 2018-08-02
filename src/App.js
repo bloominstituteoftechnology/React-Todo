@@ -45,6 +45,19 @@ class App extends React.Component {
     }));
   };
 
+  toggleTodoComplete =id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo =>{
+      if (todo.id === id) {
+        todo.completed= !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({todos});
+  };
+
   clearCompletedTodos = event => {
     event.preventDefault ();
     let todos = this.state.list.slice();
@@ -56,7 +69,9 @@ class App extends React.Component {
     return (
       <div>
         <h1>{this.state.title}</h1>
-        <TodoList taskList={this.state.list} />
+        <TodoList 
+        handleToggleComplete = {this.toggle.todoComplete}
+        taskList={this.state.list} />
         <TodoForm
           inputValue={this.state.inputValue}
           updateInputValue={this.updateInputValue}
