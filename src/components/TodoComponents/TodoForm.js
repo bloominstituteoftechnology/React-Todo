@@ -1,6 +1,6 @@
 import React from "react";
 
-const TodoForm = ({ inputValue, submitNewTask, updateInputValue }) => {
+const TodoForm = ({ inputValue, submitNewTask, updateInputValue, clearCompleted }) => {
     return (
         <div>
             <form onSubmit={submitNewTask}>
@@ -10,7 +10,7 @@ const TodoForm = ({ inputValue, submitNewTask, updateInputValue }) => {
                 onChange={updateInputValue}
                 />
                 <button>Add ToDo</button>
-                <button>Clear Completed</button>
+                <button onClick={clearCompleted}>Clear Completed</button>
             </form>
         </div>
     );
