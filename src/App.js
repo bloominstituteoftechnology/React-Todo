@@ -23,26 +23,40 @@ class App extends React.Component {
 
       tasks: tasksArray,
 
-      value: ""
+     inputValue: '',
     };
   }
 
-  handleUpdateState = () => {
-    const tasks = this.state.tasks.slice();
-    console.log(tasks);
+  updateInputValue = event => {
+    const { value } = event.target;
+    this.setState({ inputValue: value });
   };
 
-  handleInputChange = event => {
-    const { value } = event.target;
-    this.setState({ value });
+  submitNewTask = event => {
+    event.preventDefault();
+
+    this.setState(prevState => ({
+        list: prevState.tasks.concat({
+        id: new Date(),
+        task: prevState.inputValue,
+        completed: false
+      }),
+      inputValue: ''
+    }));
   };
+
+
 
   render() {
     return (
       <div>
         <h1>{this.state.title}</h1>
-        <TodoList todoListArr={this.state.tasks} />
-        <TodoForm />
+        <TodoList taskList={this.state.list} />
+        <TodoForm 
+        inputValue={this.state.inputValue}
+        updateInputValue={this.updateInputValue}
+        submitNewTask={this.submitNewTask}
+        />
       </div>
     );
   }
