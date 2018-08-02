@@ -1,13 +1,13 @@
 import React from "react";
 
-const TodoForm = ({ inputValue, submitNewTask, updateInputValue}) => {
+const TodoForm = ({ inputValue, submitNewTask, updateInputValue }) => {
     return (
         <div>
             <form onSubmit={submitNewTask}>
                 <input 
                 placeholder ="...todo"
-                value={ inputValue }
-                onChange={ updateInputValue }
+                value={inputValue}
+                onChange={updateInputValue}
                 />
                 <button>Add ToDo</button>
                 <button>Clear Completed</button>

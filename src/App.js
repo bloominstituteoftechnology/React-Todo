@@ -21,9 +21,9 @@ class App extends React.Component {
     this.state = {
       title: "Todo List: MVP",
 
-      tasks: tasksArray,
+      list: tasksArray,
 
-      inputValue: '',
+      inputValue: ""
     };
   }
 
@@ -34,14 +34,14 @@ class App extends React.Component {
 
   submitNewTask = event => {
     event.preventDefault();
-
+    console.log(this.state.inputValue);
     this.setState(prevState => ({
-        list: prevState.tasks.concat({
+      list: prevState.list.concat({
         id: new Date(),
         task: prevState.inputValue,
-        completed: false,
+        completed: false
       }),
-      inputValue: ''
+      inputValue: ""
     }));
   };
 
@@ -49,11 +49,11 @@ class App extends React.Component {
     return (
       <div>
         <h1>{this.state.title}</h1>
-        <TodoList taskList={this.state.tasks} />
-        <TodoForm 
-        inputValue={this.state.inputValue}
-        updateInputValue={this.updateInputValue}
-        submitNewTask={this.submitNewTask}
+        <TodoList taskList={this.state.list} />
+        <TodoForm
+          inputValue={this.state.inputValue}
+          updateInputValue={this.updateInputValue}
+          submitNewTask={this.submitNewTask}
         />
       </div>
     );
