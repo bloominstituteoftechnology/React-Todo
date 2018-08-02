@@ -18,21 +18,67 @@ class App extends React.Component {
           completed: false
         }
       ],
-      todo: ''
+      input: ''
     }
   // All of your handler functions should live here on <App />. Before the last curly brace of <App />
-  // 
+  // Add the functionality to toggle your todo's completed flag from false to true.
+  } 
+  
+  
+  completedToggle = (id) => {
 
+    let shallowCopy = this.state.todos.slice()
 
+      shallowCopy.map(item => { 
+        if(item.id === id){ 
+          // item.complete = !itemComplete;
+          return item;
+        } else { 
+          return item;
+        }
+      })
+   
+     this.setState({ todos:shallowCopy })
 
   }
+
+
+
+
+
+  
+  
+  
+  addTodoClick = () => {
+      //create shallow copy
+    const todoCopy = this.state.todos.slice();
+      // add this to the copy
+    todoCopy.push({
+        task: this.state.input,
+        id: Date.now(),
+        completed: false});
+      // update the state
+      this.setState ({todos:todoCopy});
+    } 
+    
+
+  
+
+
+  eventListen = (event) => {
+    this.setState ({ input:event.target.value })
+  }
+
+
+
+
 
   render(){
     return (
       <div>
         <ParentOfList 
         todos= {this.state.todos}/> 
-        <TodoForm timeStamp = {this.state.todos[0].id}/>
+        <TodoForm addTodoClick = {this.addTodoClick} eventListen= {this.eventListen} timeStamp = {this.state.todos[0].id}/>
       </div>)
   }
 
@@ -46,8 +92,8 @@ class App extends React.Component {
 const TodoForm = props => {
 	return (
 		<div>
-		  <input type = "text" placeholder ="…todo" />
-		  <button>Add Todo</button>
+		  <input onChange={props.eventListen} type = "text" placeholder ="…todo" />
+		  <button onClick={props.addTodoClick} >Add Todo</button>
 		  <button>Clear Completed</button>
       <button>{props.timeStamp} Just testing props here</button>
 		</div>
@@ -88,8 +134,7 @@ const ParentOfList = props => {
 
 const EachChild = props => {
   return (
-    <div
-      // style={props.todo.completed ? { textDecoration: 'line-through' } : null}
+    <div style={props.todo.completed ? { textDecoration: 'line-through' } : null}
       // onClick={() => props.handleToggleComplete(props.todo.id)}
     >
       {props.todo.task}
