@@ -38,6 +38,7 @@ class App extends React.Component {
     this.state = {
       list: todoListArr,
       inputValue: '',
+      color: 'blue',
     };
   }  
 
@@ -49,7 +50,7 @@ class App extends React.Component {
       newTodos.push({
         task:this.state.inputValue, 
         id: Date.now(), 
-        completed: false
+        completed: false,
       }
     );
 
@@ -77,6 +78,13 @@ class App extends React.Component {
 
 
 
+  toggleCompletedTodos = () => {
+    console.log("I am clicking");
+    
+    
+  }
+
+
   render() {
     return (
       <div>
@@ -86,7 +94,8 @@ class App extends React.Component {
         {/*input will be shown here*/}
         {/*add button view will be shown here*/}
         {/*clear button will be shown here*/}
-        <TodoList taskList={this.state.list}/>
+        <TodoList taskList={this.state.list}
+        handleToggleComplet={this.state.toggleCompletedTodos}/>
         <TodoForm 
           inputValue={this.state.inputValue}
           updateInputValue={this.updateInputValue}
