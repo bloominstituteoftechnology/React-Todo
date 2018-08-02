@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import TodoList from "./components/TodoComponents/TodoList.js";
 import TodoForm from "./components/TodoComponents/TodoForm.js";
 
@@ -60,5 +61,23 @@ class App extends React.Component {
     );
   }
 }
+=======
 
-export default App;
+const TodoForm = ({ inputVal, updateInputVal, submitNewTask }) => {
+  return (
+    <div>
+      <form onSubmit={submitNewTask} >
+        <input
+          placeholder="Enter new todo..."
+          value={inputVal}
+          onChange={updateInputVal}
+        />
+        <button>Add Todo</button>
+        <button>Clear Completed</button>
+      </form>
+    </div>
+  );
+};
+>>>>>>> 258e6ea64b01e875e236a22c1b862e9cdc37baa7
+
+export default TodoForm;
