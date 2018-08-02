@@ -23,7 +23,7 @@ class App extends React.Component {
 
       tasks: tasksArray,
 
-     inputValue: '',
+      inputValue: '',
     };
   }
 
@@ -39,19 +39,17 @@ class App extends React.Component {
         list: prevState.tasks.concat({
         id: new Date(),
         task: prevState.inputValue,
-        completed: false
+        completed: false,
       }),
       inputValue: ''
     }));
   };
 
-
-
   render() {
     return (
       <div>
         <h1>{this.state.title}</h1>
-        <TodoList taskList={this.state.list} />
+        <TodoList taskList={this.state.tasks} />
         <TodoForm 
         inputValue={this.state.inputValue}
         updateInputValue={this.updateInputValue}

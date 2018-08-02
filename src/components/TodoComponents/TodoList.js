@@ -2,10 +2,13 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = (props) => {
+    console.log(props);
   return (
       <div>
          {props.taskList.map((each, i) => {
-             return <Todo key={i}  task={each.task} />
+             return (
+             <Todo key={i}  task={each.task} />
+             );
          })}
       </div>
   );
