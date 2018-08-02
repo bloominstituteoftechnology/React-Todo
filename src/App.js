@@ -10,9 +10,11 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
-    let savedTaskList=localStorage.getItem('taskListItems');
-    savedTaskList?this.state={list:JSON.parse(savedTaskList),newTask:''}:this.state={list: [],newTask:''};
+    this.state={
+      list:[],
+      newTask:''
     }
+  }
   addTodos=event=>{
     if (this.state.newTask.length>=1) {
       event.preventDefault();
@@ -20,6 +22,12 @@ class App extends React.Component {
       list.push({'task': this.state.newTask, 'id':Date.now(),'completed':false});
       this.setState({newTask:'',list:list},localStorage.setItem('taskListItems',JSON.stringify(list)));
     }
+  }
+  componentDidMount(){
+    let savedTaskList=localStorage.getItem('taskListItems');
+    if (savedTaskList){
+      return this.setState({list:JSON.parse(savedTaskList),newTask:''
+    });}
   }
   updateTaskStatus=id=>{
       const list=this.state.list.slice();
