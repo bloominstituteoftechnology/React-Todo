@@ -1,7 +1,10 @@
-import React from 'react';
+import React from "react";
 
-const Todo = (props) => {
-    return <div>{props.todo}</div>
-}
+const Todo = props => {
+  return <div onClick={() => props.toggleItemsComplete(props.list.id)}
+  >
+  {props.todo}
+  </div>;
+};
 
 export default Todo;

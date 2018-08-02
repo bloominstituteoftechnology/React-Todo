@@ -32,7 +32,7 @@ class App extends React.Component {
   }
 
   updateInputVal = event => {
-    const value = event.target.value;
+    const { value } = event.target;
     this.setState({ inputVal: value });
   };
 
@@ -45,9 +45,28 @@ class App extends React.Component {
         task: prevState.inputVal,
         completed: false
       }),
-      inputVal: "",
+      inputVal: ""
     }));
   };
+
+  toggleItemComplete = id => {
+    let item = this.state.list.slice();
+    item = this.state.list.map(item => {
+      if (item.id === id) {
+        item.completed = !item.completed;
+        return item;
+      } else {
+        return item;
+      }
+    })
+  }
+
+  clearCompletedItems = event => {
+    event.preventDefault();
+    let items = this.state.list.slice();
+    items = items.filter(item => !item.completed);
+    this.setState({items});
+  }
 
   /*  handleUpdateState = (task) => {
     const listItems = this.state.list.slice();
@@ -63,11 +82,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList taskList={this.state.list} />
+        <TodoList 
+        taskList={this.state.list}
+        clickItem={this.clickItem}
+        toggleItemComplete={this.toggleItemComplete} />
         <TodoForm
           updateInputVal={this.updateInputVal}
           submitNewTask={this.submitNewTask}
-          inputVal={this.inputVal}
+          clearCompletedItems={this.clearCompletedItems}
+          inputVal={this.state.inputVal}
         />
       </div>
     );
