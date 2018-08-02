@@ -5,55 +5,75 @@
 
 import React from 'react';
 import TodoForm from './TodoComponents/TodoForm';
+import TodoList from './TodoComponents/TodoList';
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
 
+  const todoListArr = [
+    { task: 'Organize Garage',
+      id: new Date(),
+      completed: false
+    },
+    {
+      task: 'Bake Cookies',
+      id: new Date(),
+      completed: false
+    },
+  ];
 
-  const task = props => {
-    const{task, id, completed} = props.taskProp;
-    return (
-      <div>task: {task}</div>
-    );
-  };
+
+  // const task = props => {
+  //   const{task, id, completed} = props.taskProp;
+  //   return (
+  //     <div>task: {task}</div>
+  //   );
+  // };
 
 
 class App extends React.Component {
-
   constructor(){
     super();
     this.state = {
-      todoList: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        },
-      ],
-      newTodos: '',
-      };
+      list: todoListArr,
+      inputValue: '',
     };
+  }  
 
     //functions below
-  updateTodoState = () => {
-      const newTodos = this.state.todoList.slice();
-      newTodos.push({task:this.state.newTodo, id: Date.now(), completed: false})
-      this.setState({todoList, todo: ''});
-      
+  
+  
+  updateTodoListItems = task => {
+      const newTodos = this.state.list.slice();
+      newTodos.push({
+        task:this.state.inputValue, 
+        id: Date.now(), 
+        completed: false
+      }
+    );
+
+  }
+
+  updateInputValue = event => {
+    // console.log(event.target.value);
+    const { value } = event.target 
+    this.setState({inputValue: value} );
+
+  }
+
+  submitNewTask = event => {
+    event.preventDefault();
+    
+    this.setState(prevState => ({
+      list: prevState.list.concat({
+        id: new Date(),
+        task: prevState.inputValue,
+        completed:false,
+      }),
+      inputValue: ""
+    }));
   };
-
-  handleInputedTodos = () => {
-    this.setState({todoList: {task:event.target.value, id: Date.now(), completed:false});
- 
-}
-
-
 
 
 
@@ -66,11 +86,19 @@ class App extends React.Component {
         {/*input will be shown here*/}
         {/*add button view will be shown here*/}
         {/*clear button will be shown here*/}
-        <TodoForm />
+        <TodoList taskList={this.state.list}/>
+        <TodoForm 
+          inputValue={this.state.inputValue}
+          updateInputValue={this.updateInputValue}
+          submitNewTask={this.submitNewTask}
+          />
       </div>
     );
   }
 }
+
+
+
 //creating pull request
 
 export default App;

@@ -2,14 +2,14 @@
 
 
 import React from 'react';
-import App from '../App';
 
 
 
-const Todo = () => {
+const Todo = (props) => {
+    
     return (
-        <div>
-            {/*display todos here*/}
-        </div>
+        <div>{props.todo}</div> 
     )
 };
+
+export default Todo;
