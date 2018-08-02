@@ -20,6 +20,11 @@ class App extends React.Component {
       ],
       todo: ''
     }
+  // All of your handler functions should live here on <App />. Before the last curly brace of <App />
+  // 
+
+
+
   }
 
   render(){
@@ -27,7 +32,7 @@ class App extends React.Component {
       <div>
         <ParentOfList 
         todos= {this.state.todos}/> 
-        <TodoForm />
+        <TodoForm timeStamp = {this.state.todos[0].id}/>
       </div>)
   }
 
@@ -44,6 +49,7 @@ const TodoForm = props => {
 		  <input type = "text" placeholder ="…todo" />
 		  <button>Add Todo</button>
 		  <button>Clear Completed</button>
+      <button>{props.timeStamp} Just testing props here</button>
 		</div>
 	)
 }
@@ -66,11 +72,14 @@ const ParentOfList = props => {
     Then name the child before it's born and your plans for each child, lol */}
       {props.todos.map(each => (
         <EachChild todo={each} />
-
       ))}
     </div>
   );
 };
+
+
+// parenteses because you are retuning it: return();
+// {props.todos.map(each => (<Todo todo={each} />) )}
 
 
 // style each Todo, add style attr and onclick attr to each div created forever
@@ -83,7 +92,6 @@ const EachChild = props => {
       // style={props.todo.completed ? { textDecoration: 'line-through' } : null}
       // onClick={() => props.handleToggleComplete(props.todo.id)}
     >
-    {/* don't add next line until the mapping function is created next */}
       {props.todo.task}
     </div>
   );
