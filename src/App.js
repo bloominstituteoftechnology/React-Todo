@@ -40,6 +40,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <h1>{this.state.title}</h1>
         <TodoList todoListArr={this.state.tasks} />
         <TodoForm />
       </div>
