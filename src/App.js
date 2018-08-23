@@ -38,23 +38,11 @@ class App extends React.Component {
     this.state = {
       list: todoListArr,
       inputValue: '',
-      color: 'blue',
     };
   }  
 
     //functions below
   
-  
-  updateTodoListItems = task => {
-      const newTodos = this.state.list.slice();
-      newTodos.push({
-        task:this.state.inputValue, 
-        id: Date.now(), 
-        completed: false,
-      }
-    );
-
-  }
 
   updateInputValue = event => {
     // console.log(event.target.value);
@@ -83,6 +71,7 @@ class App extends React.Component {
     
     
   }
+
 
 
   render() {

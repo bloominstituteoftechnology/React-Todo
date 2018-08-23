@@ -10,7 +10,7 @@ const Todo = (props) => {
     return (
 
         <div 
-        style={props.todo.completed ? { textDecoration: 'line-through' }: null } onClick={() => props.handleToggleComplete(props.todo.id)}>
+        className={props.completed ? "completed" : null } onClick={() => props.handleToggleComplete}>
         
         {props.todo}
        
