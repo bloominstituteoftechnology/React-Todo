@@ -5,8 +5,8 @@ export default function Todo(props) {
     return (
         <div className="todo-item">
             <h4>Todo Item</h4>
-            <p>{props.todo}</p>
-            <p><small>{new Date().toLocaleTimeString()}</small></p>
+            <p>{props.todo.text}</p>
+            <p><small>{props.todo.time}</small></p>
         </div>
     )
 }

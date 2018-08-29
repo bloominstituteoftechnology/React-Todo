@@ -13,10 +13,10 @@ class App extends React.Component {
     }
   }
 
-  addTodo = (todo) => {
+  addTodo = (text, time) => {
     // using the result of the addTodo function bubbled up from TodoForm, I append a new todo to the end of the current todoList array in this components state
     this.setState({
-      todoList: [...this.state.todoList, todo]
+      todoList: [...this.state.todoList, {text, time}]
     })
   }
 

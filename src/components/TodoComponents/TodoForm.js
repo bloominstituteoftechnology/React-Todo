@@ -12,7 +12,8 @@ export default class TodoForm extends React.Component {
     
     inputText = (e) => {
         this.setState({
-            inputText: e.target.value
+            inputText: e.target.value,
+            time: new Date().toLocaleTimeString(),
         });
     }
 
@@ -21,10 +22,11 @@ export default class TodoForm extends React.Component {
         e.preventDefault();
         // run the "addTodo" function passed down from App in the following manner:
         // App --> TodoList --> TodoForm(execute function and it will "bubble back up" like the following:) Todoform --> TodoList --> App
-        this.props.addTodo(this.state.inputText);
+        this.props.addTodo(this.state.inputText, this.state.time);
         // Reset the value of this components state inputText back to blank
         this.setState({
             inputText: '',
+            time: '',
         });
         // Using the ref I created on the input element and instantiated on line 10 in the constructor, I reset the input value (on the physical web page the user sees) back to blank
         this.input.current.value = '';
@@ -33,8 +35,10 @@ export default class TodoForm extends React.Component {
         return (
             <form className="todo-form" onSubmit={this.addTodo}>
                 <input ref={this.input} type="text" placeholder="...todo" onChange={this.inputText} />
-                <button type="submit" >Add Todo</button>
-                <button type="reset">Clear Completed</button>
+                <div className="buttons">
+                    <button className="add-todo" type="submit" >Add Todo</button>
+                    <button className="remove-completed-todos" type="reset">Clear Completed</button>
+                </div>
             </form>
         )
     }

@@ -1,3 +1,9 @@
 .todo-list {
-    border: 1px solid brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 300px;
+    padding: 20px;
 }

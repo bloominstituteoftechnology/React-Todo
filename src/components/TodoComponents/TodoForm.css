@@ -1,3 +1,40 @@
 .todo-form {
-    border: 1px solid lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+input {
+    padding: 10px 0;
+    border-radius: 3px;    
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 3px 0;
+}
+
+button {
+    padding: 10px 0;
+    border-radius: 3px;
+    margin: 3px;
+    border: 1px solid black;
+    width: 124px;
+}
+
+.add-todo {
+    background: lightgreen;
+}
+
+.remove-completed-todos {
+    background: lightcoral;
 }
