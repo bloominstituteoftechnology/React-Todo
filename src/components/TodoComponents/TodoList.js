@@ -7,7 +7,7 @@ function TodoList(props) {
   return (
     <ul>
       {props.todos.map((todo) => (
-        <Todo todo={todo} />
+        <Todo todo={todo} toggleComplete={props.toggleComplete} />
       ))}
     </ul>
   );
