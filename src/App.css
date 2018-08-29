@@ -1,0 +1,7 @@
+.toDoContainer {
+    border: 1px solid lightgray;
+    box-shadow: 5px 5px #888888;
+    width: 20rem;
+    padding: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

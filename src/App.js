@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import './App.css';
 
  class App extends React.Component {
    constructor() {
@@ -43,7 +44,7 @@ import TodoForm from "./components/TodoComponents/TodoForm";
 
    render() {
     return (
-      <div>
+      <div className = "toDoContainer">
         <h2>To Do List</h2>
         <TodoForm
           addTask={this.addTask}
