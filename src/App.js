@@ -7,7 +7,9 @@ class App extends React.Component {
     super();
     this.state = {
       todo: [],
-      inputText: ""
+      inputText: "",
+      id: null,
+      completed: false
     };
 
   }
@@ -23,9 +25,15 @@ class App extends React.Component {
   }
 };
 
+clearTodo = event => {
+  event.preventDefault();
+};
+
   handleInput = event => {
     this.setState({
-      inputText: event.target.value
+      inputText: event.target.value,
+      id: Date.now(),
+      completed: false
     });
   };
   // you will need a place to store your state in this component.
@@ -38,6 +46,7 @@ class App extends React.Component {
         <TodoList todo={this.state.todo} />
         <TodoForm
           addTodo={this.addTodo}
+          clearTodo={this.clearTodo}
           inputText={this.state.inputText}
           handleInput={this.handleInput}
         />

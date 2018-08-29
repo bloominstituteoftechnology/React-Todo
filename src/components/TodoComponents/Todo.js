@@ -1,7 +1,7 @@
 import React from "react";
 
-function Todo(props) {
-  return <li>{props.todo}</li>;
+const Todo = (props) => {
+  return <h3 onClick={props.completed}>{props.todo}</h3>;
 }
 
 export default Todo;
