@@ -16,9 +16,14 @@ class App extends React.Component {
     };
   }
 
-  addTodo(event) {
+  addTodo = (event) => {
     //this function updates the Todo list
     event.preventDefault();
+    this.setState({
+      items: [...this.state.items, this.state.inputText],
+      //After entering the new todo item, we need to clear the input field
+      inputText: ''
+    })
   }
 
   handleInput = (event) => {
