@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Todo(props) {
+const Todo = props => {
   return (
     <div className="todo">
       {props.todo.task}

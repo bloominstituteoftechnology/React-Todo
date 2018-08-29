@@ -1,6 +1,6 @@
 import React from 'react';
-// TODO: refactor to es6
-function TodoForm(props) {
+
+const TodoForm = props => {
   return(
     <form className="todo-form">
       <input type="text" placeholder="todo..." onChange={props.updateInput} value={props.input} />
