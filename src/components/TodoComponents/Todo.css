@@ -1,0 +1,8 @@
+.unordered-list {
+  padding: 0;
+}
+
+.todo-item {
+  list-style-type: none;
+  color: white;
+}
