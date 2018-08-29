@@ -1,0 +1,139 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+* {
+  box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 62.5%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+html {
+  font-size: 62.5%;
+}
+/* Todo Styles stuff */
+body {
+  font-family: sans-serif;
+  font-size: 1.9rem;
+  color: #333;
+
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 3rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.todo-form {
+  display: flex;
+  align-content: space-between;
+  justify-content: space-between;
+  max-width: 500px;
+  width: 100%;
+}
+
+.todo-form button {
+  width: 150px;
+  height: 45px;
+  font-size: 1.7rem;
+  background-color: #fff;
+  border: 1px solid #333;
+}
+
+.todo-form button:hover {
+  opacity: 0.5;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.todo-form .add-todo-btn {
+  background-color: #5089f1;
+  color: #fff;
+}
+
+.todo-form .clear-todo-btn {
+  background-color: #ce4747;
+  color: #fff;
+}
+
+
+.todo {
+  color: #fff;
+  background-color: #5089f1;
+  font-weight: 600;
+  width: 500px;
+  height: 50px;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 45px;
+  padding: 2px 10px;
+  margin: 15px auto;
+}
+
+.todo:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+  font-weight: 200;
+  color: green;
+  background-color: #ffe3e3;
+}

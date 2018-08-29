@@ -80,7 +80,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="main-wrapper">
-        <h2>Todo List: MVP</h2>
+        <h2>TODO LIST</h2>
         <TodoList todos={this.state.todos} toggleCompleted={this.toggleCompleted} />
         <TodoForm input={this.state.input} addTodo={this.addTodo} updateInput={this.updateInput} clearCompleted={this.clearCompleted} />
       </div>
