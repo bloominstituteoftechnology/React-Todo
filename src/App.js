@@ -50,6 +50,8 @@ class App extends React.Component {
 				newState.todoList[i].completed = !newState.todoList[i].completed;
 
 				this.setState({...newState});
+				
+				break;
 			}
 		}
 	} // onItemClick()
@@ -57,7 +59,16 @@ class App extends React.Component {
 	onClearCompleted = (e) => {
 		e.preventDefault();
 
-		console.log(e.target);
+		let newState = {...this.state};
+
+		for (let i = 0; i < this.state.todoList.length; i++) {
+			if (this.state.todoList[i].completed) {
+				newState.todoList.splice(i, 1);
+				i--;
+			}
+		}
+
+		this.setState({...newState});
 	} // onClearCompleted()
 
 	componentDidUpdate() {
