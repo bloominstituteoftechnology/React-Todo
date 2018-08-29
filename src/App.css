@@ -2,6 +2,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
     height: 100vh;
-    background: red;
+    width: 100vw;
+    border: 3px solid black;
 }

@@ -13,16 +13,18 @@ class App extends React.Component {
     }
   }
 
-  addTodo = (todo) => {
+  addTodo = (text) => {
+    console.log('add todo function');
     this.setState({
-      todoList: [...this.state.todoList, todo]
+      todoList: [...this.state.todoList, text]
     })
   }
 
   render() {
     return (
         <div className="container">
-          <TodoList todoList={this.state.todoList} handleTodo={this.addTodo}/>
+          ___ App - Component ___
+          <TodoList todoList={this.state.todoList} addTodo={this.addTodo}/>
         </div>
     );
   }

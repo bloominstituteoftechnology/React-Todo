@@ -9,8 +9,10 @@ import './TodoList.css';
 export default function TodoList(props) {
     return (
         <div className="todo-list">
-            <Todo />
-            <TodoForm />
+            {props.todoList.map(todo => {
+                return <Todo key={Math.random() * 1000} todo={todo} />
+            })}
+            <TodoForm addTodo={props.addTodo} />
         </div>
     )
 }
