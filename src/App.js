@@ -19,7 +19,15 @@ class App extends React.Component {
 
   addTask = (e) => {
     e.preventDefault()
-    console.log(e)
+    let newTask = {
+      task: this.state.text,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({ 
+      list: [...this.state.list, newTask],
+      text: ""
+    })
   }
   
   handleInput = (e) => {
