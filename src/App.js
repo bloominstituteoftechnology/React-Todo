@@ -13,10 +13,10 @@ class App extends React.Component {
     }
   }
 
-  addTodo = (text) => {
+  addTodo = (todo) => {
     console.log('add todo function');
     this.setState({
-      todoList: [...this.state.todoList, text]
+      todoList: [...this.state.todoList, todo]
     })
   }
 

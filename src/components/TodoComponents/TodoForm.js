@@ -7,12 +7,12 @@ export default class TodoForm extends React.Component {
         this.state = {
             inputText: ''
         }
+        this.input = React.createRef();
     }
     
     inputText = (e) => {
-        let currentInputText = e.target.value;
         this.setState({
-            inputText: currentInputText
+            inputText: e.target.value
         });
     }
 
@@ -21,12 +21,13 @@ export default class TodoForm extends React.Component {
         this.props.addTodo(this.state.inputText);
         this.setState({
             inputText: '',
-        })
+        });
+        this.input.current.value = '';
     }
     render() {
         return (
             <form className="todo-form" onSubmit={this.addTodo}>
-                <input type="text" placeholder="...todo" onChange={this.inputText} />
+                <input ref={this.input} type="text" placeholder="...todo" onChange={this.inputText} />
                 <button type="submit" >Add Todo</button>
                 <button type="reset">Clear Completed</button>
             </form>

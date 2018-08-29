@@ -10,7 +10,7 @@ export default function TodoList(props) {
     return (
         <div className="todo-list">
             {props.todoList.map(todo => {
-                return <Todo key={Math.random() * 1000} todo={todo} />
+                return <Todo key={(Math.random() * 1000) + Date.now()} todo={todo} />
             })}
             <TodoForm addTodo={props.addTodo} />
         </div>
