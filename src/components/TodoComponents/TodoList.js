@@ -6,7 +6,11 @@ import Todo from './Todo';
 // in the array
 
 function TodoList(props) {
-  return <ul>{props.items.map (item => <Todo item={item} />)}</ul>;
+  return <ul>{props.items.map((item, index) =>
+    <div key={index}>
+    <Todo item={item} />
+    </div>)}
+    </ul>;
 }
 
 export default TodoList;
