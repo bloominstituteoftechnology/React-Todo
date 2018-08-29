@@ -14,7 +14,7 @@ class App extends React.Component {
   }
 
   addTodo = (todo) => {
-    console.log('add todo function');
+    // using the result of the addTodo function bubbled up from TodoForm, I append a new todo to the end of the current todoList array in this components state
     this.setState({
       todoList: [...this.state.todoList, todo]
     })
@@ -23,7 +23,7 @@ class App extends React.Component {
   render() {
     return (
         <div className="container">
-          ___ App - Component ___
+          <h1>App Component</h1>
           <TodoList todoList={this.state.todoList} addTodo={this.addTodo}/>
         </div>
     );

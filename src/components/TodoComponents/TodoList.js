@@ -9,6 +9,7 @@ import './TodoList.css';
 export default function TodoList(props) {
     return (
         <div className="todo-list">
+            <h2>TodoList Component</h2>
             {props.todoList.map(todo => {
                 return <Todo key={(Math.random() * 1000) + Date.now()} todo={todo} />
             })}
