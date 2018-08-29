@@ -13,11 +13,15 @@ export default class TodoForm extends React.Component {
         let currentInputText = e.target.value;
         this.setState({
             inputText: currentInputText
-        })
+        });
     }
+
     addTodo = (e) => {
         e.preventDefault();
         this.props.addTodo(this.state.inputText);
+        this.setState({
+            inputText: '',
+        })
     }
     render() {
         return (
