@@ -10,39 +10,42 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      todos:[],
+      items:[{task:"Your list starts here...", id:"", completed:false}],
       inputText: "",
     }
   };
 
-  addTodo = event => {
+  addItem = event => {
     event.preventDefault();
     if (this.state.inputText) {
       this.setState({
-        todos:[...this.state.todos, this.state.inputText],
+        items:[...this.state.items, 
+              {task: this.state.inputText,
+               id: Date.now(),
+              completed:false}],
         inputText: "",
       });
     }
   };
 
   handleInput = event => {
-    this.setState({
-      inputText: event.target.value
-    });
+    this.setState({inputText: event.target.value});
   };
 
   render() {
     return (
-      <div>
-        <TodoList todos = {this.state.todos}/>
+      <div className="todo-container">
+        <h1>Todo List</h1>
+        <TodoList items = {this.state.items}/>
         <TodoForm
-          addTodo={this.addTodo}
           inputText={this.state.inputText}
           handleInput={this.handleInput}
+          addItem={this.addItem}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );
   }
-}
+}//App bracket
 
 export default App;
