@@ -43,7 +43,7 @@ class App extends React.Component {
   };
 
   // TODO: toggleCompleted method
-  togleCompleted = id => {};
+  toggleCompleted = id => {};
 
   // TODO: clearCompleted method
   clearCompleted = event => {};
@@ -52,7 +52,7 @@ class App extends React.Component {
     return (
       <div className="main-wrapper">
         <h2>Todo List: MVP</h2>
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} toggleCompleted={this.toggleCompleted} />
         <TodoForm input={this.state.input} addTodo={this.addTodo} updateInput={this.updateInput} />
       </div>
     );
