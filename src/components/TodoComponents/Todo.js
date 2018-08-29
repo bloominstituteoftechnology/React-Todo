@@ -6,7 +6,7 @@ import React from "react";
 
 const Todo = (props) => {
   return (
-    <li key={props.item.id}>{props.item.task}</li>
+    <li>{props.item.task}</li>
   );
 }
 
