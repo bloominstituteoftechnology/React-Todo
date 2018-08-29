@@ -14,7 +14,47 @@ class App extends React.Component {
     };
     this.savedTodos = [];
   }
-  
+
+  // stretch local storage integration
+
+  componentDidMount() {
+    this.setupStateFromLocal();
+
+    window.addEventListener(
+      "beforeunload",
+      this.saveStateToLocal.bind(this)
+    );
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener(
+      "beforeunload",
+      this.saveStateToLocal.bind(this)
+    );
+    this.saveStateToLocal();
+  }
+
+  setupStateFromLocal() {
+    for (let key in this.state) {
+      if (localStorage.hasOwnProperty(key)) {
+        let value = localStorage.getItem(key);
+
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  }
+
+  saveStateToLocal() {
+    for (let key in this.state) {
+      localStorage.setItem(key, JSON.stringify(this.state[key]));
+    }
+  }
+ 
   
   loadState = () => {
     const savedTodos = localStorage.getItem("todos");
@@ -84,6 +124,26 @@ class App extends React.Component {
   
   if(savedTodos) {
     this.setState({ todos: savedTodos});
+  }
+
+  setupStateFromLocal() {
+    // for all items in state
+    for (let key in this.state) {
+      // if the key exists in localStorage
+      if (localStorage.hasOwnProperty(key)) {
+        // get the key's value from localStorage
+        let value = localStorage.getItem(key);
+
+        // parse the localStorage string and setState
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          // handle empty string
+          this.setState({ [key]: value });
+        }
+      }
+    }
   }
 
   // render method
