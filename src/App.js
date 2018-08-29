@@ -71,6 +71,15 @@ class App extends React.Component {
 		this.setState({...newState});
 	} // onClearCompleted()
 
+	onClearAll = (e) => {
+		e.preventDefault();
+
+		this.setState({
+			inputText: '',
+			todoList: [],
+		});
+	} // onClearAll()
+
 	componentDidUpdate() {
 		console.log(this.state);
 	} // for debugging
@@ -89,6 +98,7 @@ class App extends React.Component {
 					onChangeInput = { this.onChangeInput } 
 					onAddTodo = { this.onAddTodo } 
 					onClearCompleted = { this.onClearCompleted } 
+					onClearAll = { this.onClearAll }
 				/>
       </div>
     );
