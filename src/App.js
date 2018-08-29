@@ -40,8 +40,13 @@ class App extends React.Component {
   // updateInput method
   updateInput = event => {
     this.setState({ input: event.target.value });
-  }
-  
+  };
+
+  // TODO: toggleCompleted method
+  togleCompleted = id => {};
+
+  // TODO: clearCompleted method
+  clearCompleted = event => {};
   // render method
   render() {
     return (
