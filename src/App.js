@@ -50,8 +50,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="todos-container">
-        <h2>Todo App:</h2>
+      <div className="app-container">
+        <h2 class="app-name">Todo App:</h2>
         <TodoList todos={this.state.todos} />
         <TodoForm
           addTodo={this.addTodo}
