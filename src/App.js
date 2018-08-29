@@ -12,10 +12,15 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      id: Date.now(),
-      todos: [],
+      todos: [
+        {
+          todo: 'Add todo',
+          id: Date.now(),
+          completed: false
+        }
+      ],
       inputText:'',
-      completed: false
+      
     };
   }
 
@@ -24,7 +29,7 @@ class App extends React.Component {
     event.preventDefault();
     if (this.state.inputText) {
       this.setState({
-        todos: [...this.state.todos, {inputText: this.state.inputText, completed: this.state.completed, id: this.state.id}],
+        todos: [...this.state.todos, {inputText: this.state.inputText, id: this.state.id, completed: this.state.completed}],
         id: Date.now(),
         inputText:''
       });
@@ -35,8 +40,13 @@ class App extends React.Component {
     event.preventDefault();
     if (this.state.inputText) {
       this.setState({
-        id: Date.now(),
-        todos: [],
+        todos: [
+          {
+            todo: 'Add todo',
+            id: Date.now(),
+            completed: true
+          }
+        ],
         inputText:''
       });
     }
@@ -55,7 +65,7 @@ class App extends React.Component {
     return (
       <div className="app-container">
         <h2>Todos:</h2>
-        <TodoList tasks={this.state.todos} />
+        <TodoList todos={this.state.todos} />
         <TodoForm
           addTodo={this.addTodo}
           inputText={this.state.inputText}
