@@ -6,13 +6,17 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
+
   constructor(){
+    if(!localStorage.todoItems){localStorage.todoItems = '[]'};
     super();
     this.state = {
-      todoItems: [{task: 'Organize Garage', id: 123456789, completed: false}, {task: 'Organize Garage 2', id: 123454789, completed: false}],
+      todoItems: JSON.parse(localStorage.todoItems),
       inputText: ""
+    }
   }
-  }
+
+ 
 
   updateInput = (event) => {
     this.setState({
@@ -22,14 +26,17 @@ class App extends React.Component {
 
  updateTodo = (event) => {
     event.preventDefault();
+    let newTodo = {
+      task: this.state.inputText,
+      id: Date.now(),
+      completed: false
+    }
+
     this.setState({
-     todoItems: [...this.state.todoItems, {
-       task: this.state.inputText,
-       id: Date.now(),
-       completed: false
-     }],
+     todoItems: [...this.state.todoItems, newTodo],
      inputText: ""
    })
+   localStorage.todoItems = JSON.stringify([...this.state.todoItems, newTodo]);
  }
 
  clearCompleted = (event) => {
@@ -43,6 +50,7 @@ class App extends React.Component {
           todoItemState.completed = true;
         }});
      }
+     localStorage.todoItems = JSON.stringify([...this.state.todoItems])
    });
 
    this.setState({
