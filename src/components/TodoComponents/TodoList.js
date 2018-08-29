@@ -1,15 +1,7 @@
-import React from 'react';
-// import './App.css';
-import ToDoFormContainer from './TodoForm';
-import ToDoContainer from './Todo';
+import React from "react";
+import Todo from "./Todo";
 
-const ToDoList = () => {
-  return (
-    <div className = "ToDoListContainer">
-      <ToDoFormContainer />
-      <ToDoContainer />
-    </div>
-  );
-};
-
-export default ToDoList;
+ function TodoList(props){
+	return <ul>{props.todos.map(todo => <Todo todo={todo} />)}</ul>;
+}
+ export default TodoList; 

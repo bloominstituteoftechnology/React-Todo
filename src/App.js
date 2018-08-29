@@ -1,17 +1,59 @@
 import React from 'react';
-import ToDoList from './components/TodoComponents/TodoList';
-class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-  render() {
+import ReactDOM from "react-dom";
+import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
+
+ class App extends React.Component {
+   constructor() {
+    super();
+    this.state = {
+      todos: [],
+      id: Math.random(),
+      completed: false,
+      inputText: "",
+    };
+  }
+  
+   addTask = event => {
+    event.preventDefault();
+    if (this.state.inputText){
+      this.setState({
+        id: Math.random(),
+        todos: [...this.state.todos, {inputText: this.state.inputText, completed: this.state.completed, id: this.state.id}],
+        inputText: '',
+      });
+    }
+  };
+   
+   setInput = event => {
+    this.setState({
+      inputText: event.target.value
+    });
+  };
+
+  clearTasks = event => {
+    if (this.state.inputText){
+      this.setState({
+        id: Math.random(),
+        todos: [],
+        inputText: '',
+      });
+    }
+  }
+
+   render() {
     return (
       <div>
         <h2>To Do List</h2>
-        <ToDoList />
+        <TodoList todos={this.state.todos} />
+        <TodoForm
+          addTask={this.addTask}
+          inputText={this.state.inputText}
+          setInput={this.setInput}
+        />
       </div>
     );
   }
-}
+ }
 
-export default App;
+ export default App;
