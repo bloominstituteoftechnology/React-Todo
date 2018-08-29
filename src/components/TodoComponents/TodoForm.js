@@ -6,7 +6,7 @@ import './Todo.css';
     <form>
       <input class="input" value={props.inputText} onChange={props.handleInput} />
       <button onClick={props.addTodo}>Add Todo</button>
-      <button onClick={props.clearTodo}>Clear</button>
+      <button onClick={props.clearTodo}>Clear Completed</button>
     </form>
   );
 };
