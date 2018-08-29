@@ -35,8 +35,10 @@ class App extends React.Component {
     todos.push(nextTodo);
     this.setState({todos: todos, input: "" });
   };
-  // TODO: updateInput method
-  updateInput = event => {}
+  // updateInput method
+  updateInput = event => {
+    this.setState({ input: event.target.value });
+  }
   // TODO: render method
   render() {
     return (
