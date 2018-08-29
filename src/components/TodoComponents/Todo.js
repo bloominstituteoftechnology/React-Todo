@@ -4,7 +4,7 @@ import React from "react";
 // takes in the todo data and displays
 // the tasks on screen
 
-function Todo(props) {
+const Todo = (props) => {
   return <li>{props.item}</li>;
 }
 
