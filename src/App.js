@@ -51,6 +51,7 @@ class App extends React.Component {
           addTodo={this.addTodo}
           inputText={this.state.inputText}
           handleInput={this.handleInput}
+          clearTodos={this.clearTodos}
         />
       </div>
     );
