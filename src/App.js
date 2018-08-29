@@ -18,10 +18,12 @@ class App extends React.Component {
 
   addTodo = event => {
     event.preventDefault();
+    if (this.state.inputText) {
     this.setState({
       todo: [...this.state.todo, this.state.inputText],
       inputText: ''
     });
+  }
   };
   
   handleInput = event => {
