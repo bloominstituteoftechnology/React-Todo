@@ -10,7 +10,12 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [],
+      todos: [
+        {
+        task: 'Organize Garage',
+        completed: false
+        }
+      ],
       inputText: ""
     };
   }
@@ -19,8 +24,18 @@ class App extends React.Component {
     event.preventDefault();
 
     this.setState({
-      todos: [...this.state.todos, this.state.inputText]
+      todos: [...this.state.todos,  {task:this.state.inputText, id:Date.now(), completed:false}]
     });
+  };
+
+  addItem = event => {
+    event.preventDefault();
+    if(this.state.textField){
+      this.setState({
+        todo_items: [...this.state.todo_items, {task:this.state.textField, id: Date.now(), completed:false}],
+        textField: ""
+      });
+    }
   };
 
   handleInput = event => {
@@ -34,7 +49,7 @@ class App extends React.Component {
      <div>
       <ToDoList todos={this.state.todos} />
       <ToDoForm
-        addUser={this.addToDo}
+        addToDo={this.addToDo}
         inputText={this.state.inputText}
         handleInput={this.handleInput}
       />
