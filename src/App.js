@@ -26,11 +26,10 @@ class App extends React.Component {
   };
 
   // TODO: addTodo method
-
+  addTodo = event => {}
   // TODO: updateInput method
-
+  updateInput = event => {}
   // TODO: render method
-  
   render() {
     return (
       <div>
