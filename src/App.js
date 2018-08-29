@@ -13,7 +13,7 @@ import TodoForm from "./components/TodoComponents/TodoForm";
       inputText: "",
     };
   }
-  
+
    addTask = event => {
     event.preventDefault();
     if (this.state.inputText){
@@ -45,12 +45,12 @@ import TodoForm from "./components/TodoComponents/TodoForm";
     return (
       <div>
         <h2>To Do List</h2>
-        <TodoList todos={this.state.todos} />
         <TodoForm
           addTask={this.addTask}
           inputText={this.state.inputText}
           setInput={this.setInput}
         />
+        <TodoList todos={this.state.todos} />
       </div>
     );
   }
