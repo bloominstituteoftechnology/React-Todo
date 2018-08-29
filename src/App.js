@@ -27,6 +27,7 @@ class App extends React.Component {
   render() {
     return (
       <div className='app-container'>
+        <h1>Todo List</h1>
         <TodoList todoData={this.state.todoData} />
         <TodoForm />
       </div>
