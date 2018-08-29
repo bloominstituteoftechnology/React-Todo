@@ -13,6 +13,7 @@ class App extends React.Component {
     constructor()  {
 	super();
 	this.state = {
+	    cleared: [],
 	    todos: [],
 	    inputText: ""
 	};
@@ -27,6 +28,19 @@ class App extends React.Component {
 	    });
 	}
     };
+
+    clearAll = event => {
+	event.preventDefault();
+	if (this.state.inputText) {
+	    this.setState({
+		todos: [...this.state.cleared],
+		inputText: ""
+	    });
+	    console.log('if');
+	} else {
+	    console.log('else');
+	}
+    }
 
     handleInput = event => {
 	this.setState({
