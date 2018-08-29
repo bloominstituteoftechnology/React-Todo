@@ -1,5 +1,5 @@
 import React from 'react';
-import Todo from './components/TodoComponents/Todo';
+//components are all located in './components/TodoComponents/
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
@@ -21,7 +21,7 @@ class App extends React.Component {
     event.preventDefault();
     this.setState({
       items: [...this.state.items, this.state.inputText],
-      //After entering the new todo item, we need to clear the input field
+      //After entering the new todo item, we need to clear the input field...
       inputText: ''
     })
   }
