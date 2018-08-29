@@ -41,7 +41,7 @@ class App extends React.Component {
   updateInput = event => {
     this.setState({ input: event.target.value });
   }
-  // TODO: render method
+  // render method
   render() {
     return (
       <div className="main-wrapper">
