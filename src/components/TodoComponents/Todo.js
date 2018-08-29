@@ -6,4 +6,6 @@ function Todo(props) {
       {props.todo.task}
     </div>
   );
-}
+};
+
+export default Todo;
