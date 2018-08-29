@@ -1,7 +1,7 @@
 import React from 'react';
 
 function ToDo(props) {
-    return <li>{props.todo.task}</li>;
+    return <h2>{props.todo.task}</h2>;
 }
 
 export default ToDo;

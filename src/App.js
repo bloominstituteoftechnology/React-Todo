@@ -18,6 +18,7 @@ class App extends React.Component {
   addToDo = event => {
     event.preventDefault();
 
+    if (this.state.inputText)
     this.setState({
       todos: [...this.state.todos,  {task:this.state.inputText, id:Date.now(), completed:false}],
       inputText: ""
@@ -32,6 +33,11 @@ class App extends React.Component {
         textField: ""
       });
     }
+  };
+
+  clearComplete = event => {
+    event.preventDefault();
+    console.log("default prevented");
   };
 
   handleInput = event => {

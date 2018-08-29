@@ -5,7 +5,7 @@ function ToDoForm(props) {
         <form>
             <input value={props.inputText} onChange={props.handleInput} />
             <button onClick={props.addToDo}>Add To Do</button>
-            <button>Clear Completed</button>
+            <button onClick={props.clearComplete}>Clear Completed</button>
         </form>
     );
 }
