@@ -30,10 +30,18 @@ class App extends React.Component {
     })
   };
 
+  //form is called controlled comonent (vs. uncontrolled)
+
   render() {
+    // this is a lifecycle hook
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <TodoList todos={this.state.todos} />
+        <TodoForm 
+          addTodo={this.addTodo}
+          inputText={this.state.inputText}
+          handleInput={this.handleInput}
+        /> 
       </div>
     );
   }
