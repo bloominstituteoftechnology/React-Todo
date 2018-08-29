@@ -6,7 +6,7 @@ import Todo from './Todo.js';
 // import './Todo.css';
 
 function TodoList(props) {
-    return <ul>{props.todos.map(todo => <Todo todo={todo} />)}</ul>;
+    return <div>{props.todos.map(todo => <Todo todo={todo} />)}</div>;
 }
 
 export default TodoList;

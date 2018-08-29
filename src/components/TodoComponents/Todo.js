@@ -2,7 +2,7 @@ import React from 'react';
 // import './Todo.css';
 
 function Todo(props) {
-    return <li>{props.todo}</li>;
+    return <p>{props.todo}</p>;
 }
 
 export default Todo;
