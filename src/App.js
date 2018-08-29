@@ -11,9 +11,11 @@ class App extends React.Component {
       this.state = {
         todos: [],
         task: "",
-        id: "",
-        completed: ""
+        // id: "",
+        // completed: false
       };
+
+      // this.handleSingleClickEvent = this.handleSingleClickEvent.bind(this);
   }
 
   // Property
@@ -23,7 +25,8 @@ class App extends React.Component {
     if (this.state.task) { 
         this.setState({
           todos:  [...this.state.todos, this.state.task],
-          task: ""
+          task: "",
+          completed: false
         });
     }    
   };
@@ -34,13 +37,30 @@ class App extends React.Component {
     })
   };
 
+  // alert('Todo task was clicked');
+
+  // handleSingleClickEvent() {
+  //     this.setState(prevState => ({
+  //       completed: !prevState.completed
+  //     }));
+  //   alert('Todo task was clicked');
+  // }
+  
+
   //form is called controlled comonent (vs. uncontrolled)
 
   render() {
     // this is a lifecycle hook
     return (
+      // <div>
+      //   <div onClick={this.handleSingleClickEvent}>
+      //     {this.state.completed ? 'ON' : 'OFF'}
+
+      // </div> at the end of <TodoList />
       <div>
-        <TodoList todos={this.state.todos} />
+        <TodoList 
+        todos={this.state.todos}/>
+        
         <TodoForm 
           addTodo={this.addTodo}
           task={this.state.task}
