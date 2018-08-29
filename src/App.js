@@ -42,8 +42,23 @@ class App extends React.Component {
     this.setState({ input: event.target.value });
   };
 
-  // TODO: toggleCompleted method
-  toggleCompleted = id => {};
+  // toggleCompleted method
+  toggleCompleted = id => {
+    // take a sliced copy of the todos
+    let todos = this.state.todos.slice();
+
+    // map over the todos, toggle the .completed data item in the todo with matching id and return it
+    todos = todos.map(todo => {
+      if(todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    // set the state of the old todos to the new toggled set
+    this.setState({todos: todos});
+  };
 
   // TODO: clearCompleted method
   clearCompleted = event => {};
