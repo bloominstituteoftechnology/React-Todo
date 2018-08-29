@@ -9,7 +9,7 @@ class App extends React.Component {
 constructor() {
     super();
     this.state = {
-      task:"",
+      task:[],
       id: [],
       compeleted: false,
     };
@@ -19,8 +19,8 @@ constructor() {
       event.preventDefault();
       if (this.state.task) {
         this.setState({
-          task: [...this.state.task, this.state.id],
-          id: [],
+          task: [...this.state.task],
+          id: [...this.state.id],
         });
       }
     };
@@ -34,9 +34,9 @@ constructor() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList tasks={this.state.task} />
+        <TodoList task={this.state.task} />
         <TodoForm
-          addTask={this.addUser}
+          addTask={this.addTask}
           id={this.state.id}
           handleInput={this.handleInput}
         />
