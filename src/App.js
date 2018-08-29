@@ -10,7 +10,7 @@ class App extends React.Component {
     super();
       this.state = {
         todos: [],
-        inputText: ""
+        task: ""
       };
   }
 
@@ -18,17 +18,17 @@ class App extends React.Component {
 
   addTodo = event => {
     event.preventDefault();
-    if (this.state.inputText) { 
+    if (this.state.task) { 
         this.setState({
-          todos:  [...this.state.todos, this.state.inputText],
-          inputText: ""
+          todos:  [...this.state.todos, this.state.task],
+          task: ""
         });
     }    
   };
 
   handleInput = event => {
     this.setState({
-      inputText: event.target.value
+      task: event.target.value
     })
   };
 
@@ -41,7 +41,7 @@ class App extends React.Component {
         <TodoList todos={this.state.todos} />
         <TodoForm 
           addTodo={this.addTodo}
-          inputText={this.state.inputText}
+          task={this.state.task}
           handleInput={this.handleInput}
         /> 
       </div>
