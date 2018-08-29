@@ -4,4 +4,12 @@
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
+    word-wrap: break-word;
+    word-break: break-all;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.app-container h2 {
+    font-size: 28px;
 }

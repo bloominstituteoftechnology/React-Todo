@@ -81,10 +81,6 @@ class App extends React.Component {
 			todoList: [],
 		});
 	} // onClearAll()
-
-	componentDidUpdate() {
-		console.log(this.state);
-	} // for debugging
 	
 	render() {
     return (

@@ -1,4 +1,4 @@
-form {
+.todo-form {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -6,15 +6,28 @@ form {
     align-items: center;
 }
 
-form * {
+.todo-form * {
     margin: 10px;
     font-size: 18px;
 }
 
-input {
+.todo-form input {
     height: 35px;
-    width: 200px;
+    width: 300px;
     border-radius: 10px;
+}
+
+.todo-form button {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.todo-form button:hover {
+    background-color: black;
+    color: white;
 }
 
 .unordered-list {
@@ -25,6 +38,6 @@ input {
     flex-direction: column;
 }
 
-.list-item {
+.unordered-list .list-item {
     font-size: 24px;
 }
