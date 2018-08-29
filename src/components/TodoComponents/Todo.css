@@ -4,7 +4,7 @@ body {
 }
 
 .todo-container {
-  width: 100%;
+  width: 99%;
   margin: 100px auto;
   border: 1px solid teal;
 }
