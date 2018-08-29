@@ -18,7 +18,7 @@ class App extends React.Component {
 	};
     }
 
-    addInput = event => {
+    addTodo = event => {
 	event.preventDefault();
 	if (this.state.inputText) {
 	    this.setState({
@@ -37,7 +37,7 @@ class App extends React.Component {
     render() {
 	return (
 	    <div>
-	      <TodoList todos={this.state.users} />
+	      <TodoList todos={this.state.todos} />
 	      <TodoForm
 		addTodo={this.addTodo}
 		inputText={this.state.inputText}
