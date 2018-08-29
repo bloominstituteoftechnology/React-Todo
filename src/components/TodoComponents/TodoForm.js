@@ -1,9 +1,10 @@
 import React from 'react';
 
+import './Todo.css';
+
 const TodoForm = (props) => {
     return (
         <div>
-            <h1>ToDo Form</h1>
             <form>
                 <input 
                     value = { props.inputText } 

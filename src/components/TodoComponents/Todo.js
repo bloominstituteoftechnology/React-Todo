@@ -1,7 +1,9 @@
 import React from 'react';
 
+import './Todo.css';
+
 const Todo = (props) => {
-    return <li id = {props.id} onClick = { props.onItemClick } >{ props.item.task }</li>;
+    return <li className = "list-item" id = {props.id} onClick = { props.onItemClick } >{ props.item.task }</li>;
 }
 
 export default Todo;

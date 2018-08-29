@@ -1,0 +1,30 @@
+form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form * {
+    margin: 10px;
+    font-size: 18px;
+}
+
+input {
+    height: 35px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+.unordered-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.list-item {
+    font-size: 24px;
+}

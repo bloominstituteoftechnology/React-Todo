@@ -1,9 +1,11 @@
 import React from 'react';
 import Todo from './Todo';
 
+import './Todo.css';
+
 const TodoList = (props) => {
     return (
-        <ul>
+        <ul className = "unordered-list">
             {props.todoList.map(todoItem => {
                 return <Todo 
                     key = { todoItem.id } 
