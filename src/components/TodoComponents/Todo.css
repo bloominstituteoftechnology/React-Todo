@@ -13,6 +13,7 @@ body {
   width: 450px;
   height: 40px;
   font-size: 24px;
+  margin-left: 10px;
 }
 
  .todo-item {
@@ -26,12 +27,13 @@ h2 {
   color: teal;
   padding-bottom: 10px;
   font-weight: 700;
+  margin-left: 10px;
 }
 
  button {
   background-color: teal;
   color: white;
-  width: 175px;
+  width: 165px;
   height: 40px;
   margin: 0 10px;
   text-align: center;
