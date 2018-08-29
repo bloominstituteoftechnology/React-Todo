@@ -10,7 +10,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      items:[{task:"Your list starts here...", id:"", completed:false}],
+      items:[],
       inputText: "",
     }
   };
