@@ -16,20 +16,49 @@ class App extends React.Component {
         {
           task: 'Sample task 2',
           id: 1528817077286,
-          completed: false
+          completed: true
         }
-      ]
+      ],
+      inputText: ''
     };
   }
 
-  // handlers here
+  inputChanged = event => {
+    this.setState({
+      inputText: event.target.value
+    });
+  };
+
+  submit = event => {
+    event.preventDefault();
+    if (this.state.inputText) {
+      this.setState({
+        todoData: [...this.state.todoData, {
+          task: this.state.inputText
+        }],
+        inputText: ''
+      });
+    }
+    alert('submitted')
+  };
+
+  keyPress = event => {
+    if(event.key == 'Enter'){
+      this.submit();
+    }
+  };
+
+  clear = () => {
+    // this.state.todoData = this.state.todoData.filter(task => task.completed == false);
+    alert('cleared')
+  };
 
   render() {
     return (
       <div className='app-container'>
         <h1>Todo List</h1>
         <TodoList todoData={this.state.todoData} />
-        <TodoForm />
+        <TodoForm inputChanged={this.inputChanged} keyPress={this.keyPress} submit={this.submit} clear={this.clear} />
       </div>
     );
   }
