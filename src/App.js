@@ -10,21 +10,11 @@ class App extends React.Component {
     super();
 
     this.state = {
-      todos: [
-        {
-          task: "coding",
-          id: 345435,
-          complete: false
-        },
-        {
-          task: "eat",
-          id: 345436,
-          complete: false
-        }
-      ],
+      todos: [],
       inputText: '',
     }
   }
+
 
   changeInput = event => {
     this.setState({
@@ -33,7 +23,22 @@ class App extends React.Component {
   }
 
   addTodo = event => {
-    this.setState
+    event.preventDefault();
+    this.state.todos.map(todo => {
+      if(todo.task === this.state.inputText) {
+        alert(`Already have ${this.state.inputText} as a task.`)
+      }
+    });
+    if(this.state.inputText) {
+      this.setState({
+        todos: [...this.state.todos, {
+          task: this.state.inputText,
+          id: Date.now(),
+          complete: false,
+        }]
+      })
+    }
+    this.setState({inputText: ''})
   }
 
   render() {
@@ -42,7 +47,10 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         <TodoList propTodos={this.state.todos} />
         <TodoForm 
+          inputText={this.state.inputText}
           changeInput={this.changeInput}
+          addTodo={this.addTodo}
+
         />
       </div>
     );
