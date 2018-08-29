@@ -20,8 +20,8 @@ class App extends React.Component {
 
   addTodo = (event) => {
     event.preventDefault();
+    console.log('test add todo');
     if (this.state.inputText) {
-      console.log(this.state.inputText);
       this.setState({
         todos: [
           ...this.state.todos,
@@ -36,12 +36,33 @@ class App extends React.Component {
     }
   };
 
+  removeCompleted = (event) => {
+    event.preventDefault();
+    console.log('test remove completed');
+  };
+
+  removeAll = (event) => {
+    event.preventDefault();
+    console.log('test remove all');
+    this.setState({
+      todos: [],
+      inputText: '',
+    });
+  };
+
+  toggleComplete = (event) => {
+    event.preventDefault();
+    console.log('test toggle complete');
+  };
+
   render() {
     return (
       <div>
         <TodoList todos={this.state.todos} />
         <TodoForm
           addTodo={this.addTodo}
+          removeCompleted={this.removeCompleted}
+          removeAll={this.removeAll}
           inputText={this.state.inputText}
           handleInput={this.handleInput}
         />
