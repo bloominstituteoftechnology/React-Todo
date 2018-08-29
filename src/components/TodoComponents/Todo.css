@@ -1,0 +1,6 @@
+.todo-list ul li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+}
