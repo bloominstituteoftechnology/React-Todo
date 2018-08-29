@@ -29,13 +29,15 @@ class App extends React.Component {
 
   addTodo = event => {
     event.preventDefault();
-    this.setState({
-      todo: [...this.state.todo,{
-        task: this.state.inputText,
-        id: Date.now(),
-        completed: false
-      }]
-    });
+    if (this.state.inputText) {
+      this.setState({
+        todo: [...this.state.todo,{
+          task: this.state.inputText,
+          id: Date.now(),
+          completed: false
+        }]
+      });
+    } 
     this.state.inputText='';
   }
 
