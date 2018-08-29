@@ -11,6 +11,16 @@ class App extends React.Component {
           task: 'Organize Garage',
           id: 1528817077286,
           completed: false
+        },
+        {
+          task: 'Click "Clear Completed" to remove this task',
+          id: 1535575226154,
+          completed: true
+        },
+        {
+          task: 'Click "Clear Completed" to remove this task',
+          id: 1535575227074,
+          completed: true
         }
       ],
       text: "",
@@ -38,7 +48,8 @@ class App extends React.Component {
 
   clearCompleted = (e) => {
     e.preventDefault()
-    console.log(e)
+    let list = this.state.list.filter(task => task.completed === false)
+    this.setState({ list })
   }
 
   render() {
