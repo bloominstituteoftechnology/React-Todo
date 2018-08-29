@@ -3,38 +3,41 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
-
+  
   // constructor
   constructor() {
     super();
+    // add state 
+    this.state = {
+      input: "",
+      todos: []
+    };
+    this.savedTodos = [];
   }
-
-  // add state 
-  state = {
-    input: "",
-    todos: [
-      {
-        task: 'Organize Garage',
-        id: 1528817077286,
-        completed: false
-      },
-      {
-        task: 'Bake Cookies',
-        id: 1528817084358,
-        completed: false
-      }
-    ]
-  };
+  
+  
+  loadState = () => {
+    const savedTodos = localStorage.getItem("todos");
+    if(savedTodos) {
+      this.setState({ todos: JSON.parse(savedTodos)});
+    }
+  }
 
   // addTodo method
   addTodo = event => {
     event.preventDefault();
+    if (this.state.input === "") {
+      return;
+    }
     const task = this.state.input;
     const id = Date.now();
     const nextTodo = {task: task, id: id, completed: false };
     let todos = this.state.todos;
     todos.push(nextTodo);
     this.setState({todos: todos, input: "" });
+    let saveState = this.state;
+    localStorage.setItem("list", JSON.stringify(saveState.todos));
+    localStorage.setItem("newItem", "");
   };
 
   // updateInput method
@@ -60,7 +63,7 @@ class App extends React.Component {
     this.setState({todos: todos});
   };
 
-  // TODO: clearCompleted method
+  // clearCompleted method
   clearCompleted = event => {
 
     // prevent the default behavior of the click event / button
@@ -74,7 +77,14 @@ class App extends React.Component {
 
     // add the filtered todos back to the state
     this.setState({ todos: todos });
+    localStorage.setItem("list", JSON.stringify(todos));
   };
+
+  savedTodos = localStorage.getItem("todos");
+  
+  if(savedTodos) {
+    this.setState({ todos: savedTodos});
+  }
 
   // render method
   render() {
@@ -87,5 +97,4 @@ class App extends React.Component {
     );
   }
 }
-
 export default App;
