@@ -64,6 +64,7 @@ class App extends React.Component {
         <TodoList items={this.state.todo_items} />
         <TodoForm 
           addItem={this.addItem}
+          textField={this.state.textField}
           handleNewItem={this.handleNewItem}
 
         />
