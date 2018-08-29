@@ -10,12 +10,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [
-        {
-        task: 'Organize Garage',
-        completed: false
-        }
-      ],
+      todos: [],
       inputText: ""
     };
   }
@@ -24,7 +19,8 @@ class App extends React.Component {
     event.preventDefault();
 
     this.setState({
-      todos: [...this.state.todos,  {task:this.state.inputText, id:Date.now(), completed:false}]
+      todos: [...this.state.todos,  {task:this.state.inputText, id:Date.now(), completed:false}],
+      inputText: ""
     });
   };
 
