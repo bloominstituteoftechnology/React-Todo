@@ -27,6 +27,14 @@ class App extends React.Component {
       inputs: event.target.value
     });
   };
+
+  clearList = event => {
+    event.preventDefault();
+    this.setState({
+      todo: [],
+      inputs: ""
+    });
+  };
   
 
   
