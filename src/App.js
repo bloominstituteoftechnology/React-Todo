@@ -25,8 +25,16 @@ class App extends React.Component {
     ]
   };
 
-  // TODO: addTodo method
-  addTodo = event => {}
+  // addTodo method
+  addTodo = event => {
+    event.preventDefault();
+    const task = this.state.input;
+    const id = Date.now();
+    const nextTodo = {task: task, id: id, completed: false };
+    let todos = this.state.todos;
+    todos.push(nextTodo);
+    this.setState({todos: todos, input: "" });
+  };
   // TODO: updateInput method
   updateInput = event => {}
   // TODO: render method
