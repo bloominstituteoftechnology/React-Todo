@@ -1,9 +1,17 @@
 import React from 'react';
+import Todo from './Todo.js';
 import './Todo.css';
+
 
 const TodoList = (props) => {
   return (
-    <div></div>
+    <div className='todo-list'>
+      {props.todoData.map(todo => {
+        return (
+          <Todo todo={todo} />
+        );
+      })}
+    </div>
   );
 }
 

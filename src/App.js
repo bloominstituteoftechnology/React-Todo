@@ -1,8 +1,7 @@
 import React from 'react';
-import './App.css';
 import TodoList from './components/TodoComponents/TodoList.js';
-import Todo from './components/TodoComponents/Todo.js';
 import TodoForm from './components/TodoComponents/TodoForm.js';
+import './App.css';
 
 class App extends React.Component {
   constructor() {
@@ -13,15 +12,23 @@ class App extends React.Component {
           task: 'Sample task',
           id: 1528817077286,
           completed: false
+        },
+        {
+          task: 'Sample task 2',
+          id: 1528817077286,
+          completed: false
         }
       ]
     };
   }
 
+  // handlers here
+
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className='app-container'>
+        <TodoList todoData={this.state.todoData} />
+        <TodoForm />
       </div>
     );
   }
