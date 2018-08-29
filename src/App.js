@@ -47,7 +47,7 @@ class App extends React.Component {
       <div className="main-wrapper">
         <h2>Todo List: MVP</h2>
         <TodoList todos={this.state.todos} />
-        <TodoForm />
+        <TodoForm input={this.state.input} addTodo={this.addTodo} updateInput={this.updateInput} />
       </div>
     );
   }
