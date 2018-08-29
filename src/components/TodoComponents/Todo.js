@@ -5,7 +5,9 @@ import React from "react";
 // the tasks on screen
 
 const Todo = (props) => {
-  return <li>{props.item}</li>;
+  return (
+    <li key={props.item.id}>{props.item.task}</li>
+  );
 }
 
 export default Todo;

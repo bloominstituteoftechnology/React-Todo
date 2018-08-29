@@ -22,9 +22,9 @@ class App extends React.Component {
     //we need to prevent blank submissions, like this...
     if (this.state.inputText) {
     this.setState({
-      items: [...this.state.items, this.state.inputText],
+      items: [...this.state.items, {task: this.state.inputText, id: Date.now(), completed: false}],
       //After entering the new todo item, we need to clear the input field...
-      inputText: ''
+      inputText: '',
     })
   }
 }
@@ -34,7 +34,7 @@ class App extends React.Component {
       inputText: event.target.value
     });
   }
-  //clickHandler
+  
 
   render() {
     return (
