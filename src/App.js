@@ -61,14 +61,28 @@ class App extends React.Component {
   };
 
   // TODO: clearCompleted method
-  clearCompleted = event => {};
+  clearCompleted = event => {
+
+    // prevent the default behavior of the click event / button
+    event.preventDefault();
+
+    // take a sliced copy of the todos
+    let todos = this.state.todos.slice();
+
+    // filter the todos on the completed flag
+    todos = todos.filter(todo => !todo.completed);
+
+    // add the filtered todos back to the state
+    this.setState({ todos: todos });
+  };
+
   // render method
   render() {
     return (
       <div className="main-wrapper">
         <h2>Todo List: MVP</h2>
         <TodoList todos={this.state.todos} toggleCompleted={this.toggleCompleted} />
-        <TodoForm input={this.state.input} addTodo={this.addTodo} updateInput={this.updateInput} />
+        <TodoForm input={this.state.input} addTodo={this.addTodo} updateInput={this.updateInput} clearCompleted={this.clearCompleted} />
       </div>
     );
   }
