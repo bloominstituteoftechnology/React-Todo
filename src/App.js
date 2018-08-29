@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoData: [
+      todos: [
         {
           task: 'Sample task',
           id: 1528817077286,
@@ -33,7 +33,7 @@ class App extends React.Component {
     event.preventDefault();
     if (this.state.inputText) {
       this.setState({
-        todoData: [...this.state.todoData, {
+        todos: [...this.state.todos, {
           task: this.state.inputText,
           id: Date.now(),
           completed: false
@@ -44,15 +44,19 @@ class App extends React.Component {
   };
 
   keyPress = event => {
-    if(event.key == 'Enter'){
+    if(event.key === 'Enter'){
       this.submit();
     }
   };
 
+  // completed = () => {
+
+  // }
+
   clear = (event) => {
     event.preventDefault();
     this.setState({
-      todoData: this.state.todoData.filter(task => task.completed == false)
+      todos: this.state.todos.filter(task => task.completed === false)
     });
   };
 
@@ -60,7 +64,7 @@ class App extends React.Component {
     return (
       <div className='app-container'>
         <h1>Todo List</h1>
-        <TodoList todoData={this.state.todoData} />
+        <TodoList todos={this.state.todos} />
         <TodoForm inputText={this.state.inputText} inputChanged={this.inputChanged} keyPress={this.keyPress} submit={this.submit} clear={this.clear} />
       </div>
     );
