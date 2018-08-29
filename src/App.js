@@ -21,6 +21,13 @@ class App extends React.Component {
     }
   }
 
+  removeTodos = (event) => {
+    event.preventDefault();
+    this.setState({
+      todo: []
+    })
+  }
+
   handleInput = (event) => {
     this.setState({
       inputText: event.target.value
@@ -35,6 +42,7 @@ class App extends React.Component {
         <TodoList todo4={this.state.todo} />
         <TodoForm
           addTodo={this.addTodo}
+          removeTodos={this.removeTodos}
           inputText={this.state.inputText}
           handleInput={this.handleInput}
         />
