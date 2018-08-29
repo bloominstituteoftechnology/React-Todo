@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
 	constructor (props) {
@@ -34,19 +35,49 @@ class App extends React.Component {
 		}
 	} // onAddTodo()
 
+	onItemClick = (e) => {
+		e.preventDefault();
+
+		if (e.target.style.textDecoration === "line-through") {
+			e.target.style.textDecoration = "none";
+		} else {
+			e.target.style.textDecoration = "line-through";
+		}
+
+		for (let i = 0; i < this.state.todoList.length; i++) {
+			if (this.state.todoList[i].id === e.target.id) {
+				let newState = {...this.state};
+				newState.todoList[i].completed = !newState.todoList[i].completed;
+
+				this.setState({...newState});
+			}
+		}
+	} // onItemClick()
+
+	onClearCompleted = (e) => {
+		e.preventDefault();
+
+		console.log(e.target);
+	} // onClearCompleted()
+
 	componentDidUpdate() {
 		console.log(this.state);
-	}
+	} // for debugging
 	
 	render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+				<TodoList 
+					todoList = { this.state.todoList } 
+					onItemClick = { this.onItemClick } 
+				/>
+
 				<TodoForm 
 					inputText = { this.state.inputText } 
-					todoList = { this.state.todoList } 
 					onChangeInput = { this.onChangeInput } 
-					onAddTodo = { this.onAddTodo }
+					onAddTodo = { this.onAddTodo } 
+					onClearCompleted = { this.onClearCompleted } 
 				/>
       </div>
     );
