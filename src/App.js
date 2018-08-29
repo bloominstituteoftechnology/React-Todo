@@ -13,6 +13,17 @@ class App extends React.Component {
         inputText: ""
       };
   }
+
+  // Property
+
+  addTodo = event => {
+    event.preventDefault();
+        this.setState(
+          todos:  {...this.state.todos, this.state.inputText],
+          inputText: ""
+        });
+  }
+  
   render() {
     return (
       <div>
