@@ -11,20 +11,29 @@ class App extends React.Component {
     super();
     this.state = {
       todoItems: [],
-      todoInput: ''
+      inputText: ''
     };
   }
 
   addTodo = event => {
-
+    event.preventDefault();
+    if (this.state.inputText) {
+      this.setState({
+        todoItems: [...this.state.todoItems, {task: this.state.inputText, id: `${Date.now()}`, completed: false}],
+        inputText: ''
+      });
+    }
   }
 
   clearTodo = event => {
-
+    event.preventDefault();
+    // some stuff
   }
 
   handleInput = event => {
-
+    this.setState({
+      inputText: event.target.value
+    });
   }
 
   render() {
@@ -32,7 +41,11 @@ class App extends React.Component {
       <div>
           <h2>ToDo List</h2>
           <TodoList todoItems={this.state.todoItems} />
-          <TodoForm />
+          <TodoForm
+             addTodo={this.addTodo}
+             inputText={this.state.inputText}
+             handleInput={this.handleInput}
+           />
       </div>
     );
   }
