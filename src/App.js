@@ -15,7 +15,7 @@ class App extends React.Component {
     event.preventDefault();
     if (this.state.inputText) {
       this.setState({
-        todos: [...this.state.todos, this.state.inputText],
+        todos: [...this.state.todos, {todo: this.state.inputText, id: Date.now(), completed: false}],
         inputText: ""
       });
     }
