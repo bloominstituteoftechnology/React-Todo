@@ -10,7 +10,9 @@ class App extends React.Component {
     super();
       this.state = {
         todos: [],
-        task: ""
+        task: "",
+        id: "",
+        completed: ""
       };
   }
 
