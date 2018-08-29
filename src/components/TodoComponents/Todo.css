@@ -4,3 +4,7 @@
     align-items: center;
     list-style: none;
 }
+
+.todo-list ul li input[type=checkbox]:checked + label {
+    text-decoration: line-through;
+}

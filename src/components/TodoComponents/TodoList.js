@@ -15,7 +15,7 @@ const TodoList = (props) => {
             return null;
         })}
         </ul>
-        <TodoForm inputText={props.inputText} updateInput={props.updateInput} updateTodo={props.updateTodo}/>
+        <TodoForm inputText={props.inputText} updateInput={props.updateInput} updateTodo={props.updateTodo} clearCompleted={props.clearCompleted}/>
     </section>
     )
 }

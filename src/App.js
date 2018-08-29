@@ -32,20 +32,24 @@ class App extends React.Component {
    })
  }
 
- toggleTodo = (event) => {
-  let todoItems = [...this.state.todoItems];
-  todoItems.forEach(todoItem => {
-    if(todoItem.id == event.target.parentNode.id){
-      todoItem.completed = true;
-    }});
-    console.log(todoItems);
-   this.setState({
-     todoItems: [...todoItems]
-    })
- }
-
  clearCompleted = (event) => {
-  console.log(event);
+   event.preventDefault();
+   let todoItems = document.querySelectorAll('li');
+   let todoItemsState = [...this.state.todoItems];
+   todoItems.forEach(todoItem => {
+     if (todoItem.querySelector('input[type="checkbox"]').checked) {
+      todoItemsState.forEach(todoItemState => {
+        if(todoItemState.id == todoItem.id){
+          todoItemState.completed = true;
+        }});
+     }
+   });
+
+   this.setState({
+    todoItems: [...todoItemsState]
+   });
+
+   console.log(this.state.todoItems);
  }
 
   render() {
@@ -57,7 +61,8 @@ class App extends React.Component {
           inputText={this.state.inputText} 
           updateInput={this.updateInput} 
           updateTodo={this.updateTodo} 
-          toggleTodo={this.toggleTodo}
+          toggleTodo={this.toggleTodo} 
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );
