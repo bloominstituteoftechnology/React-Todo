@@ -18,11 +18,6 @@ class App extends React.Component {
     this.setState({ inputText: event.target.value });
   };
 
-  // createTodo = (event) => {
-  //   event.preventDefault();
-  //   if (this.state.input)
-  // }
-
   addTodo = (event) => {
     event.preventDefault();
     if (this.state.inputText) {
