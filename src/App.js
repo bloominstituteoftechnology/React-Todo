@@ -14,11 +14,11 @@ class App extends React.Component {
   }
 
 
-  addToto = event => {
+  addTodo = event => {
     event.preventDefault();
     if (this.state.inputText) {
       this.setState({
-        todo: [...this.state.todos, this.state.inputText],
+        todos: [...this.state.todos, {todo: this.state.inputText, id: Date.now(), completed: false}],
         inputText: ""
       });
     }
@@ -33,7 +33,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList todos={this.state.todos} />
+        <TodoList todo4={this.state.todos} />
         <TodoForm
           addTodo={this.addTodo}
           inputText={this.state.inputText}
