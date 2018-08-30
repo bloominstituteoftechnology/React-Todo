@@ -1,3 +1,31 @@
 .strike {
   text-decoration: line-through;
 }
+
+.TodoForm {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 10%;
+}
+
+.TodoForm input {
+  border-radius: 5px;
+  padding: 2%;
+  font-family: 'Raleway', sans-serif;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px black;
+}
+
+.TodoForm .buttons {
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.TodoForm button {
+  padding: 3%;
+  border-radius: 30px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px black;
+}

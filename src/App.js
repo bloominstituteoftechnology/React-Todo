@@ -9,19 +9,24 @@ class App extends React.Component {
     this.state = {
       list: [
         {
-          task: 'Organize Garage',
+          task: 'Organize garage',
           id: 1528817077286,
           completed: false,
         },
         {
-          task: 'Click "Clear Completed" to remove vaccum carpet',
+          task: 'Vaccum carpet',
           id: 1535575226154,
           completed: true,
         },
         {
-          task: 'Click "Clear Completed" to remove washing car',
+          task: 'Washing car',
           id: 1535575227074,
           completed: true,
+        },
+        {
+          task: 'Mow lawn',
+          id: 1535575227074,
+          completed: false,
         }
       ],
       text: "",
