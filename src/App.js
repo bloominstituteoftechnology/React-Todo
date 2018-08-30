@@ -32,15 +32,15 @@ class App extends React.Component {
   submit = event => {
     event.preventDefault();
     if (this.state.inputText) {
-      let todos = {
-        todos: [...this.state.todos, {
+      let todos = [...this.state.todos, {
           task: this.state.inputText,
           id: Date.now(),
           completed: false
-        }],
+        }]
+      this.setState({
+        todos: todos,
         inputText: ''
-      };
-      this.setState(todos);
+      });
     }
   };
 
@@ -51,28 +51,24 @@ class App extends React.Component {
   };
 
   completedToggle = (event) => {
-    // let todos = {
-    //   todos: this.state.todos.map( todo => {
-    //     // console.log(todo.id, event.target.dataset.key);
-    //     if (todo.id === +event.target.dataset.key) {
-    //       todo.completed ? todo.completed = false : todo.completed = true;
-    //     }
-    //     return todo;
-    //   })
-    // };
-    let todos = this.state.todos;
-    let todoIndex = todos.findIndex((todo => todo.id === +event.target.dataset.key));
+    let todos = [...this.state.todos];
+    let todoIndex = todos.findIndex(
+      (todo => todo.id === +event.target.id)
+    );
     todos[todoIndex].completed ?
       todos[todoIndex].completed = false
     : todos[todoIndex].completed = true;
 
-    this.setState(todos);
-  }
+    this.setState({
+      todos: todos
+    });
+  };
 
   clear = (event) => {
     event.preventDefault();
+    let todos = this.state.todos.filter(todo => todo.completed === false);
     this.setState({
-      todos: this.state.todos.filter(todo => todo.completed === false)
+      todos: todos
     });
   };
 
@@ -81,13 +77,13 @@ class App extends React.Component {
       <div className='app-container'>
         <h1>Todo List</h1>
         <TodoList todos={this.state.todos}
-                  completedToggle={this.completedToggle}/>
+                  completedToggle={this.completedToggle} />
 
         <TodoForm inputText={this.state.inputText}
                   inputChanged={this.inputChanged}
                   keyPress={this.keyPress}
                   submit={this.submit}
-                  clear={this.clear}/>
+                  clear={this.clear} />
       </div>
     );
   }
