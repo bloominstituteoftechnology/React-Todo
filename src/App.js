@@ -23,12 +23,14 @@ class App extends React.Component {
     };
   }
 
+  // Update inputText
   inputChanged = event => {
     this.setState({
       inputText: event.target.value
     });
   };
 
+  // Add todo to list
   submit = event => {
     event.preventDefault();
     if (this.state.inputText) {
@@ -45,6 +47,7 @@ class App extends React.Component {
     }
   };
 
+  // Submit on enter key press
   keyPress = event => {
     if(event.key === 'Enter'){
       this.submit();
@@ -57,7 +60,7 @@ class App extends React.Component {
     const todoIndex = todos.findIndex(
       (todo => todo.id === +event.target.id)
     );
-    todos[todoIndex].completed = todos[todoIndex].completed ? false : true;
+    todos[todoIndex].completed = !todos[todoIndex].completed;
 
     this.setState({
       todos: todos
@@ -76,7 +79,7 @@ class App extends React.Component {
   render() {
     return (
       <div className='app-container'>
-        <h1>Todo List</h1>
+        <h1 className='list-title'>Todo List</h1>
         <TodoList todos={this.state.todos}
                   toggleCompleted={this.toggleCompleted} />
 
