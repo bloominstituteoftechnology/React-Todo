@@ -9,7 +9,7 @@ import './App.css';
     super();
     this.state = {
       todos: [],
-      id: Math.random(),
+      id: Date.now(),
       completed: false,
       inputText: "",
     };
@@ -19,7 +19,7 @@ import './App.css';
     event.preventDefault();
     if (this.state.inputText){
       this.setState({
-        id: Math.random(),
+        id: Date.now(),
         todos: [...this.state.todos, {inputText: this.state.inputText, completed: this.state.completed, id: this.state.id}],
         inputText: '',
       });
@@ -32,10 +32,36 @@ import './App.css';
     });
   };
 
+
+
+
+
+
+  markCompleted = id => {
+    let todoSegment = this.state.todos.slice();
+    todoSegment = todoSegment.map(todo => {
+      if(todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({todos: todoSegment});
+  };
+
+  clearCompleted = event => {
+   event.preventDefault();
+   let todoSegment = this.state.todos.slice();
+    todoSegment = todoSegment.filter(todo => !todo.completed);
+   this.setState({ todos: todoSegment });
+  };
+
+
   clearTasks = event => {
     if (this.state.inputText){
       this.setState({
-        id: Math.random(),
+        id: Date.now(),
         todos: [],
         inputText: '',
       });
