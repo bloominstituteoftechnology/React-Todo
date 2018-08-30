@@ -13,6 +13,7 @@ class App extends React.Component {
     this.state = {
       users: [],
       inputText: "",
+      clicked:false,
     };
   }
   
@@ -20,11 +21,24 @@ class App extends React.Component {
     event.preventDefault();
     if(this.state.inputText){
       this.setState({
-        users: [...this.state.users, this.state.inputText],
+        users: [...this.state.users, {task: this.state.inputText, id: Date.now(), completed:false} ],
         inputText: ""
       });
     }
   };
+
+//  toggleToDOComplete = id => {
+//    let newTodos = [...this.state.users];
+//    let newTodos = newTodos.map(inputText =>{
+//      if (inputText.id === id){
+//        inputText.completed = !inputText.completed;
+//        return inputText;
+//      } else{
+//        return inputText;
+//      }
+//    })
+//  }
+
   
   handleInput = event => {
     this.setState ({
@@ -32,10 +46,15 @@ class App extends React.Component {
     });
   };
 
+  onClickMe = () => {
+    this.setState({clicked:!this.state.clicked});
+  }
+
   render() {
     return (
       <div>
-        <TodoList users={this.state.users} />
+        <h1>ToDo List:MVP</h1>
+        <TodoList usersProps={this.state.users} />
         <TodoForm
           addUser={this.addUser}
           inputText={this.state.inputText}
