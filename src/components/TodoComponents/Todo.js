@@ -7,7 +7,11 @@ const trueStyle = {
 function Todo(props) {
 
   return(
-    <p style={props.todo.completed ? trueStyle: null} onClick={props.completed} >{props.todo.task}</p>
+    <p 
+      style={props.todo.completed ? trueStyle: null} 
+      onClick={()=>props.completed(props.todo.id)} >
+      - {props.todo.task}
+    </p>
   );
 }
 

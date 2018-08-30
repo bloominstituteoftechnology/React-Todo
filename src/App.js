@@ -1,4 +1,5 @@
 import React from 'react';
+import "./index.css";
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -52,10 +53,8 @@ class App extends React.Component {
 
   completed = event => {
     const todosArray = [...this.state.todos];
-
-    const taskCall = event.target.innerText;
     for (let i = 0; i < todosArray.length; i++){
-      if(taskCall === todosArray[i].task) {
+      if(event === todosArray[i].id) {
         todosArray[i].completed = !todosArray[i].completed;
       }
     }
@@ -73,19 +72,15 @@ class App extends React.Component {
       }
       return newArray;
     })
-    console.log(newArray)
     this.setState({todos: newArray})
 
   }
 
   render() {
     return (
-      <div>
+      <div className="container todo">
         <h2>Welcome to your Todo App!</h2>
-        <TodoList 
-          propTodos={this.state.todos} 
-          completed={this.completed}
-        />
+        <div className="inner-list">
         <TodoForm 
           inputText={this.state.inputText}
           changeInput={this.changeInput}
@@ -93,6 +88,11 @@ class App extends React.Component {
           clearComplete={this.clearComplete}
 
         />
+        <TodoList 
+          propTodos={this.state.todos} 
+          completed={this.completed}
+        />
+        </div>
       </div>
     );
   }

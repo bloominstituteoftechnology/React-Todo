@@ -4,7 +4,7 @@ import React from 'react';
 import Todo from './Todo';
 
 function TodoList(props) {
-return <div>{props.propTodos.map(todo => 
+return <div className="list">{props.propTodos.map(todo => 
     <Todo 
       todo={todo} 
       completed={props.completed} 
