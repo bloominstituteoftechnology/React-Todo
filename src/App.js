@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
 
+import './main.css'
+
 
 class App extends React.Component {
   constructor() {
@@ -43,31 +45,33 @@ class App extends React.Component {
 
  handleClick = event => {
    console.log(event.target.innerText)
-   console.log('step 1');
    const newTodos = this.state.todos.slice(0)
-   console.log('step 2');
    for (let i in newTodos) {
-     this.state.todos[i]['task'] == event.target.innerText ?
-      newTodos[i]['completed'] = !newTodos[i]['completed']:
-       console.log('isnt working');
-       console.log('value now:', this.state.todos[i]['completed'] );
+     if ( newTodos[i]['task'] == event.target.innerText ) {
+       newTodos[i]['completed'] = !newTodos[i]['completed']
+
+
+     }
+       this.setState({todos: newTodos})
    };
+   event.target.classList.add('completed')
  }
 
    addTodo = event => {
      event.preventDefault()
      this.setState({
-       todos: [... this.state.todos, {task:this.state.input, id:Date.now(), completed:false}],
+       todos: [... this.state.todos,  {task:this.state.input, id:Date.now(), completed:false}],
        input: ""
      });
    }
 
-   removeTodo = event => {
+   removeCompleted = event => {
      event.preventDefault()
-     // const new_list = this.state.todos.filter(todo => todo.completed == false)
-     // console.log(new_list)
+     let new_list = this.state.todos.filter(todo => todo.completed == false)
+     console.log('hola adri:', event.target);
+     console.log(this.state.todos.filter(todo => todo.completed == false).classList);
      this.setState({
-       todos: this.state.todos.filter(todo => todo.completed == false)
+       todos: new_list
      })
    }
 
@@ -78,11 +82,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <h1>Todo List: MVP</h1>
         <TodoList todoList={this.state.todos} handleClick={this.handleClick} />
         <TodoForm handleChange={this.handleChange}
                   inputText={this.state.input}
                   addTodo={this.addTodo}
-                  removeTodo={this.removeTodo}
+                  removeTodo={this.removeCompleted}
          />
 
       </div>

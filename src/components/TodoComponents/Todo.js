@@ -1,7 +1,5 @@
 import React from 'react';
 
-// const Job = props => <h2>I work as a {props.job}</h2>;
-
-const Todo = props => <li onClick={props.handleClick}>{props.todo.task}</li>;
+const Todo = props => <p class="" onClick={props.handleClick}>{props.todo.task}</p>;
 
 export default Todo
