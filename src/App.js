@@ -33,7 +33,7 @@ class App extends React.Component {
 
   clearCompleted = event => {
     event.preventDefault();
-    if (this.state.inputText) {
+    if (this.state.todos) {
       this.setState({
         id: Date.now(),
         todos: [],
