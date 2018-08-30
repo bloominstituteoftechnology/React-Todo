@@ -19,7 +19,7 @@ class App extends React.Component {
     event.preventDefault();
     if (this.state.inputText) {
       this.setState({
-        todoItems: [...this.state.todoItems, {task: this.state.inputText, id: `${Date.now()}`, completed: false}],
+        todoItems: [...this.state.todoItems, {task: this.state.inputText, id: Date.now(), completed: false}],
         inputText: ''
       });
     }
@@ -28,6 +28,15 @@ class App extends React.Component {
   clearTodo = event => {
     event.preventDefault();
     // some stuff
+  }
+
+  toggleTodo = event => {
+    console.log(event.target);
+    console.log(this.state.todoItems);
+    // event.target.classList.toggle='strike-through';
+    this.setState({
+      // event.target.
+    });
   }
 
   handleInput = event => {
@@ -40,11 +49,14 @@ class App extends React.Component {
     return (
       <div>
           <h2>ToDo List</h2>
-          <TodoList todoItems={this.state.todoItems} />
+          <TodoList 
+            todoItems={this.state.todoItems}
+            toggleTodo={this.toggleTodo}
+           />
           <TodoForm
-             addTodo={this.addTodo}
-             inputText={this.state.inputText}
-             handleInput={this.handleInput}
+            addTodo={this.addTodo}
+            inputText={this.state.inputText}
+            handleInput={this.handleInput}
            />
       </div>
     );
