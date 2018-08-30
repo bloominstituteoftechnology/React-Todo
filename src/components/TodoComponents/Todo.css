@@ -5,9 +5,11 @@
 }
 
 body, html, #root{
-    width:100%;
+    width: 100%;
     height: 100%;
+    overflow: hidden;
     font-family: Fjalla One;
+    margin: 0;
 }
 
 #root {
@@ -18,7 +20,7 @@ body, html, #root{
 
 #root h2 {
     font-family: Fjalla One;
-    text-align: justify;
+    text-align: center;
     width: 100%;
     letter-spacing: 4px;
     color: lavenderblush;
@@ -133,14 +135,6 @@ form .buttons .clear-completed:hover {
     border: 4px solid #125184;
 }
 
-/* .todo-list ul li .checkbox:hover span{
-    background-color: dodgerblue;
-    width: 25%;
-    height: 25%;
-    z-index: 900;
-    display: block;
-} */
-
 .todo-list ul li label, .todo-list ul li input  {
     cursor: pointer;
     color: darkslategrey;
@@ -164,24 +158,6 @@ display: none;
     background-color: dodgerblue;
     border: 4px solid #125184;
 }
-
-/* .todo-list ul li input[type=checkbox]:checked + label + span span {
-    background-color: lavenderblush;
-    width: 25%;
-    height: 25%;
-    z-index: 900;
-    display: block;
-}
-
-.todo-list ul li input[type=checkbox]:hover + label + span span {
-    background-color: dodgerblue;
-    width: 25%;
-    height: 25%;
-    z-index: 900;
-    display: block;
-} */
-
-
 
 .todo-container {
     padding: 30px 30px 30px 30px;
