@@ -16,8 +16,6 @@ class App extends React.Component {
     }
   }
 
- 
-
   updateInput = (event) => {
     this.setState({
       inputText: event.target.value
@@ -44,20 +42,6 @@ class App extends React.Component {
   }
  }
 
-//  clearCompleted = (event) => {
-//    event.preventDefault();
-//    let todoItems = document.querySelectorAll('li');
-//    let todoItemsState = [...this.state.todoItems];
-//    todoItems.forEach(todoItem => {
-//      if (todoItem.querySelector('input[type="checkbox"]').checked) {
-//       todoItemsState.forEach(todoItemState => {
-//         if(todoItemState.id == todoItem.id){
-//           todoItemState.completed = true;
-//         }});
-//      }
-//      localStorage.todoItems = JSON.stringify([...this.state.todoItems])
-//    });
-
 clearCompleted = (event) => {
    event.preventDefault();
    let todoItemsActive = this.state.todoItems.filter(todoItem => !todoItem.completed);
@@ -74,7 +58,6 @@ clearCompleted = (event) => {
   }
 
   clickStore = (event) => {
-
     let todoItemsCompleted = this.state.todoItems.map((todoItem) => {
       console.log(event.currentTarget.id +" : "+ event.currentTarget.checked);
       console.log(todoItem);
