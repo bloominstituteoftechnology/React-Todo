@@ -1,20 +1,41 @@
 import React from 'react';
-import Message from './messagepractice';
+import DisneyCharacter from './CharacterName';
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-
-  constructor() {
+  constructor(){
     super();
     this.state = {
-      message: 'THE WORLD IS OVER',
-    }
+      users: [],
+      inputText: "",
+    };
   }
+  
+  addUser = event => {
+    event.preventDefault();
+    if(this.state.inputText){
+      this.setState({
+        users: [...this.state.users, this.state.inputText],
+        inputText: ""
+      });
+    }
+  };
+  
+  handleInput = event => {
+    this.setState ({
+      inputText: event.target.value
+    });
+  };
+
   render() {
     return (
-      <Message message={this.state.message} />
+      <div>
+        <TodoList users={this.state.users} />
+        <TodoForm
+          addUser={this.addUser}
+          inputText={this.state.inputText}
+          handleInput={this.handleInput}
+        />
+      </div>
     );
   }
 }
