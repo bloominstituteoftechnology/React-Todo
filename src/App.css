@@ -1,0 +1,8 @@
+.todo-list-component {
+  margin: 20px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  padding: 0 10px;
+}
