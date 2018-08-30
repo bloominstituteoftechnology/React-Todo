@@ -1,4 +1,4 @@
-import React from 'react';
+import  from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -69,12 +69,25 @@ class App extends React.Component {
     if (this.state.input === "") {
       return;
     }
+    // creates a task variable
     const task = this.state.input;
+
+    // Generate new id based on time and date
     const id = Date.now();
+
+    // build a todo based on the task id and completed being false
     const nextTodo = {task: task, id: id, completed: false };
+
+    // make variable to grab the todos[] from state
     let todos = this.state.todos;
+
+    // push new todo data to the array
     todos.push(nextTodo);
+
+    // set state to the new generated state from the new todos array
     this.setState({todos: todos, input: "" });
+
+    // deal with local storage
     let saveState = this.state;
     localStorage.setItem("list", JSON.stringify(saveState.todos));
     localStorage.setItem("newItem", "");
@@ -87,6 +100,7 @@ class App extends React.Component {
 
   // toggleCompleted method
   toggleCompleted = id => {
+
     // take a sliced copy of the todos
     let todos = this.state.todos.slice();
 
@@ -99,6 +113,7 @@ class App extends React.Component {
         return todo;
       }
     });
+
     // set the state of the old todos to the new toggled set
     this.setState({todos: todos});
   };
@@ -117,9 +132,11 @@ class App extends React.Component {
 
     // add the filtered todos back to the state
     this.setState({ todos: todos });
+    // handle local storage
     localStorage.setItem("list", JSON.stringify(todos));
   };
 
+  // update saved todos
   savedTodos = localStorage.getItem("todos");
   
   if(savedTodos) {
