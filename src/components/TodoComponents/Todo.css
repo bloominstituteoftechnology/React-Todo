@@ -55,9 +55,9 @@
 .add-item {
     font-size: 24px;
     -webkit-animation-name: add-item-anim; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.5s; /* Safari 4.0 - 8.0 */
     animation-name: add-item-anim;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
 
@@ -75,9 +75,9 @@
 
 .remove-item {
     -webkit-animation-name: remove-item-anim; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.5; /* Safari 4.0 - 8.0 */
     animation-name: remove-item-anim;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
 }
 
 /* Safari 4.0 - 8.0 */

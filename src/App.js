@@ -88,7 +88,7 @@ class App extends React.Component {
 		}
 
 		setTimeout(() => {
-			// after 1 second (time it takes to animate fade out), filter out the
+			// after 0.5 seconds (time it takes to animate fade out), filter out the
 			// todoList items with a completed flag that is set to false
 			let newTodoList = newState.todoList.filter(currItem => !currItem.completed)
 			
@@ -96,7 +96,7 @@ class App extends React.Component {
 			newState.todoList = newTodoList;
 			
 			this.setState({...newState});
-		}, 1000);
+		}, 300);
 	} // onClearCompleted()
 
 	onClearAll = (e) => {
@@ -108,13 +108,13 @@ class App extends React.Component {
 
 		setTimeout(() => {
 
-			// after 1 second (time it takes to animate fade out) reset state to
+			// after 0.5 seconds (time it takes to animate fade out) reset state to
 			// its default empty values
 			this.setState({
 				inputText: '',
 				todoList: [],
 			});
-		}, 1000);
+		}, 300);
 	} // onClearAll()
 	
 	render() {
