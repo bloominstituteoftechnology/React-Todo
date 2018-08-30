@@ -4,7 +4,7 @@ import React from 'react';
 import Todo from './Todo';
 
 function TodoList(props) {
-    return <ul>{props.todo.map(item => <Todo todo={item} />)}</ul>
+    return <ul onClick={props.isCompleted}>{props.todo.map(item => <Todo todo={item} />)}</ul>
 }
 
 export default TodoList;
