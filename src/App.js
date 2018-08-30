@@ -18,7 +18,7 @@ class App extends React.Component {
     event.preventDefault(); // What does this do? Why is this necessary?
     if (this.state.inputText) {
       this.setState({
-        todos: [...this.state.todos, this.state.inputText],
+        todos: [...this.state.todos, this.state.inputText], // Defining todos as an array containing todos and inputText
         inputText: ''
       });
     }
@@ -32,7 +32,7 @@ class App extends React.Component {
     return (
       <div>
         <TodoList todos={this.state.todos} />
-        <TodoForm />
+        <TodoForm inputText={this.state.inputText} addTodo={this.addTodo} handleInput={this.handleInput} />
       </div>
     );
   }

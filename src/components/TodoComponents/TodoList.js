@@ -3,8 +3,8 @@
 import React from 'react';
 import Todo from './Todo.js';
 
-TodoList = props => {
-    return <ul>{props.todos.map(todo => <Todo todo={todo} />)}</ul>
+const TodoList = props => {
+    return <ul>{props.todos.map((todo, index) => <Todo todo={todo} key={index} />)}</ul>
 }
 
 export default TodoList;

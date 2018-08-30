@@ -1,6 +1,6 @@
 import React from 'react';
 
-Todo = props => {
+const Todo = props => {
     return <li>{props.todo}</li>;
 }
 
