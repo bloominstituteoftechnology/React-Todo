@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Truncate from '../Truncate';
+import Icons from '../IconComponent/Icons';
 import './Todo.css';
 
 export default function Todo(props) {
@@ -12,6 +13,7 @@ export default function Todo(props) {
             </h3>
             <p>{body}</p>
             <small>{time}</small>
+            <Icons />
         </div>
     )
 }

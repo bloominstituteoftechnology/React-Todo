@@ -1,0 +1,17 @@
+.icons-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.icons-container svg {
+    margin: 0 5%;
+}
+
+.complete {
+    color: lightgreen;
+}
+
+.not-complete {
+    color: lightcoral;
+}
