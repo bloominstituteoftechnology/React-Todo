@@ -10,7 +10,8 @@ class App extends React.Component {
     // add state 
     this.state = {
       input: "",
-      todos: []
+      todos: [],
+      todoClass: "todo"
     };
     this.savedTodos = [];
   }
@@ -33,21 +34,23 @@ class App extends React.Component {
     );
     this.saveStateToLocal();
   }
+// {
+  // setupStateFromLocal() {
+  //   for (let key in this.state) {
+  //     if (localStorage.hasOwnProperty(key)) {
+  //       let value = localStorage.getItem(key);
 
-  setupStateFromLocal() {
-    for (let key in this.state) {
-      if (localStorage.hasOwnProperty(key)) {
-        let value = localStorage.getItem(key);
+  //       try {
+  //         value = JSON.parse(value);
+  //         this.setState({ [key]: value });
+  //       } catch (e) {
+  //         this.setState({ [key]: value });
+  //       }
+  //     }
+  //   }
+  // }
 
-        try {
-          value = JSON.parse(value);
-          this.setState({ [key]: value });
-        } catch (e) {
-          this.setState({ [key]: value });
-        }
-      }
-    }
-  }
+// }
 
   saveStateToLocal() {
     for (let key in this.state) {
@@ -168,7 +171,7 @@ class App extends React.Component {
     return (
       <div className="main-wrapper">
         <h2>TODO LIST</h2>
-        <TodoList todos={this.state.todos} toggleCompleted={this.toggleCompleted} />
+        <TodoList todos={this.state.todos} toggleCompleted={this.toggleCompleted} myclass={this.state.todoClass}/>
         <TodoForm input={this.state.input} addTodo={this.addTodo} updateInput={this.updateInput} clearCompleted={this.clearCompleted} />
       </div>
     );
