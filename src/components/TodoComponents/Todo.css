@@ -1,0 +1,16 @@
+.todo-list {
+    list-style-type: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    
+}
+
+.todo-complete {
+    text-decoration: line-through;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
