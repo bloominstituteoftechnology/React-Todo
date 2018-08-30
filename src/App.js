@@ -54,8 +54,8 @@ class App extends React.Component {
 			document.getElementById(e.target.id).classList.remove("select-item-as-completed")
 			e.target.style.textDecoration = "none";
 		} else {
+			document.getElementById(e.target.id).classList.add("select-item-as-completed");
 			e.target.style.textDecoration = "line-through";
-			document.getElementById(e.target.id).classList.add("select-item-as-completed")
 		}
 
 		// toggle completed flag (true or false) for todoList member with

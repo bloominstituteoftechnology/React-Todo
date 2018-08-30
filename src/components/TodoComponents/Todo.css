@@ -15,6 +15,7 @@
     height: 35px;
     width: 300px;
     border-radius: 10px;
+    padding: 0 10px;
 }
 
 .todo-form button {
@@ -36,11 +37,10 @@
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
+    padding-right: 40px;
 }
 
 .unordered-list .list-item {
-    height: 24px;
-    width: 100%;
     color: white;
     border: 1px solid white;
     list-style-type: none;
