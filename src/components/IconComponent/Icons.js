@@ -12,10 +12,11 @@ export default class Icons extends React.Component {
         }
     }
 
-    toggleComplete = () => {
+    clearButton = () => {
         this.setState({
             complete: !this.state.complete
         });
+        this.props.toggleCompleteBoolean(this.state.complete, this.props.self);
         this.props.strikeThrough();
     }
 
@@ -25,7 +26,7 @@ export default class Icons extends React.Component {
         
         return (
             <div className="icons-container">
-                <FontAwesomeIcon className={currentIconClass} icon={ currentIcon } onClick={this.toggleComplete} />
+                <FontAwesomeIcon className={currentIconClass} icon={ currentIcon } onClick={this.clearButton} />
             </div>
         )
     }

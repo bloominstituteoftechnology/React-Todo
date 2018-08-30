@@ -26,7 +26,12 @@ export default class Todo extends React.Component {
                 </h3>
                 <p>{body}</p>
                 <small>{time}</small>
-                <Icons strikeThrough={this.strikeThrough} />
+                <Icons
+                    self={this.props.self}
+                    complete={this.props.complete}
+                    strikeThrough={this.strikeThrough}
+                    toggleCompleteBoolean={this.props.toggleCompleteBoolean}
+                />
             </div>
         )
     }
