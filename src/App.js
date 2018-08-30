@@ -38,20 +38,14 @@ class App extends React.Component {
 
   clearTodo = (event) => {
     event.preventDefault();
-    // some stuff
     let tmpArr = [...this.state.todoItems];
-    tmpArr.forEach((obj, i) => {
-      if(obj.completed) {
-        tmpArr.splice(i, 1);
-      }
-    });
+    tmpArr = tmpArr.filter((obj) => obj.completed === false);
     this.setState({
       todoItems: tmpArr
     });
   }
 
   toggleTodo = (id) => {
-    // console.log(id);
     let tmpArr = [...this.state.todoItems];
     tmpArr = tmpArr.map((obj) => {
       if(obj.id === id) {
