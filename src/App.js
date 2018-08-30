@@ -49,7 +49,8 @@ class App extends React.Component {
   handleInput = (e) => {
     e.preventDefault()
     let text = e.target.value
-    this.setState({ text })
+    const list = this.state.list.filter(item => item.task.toLowerCase().includes(e.target.value.toLowerCase()))
+    this.setState({ text, list })
   }
 
   clearCompleted = (e) => {
