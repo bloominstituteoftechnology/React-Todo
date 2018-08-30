@@ -51,16 +51,20 @@ class App extends React.Component {
   };
 
   completedToggle = (event) => {
-    let todos = {
-      todos: this.state.todos.map( todo => {
-        // console.log(todo.id, event.target.dataset.key);
-        if (todo.id === +event.target.dataset.key) {
-          todo.completed ? todo.completed = false : todo.completed = true;
-        }
-        return todo;
-      }),
-      inputText: this.state.inputText
-    };
+    // let todos = {
+    //   todos: this.state.todos.map( todo => {
+    //     // console.log(todo.id, event.target.dataset.key);
+    //     if (todo.id === +event.target.dataset.key) {
+    //       todo.completed ? todo.completed = false : todo.completed = true;
+    //     }
+    //     return todo;
+    //   })
+    // };
+    let todos = this.state.todos;
+    let todoIndex = todos.findIndex((todo => todo.id === +event.target.dataset.key));
+    todos[todoIndex].completed ?
+      todos[todoIndex].completed = false
+    : todos[todoIndex].completed = true;
 
     this.setState(todos);
   }
