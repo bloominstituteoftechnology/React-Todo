@@ -24,12 +24,13 @@ class App extends React.Component {
 
 	onAddTodo = (e) => {
 		e.preventDefault();
-
-		// newTodoObject was created so you can reference it in the setTimeout()
-		// and animate it after adding it to the state
+		// create newTodoObject with two new classes:
+		// the add-item class animates it to enlarge the font-size
+		// the list-item class gets rid of the dot to the left of li elements
 		let newTodoObject = {
 			task: this.state.inputText,
 			id: Date(),
+			classes: ["add-item", "list-item"],
 			completed: false,
 		};
 
@@ -38,39 +39,35 @@ class App extends React.Component {
 				todoList: [...this.state.todoList, newTodoObject],
 				inputText: '',
 			});
-
-			// add-item class add a fade in type of animation
-			setTimeout(() => {
-				document.getElementById(newTodoObject.id).classList.add("add-item");
-			}, 0);
 		}
 	} // onAddTodo()
 
 	onItemClick = (e) => {
 		e.preventDefault();
 
-		// toggle line-through and list-style-image(check mark) on and off for target element
-		if (e.target.style.textDecoration === "line-through") {
-			document.getElementById(e.target.id).classList.remove("select-item-as-completed")
-			e.target.style.textDecoration = "none";
-		} else {
-			document.getElementById(e.target.id).classList.add("select-item-as-completed");
-			e.target.style.textDecoration = "line-through";
-		}
+		let newState = {...this.state};
 
-		// toggle completed flag (true or false) for todoList member with
-		// same id property as target element
 		for (let i = 0; i < this.state.todoList.length; i++) {
 			if (this.state.todoList[i].id === e.target.id) {
-				let newState = {...this.state};
+				// when the id of the clicked on element(e.target) matches the id of
+				// the item stored in this.state.todoList, toggle 
+				// the completed flag of that stored item on and off
 				newState.todoList[i].completed = !newState.todoList[i].completed;
 
-				this.setState({...newState});
-				
+				// when the ids match, also toggle including the 
+				// "select-item-as-completed" class on the element in question
+				if (newState.todoList[i].classes.includes('select-item-as-completed')) {
+					newState.todoList[i].classes = newState.todoList[i].classes.filter(classItem => classItem !== 'select-item-as-completed');
+				} else {
+					newState.todoList[i].classes.push('select-item-as-completed');
+				}
 				// there will only be one element matching this id, so break here
+				// after its found
 				break;
 			}
 		}
+
+		this.setState({...newState});
 	} // onItemClick()
 
 	onClearCompleted = (e) => {
@@ -79,13 +76,17 @@ class App extends React.Component {
 		let newState = {...this.state};
 
 		for (let i = 0; i < newState.todoList.length; i++) {
+
 			if (newState.todoList[i].completed) {
-				// if a todoList item has been flagged as completed, give it a
-				// remove-item class which animates it to fade out
-				document.getElementById(newState.todoList[i].id).classList.remove("add-item");
-				document.getElementById(newState.todoList[i].id).classList.add("remove-item");
-			}
+				// if a todoList item has a completed flag set to true,
+				// remove the add-item class form it and add the remove-item class
+				// the remove-item class will animate it to reduce the font-size
+				newState.todoList[i].classes = newState.todoList[i].classes.filter(classItem => classItem !== "add-item");
+				newState.todoList[i].classes.push("remove-item");
+			}	
 		}
+
+		this.setState({...newState});
 
 		setTimeout(() => {
 			// after a set amount of time (to let animation play out), filter out the
@@ -102,12 +103,17 @@ class App extends React.Component {
 	onClearAll = (e) => {
 		e.preventDefault();
 
-		// select all elements with a list-item class (which will be all <li> elements) and
-		// add a remove-item class to them in order to animate them all out
-		document.querySelectorAll(".unordered-list .list-item").forEach(li => li.classList.add("remove-item"));
+		let newState = {...this.state};
+
+		for (let i = 0; i < newState.todoList.length; i++) {
+			// push onto every todoList item the "remove-item" class
+			// so that it animates out by reducing the font-size
+			newState.todoList[i].classes.push("remove-item");
+		}
+
+		this.setState({...newState});
 
 		setTimeout(() => {
-
 			// after a set amount of time (to let animation play out), reset state to
 			// its default empty values
 			this.setState({
@@ -118,24 +124,24 @@ class App extends React.Component {
 	} // onClearAll()
 	
 	render() {
-    return (
-      <div className="app-container">
-        <h2>Welcome to your Todo App!</h2>
-				<TodoList 
-					todoList = { this.state.todoList } 
-					onItemClick = { this.onItemClick } 
-				/>
+		return (
+		<div className="app-container">
+			<h2>Welcome to your Todo App!</h2>
+					<TodoList 
+						todoList = { this.state.todoList } 
+						onItemClick = { this.onItemClick } 
+					/>
 
-				<TodoForm 
-					inputText = { this.state.inputText } 
-					onChangeInput = { this.onChangeInput } 
-					onAddTodo = { this.onAddTodo } 
-					onClearCompleted = { this.onClearCompleted } 
-					onClearAll = { this.onClearAll }
-				/>
-      </div>
-    );
-  } // render()
+					<TodoForm 
+						inputText = { this.state.inputText } 
+						onChangeInput = { this.onChangeInput } 
+						onAddTodo = { this.onAddTodo } 
+						onClearCompleted = { this.onClearCompleted } 
+						onClearAll = { this.onClearAll }
+					/>
+		</div>
+		);
+	} // render()
 } // App
 
 export default App;

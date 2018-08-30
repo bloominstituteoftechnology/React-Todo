@@ -5,7 +5,7 @@ import './Todo.css';
 const Todo = (props) => {
     return (
         <li 
-            className = "list-item" 
+            className = {props.classes.join(" ")} 
             id = {props.id} 
             onClick = { props.onItemClick } 
         >

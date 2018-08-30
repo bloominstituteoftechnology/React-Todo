@@ -11,6 +11,7 @@ const TodoList = (props) => {
                     <Todo 
                         key = { todoItem.id } 
                         id = { todoItem.id } 
+                        classes = { todoItem.classes } 
                         item = { todoItem } 
                         onItemClick = { props.onItemClick }
                     />

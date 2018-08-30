@@ -41,13 +41,13 @@
 }
 
 .unordered-list .list-item {
-    color: white;
     border: 1px solid white;
     list-style-type: none;
 }
 
-.select-item-as-completed {
+.unordered-list .select-item-as-completed {
     list-style-image: url('../../images/check.png');
+    text-decoration: line-through;
 }
 
 /* Animations */
