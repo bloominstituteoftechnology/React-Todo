@@ -52,14 +52,16 @@ class App extends React.Component {
 
   completedToggle = (event) => {
     let todos = {
-      todos: this.state.todos.map( todo => { 
-        if (todo.id === event.target.key) {
+      todos: this.state.todos.map( todo => {
+        // console.log(todo.id, event.target.dataset.key);
+        if (todo.id === +event.target.dataset.key) {
           todo.completed ? todo.completed = false : todo.completed = true;
         }
         return todo;
       }),
       inputText: this.state.inputText
     };
+
     this.setState(todos);
   }
 
