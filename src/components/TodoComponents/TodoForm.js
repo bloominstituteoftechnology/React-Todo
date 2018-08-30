@@ -6,6 +6,7 @@ function TodoForm(props) {
   return (
     <form>
       <input
+        placeholder="Add a to-do item"
         className="input"
         value={props.inputText}
         onChange={props.handleInput}

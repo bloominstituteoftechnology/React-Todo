@@ -9,13 +9,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      items: [
-        {
-          task: "Add a to-do item",
-          id: Date.now(),
-          completed: false
-        }
-      ],
+      items: [],
       inputText: ""
     };
   }
@@ -66,7 +60,7 @@ class App extends React.Component {
     let newArray = this.state.items.filter(item => item.completed === false);
     this.setState({ items: newArray });
     console.log(newArray);
-    console.log(this.state.items);
+    console.log(this.state);
   };
 
   render() {
