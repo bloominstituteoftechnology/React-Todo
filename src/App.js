@@ -10,7 +10,18 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoItems: [],
+      todoItems: [
+        {
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
+      ],
       inputText: ''
     };
   }
@@ -25,17 +36,31 @@ class App extends React.Component {
     }
   }
 
-  clearTodo = event => {
+  clearTodo = (event) => {
     event.preventDefault();
     // some stuff
+    let tmpArr = [...this.state.todoItems];
+    tmpArr.forEach((obj, i) => {
+      if(obj.completed) {
+        tmpArr.splice(i, 1);
+      }
+    });
+    this.setState({
+      todoItems: tmpArr
+    });
   }
 
-  toggleTodo = event => {
-    console.log(event.target);
-    console.log(this.state.todoItems);
-    // event.target.classList.toggle='strike-through';
+  toggleTodo = (id) => {
+    // console.log(id);
+    let tmpArr = [...this.state.todoItems];
+    tmpArr = tmpArr.map((obj) => {
+      if(obj.id === id) {
+        obj.completed = !obj.completed;
+      }
+      return obj;
+    });
     this.setState({
-      // event.target.
+      todoItems: tmpArr
     });
   }
 
@@ -55,6 +80,7 @@ class App extends React.Component {
            />
           <TodoForm
             addTodo={this.addTodo}
+            clearTodo={this.clearTodo}
             inputText={this.state.inputText}
             handleInput={this.handleInput}
            />
