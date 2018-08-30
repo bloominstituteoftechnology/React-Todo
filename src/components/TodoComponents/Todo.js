@@ -4,10 +4,11 @@ import React from "react";
 // takes in the todo data and displays
 // the tasks on screen
 
-const Todo = (props) => {
+function Todo(props) {
   return (
-    <li>{props.item.task}</li>
-  );
+  <li
+  onClick={() => console.log(props.item.id)}>{props.item.task}</li>
+);
 }
 
 export default Todo;

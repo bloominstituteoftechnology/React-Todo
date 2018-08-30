@@ -28,6 +28,19 @@ class App extends React.Component {
     })
   }
 }
+  toggleComplete = (itemId) => {
+
+    console.log(itemId);
+  }
+
+  handleClick = (event) => {
+    let newItemsArray = [...this.state.items];
+    this.setState({
+
+      // this is where a function goes to grab the array item by id
+       items: newItemsArray
+    })
+  }
 
   handleInput = (event) => {
     this.setState({
@@ -39,7 +52,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Michael Hacker's To-Do list!</h1>
+        <h1>The Hacker To-Do list!</h1>
         <TodoList items={this.state.items} />
         <TodoForm
         addTodo={this.addTodo} inputText={this.state.inputText}
