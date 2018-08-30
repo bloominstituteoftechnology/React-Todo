@@ -66,9 +66,15 @@ li {
 }
 
 button {
+    background-color: rgb(238, 238, 238);
     margin: 10px;
     font-size: 20px;
     width: 30%;
     height: 40px;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
 }
