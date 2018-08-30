@@ -29,3 +29,14 @@
   border: 1px solid black;
   box-shadow: 1px 1px 1px black;
 }
+
+.TodoList {
+  font-size: 1.5rem;
+  background: lightgray;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.TodoList .Todo:nth-child(2n) {
+  background: lightslategray;
+}
