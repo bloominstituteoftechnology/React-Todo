@@ -6,7 +6,7 @@ import Todo1 from './Todo';
 function TodoList(props) {
   return (
     <ul>
-      {props.todo4.map(todo2 => <Todo1 todo3={todo2} key={todo2.id} />)}
+      {props.todo4.map(todo2 => <Todo1 todo3={todo2} key={todo2.id} complete={props.complete} />)}
     </ul>
     );
 }

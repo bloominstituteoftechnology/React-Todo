@@ -21,13 +21,26 @@ class App extends React.Component {
     }
   }
 
-  removeTodos = (event) => {
-    event.preventDefault();
-    this.setState({
-      todo: []
+  complete = (id) => {
+    let newArray = [...this.state.todo];
+    newArray = newArray.map(element => {
+      if (element.id === id) {
+        element.completed = !element.completed
+      }
+      return element;
     })
+    this.setState({ todo: newArray });
   }
 
+  //removes all todos from the list
+  remove = (event) => {
+    event.preventDefault();
+    let newArr = [...this.state.todo];
+    newArr = newArr.filter(element => element.completed === false);
+    this.setState({ todo: newArr });
+  }
+
+  //holds text in the input field before the add todo onClick
   handleInput = (event) => {
     this.setState({
       inputText: event.target.value
@@ -39,10 +52,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList todo4={this.state.todo} />
+        <TodoList todo4={this.state.todo} complete={this.complete} />
         <TodoForm
           addTodo={this.addTodo}
-          removeTodos={this.removeTodos}
+          removeTodos={this.remove}
           inputText={this.state.inputText}
           handleInput={this.handleInput}
         />
