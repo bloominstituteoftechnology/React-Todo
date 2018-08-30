@@ -13,7 +13,11 @@ class TodoList extends React.Component {
       <ul>
         {/* loop through list of todos and return a todo component */}
         {this.props.items.map(item => (
-          <Todo items={item} itemCompleted={this.props.itemCompleted} />
+          <Todo
+            key={item.id}
+            items={item}
+            itemCompleted={this.props.itemCompleted}
+          />
         ))}
       </ul>
     );

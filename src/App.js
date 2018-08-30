@@ -14,16 +14,6 @@ class App extends React.Component {
           task: "Add a to-do item",
           id: Date.now(),
           completed: false
-        },
-        {
-          task: "add completed functionality",
-          id: Date.now(),
-          completed: false
-        },
-        {
-          task: "finish the project",
-          id: Date.now(),
-          completed: false
         }
       ],
       inputText: ""
@@ -68,12 +58,15 @@ class App extends React.Component {
         }
       })
     );
-    console.log(this.state.items);
   }
 
-  singleClickHandler = event => {
+  clearCompleted = event => {
+    console.log("clear was clicked");
     event.preventDefault();
-    alert("Cleared!");
+    let newArray = this.state.items.filter(item => item.completed === false);
+    this.setState({ items: newArray });
+    console.log(newArray);
+    console.log(this.state.items);
   };
 
   render() {
@@ -83,7 +76,7 @@ class App extends React.Component {
         <TodoForm
           addItem={this.addItem}
           handleInput={this.handleInput}
-          singleClickHandler={this.singleClickHandler}
+          clearCompleted={this.clearCompleted}
           inputText={this.state.inputText}
         />
         <TodoList
