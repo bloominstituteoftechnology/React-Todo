@@ -1,28 +1,46 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
 }
 #root {
     width: 800px;
+    height: auto;
     display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    justify-content: center;
+    flex: column;
 }
 
 .output-text {
-    position: relative;
-    width: 100%;
-    height: 300px;
+    display: inline-block;
+    width: 75%;
+    height: auto;
+}
+.header {
+    font-size: 3rem;
+    font-family: Tahoma;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.rendered-list {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 1.8rem;
+    padding: 5px 116px 50px 116px;
+}
+
+.rendered-list:hover {
+    cursor: pointer;
 }
 
 .text-input {
-    position: absolute;
-    top: 150px;
-    left: 420px;
-    width: 60%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 
 }
 
@@ -30,7 +48,7 @@ body {
      text-align: center;
      font-size: 25px;
     width: 70%;
-    padding: 5px 0;
+    padding: 5px;
 }
 
 ul {
@@ -44,12 +62,13 @@ ul {
 }
 
 li {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 button {
-    margin: 10px 0 0 18px;
+    margin: 10px;
     font-size: 20px;
     width: 30%;
     height: 40px;
+    cursor: pointer;
 }
