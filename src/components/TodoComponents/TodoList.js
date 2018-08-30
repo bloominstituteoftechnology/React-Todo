@@ -1,7 +1,7 @@
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
 import React from 'react';
-import Todo1 from './Todo';
+import Todo1 from './Todo.js';
 
 function TodoList (props) {
 return (
