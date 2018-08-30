@@ -12,20 +12,20 @@ class App extends React.Component {
       items: [
         {
           task: "Add an item to the to-do list",
-          id: 1528817077286,
+          id: Date.now(),
           completed: false
         }
       ],
+      items: [],
       inputText: ""
     };
   }
   //methods
   addItem = event => {
-    console.log("Clicked!");
-    console.log(this.state.items);
     event.preventDefault();
     if (this.state.inputText) {
       this.setState({
+        
         items: [
           ...this.state.items,
           {
@@ -38,8 +38,39 @@ class App extends React.Component {
       });
     }
   };
+ 
+
+  
   handleInput = event => {
     this.setState({ inputText: event.target.value });
+  };
+
+  itemCompleted(id) {
+    console.log("i was clicked");
+    this.setState(
+      //look for obj that has this id
+      this.state.items.forEach(function(item) {
+        if (item.id === id) {
+          if (item["completed"] === false) {
+            // set completed to true
+            item["completed"] = true;
+            console.log(item.task + " has been completed");
+          } else if (item["completed"] === true) {
+            // set completed to false
+            item["completed"] = false;
+            console.log(item.task + " has not been completed");
+          }
+        }
+      })
+    );
+  }
+   clearCompleted = event => {
+    console.log("clear was clicked");
+    event.preventDefault();
+    let newArray = this.state.items.filter(item => item.completed === false);
+    this.setState({ items: newArray });
+    console.log(newArray);
+    console.log(this.state);
   };
 
   render() {
@@ -53,7 +84,10 @@ class App extends React.Component {
         clearCompleted={this.clearCompleted}
         inputText={this.state.inputText}
       />
-      
+      <TodoList
+          items={this.state.items}
+          itemCompleted={this.itemCompleted.bind(this)}
+        />
     </div>
   );
 }

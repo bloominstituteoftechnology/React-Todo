@@ -4,7 +4,8 @@ import "./Todo.css";
   return (
     <form>
       <input
-        class="input"
+        placeholder="..Todo"
+        className="input"
         value={props.inputText}
         onChange={props.handleInput}
       />

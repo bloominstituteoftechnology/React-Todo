@@ -14,7 +14,11 @@ import "./Todo.css";
       <ul>
         {}
         {this.props.items.map(item => (
-          <Todo item={item.task} />
+          <Todo
+          key={item.id}
+          items={item}
+          itemCompleted={this.props.itemCompleted}
+        />
         ))}
       </ul>
     );
