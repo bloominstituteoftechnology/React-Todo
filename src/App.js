@@ -49,7 +49,12 @@ class App extends React.Component {
 
   removeCompleted = (event) => {
     event.preventDefault();
-    console.log('test remove completed');
+    console.log('test removeCompleted');
+    const currentTodos = [...this.state.todos];
+    console.log('currentTodos', currentTodos);
+    const newTodos = currentTodos.filter((todo) => todo.completed === false);
+    console.log('newTodos', newTodos);
+    this.setState({ todos: newTodos });
   };
 
   removeAll = (event) => {
@@ -73,7 +78,7 @@ class App extends React.Component {
       if (todo.id.toString() === event.target.id) {
         todo.completed = !todo.completed;
         if (todo.completed === true) {
-          console.log('event target', document.getElementById(event.target.id));
+          // console.log('event target', document.getElementById(event.target.id));
           document.getElementById(event.target.id).style.textDecoration =
             'line-through';
         } else {
@@ -81,25 +86,30 @@ class App extends React.Component {
             'none';
         }
       }
-      console.log(todo.completed);
+      // console.log(todo.completed);
     });
+    this.setState({ todos: currentTodos });
+    // console.log(this.state);
   };
 
   render() {
     return (
-      <div>
-        <TodoList
-          todos={this.state.todos}
-          toggleComplete={this.toggleComplete}
-        />
-        <TodoForm
-          addTodo={this.addTodo}
-          removeCompleted={this.removeCompleted}
-          removeAll={this.removeAll}
-          inputText={this.state.inputText}
-          handleInput={this.handleInput}
-        />
-      </div>
+      console.log('render'),
+      (
+        <div>
+          <TodoList
+            todos={this.state.todos}
+            toggleComplete={this.toggleComplete}
+          />
+          <TodoForm
+            addTodo={this.addTodo}
+            removeCompleted={this.removeCompleted}
+            removeAll={this.removeAll}
+            inputText={this.state.inputText}
+            handleInput={this.handleInput}
+          />
+        </div>
+      )
     );
   }
 }
