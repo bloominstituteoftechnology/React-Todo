@@ -3,10 +3,15 @@ import Todo from './Todo';
 
 function TodoList(props) {
   return (
-      <div className = "todo-list">
-        <Todo />
-      </div>
+    <div>
+        {props.todos.map(todo => (
+          <Todo 
+          handleToggleComplete={props.handleToggleComplete} 
+          key={todo.id} 
+          todo={todo} /> 
+        ))}
+    </div>
   );
 };
 
-export default TodoList; 
+export default TodoList;

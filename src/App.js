@@ -30,22 +30,45 @@ class App extends React.Component {
     event.preventDefault();
     const todos = this.state.todos.slice();
     todos.push({task: this.state.todo, completed: false, id: Date.now() });
-    if (this.state.todo) {
-      this.setState({
-        todos: [...this.state.todos, this.state.todo],
-        todo: ""
-      });
-    }
+    this.setState({ todos, todo: '' });
+  };
+
+  changeTodo = event =>  this.setState({ [event.target.name]: event.target.value});
+
+  toggleTodoComplete = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo => {
+      if(todo.id === id){
+        todo.completed = !todo.completed;
+        return todo;
+      }else{
+        return todo;
+      }
+    });
+    this.setState({ todos });
+  };
+
+  clearCompletedTodos = event => {
+    event.preventDefault();
+    let todos = this.state.todos.slice();
+    todos = todos.filter(todo => !todo.completed);
+    this.setState({ todos });
   };
 
     
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoList />
+      <div className="container">
+        <h2>Todo List</h2>
+        <TodoList
+            handleToggleComplete = {this.toggleTodoComplete}
+            todos = {this.state.todos}
+          />
         <TodoForm 
+          value={this.state.todo}
+          handleTodoChange = {this.changeTodo}
           handleAddTodo = {this.addTodo}
+          handleClearTodos = {this.clearCompletedTodos}
         />
       </div>
     );
