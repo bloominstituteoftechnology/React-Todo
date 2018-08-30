@@ -9,7 +9,8 @@ const TodoList = (props) => {
     <section className="todo-list">
         <ul>
         {props.todoItems.map((todoItem) => {
-            if (props.inputText.trim() === "" || (props.inputText.trim().length >= 3 && todoItem.task.includes(props.inputText.trim()))){
+            let trimmedTask = props.inputText.trim().toLowerCase();
+            if (trimmedTask === "" || (trimmedTask.length >= 3 && todoItem.task.toLowerCase().includes(trimmedTask))){
               return <Todo 
               todoItem={todoItem.task} 
               complete={todoItem.completed} 
