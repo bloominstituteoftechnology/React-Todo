@@ -37,7 +37,7 @@ class App extends React.Component {
     render() {
       return (
           <div className="container">
-            <h1>App Component</h1>
+            <h1>React Todo Application</h1>
             <TodoList clearAllComplete={this.clearAllComplete} toggleCompleteBoolean={this.toggleCompleteBoolean} todoList={this.state.todoList} addTodo={this.addTodo} />
           </div>
       );

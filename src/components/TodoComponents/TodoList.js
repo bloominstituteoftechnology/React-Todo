@@ -15,7 +15,6 @@ export default function TodoList(props) {
 
     return (
         <div className="todo-list">
-            <h2>Todos & Form</h2>
             <TodoForm addTodo={props.addTodo} />
             {/* title, body, time, complete */}
             {props.todoList.map(todo => {
