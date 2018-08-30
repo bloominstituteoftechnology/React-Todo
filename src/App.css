@@ -1,0 +1,130 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+ol, ul {
+    list-style: none; 
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Set every element's box-sizing to border-box */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Titillium Web', sans-serif;
+		font-size: 62.5%;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: sans-serif;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.complete {
+    text-decoration: line-through;
+}
+
+.container {
+    width: 100%;
+    max-width: 280px;
+    margin: 1rem auto;
+  
+    
+}
+/*Global*/
+ul {    
+    padding: 0;
+    width: 100%;
+    font-size: 2rem;
+    text-align: center
+}
+li {
+    margin: 1.5rem;
+}
+
+input {
+    width: 100%;
+    margin: 1rem 0;
+    text-align: center;
+    border: 1px solid black;
+}
+
+h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 4rem;
+    text-decoration: underline;
+}
+
+/*classes*/
+
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+.buttons .button {
+    width: 50%;
+    background: white;
+    text-align: center;
+    border: 1px solid black;
+    font-size: 1.6rem;
+    padding: 1rem;
+   
+}
+
+.buttons .button:last-child {
+    width: 100%;
+}
+
+.buttons .button:hover {
+    color: white;
+    background: black;
+
+}

@@ -6,7 +6,7 @@ function TodoList (props) {
     return (
         
         
-        <ul>           
+        <ul className="">           
            {props.tasks.map(task => <Todo task={task}  addComplete={props.addComplete}/>)}            
         </ul>        
     )
