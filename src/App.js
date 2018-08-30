@@ -9,22 +9,29 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      todoList: []
+      todoList: [],
+      error: '',
     }
   }
 
-  addTodo = (text, time) => {
+  addTodo = (title, time, body) => {
     // using the result of the addTodo function bubbled up from TodoForm, I append a new todo to the end of the current todoList array in this components state
-    this.setState({
-      todoList: [...this.state.todoList, {text, time}]
-    })
+    if(title && time && body){
+      this.setState({
+        todoList: [...this.state.todoList, {title, time, body}]
+      })
+    } else {
+      if(!title){this.setState({error: 'Missing Message Title'})};
+      if(!time){this.setState({error: 'Missing Message Time'})};
+      if(!body){this.setState({error: 'Missing Message Body'})};
+    }
   }
 
   render() {
     return (
         <div className="container">
           <h1>App Component</h1>
-          <TodoList todoList={this.state.todoList} addTodo={this.addTodo}/>
+          <TodoList todoList={this.state.todoList} addTodo={this.addTodo} error={this.state.error}/>
         </div>
     );
   }

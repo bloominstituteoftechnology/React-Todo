@@ -4,14 +4,16 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
+    position: relative;
 }
 
 input {
-    padding: 10px 0;
+    padding: 20px;
     border-radius: 3px;    
     width: 100%;
-    text-align: center;
     font-size: 16px;
+    border: 1px solid black;
+    margin: 20px 0;
 }
 
 .buttons {
@@ -23,12 +25,16 @@ input {
     margin: 3px 0;
 }
 
-button {
-    padding: 10px 0;
+ .btn {
+    padding: 20px 0;
     border-radius: 3px;
-    margin: 3px;
+    margin: 3px 0;
     border: 1px solid black;
-    width: 124px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .add-todo {
@@ -37,4 +43,16 @@ button {
 
 .remove-completed-todos {
     background: lightcoral;
+}
+
+textarea {
+    padding: 20px;
+    border-radius: 3px;    
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    resize: none;
 }

@@ -1,10 +1,8 @@
 .todo-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 100%;
     margin: 5px 0;
     border: 1px solid lightblue;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    padding: 20px;
+    word-wrap: break-word;
+    width: 100%;
 }

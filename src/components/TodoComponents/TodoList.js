@@ -3,6 +3,7 @@
 import React from 'react';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
+import uuidv4 from 'uuid/v4';
 
 import './TodoList.css';
 
@@ -10,10 +11,10 @@ export default function TodoList(props) {
     return (
         <div className="todo-list">
             <h2>TodoList Component</h2>
-            {props.todoList.map(todo => {
-                return <Todo key={(Math.random() * 1000) + Date.now()} todo={todo} />
-            })}
             <TodoForm addTodo={props.addTodo} />
+            {props.todoList.map(({title, body, time}) => {
+                return <Todo key={uuidv4()} title={title} body={body} time={time} />
+            })}
         </div>
     )
 }
