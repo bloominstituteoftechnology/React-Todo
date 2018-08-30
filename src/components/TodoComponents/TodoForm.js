@@ -5,8 +5,8 @@ function TodoForm(props) {
     return(
         <form>
             <input value={props.inputText} onChange={props.handleInput}></input>
-            <button onClick={props.handleTodoClick}>Add Todo</button>
-            <button onClick={props.handClearCompleted}>Clear Completed</button>
+            <button onClick={props.handleAddTodo}>Add Todo</button>
+            <button onClick={props.handleClearCompleted}>Clear Completed</button>
         </form>
     );
 }

@@ -1,8 +1,13 @@
 import React from 'react';
+import './Todo.css';
 
-function Todo(props) {
+const Todo = props => {
     return(
-        <li>{props.todo.task}</li>
+        <li className="todoItem"
+            onClick={() => props.handleTodoClick(props.todo.id)}
+            name={props.todo.task}
+        >{props.todo.task}
+        </li>
     );
 }
 

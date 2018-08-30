@@ -3,6 +3,7 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -22,33 +23,52 @@ class App extends React.Component {
             }
           ],
       inputText:""
-
     };
   }
 
-  handelInput = event => {
-    event.preventDefault();
+  handleInput = event => {
     this.setState({
       inputText: event.target.value
     })
-
   }
 
-  //handle click of to 'Add Todo' button
-  handleTodoClick = event => {
+  //handle click of 'Add Todo' button
+  handleAddTodo = event => {
     event.preventDefault();
-    this.setState({
-      todo: [...this.state.todo, 
-               {task: this.state.inputText,
-                id: Date.now(),
-                completed: false}
-      ]
-    })
-    this.state.inputText="";
+    if (this.state.inputText){
+      this.setState({
+        todo: [...this.state.todo, 
+                {task: this.state.inputText,
+                  id: Date.now(),
+                  completed: false}
+        ],
+        inputText:""
+       })
+    }
   }
 
-  handleClearCompleted(){
+  //handle click of each todo item
+  handleTodoClick = todoID => {
+    // event.preventDefault();
+    console.log(todoID);
+    // let tempTodoList = this.state.todo.splice();
+    // let tempTodoItem = tempTodoList.find( todoObject =>{
+    //   return todoObject.task ===
+    // });
+    // console.log(tempTodoItem);
+    // if (event.target.completed === false){
+    //   this.setState({ 
+    //     event.target.completed: true;
+    //   })
+    // }
 
+    // document.getElementsByClassName('todoItem').classList.add("strikethrough");
+
+  }
+
+  //handle click of 'Clear Completed' button
+  handleClearCompleted = event => {
+    
   }
   
   render() {
@@ -56,11 +76,12 @@ class App extends React.Component {
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        <TodoList todoList={this.state.todo} />
-        <TodoForm handleInput={this.handelInput}
-                  handleTodoClick={this.handleTodoClick}
+        <TodoList todoList={this.state.todo}
+                  handleTodoClick={this.handleTodoClick} />
+        <TodoForm handleInput={this.handleInput}
+                  handleAddTodo={this.handleAddTodo}
                   inputText={this.state.inputText}  
-                  handClearCompleted={this.handClearCompleted}
+                  handleClearCompleted={this.handleClearCompleted}
         />
       </div>
     );

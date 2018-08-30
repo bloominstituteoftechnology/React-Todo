@@ -3,10 +3,14 @@
 import React from 'react';
 import Todo from './Todo';
 
-function TodoList(props){
+const TodoList = props => {
     return(
             <ul>{props.todoList.map( todo => 
-                <Todo todo={todo} />
+                <Todo 
+                    key={todo.id}
+                    todo={todo} 
+                    handleTodoClick={props.handleTodoClick}
+                />
             )}</ul>
     );
 }

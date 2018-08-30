@@ -1,0 +1,12 @@
+.todoItem {
+    font-weight: bold;
+    
+}
+
+.todoItem:hover{
+    cursor:pointer;
+}
+
+.strikethrough{
+    text-decoration: line-through;
+}
