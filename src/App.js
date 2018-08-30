@@ -19,7 +19,7 @@ class App extends React.Component {
     event.preventDefault();
     if(this.state.inputText){
     this.setState({
-      todo: [...this.state.todo, this.state.inputText],
+      todo: [...this.state.todo, {todo: this.state.inputText, id: Date.now(), completed: false}],
       inputText: ""
     });
   }
@@ -27,13 +27,16 @@ class App extends React.Component {
 
 clearTodo = event => {
   event.preventDefault();
+  if (this.state.completed === 'true'){
+    this.setState({
+      todo: [this.state.todo.splice('')]
+    })
+  }
 };
 
   handleInput = event => {
     this.setState({
-      inputText: event.target.value,
-      id: Date.now(),
-      completed: false
+     inputText: event.target.value
     });
   };
   // you will need a place to store your state in this component.
