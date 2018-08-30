@@ -6,8 +6,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [],
-      inputText: ""
+      appStateTodos: [],
+      inputText: "",
     };
   }
 
@@ -15,11 +15,31 @@ class App extends React.Component {
     event.preventDefault();
     if (this.state.inputText) {
       this.setState({
-        todos: [...this.state.todos, {todo: this.state.inputText, id: Date.now(), completed: false}],
+        appStateTodos:
+          [...this.state.appStateTodos,
+            {todo: this.state.inputText,
+              id: Date.now(),
+              completed: false}],
         inputText: ""
       });
     }
   };
+
+  removeCompleted = event => {
+    event.preventDefault();
+    let newTrimmedArray = [...this.state.appStateTodos];
+    newTrimmedArray = newTrimmedArray.filter(element => {if (!element.completed) {return element}});
+    this.setState({ appStateTodos: newTrimmedArray })
+  }
+
+  completeTodo = (id) => {
+    let newArray = [...this.state.appStateTodos];
+    newArray = newArray.map(element => {
+      if (element.id === id) {element.completed = !element.completed}
+      return element;
+    }) 
+    this.setState({ appStateTodos: newArray });
+    };
 
   handleInput = event => {
     this.setState({
@@ -29,13 +49,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <TodoList todos={this.state.todos} />
+      <div className="test">
         <TodoForm
           addTodo={this.addTodo}
+          removeCompleted={this.removeCompleted}
           inputText={this.state.inputText}
           handleInput={this.handleInput}
         />
+        <TodoList completeTodo={this.completeTodo} todos={this.state.appStateTodos} />
       </div>
     );
   }
