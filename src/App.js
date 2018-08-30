@@ -9,7 +9,7 @@ class App extends React.Component {
     this.state = {
       todos: [
         {
-          task: 'Sample task',
+          task: 'Sample task 1',
           id: 1528817077286,
           completed: false
         },
@@ -32,11 +32,12 @@ class App extends React.Component {
   submit = event => {
     event.preventDefault();
     if (this.state.inputText) {
-      let todos = [...this.state.todos, {
+      const todos = [...this.state.todos, {
           task: this.state.inputText,
           id: Date.now(),
           completed: false
         }]
+
       this.setState({
         todos: todos,
         inputText: ''
@@ -50,25 +51,25 @@ class App extends React.Component {
     }
   };
 
-  completedToggle = (event) => {
-    let todos = [...this.state.todos];
-    let todoIndex = todos.findIndex(
+  // Toggle todo.completed
+  toggleCompleted = (event) => {
+    const todos = [...this.state.todos];
+    const todoIndex = todos.findIndex(
       (todo => todo.id === +event.target.id)
     );
-    todos[todoIndex].completed ?
-      todos[todoIndex].completed = false
-    : todos[todoIndex].completed = true;
+    todos[todoIndex].completed = todos[todoIndex].completed ? false : true;
 
     this.setState({
       todos: todos
     });
   };
 
+  // Remove all completed todos
   clear = (event) => {
     event.preventDefault();
-    let todos = this.state.todos.filter(todo => todo.completed === false);
+    const todos = [...this.state.todos];
     this.setState({
-      todos: todos
+      todos: todos.filter(todo => todo.completed === false)
     });
   };
 
@@ -77,7 +78,7 @@ class App extends React.Component {
       <div className='app-container'>
         <h1>Todo List</h1>
         <TodoList todos={this.state.todos}
-                  completedToggle={this.completedToggle} />
+                  toggleCompleted={this.toggleCompleted} />
 
         <TodoForm inputText={this.state.inputText}
                   inputChanged={this.inputChanged}

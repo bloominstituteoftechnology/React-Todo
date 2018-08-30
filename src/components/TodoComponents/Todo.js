@@ -5,7 +5,7 @@ const Todo = (props) => {
   return (
     <li className={'todo ' + props.todo.completed}
         id={props.todo.id}
-        onClick={props.completedToggle}>
+        onClick={props.toggleCompleted}>
       {props.todo.task}
     </li>
   );
