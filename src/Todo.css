@@ -1,0 +1,55 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+}
+#root {
+    width: 800px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.output-text {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+.text-input {
+    position: absolute;
+    top: 150px;
+    left: 420px;
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+ .input {
+     text-align: center;
+     font-size: 25px;
+    width: 70%;
+    padding: 5px 0;
+}
+
+ul {
+    list-style: none;
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 50px;
+    width: 45%;
+}
+
+li {
+    font-size: 30px;
+}
+
+button {
+    margin: 10px 0 0 18px;
+    font-size: 20px;
+    width: 30%;
+    height: 40px;
+}

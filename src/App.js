@@ -1,7 +1,8 @@
 import React from 'react';
-import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
-import Todo from "./components/TodoComponents/Todo";
+import TodoForm from "./components/TodoComponents/TodoForm";
+
+import "./Todo.css";
 
 class App extends React.Component {
   constructor() {
@@ -30,7 +31,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="output-text">
         <TodoList todos={this.state.todos} />
         <TodoForm
           addTodo={this.addTodo}
