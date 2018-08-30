@@ -23,23 +23,29 @@ class App extends React.Component {
     }
   };
 
-  clearTodo = event => {
-    event.preventDefault();
-
-  };
-
   handleInput = event => {
     this.setState({
       inputText : event.target.value,
-      id: Date.now(),
-      completed: false
     });
   };
 
-  completed = event=> {
-    // this.setState (
-    //   completed: true;
-    // );
+  completed = () => {
+    
+      const newTodos = this.state.todos.slice();
+      console.log(newTodos[0]);
+      
+      
+        this.setState({
+          completed: !this.state.completed
+        });
+         
+         
+        
+        
+     
+      
+      
+    
   };
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -47,10 +53,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList todos={this.state.todos} completed ={this.completed}/>
+        <TodoList todos={this.state.todos} todoCompleted ={this.completed}/>
         <TodoForm 
         addTodo = {this.addTodo}
-        clearTodo = {this.clearTodo}
         inputText={this.state.inputText}
         handleInput={this.handleInput}
         />
