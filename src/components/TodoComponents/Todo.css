@@ -1,0 +1,21 @@
+
+input {
+    
+    display: block;
+}
+
+body {
+   
+    width: 100%;
+    padding: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+.completed {
+    text-decoration: line-through;
+}

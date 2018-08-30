@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from "./components/TodoComponents/TodoForm";
+import "./components/TodoComponents/Todo.css";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -65,8 +66,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div style={{ backgroundColor:"#f2d0ef", textAlign: "center", width: "200px", minHeight: "400px", color:"blue", padding: "25px", border:"1px double red"}}>
+        <h2 style={{fontWeight:"bold", color:"#590f54"}}>What to Do Today?</h2>
         <TodoList
           handleToggleComplete={this.toggleTodoComplete}
           todos={this.state.todos}

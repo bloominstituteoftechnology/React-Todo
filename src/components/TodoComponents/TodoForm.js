@@ -2,7 +2,8 @@ import React from "react"
 
 const TodoForm = props=>{
     return (
-        <form>
+        <form
+        style={{display: "flex", flexDirection:"column"}}>
             <input onChange={props.handleTodoChange}
             type="text"
             name="todo"
