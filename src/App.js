@@ -11,11 +11,9 @@ class App extends React.Component {
       this.state = {
         todos: [],
         task: "",
-        // id: "",
-        // completed: false
       };
 
-      // this.handleSingleClickEvent = this.handleSingleClickEvent.bind(this);
+      this.toggle = this.toggle.bind(this);
   }
 
   // Property
@@ -23,15 +21,7 @@ class App extends React.Component {
   addTodo = event => {
      //stop the default stuff from happening
     event.preventDefault();
-    // if (this.state.task) { 
-    //     this.setState({
-    //       todos:  [...this.state.todos, this.state.task],
-    //       task: "",
-    //       id: "",
-    //       completed: false
-    //     });
-    // }    
-
+    
       //if we have nothing in the input for the task return from the method and do nothing    
       if(this.state.task === "") {
         return;
@@ -55,49 +45,59 @@ class App extends React.Component {
 
       //set the state with the new currentTodos and an empty task
         this.setState({
-          todos: currentTodos, task: ""
+          todos: currentTodos, 
+          task: ""
         });
+
+        // let newStateArray = [...this.state.completed];
+       
   };
 
   handleInput = event => {
     this.setState({
       task: event.target.value,
-      // id: event.target.value,
-      // completed: event.target.value
     });
   };
 
   // alert('Todo task was clicked');
+  // let newStateArray = [...this.state.task];
 
-  // handleSingleClickEvent() {
-  //     this.setState(prevState => ({
-  //       completed: !prevState.completed
-  //     }));
-  //   alert('Todo task was clicked');
+
+
+  toggle = event => {
+    event.preventDefault();
+    
+    // let newTodos = [...this.state.todos] 
+    // if(newTodos) {
+      this.setState(prevState => ({
+        completed: !prevState.completed
+      }));
+    // alert('Todo task was clicked');
   // }
-  
+
+};
+
 
   //form is called controlled comonent (vs. uncontrolled)
 
   render() {
     // this is a lifecycle hook
     return (
-      // <div>
-      //   <div onClick={this.handleSingleClickEvent}>
-      //     {this.state.completed ? 'ON' : 'OFF'}
-
-      // </div> at the end of <TodoList />
       <div>
+        <div onClick={this.toggle}>
+         {/* {this.state.completed ? 'ON' : 'OFF'} */}
         <TodoList 
-        todos={this.state.todos}/>
-        
+        todos={this.state.todos} 
+        // toggle = {this.completed}
+        />
+       </div> 
+       <div>
         <TodoForm 
           addTodo={this.addTodo}
           task={this.state.task}
-          // id={this.state.id}
-          // completed={this.state.completed}
           handleInput={this.handleInput}
         /> 
+        </div>
       </div>
     );
   }
