@@ -4,7 +4,7 @@ import Todo from './Todo';
 // feel free to change this component.js into TodoList.js
 
 function TodoList(props) {
-    return <ul>{props.items.map(item => <Todo item={item} />)}</ul>;
+    return <ul>{props.items.map(item => <Todo item={item} key={item.id} completed={item.completed} finishItems={props.finishItems} />)}</ul>;
     
 };
 

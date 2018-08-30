@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm'
 import TodoList from './components/TodoComponents/TodoList';
+import Todo from './components/TodoComponents/Todo';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -23,32 +24,38 @@ class App extends React.Component {
       });
     }
   };
-
-  finishItem = event => {
-    event.preventDefault();
-    this.setState({
-      completed: true
-    });
+  clearCompleted = e => {
+    e.preventDefault();
+    console.log('it was clicked')
+    let todo_items = this.state.todo_items.slice();
+    todo_items = todo_items.filter(todo => !todo_items.completed);
+    this.setState({ todo_items });
   };
+
+  finishItem = id => {
+    
+    console.log("i was clicked")
+    let todo_items = this.state.todo_items.slice();
+    todo_items = todo_items.map(todo => {
+      if (todo_items.id === id) {
+        todo_items.completed = !todo_items.completed;
+        return todo_items;
+      } else {
+        return todo_items;
+      }
+    });
+    this.setState({ todo_items });
+  };
+   
+  
 
   deleteItem = event => {
     event.preventDefault();
     this.setState({
-      todo_items: null
+      todo_items: []
     }) 
   };
 
-  // deleteCompleted = event => {
-  //   event.preventDefault();
-  //   for(let i=0; i<todo_items.length; i++){
-  //     if(todo_items.completed===true){
-  //       this.setState({
-  //         todo_items: null
-  //       })
-  //     }
-  //   }
-    
-  // }
 
   handleNewItem = event => {
     this.setState({
@@ -61,13 +68,22 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList items={this.state.todo_items} />
+       
+        <TodoList 
+          finishItems={this.finishItem}
+          items={this.state.todo_items}
+          
+        
+         />
         <TodoForm 
           addItem={this.addItem}
           textField={this.state.textField}
           handleNewItem={this.handleNewItem}
+          deleteAll={this.deleteItem}
+          clearCompleted={this.clearCompleted}
 
         />
+        
       </div>
     );
   }
