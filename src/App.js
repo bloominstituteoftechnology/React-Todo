@@ -34,12 +34,12 @@ class App extends React.Component {
       inputText: event.target.value
     });
   }
-  
+
 
   render() {
     return (
       <div>
-
+        <h1>Michael Hacker's To-Do list!</h1>
         <TodoList items={this.state.items} />
         <TodoForm
         addTodo={this.addTodo} inputText={this.state.inputText}
