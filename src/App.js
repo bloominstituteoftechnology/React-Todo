@@ -1,6 +1,5 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
-import Todo from './components/TodoComponents/Todo';
 import TodoForm from './components/TodoComponents/TodoForm'
 
 class App extends React.Component {
@@ -10,24 +9,50 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo: [ ],
-      inputText: '',
+      todo: [],
+      item: '',
+      id: Date.now(),
+      completed: false,
     }
   }
 
+  click = id => {
+    let newTodos = [...this.state.todo];
+    newTodos = newTodos.map(todo =>{
+      if(todo.id===id){
+        todo.completed=!todo.completed;
+        return todo;
+      }
+      else{
+        return todo
+      }
+    })
+    this.setState({newTodos})
+  }
+
+
+  clear = event =>{
+    event.preventDefault();
+
+  }
+
+
+
+
+
   addTodo = event => {
     event.preventDefault();
-    if (this.state.inputText) {
+    if (this.state.item) {
       this.setState({
-        todo: [...this.state.todo, this.state.inputText],
-        inputText: ''
+        todo: [...this.state.todo, { item:this.state.item, id:this.state.id, completed:this.state.completed}],
+        item: '',
       });
     };
   }
 
   handleInput = event => {
     this.setState({
-      inputText: event.target.value
+      item: event.target.value
     });
   };
 
@@ -38,7 +63,7 @@ class App extends React.Component {
         <TodoList todo={this.state.todo} />
         <TodoForm
           addTodo={this.addTodo}
-          inputText={this.state.inputText}
+          item={this.state.item}
           handleInput={this.handleInput}
         />
       </div>

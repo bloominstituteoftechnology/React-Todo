@@ -4,7 +4,7 @@ import React from 'react';
 import Todo from './Todo';
 
  function TodoList(props) {
-    return <ul>{props.todo.map(item => <Todo todo={item} />)}</ul>
+    return <ul>{props.todo.map(item => <Todo todolist={item} />)}</ul>
 }
 
  export default TodoList; 
