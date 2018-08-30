@@ -63,7 +63,26 @@ class App extends React.Component {
 
   toggleComplete = (event) => {
     event.preventDefault();
-    console.log('test toggle complete');
+    // console.log('test toggle complete');
+    // console.log('target', event.target);
+    const currentTodos = [...this.state.todos];
+    // console.log('todos array of objects', currentTodos);
+    currentTodos.forEach((todo) => {
+      // console.log('todo id', todo.id);
+      // console.log('event target id', event.target.id);
+      if (todo.id.toString() === event.target.id) {
+        todo.completed = !todo.completed;
+        if (todo.completed === true) {
+          console.log('event target', document.getElementById(event.target.id));
+          document.getElementById(event.target.id).style.textDecoration =
+            'line-through';
+        } else {
+          document.getElementById(event.target.id).style.textDecoration =
+            'none';
+        }
+      }
+      console.log(todo.completed);
+    });
   };
 
   render() {
