@@ -10,7 +10,11 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [],
+      todos: [
+        { task: 'Add False/True Toggle',
+        id: Date.now(),
+        completed: true }
+      ],
       inputText: ""
     };
   }
@@ -27,18 +31,14 @@ class App extends React.Component {
 
   addItem = event => {
     event.preventDefault();
-    if(this.state.textField){
+    if(this.state.inputText){
       this.setState({
-        todo_items: [...this.state.todo_items, {task:this.state.textField, id: Date.now(), completed:false}],
-        textField: ""
+        todos: [...this.state.todos, {task:this.state.textField, id: Date.now(), completed:false}],
+        inputText: ""
       });
     }
   };
 
-  clearComplete = event => {
-    event.preventDefault();
-    console.log("default prevented");
-  };
 
   handleInput = event => {
     this.setState({
@@ -46,10 +46,37 @@ class App extends React.Component {
     });
   };
 
+  clearComplete = event => {
+    event.preventDefault();
+    console.log("default prevented");
+  };
+
+  toggleComplete = id => {
+    const newTodos = [...this.state.todos];
+    newTodos.map(todo => {
+      if(todo.id === id) {
+        todo.completed = !todo.completed;
+      }
+    })   
+
+    this.setState({
+      todos: newTodos,
+
+    }, () => 
+        console.log(this.state)
+
+      )
+  }
+
+  
+
   render() {
     return (
      <div>
-      <ToDoList todos={this.state.todos} />
+      <ToDoList 
+      todos={this.state.todos}
+      toggleComplete={this.toggleComplete}
+       />
       <ToDoForm
         addToDo={this.addToDo}
         inputText={this.state.inputText}

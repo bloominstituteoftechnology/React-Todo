@@ -4,7 +4,15 @@ import React from 'react';
 import ToDo from './ToDo';
 
 function ToDoList(props) {
-    return <ul>{props.todos.map(todo => <ToDo todo={todo}/>)}</ul>;
+    return <ul>{props.todos.map(todo => 
+    <ToDo 
+        todo={todo} 
+        key={todo.id} 
+        //completed={todo.complete}
+        toggleComplete={props.toggleComplete}  
+        />)}</ul>;
 }
 
 export default ToDoList;
+
+
