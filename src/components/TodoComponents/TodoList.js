@@ -10,7 +10,7 @@ const TodoList = (props) => {
         <ul>
         {props.todoItems.map((todoItem) => {
             if (!(todoItem.completed) && todoItem.task) {
-              return <Todo todoItem={todoItem.task} key={todoItem.id} idKey={todoItem.id} toggleTodo={props.toggleTodo}/>;
+              return <Todo todoItem={todoItem.task} key={todoItem.id} idKey={todoItem.id} toggleTodo={props.toggleTodo} clickCheck={props.clickCheck}/>;
             }
             return null;
         })}

@@ -60,6 +60,10 @@ class App extends React.Component {
    console.log(this.state.todoItems);
  }
 
+ clickCheck = (event) => {
+      event.currentTarget.parentElement.querySelector('input').checked = !event.target.parentElement.querySelector('input').checked;
+  }
+
   render() {
     return (
       <div class="todo-container">
@@ -70,7 +74,8 @@ class App extends React.Component {
           updateInput={this.updateInput} 
           updateTodo={this.updateTodo} 
           toggleTodo={this.toggleTodo} 
-          clearCompleted={this.clearCompleted}
+          clearCompleted={this.clearCompleted} 
+          clickCheck={this.clickCheck}
         />
       </div>
     );
