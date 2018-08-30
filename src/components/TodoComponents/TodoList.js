@@ -5,13 +5,12 @@ import './Todo.css';
 
 const TodoList = (props) => {
   return (
-    <div className='todo-list'>
-      {props.todos.map(todo => {
-        return (
-          <Todo todo={todo} />
-        );
-      })}
-    </div>
+    <ul className='todo-list'>
+      {props.todos.map(todo =>
+        <Todo key={todo.id} todo={todo}
+              completedToggle={props.completedToggle}/>
+      )}
+    </ul>
   );
 }
 

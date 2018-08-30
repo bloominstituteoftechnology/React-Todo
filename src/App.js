@@ -32,14 +32,15 @@ class App extends React.Component {
   submit = event => {
     event.preventDefault();
     if (this.state.inputText) {
-      this.setState({
+      let todos = {
         todos: [...this.state.todos, {
           task: this.state.inputText,
           id: Date.now(),
           completed: false
         }],
         inputText: ''
-      });
+      };
+      this.setState(todos);
     }
   };
 
@@ -49,14 +50,23 @@ class App extends React.Component {
     }
   };
 
-  // completed = () => {
-
-  // }
+  completedToggle = (event) => {
+    let todos = {
+      todos: this.state.todos.map( todo => { 
+        if (todo.id === event.target.key) {
+          todo.completed ? todo.completed = false : todo.completed = true;
+        }
+        return todo;
+      }),
+      inputText: this.state.inputText
+    };
+    this.setState(todos);
+  }
 
   clear = (event) => {
     event.preventDefault();
     this.setState({
-      todos: this.state.todos.filter(task => task.completed === false)
+      todos: this.state.todos.filter(todo => todo.completed === false)
     });
   };
 
@@ -64,8 +74,14 @@ class App extends React.Component {
     return (
       <div className='app-container'>
         <h1>Todo List</h1>
-        <TodoList todos={this.state.todos} />
-        <TodoForm inputText={this.state.inputText} inputChanged={this.inputChanged} keyPress={this.keyPress} submit={this.submit} clear={this.clear} />
+        <TodoList todos={this.state.todos}
+                  completedToggle={this.completedToggle}/>
+
+        <TodoForm inputText={this.state.inputText}
+                  inputChanged={this.inputChanged}
+                  keyPress={this.keyPress}
+                  submit={this.submit}
+                  clear={this.clear}/>
       </div>
     );
   }

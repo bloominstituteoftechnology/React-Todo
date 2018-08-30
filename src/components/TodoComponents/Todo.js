@@ -3,9 +3,10 @@ import './Todo.css';
 
 const Todo = (props) => {
   return (
-    <div className={'todo ' + props.todo.completed}>
+    <li className={'todo ' + props.todo.completed}
+        onClick={props.completedToggle}>
       {props.todo.task}
-    </div>
+    </li>
   );
 }
 
