@@ -5,9 +5,8 @@
 #root {
     width: 1200px;
     max-width: 100%;
-    margin: 0 auto;
     height: 100vh;
-    min-height: 100%;
+    margin: 0 auto;
 }
 
 .color-white {

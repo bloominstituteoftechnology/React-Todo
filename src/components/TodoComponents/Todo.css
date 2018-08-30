@@ -6,3 +6,7 @@
     word-wrap: break-word;
     width: 100%;
 }
+
+.strike-through {
+    text-decoration: line-through;
+}

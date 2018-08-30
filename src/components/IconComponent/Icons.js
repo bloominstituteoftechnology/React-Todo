@@ -15,12 +15,14 @@ export default class Icons extends React.Component {
     toggleComplete = () => {
         this.setState({
             complete: !this.state.complete
-        })
+        });
+        this.props.strikeThrough();
     }
 
     render() {
         const currentIcon = this.state.complete ? faCheck : faTimes;
         const currentIconClass = this.state.complete ? 'complete' : 'not-complete';
+        
         return (
             <div className="icons-container">
                 <FontAwesomeIcon className={currentIconClass} icon={ currentIcon } onClick={this.toggleComplete} />
