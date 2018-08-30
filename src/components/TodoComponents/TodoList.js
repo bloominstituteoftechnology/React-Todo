@@ -11,6 +11,8 @@ import ToDo from "./Todo";
 
 function ToDoList(props) {
 
+        return <ul>{props.list.map(list => <ToDo listItem={list} />)}</ul>;
+
     // Inside of ToDo.js created props.user property, this property is set here to intake input inside object, this.state's, users property and list them inside this list
     
     // This is the *POINT OF CONFUSION*, where I set components and their properties up for needed functionalities. I know what they compents and properties are for, but I don't know why I need them
@@ -24,7 +26,7 @@ function ToDoList(props) {
 
     // *MOMENT OF REALIZATION* This only renders the users ToDo.js List Item using map, while the prop.users property of this ToDoList.js component creates a property to be accepted in the parent component
 
-    return <ul>{props.users.map(user => <ToDo user={user} />)}</ul>;
+    
   }
 
 

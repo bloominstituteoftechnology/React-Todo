@@ -8,7 +8,9 @@ import React from "react";
 // Using JSX to  make a <li> tag and using brackets to enclose Javascript {prop.user}
 // Passing in built in object props to create "props.user" key *not value* 
 function ToDo(props) {
-  return <li>{props.user}</li>;
+    
+
+  return <li>{props.listItem}</li>;
 }
 
 
