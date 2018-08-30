@@ -22,19 +22,39 @@ class App extends React.Component {
 
   addTodo = event => {
     event.preventDefault();
-    if (this.state.task) { 
+    // if (this.state.task) { 
+    //     this.setState({
+    //       todos:  [...this.state.todos, this.state.task],
+    //       task: "",
+    //       id: "",
+    //       completed: false
+    //     });
+    // }    
+      if(this.state.task === "") {
+        return;
+      }
+
+      const myNewTask = this.state.task;
+
+      const myId = Date.now();
+
+      const myNewToDo = {id: myId, task: myNewTask, completed: false};
+
+      let currentTodos = this.state.todos;
+
+      currentTodos.push(myNewToDo);
+
         this.setState({
-          todos:  [...this.state.todos, this.state.task],
-          task: "",
-          completed: false
+          todos: currentTodos, input: ""
         });
-    }    
   };
 
   handleInput = event => {
     this.setState({
-      task: event.target.value
-    })
+      task: event.target.value,
+      // id: event.target.value,
+      // completed: event.target.value
+    });
   };
 
   // alert('Todo task was clicked');
@@ -64,6 +84,8 @@ class App extends React.Component {
         <TodoForm 
           addTodo={this.addTodo}
           task={this.state.task}
+          // id={this.state.id}
+          // completed={this.state.completed}
           handleInput={this.handleInput}
         /> 
       </div>
