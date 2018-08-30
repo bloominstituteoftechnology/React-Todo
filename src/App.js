@@ -25,27 +25,39 @@ class App extends React.Component {
 	onAddTodo = (e) => {
 		e.preventDefault();
 
+		// newTodoObject was created so you can reference it in the setTimeout()
+		// and animate it after adding it to the state
+		let newTodoObject = {
+			task: this.state.inputText,
+			id: Date(),
+			completed: false,
+		};
+
 		if (this.state.inputText) {
 			this.setState({
-				todoList: [...this.state.todoList, {
-					task: this.state.inputText,
-					id: Date(),
-					completed: false,
-				}],
+				todoList: [...this.state.todoList, newTodoObject],
 				inputText: '',
 			});
+
+			// add-item class add a fade in type of animation
+			setTimeout(() => {
+				document.getElementById(newTodoObject.id).classList.add("add-item");
+			}, 0);
 		}
 	} // onAddTodo()
 
 	onItemClick = (e) => {
 		e.preventDefault();
 
+		// toggle line-through text decoration on and off for target element
 		if (e.target.style.textDecoration === "line-through") {
 			e.target.style.textDecoration = "none";
 		} else {
 			e.target.style.textDecoration = "line-through";
 		}
 
+		// toggle completed flag (true or false) for todoList member with
+		// same id property as target element
 		for (let i = 0; i < this.state.todoList.length; i++) {
 			if (this.state.todoList[i].id === e.target.id) {
 				let newState = {...this.state};
@@ -53,6 +65,7 @@ class App extends React.Component {
 
 				this.setState({...newState});
 				
+				// there will only be one element matching this id, so break here
 				break;
 			}
 		}
@@ -63,23 +76,43 @@ class App extends React.Component {
 
 		let newState = {...this.state};
 
-		for (let i = 0; i < this.state.todoList.length; i++) {
-			if (this.state.todoList[i].completed) {
-				newState.todoList.splice(i, 1);
-				i--;
+		for (let i = 0; i < newState.todoList.length; i++) {
+			if (newState.todoList[i].completed) {
+				// if a todoList item has been flagged as completed, give it a
+				// remove-item class which animates it to fade out
+				document.getElementById(newState.todoList[i].id).classList.remove("add-item");
+				document.getElementById(newState.todoList[i].id).classList.add("remove-item");
 			}
 		}
 
-		this.setState({...newState});
+		setTimeout(() => {
+			// after 1 second (time it takes to animate fade out), filter out the
+			// todoList items with a completed flag that is set to false
+			let newTodoList = newState.todoList.filter(currItem => !currItem.completed)
+			
+			// copy this newly filtered todoList onto newState's todoList and setState
+			newState.todoList = newTodoList;
+			
+			this.setState({...newState});
+		}, 1000);
 	} // onClearCompleted()
 
 	onClearAll = (e) => {
 		e.preventDefault();
 
-		this.setState({
-			inputText: '',
-			todoList: [],
-		});
+		// select all elements with a list-item class (which will be all <li> elements) and
+		// add a remove-item class to them in order to animate them all out
+		document.querySelectorAll(".unordered-list .list-item").forEach(li => li.classList.add("remove-item"));
+
+		setTimeout(() => {
+
+			// after 1 second (time it takes to animate fade out) reset state to
+			// its default empty values
+			this.setState({
+				inputText: '',
+				todoList: [],
+			});
+		}, 1000);
 	} // onClearAll()
 	
 	render() {

@@ -39,5 +39,51 @@
 }
 
 .unordered-list .list-item {
+    height: 24px;
+    width: 100%;
+    color: white;
+    border: 1px solid white;
+}
+
+
+/* Animations */
+
+.add-item {
     font-size: 24px;
+    -webkit-animation-name: add-item-anim; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: add-item-anim;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes add-item-anim {
+    from {font-size: 1px;}
+    to {font-size: 24px; color: black;}
+}
+
+/* Standard syntax */
+@keyframes add-item-anim {
+    from {font-size: 1px;}
+    to {font-size: 24px; color: black;}
+}
+
+.remove-item {
+    -webkit-animation-name: remove-item-anim; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: remove-item-anim;
+    animation-duration: 1s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes remove-item-anim {
+    from {font-size: 24px; color: black;}
+    to {font-size: 1px;}
+}
+
+/* Standard syntax */
+@keyframes remove-item-anim {
+    from {font-size: 24px; color: black;}
+    to {font-size: 1px;}
 }
