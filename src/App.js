@@ -15,10 +15,13 @@ class App extends React.Component {
   }
 
   addTodo = event => {
-    event.preventDefault(); // What does this do? Why is this necessary?
+    event.preventDefault(); 
     if (this.state.inputText) {
       this.setState({
-        todos: [...this.state.todos, this.state.inputText], // Defining todos as an array containing todos and inputText
+        todos: [...this.state.todos, 
+                {task: this.state.inputText, 
+                id: Date.now(), 
+                completed: false}], 
         inputText: ''
       });
     }
