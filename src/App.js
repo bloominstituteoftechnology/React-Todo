@@ -1,41 +1,23 @@
 import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import "./components/TodoComponents/Todo.css";
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
     this.state = {
-      list: [
-        {
-          task: "Organize Garage",
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: "Bake Cookies",
-          id: 1528817084358,
-          completed: false
-        }
-      ],
+      list: [],
       input: ""
     };
   }
 
   addTask = event => {
     let list = this.state.list.slice();
-    if (list[0].id === 1528817077286) {
-      list.length = 0;
-      this.setState({
-        list: list
-      });
-    }
+
     list.push({
       task: this.state.input,
-      id: Math.random(),
+      id: Date.now(),
       completed: false
     });
     this.setState({
@@ -45,31 +27,24 @@ class App extends React.Component {
     event.preventDefault();
   };
 
-  handleChange = event => {
-    this.setState({
-      input: event.target.value
-    });
-  };
-
-  crossTodo = event => {
+  crossTask = event => {
     let list = this.state.list.slice();
-    if (list[0].id !== 1528817077286) {
-      let xao = list.filter(item => item.task === event.target.textContent);
-      if (xao[0].completed === true) {
-        xao.forEach(item => (item.completed = false));
-      } else if (xao[0].completed === false) {
-        xao.forEach(item => (item.completed = true));
-      }
+    let xa = list.filter(item => item.task === event.target.textContent);
+    if (xa[0].completed === true) {
+      xa.forEach(item => (item.completed = false));
+    } else if (xa[0].completed === false) {
+      xa.forEach(item => (item.completed = true));
     }
     this.setState({ list: list });
   };
-  clearCompletedTodos = event => {
+
+  clearCompletedTasks = event => {
     let list = this.state.list.slice();
     let newList = list.filter(item => item.completed !== true);
     if (newList.length === 0) {
       newList.push({
-        task: "Go on a walk",
-        id: 2342342386839,
+        task: "Add a task",
+        id: Date.now(),
         completed: false
       });
       this.setState({ list: newList });
@@ -77,12 +52,19 @@ class App extends React.Component {
     this.setState({ list: newList });
   };
 
+  handleChange = event => {
+    this.setState({
+      input: event.target.value
+    });
+  };
+
   render() {
     return (
       <div className="main-container">
+        <h1>To-Do List</h1>
         <TodoForm
           addTask={this.addTask}
-          clearCompletedTodos={this.clearCompletedTodos}
+          clearCompletedTasks={this.clearCompletedTasks}
           value={this.state.input}
           handleChange={this.handleChange}
         />
@@ -92,7 +74,7 @@ class App extends React.Component {
               className={item.completed ? "crossOut" : false}
               key={item.id}
               inputValue={item.task}
-              crossTodo={this.crossTodo}
+              crossTask={this.crossTask}
             />
           ))}
         </div>

@@ -3,23 +3,22 @@ import React from "react";
 function TodoForm(props) {
   return (
     <div className="todo-form-container">
-      <form className="todo-form" action="submit" onSubmit={props.addTodo}>
+      <form className="todo-form">
         <input
-          className="todo-form__input"
+          className="todo-form-input"
           type="text"
           placeholder="Enter text"
           onChange={props.handleChange}
           value={props.value}
-          required
         />
-        <button className="btn btn-sub" type="submit">
+        <button className="btn btn-sub" onClick={props.addTask}>
           Submit
         </button>
       </form>
       <button
         className="btn btn-clr"
         type="submit"
-        onClick={props.clearCompletedTodos}
+        onClick={props.clearCompletedTasks}
       >
         Clear Completed
       </button>
