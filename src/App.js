@@ -12,7 +12,17 @@ class App extends React.Component {
       items: [
         {
           task: "Add a to-do item",
-          id: 1528817077286,
+          id: Date.now(),
+          completed: false
+        },
+        {
+          task: "add completed functionality",
+          id: Date.now(),
+          completed: false
+        },
+        {
+          task: "finish the project",
+          id: Date.now(),
           completed: false
         }
       ],
@@ -21,8 +31,6 @@ class App extends React.Component {
   }
   //methods
   addItem = event => {
-    console.log("i was clicked");
-    console.log(this.state.items);
     event.preventDefault();
     if (this.state.inputText) {
       this.setState({
@@ -42,6 +50,32 @@ class App extends React.Component {
     this.setState({ inputText: event.target.value });
   };
 
+  itemCompleted(id) {
+    console.log("i was clicked");
+    this.setState(
+      //look for obj that has this id
+      this.state.items.forEach(function(item) {
+        if (item.id === id) {
+          if (item["completed"] === false) {
+            // set completed to true
+            item["completed"] = true;
+            console.log(item.task + " has been completed");
+          } else if (item["completed"] === true) {
+            // set completed to false
+            item["completed"] = false;
+            console.log(item.task + " has not been completed");
+          }
+        }
+      })
+    );
+    console.log(this.state.items);
+  }
+
+  singleClickHandler = event => {
+    event.preventDefault();
+    alert("Cleared!");
+  };
+
   render() {
     return (
       <div className="todo-container">
@@ -49,10 +83,13 @@ class App extends React.Component {
         <TodoForm
           addItem={this.addItem}
           handleInput={this.handleInput}
-          clearCompleted={this.clearCompleted}
+          singleClickHandler={this.singleClickHandler}
           inputText={this.state.inputText}
         />
-        <TodoList items={this.state.items} />
+        <TodoList
+          items={this.state.items}
+          itemCompleted={this.itemCompleted.bind(this)}
+        />
       </div>
     );
   }

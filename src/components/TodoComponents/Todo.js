@@ -1,8 +1,18 @@
 import React from "react";
 
 class Todo extends React.Component {
+  //check if completed is true
+  //add completed  class to element if true
   render() {
-    return <li class="todo-item">{this.props.item}</li>;
+    return (
+      <li
+        onClick={() => this.props.itemCompleted(this.props.items.id)}
+        id={this.props.items.id}
+        className={`todo-item ${this.props.items.completed}`}
+      >
+        {this.props.items.task}
+      </li>
+    );
   }
 }
 

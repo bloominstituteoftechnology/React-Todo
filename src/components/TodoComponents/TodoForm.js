@@ -10,7 +10,7 @@ function TodoForm(props) {
         onChange={props.handleInput}
       />
       <button onClick={props.addItem}>Add Todo</button>
-      <button onClick={props.clearCompleted}>Clear completed</button>
+      <button onClick={props.singleClickHandler}>Clear completed</button>
     </form>
   );
 }
