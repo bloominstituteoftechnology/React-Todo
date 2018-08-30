@@ -23,7 +23,6 @@ Todo.propTypes = {
 }
 
 Todo.defaultProps = {
-    title: 'Default Todo Title',
     body: 'Default Body Message',
     time: 'Time not set',
 }

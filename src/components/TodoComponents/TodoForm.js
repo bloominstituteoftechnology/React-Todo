@@ -21,7 +21,6 @@ export default class TodoForm extends React.Component {
     }
 
     textAreaInput = (e) => {
-        
         // set state.body from the target node and trim the white space off
         this.setState({
             body: e.target.value.trim()

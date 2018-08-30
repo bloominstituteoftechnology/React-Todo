@@ -21,9 +21,12 @@ class App extends React.Component {
         todoList: [...this.state.todoList, {title, time, body}]
       })
     } else {
-      if(!title){this.setState({error: 'Missing Message Title'})};
-      if(!time){this.setState({error: 'Missing Message Time'})};
-      if(!body){this.setState({error: 'Missing Message Body'})};
+      if(!title || !time || !body){
+        this.setState({
+          error: 'Missing Field',
+        })
+      }
+      return null;
     }
   }
 
