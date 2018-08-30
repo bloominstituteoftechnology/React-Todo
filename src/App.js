@@ -62,8 +62,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div class="todo-container">
+        <h2>Welcome to TodoAPP!</h2>
         <TodoList 
           todoItems={this.state.todoItems} 
           inputText={this.state.inputText} 

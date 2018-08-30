@@ -1,3 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+
+* {
+  box-sizing: border-box;
+}
+
+body, html, #root{
+    width:100%;
+    height: 100%;
+    font-family: Fjalla One;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#root h2 {
+    font-family: Fjalla One;
+    text-align: justify;
+    width: 100%;
+    letter-spacing: 4px;
+    color: lavenderblush;
+    margin: 0;
+    text-shadow: 0px 2px rgba(163, 82, 73, 0.5);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+form input {
+    height: 40px;
+    font-size: 20px;
+    padding-left: .5rem;
+    background-color: lavenderblush;
+    border: 0px;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 1px 2px 0 #920b39 inset;
+    color: darkgray;
+}
+
+form input:hover {
+    box-shadow: 0 1px 2px 0 #125184 inset;
+}
+
+
+form input::placeholder {
+    font-size: 30px;
+}
+
+form .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+form .buttons button {
+    width: 48%;
+    height: 40px;
+    border: 0px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    font-family: Fjalla One;
+    letter-spacing: 1px;
+}
+
+form .buttons .add-item {
+    background-color: dodgerblue;
+    color: lavenderblush;
+    -webkit-box-shadow: 0 1px 2px #125184;
+	-moz-box-shadow: 0 2px 1px #125184;
+    box-shadow: 0 2px 1px #125184;
+}
+
+form .buttons .add-item:hover {
+    background-color: lavenderblush;
+    color: dodgerblue;
+    box-shadow: 0 1px 2px 0 #125184 inset;
+}
+
+form .buttons .clear-completed {
+    background-color: crimson;
+    color: lavenderblush;
+    -webkit-box-shadow: 0 1px 2px #920b39;
+	-moz-box-shadow: 0 2px 1px #920b39;
+    box-shadow: 0 2px 1px #920b39;
+}
+
+form .buttons .clear-completed:hover {
+    background-color: lavenderblush;
+    color: crimson;
+    box-shadow: 0 1px 2px 0 #920b39 inset;
+}
+
+.todo-list ul {
+    min-height: 150px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 1px 1px 2px 0  rgb(146, 11, 57, 0.6)  inset;
+    border-radius: 5px;
+}
+
 .todo-list ul li {
     display: flex;
     justify-content: flex-start;
@@ -5,6 +114,19 @@
     list-style: none;
 }
 
+.todo-list ul li label, .todo-list ul li input  {
+    cursor: pointer;
+    color: darkslategrey;
+}
+
 .todo-list ul li input[type=checkbox]:checked + label {
     text-decoration: line-through;
+}
+
+.todo-container {
+    padding: 30px 30px 30px 30px;
+    background-color: salmon;
+    border-radius: 5px;
+    box-shadow: 0 2px 1px #a35249;
+    /* box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3); */
 }
