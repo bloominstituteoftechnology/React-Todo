@@ -88,7 +88,7 @@ class App extends React.Component {
 		}
 
 		setTimeout(() => {
-			// after 0.5 seconds (time it takes to animate fade out), filter out the
+			// after a set amount of time (to let animation play out), filter out the
 			// todoList items with a completed flag that is set to false
 			let newTodoList = newState.todoList.filter(currItem => !currItem.completed)
 			
@@ -108,7 +108,7 @@ class App extends React.Component {
 
 		setTimeout(() => {
 
-			// after 0.5 seconds (time it takes to animate fade out) reset state to
+			// after a set amount of time (to let animation play out), reset state to
 			// its default empty values
 			this.setState({
 				inputText: '',
