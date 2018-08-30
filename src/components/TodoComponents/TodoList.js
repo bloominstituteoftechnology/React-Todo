@@ -7,6 +7,7 @@ function TodoList(props) {
             {props.todos.map(todo => (
                 <Todo
                     handleToggleComplete = {props.handleToggleComplete}
+                    completedBool = {todo.completed}
                     key = {todo.id}
                     todo = {todo}
                 />

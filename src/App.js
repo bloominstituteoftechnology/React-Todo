@@ -15,17 +15,19 @@ class App extends React.Component {
         {
           task: 'eat food',
           id: 1528817084358,
-          completed: false
+          completed: true
         }
       ],
       todo: ''
     };
+    console.log(this.state.todos[0].task);
   }
 
   addTodo = event => {
     event.preventDefault();
     const todos = this.state.todos.slice();
-    todos.push({task: this.state.todo, completed: false, id: Date.now()});
+    todos.push({task: this.state.todo, completed: this.state.completed, id: Date.now()});
+    
     this.setState({todos, todo: ''});
   };
 
@@ -34,9 +36,9 @@ class App extends React.Component {
   }
 
   toggleTodoComplete = id => {
-    let todos = this.state.todos.slice();
+    let newTodos = this.state.todos.slice();
 
-    todos = todos.map(todo => {
+    newTodos = newTodos.map(todo => {
       if(todo.id === id) {
         todo.completed = !todo.completed;
         return todo;
@@ -44,13 +46,14 @@ class App extends React.Component {
         return todo;
       }
     });
-    this.setState({todos});
+    this.setState({newTodos});
   }
 
-clearCompletedTodos = event => {
+  clearCompletedTodos = event => {
   event.preventDefault();
   let todos = this.state.todos.slice();
   todos = todos.filter(todo => !todo.completed);
+  console.log(todos);
   this.setState({todos});
 }
 
