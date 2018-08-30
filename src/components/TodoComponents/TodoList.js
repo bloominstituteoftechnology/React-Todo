@@ -7,7 +7,7 @@ import Todo from './Todo.js';
   return (
     <ul>
       {props.todos.map(todo => (
-        <Todo todo={todo} />
+        <Todo todo={todo} select={props.select}/>
       ))}
     </ul>
   );

@@ -12,9 +12,9 @@ class App extends React.Component {
     //Need to add task, field, and completed.
     this.state = {
       todos: [],
-      id: Date.now(),
+      inputText: '',
       completed: false,
-      inputText: ''
+      id: Date.now()
     };
   }
 
@@ -22,7 +22,6 @@ class App extends React.Component {
     event.preventDefault();
     if (this.state.inputText) {
       this.setState({
-        id: Date.now(),
         todos: [
           ...this.state.todos,
           {
@@ -36,7 +35,7 @@ class App extends React.Component {
     }
   };
 
-   clearTodo = event => {
+  clearTodo = event => {
     event.preventDefault();
     if (this.state.inputText) {
       this.setState({
@@ -46,17 +45,31 @@ class App extends React.Component {
       });
     }
   };
-   handleInput = event => {
+
+  handleInput = event => {
     this.setState({
       inputText: event.target.value
     });
   };
 
-  
+  select = () => {
+    const newTodos = [...this.state.todos];
+    newTodos = newTodos.map(todo =>{
+      if(this.state.completed){
+        todo.completed=!todo.completed;
+      }
+      else{
+        return todo.completed;
+      }
+    })
+    this.setState({newTodos})
+  }
+
+
   render() {
     return (
       <div>
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} select={this.select}/>
         <TodoForm
           addTodo={this.addTodo}
           inputText={this.state.inputText}
