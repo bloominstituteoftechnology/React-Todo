@@ -23,6 +23,7 @@ class App extends React.Component {
           completed: false
         }
       ],
+      id: 1528817084358,
     }
   }
   // design `App` to be the parent component of your application.
@@ -34,8 +35,9 @@ class App extends React.Component {
         <TodoForm 
           inputField = {this.state.inputField}
           clickHandler={this.clickHandler} 
+          clearClickHandler={this.clearClickHandler}
           messageChangeHandler={this.messageChangeHandler} />
-        <TodoList todoList={this.state.todoList} />
+        <TodoList todoList={this.state.todoList}  itemCompleted={this.itemCompleted} />
 
       </div>
     );
@@ -45,18 +47,28 @@ class App extends React.Component {
     event.preventDefault();
     this.setState({todoList: [...this.state.todoList, {
       task: this.state.inputField,
-      id: 1528817084359,
+      id: this.state.id+1,
       completed: false}],
-      inputField: ''
+      inputField: '',
     });
+    this.setState({id: this.state.id+1});
     console.log('a click!');
+  }
+
+  itemCompleted(id){
+    console.log(id);
   }
 
   messageChangeHandler = event =>{
     event.preventDefault();
     this.setState({inputField: event.target.value});
-    console.log(this.state.inputField);
+    // console.log(this.state.inputField);
   };
+
+  clearClickHandler = event =>{
+    event.preventDefault();
+    console.log('clear button!');
+  }
 }
 
 export default App;
