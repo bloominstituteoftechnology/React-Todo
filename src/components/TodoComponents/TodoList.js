@@ -9,13 +9,24 @@ const TodoList = (props) => {
     <section className="todo-list">
         <ul>
         {props.todoItems.map((todoItem) => {
-            if (!(todoItem.completed) && todoItem.task) {
-              return <Todo todoItem={todoItem.task} complete={todoItem.complete} key={todoItem.id} idKey={todoItem.id} toggleTodo={props.toggleTodo} clickCheck={props.clickCheck}/>;
-            }
-            return null;
+              return <Todo 
+              todoItem={todoItem.task} 
+              complete={todoItem.completed} 
+              key={todoItem.id} 
+              idKey={todoItem.id} 
+              toggleTodo={props.toggleTodo} 
+              clickCheck={props.clickCheck}
+              clickStore={props.clickStore}
+              />;
         })}
         </ul>
-        <TodoForm inputText={props.inputText} updateInput={props.updateInput} updateTodo={props.updateTodo} clearCompleted={props.clearCompleted}/>
+
+        <TodoForm 
+        inputText={props.inputText} 
+        updateInput={props.updateInput} 
+        updateTodo={props.updateTodo} 
+        clearCompleted={props.clearCompleted}
+        />
     </section>
     )
 }

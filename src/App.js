@@ -26,6 +26,8 @@ class App extends React.Component {
 
  updateTodo = (event) => {
     event.preventDefault();
+    if(this.state.inputText) {
+
     let newTodo = {
       task: this.state.inputText,
       id: Date.now(),
@@ -35,38 +37,64 @@ class App extends React.Component {
     this.setState({
      todoItems: [...this.state.todoItems, newTodo],
      inputText: ""
-   })
+    }
+   );
+
    localStorage.todoItems = JSON.stringify([...this.state.todoItems, newTodo]);
+  }
  }
 
- clearCompleted = (event) => {
+//  clearCompleted = (event) => {
+//    event.preventDefault();
+//    let todoItems = document.querySelectorAll('li');
+//    let todoItemsState = [...this.state.todoItems];
+//    todoItems.forEach(todoItem => {
+//      if (todoItem.querySelector('input[type="checkbox"]').checked) {
+//       todoItemsState.forEach(todoItemState => {
+//         if(todoItemState.id == todoItem.id){
+//           todoItemState.completed = true;
+//         }});
+//      }
+//      localStorage.todoItems = JSON.stringify([...this.state.todoItems])
+//    });
+
+clearCompleted = (event) => {
    event.preventDefault();
-   let todoItems = document.querySelectorAll('li');
-   let todoItemsState = [...this.state.todoItems];
-   todoItems.forEach(todoItem => {
-     if (todoItem.querySelector('input[type="checkbox"]').checked) {
-      todoItemsState.forEach(todoItemState => {
-        if(todoItemState.id == todoItem.id){
-          todoItemState.completed = true;
-        }});
-     }
-     localStorage.todoItems = JSON.stringify([...this.state.todoItems])
-   });
+   let todoItemsActive = this.state.todoItems.filter(todoItem => !todoItem.completed);
 
    this.setState({
-    todoItems: [...todoItemsState]
+    todoItems: [...todoItemsActive]
    });
 
-   console.log(this.state.todoItems);
+   localStorage.todoItems = JSON.stringify([...todoItemsActive]);
  }
 
  clickCheck = (event) => {
       event.currentTarget.parentElement.querySelector('input').checked = !event.target.parentElement.querySelector('input').checked;
   }
 
+  clickStore = (event) => {
+
+    let todoItemsCompleted = this.state.todoItems.map((todoItem) => {
+      console.log(event.currentTarget.id +" : "+ event.currentTarget.checked);
+      console.log(todoItem);
+      console.log(event.currentTarget.parentElement.id);
+      if (todoItem.id === Number(event.currentTarget.parentElement.id)) {
+        todoItem.completed = event.currentTarget.checked;
+      }
+      return todoItem;
+    });
+    console.log(todoItemsCompleted);
+    this.setState({
+    todoItems: [...todoItemsCompleted]
+    })
+
+    localStorage.todoItems = JSON.stringify([...todoItemsCompleted]);
+  }
+
   render() {
     return (
-      <div class="todo-container">
+      <div className="todo-container">
         <h2>Welcome to TodoAPP!</h2>
         <TodoList 
           todoItems={this.state.todoItems} 
@@ -75,7 +103,8 @@ class App extends React.Component {
           updateTodo={this.updateTodo} 
           toggleTodo={this.toggleTodo} 
           clearCompleted={this.clearCompleted} 
-          clickCheck={this.clickCheck}
+          clickCheck={this.clickCheck} 
+          clickStore={this.clickStore}
         />
       </div>
     );
