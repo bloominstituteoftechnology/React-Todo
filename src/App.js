@@ -37,6 +37,7 @@ class App extends React.Component {
     event.preventDefault();
     let newArr = [...this.state.todo];
     newArr = newArr.filter(element => element.completed === false);
+    console.log(newArr);
     this.setState({ todo: newArr });
   }
 
@@ -55,7 +56,7 @@ class App extends React.Component {
         <TodoList todo4={this.state.todo} complete={this.complete} />
         <TodoForm
           addTodo={this.addTodo}
-          removeTodos={this.remove}
+          remove={this.remove}
           inputText={this.state.inputText}
           handleInput={this.handleInput}
         />
