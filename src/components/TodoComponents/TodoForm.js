@@ -14,24 +14,30 @@ export default class TodoForm extends React.Component {
     }
     
     inputText = (e) => {
+        // set state.inputText from the target node and trim the white space off
         this.setState({
             inputText: e.target.value.trim(),
         });
     }
 
     textAreaInput = (e) => {
+        
+        // set state.body from the target node and trim the white space off
         this.setState({
             body: e.target.value.trim()
         })
     }
 
     addTodo = (e) => {
+        
         // prevent form from submitting to non-existant server
         e.preventDefault();
+        
         // set time with moment.js before running addTodo function
         // run the "addTodo" function passed down from App in the following manner:
         // App --> TodoList --> TodoForm(execute function and it will "bubble back up" like the following:) Todoform --> TodoList --> App
         this.props.addTodo(this.state.inputText, moment().format('LLLL'), this.state.body);
+        
         // Reset the value of this components state inputText back to blank
         this.setState({
             inputText: '',
