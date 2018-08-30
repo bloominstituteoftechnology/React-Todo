@@ -9,21 +9,29 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      toDo: [],
+      todos: [],
       toDoInput: "",
-      // placeholder: "...todo"
+      placeholder: "...todo",
     };
   }
 
   addToDo = event => {
     event.preventDefault();
-    if(this.state.toDoInput){
-    this.setState({
-      toDo: [...this.state.toDo, this.state.toDoInput],
-      toDoInput: '',
-    });
+    if (this.state.toDoInput) {
+        //set task to input
+      const task = this.state.toDoInput;
+        //set id to date
+      const id = Date.now();
+        //creating new to do object with task, id, and completed
+      const newToDo = {task: task, id: id, completed: false};
+   
+
+      this.setState({
+        todos: [...this.state.todos, newToDo],
+        toDoInput: ''
+      });
+    }
   };
-}
 
   handleInput = event => {
     this.setState({
@@ -33,22 +41,40 @@ class App extends React.Component {
 
   clear = event => {
     event.preventDefault();
+    let filteredArray = this.state.toDo.filter(todo => this.state.toDo.completed === false)
     this.setState({
-      toDo: []
+      toDo: filteredArray,
     });
   };
+
+  itemCompleted = id => {
+    let newToDoArray = [...this.state.todos];
+    newToDoArray = newToDoArray.map(todo => {
+      if(todo.id ===  id){
+        todo.completed = !todo.completed;
+        return todo;
+      } else {return todo}
+    })
+    this.setState({newToDoArray});
+  }
+  
+
+
 
   render() {
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <ToDoList todo={this.state.toDo} />
+        <ToDoList 
+        todos={this.state.todos} 
+        itemCompleted={this.itemCompleted} 
+        />
         <ToDoForm
           addToDo={this.addToDo}
           toDoInput={this.state.toDoInput}
           handleInput={this.handleInput}
           clear={this.clear}
-          // placeholder={this.placeholder}
+          placeholder={this.state.placeholder}
         />
       </div>
     );
