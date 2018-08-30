@@ -24,19 +24,26 @@ class App extends React.Component {
 
   addTodo = event => {
     event.preventDefault();
-    this.state.todos.map(todo => {
+    let copy = false;
+    this.state.todos.forEach(todo => {
       if(todo.task === this.state.inputText) {
         alert(`Already have ${this.state.inputText} as a task.`)
+        copy = true;
       }
     });
-    if(this.state.inputText) {
-      this.setState({
-        todos: [...this.state.todos, {
-          task: this.state.inputText,
-          id: Date.now(),
-          complete: false,
-        }]
-      })
+    if(copy === true) {
+      
+    } else {
+      if(this.state.inputText) {
+        this.setState({
+          todos: [...this.state.todos, {
+            task: this.state.inputText,
+            id: Date.now(),
+            complete: false,
+          }],
+          
+        })
+      }
     }
     this.setState({inputText: ''})
   }
