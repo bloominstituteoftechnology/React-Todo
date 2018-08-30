@@ -4,11 +4,15 @@ import './Todo.css';
 
 const TodoList = props => {
   return (
-    <ul>
+    <div>
       {props.todos.map(todo => (
-        <Todo todo={todo} />
+        <Todo
+          handleToggleComplete={props.handleToggleComplete}
+          key={todo.id}
+          todo={todo}
+        />
       ))}
-    </ul>
+    </div>
   );
 };
 

@@ -7,8 +7,6 @@ class App extends React.Component {
     super();
     this.state = {
       todos: [],
-      id: Date.now(),
-      completed: false,
       inputText: ''
     };
   }
@@ -16,43 +14,48 @@ class App extends React.Component {
   addTodo = event => {
     event.preventDefault();
     if (this.state.inputText) {
-      this.setState({
-        id: Date.now(),
-        todos: [
-          ...this.state.todos,
-          {
-            inputText: this.state.inputText,
-            id: this.state.id,
-            completed: this.state.completed
-          }
-        ],
-        inputText: ''
+      const todos = this.state.todos.slice();
+      todos.push({
+        task: this.state.inputText,
+        completed: false,
+        id: Date.now()
       });
+      this.setState({ todos, inputText: '' });
     }
+  };
+
+  handleInput = event => this.setState({ inputText: event.target.value });
+
+  toggleTodoComplete = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ todos });
   };
 
   clearCompleted = event => {
     event.preventDefault();
     if (this.state.todos) {
-      this.setState({
-        id: Date.now(),
-        todos: [],
-        inputText: ''
-      });
+      let todos = this.state.todos.slice();
+      todos = todos.filter(todo => !todo.completed);
+      this.setState({ todos });
     }
-  };
-
-  handleInput = event => {
-    this.setState({
-      inputText: event.target.value
-    });
   };
 
   render() {
     return (
       <div className="app-container">
         <h2 class="app-name">Todo App:</h2>
-        <TodoList todos={this.state.todos} />
+        <TodoList
+          handleToggleComplete={this.toggleTodoComplete}
+          todos={this.state.todos}
+        />
         <TodoForm
           addTodo={this.addTodo}
           inputText={this.state.inputText}
