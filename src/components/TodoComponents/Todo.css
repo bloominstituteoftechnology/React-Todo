@@ -43,8 +43,12 @@
     width: 100%;
     color: white;
     border: 1px solid white;
+    list-style-type: none;
 }
 
+.select-item-as-completed {
+    list-style-image: url('../../images/check.png');
+}
 
 /* Animations */
 
@@ -59,13 +63,13 @@
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes add-item-anim {
-    from {font-size: 1px;}
+    from {font-size: 1px; color: white;}
     to {font-size: 24px; color: black;}
 }
 
 /* Standard syntax */
 @keyframes add-item-anim {
-    from {font-size: 1px;}
+    from {font-size: 1px; color: white;}
     to {font-size: 24px; color: black;}
 }
 

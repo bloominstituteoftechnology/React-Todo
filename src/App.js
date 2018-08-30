@@ -49,11 +49,13 @@ class App extends React.Component {
 	onItemClick = (e) => {
 		e.preventDefault();
 
-		// toggle line-through text decoration on and off for target element
+		// toggle line-through and list-style-image(check mark) on and off for target element
 		if (e.target.style.textDecoration === "line-through") {
+			document.getElementById(e.target.id).classList.remove("select-item-as-completed")
 			e.target.style.textDecoration = "none";
 		} else {
 			e.target.style.textDecoration = "line-through";
+			document.getElementById(e.target.id).classList.add("select-item-as-completed")
 		}
 
 		// toggle completed flag (true or false) for todoList member with
