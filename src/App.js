@@ -45,11 +45,6 @@ class App extends React.Component {
       let todos = this.state.todos.slice();
       todos = todos.filter(todo => !todo.completed);
       this.setState({ todos });
-      this.setState({
-        id: Date.now(),
-        todos: [],
-        inputText: ''
-      });
     }
   };
 
