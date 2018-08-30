@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -39,24 +40,57 @@ class App extends React.Component {
           todos: [...this.state.todos, {
             task: this.state.inputText,
             id: Date.now(),
-            complete: false,
+            completed: false,
           }],
           
         })
       }
     }
     this.setState({inputText: ''})
+  };
+
+
+  completed = event => {
+    const todosArray = [...this.state.todos];
+
+    const taskCall = event.target.innerText;
+    for (let i = 0; i < todosArray.length; i++){
+      if(taskCall === todosArray[i].task) {
+        todosArray[i].completed = !todosArray[i].completed;
+      }
+    }
+    this.setState({todos: todosArray});
+  };
+
+  clearComplete = event => {
+    event.preventDefault();
+    const oldArray = [...this.state.todos];
+    const newArray = [];
+
+    oldArray.filter(todo => {
+      if(todo.completed === false) {
+        newArray.push(todo);
+      }
+      return newArray;
+    })
+    console.log(newArray)
+    this.setState({todos: newArray})
+
   }
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList propTodos={this.state.todos} />
+        <TodoList 
+          propTodos={this.state.todos} 
+          completed={this.completed}
+        />
         <TodoForm 
           inputText={this.state.inputText}
           changeInput={this.changeInput}
           addTodo={this.addTodo}
+          clearComplete={this.clearComplete}
 
         />
       </div>
