@@ -13,12 +13,14 @@ class App extends React.Component {
       }
     }
 
+    clearAllComplete = () =>  {
+      this.setState({
+        todoList: this.state.todoList.filter(todo => !todo.complete)
+      });
+    }
+
     toggleCompleteBoolean = (bool, todoFromIcons) => {
       todoFromIcons.complete = !todoFromIcons.complete;
-      console.log(todoFromIcons);
-      this.setState({
-        todoList: this.state.todoList.filter(todo => todo.complete === false)
-      })
     }
 
     addTodo = (title, time, body, complete) => {
@@ -36,7 +38,7 @@ class App extends React.Component {
       return (
           <div className="container">
             <h1>App Component</h1>
-            <TodoList toggleCompleteBoolean={this.toggleCompleteBoolean} todoList={this.state.todoList} addTodo={this.addTodo} />
+            <TodoList clearAllComplete={this.clearAllComplete} toggleCompleteBoolean={this.toggleCompleteBoolean} todoList={this.state.todoList} addTodo={this.addTodo} />
           </div>
       );
     }

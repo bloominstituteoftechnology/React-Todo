@@ -8,6 +8,10 @@ import './TodoList.css';
 export default function TodoList(props) {
 
     // make fnc that loops over todos and then delets them if completed is true...
+    function clearAll() {
+        console.log(props.todoList);
+        props.clearAllComplete();
+    }
 
     return (
         <div className="todo-list">
@@ -23,6 +27,7 @@ export default function TodoList(props) {
                 ?  <button 
                         className="remove-completed-todos btn color-white"
                         type="reset"
+                        onClick={clearAll}
                     >
                         Clear Completed
                     </button>
