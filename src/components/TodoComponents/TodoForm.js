@@ -3,7 +3,13 @@ import React from 'react';
 const TodoForm = (props) => {
     return (
         <form>
-            <input type="text" value={props.inputText} onChange={props.updateInput}/>
+            <input 
+            type="text" 
+            value={props.inputText} 
+            onChange={props.updateInput} 
+            placeholder="Enter New or Existing Item"
+            />
+
             <div className="buttons">
                 <button className="add-item" onClick={props.updateTodo}>Add Item</button>
                 <button className="clear-completed" onClick={props.clearCompleted}>Clear Completed</button>

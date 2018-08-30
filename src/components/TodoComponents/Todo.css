@@ -52,7 +52,7 @@ form input:hover {
 
 
 form input::placeholder {
-    font-size: 30px;
+    color: darkgray;
 }
 
 form .buttons {

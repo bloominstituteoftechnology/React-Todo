@@ -7,9 +7,9 @@ const Todo = (props) => {
         <li id={props.idKey}>        
             <input 
             id={props.idKey+(props.todoItem.split(" ").join("-"))} 
-            type="checkbox" 
+            type="checkbox"
             name={props.todoItem} 
-            value={props.todoItem} 
+            value={props.todoItem}
             defaultChecked={props.complete} 
             onChange={props.clickStore}
             />
