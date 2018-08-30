@@ -2,7 +2,28 @@
     list-style-type: none;
     font-size: 1.5rem;
     cursor: pointer;
+    /* margin-left: 5%; */
+    text-align: center;
+    width: 100%;
     
+}
+
+.todo-block {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.todo-block:hover {
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.todo-check {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    left: 40%;
 }
 
 .todo-complete {

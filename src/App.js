@@ -12,8 +12,15 @@ class App extends React.Component {
     };
   }
 
+  // Add a todo item
   addTodo = event => {
+    // Prevent page from refreshing
     event.preventDefault();
+
+    /**
+     *  Check if input text is empty, if not, set the inputText to the
+     *  value the user inputed.
+     */
     if (this.state.inputText) {
       this.setState({
         todo: [...this.state.todo,{
@@ -26,19 +33,36 @@ class App extends React.Component {
     }
   };
 
+  // Toggle the todo's completed bool
   completeTask = (id) => {
+    // Slice the todo into todos
     let todos = this.state.todo.slice();
-    console.log(todos);
 
+    /**
+     *  Map the todos into a new array and check the id's if
+     *  they match. If so, toggle the completed property and
+     *  set the todo to the todos array.
+     */
     todos = todos.map(todo => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
-        return todo;
+        this.setState({todo: todos})
       }
       else {
         return todo;
       }
     })
+
+  }
+
+  // Remove the completed Todos
+  removeCompleted = (event) => {
+    // Prevent page from refreshing
+    event.preventDefault();
+    let todos = this.state.todo.slice();
+
+    todos = todos.filter(todo => !todo.completed);
+    this.setState({todo: todos});
 
   }
 
@@ -70,6 +94,7 @@ class App extends React.Component {
           addTodo={this.addTodo}
           inputText={this.state.inputText}
           handleInput={this.handleInput}
+          removeCompleted={this.removeCompleted}
         />
       </div>
     );
