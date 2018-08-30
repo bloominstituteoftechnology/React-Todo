@@ -4,10 +4,8 @@ import './Todo.css'
 const Todo = (props) => {
   return (
     <div className="Todo">
-      {props.item.completed ? 
-        <div><input type="checkbox" checked={props.item.isChecked} onChange={(e) => props.addComplete(e, props.reactKey)} /><span className="strike">{props.item.task}</span></div>
-        : <div><input type="checkbox" checked={props.item.isChecked} onChange={(e) => props.addComplete(e, props.reactKey)} /><span>{props.item.task}</span></div>
-      }
+      <input type="checkbox" id="check-off" checked={props.item.completed} onChange={(e) => props.addComplete(e, props.reactKey)} />
+      <label className={props.item.completed ? "strike" : ""}htmlFor="check-off">{props.item.task}</label>
     </div>
   )
 }

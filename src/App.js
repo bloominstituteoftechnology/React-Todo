@@ -11,19 +11,16 @@ class App extends React.Component {
           task: 'Organize Garage',
           id: 1528817077286,
           completed: false,
-          isChecked: false
         },
         {
-          task: 'Click "Clear Completed" to remove this task',
+          task: 'Click "Clear Completed" to remove vaccum carpet',
           id: 1535575226154,
           completed: true,
-          isChecked: true
         },
         {
-          task: 'Click "Clear Completed" to remove this task',
+          task: 'Click "Clear Completed" to remove washing car',
           id: 1535575227074,
           completed: true,
-          isChecked: true
         }
       ],
       text: "",
@@ -56,7 +53,6 @@ class App extends React.Component {
   }
 
   addComplete = (e, reactKey) => {
-    e.preventDefault()
     let item = this.state.list.filter(task => task.id === reactKey)
     item[0].completed = !item[0].completed
     this.setState({ ...this.state.list, item})
