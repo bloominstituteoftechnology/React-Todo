@@ -1,14 +1,19 @@
 import React from "react";
 
 const TodoForm = (props) => {
-    console.log(props.clearTodo)
-  return (
+    return (
     <form>
-      <input value={props.inputText} onChange={props.handleInput} />
-      <button onClick={props.addTodo}>Add Todo</button>
-      <button onClick={props.clearTodo}>Clear Completed</button>
+      <input 
+      onChange={props.handleTodoChange}
+      type="text"
+      name="todo"
+      value={props.value} 
+      placeholder="Things to get done.."
+      />
+      <button onClick={props.handleAddTodo}>Add Todo</button>
+      <button onClick={props.handleClearTodos}>Clear Completed</button>
     </form>
   );
-}
+};
 
 export default TodoForm;

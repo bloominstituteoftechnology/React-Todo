@@ -4,11 +4,11 @@ import React from "react";
 //     textDecoration: 'line-through'
 // };
 
-
-
 const Todo = (props) => {
-return <h3 onClick={props.completed}>{props.todo}</h3>;
-}
+return ( 
+<h3 style={props.todo.completed ? { textDecoration: 'line-through'} : null } onClick={() => props.handleToggleComplete(props.todo.id)}> {props.todo.task} </h3>
+    );
+};
 
 export default Todo;
 

@@ -6,52 +6,69 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo: [],
-      inputText: "",
-      id: null,
-      completed: false
+      todos: [
+        {
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        },
+      ],
+      todo: ''
     };
-
   }
 
   //property
   addTodo = event => {
     event.preventDefault();
-    if(this.state.inputText){
-    this.setState({
-      todo: [...this.state.todo, {todo: this.state.inputText, id: Date.now(), completed: false}],
-      inputText: ""
-    });
-  }
-};
-
-clearTodo = event => {
-  event.preventDefault();
-  if (this.state.completed === 'true'){
-    this.setState({
-      todo: [this.state.todo.splice('')]
-    })
-  }
-};
-
-  handleInput = event => {
-    this.setState({
-     inputText: event.target.value
-    });
+    const todos = this.state.todos.slice();
+    todos.push({ task: this.state.todo, completed: false, id: Date.now() });
+    this.setState({ todos, todo: ''});
   };
+
+toggleTodoComplete = id => {
+  let todos =this.state.todos.slice();
+  todos = todos.map(todo => {
+    if (todo.id === id) {
+      todo.completed = !todo.completed;
+      console.log(todo.completed);
+      return todo;
+    } 
+    else {
+      return todo;
+    }
+  });
+  this.setState({ todos });
+};
+
+clearCompletedTodos = event => {
+  event.preventDefault();
+  let todos = this.state.todos.slice();
+    todos = todos.filter(todo => !todo.completed);
+    this.setState({ todos });
+  
+};
+
+changeTodo = event => this.setState({ [event.target.name]: event.target.value });
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-  render() {
-
-    return (
+render() {
+  return (
       <div>
-        <TodoList todo={this.state.todo} />
+        <TodoList 
+        handleToggleComplete={this.toggleTodoComplete}
+        todos={this.state.todos} />
         <TodoForm
-          addTodo={this.addTodo}
-          clearTodo={this.clearTodo}
-          inputText={this.state.inputText}
-          handleInput={this.handleInput}
+          value={this.state.todo}
+          handleTodoChange={this.changeTodo}
+          handleAddTodo={this.addTodo}
+          handleClearTodos={this.clearCompletedTodos} 
         />
       </div>
     );
