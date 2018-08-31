@@ -1,0 +1,20 @@
+.unordered-list .display-none {
+    -webkit-animation-name: display-none-anim; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.5; /* Safari 4.0 - 8.0 */
+    animation-name: display-none-anim;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    /* display: none; */
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes display-none-anim {
+    from {opacity: 1;}
+    to {opacity: 0; display: none;}
+}
+
+/* Standard syntax */
+@keyframes display-none-anim {
+    from {opacity: 1;}
+    to {opacity: 0; display: none;}
+}

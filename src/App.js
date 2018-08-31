@@ -1,8 +1,10 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import Search from './components/SearchComponents/Search';
 
 import './App.css';
+
 
 class App extends React.Component {
 	constructor (props) {
@@ -11,6 +13,7 @@ class App extends React.Component {
 		this.state = {
 			inputText: '',
 			todoList: [],
+			searchText: '',
 		}
 	} // constructor()
 
@@ -122,6 +125,32 @@ class App extends React.Component {
 			});
 		}, 300);
 	} // onClearAll()
+
+	onChangeSearch = (e) => {
+		e.preventDefault();
+
+		this.setState({
+			searchText: e.target.value,
+		}, () => {
+			let newState = {...this.state};
+
+			for (let i = 0; i < newState.todoList.length; i++) {
+				if (!newState.todoList[i].task.includes(newState.searchText)) {
+					if (!newState.todoList[i].classes.includes("display-none")) {
+						newState.todoList[i].classes.push("display-none");
+					}
+				} else {
+					if (newState.todoList[i].classes.includes("display-none")) {
+						newState.todoList[i].classes = newState.todoList[i].classes.filter(classItem => classItem !== "display-none");
+					}
+				}
+			}
+
+			console.log(newState);
+
+			this.setState({...newState});
+		});
+	} // onChangeSearch()
 	
 	render() {
 		return (
@@ -138,6 +167,12 @@ class App extends React.Component {
 						onAddTodo = { this.onAddTodo } 
 						onClearCompleted = { this.onClearCompleted } 
 						onClearAll = { this.onClearAll }
+					/>
+
+					<Search 
+						searchText = { this.state.searchText } 
+						todoList = { this.state.todoList } 
+						onChangeSearch = { this.onChangeSearch } 
 					/>
 		</div>
 		);
