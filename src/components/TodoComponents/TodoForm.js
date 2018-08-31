@@ -3,8 +3,14 @@ import React from "react";
 function TodoForm(props) {
   return (
     <form>
-      <input value={props.inputText} onChange={props.handleInput} />
-      <button onClick={props.addTodo}>Add todo</button>
+      <input
+        value={props.todo}
+        onChange={props.handleInput}
+        type="text"
+        name="todo"
+      />
+      <button onClick={props.addTodo}>Add Todo</button>
+      <button onClick={props.handleClearTodos}>Clear Completed</button>
     </form>
   );
 }

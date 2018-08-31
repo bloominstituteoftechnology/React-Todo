@@ -4,9 +4,15 @@ import Todo from "./Todo";
 function TodoList(props) {
   return (
     <ul>
-      {props.todos.map(todo => (
-        <Todo todo={todo} />
-      ))}
+      {props.todos.map(todo => {
+        return (
+          <Todo
+            handleToggleComplete={props.handleToggleComplete}
+            key={todo.id}
+            todo={todo}
+          />
+        );
+      })}
     </ul>
   );
 }
