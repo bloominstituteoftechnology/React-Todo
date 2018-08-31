@@ -41,6 +41,17 @@ class App extends React.Component {
   })
 }
 
+  clearCompleted = (event) => {
+    event.preventDefault();
+    let newItemsArray = [...this.state.items].filter((item) => {
+      return item.completed === false;
+
+  })
+    this.setState({
+      items: newItemsArray
+    })
+}
+
 
   handleInput = (event) => {
     this.setState({
@@ -55,9 +66,10 @@ class App extends React.Component {
         <h1>The Hacker To-Do list!</h1>
         <TodoList items={this.state.items} toggleComplete={this.toggleComplete}/>
         <TodoForm
-        addTodo={this.addTodo} inputText={this.state.inputText}
+        addTodo={this.addTodo}
+        inputText={this.state.inputText}
         handleInput={this.handleInput}
-        handleClick={this.handleClick}
+        clearCompleted={this.clearCompleted}
         />
 
       </div>

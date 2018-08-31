@@ -8,7 +8,10 @@ function Todo(props) {
 
   return (
   <li
-  onClick={() => {props.toggleComplete(props.item.id)}}>{props.item.task}</li>
+  style={{
+      textDecoration: props.item.completed ? 'line-through' : null}}
+  onClick={() => {props.toggleComplete(props.item.id)}}
+  >{props.item.task}</li>
 );
 }
 
