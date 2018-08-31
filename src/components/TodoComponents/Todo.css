@@ -9,4 +9,5 @@
 
 .strike-through {
     text-decoration: line-through;
+    text-decoration-color: red;
 }

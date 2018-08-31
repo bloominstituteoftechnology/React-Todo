@@ -10,8 +10,10 @@
 
 .complete {
     color: lightgreen;
+    transition: all 300ms ease-in-out;
 }
 
 .not-complete {
     color: lightcoral;
+    transition: all 300ms ease-in-out;
 }

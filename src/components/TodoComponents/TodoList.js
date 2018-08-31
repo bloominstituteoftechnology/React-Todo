@@ -5,33 +5,49 @@ import uuidv4 from 'uuid/v4';
 
 import './TodoList.css';
 
-export default function TodoList(props) {
-
-    // make fnc that loops over todos and then delets them if completed is true...
-    function clearAll() {
-        console.log(props.todoList);
-        props.clearAllComplete();
+export default class TodoList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchTerm: '',
+        }
+        this.search = React.createRef();
     }
 
-    return (
-        <div className="todo-list">
-            <TodoForm addTodo={props.addTodo} />
-            {/* title, body, time, complete */}
-            {props.todoList.map(todo => {
-                return <Todo toggleCompleteBoolean={props.toggleCompleteBoolean} key={uuidv4()} title={todo.title} body={todo.body} time={todo.time} complete={todo.complete} self={todo}
-            />
-            })}
-            {
-                props.todoList.length > 0
-                ?  <button 
-                        className="remove-completed-todos btn color-white"
-                        type="reset"
-                        onClick={clearAll}
-                    >
-                        Clear Completed
-                    </button>
-                : ''
-            }
-        </div>
-    )
+    clearAll = () => {
+        this.props.clearAllComplete();
+    }
+
+    searchTitles = (e) => {
+        e.preventDefault();
+        this.setState({
+            searchTerm: this.search.current.value
+        });
+    }
+
+    render() {
+        
+        let todoList = this.state.searchTerm.length <= 0 
+        ? this.props.todoList.map(todo => <Todo toggleCompleteBoolean={this.props.toggleCompleteBoolean} key={uuidv4()} title={todo.title} body={todo.body} time={todo.time} complete={todo.complete} self={todo} /> )
+        : this.props.todoList.filter(todo => todo.title[0] === this.state.searchTerm[0]).map(todo => <Todo toggleCompleteBoolean={this.props.toggleCompleteBoolean} key={uuidv4()} title={todo.title} body={todo.body} time={todo.time} complete={todo.complete} self={todo} /> )
+
+        return (
+            <div className="todo-list">
+                <input type="search" ref={this.search} placeholder="Search by Title" onChange={this.searchTitles} />
+                { todoList }
+                <TodoForm addTodo={this.props.addTodo} />
+                {
+                    this.props.todoList.length > 0
+                    ?  <button 
+                            className="remove-completed-todos btn color-white"
+                            type="reset"
+                            onClick={this.clearAll}
+                        >
+                            Clear Completed
+                        </button>
+                    : ''
+                }
+            </div>
+        )
+    }
 }
