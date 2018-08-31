@@ -35,23 +35,21 @@ class App extends React.Component {
   };
 
   itemCompleted(id) {
-    console.log("i was clicked");
-    this.setState(
-      //look for obj that has this id
-      this.state.items.forEach(function(item) {
-        if (item.id === id) {
-          if (item["completed"] === false) {
-            // set completed to true
-            item["completed"] = true;
-            console.log(item.task + " has been completed");
-          } else if (item["completed"] === true) {
-            // set completed to false
-            item["completed"] = false;
-            console.log(item.task + " has not been completed");
-          }
-        }
-      })
-    );
+    console.log(this.state);
+    //look for obj that has this id
+
+    let newArr = [...this.state.items];
+
+    newArr = newArr.map(function(item) {
+      if (item.id === id) {
+        item.completed = !item.completed;
+      }
+      return item;
+    });
+
+    //set new array in state
+    this.setState({ items: newArr });
+    console.log(this.state);
   }
 
   clearCompleted = event => {

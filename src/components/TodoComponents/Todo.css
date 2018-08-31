@@ -28,3 +28,8 @@ button {
   text-align: center;
   font-size: 22px;
 }
+
+.completed {
+  color: red;
+  text-decoration: line-through;
+}
