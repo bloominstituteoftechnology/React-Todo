@@ -6,7 +6,21 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      appStateTodos: [],
+      appStateTodos: [{
+        todo: "ａｅｓｔｈｅｔｉｃ　のズ卸",
+        id: 1,
+        completed: false
+      },
+      {
+        todo:"【﻿ＳＡＩＮＴ　ＰＥＰＳＩ　】",
+        id: 2,
+        completed: false
+      },
+      {
+        todo:"ＭＡＣＩＮＴＯＳＨ　ＰＬＵＳ　－　リサフランク４２０　／　現代のコンピュー　|　セど易ふが委せ　",
+        id: 3,
+        completed: false
+      }],
       inputText: "",
     };
   }
@@ -33,8 +47,8 @@ class App extends React.Component {
   }
 
   completeTodo = (id) => {
-    let newArray = [...this.state.appStateTodos];
-    newArray = newArray.map(element => {
+    newArray = [...this.state.appStateTodos];
+    let newArray = newArray.map(element => {
       if (element.id === id) {element.completed = !element.completed}
       return element;
     }) 

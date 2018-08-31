@@ -50,19 +50,22 @@ table {
 /* custom css */
 .completed {
     transition: .5s;
-    background: #EEE;
+    background: #9ad6b4;
     text-decoration: line-through;
 }
+
 div {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
 #root {
     display: flex;
-    margin: 15px auto 0 auto;
+    margin: 69px auto 0 auto;
+    margin-left: 8%;
     max-width: 450px;
-    border: 25px groove seagreen;
+    border: 25px groove turquoise;
     padding: 1%;
 }
 
@@ -70,18 +73,25 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: salmon;
+    opacity: .931;
 }
+
 li {
     padding: 10px 0 10px 0;
     margin: 5px 0 5px 0;
     text-align: center;
-    width: 50%;
+    width: 80%;
+    cursor: vertical-text;
+    font-size: 1.5rem;
 }
+
 li:hover {
     transition: .5s;
-    background: seagreen;
+    background: #DDD;
     border-radius: 20px;
 }
+
 input {
     display: flex;
     flex-direction: column;
@@ -89,12 +99,44 @@ input {
     border: 2px solid salmon;
     background: turquoise;
     text-align: center;
-    margin: 1px 0;
+    margin: 4px 0;
+    font-size: 1.8rem;
 }
+
 button {
     width: 450px;
     border: 2px solid salmon;
     background: aqua;
     cursor: pointer;
-    margin: 1px 0;
+    margin: 5px 0;
+    font-size: 2rem;
+}
+
+body {
+    background-size: cover;
+}
+iframe {
+    display: none;
+}
+
+@media (max-width:500px) {
+    #root, button {
+        max-width: 250px;
+    }
+    #root {
+        margin: 15px auto 0 auto;
+    }
+    button {
+        height: 60px;
+        font-size: 1.1rem;
+    }
+    input {
+        max-width: 246px;
+        font-size: 1.2rem;
+    }
+    body {
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
 }
