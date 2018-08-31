@@ -62,16 +62,25 @@ class App extends React.Component {
   render() {
     return (
       <div class = 'container'>
-        <TodoList
-          handleToggleComplete={this.toggleTodoComplete}
-          todos={this.state.todos}
-        />
+        
+        <div class = 'form-container'>
         <TodoForm
           value={this.state.todo}
           handleTodoChange={this.changeTodo}
           handleAddTodo={this.addTodo}
           handleClearTodos={this.clearCompletedTodos}
         />
+        </div>
+
+        <div class = 'list-container'>
+
+        <TodoList
+          handleToggleComplete={this.toggleTodoComplete}
+          todos={this.state.todos}
+        />
+
+        </div>
+
       </div>
     );
   }

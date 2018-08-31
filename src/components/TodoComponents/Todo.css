@@ -7,4 +7,35 @@ body {
 	width: 80%;
 	margin: 30px auto;
 	height: 100vh;
+	display: flex;
+	flex-flow: column nowrap;
+	border-radius: 20px;
+}
+
+.task-item {
+	background: blue;
+	width: 80%;
+	margin: 20px auto;
+	padding: 20px;
+	color: white;
+	font-family: Arial;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.form-container {
+	padding: 20px;
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.form-container input {
+	width: 100%;
+	padding: 10px 0px;
+}
+
+.form-container button {
+	padding: 10px 0px;
+	width: 40%;
+	margin: 20px 5%;
 }
