@@ -2,6 +2,7 @@ import React from 'react';
 //components are all located in './components/TodoComponents/
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import './components/TodoComponents/Todo.css';
 
 
 class App extends React.Component {
@@ -62,7 +63,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="todo-wrapper">
         <h1>The Hacker To-Do list!</h1>
         <TodoList items={this.state.items} toggleComplete={this.toggleComplete}/>
         <TodoForm

@@ -1,0 +1,12 @@
+.todo-wrapper {
+  display: flex;
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: lightgreen;
+  background-color: black;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid blue;
+}
