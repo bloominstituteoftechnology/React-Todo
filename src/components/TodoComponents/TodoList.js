@@ -29,7 +29,7 @@ export default class TodoList extends React.Component {
         
         let todoList = this.state.searchTerm.length <= 0 
         ? this.props.todoList.map(todo => <Todo toggleCompleteBoolean={this.props.toggleCompleteBoolean} key={uuidv4()} title={todo.title} body={todo.body} time={todo.time} complete={todo.complete} self={todo} /> )
-        : this.props.todoList.filter(todo => todo.title[0] === this.state.searchTerm[0]).map(todo => <Todo toggleCompleteBoolean={this.props.toggleCompleteBoolean} key={uuidv4()} title={todo.title} body={todo.body} time={todo.time} complete={todo.complete} self={todo} /> )
+        : this.props.todoList.filter(todo => todo.title.includes(this.state.searchTerm) || todo.body.includes(this.state.searchTerm)).sort((a,b) => a.title - b.title ).map(todo => <Todo toggleCompleteBoolean={this.props.toggleCompleteBoolean} key={uuidv4()} title={todo.title} body={todo.body} time={todo.time} complete={todo.complete} self={todo} /> )
 
         return (
             <div className="todo-list">
