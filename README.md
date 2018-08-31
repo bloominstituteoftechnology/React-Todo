@@ -1,6 +1,4 @@
-Day ONE codeSandBoxPreview: https://codesandbox.io/s/zlnw70302l
-
-Day TWO codeSandBoxPreview: incoming :)...
+MVP: https://codesandbox.io/s/8x4164y68j
 
 # React-Todo
 
