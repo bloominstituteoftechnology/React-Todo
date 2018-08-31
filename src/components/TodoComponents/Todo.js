@@ -5,9 +5,10 @@ import React from "react";
 // the tasks on screen
 
 function Todo(props) {
+
   return (
   <li
-  onClick={() => console.log(props.item.id)}>{props.item.task}</li>
+  onClick={() => {props.toggleComplete(props.item.id)}}>{props.item.task}</li>
 );
 }
 

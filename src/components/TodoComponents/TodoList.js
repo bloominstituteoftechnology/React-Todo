@@ -8,7 +8,12 @@ import Todo from './Todo';
 function TodoList(props) {
   return <ul>{props.items.map((item) =>
 
-    <Todo key={item.id} item={item}/>
+    <Todo
+      key={item.id}
+      item={item}
+      handleClick={props.handleClick}
+      toggleComplete={props.toggleComplete}
+      />
     )}
     </ul>;
 }

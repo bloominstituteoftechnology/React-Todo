@@ -29,18 +29,18 @@ class App extends React.Component {
   }
 }
   toggleComplete = (itemId) => {
-
-    console.log(itemId);
-  }
-
-  handleClick = (event) => {
     let newItemsArray = [...this.state.items];
-    this.setState({
+    newItemsArray = newItemsArray.map((item) => {
+    if (itemId === item.id) {
+      item.completed = !item.completed;
+    }
+    return item;
+})
+  this.setState({
+    items: newItemsArray
+  })
+}
 
-      // this is where a function goes to grab the array item by id
-       items: newItemsArray
-    })
-  }
 
   handleInput = (event) => {
     this.setState({
@@ -53,10 +53,11 @@ class App extends React.Component {
     return (
       <div>
         <h1>The Hacker To-Do list!</h1>
-        <TodoList items={this.state.items} />
+        <TodoList items={this.state.items} toggleComplete={this.toggleComplete}/>
         <TodoForm
         addTodo={this.addTodo} inputText={this.state.inputText}
         handleInput={this.handleInput}
+        handleClick={this.handleClick}
         />
 
       </div>
