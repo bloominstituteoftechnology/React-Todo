@@ -65,7 +65,7 @@ class App extends React.Component {
         return task;
       }
     });
-    this.setState({copy});
+    this.setState({todoList: copy});
     console.log(id);
   }
 
@@ -77,7 +77,13 @@ class App extends React.Component {
 
   clearClickHandler = event =>{
     event.preventDefault();
-    
+    let copy = [];
+    this.state.todoList.forEach(task =>{
+      if(!task.completed){
+        copy.push(task);
+      }
+    });
+    this.setState({todoList: copy});
     console.log('clear button!');
   }
 }
