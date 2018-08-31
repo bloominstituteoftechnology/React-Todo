@@ -83,7 +83,12 @@ class App extends React.Component {
   this.setState({ todos });
 };
 
-
+  clearCompleted = event => {
+    event.preventDefault();
+    let todos = this.state.todos.slice();
+    todos = todos.filter(todo => !todo.completed);
+    this.setState({ todos });
+  };
   //form is called controlled comonent (vs. uncontrolled)
 
   render() {
@@ -101,7 +106,8 @@ class App extends React.Component {
         <TodoForm 
           addTodo={this.addTodo}
           task={this.state.task}
-          handleInput={this.handleInput}
+          handleInputChange={this.handleInput}
+          handleClearCompleted={this.clearCompleted}
         /> 
         {/* </div> */}
       </div>
