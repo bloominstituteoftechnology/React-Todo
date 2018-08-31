@@ -1,6 +1,6 @@
 import React from "react";
 
-const TodoForm = props => {
+function TodoForm(props) {
   return (
     <form>
       <input 

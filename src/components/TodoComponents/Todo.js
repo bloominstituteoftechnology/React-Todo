@@ -1,6 +1,6 @@
 import React from "react";
 
-const Todo = props => { 
+function Todo(props) { 
   return (
   
         <li onClick={() => props.handleToggle(props.todo.id)}
@@ -15,6 +15,3 @@ const Todo = props => {
 
 
 export default Todo;
-
-// onClick={props.handleSingleClickEvent}
-// onClick={() => this.props.toggle(this.props.todo.id)}

@@ -14,7 +14,6 @@ class App extends React.Component {
         todo: ""
       };
 
-      // this.toggle = this.toggle.bind(this);
     }
 
   // Property
@@ -50,8 +49,6 @@ class App extends React.Component {
         //   todos: currentTodos, 
         //   task: ""
         // });
-
-        // let newStateArray = [...this.state.completed];
 
       const todos = this.state.todos.slice();
       todos.push({task: this.state.todo, id: Date.now(), completed: false});
