@@ -5,7 +5,7 @@ import Todo from "./Todo";
 
 function TodoList(props) {
 
-    return <ul>{props.todos.map(todo => <Todo id= {todo.id} todo={todo} completed= {props.toggle}/>)}</ul>;
+    return <ul>{props.todos.map(todo => <Todo key= {todo.id} todo={todo} handleToggle= {props.handleToggle}/>)}</ul>;
 }
 
 export default TodoList;

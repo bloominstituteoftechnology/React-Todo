@@ -64,17 +64,23 @@ class App extends React.Component {
 
 
 
-  toggle = event => {
-    event.preventDefault();
+  toggle = id => {
+    // id.preventDefault();
     
-    // let newTodos = [...this.state.todos] 
-    // if(newTodos) {
-      this.setState(prevState => ({
-        completed: !prevState.completed
-      }));
+    let todos = this.state.todos.slice()
+    todos = todos.map(todo => { 
+    if(todo.id === id) {
+      // this.setState(prevState => ({
+      //   completed: !prevState.completed
+      // }));
     // alert('Todo task was clicked');
-  // }
-
+      todo.completed = !todo.completed;
+      return todo;
+    } else {
+      return todo;
+    }
+  });
+  this.setState({ todos });
 };
 
 
@@ -84,20 +90,20 @@ class App extends React.Component {
     // this is a lifecycle hook
     return (
       <div>
-        <div onClick={this.toggle}>
+        {/* <div onClick={this.toggle}> */}
          {/* {this.state.completed ? 'ON' : 'OFF'} */}
         <TodoList 
         todos={this.state.todos} 
-        // toggle = {this.completed}
+        handleToggle = {this.toggle}
         />
-       </div> 
-       <div>
+       {/* </div> 
+       <div> */}
         <TodoForm 
           addTodo={this.addTodo}
           task={this.state.task}
           handleInput={this.handleInput}
         /> 
-        </div>
+        {/* </div> */}
       </div>
     );
   }
