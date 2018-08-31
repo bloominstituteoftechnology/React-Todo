@@ -1,138 +1,80 @@
 import React from 'react';
-import ReactDOM from "react-dom";
-import TodoList from "./components/TodoComponents/TodoList";
-import TodoForm from "./components/TodoComponents/TodoForm";
-import '../src/components/TodoComponents/Todo.css'
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
+import '../src/components/TodoComponents/Todo.css';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      tasks: [{
-          task: 'take garbage',
+      todos: [
+        {
+          task: 'Learn React.js',
           id: 1528817077286,
           completed: false
         },
         {
-          task: 'eat dinner',
-          id: 1528817077243,
+          task: 'Try not to cry',
+          id: 1528817084358,
+          completed: false
+        },
+        {
+          task: 'Cry a lot',
+          id: 1528817084360,
           completed: false
         }
       ],
-      input: ''
+      todo: ''
     };
   }
-
-  // addTodo = event => {
-  //   event.preventDefault();
-  //   if (this.state.input) {
-  //     this.setState({
-  //       todos: [...this.state.todos, this.state.input],
-  //       input: ""
-  //     });
-  //   }
-  // };
-
-
-  // bindings go here unless implied
-
-  addTask = event => {
-    event.preventDefault();
-    if (this.state.input === "") {
-      return;
-    }
-    const tasks = this.state.tasks.slice();
-    tasks.push({
-      task: this.state.input,
-      id: Date.now(),
-      completed: false
-    });
-
-    this.setState({
-      tasks: tasks,
-      input: ''
-    });
-  }
-
-
-  handleInput = event => {
-    this.setState({
-      input: event.target.value
-    });
-  }
-
-  // // 
-  //   clearList = event => {
-  //     event.preventDefault();
-  //     let tasks = this.state.tasks.slice();
-  //     tasks = tasks.filter(item => !item.completed);
-  //     this.setState({tasks : tasks});
-  //   }
-
-  // clearList = event => {
-  //   event.preventDefault();
-  //   this.setState({
-  //     todos: [],
-  //     input: ""
-  //   });
-  // };
-
-
-  // toggleComplete = id => {
-  //   //   let tasks = this.state.tasks.slice();
-  //   //   tasks = tasks.map(item => {
-  //   //     if (item.id === id) {
-  //   //       item.completed = !item.completed;
-  //   //       return item;
-  //   //     } else {
-  //   //       return item;
-  //   //     }
-  //   //   });
-  //   //   this.setState({tasks});
-  //   // }
-
-
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
+  addTodo = event => {
+    event.preventDefault();
+    const todos = this.state.todos.slice();
+    todos.push({ task: this.state.todo, completed: false, id: Date.now() });
+    this.setState({ todos, todo: '' });
+  };
+
+  changeTodo = event => this.setState({ [event.target.name]: event.target.value });
+
+  toggleTodoComplete = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ todos });
+  };
+
+  clearCompletedTodos = event => {
+    event.preventDefault();
+    let todos = this.state.todos.slice();
+    todos = todos.filter(todo => !todo.completed);
+    this.setState({ todos });
+  };
+
   render() {
-    return ( <
-      div className = 'container' >
-
-      <
-      TodoForm value = {
-        this.state.input
-      }
-      handleInput = {
-        this.handleInput
-      }
-      addTask = {
-        this.addTask
-      }
-      /> <
-      TodoList tasks = {
-        this.state.tasks
-      }
-      />
-
-      <
-      /div>
-
-      // <div>
-      // <TodoList todo={this.state.todo} />
-      // <TodoForm 
-      // addTodo={this.addTodo}
-      // input = {this.state.input}
-      // handleInput={this.handleInput}
-      // />
-      // </div>
-
-
+    return (
+      <div class = 'container'>
+        <TodoList
+          handleToggleComplete={this.toggleTodoComplete}
+          todos={this.state.todos}
+        />
+        <TodoForm
+          value={this.state.todo}
+          handleTodoChange={this.changeTodo}
+          handleAddTodo={this.addTodo}
+          handleClearTodos={this.clearCompletedTodos}
+        />
+      </div>
     );
   }
 }
-
-const rootElement = document.getElementById("root");
-ReactDOM.render( < App / > , rootElement);
 
 export default App;
