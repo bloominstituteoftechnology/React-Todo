@@ -8,14 +8,18 @@ import Todo from './Todo';
 
 const TodoList = (props) =>{
     return(
-        <div class='todo-list'>
+        <ul class='todo-list'>
             {props.todoList.map(task =>{
-                return <Todo  
-                itemCompleted={props.itemCompleted} 
-                id={task.id}
-                task={task.task} />;
+                return(
+                    <Todo  
+                        itemCompleted={props.itemCompleted} 
+                        id={task.id}
+                        task={task.task}
+                        completed={task.completed}
+                    />
+                );
             })}
-        </div>
+        </ul>
     );
 }
 

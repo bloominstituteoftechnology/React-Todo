@@ -55,7 +55,17 @@ class App extends React.Component {
     console.log('a click!');
   }
 
-  itemCompleted(id){
+  itemCompleted = id =>{
+    let copy = [...this.state.todoList];
+    copy = copy.map(task =>{
+      if(task.id === id){
+        task.completed = !task.completed;
+        return task;
+      }else{
+        return task;
+      }
+    });
+    this.setState({copy});
     console.log(id);
   }
 
@@ -67,6 +77,7 @@ class App extends React.Component {
 
   clearClickHandler = event =>{
     event.preventDefault();
+    
     console.log('clear button!');
   }
 }
