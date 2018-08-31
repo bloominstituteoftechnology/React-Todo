@@ -135,6 +135,8 @@ class App extends React.Component {
 			let newState = {...this.state};
 
 			for (let i = 0; i < newState.todoList.length; i++) {
+				// if the string in task includes the string in searchText,
+				// add the class "display-none" to it, else get rid of that class
 				if (!newState.todoList[i].task.includes(newState.searchText)) {
 					if (!newState.todoList[i].classes.includes("display-none")) {
 						newState.todoList[i].classes.push("display-none");
@@ -145,8 +147,6 @@ class App extends React.Component {
 					}
 				}
 			}
-
-			console.log(newState);
 
 			this.setState({...newState});
 		});
