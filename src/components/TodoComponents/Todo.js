@@ -1,7 +1,11 @@
 import React from 'react';
+import "./ToDo.css";
 
 function ToDo(props) {
-    return <h2 onClick={() => props.toggleComplete(props.todo.id),} >{props.todo.task}</h2>;
+    return <li 
+    className={props.todo.completed ? "strikethrough" : null}    
+    onClick={() => props.toggleComplete(props.todo.id)}
+>{props.todo.task}</li>;
 }
 
 export default ToDo;

@@ -21,22 +21,12 @@ class App extends React.Component {
 
   addToDo = event => {
     event.preventDefault();
-
+    console.log("default prevented");
     if (this.state.inputText)
     this.setState({
       todos: [...this.state.todos,  {task:this.state.inputText, id:Date.now(), completed:false}],
       inputText: ""
     });
-  };
-
-  addItem = event => {
-    event.preventDefault();
-    if(this.state.inputText){
-      this.setState({
-        todos: [...this.state.todos, {task:this.state.textField, id: Date.now(), completed:false}],
-        inputText: ""
-      });
-    }
   };
 
 
@@ -49,6 +39,15 @@ class App extends React.Component {
   clearComplete = event => {
     event.preventDefault();
     console.log("default prevented");
+
+    const incomplete = [...this.state.todos].filter(function (todo) {
+      return todo.completed === false;
+    })
+
+    this.setState({
+      todos: incomplete
+    })
+    
   };
 
   toggleComplete = id => {
@@ -63,9 +62,7 @@ class App extends React.Component {
       todos: newTodos,
 
     }, () => 
-        console.log(this.state)
-
-      )
+        console.log(this.state))
   }
 
   
@@ -81,6 +78,7 @@ class App extends React.Component {
         addToDo={this.addToDo}
         inputText={this.state.inputText}
         handleInput={this.handleInput}
+        clearComplete={this.clearComplete}
       />
      </div>
     );
