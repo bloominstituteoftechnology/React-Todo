@@ -13,10 +13,6 @@ export default class TodoForm extends React.Component {
       newTodo: false,
       complete: false
     };
-
-    // *** Create Refs ***
-    this.input = React.createRef();
-    this.textAreaRef = React.createRef();
   }
 
   onChangeHandler = e => {
@@ -48,9 +44,6 @@ export default class TodoForm extends React.Component {
       complete: false,
       newTodo: !this.state.newTodo
     });
-    // Using the ref I created on the input element and instantiated on line 10 in the constructor, I reset the input value (on the physical web page the user sees) back to blank
-    this.input.current.value = "";
-    this.textAreaRef.current.value = "";
   };
 
   toggleForm = () => {
