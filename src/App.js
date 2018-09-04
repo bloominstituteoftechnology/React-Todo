@@ -37,7 +37,6 @@ class App extends React.Component {
     event.preventDefault();
     let newArr = [...this.state.todo];
     newArr = newArr.filter(element => element.completed === false);
-    console.log(newArr);
     this.setState({ todo: newArr });
   }
 
