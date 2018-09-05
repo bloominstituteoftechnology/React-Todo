@@ -14,7 +14,9 @@ class App extends React.Component {
     super();
     this.state = {
       todo: [],
-      task: ''
+      task: '',
+      id: Date.now(),
+      completed: false
     };
   }
 
@@ -24,7 +26,9 @@ class App extends React.Component {
     if (this.state.task) {
       this.setState({
         todo: [...this.state.todo, this.state.task],
-        task: ''
+        task: this.state.task,
+        id: Date.now(),
+        completed: false
       });
     }
   };
