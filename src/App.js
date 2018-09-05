@@ -10,17 +10,39 @@ class App extends React.Component {
   constructor() {
     super(); //lets us access lifecycle methods
     this.state = {
-      todos: []
+      todos: [],
+      inputText: ""
 
       // [{ todoItem: "Get on computer" }, { todoItem: "Study React" }]
     };
   }
 
+  //property
+  addToDo = event => {
+    //update the todos array
+    event.preventDefault();
+
+    this.setState({
+      todos: [...this.state.todos, this.state.inputText],
+      inputText: ""
+    });
+  };
+
+  handleInput = event => {
+    this.setState({
+      inputText: event.target.value
+    });
+  };
+
   render() {
     return (
       <div>
         <TodoList todos={this.state.todos} />
-        <TodoForm />
+        <TodoForm
+          addTodo={this.addTodo}
+          inputText={this.state.inputText}
+          handleInput={this.handleInput}
+        />
       </div>
     );
   }
