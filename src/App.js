@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -9,16 +10,17 @@ class App extends React.Component {
   constructor() {
     super(); //lets us access lifecycle methods
     this.state = {
-      todoData: [{ todoItem: "Get on computer" }, { todoItem: "Study React" }]
+      todos: []
+
+      // [{ todoItem: "Get on computer" }, { todoItem: "Study React" }]
     };
   }
 
   render() {
     return (
       <div>
-        {this.state.todoData.map(todo => {
-          return <TodoList todoProp={todo} />;
-        })}
+        <TodoList todos={this.state.todos} />
+        <TodoForm />
       </div>
     );
   }
