@@ -35,12 +35,10 @@ class TodoList extends Component {
 
 
     render() { 
+    
         return (  
-            <div key={this.state.taskList.id}>
-            {this.state.taskList.map(tasks => { 
-                return `${tasks.task}`
-            })
-        } <br />
+            <div key={this.state.taskList.id}> 
+            {this.state.taskList.map(tasks =>  `${tasks.task}`)} 
                 </div>
         );
     }

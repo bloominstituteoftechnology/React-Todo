@@ -9,8 +9,9 @@ class TodoForm extends Component {
           ];
     }
 
-handleChange = event =>
-    this.setState({value: event.target.textInput});
+handleNewTask = event =>
+    this.setState({value: event.target.textInput}
+    );
 
 
 
@@ -21,7 +22,7 @@ handleChange = event =>
         return (
         
     <form>
-        <input onChange={this.handleChange} type="text" placeholder='...todo' value={this.state.value}  />
+        <input onChange={this.handleNewTask} type="text" placeholder='...todo' value={this.state.value}  />
     
         <input onSubmit='' type="submit" value="Add Todo" />
         <input onSubmit='' type="submit" value="Clear Completed" />
