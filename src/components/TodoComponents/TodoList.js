@@ -2,7 +2,9 @@ import React from "react";
 import Todo from "./Todo.js";
 
 function TodoList(props) {
-  return <ul>{props.task.map(tasks => <Todo task ={task} />)}</ul>;
+console.log(props)
+
+  return (<div>{props.task.taskRead.map(taskRead=><Todo taskRead ={taskRead}/>)}</div>);
 }
 
 export default TodoList;

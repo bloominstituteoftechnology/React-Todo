@@ -1,7 +1,9 @@
 import React from "react";
 
 function Todo(props) {
-  return <li>{props.task}</li>;
+  console.log(props.taskRead);
+
+  return <li onClick={document.querySelector('li').classList.toggle('underline')}>{props.taskRead}</li>;
 }
 
-export default Todo;
+export default Todo
