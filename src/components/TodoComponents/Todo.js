@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Todo = (props) => {
-    return (
-        
-    )
-}
+	return <li onClick={() => props.todoClick(props.todo.id)}>{props.task}</li>;
+};
+
+export default Todo;

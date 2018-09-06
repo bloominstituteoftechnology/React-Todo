@@ -14,6 +14,10 @@ class App extends React.Component {
 		};
 	}
 
+	todoChange = (event) => {
+		this.setState({ task: event.target.value });
+	};
+
 	submitHandler = (e) => {
 		e.preventDefault();
 		const { todos, task } = this.state;
@@ -24,13 +28,42 @@ class App extends React.Component {
 	};
 
 	// Completed - Click
+	todoClick = (search) => {
+		const filteredTodos = this.state.todos.map((todo) => {
+			if (todo.id === search.id) todo.completed = !todo.completed;
+			return todo;
+		});
+		this.setState({
+			todos: filteredTodos,
+		});
+	};
 
 	// Clear Todo
+	removeTodos = () => {
+		const newTodos = this.state.todos.filter((todo) => {
+			return todo.completed === false;
+		});
+		this.setState({
+			todos: newTodos,
+		});
+	};
 
 	render() {
 		return (
 			<div>
-				<h2>Welcome to your Todo App!</h2>
+				<h1>Today's Todo List</h1>
+				<TodoForm
+					value={this.state.task}
+					todos={this.state.todos}
+					onChange={this.todoChange}
+					onSubmit={this.submitHandler}
+					deleteTodo={this.removeTodos}
+				/>
+				<TodoList
+					todos={this.state.todos}
+					task={this.state.task}
+					todoClick={this.todoClick}
+				/>
 			</div>
 		);
 	}

@@ -6,9 +6,17 @@ import Todo from './Todo';
 const TodoList = (props) => {
 	return (
 		<div>
-			{props.todos.map((todo) => (
-				<Todo task={todo.task} key={todo.id} todo={todo} />
-			))}
+			<ul>
+				{props.todos.map((todo) => (
+					<Todo
+						task={todo.task}
+						key={todo.id}
+						todoClick={props.todoClick}
+						todo={todo}
+						style={todo.completed ? { textDecoration: 'line-through' } : null}
+					/>
+				))}
+			</ul>
 		</div>
 	);
 };
