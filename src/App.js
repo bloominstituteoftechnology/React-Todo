@@ -14,9 +14,7 @@ class App extends React.Component {
     super();
     this.state = {
       todo: [],
-      task: '',
-      id: Date.now(),
-      completed: false
+      task: ''
     };
   }
 
@@ -39,6 +37,19 @@ class App extends React.Component {
     });
   };
 
+  toggleCompleted = id => {
+    let newTodo = [...this.state.task];
+    newTodo = newTodo.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ task: newTodo });
+  };
+
   render() {
     return (
       <div>
@@ -46,6 +57,8 @@ class App extends React.Component {
         <TodoForm
           addTodo={this.addTodo}
           task={this.state.task}
+          id={this.state.id}
+          completed={this.state.completed}
           handleInput={this.handleInput}
         />
       </div>
