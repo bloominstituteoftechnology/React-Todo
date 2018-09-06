@@ -1,19 +1,18 @@
-// Form Fields Here
+import React from 'react';
 
-// Submit Button
-
-function AddItem(props) {
+const ToDoForm = props => {
     return (
-        <button>{props.AddItem}</button>
-    );
-  }
+        <form>
+            <input
+            onChange={props.handleToDoChange}
+            name="todo"
+            value={props.value}
+            placeholder="Add ToDo Task"
+            />
+    <button onClick={props.handleAddToDo}>Add Task</button>
+    <button>Clear</button>
+        </form>
+        );
+    };
 
-  export default AddItem;
-  
-  // Clear Button
-  
-   function ClearItem(props) {
-    return (
-        <button>{props.ClearItem}</button>
-    );
-  }
+export default ToDoForm;
