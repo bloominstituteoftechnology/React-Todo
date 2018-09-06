@@ -7,7 +7,7 @@ const TodoForm = (props) => {
 				<input
 					type="text"
 					name="todo"
-					placeholder="Please Add Todo Here"
+					placeholder="Please Add Todo Items Here"
 					value={props.task}
 					onChange={props.submitHandler}
 				/>
