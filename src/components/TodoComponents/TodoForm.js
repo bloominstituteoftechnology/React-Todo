@@ -1,34 +1,27 @@
 import React, { Component } from 'react';
 import './Todo.css'
 
-class TodoForm extends Component {
-    constructor(props)  {
-        super(props)
-        this.state = [{textInput: ''}
-            
-          ];
-    }
-
-handleNewTask = event =>
-    this.setState({value: event.target.textInput}
-    );
+function TodoForm(props) {
+   
 
 
 
 
-    render() { 
+
+
+    
         //alert(this.state.value);
 
         return (
         
     <form>
-        <input onChange={this.handleNewTask} type="text" placeholder='...todo' value={this.state.value}  />
+        <input onChange={props.handleNewTask} type="text" placeholder='...todo' value={props.todoList}  />
     
         <input onSubmit='' type="submit" value="Add Todo" />
         <input onSubmit='' type="submit" value="Clear Completed" />
     </form>
         );
-    }
+    
 }
  
 export default TodoForm;

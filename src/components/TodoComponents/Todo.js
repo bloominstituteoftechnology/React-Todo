@@ -1,21 +1,14 @@
 import React, { Component } from 'react';
+import TodoList from './TodoList'
 
-
-class Todo extends Component {
-    constructor(props){
-        super();
-        this.state = {
-
-        }
-
-    }
-    render() { 
+function Todo(props) {
+  
         return ( 
-            <div>
-            
-            </div>
+            <li className='td'>
+                {props.task}
+            </li>
          );
-    }
+    
 }
  
 export default Todo ;
