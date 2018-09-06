@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -10,25 +10,23 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      todo: [],
-      task: ''
+      task: '',
+      todo: []
     };
   }
 
   //property
   addTodo = event => {
     event.preventDefault();
-    if (this.state.task) {
-      this.setState({
-        todo: [...this.state.todo, this.state.task],
-        id: Date.now(),
-        completed: false,
-        task: ''
-      });
-    }
+    this.setState({
+      task: '',
+      todo: [...this.state.todo, this.state.task],
+      id: Date.now(),
+      completed: false
+    });
   };
 
   handleInput = event => {
@@ -38,16 +36,17 @@ class App extends React.Component {
   };
 
   toggleCompleted = id => {
-    let newTodo = [...this.state.task];
+    let newTodo = [...this.state.newTodo];
     newTodo = newTodo.map(todo => {
-      if (todo.id === id) {
-        todo.completed = !todo.completed;
+      if (todo.id !== id) {
         return todo;
       } else {
+        todo.completed = !todo.completed;
         return todo;
       }
     });
-    this.setState({ task: newTodo });
+    console.log('new todos array', newTodo);
+    this.setState({ newTodo });
   };
 
   render() {
