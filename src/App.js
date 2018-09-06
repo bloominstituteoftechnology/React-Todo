@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ToDoForm from './components/TodoComponents/TodoForm';
 import ToDoList from './components/TodoComponents/TodoList';
 
@@ -7,7 +7,6 @@ class App extends React.Component {
     super();
     this.state = {
       todo: [],
-      todo: ''
     };
   }
 
