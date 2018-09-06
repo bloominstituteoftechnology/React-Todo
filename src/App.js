@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm'
 import TodoList  from './components/TodoComponents/TodoList'
-import Todo  from './components/TodoComponents/Todo'
+//import Todo  from './components/TodoComponents/Todo'
 
 class App extends React.Component {
 
@@ -10,22 +10,34 @@ class App extends React.Component {
 
     this.state = {
         todoList: [],
+        inputText: ''
         
     };
+
+  
 }
 
-handleNewTask = event =>
-    this.setState({todoList: event.target.todoList}
-    );
+addTask = event => {
+  event.preventDefault();
 
+    this.setState({todoList: [...this.state.todoList, this.state.input]});  
+    
+}
+    
+handleInput = event => this.setState({inputText: event.target.value});
 
   render() {
 
-    alert(this.state.todoList);
+    
     return (
       <div>
-        <Todo />
-        <TodoForm />
+      
+        <TodoForm 
+        addTask={this.addTask} 
+        inputText={this.state.inputText} 
+        handleInput={this.handleInput} 
+        />
+
         <TodoList todos={this.state.todoList} />
         
       </div>
