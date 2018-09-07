@@ -17,14 +17,20 @@ class App extends React.Component {
   
 }
 
-// inputText = [event.target.name];
-
 addTask = event => {
   event.preventDefault();
-    if(this.state.inputText){
-    this.setState({todoList: [...this.state.todoList, this.state.inputText], inputText: ''});  
-    } 
+  const todoList = this.state.todoList.slice();
+  todoList.push({ task: this.state.inputText, completed: false, id: Date.now() });
+  this.setState({ todoList, inputText: '' });
 };
+
+// addTask = event => {
+//   event.preventDefault();
+
+//     if(this.state.inputText){
+//     this.setState({todoList: [...this.state.todoList, this.state.inputText], inputText: ''});  
+//     } 
+// };
     
 handleInput = event =>{ this.setState({inputText: event.target.value});}
 
@@ -48,7 +54,10 @@ handleInput = event =>{ this.setState({inputText: event.target.value});}
         />
 
         <TodoList 
-        todos={this.state.todoList} 
+        task={this.state.inputText}
+        id={Date.now()}
+        completed={false}
+        todoList={this.state.todoList} 
         toggleCompleted={this.toggleCompleted}
         />
         
