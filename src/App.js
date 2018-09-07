@@ -17,6 +17,8 @@ class App extends React.Component {
   
 }
 
+// inputText = [event.target.name];
+
 addTask = event => {
   event.preventDefault();
     if(this.state.inputText){
@@ -24,7 +26,11 @@ addTask = event => {
     } 
 };
     
-handleInput = event =>{ this.setState({[event.target.name]: event.target.value});}
+handleInput = event =>{ this.setState({inputText: event.target.value});}
+
+//toggleCompleted = event => {}
+
+//clearCompleted = event => {}
 
   render() {
 
@@ -37,10 +43,14 @@ handleInput = event =>{ this.setState({[event.target.name]: event.target.value})
         addTask={this.addTask} 
         inputText={this.state.inputText} 
         handleInput={this.handleInput}
-        inputName='inputText' 
+        clearCompleted = {this.clearCompleted}
+        //inputName='inputText' 
         />
 
-        <TodoList todos={this.state.todoList} />
+        <TodoList 
+        todos={this.state.todoList} 
+        task={this.state.todoList.task}
+        />
         
       </div>
     );

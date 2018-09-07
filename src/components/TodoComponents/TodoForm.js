@@ -8,10 +8,10 @@ function TodoForm(props) {
         return (
         
     <form>
-        <input onChange={props.handleInput} type="text" placeholder='...todo' value={props.inputText}  />
+        <input onChange={props.handleInput} type="text" placeholder='...todo' value={props.inputText} name={props.inputName}  />
     
         <input onClick={props.addTask} type="submit" value="Add Todo" />
-        <input onClick='' type="submit" value="Clear Completed" />
+        <input onClick={props.clearCompleted} type="submit" value="Clear Completed" />
     </form>
         );
     
