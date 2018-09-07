@@ -1,0 +1,27 @@
+body {
+  padding: 50px;
+  background-color: #8babdd;
+  font-family: sans-serif;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+.todoForm .input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid black;
+  width: 165px;
+}
+
+.todoForm .button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+  margin-right: 0px;
+  background-color: #426eb5;
+  color: white;
+  border: 2px solid black;
+}
