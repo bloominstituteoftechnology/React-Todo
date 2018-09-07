@@ -15,7 +15,13 @@ constructor() {
       compeleted: false,
     };
   }
-
+cross = event => {
+  event.preventDefault();
+  event.target.classList.toggle('clicked');
+  this.setState({
+    className: "clicked",
+  });
+}
   addTask = event => {
       event.preventDefault();
       if (this.state.task) {
@@ -35,7 +41,7 @@ constructor() {
 return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList task={this.state} />
+        <TodoList cross= {this.cross} task={this.state} />
         <TodoForm
           addTask={this.addTask}
           id={this.state.id}
