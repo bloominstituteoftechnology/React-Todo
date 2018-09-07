@@ -24,7 +24,7 @@ addTask = event => {
     } 
 };
     
-handleInput = event => this.setState({inputText: event.target.value});
+handleInput = event =>{ this.setState({[event.target.name]: event.target.value});}
 
   render() {
 
@@ -36,7 +36,8 @@ handleInput = event => this.setState({inputText: event.target.value});
         <TodoForm 
         addTask={this.addTask} 
         inputText={this.state.inputText} 
-        handleInput={this.handleInput} 
+        handleInput={this.handleInput}
+        inputName='inputText' 
         />
 
         <TodoList todos={this.state.todoList} />

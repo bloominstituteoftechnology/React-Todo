@@ -6,7 +6,7 @@ function TodoList(props) {
   
         return (  
             <ul className='tdl'> 
-            {props.todos.map(todo => <Todo todo={todo}  />)}
+            {props.todos.map(todo => <Todo propsTodo={todo}  />)}
                 </ul>
         );
     
