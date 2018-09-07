@@ -44,12 +44,12 @@ handleInput = event =>{ this.setState({inputText: event.target.value});}
         inputText={this.state.inputText} 
         handleInput={this.handleInput}
         clearCompleted = {this.clearCompleted}
-        //inputName='inputText' 
+        
         />
 
         <TodoList 
         todos={this.state.todoList} 
-        task={this.state.todoList.task}
+        toggleCompleted={this.toggleCompleted}
         />
         
       </div>
