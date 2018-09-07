@@ -19,10 +19,10 @@ class App extends React.Component {
 
 addTask = event => {
   event.preventDefault();
-
-    this.setState({todoList: [...this.state.todoList, this.state.input],inputText: ''});  
-    
-}
+    if(this.state.inputText){
+    this.setState({todoList: [...this.state.todoList, this.state.inputText], inputText: ''});  
+    } 
+};
     
 handleInput = event => this.setState({inputText: event.target.value});
 
@@ -32,6 +32,7 @@ handleInput = event => this.setState({inputText: event.target.value});
     return (
       <div>
         <Todo />
+
         <TodoForm 
         addTask={this.addTask} 
         inputText={this.state.inputText} 
