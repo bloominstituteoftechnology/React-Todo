@@ -1,35 +1,37 @@
 body {
-    padding: 50px;
-    background-color: #66CCFF;
-    font-family: sans-serif;
-  }
-  #root {
-    display: flex;
-    justify-content: center;
-  }
-
-.unorderedList {
-  list-style: none;
-  padding-left: 0;
-  width: 250px;
-} 
-li {
-  color: #333;
-  background-color: rgba(255,255,255,.5);
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  list-style: none;
-}
-ul  {
+  margin: 0 auto;
   padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(45deg,whitesmoke, grey, lightgrey, darkgrey);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  max-width: 1200px;
+}
+.header-container {
+  background-color: whitesmoke;
+  height: 170px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px 2.5px maroon;
 }
 
-.toggle-content{
-  display:none;
-
+.lambda {
+margin-top: 25px;
+margin-bottom: -30px;
 }
-.is-visible{
-  display:flex;
+.app-name {
+  font-family: 'Rock Salt', cursive;
+  margin: -20px;
+  margin-left: 20px;
 }
 
+.subtasks {
+  margin-left: 25px;
+}
+.subtask-list {
+  list-style-type:circle;
+}

@@ -1,62 +1,61 @@
-import React, { Component } from "react";
-import FormSubmit from './components/FormSubmit';
-import ToDoList from './components/ToDoList';
-
+import React, { Component  } from "react";
+import Header from "./components/Header";
+import Form from "./components/Form";
+import ToDoList from "./components/ToDoList";
 class App extends Component {
-    constructor(){
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            tasks: ['Wash car'],
-            task: "",
+            todos : [{ title: "Wash the car", subtasks:["Vacuum the car", "Dry the car", "Wax the car"]}],
+            todo: '',
             id: null,
             completed: false,
-        }
-
-    }
         
-    changeHandle = (event) =>{
-        this.setState ({[event.target.name]:event.target.value})//every time you call setState you call the render function
+    }
     }
 
+    handleChange(event) {
+        this.setState ({[event.target.name]:event.target.value})
 
-
-    submitHandle = (event) =>{
-        event.preventDefault();
-        const tasks = this.state.tasks.slice(); //slice creates a copy of the array so we don't mutate the original
-        tasks.push(this.state.task);
-        this.setState({tasks:tasks, task: ''});
     }
 
-    handleRemoveTask = (taskId) => {
-        const tasks = this.state.tasks.map((task) => {
-            if (taskId===this.state.id){
-                this.state.completed = !this.state.completed
-            }
-            return {task}
-            
-        });
-        
-            this.setState({tasks})
-        }
-       
-    
+    handleSubmit(event) {
+        const tasks = this.state.todos.slice(); //slice creates a copy of the array so we don't mutate the original
+        tasks.push(this.state.todo);
+        this.setState({todos:tasks, todo: ''});
+    }
 
-    render(){
-        return(
-            <div>       
-            <h1>My To-Do List</h1>     
-            <FormSubmit tasks = {this.state.tasks}
-                        changeHandle = {this.changeHandle}
-                        submitHandle = {this.submitHandle} />
-            <ToDoList 
-                tasks = {this.state.tasks}
-                handleRemoveTask = {this.handleRemoveTask}/>
-                
-          
-            </div>   
-        )
-        
+    handleToggle(){
+        //toggles a todo strikeout when done
+
+    }
+
+    handleRemove(todoId) {
+        //deletes todo from state
+        // const tasks = this.state.tasks.map((task) => {
+        //     if (taskId===this.state.id){
+        //         this.state.completed = !this.state.completed
+        //     }
+        //     return {task}
+    }
+    render() {
+        return (
+            <div>
+                <Header />
+                <Form 
+                    handleChange ={this.handleChange}
+                    handleSubmit = {this.handleSubmit}
+                    todos = {this.state.todos}
+                    />
+                <ToDoList 
+                    todos = {this.state.todos}
+                    complete = {this.state.complete}
+                    handleToggle = {this.handleToggle}
+                    handleRemove = {this.handleRemove}
+                    />
+            </div>
+        );
     }
 }
-export default App;
 
+export default App;
