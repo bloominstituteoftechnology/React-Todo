@@ -29,9 +29,23 @@ margin-bottom: -30px;
   margin-left: 20px;
 }
 
-.subtasks {
-  margin-left: 25px;
+.task-list {
+  display:flex;
 }
 .subtask-list {
   list-style-type:circle;
+}
+
+.submit-button {
+  font-size: .7rem;
+  font-weight: bold;
+  border: 1px solid black;
+  height: 20px;
+  background-color: whitesmoke;
+  padding: 2px;
+}
+
+.form-submit {
+  display:flex;
+  justify-content: center;
 }

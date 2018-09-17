@@ -1,10 +1,11 @@
 import React from 'react'; 
 
 const Form = (props) =>{
+    console.log(props);
     return(
-        <div>
-            <input name = "todo" onChange = {props.changeHandle} value = {props.todo} />
-            <button key = {props.id} className = "submit-button" onClick = {props.submitHandle}>Submit Task</button>
+        <div className="form-submit">
+            <input name = "todo" onChange = {props.handleChange} value = {props.todo} />
+            <button key = {props.id} className = "submit-button" onClick = {props.handleSubmit}>Submit Task</button>
         </div>
     )
 }

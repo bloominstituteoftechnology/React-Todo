@@ -7,19 +7,11 @@ const ToDoList = (props) => {
             <div className="form-submit">
             {props.todos.map(item => {
                 return (
+                    <div className="task-list">
                     <li key= {item.id}>
-                    {item.title}
-                   
-                    {item.subtasks.map(subtask => {
-                        return (
-                            <div className="subtasks">
-                                <li key={subtask.title}className="subtask-list">{subtask}</li>
-                            </div>
-                            
-                        )
-                   
-                    })}
+                    {item.todo} 
                     </li>
+                    </div>
                 )
             })}    
                 
