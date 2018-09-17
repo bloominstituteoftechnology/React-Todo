@@ -1,25 +1,26 @@
 import React, { Component  } from "react";
-import Header from "./components/Header";
-import Form from "./components/Form";
-import ToDoList from "./components/ToDoList";
+import LambdaLogo from "./components/lambdalogo.png";
+
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos : [{ title: "Wash the car", subtasks:["Vacuum the car", "Dry the car", "Wax the car"]}],
+            todos : [],
             todo: '',
             id: null,
             completed: false,
         
     }
+    this.handleChange = this.handleChange.bind();
+    this.handleSubmit = this.handleSubmit.bind();
     }
 
-    handleChange(event) {
-        this.setState ({[event.target.name]:event.target.value})
+    handleChange = (event) => {
+        return this.setState({[event.target.name]:event.target.value});
 
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         const tasks = this.state.todos.slice(); //slice creates a copy of the array so we don't mutate the original
         tasks.push(this.state.todo);
         this.setState({todos:tasks, todo: ''});
@@ -41,18 +42,29 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Header />
-                <Form 
-                    handleChange ={this.handleChange}
-                    handleSubmit = {this.handleSubmit}
-                    todos = {this.state.todos}
-                    />
-                <ToDoList 
-                    todos = {this.state.todos}
-                    complete = {this.state.complete}
-                    handleToggle = {this.handleToggle}
-                    handleRemove = {this.handleRemove}
-                    />
+                <div className="header-container">
+                <img className="lambda"src={LambdaLogo} alt="lambda-logo"/>
+                <h1 className="app-name">To Do List</h1>
+            </div>
+            <div className="form-submit">
+                <input name = "todo" onChange = {this.handleChange} value = {this.state.todo} />
+                <button className = "submit-button" onClick = {this.handleSubmit}>Submit Task</button>
+            </div>
+            <ul className="task-list">
+                <div className="task-list">
+                {this.state.todos.map(item => {
+                    return (
+                        <div key={item + item.id} className="task-list">
+                            <li>
+                            {item} 
+                            </li>
+                        </div>
+                    )
+                })}    
+                    
+                    
+                </div>     
+            </ul>
             </div>
         );
     }
