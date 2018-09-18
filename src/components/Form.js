@@ -1,15 +1,27 @@
 import React from 'react'; 
 
-const Form = (props) =>{
+export const Form  = (props) =>{
     console.log(props);
     return(
-        <div className="form-submit">
-            <input name = "todo" onChange = {this.handleChange} value = {props.todo} />
-            <button key = {props.id} className = "submit-button" onClick = {this.handleSubmit}>Submit Task</button>
-        </div>
+        <form onSubmit={props.handleSubmit} className="form-submit">
+            <input type="text" name = "todo" placeholder="Things to get done..."
+            onChange={props.handleChange} value={props.value} />
+            <button type="submit" className="submit-button" onSubmit={props.handleSubmit}>Submit Task</button>
+            <button type="button" className="submit-button" onClick={props.handleRemove}>Clear Completed</button>
+        </form>
     )
 }
 
+export const ToDo = (props) =>{
+    console.log(props.todo.id);
+    console.log(props.todo);
+    return (
+            <h3 className={props.todo.completed ?  "strikeout" : "single-task" } onClick={() => props.handleToggle(props.todo.id)}> 
+                {props.todo.todo} 
+            </h3>
+    );
+};
 
 
-export default Form;
+
+

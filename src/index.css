@@ -35,8 +35,17 @@ margin-bottom: -30px;
   justify-content: center;
   align-items: center;
 }
+
+.task-wrapper {
+  display:flex;
+  flex-direction:column;
+}
+.subtask-wrapper {
+  list-style-type: circle;
+}
 .subtask-list {
   list-style-type:circle;
+  font-size: .5rem;
 }
 
 .submit-button {
@@ -51,4 +60,11 @@ margin-bottom: -30px;
 .form-submit {
   display:flex;
   justify-content: center;
+}
+
+.strikeout {
+  text-decoration: line-through;
+}
+.single-task:hover {
+  color:maroon;
 }

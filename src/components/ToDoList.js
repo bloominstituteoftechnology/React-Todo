@@ -1,25 +1,24 @@
 import React from 'react';
+import { ToDo } from "./Form";
 
 const ToDoList = (props) => {
-    console.log(props.todos);
-    return (
-        <ul>
-            <div className="form-submit">
-            {props.todos.map(item => {
-                return (
-                    <div className="task-list">
-                    <li key= {item.id}>
-                    {item.todo} 
-                    </li>
-                    </div>
-                )
-            })}    
-                
-                
-            </div>     
+    console.log(props, "props list");
+    return( 
+        <ul className="task-wrapper">
+            {props.todos.map(todo => (
+                <li className="task-list">
+                    <div className="task-wrapper">
+                        <ToDo 
+                        handleToggle={props.handleToggle}
+                        key={todo.id}
+                        todo={todo} 
+                        />
+                    </div>  
+                </li>
+                ))}
         </ul>
-
-    )
+    );
 }
+
 
 export default ToDoList;
