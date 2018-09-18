@@ -7,9 +7,8 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos : [{todo:"Wash the car", completed:false, id: 1537243322831, subtasks:[{subtask: "Wax the car", completed:false, id:1537243322921}]}],
+            todos : [{todo:"Wash the car", completed:false, id: 1537243322831}],
             todo: '',
-            subtask: '',
             id: null,
             completed: false,
         
@@ -90,13 +89,11 @@ class App extends Component {
                         handleChange={this.handleChange}
                         handleSubmit={this.handleSubmit}
                         handleRemove={this.handleRemove}
-                        handleSubtask={this.handleSubtask}
                     />
                     <ToDoList 
                     handleToggle={this.handleToggle}
-                    handleSubtask={this.handleSubtask}
                     todos={this.state.todos}
-                    subtasks={this.state.todos.subtasks} />
+                    />
                     
                 </div>
             );
