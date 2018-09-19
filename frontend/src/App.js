@@ -90,35 +90,6 @@ class App extends Component {
         todos = todos.filter(todo => !todo.completed);
             this.setState({ todos });
         }
-    // render() {
-    //     return (
-    //         <div>
-    //             <div className="header-container">
-    //             <img className="lambda"src={LambdaLogo} alt="lambda-logo"/>
-    //             <h1 className="app-name">To Do List</h1>
-    //         </div>
-    //         <div className="form-submit">
-    //             <input name = "todo" onChange = {this.handleChange} value = {this.state.todo} />
-    //             <button className = "submit-button" onClick = {this.handleSubmit}>Submit Task</button>
-    //         </div>
-    //         <ul className="task-list">
-    //             <div className="task-list">
-    //             {this.state.todos.map(item => {
-    //                 return (
-    //                     <div key={item + item.id} className="task-list">
-    //                         <li onClick={this.handleToggle}>
-    //                         {item} 
-    //                         </li>
-    //                     </div>
-    //                 )
-    //             })}    
-                    
-                    
-    //             </div>     
-    //         </ul>
-    //         </div>
-    //     );
-    // }
 
     render() {
         return (
