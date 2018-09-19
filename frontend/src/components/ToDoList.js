@@ -10,8 +10,9 @@ const ToDoList = (props) => {
                     <div className="task-wrapper">
                         <ToDo 
                         handleToggle={props.handleToggle}
-                        key={todo.id}
-                        todo={todo} 
+                        deleteTodo={props.deleteTodos}
+                        todo={todo}
+                        id={todo._id} 
                         />
                     </div>  
                 </li>

@@ -1,20 +1,60 @@
 import React, { Component  } from "react";
+import axios from 'axios';
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
 import { Form as ToDoForm}  from "./components/Form";
 
+const port = 5555;
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos : [{todo:"Wash the car", completed:false, id: 1537243322831}],
+            todos : [{}],
             todo: '',
-            id: null,
             completed: false,
         
         }
     }
 
+    componentDidMount() {
+        console.log("pre-CDM", this.state.todos);
+        let promise = axios.get(`http://localhost:${port}/api/todos`);
+        promise
+            .then(response => {
+                this.setState({todos: response.data});
+                console.log("post-CDM", this.state.todos);
+
+            })
+            .catch(err => {
+                console.log(err.message);
+            });
+    }
+
+
+    
+    
+    postTodos = () => { 
+        axios.post(`http://localhost:${port}/api/todos`, this.state)
+            .then(response => {
+                this.props.history.push("/");
+            })
+    }
+        
+    
+    
+    deleteTodos =(id) =>{
+        axios.delete(`http://localhost:${port}/api/todos/${id}`)
+            .then(res =>{
+                if(!res) {
+                    console.log("Add a todo")
+                }
+                return this.setState({todos: res.data});
+            })
+            .catch(err => {
+                console.log('Could not delete specified id', err)
+            });
+        }
+    
     handleChange = (event) => {
         return this.setState({[event.target.name]:event.target.value});
 
@@ -23,7 +63,7 @@ class App extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const tasks = this.state.todos.slice(); //slice creates a copy of the array so we don't mutate the original
-        tasks.push({todo: this.state.todo, completed:false, id: Date.now()});
+        tasks.push({todo: this.state.todo, completed:false, date: Date.now()});
         this.setState({todos:tasks, todo: ''});
     }
 
@@ -32,7 +72,7 @@ class App extends Component {
         //toggles a todo strikeout when done
         let todos =this.state.todos.slice();
             todos = todos.map(todo => {
-                if (todo.id === id) {
+                if (todo._id === id) {
                     todo.completed = !todo.completed;
                     console.log(todo.completed);
                     return todo;
@@ -48,8 +88,8 @@ class App extends Component {
     handleRemove = (todoId) => {
         let todos = this.state.todos.slice();
         todos = todos.filter(todo => !todo.completed);
-        this.setState({ todos });
-    }
+            this.setState({ todos });
+        }
     // render() {
     //     return (
     //         <div>
@@ -87,12 +127,14 @@ class App extends Component {
                     <ToDoForm
                         value={this.state.todo}
                         handleChange={this.handleChange}
-                        handleSubmit={this.handleSubmit}
+                        postTodos={this.postTodos}
                         handleRemove={this.handleRemove}
                     />
                     <ToDoList 
                     handleToggle={this.handleToggle}
                     todos={this.state.todos}
+                    deleteTodos={this.deleteTodos}
+
                     />
                     
                 </div>
