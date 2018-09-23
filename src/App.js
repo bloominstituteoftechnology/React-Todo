@@ -11,18 +11,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [
-        {
-          task: 'Organize Garage',
-          id: Date.now(),
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: Date.now(),
-          completed: false
-        }
-      ],
+      todos: [],
       inputText: ''
     };
   };
@@ -32,14 +21,10 @@ class App extends React.Component {
     event.preventDefault(); // prevent from refreshing everytime you click 'Add Todo'
     if (this.state.inputText) {
       this.setState({
-        todos: [...this.state.todos, {
-          task: this.state.inputText,
-          id: Date.now(),
-          completed: false
-        }]
+        todos: [...this.state.todos, this.state.inputText],
+        inputText: ''
       });
     }
-    this.state.inputText= '';
   }
 
 
