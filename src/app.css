@@ -1,0 +1,41 @@
+.todo-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.todolist-container {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.todolist {
+  background-color: lightgray;
+  padding: 2%;
+  width: 50%;
+}
+
+.todo {
+  font-size: 24px;
+}
+
+.todo:hover {
+  color: darkblue;
+}
+
+.todo-form {
+  display: flex;
+  flex-direction: column;
+}
+.todo-input {
+  font-size: 20px;
+  padding: 10px 0;
+}
+.btn {
+  font-size: 20px;
+  padding: 10px 3px;
+  margin: 10px 0 0;
+  width: 100%;
+}
