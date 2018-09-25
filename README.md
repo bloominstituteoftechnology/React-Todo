@@ -4,9 +4,9 @@
 
 ## Initializing the project.
 
-- `Fork and clone` this project and cd into your cloned version.
-- `yarn install` will pull in all the node_modules you need.
-- `yarn start` will start a development server on your `http://localhost:3000`.
+- [x] `Fork and clone` this project and cd into your cloned version.
+- [x] `yarn install` will pull in all the node_modules you need.
+- [x] `yarn start` will start a development server on your `http://localhost:3000`.
   - If yarn asks you to select different port with some error message, just select `Y` and it will pull it up on port 3001. This simply means you have a development server up and running on that port already.
 
 ## Instructions
