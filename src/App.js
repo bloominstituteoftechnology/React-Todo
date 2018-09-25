@@ -42,7 +42,7 @@ class App extends React.Component {
 
     handleCompleted = id => {
         let list = this.state.list, ind = list.findIndex(l => l.id === id);
-        list[ind].completed = true;
+        list[ind].completed = !list[ind].completed;
         this.setState({list: list});
     };
 
