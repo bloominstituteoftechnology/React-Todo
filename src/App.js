@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const todoList = [
+const todoArray = [
   {
     task: 'Fork & Clone',
     id: Date.now(),
@@ -34,30 +34,44 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-
+      task: todoArray.task,
     }
   }
 
-  //display list of todos
-  //display input field
-  //display submit button
-  //display clear all button
+  
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <h3>List starts here:</h3>
-        {todoList.map((element) => {
-          return (
-            <div>
-              {element.task}
-            </div>
-          )
-        })}
+
+        <TodoList />
+
         <input placeholder="Add Tasks Here" /> <button> Submit </button> <button> Clear All </button>
       </div>
     );
   }
 }
+
+const TodoList = (props) => {
+  return(
+    <div className="TodoList">
+      {todoArray.map((element) => {
+          return (
+           <div>{element.task}</div>
+          )
+        })}
+    </div>
+  )
+}
+
+const Todo = (props) => {
+  return (
+    <div className="Todo">
+        {todoArray.task}
+    </div>
+  )
+}
+
 
 export default App;
