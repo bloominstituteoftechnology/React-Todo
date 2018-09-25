@@ -34,9 +34,9 @@ class App extends React.Component {
 
     handleClear = () => {
         let list = this.state.list;
-        for (let ind in list) {
-            list[ind].completed = false;
-        }
+
+        list = list.filter(l => !l.completed);
+
         this.setState({list: list});
     };
 
