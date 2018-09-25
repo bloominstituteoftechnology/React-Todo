@@ -4,7 +4,6 @@ import './Todo.css';
 const Todo = (props) => {
     return (
       <div>
-          <div>Todo</div>
       </div>
     )
   }
