@@ -14,7 +14,7 @@ const TodoForm = props => {
             <FlexRow>
                 <input />
                 <button type="submit">ADD</button>
-                <button onClick={() => props.handleCompleted()}>CLEAR COMPLETED</button>
+                <button onClick={() => props.handleClear()}>CLEAR COMPLETED</button>
             </FlexRow>
         </form>
     );
