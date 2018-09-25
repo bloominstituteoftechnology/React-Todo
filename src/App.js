@@ -12,8 +12,7 @@ class App extends React.Component {
           task: 'Organize Garage',
           id: 1528817077286,
           completed: false
-        },
-        {
+        }, {
           task: 'Bake Cookies',
           id: 1528817084358,
           completed: false
@@ -46,21 +45,40 @@ class App extends React.Component {
     todos.push(todo);
 
     // set the state of todos with the new to do item in the array
-    this.setState({
-      todos
-    })
+    this.setState({todos})
   }
 
-  
+  toggleCompleted = (element) => {
+    // get the current element
+    const currentToDo = element.target;
+
+    // set up a variable to change state of todo completed
+    const todos = this.state.todos.map((todo, index) => {
+
+      // check if current matches todo id
+      if (Number(currentToDo.id) === todo.id) {
+        // add class completed for linethrough
+        currentToDo.classList.toggle('completed');
+        // set todo completed to opposite
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    });
+    // set state of todos to update on page
+    this.setState({todos})
+  }
+  removeCompleted = () => {
+    console.log('remove');
+  }
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
-    return (
-      <div className="todo-container">
-        <h1>Todo List: MVP </h1>
-      <TodoList list={this.state.todos} submit={this.addToDoItemHandler} />
-      </div>
-    );
+    return (<div className="todo-container">
+      <h1>Todo List: MVP
+      </h1>
+      <TodoList list={this.state.todos} submit={this.addToDoItemHandler} toggleCompleted={this.toggleCompleted}
+      removeCompleted={this.removeCompleted}/>
+    </div>);
   }
 }
 

@@ -11,12 +11,12 @@ const ToDoList = (props) => {
       <section className='todolist'>
         {props.list.map(todo => {
           return (
-            <Todo key={todo.id} id={todo.id} task={todo.task}>
+            <Todo key={todo.id} id={todo.id} task={todo.task} onClick={props.toggleCompleted} completed={todo.completed}>
             </Todo>
           );
         })}
       </section>
-      <ToDoForm onClick={props.submit} />
+      <ToDoForm submit={props.submit} remove={props.removeCompleted} />
     </section>
   );
 }
