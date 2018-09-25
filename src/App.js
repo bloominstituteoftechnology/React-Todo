@@ -67,8 +67,25 @@ class App extends React.Component {
     // set state of todos to update on page
     this.setState({todos})
   }
-  removeCompleted = () => {
-    console.log('remove');
+  removeCompleted = (e) => {
+    // prevent page from reloading on click
+    e.preventDefault();
+    // set up an empty array to house new data from filter
+    let result = [];
+    // set up a filter method to extract only false completed
+    let todos = this.state.todos.filter((todo, index) => {
+
+      if (todo.completed !== true) {
+        // push the false completed to new array to keep
+        result.push(todo);
+      }
+      return result;
+    })
+    // update todos and push to new state
+    todos = result;
+    this.setState({
+      todos
+    })
   }
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
