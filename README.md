@@ -51,6 +51,17 @@ x `yarn start` will start a development server on your `http://localhost:3000`.
   - Your input field should take in user input, and allow a user to press `Enter` or click on the `Submit Button` to add a todo to your list.
   - Once a todo is submitted, the Todo List should re-render and show the added todo.
 
+  1. input field will push a new item to the array with contents from 
+event.target.value as the div contents on click on Todo button
+map with create new div with it for the list
+
+2. on click of the div with to do info, it will trigger method to
+strikethrough test and toggle "false" to "true"
+
+3. on click of the clear completed button, use filter to clear divs with
+"true" toggled on using function Clear Completed
+
+
 #### Day 2 Challenges
 
 - Add the functionality to toggle your todo's completed flag from `false` to `true`.
