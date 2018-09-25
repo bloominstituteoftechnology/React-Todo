@@ -5,9 +5,9 @@ import './Todo.css';
 
 
 export class TodoForm extends React.Component {
-constructor(){
+constructor(props){
 
-super()
+super(props)
 
    this.state = {
     value: ""
@@ -26,14 +26,21 @@ handleChange = (e) => {
            this.setState({value: ''})
        }
     }
-
+         
+        handleKeyPress = (e) => {
+            if (e.charCode ===13) {
+            
+            this.addTodo(e.target.value)
+        }
+            
+    }
     render() {
         return (
 
             <div>
-                
-                    <input value={this.state.value} onChange={this.handleChange} placeholder="Enter your task" />{" "}
-                    <button className= "btn btn-primary" onClick={() => this.addTodo(this.state.value)}>Add Todo</button>{" "}
+                <br />
+                <input value={this.state.value} onChange={this.handleChange} onKeyPress={this.handleKeyPress} placeholder="Enter your task" />{" "}
+                <button className="btn btn-primary" onClick={() => this.addTodo(this.state.value)}>Add Todo</button>{" "}
                     <button>Clear From Form</button>
             
             </div>

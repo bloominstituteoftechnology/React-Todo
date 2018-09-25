@@ -2,6 +2,7 @@ import React from 'react';
 // import { TodoButton } from './components/TodoComponents/TodoForm'
 // import { TodoInput } from './components/TodoComponents/TodoForm'
 import { TodoForm } from './components/TodoComponents/TodoForm'
+import TodoList from './components/TodoComponents/TodoList';
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -32,14 +33,23 @@ class App extends React.Component {
   }
 
   addTodo = (todoText) => {
-     console.log("Todo Added :", todoText)
+   let todos = this.state.todos.slice()
+   todos.push({id: this.state.nextId, text: todoText})
+   this.setState({
+     todos: todos,
+     nextId: Date.now() + 1,
+     completed: false
+   })
+
+    //  console.log("Todo Added :", todoText)
   }
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm  todoText="" addTodo={this.addTodo}/>
+        <TodoList  text= {this.state.todos}/>
+        <TodoForm addTodo={this.addTodo}/>
         {/* <TodoInput handleChange={this.handleChange}/> {" "}
         <TodoButton buttonStyle={'todobtn'} handleClick={() => this.addToInput(this.state.items)} text={"Add Todo"} /> {" "}
         <TodoButton buttonStyle={'todobtn'} text={"Clear Completed"} /> */}
