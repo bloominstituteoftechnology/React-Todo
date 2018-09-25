@@ -1,5 +1,6 @@
 import React from 'react';
-
+import TodoForm from './components/TodoComponents/TodoForm'
+import TodoList from './components/TodoComponents/TodoList'
 class App extends React.Component {
   constructor() {
     super();
@@ -45,29 +46,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div>
-          {this.state.formArr.map(item => (
-            <div key={item.id}>
-              <input
-                id={item.id}
-                type="checkbox"
-                onChange={item => this.handleCheck(item)}
-              />
-              {item.id}: {item.text} @{new Intl.DateTimeFormat("en-US", {
-                year: "numeric",
-                month: "2-digit",
-                day: "2-digit",
-                hour: "2-digit",
-                minute: "2-digit"
-              }).format(item.date)}
-            </div>
-          ))}
-        </div>
+       <div>
 
-        <form>
-          <input type="text" onChange={this.handleChange} />
-          <input type="submit" value="Submit" onClick={this.handleSubmit} />
-        </form>
+         <TodoList list={this.state.formArr} />
+        <TodoForm value={this.handle.value} submit={this.handleChange}/>
+        </div>
       </div>
     );
   }
