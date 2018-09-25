@@ -5,10 +5,17 @@ class App extends React.Component {
   super(); 
   
     this.state = {
-      todos: " ",
-      id: " ", 
-      completed: false 
+      todos: [
+      { list: " ", id: 0, completed: false }
+      ] 
     }
+  }
+
+  handler(){
+    this.setState({
+     task: event.target.value,
+     id: dateNow()
+    })
   }
 
   // you will need a place to store your state in this component.
