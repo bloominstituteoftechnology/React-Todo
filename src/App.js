@@ -10,7 +10,7 @@ class App extends React.Component {
     super();
 
     this.state = {
-      text: "...todo",
+      text: "",
     };
   };
 
@@ -24,7 +24,6 @@ class App extends React.Component {
     return (
       <div>
         <TodoList />
-        <input onChange={this.handleInput} />
       </div>
     );
   }

@@ -4,7 +4,9 @@ import './Todo.css';
 const TodoForm = (props) => {
     return (
         <div>
-            TodoForm
+            <input placeholder="...todo" />
+            <button>Add Todo</button>
+            <button>Clear Completed</button>
         </div>
     )
 }
