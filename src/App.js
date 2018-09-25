@@ -1,10 +1,17 @@
 import React from 'react';
 import Form from '../src/components/TodoComponents/TodoForm';
 
+  
+  // you will need a place to store your state in this component.
+  // design `App` to be the parent component of your application.
+  // this component is going to take care of state, and any change handlers you need to work with your state
+  
+
 class App extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state={
+      input: '',
       todolist: [
         {
           task: '',
@@ -15,8 +22,6 @@ class App extends React.Component {
     };
   }
 
-
-
   handleClick = (event) => {
     this.setState({
       task: event.target.value,
@@ -24,12 +29,13 @@ class App extends React.Component {
     })
   };
 
-  handleInput = () => {
-    
+  handleInput = (event) => {
+    console.log(event.target.value);
+    this.setState({
+      input: event.target.value,
+    });
   };
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+
   render() {
     return (
       <div>
