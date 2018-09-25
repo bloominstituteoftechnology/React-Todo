@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Todo from './components/TodoComponents/Todo';
-
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -9,14 +7,20 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { Todos: [] };
+    this.state = { 
+      Todos: [
+        { task: 'Bake Cookies', id: 1, completed: false },
+        { task: 'Prep Cookies for Delivery', id: 2, completed: false },
+        { task: 'Deliver Cookies', id: 3, completed: false },
+      ],
+      Todo: '', 
+    };
   }
   
   render() {
     return (
       <div>
-        <Todo />
-        {this.state.Todos}
+        Hello World!
       </div>
     );
   }
