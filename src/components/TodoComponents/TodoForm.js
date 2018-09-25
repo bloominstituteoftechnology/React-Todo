@@ -3,8 +3,14 @@ import {FlexColumn, FlexRow} from "../Elements/Flex";
 
 
 const TodoForm = props => {
+
+    this.handleAdd = e => {
+        props.handleAdd(e);
+        document.querySelector('input').value = "";
+    };
+
     return (
-        <form onSubmit={e => props.handleAdd(e)}>
+        <form onSubmit={e => this.handleAdd(e)}>
             <FlexRow>
                 <input />
                 <button type="submit">ADD</button>

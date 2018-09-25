@@ -4,7 +4,7 @@ import {FlexColumn} from "../Elements/Flex";
 
 const Todo = props => {
     return (
-        <div>
+        <div style={props.style} onClick={() => props.onClick()}>
             {props.children}
         </div>
     );

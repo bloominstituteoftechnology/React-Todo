@@ -40,12 +40,20 @@ class App extends React.Component {
         this.setState({list: list});
     };
 
+    handleCompleted = id => {
+        console.log('alsdkfjslakdf');
+        let list = this.state.list, ind = list.findIndex(l => l.id === id);
+        list[ind].completed = true;
+        this.setState({list: list});
+        console.log(JSON.stringify(this.state));
+    };
+
     render() {
         const {list} = this.state;
 
         return (
             <FlexColumn>
-                <TodoList list={list} />
+                <TodoList list={list} handleCompleted={id => this.handleCompleted(id)}/>
                 <TodoForm handleClear={() => this.handleClear()}
                           handleAdd={e => this.handleAdd(e)}
                 />

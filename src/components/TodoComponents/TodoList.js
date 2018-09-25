@@ -4,13 +4,12 @@ import Todo from './Todo'
 
 const TodoList = props => {
     const {list} = props;
-    console.log("list", list);
 
     return (
         <FlexColumn>
             {list.map(todo => {
                 return (
-                    <Todo>{todo.task}</Todo>
+                    <Todo key={todo.id} style={{cursor: "pointer",  textDecoration: todo.completed ? "line-through" : "none"}} onClick={() => props.handleCompleted(todo.id)}>{todo.task}</Todo>
                 )
             })}
         </FlexColumn>
