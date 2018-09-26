@@ -41,6 +41,7 @@ class App extends React.Component {
         />
         <TodoList
         list={this.state.todoList}
+        id={this.state.id}
         
         />
 			</div>
