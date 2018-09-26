@@ -8,8 +8,10 @@ class App extends React.Component {
     constructor() {
         super();
 
+        let list = window.localStorage.getItem('list');
+
         this.state = {
-            list: []
+            list: list ? JSON.parse(list) : []
         }
     }
 
@@ -23,6 +25,7 @@ class App extends React.Component {
             completed: false
         });
 
+        window.localStorage.setItem('list', JSON.stringify(list));
         this.setState({list: list});
     };
 
@@ -34,9 +37,7 @@ class App extends React.Component {
 
     handleClear = () => {
         let list = this.state.list;
-
         list = list.filter(l => !l.completed);
-
         this.setState({list: list});
     };
 
