@@ -1,0 +1,57 @@
+body {
+  width: 80%;
+  margin: 0 auto;
+}
+.todoTitle {
+  margin: 1rem 0;
+  color: #30ABAF;
+  text-align: center;
+}
+.row {
+  display: flex;
+  flex-direction: column;
+}
+.column {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.todolist {
+  padding-left: 0;
+  margin-right: 50px;
+}
+.todolist .todoitem {
+  position: relative;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem;
+}
+.todolist .todoitem.done .form-check-label {
+  color: #000;
+  text-decoration: line-through;
+}
+.todolist .todoitem.highlight {
+  border-color: #7A17C7;
+  background-color: #ff8fb0;
+}
+.todolist .todoitem.highlight:last-child {
+  border-color: #7a17c7;
+}
+.todolist .todoitem:last-child {
+  border-bottom: 1px solid #ccc;
+}
+.todolist .todoitem .addButton {
+  background-color: green;
+}
+.todolist .todoitem .button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 50px;
+  font-size: 10px;
+}
+.todolist .todoitem .form-check-label {
+  width: 100%;
+}
+.todolist .todoitem .form-check-label .form-check-input {
+  margin-right: 1rem;
+}
