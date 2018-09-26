@@ -2,12 +2,12 @@ import React from 'react';
 
 import Todo from './Todo.js'
 
-const TodoList = (props) => {
+const TodoList = props => {
   return (
     <div>
-      {this.props.todos.map(todo => {
-        return <Todo id={todo.id} />
-      })}
+      {props.todos.map(todo => (
+        <Todo key={todo.id} todo={todo} />
+      ))}
     </div>
   );
 }
