@@ -3,9 +3,9 @@ import React from 'react';
 const TodoForm = (props) => {
     return (
         <div>
-            <input placeholder='add an item' />
-            <div>Add Todo</div>
-            <div>Clear</div>
+            <input id='inputForm' placeholder='add an item' onKeyPress={props.handler} />
+            <div onClick={props.add}>Add Todo</div>
+            <div onClick={props.clearAll}>Clear</div>
         </div>
     )
 }
