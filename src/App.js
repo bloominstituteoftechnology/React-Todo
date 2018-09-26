@@ -1,23 +1,57 @@
 import React from 'react';
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.state = {
-			items: []
-			//values which we are storing
+			todoList: [
+				{
+					task: "",
+					id: Date.now(),
+					completed: false
+				}
+			],
+			inputText: ''
 		};
 	}
-	// you will need a place to store your state in this component.
-	// design `App` to be the parent component of your application.
-	// this component is going to take care of state, and any change handlers you need to work with your state
+
+	addToList = event => {
+		event.preventDefault();
+		let newArray = this.state.todoList;
+		let newTodo = {
+			task: this.state.inputText,
+			id: Date.now(),
+			completed: false
+		};
+		newArray.push(newTodo);
+		this.setState({
+			todoList: newArray,
+			inputText: ''
+		});
+	};
+
+	changeUserInput = event => {
+		this.setState({ inputText: event.target.value });
+	};
+
 	render() {
-		return <div />;
+		return (
+			<div>
+				<TodoForm
+					addToList={this.addToList}
+					userInput={this.state.inputText}
+					changeUserInput={this.changeUserInput}
+					inputText={this.state.inputText}
+        />
+        <TodoList
+        list={this.state.todoList}
+        
+        />
+			</div>
+		);
 	}
 }
 
 export default App;
-
-// - `<App />` will hold all the data needed for this project.It will also be the container for your Todo Components.
-//   - All of your application data will be stored here on`<App />`.
-//   - All of your`handler` functions should live here on`<App />`.
