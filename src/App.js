@@ -53,17 +53,23 @@ class App extends React.Component {
   }
 
   clearCompleted = ()=>{
-    let todoData = this.state.todoData.filter((item)=>{
+    let data = this.state.todoData.filter((item)=>{
       return !item.isCompleted;
     })
 
-    this.setState({todoData});
+    let index = Number.parseInt(data.length / 3 - 1, 10);
+    index = index >= this.headers.length ? this.headers.length - 1 : index;
+
+    this.setState({
+      todoData: data,
+      headerText: this.headers[index]
+    });
   }
 
   render() {
     return (
-      <div>
-        <h1>{this.state.headerText}</h1>
+      <div className="container">
+        <h1 className="header">{this.state.headerText}</h1>
         <TodoList todoData={this.state.todoData} completeTask={this.completeTask}/>
         <TodoForm addTask={this.addTask} clearCompleted={this.clearCompleted}/>
       </div>

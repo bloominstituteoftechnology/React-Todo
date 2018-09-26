@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todo.css'
 
 class Todo extends React.Component{
     constructor(props){
@@ -14,10 +15,10 @@ class Todo extends React.Component{
 
     render(){
         if(this.state.todoItem.isCompleted){
-            return (<li onClick={this.handleClick}><strike>{this.state.todoItem.task}</strike></li>)
+            return (<li className="todo-item" onClick={this.handleClick}><strike className="strike-text">{this.state.todoItem.task}</strike></li>)
         }
         
-        return (<li onClick={this.handleClick}>{this.state.todoItem.task}</li>)
+        return (<li className="todo-item" onClick={this.handleClick}>{this.state.todoItem.task}</li>)
     }
     
 }

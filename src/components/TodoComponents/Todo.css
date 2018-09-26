@@ -1,0 +1,63 @@
+
+.list{
+    margin-bottom: 20px;
+}
+
+.todo-item{
+    margin-bottom: 10px;
+    font-size: 2.4rem;
+    cursor: pointer;
+}
+
+.strike-text{
+    color: #d3d3d3;
+}
+
+.todo-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.todo-form div{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.todo-input{
+    width: 50%;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    border-radius: 10px;
+    outline: none;
+}
+
+.button{
+    height: 30px;
+    margin: 0px 10px;
+    color: black;
+    background-color: white;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover{
+    color: white;
+    background-color: black;
+}
+
+.todo-add{
+    width: 17%;
+    min-width: 70px;
+}
+
+.clear-done{
+    width: 30%;
+    min-width: 117px;
+}
