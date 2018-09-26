@@ -7,19 +7,7 @@ class App extends React.Component {
     super();
     this.state = {
       currentInputValue: 's',
-      todos : [
-      {
-        task: 'test',
-        id: 1234,
-        completed: false
-      },
-      {
-        task: 'Something else',
-        id: 1234,
-        completed: false
-      },
-
-    ]
+      todos : []
   };
   }
   handleInput = (event) => {
@@ -28,16 +16,24 @@ class App extends React.Component {
     });
   }
 
-    handleSubmit = (event) => {
-      let newTaskList = this.state.todos.concat({task: this.state.currentInputValue, id: Date.now(), completed: false})
-      this.setState({todos: newTaskList});
-    }
+  handleSubmit = (event) => {
+    let newTaskList = this.state.todos.concat({task: this.state.currentInputValue, id: Date.now(), completed: false})
+    this.setState({todos: newTaskList});
+  }
+
+  onKeyPress = (event) => {
+    console.log(event.key);
+    if(event.key === 'Enter') {
+      this.handleSubmit();
+    };
+  };
     
   render() {
     return (
       <div>
+        <h1>Type in a Todo</h1>
         <TodoList list={this.state.todos} />
-        <TodoForm inputFunction={this.handleInput} submitFunction={this.handleSubmit} />
+        <TodoForm inputFunction={this.handleInput} submitFunction={this.handleSubmit} enterFunction={this.onKeyPress} />
       </div>
     );
   }
