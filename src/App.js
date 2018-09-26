@@ -32,6 +32,7 @@ class App extends React.Component {
       id: Date.now(),
       completed: false}
     )
+    this.setState();
     console.log(this.state.todo);
   }
 
