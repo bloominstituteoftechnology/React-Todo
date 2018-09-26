@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [{task: 'testtask1'}, {task: 'testtask2'}],
+      todos: [],
       input: ''
     }
   }
@@ -36,7 +36,8 @@ class App extends React.Component {
   updateInput = (e) => {
     this.setState({
       input: e.target.value
-    });
+    }, console.log(this.state.input)
+    );
   }
 
   //invoke individual components and render entire app
