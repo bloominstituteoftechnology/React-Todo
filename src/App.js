@@ -6,10 +6,11 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentInputValue: 's',
+      currentInputValue: '',
       todos : []
-  };
+      };
   }
+
   handleInput = (event) => {
     this.setState({
       currentInputValue: event.target.value
@@ -17,12 +18,12 @@ class App extends React.Component {
   }
 
   handleSubmit = (event) => {
-    let newTaskList = this.state.todos.concat({task: this.state.currentInputValue, id: Date.now(), completed: false})
-    this.setState({todos: newTaskList});
+    let newTaskList = this.state.todos.concat({task: this.state.currentInputValue, key: Date.now(), completed: false})
+    this.setState({todos: newTaskList, currentInputValue: ''});
+    console.log(this.state.todos);
   }
 
   onKeyPress = (event) => {
-    console.log(event.key);
     if(event.key === 'Enter') {
       this.handleSubmit();
     };
@@ -33,7 +34,7 @@ class App extends React.Component {
       <div>
         <h1>Type in a Todo</h1>
         <TodoList list={this.state.todos} />
-        <TodoForm inputFunction={this.handleInput} submitFunction={this.handleSubmit} enterFunction={this.onKeyPress} />
+        <TodoForm inputFunction={this.handleInput} submitFunction={this.handleSubmit} enterFunction={this.onKeyPress} inputValue={this.state.currentInputValue} />
       </div>
     );
   }

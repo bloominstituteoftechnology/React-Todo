@@ -6,7 +6,7 @@ const TodoForm = (props) => {
 
     return (
         <div>
-            <input onChange={props.inputFunction} onKeyPress={props.enterFunction}/>
+            <input className="input" value={props.inputValue} onChange={props.inputFunction} onKeyPress={props.enterFunction}/>
             <button onClick={props.submitFunction} >Add Todo</button>
             <button>Remove Completed</button>
         </div>
