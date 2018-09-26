@@ -3,8 +3,8 @@ import React from 'react';
 const ToDoForm = (props) =>{
     return(
         <div>
-            <input placheholder =" ..todo"/>
-            <button>Add Todo</button>
+            <input onChange = {props.handleInput} placeholder =" ..todo"/>
+            <button onClick = {props.addItem}>Add Todo</button>
             <button>Clear Completed</button>
 
         </div>
