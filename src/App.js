@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm'
 import TodoList from './components/TodoComponents/TodoList'
+import './components/TodoComponents/Todo.css';
 
 class App extends React.Component {
   constructor() {
@@ -31,8 +32,8 @@ class App extends React.Component {
     
   render() {
     return (
-      <div>
-        <h1>Type in a Todo</h1>
+      <div className="container">
+        <h1>Tasks Remaining {this.state.todos.length}</h1>
         <TodoList list={this.state.todos} />
         <TodoForm inputFunction={this.handleInput} submitFunction={this.handleSubmit} enterFunction={this.onKeyPress} inputValue={this.state.currentInputValue} />
       </div>
