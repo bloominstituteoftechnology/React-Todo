@@ -1,32 +1,6 @@
 import React from 'react';
 
 
-const todoArray = [
-  {
-    task: 'Fork & Clone',
-    id: Date.now(),
-    isCompleted: false
-  },
-  {
-    task: 'Submit Pull Request',
-    id: Date.now(),
-    isCompleted: false
-  },
-  {
-    task: 'Create functionality',
-    id: Date.now(),
-    isCompleted: false
-  },
-  {
-    task: 'Add styling',
-    id: Date.now(),
-    isCompleted: false
-  }
-]
-
-
-
-
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -34,18 +8,45 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      task: todoArray.task,
-    }
-  }
+      todoArray: [
+        {
+          task: 'Fork & Clone',
+          id: Date.now(),
+          isCompleted: false
+        },
+        {
+          task: 'Submit Pull Request',
+          id: Date.now(),
+          isCompleted: false
+        },
+        {
+          task: 'Create functionality',
+          id: Date.now(),
+          isCompleted: false
+        },
+        {
+          task: 'Add styling',
+          id: Date.now(),
+          isCompleted: false
+        }
+      ]
+    }//this.state
+  }//constructor()
 
-  
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <h3>List starts here:</h3>
-
-        <TodoList />
+          <div>
+            {this.state.todoArray.map((e) => {
+              return (
+                <div>
+                  {e.task}
+                </div>
+              )
+            })}
+          </div>
 
         <input placeholder="Add Tasks Here" /> <button> Submit </button> <button> Clear All </button>
       </div>
@@ -53,25 +54,6 @@ class App extends React.Component {
   }
 }
 
-const TodoList = (props) => {
-  return(
-    <div className="TodoList">
-      {todoArray.map((element) => {
-          return (
-           <div>{element.task}</div>
-          )
-        })}
-    </div>
-  )
-}
-
-const Todo = (props) => {
-  return (
-    <div className="Todo">
-        {todoArray.task}
-    </div>
-  )
-}
 
 
 export default App;
