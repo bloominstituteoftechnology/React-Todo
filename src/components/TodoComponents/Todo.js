@@ -4,7 +4,7 @@ import './Todo.css';
 const Todo = (props) => {
     return (
         <div>
-            Todo
+            {props.task}
         </div>
     )
 }

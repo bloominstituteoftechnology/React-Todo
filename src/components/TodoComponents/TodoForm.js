@@ -5,7 +5,7 @@ const TodoForm = (props) => {
     return (
         <div>
             <input placeholder="...todo" />
-            <button>Add Todo</button>
+            <button onClick={props.clickHandle}>Add Todo</button>
             <button>Clear Completed</button>
         </div>
     )
