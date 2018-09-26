@@ -1,12 +1,9 @@
 import React from 'react';
+import List from './TodoList';
 
-const List=props=>(
+const TodoList=props=>{
     <ul>
-        {
-            props.items.map((item,index)=>
-            <li key={index}>{item}</li>
-        )
-        }
+    <List/>
     </ul>
-);
-export default List;
+}
+export default TodoList;

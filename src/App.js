@@ -1,6 +1,7 @@
 import React from 'react';
-
+import List from './components/TodoComponents/TodoList'
 import Form from './components/TodoComponents/TodoForm'
+import TodoList from './components/TodoComponents/Todo'
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -15,19 +16,23 @@ class App extends React.Component {
   };
   render(){
     return(
-      <div></div>
+      <div>
+        <Form/>
+        <List items ={this.state.items}/>
+        <TodoList/>
+      </div>
     )
   }
 }
-App.onChange = (event) =>{
-  App.setState({term:event.target.value});
+Form.onChange = (event) =>{
+  Form.setState({term:event.target.value});
 };
 
-App.onSubmit = (event) =>{
+Form.onSubmit = (event) =>{
   event.preventDefault()
-  App.setState({
+  Form.setState({
     term:'',
-    items:[...this.state.items,this.state.term]
+    items:[...Form.state.items,Form.state.term]
   });
 }
 
