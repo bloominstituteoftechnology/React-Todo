@@ -6,13 +6,7 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			todoList: [
-				{
-					task: "",
-					id: Date.now(),
-					completed: false
-				}
-			],
+			todoList: [],
 			inputText: ''
 		};
 	}

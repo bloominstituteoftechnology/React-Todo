@@ -7,7 +7,7 @@ const TodoList = props => {
 		<div>
 			<ul>
 				{props.list.map(item => (
-					<li >{item.task}</li>
+					<li>{item.task}</li>
 				))}
 			</ul>
 		</div>
