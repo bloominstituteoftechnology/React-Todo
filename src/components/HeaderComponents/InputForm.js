@@ -4,7 +4,7 @@ const InputForm = () => {
   return (
       <div>
           {/* creates title for new task */}
-          <h2>{this.state.title}</h2> 
+          {/* <h2>{this.state.title}</h2>  */}
         <div>
           {/* <ToDoList list={this.state.list} /> */}
           <form>

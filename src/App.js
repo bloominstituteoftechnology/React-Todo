@@ -25,8 +25,8 @@ class App extends Component {
   render() {
     return (    
       <div>
-      <h1>App should be here</h1>
-      
+      <h1>D2rd Stuff ToDo</h1>
+      <Header />
 
       </div>
     
