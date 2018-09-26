@@ -8,7 +8,9 @@ const TodoList = props => {
     return (
         <div>
             {props.todoList.map(todo => (
-                <Todo id={todo.id} task={todo.task} /> 
+                <div key={todo.id}>
+                    <Todo task={todo.task} /> 
+                </div>
             ))}
             <TodoForm handleSubmit={props.handleSubmit}/>
         </div>
