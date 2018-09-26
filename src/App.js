@@ -9,6 +9,20 @@ class App extends React.Component {
       todo: [],
       current_todo: ""
     };
+
+    add_todo = () => {
+      let populate = this.state.todo.slice();
+      populate.push(current_todo);
+      this.setState({
+        todo: populate,
+        current_todo: ""
+      });
+    };
+    handleChange = event => {
+      this.setState({
+        current_todo: event.target.value
+      });
+    };
   }
 
   render() {
@@ -19,6 +33,7 @@ class App extends React.Component {
           type="text"
           placeholder="Enter to-do"
           value={this.state.current_todo}
+          onChange={this.handleChange}
           className="form-control"
         />
         <button className="btn-Add">Add todo</button>
