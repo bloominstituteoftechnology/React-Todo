@@ -6,7 +6,8 @@ const TodoForm = () =>{
         <div>
             <form>
                 <input />
-                <button>Submit</button>
+                <button>Add Todo</button>
+                <button>Clear Completed</button>
             </form>
         </div>
     )
