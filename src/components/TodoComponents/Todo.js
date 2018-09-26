@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Todo = () =>{
+const Todo = (props) =>{
     return(
-        <div>
-            Will eventually be a list of Todos
-        </div>
+        <li>
+           {props.value}
+        </li>
     )
 }
 
