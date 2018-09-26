@@ -7,14 +7,14 @@ const TodoList = (props) => {
 	return (
 	   <div>
 		<section className='todolist'>
-        {props.list.map(todo => {
+        {props.list.map(ToDo => {
           return (
-            <Todo key={todo.id} id={todo.id} task={todo.task} completed={todo.completed}>
+            <Todo key={ToDo.id} id={ToDo.id} task={ToDo.task} completed={ToDo.completed}>
             </Todo>
           );
         })}
       </section>
-		<TodoForm />
+		<TodoForm submit={props.submit}/>
 	   </div>
 	)
 };
