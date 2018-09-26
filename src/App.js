@@ -2,7 +2,7 @@
 //All of your application data will be stored here on <App />.
 //All of your handler functions should live here on <App />.
 import React from 'react';
-import Todo from './components/TodoComponents/TodoList';
+import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -22,10 +22,17 @@ class App extends React.Component {
     };
   }
 
+  handleClick(event) {
+    this.setState({
+      task: event.target.value
+    })
+  }
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>Todo List: MVP</h2>
+        <TodoList todoList={this.state.data} submit={this.handleClick} />
       </div>
     );
   }

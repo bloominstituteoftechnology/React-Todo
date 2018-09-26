@@ -4,12 +4,12 @@
 import React from 'react';
 import './Todo.css';
 
-const TodoForm = () => {
+const TodoForm = (props) => {
     return (
         <div>
-            <input onChange={this.handleChange} />
-            <button onClick={this.handleClick}>Add Todo</button>
-            <button onClick={this.handleClick}>Clear Completed</button>
+            <input type="text" name="todoInput" />
+            <button onClick={props.enter}>Add Todo</button>
+            <button>Clear Completed</button>
         </div>
     )
 }

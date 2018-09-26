@@ -2,14 +2,12 @@
 import React from 'react';
 import './Todo.css';
 
-const Todo = () => {
-    <div>
-        {this.state.data.map(data => (
-            <div key={data.id}>
-            {data.task}
-            </div>
-        ))}
+const Todo = (props) => {
+    return (
+    <div id={props.id}>
+        {props.task}
     </div>
+    )
 }
 
 export default Todo;
