@@ -3,13 +3,15 @@
 import React from "react";
 
 class TodoList extends React.Component {
-
+  constructor(props) {
+    super(props);
+  }
   render() {
     //console.log(this.props.tasks)
     return (
       <div>
-        {this.props.taskLists.map(x => {
-          return <div key={x.id}>{x.task}</div>;
+        {this.props.taskLists.map(task => {
+          return <div key={task.id}>{task.task}</div>;
         })}
       </div>
     );

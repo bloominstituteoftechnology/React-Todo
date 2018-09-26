@@ -1,11 +1,15 @@
 import React from "react";
 
 class TodoForm extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div>
-        <input />
-        <button onClick={this.handleClick}>Add todo</button>
+        <input onChange={this.props.update} />
+        <button onClick={this.props.submit}>Add todo</button>
         <button>clear completed</button>
       </div>
     );
