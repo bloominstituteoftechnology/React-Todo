@@ -8,6 +8,8 @@ class App extends React.Component {
 constructor(){
   super();
   this.state = {
+    inputField: '',
+
     todoList : [
       {
         task: 'Organize Garage',
@@ -25,13 +27,27 @@ constructor(){
   render() {
     return (
       <div>
-       <Todo task = "Organize Garage" />
-       <TodoList todoList = {this.state.todoList} />
-       <TodoForm />
+       <TodoForm
+         inputField = {this.state.inputField}
+          clickHandler={this.clickHandler}
+          messageChangeHandler={this.messageChangeHandler} />
+        <TodoList todoList={this.state.todoList} />
+
       </div>
     );
   }
+  clickHandler = event =>{
+   event.preventDefault();
+   this.setState({todoList: [...this.state.todoList, {
+     task: this.state.inputField,
+     id: 1528817084359,
+     completed: false}],
+     inputField: ''
+   });
+
+ }
   messageChangeHandler = event =>{
+    event.preventDefault();
     this.setState({inputField: event.target.value});
     console.log(this.state.inputField);
   };
