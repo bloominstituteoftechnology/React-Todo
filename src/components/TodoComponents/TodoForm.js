@@ -2,11 +2,11 @@ import React from 'react';
 
 const ToDoForm = (props) => {
     return (
-        <div>
+        <form>
         <input value='...todo'></input>
             <button>Add Todo</button>
             <button>Clear Completed</button>
-        </div> 
+        </form> 
     )
 }
 

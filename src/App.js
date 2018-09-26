@@ -1,5 +1,6 @@
 import React from 'react';
 import ToDoForm from './components/TodoComponents/TodoForm';
+import Todo from './components/TodoComponents/Todo';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -9,6 +10,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <Todo task='test' />
         <ToDoForm />
       </div>
     );
