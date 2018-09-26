@@ -1,51 +1,48 @@
 import React from 'react';
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      text: '',
       todos: [
-        {
-          task: 'warm up',
-          id: 1,
-          completed: false
-        },
-        {
-          task: 'run',
-          id: 2,
-          completed: false
-        },
-        {
-          task: 'sprint',
-          id: 3,
-          completed: false
-        }
-      ]
+      ],
+      holder: '',
     }
-    this.handleChange = this.handleChange.bind(this);
   }
-  handleChange(event) {
-    this.setState({ text: event.target.value });
-  }
+    inputHandler = (event) => {
+      const value = event.target.value;
+      this.setState({
+        holder: value
+      })
+      console.log(value)
+    }
+    clickHandler = (event) => {
+      event.preventDefault()
+      const newObject = {
+        task: this.state.holder,
+        id: Date.now(),
+        completed: false
+      }
+      console.log(newObject)
+      this.setState({
+        todos: [...this.state.todos, newObject], holder: ''
+      })
+      console.log(this.state.todos)
+    }
+  
+  render() {
+    return (
+      <div>
+        <h1>Todo List: MVP</h1>
+        <TodoList todos={this.state.todos} />
+        <TodoForm value={this.state.holder} inputHandler={this.inputHandler} clickHandler={this.clickHandler} />
 
-render() {
-  let list = this.state.todos.map((todo) => {
-    return <li key={todo.id}> {todo.task}</li>
-  })
-  return (
-    <div className='App'>
-      <ul>
-        {list}
-      </ul>>
-      <form>
-        To do:
-        <input type='text' name='task' onChange={this.handleChange} value={this.state.text} />
-      </form>
-    </div>
-  );
-}
+
+      </div>)
+
+  }
 }
 
 export default App;
-
