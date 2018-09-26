@@ -47,9 +47,9 @@ class App extends React.Component {
     return (
       <div className="App">
        <div>
-
+         
          <TodoList list={this.state.formArr} />
-        <TodoForm value={this.handle.value} submit={this.handleChange}/>
+        <TodoForm value={this.handleChange} submit={this.handleSubmit}/>
         </div>
       </div>
     );

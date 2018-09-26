@@ -9,7 +9,7 @@
      return(
         <div>
         {props.list.map(item => (
-            <Todo />
+            <Todo nitem={item} />
            
          ))}
        </div>
