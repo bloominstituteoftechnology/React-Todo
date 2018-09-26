@@ -33,7 +33,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Todo List: MVP </h2>
-        <ListItems/>
+        <ListItems myTodoList = {this.state.myTodoList}/>
         <FormInput input = {this.state.input} handleSubmit = {this.handleSubmit} handleInputs = {this.handleInputs} />
       </div>
     );

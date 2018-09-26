@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TodoItems = (props) => {
+const Todo = (props) => {
 
   return (
     <li>
@@ -11,4 +11,4 @@ const TodoItems = (props) => {
 
 };
 
-export default TodoItems;
+export default Todo;
