@@ -8,27 +8,35 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
 
   //constructor containing state object,  which contains array of todo objects
+  
   constructor(props) {
     super(props);
     this.state = {
-      input: '',
-      todos: [{task: 'task1'}, {task: 'task2'}]
+      todos: [{task: 'testtask1'}, {task: 'testtask2'}],
+      input: ''
     }
   }
 
   //handler function for whenever todo list item is submitted
 
   onSubmit = (event) => {
-    this.onSubmit.bind(this);
     event.preventDefault();
     this.setState({
       todos: [...this.state.todos, {
         id: Date.now(),
-        task: event.target.value,
+        task: this.state.input,
         completed: false
-      }]
+      }],
+      input: ''
     });
-    console.log(event.target.value)
+  }
+
+  //handler function for whenever text is typed into input field 
+
+  updateInput = (e) => {
+    this.setState({
+      input: e.target.value
+    });
   }
 
   //invoke individual components and render entire app
@@ -38,7 +46,10 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todos}/>
-        <ToDoForm onSubmit = {this.onSubmit}/>
+        <ToDoForm 
+          onSubmit = {this.onSubmit} 
+          value={this.state.input} 
+          onChange={this.updateInput}/>
       </div>
     );
   }
