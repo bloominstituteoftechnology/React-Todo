@@ -1,5 +1,5 @@
 import React from 'react';
-import InputForm from './components/InputForm.js'
+import InputForm from './InputForm.js'
 import './Header.css';
 
 const Header = () => {

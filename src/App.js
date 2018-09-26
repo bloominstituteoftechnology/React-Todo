@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './components/Header';
-import ToDoList from './components/ToDoList';
+import Header from './components/HeaderComponents/Header';
+import ToDoList from './components/ToDoItemComponents/ToDoList';
 
 const App = () => (
   <div>
