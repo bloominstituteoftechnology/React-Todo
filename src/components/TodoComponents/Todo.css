@@ -1,0 +1,11 @@
+
+input , button {
+	padding:7px 15px;
+}
+
+button {
+	margin:5px;
+	border-radius: 2px;
+	color: red;
+	background: yellow;
+}

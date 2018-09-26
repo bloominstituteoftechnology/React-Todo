@@ -3,3 +3,11 @@
 import React from 'react';
 import './Todo.css';
 
+// const todoInput = document.querySelector('input');
+// const addTodoButton = document.querySelector('.addTodo');
+// const clearTodoButton = document.querySelector('.clearTodo');
+
+
+const TodoList = (props) => {
+	return
+}

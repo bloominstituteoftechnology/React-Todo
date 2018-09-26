@@ -3,10 +3,10 @@ import './Todo.css';
 
 const Todo = (props) => {
 	 // console.log(props);
-	return(<div>
+	return(<div className='todoList'>
         {props.todos.map(todo => {
           return (
-            <div>
+            <div className="items" key={todo.id}>
                {todo.task}
             </div>
           );

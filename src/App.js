@@ -9,18 +9,7 @@ class App extends React.Component {
   constructor() {
      super();
      this.state = {
-        todos: [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
-]
+        todos: [ ]
 
      }
   }
@@ -28,7 +17,7 @@ class App extends React.Component {
   addTodo = (event) => {
   	  
   	 this.setState({
-  	 	  todos: [...this.state.todos, {task: event.target.value, id: 1, completed: false }]
+  	 	  todos: [...this.state.todos, {task: event.target.value, id: Date.now(), completed: false }]
   	 }); 
   	 // console.log(event.tare
   	 event.target.value = '';
@@ -36,7 +25,7 @@ class App extends React.Component {
 
   buttonClick = (event) => {
   	 this.setState({
-  	 	  todos: [...this.state.todos, {task: event.currentTarget.parentNode.firstChild.value,  id: 1, completed: false }]
+  	 	  todos: [...this.state.todos, {task: event.currentTarget.parentNode.firstChild.value,  id: Date.now(), completed: false }]
   	 }); 
   	 // console.log(event.tare
   	 event.currentTarget.previousElementSibling.value = '';
@@ -44,7 +33,7 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className='todoContainer'>
        <h1>Todo List: MVP</h1>
        <Todo todos={this.state.todos}/>
        <TodoForm evenClick={this.addTodo} bClick={this.buttonClick}  />

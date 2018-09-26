@@ -1,0 +1,34 @@
+.todoContainer {
+	width:560px;
+	margin:40px auto;
+}
+
+.todoContainer h1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.TodoForm {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.todoList {
+	background: #e4e4e4;
+	height:250px;
+	margin:30px 0;
+	border:1px solid rgba(0,0,0,.9);
+}
+
+.items {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color:green;
+	font-size: 1.6rem;
+	font-weight: bold;
+	
+}
