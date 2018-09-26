@@ -20,6 +20,7 @@ class App extends React.Component {
     }
     clickHandler = (event) => {
       event.preventDefault()
+      
       const newObject = {
         task: this.state.holder,
         id: Date.now(),
@@ -37,7 +38,7 @@ class App extends React.Component {
       <div>
         <h1>Todo List: MVP</h1>
         <TodoList todos={this.state.todos} />
-        <TodoForm value={this.state.holder} inputHandler={this.inputHandler} clickHandler={this.clickHandler} />
+        <TodoForm holder={this.state.holder} inputHandler={this.inputHandler} clickHandler={this.clickHandler} />
 
 
       </div>)
