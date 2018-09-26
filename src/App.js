@@ -49,6 +49,7 @@ class App extends React.Component {
         </nav>
         <div className='container'>
           <TodoList todos={todoList} />
+          <TodoForm />
         </div>
       </div>
     )

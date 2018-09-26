@@ -5,10 +5,14 @@ const Todo = props => {
   return (
     <div className='card card-body mb-3'>
       <ul className='list-group'>
-        <li className='list-group-item'>Get 'er done: {task}</li>
+        <li style={cursorPointer} className='list-group-item'>
+          Get 'er done: {task}
+        </li>
       </ul>
     </div>
   )
 }
-
+const cursorPointer = {
+  cursor: 'pointer'
+}
 export default Todo
