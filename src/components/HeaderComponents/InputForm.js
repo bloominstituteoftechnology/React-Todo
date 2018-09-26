@@ -4,14 +4,11 @@ const InputForm = () => {
   return (
     <div>
       <div>
-          <h2>{this.state.title}</h2>
+          <h2>{this.state.title}</h2> //creates title for new task
         <div>
           {/* <ToDoList list={this.state.list} /> */}
           <input
-            name="task"
-            value={this.state.task}
-            placeholder="Describe new task"
-            onChange={this.handleListChange}
+            
           />
           <button onClick={this.handleButtonClick}>Add this task</button>
         </div>
