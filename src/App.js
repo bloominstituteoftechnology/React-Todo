@@ -62,12 +62,9 @@ class App extends React.Component {
     })
   }
 
-  // addTodoTask = event => {
-  //   this.setState({
-  //     // click button add todo to list
-  //     todoArray: this.state.todoArray.push(this.state.textInput)
-  //   })
-  // }
+  addTodoTask = task => {
+    this.setState({todoArray: [...this.state.todoArray, task]})
+  }
 
   render() {
     return (
@@ -91,9 +88,9 @@ class App extends React.Component {
 
           <div>
             <h2>List external to App:</h2>
-            <TodoList />
-            <Todo />
-            <TodoForm />
+            <TodoList todos={this.state.todoArray}/>
+            
+            <TodoForm addTodoTask={this.addTodoTask}/>
           </div>
            
       </div>
@@ -102,29 +99,28 @@ class App extends React.Component {
 }
 
 //functional component?
-const TodoList = () => {
-  return todoArray1.map((e) => {
+const TodoList = (props) => {
+  return props.todos.map((e) => {
     return (
       <div>
-        {e.task}
+        <Todo todo={e}/>
       </div>
     )
   })
 }
 
-const Todo = () => {
+const Todo = (props) => {
   return (
     <div>
-        This is the {todoArray1[0].task} task for {todoArray1[0].id} date
+        This is the {props.todo.task} task for {props.todo.id} date
     </div>
   )
 }
 
+//turn into a class component
 const TodoForm = props => {
   return (
-    <div>
-      <input placeholder="Add Tasks Here"/> <button> Add Todo </button> <button> Clear Completed </button>
-    </div>
+    <div onClick={() => {props.addTodoTask({task: 'New Task', id: Date.now(), isCompleted: false})}}>Add Todo</div>
   )
 };
 
