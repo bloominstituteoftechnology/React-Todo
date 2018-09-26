@@ -21,7 +21,10 @@ class App extends React.Component {
   }
 
   // Event handler for entering new items.
+  // Logs the entry for use with button submit
+  // Handles enter key submission.
   handleNewEntry = event => {
+    // Check for enter key:
     if( event.keyCode === 13 ){
       let oldState = this.state.todoList;
       oldState.push({
@@ -35,6 +38,7 @@ class App extends React.Component {
       });
       event.target.value = "";
     } else {
+      // Log entry for use with button submit
       console.log(event.target.value);
       this.setState({
         textVal: event.target.value
@@ -42,6 +46,7 @@ class App extends React.Component {
     }
   };
 
+  // Button submission handler: adds new todo item
   handleClick = event => {
     let oldState = this.state.todoList;
     oldState.push({
@@ -56,11 +61,21 @@ class App extends React.Component {
     document.querySelector('input').value = "";
   };
 
+  // Handle toggling of todo items
+  handleToggle = event => {
+
+  };
+
+  // Handle clearing completed items
+  handleClear = event => {
+
+  };
+
   render() {
     return (
       <div>
         <h2>ToDo List</h2>
-        <TodoList todoArray={this.state.todoList} />
+        <TodoList todoArray={this.state.todoList} toggle={this.handleToggle} />
         <TodoForm newEntry={this.handleNewEntry} clickEntry={this.handleClick} />
       </div>
     );

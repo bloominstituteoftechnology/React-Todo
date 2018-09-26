@@ -9,6 +9,7 @@ const TodoForm = (props) => {
         <div>
             <input type="text" placeholder="...todo" onKeyUp={props.newEntry} />
             <input type="button" onClick={props.clickEntry} value="Add ToDo" />
+            <input type="button" value="Clear Completed" />
         </div>
     );
 }
