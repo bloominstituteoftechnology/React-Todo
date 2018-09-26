@@ -27,8 +27,22 @@ class App extends React.Component {
       todo: ''
     }
   }
+
+  addTask = (e) => {
+    e.preventDefault()
+    const todoList = this.state.todoList.slice()
+
+    todoList.push({task: this.state.todo, id: Date.now(), completed: false})
+
+    this.setState({todoList, todo: ''})
+  }
+
+  todoChange = (e) => {
+    this.setState({todo:e.target.value})
+  }
+
   render () {
-    const { todoList } = this.state
+    const { todoList} = this.state
     return (
       <div className='App'>
         <nav className='navbar navbar-expand-sm navbar-dark bg-danger mb-3 py-0'>
@@ -49,7 +63,11 @@ class App extends React.Component {
         </nav>
         <div className='container'>
           <TodoList todos={todoList} />
-          <TodoForm />
+          <TodoForm
+            value={this.state.todo}
+           handleTask={this.addTask}
+          handleChange={this.todoChange}
+         />
         </div>
       </div>
     )
