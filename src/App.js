@@ -11,16 +11,16 @@ class App extends React.Component {
       placeholder: '... to-do',
       tasks: [
         {
-          task: 'Organize Garage',
-          id: 1528817077286,
+          task: 'Learn setState()',
+          id: 1,
           completed: false
         },
         {
-          task: 'Bake Cookies',
-          id: 1528817084358,
+          task: 'Style my To-Do list',
+          id: 2,
           completed: false
         }
-      ]
+      ],
     }
   }
   // function handleInput(event){
@@ -28,25 +28,63 @@ class App extends React.Component {
   //     placeholder: "... to-do"
   //   });
   // }
+
+  // handleInput = event => {
+  //   console.log(event.target.value);
+  //   this.setState({
+  //     text: event.target.value
+  //   });
+  // };
+
   handleInput = event => {
-    this.setState({
-      text: event.target.value
-    });
+    if (event.key === 'Enter'){
+      let newArr = this.state.tasks;
+      // console.log(this.state.tasks.length);
+      newArr.push({task: event.target.value, id: this.state.tasks.length + 1, completed: false});
+      // console.log(newArr);
+      this.setState({
+        tasks: newArr
+      });
+      event.target.value = '';
+    } 
+    // else {
+      // let newArr = this.state.tasks;
+      // newArr.push({task: todoButton.target.value, id: this.state.tasks.length + 1, completed: false});
+    // }
   };
+
+  handleClick = () => {
+    if (document.querySelector('input').value !== ''){
+      let newArr = this.state.tasks;
+      newArr.push({task: (document.querySelector('input')).value, id: this.state.tasks.length + 1, completed: false});
+      this.setState({
+        tasks: newArr
+      });
+      (document.querySelector('input')).value = '';
+      // console.log(newArr);
+    }
+  }
 
   render() {
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        <div>{this.state.text}</div>
-        <input placeholder = {this.state.placeholder} onChange = {this.handleInput} />
-        <button>Add Todo</button>
+        <div>{this.state.tasks.map(function(task){
+          return (
+            <div className = 'tasks-list' key = {task.id}>
+              {task.task}
+            </div>
+          );
+        })}
+        </div>
+        {/* <div>{this.state.text}</div> */}
+        <input placeholder = {this.state.placeholder} onKeyPress = {this.handleInput} />
+        <button onClick = {this.handleClick}>Add Todo</button>
         <button>Clear Completed</button>
       </div>
     );
   }
-}
-
+};
 
 
 export default App;
