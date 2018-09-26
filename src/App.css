@@ -1,0 +1,13 @@
+.container {
+    background: linear-gradient(to right,green, yellow, green);
+    padding: 10px 15px;
+    border: 5px solid rgb(1, 10, 10);
+    border-radius: 15px;
+    margin: 0 auto;
+    max-width: 415px;
+}
+
+.container .header-main {
+    text-align: center;
+    margin: 12px auto;
+}
