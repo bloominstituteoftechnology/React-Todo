@@ -1,0 +1,7 @@
+.completed {
+    text-decoration: line-through;
+  }
+  .toDo {
+    cursor: pointer;
+    padding-bottom: 5%;
+  }
