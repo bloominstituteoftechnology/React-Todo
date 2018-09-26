@@ -15,12 +15,14 @@ class App extends React.Component {
   }
 
   addTodo = (event) => {
-  	  
+  	  console.log(event);
+      if(event.key === 'Enter') {
   	 this.setState({
   	 	  todos: [...this.state.todos, {task: event.target.value, id: Date.now(), completed: false }]
   	 }); 
-  	 // console.log(event.tare
+  	 
   	 event.target.value = '';
+    }
   }
 
   buttonClick = (event) => {
@@ -35,7 +37,7 @@ class App extends React.Component {
     return (
       <div className='todoContainer'>
        <h1>Todo List: MVP</h1>
-       <Todo todos={this.state.todos}/>
+       <Todo todos={this.state.todos} />
        <TodoForm evenClick={this.addTodo} bClick={this.buttonClick}  />
       </div>
     );
