@@ -7,9 +7,11 @@ import TodoForm from './TodoForm';
 const TodoList = (props) => {
     return (
     <div>
-        {props.todoList.map(item => {
+        {props.todoItem.map(item => {
             return (
-                <Todo id={item.id} task={item.task} />
+                <div id={props.todoItem.id}>
+                <Todo task={item.task} />
+                </div>
             )
         })}
         <TodoForm submit={props.submit} input={props.input}/>

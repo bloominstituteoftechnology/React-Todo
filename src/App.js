@@ -34,7 +34,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        <TodoList todoList={this.state.data} submit={this.handleSubmit} input={this.handleChange}/>
+        <TodoList todoItem={this.state.data} submit={this.handleSubmit} input={this.handleChange}/>
       </div>
     );
   }
