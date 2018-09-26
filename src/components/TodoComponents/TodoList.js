@@ -7,8 +7,10 @@ import Todo from './Todo';
 const TodoList = props => {
     return (
         <div>
+            {props.todoList.map(todo => (
+                <Todo id={todo.id} task={todo.task} /> 
+            ))}
             <TodoForm />
-            <Todo />
         </div>
     );
 };
