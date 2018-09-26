@@ -26,7 +26,7 @@ class TodoForm extends React.Component{
 
     handleClearCompleted = (event)=>{
         event.preventDefault();
-        console.log('Clear Completed');
+        this.props.clearCompleted();
     }
     
     render(){
