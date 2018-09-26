@@ -8,12 +8,12 @@ const ListItems = (props) => {
 
   return (
     <ul>
-      {props.myTodoList.map(newTodo => {
+      {props.myTodoList.map(newItem => {
         return (
             <ToDo
-              key = {newTodo.id}
-              value = {newTodo.task}
-              className = {newTodo.completed}
+              key = {newItem.id}
+              value = {newItem.task}
+              className = {newItem.completed}
             />
 
         )

@@ -19,7 +19,10 @@ class App extends React.Component {
       completed: false
     };
 
-    this.setState({myTodoList: [...this.state.myTodoList, myObj], input: ''});
+    this.setState({
+      myTodoList: [...this.state.myTodoList, myObj],
+      input: ''
+    });
 
   };
 
