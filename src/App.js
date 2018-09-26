@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from './components/TodoComponents/TodoForm'
 
 class App extends React.Component {
 constructor() { 
@@ -13,7 +14,6 @@ constructor() {
     }],
     }
   };
-}
 
 handleClick = (event) => { 
   this.setState({
@@ -30,6 +30,7 @@ handleInput = (event) => {
 }
 
 
+
   render() {
     return (
       <div>
@@ -38,6 +39,8 @@ handleInput = (event) => {
       </div>
     );
   }
+
 }
+
 
 export default App;
