@@ -3,8 +3,8 @@ import React from 'react';
 const TodoForm = props => {
     return (
         <div>
-            <input onKeyPress={props.enterPressed} type='text' />
-            <button onClick={props.handleSubmit}>Add Todo</button>
+            <input onChange={props.handleSubmit} onKeyPress={props.enterPressed} type='text' />
+            <button onClick={props.buttonPressed}>Add Todo</button>
             <button>Clear Completed</button>
         </div>
     );

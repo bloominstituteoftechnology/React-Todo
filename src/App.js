@@ -8,6 +8,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      userInput: '',
       todoList: [
         {
           task: 'Organize Garage',
@@ -37,13 +38,20 @@ class App extends React.Component {
 
   handleSubmit = event => {
     this.setState({
+      userInput: event.target.value
+    });
+  }
+
+  buttonPressed = event => {
+    this.setState({
       todoList: this.state.todoList.concat({
-        task: event.target.value,
+        task: this.state.userInput,
         id: Date.now(),
         completed: false
       }) 
     });
   }
+
 
   // markDone = event => {
   //   this.setState({
@@ -54,7 +62,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList todoList={this.state.todoList} handleSubmit={this.handleSubmit} enterPressed={this.enterPressed} markDone={this.markDone}/>
+        <TodoList todoList={this.state.todoList} handleSubmit={this.handleSubmit} buttonPressed={this.buttonPressed} enterPressed={this.enterPressed} markDone={this.markDone}/>
       </div>
     );
   }
