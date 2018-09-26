@@ -19,18 +19,35 @@ class App extends React.Component {
           completed: false
         },
       ],
+      itemToAdd: '',
     };
   }
 
   addItem = (event) => {
-    console.log(event.target.value);
+    let item = {
+      task: this.state.itemToAdd,
+      id: Date.now(),
+      completed: false
+    }
+    this.state.listItems.push(item);
+
+    this.setState({
+      listItems: this.state.listItems
+    })
+    console.log(this.state.listItems);
   }
 
+  textChanged = (event) => {
+    this.setState({
+      itemToAdd: event.target.value}
+      );
+      console.log(this.state.itemToAdd);
+  }
 
   render() {
     return (
       <div className="list-container">
-        <TodoForm addItem={this.addItem}/>
+        <TodoForm textChanged={this.textChanged} addItem={this.addItem}/>
         <TodoList listItem={this.state.listItems} />
       </div>
     );
