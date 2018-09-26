@@ -1,5 +1,5 @@
 import React from 'react';
-//import Todo from './components/TodoComponents/Todo';
+// Form fields needed to add new items to the list.
 
 const TodoForm = (props) => {
     return (

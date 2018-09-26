@@ -3,8 +3,20 @@
 import React from 'react';
 
 const TodoList = (props) => {
+    // Gets todoArray from props.
+    console.log("todolist", props);
+
+    // Render the list of items in the array.
     return (
-        <div>TodoList.js</div>
+        <div>
+            {props.todoArray.map( todo => {
+                return(
+                    <div key={todo.id}>
+                        {todo.task}
+                    </div>
+                );
+            })}
+        </div>
     );
 }
 
