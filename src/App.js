@@ -1,62 +1,65 @@
-import React from 'react';
-// import { TodoButton } from './components/TodoComponents/TodoForm'
-// import { TodoInput } from './components/TodoComponents/TodoForm'
-import { TodoForm } from './components/TodoComponents/TodoForm'
-import TodoList from './components/TodoComponents/TodoList';
+import React from 'react'
+import { Todo } from './components/TodoComponents/Todo'
+const todoData = require ('./components/TodoComponents/TodoData.json')
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-   constructor(props)
-   {
-     super(props)
+  constructor() {
+    super()
 
-     this.state = {
-       todos: [
+    this.state = {
+      todos: [],
+      text: "",
+      nextId: Date.now()
+    }
+  }
+// This will mount everything before it renders onto the screen. All data will get rendered here.
+  componentWillMount() {
+    this.setState ( {
+     todos: todoData.key
+    })
+  }
 
-      {
-           id: 1528817077286,
-        text: "Dont forget to study",
-        completed: false
-      
-      },
-         {
-           id: 1528817084358,
-           text: "Clean the dishes",
-           completed: false
+  handleChange = (e) => {
+    this.setState({text: e.target.value })
+  }
 
-         }
-       
-        ],
-          nextId: Date.now()
-   }
+  todoList = (todo) => {
+    //Verify there is something  in our todo input
+    if (todo.length > 0) {
+      this.addTodo(todo)
+      this.setState({ text: '' })
+    }
+  }
+
+  handleKeyPress = (e) => {
+    // CharaCode is number 13 which 'Enter'
+    if (e.charCode === 13) {
+      this.addTodo(e.target.value)
+      this.setState({text:''})
+    }
   }
 
   addTodo = (todoText) => {
-   let todos = this.state.todos.slice()
-   todos.push({id: this.state.nextId, text: todoText})
-   this.setState({
-     todos: todos,
-     nextId: Date.now() + 1,
-     completed: false
-   })
-
-    //  console.log("Todo Added :", todoText)
+    // Takeing in the new todo string and adding it to the list
+    let todos = this.state.todos.slice()
+    todos.push({ id: this.state.nextId, text: todoText })
+    this.setState({
+      todos: todos,
+      nextId: Date.now() + 1,
+      completed: false
+    })
   }
-
-  render() {
+    render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList  text= {this.state.todos}/>
-        <TodoForm addTodo={this.addTodo}/>
-        {/* <TodoInput handleChange={this.handleChange}/> {" "}
-        <TodoButton buttonStyle={'todobtn'} handleClick={() => this.addToInput(this.state.items)} text={"Add Todo"} /> {" "}
-        <TodoButton buttonStyle={'todobtn'} text={"Clear Completed"} /> */}
+        <Todo todos={this.state.todos} text={this.state.text} addTodo={this.addTodo} handleKeyPress={this.handleKeyPress} todoList={this.todoList} handleChange={this.handleChange} />
       </div>
-    );
+    )
 
   }
 }
 
-export default App;
+export default App
