@@ -7,7 +7,7 @@ export const TodoList = (props) => {
 
     return (<div className="display" >{props.todos.map(x => {
         return (
-            <div key={x.id} id={x.id}>
+            <div key={x.id} id={x.id} className='list todo-list'>
                 {x.text} <br />
                 <br />
             </div>

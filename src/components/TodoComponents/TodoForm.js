@@ -3,12 +3,14 @@ import './Todo.css';
 
 export const TodoForm = (props) => {
         return (
-               <div>
+               <div className='form'>
                 <br />
-                <input value={props.text} onChange={props.handleChange} onKeyPress={props.handleKeyPress} placeholder="Enter your task" />{" "}
+                <input className= 'input-content' value={props.text} onChange={props.handleChange} onKeyPress={props.handleKeyPress} placeholder="...todo task" />{" "}
+               <div className='btn'>
                 <button className="btn btn-primary" onClick={() => props.todoList(props.text)}>Add Todo</button>{" "}
                 <button>Clear Form</button>
+                </div>
             </div>
         )
     }
-// export const TodoButton = (props) => {
+

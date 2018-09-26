@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css'
 import { Todo } from './components/TodoComponents/Todo'
 const todoData = require ('./components/TodoComponents/TodoData.json')
 class App extends React.Component {
@@ -53,8 +54,8 @@ class App extends React.Component {
   }
     render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="app-body">
+        <h2>REACT - TO DO LIST</h2>
         <Todo todos={this.state.todos} text={this.state.text} addTodo={this.addTodo} handleKeyPress={this.handleKeyPress} todoList={this.todoList} handleChange={this.handleChange} />
       </div>
     )

@@ -6,9 +6,9 @@ import { TodoList } from './TodoList';
 
 export const Todo = (props) => {
     return (
-     <div>
-        <TodoList todos={props.todos} />
+     <div className= 'todo-content'>
         <TodoForm text={props.text} addTodo={props.addTodo} handleKeyPress={props.handleKeyPress} todoList={props.todoList} handleChange={props.handleChange} />
+        <TodoList todos={props.todos} className= "todo-list"/>
      </div>
      )
 }
