@@ -14,14 +14,14 @@ class App extends React.Component {
     ]
     this.state = {
       headerText: this.headers[0],
-      todoData: [
-        // {
-        //   task: 'Test 1',
-        //   id: Date.now(),
-        //   isCompleted: false
-        // }
-      ]
+      todoData: JSON.parse(localStorage.getItem("data"))
     }
+
+    window.onbeforeunload = this.saveData;
+  }
+
+  saveData= ()=>{
+    localStorage.setItem("data", JSON.stringify(this.state.todoData));
   }
 
   addTask = (task)=>{
@@ -58,7 +58,12 @@ class App extends React.Component {
     })
 
     let index = Number.parseInt(data.length / 3 - 1, 10);
-    index = index >= this.headers.length ? this.headers.length - 1 : index;
+    if(index >= this.headers.length){
+      index = this.headers.length - 1;
+    }
+    else if(index < 0){
+      index = 0;
+    }
 
     this.setState({
       todoData: data,

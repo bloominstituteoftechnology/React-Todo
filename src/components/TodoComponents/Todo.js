@@ -10,7 +10,7 @@ class Todo extends React.Component{
     }
 
     handleClick = (event)=>{
-        this.props.completeTask(this.state.todoItem.id)
+        this.props.completeTask(this.state.todoItem.id);
     }
 
     render(){
