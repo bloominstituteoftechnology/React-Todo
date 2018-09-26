@@ -5,11 +5,11 @@ const TodoList = props => {
 	
 	return (
 		<div>
-			<ul>
+			<ol>
 				{props.list.map(item => (
 					<li >{item.task}</li>
 				))}
-			</ul>
+			</ol>
 		</div>
 	);
 };
