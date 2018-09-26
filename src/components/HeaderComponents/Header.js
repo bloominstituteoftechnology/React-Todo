@@ -6,10 +6,7 @@ const Header = () => {
   return(
 
 <div>
-  <div>
-   <h2>Todo App</h2>
-  </div>
-  <InputForm>Input form appears here.</InputForm>
+  <InputForm />
 
 </div>
   )

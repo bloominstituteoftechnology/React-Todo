@@ -13,12 +13,12 @@ import ToDoItem from './components/ToDoItemComponents/ToDoItem';
 //   </div>
 // );
 class App extends Component {
-
   constructor() {
     super();
     this.state={
-      title:"To Do List",
-      inputToDoValue:'',
+      id: 0,
+     toDoTitle:'',
+      toDoContent:'',
       toDoListItems:[],
     }
   }
@@ -27,7 +27,7 @@ class App extends Component {
       <div>
       <h1>D2rd Stuff ToDo</h1>
       <Header />
-
+      <ToDoList />
       </div>
     
     )
