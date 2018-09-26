@@ -12,6 +12,7 @@ class App extends React.Component {
     this.state = {
       todos: [],
       text: "",
+      isCompleted: false,
       nextId: Date.now()
     }
   }
@@ -36,20 +37,29 @@ class App extends React.Component {
 
   handleKeyPress = (e) => {
     // CharaCode is number 13 which 'Enter'
-    if (e.charCode === 13) {
+    if (e.charCode === 13 ) {
+      //Enter can only submit if there is at least 1 character in the field.
+      if(this.state.text.length >= 1)
       this.addTodo(e.target.value)
-      this.setState({text:''})
+      this.setState({
+        text: ''
+      })
+      
     }
+  }
+
+  handleClick = () => {
+  
   }
 
   addTodo = (todoText) => {
     // Takeing in the new todo string and adding it to the list
     let todos = this.state.todos.slice()
-    todos.push({ id: this.state.nextId, text: todoText })
+    todos.push({ id: this.state.nextId, text: todoText, isCompleted:this.state.isCompleted})
     this.setState({
       todos: todos,
+      isCompleted: false,
       nextId: Date.now() + 1,
-      completed: false
     })
   }
     render() {

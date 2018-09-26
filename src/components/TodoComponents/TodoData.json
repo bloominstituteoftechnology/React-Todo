@@ -3,13 +3,13 @@
         {
             "id": 1528817077286,
             "text": "Dont forget to study",
-            "completed": false
+            "isCompleted": false
 
         },
         {
             "id": 1528817084358,
             "text": "Clean the dishes",
-            "completed": false
+            "isCompleted": false
 
         }
     ]

@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
 }
 
 .list {
@@ -24,6 +23,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    outline: none;
     width: 600px;
     height: 25px;
     margin: 30px;
@@ -39,7 +39,7 @@
 }
 
 button {
-    
+    outline: none;
     width: 100px;
     height: 45px;
     margin-left: 30px;
@@ -49,9 +49,10 @@ button {
     border-radius: 8px 8px;
     color: Black;
     font-weight: bold;
+    cursor: pointer;
     background-image: linear-gradient(to bottom, chartreuse, rgb(0, 255, 242));
 }
 
-.btn-primary:hover {
-    background-image:linear-gradient(to bottom, rgb(174, 238, 144), rgb(0, 255, 242));
+button:hover {
+    background-image: linear-gradient(to bottom, rgb(174, 238, 144), rgb(0, 255, 242));
 }
