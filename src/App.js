@@ -44,11 +44,20 @@ class App extends React.Component {
           todo: newTodo
       }))
   }
+  clearComplete = ()   =>  {
+      let newTodo = this.state.todo;
+      newTodo = newTodo.filter((todo)  =>  {
+          return todo.completed === false;
+      })
+      this.setState((state) =>  ({
+          todo: newTodo
+      }))
+  }
   render() {
     return (
       <div>
-        <TodoList todo={this.state.todo} clickComplete={this.completeTask}/>
-        <TodoForm clickAdd={this.createTodo} />
+        <TodoList todo={this.state.todo} clickComplete={this.completeTask} />
+        <TodoForm clickAdd={this.createTodo} clearComplete={this.clearComplete} />
       </div>
     );
   }
