@@ -3,7 +3,7 @@ import React from 'react';
 const ToDoForm = (props) => {
     return (
         <form>
-        <input value='...todo'></input>
+            <input placeholder='...todo' onClick={(e) => alert(e.target.value)}></input>
             <button>Add Todo</button>
             <button>Clear Completed</button>
         </form> 
@@ -11,3 +11,4 @@ const ToDoForm = (props) => {
 }
 
 export default ToDoForm;
+
