@@ -9,8 +9,9 @@ const TodoList = ({todos}) =>{
     return (todos.map(todo =>{
 
             return (
-                <Todo todo={todo} />
-
+                <div key={todo.id}>
+                    <Todo todo={todo} />
+                </div>
 
             );
         })
