@@ -2,7 +2,10 @@ import React from 'react';
 
 const TodoForm = props => {
     return (
-        <input />
+        <div>
+            <input type='text' />
+            <button onClick={props.handleSubmit}>Add Todo</button>
+        </div>
     );
 }
 

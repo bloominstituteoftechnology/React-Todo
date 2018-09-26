@@ -10,7 +10,7 @@ const TodoList = props => {
             {props.todoList.map(todo => (
                 <Todo id={todo.id} task={todo.task} /> 
             ))}
-            <TodoForm />
+            <TodoForm handleSubmit={props.handleSubmit}/>
         </div>
     );
 };
