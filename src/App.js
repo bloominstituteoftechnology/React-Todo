@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   constructor(){
@@ -6,11 +7,13 @@ class App extends React.Component {
 
     this.state={
       textInput: '',
-      
+
     };
 
     handleInput = (event) => {
-
+      this.setState({
+        textInput: event.target
+      })
     }
 
     handleClick = () => {}
