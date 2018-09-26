@@ -30,7 +30,7 @@ class App extends React.Component {
       <div>
         <TodoForm onChangeInput={this.changeInput} />
         <TodoList todos={this.state.Todos} />
-        <h1>State: {this.state.Todo}</h1>
+        <h1>State on input: {this.state.Todo}</h1>
       </div>
     );
   }
