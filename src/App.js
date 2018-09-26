@@ -56,6 +56,29 @@ addToDoHandler = (element) => {
 // Need a function that toggles the task as a completed or unfinished
 toggleComplete = (element) => {
 
+    // Get the current todo (the one being clicked)
+    const current = element.target;
+    console.log(current.id)
+    
+    // Get the todo array so that the completed state of the current todo can be toggled between true and false.
+    // Iterate through using .map
+    const todos = this.state.todos.map(todo => {
+      console.log(todo.id)
+      // Check if current todo matches the todo id
+      if (current.id === todo.id) {
+        // Add a class that strikes through the word
+        current.classList.toggle('completed');
+
+        // Sets completed to whatever the opposite value is
+        todo.completed = !todo.completed;
+      }
+
+      // Just return the todo if it doesn't match the current target
+      return todo;
+    });
+
+     // Set the current state with the new todo array
+    this.setState({todos})
 }
 
 // Need a function that removes completed todos

@@ -5,21 +5,26 @@ import TodoForm from './TodoForm';
 
 const TodoList = (props) => {
     return (
-      <section className="container">
-        <section className="todo-container">
+      <div className="container">
+
+        {/* Section for todos */}
+        <div className="todo-container">
+
           {/* Takes as input (from props) each of the todos in state, iterates through (using .map), and renders them onscreen */}
           {props.list.map(todo => {
             return (
               <div>
-                <Todo key={todo.id} id={todo.id} task={todo.task} onClick={props.toggleComplete} complete={todo.complete} />
+                <Todo key={todo.id} id={todo.id} task={todo.task} onClick={props.toggleComplete} completed={todo.completed} />
               </div>
             )
           })}
-        </section>
-        <section className="input-container">
+        </div>
+
+        {/* Section for input form and buttons */}
+        <div className="input-container">
           <TodoForm submit={props.submit} clear={props.removeComplete}/>
-        </section>
-      </section>
+        </div>
+      </div>
     )
   }
 

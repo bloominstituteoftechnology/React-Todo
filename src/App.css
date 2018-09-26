@@ -5,4 +5,19 @@
     justify-content: center;
     flex-direction: row;
     padding: 20px;
+    font-family: "beloved-script",sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+h1 {
+    font-family: "beloved-sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.completed {
+    text-decoration: line-through;
 }
