@@ -1,6 +1,6 @@
 import React from 'react';
 import  ToDoForm  from './components/TodoComponents/TodoForm';
-import ToDo from './components/TodoComponents/Todo';
+import TodoList from './components/TodoComponents/TodoList';
 
 
 // you will need a place to store your state in this component.
@@ -9,14 +9,40 @@ import ToDo from './components/TodoComponents/Todo';
 
 class App extends React.Component {
   constructor(){
-    super()
+    super();
+    this.state ={
+      list:[{task:'Laundry', id:Date.now(), completed:false}],
+      task:""
+    }
+  }
+
+  inputHandler = event => {
+    const {value} = event.target;
+    this.setState({
+      task: value,
+    })
+    console.log(value)
+  }
+
+  addTaskHandler = event => {
+    event.preventDefault()
+    const obj = {
+      task:this.state.task,
+      id:Date.now(),
+      completed:false,
+    }
+
+    this.setState({
+      list:[...this.state.list, obj],
+      task:""
+    })
   }
   render() {
     return (
       <div>
         <h2>Need Todo the following items:</h2>
-        <ToDo />
-        <ToDoForm/>
+        <TodoList value={this.state.list} />
+        <ToDoForm inputHandler={this.inputHandler} addTaskHandler={this.addTaskHandler} />
       </div>
     );
   }

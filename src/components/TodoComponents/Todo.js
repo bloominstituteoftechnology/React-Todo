@@ -1,8 +1,9 @@
 import React from 'react';
+import './Todo.css';
 
 const ToDo = (props) => {
     return (
-        <div></div>
+        <li>{props.obj.task}</li>
     );
 };
 
