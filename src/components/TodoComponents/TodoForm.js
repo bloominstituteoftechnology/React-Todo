@@ -7,8 +7,8 @@ import './Todo.css';
 const TodoForm = (props) => {
     return (
         <div>
-            <input type="text" name="todoInput" />
-            <button onClick={props.enter}>Add Todo</button>
+            <input onChange={props.input} type="text" name="todoInput" />
+            <button onClick={props.submit}>Add Todo</button>
             <button>Clear Completed</button>
         </div>
     )

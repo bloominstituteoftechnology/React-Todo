@@ -12,7 +12,7 @@ const TodoList = (props) => {
                 <Todo id={item.id} task={item.task} />
             )
         })}
-        <TodoForm submit={props.enter} />
+        <TodoForm submit={props.submit} input={props.input}/>
     </div>
     )
 }

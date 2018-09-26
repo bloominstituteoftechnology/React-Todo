@@ -12,27 +12,29 @@ class App extends React.Component {
     super();
 
     this.state = {
-      data: [
-        {
-          task: '',
-          id: Date.now(),
-          completed: false,
-        },
-      ]
-    };
+      textInput: '',
+      data: [],
+    }
   }
 
-  handleClick(event) {
+  handleChange = (event) => {
     this.setState({
-      task: event.target.value
+      textInput: event.target.value
     })
   }
+
+  handleSubmit = (event) => {
+    let list = this.state.data.concat({task: this.state.textInput, id: Date.now(), completed: false})
+    this.setState({data: list});
+  }
+
+
 
   render() {
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        <TodoList todoList={this.state.data} submit={this.handleClick} />
+        <TodoList todoList={this.state.data} submit={this.handleSubmit} input={this.handleChange}/>
       </div>
     );
   }
