@@ -13,7 +13,6 @@ class App extends React.Component {
   ]};
 
   addTodo = todo => {
-    console.log("addTodo");
     const newTodos = this.state.todos.slice();
     newTodos.push(todo);
     this.setState({todos: newTodos});
