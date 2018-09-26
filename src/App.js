@@ -6,12 +6,21 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   state =   {
-      todo: [],
+      todo: [{
+        task: 'Organize Garage',
+        id: 1528817077286,
+        completed: false
+      },
+      {
+        task: 'Bake Cookies',
+        id: 1528817084358,
+        completed: false
+      }],
   }
   render() {
     return (
       <div>
-        <TodoList />
+        <TodoList todo={this.state.todo}/>
       </div>
     );
   }
