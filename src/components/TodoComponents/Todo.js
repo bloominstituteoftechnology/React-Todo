@@ -4,11 +4,17 @@ import React from "react";
 
 const Todo = (props) => {
     console.log("todo", props)
-    return (
-        <ul className={props.displayStyle}>
-            {props.todo.task.map((item, index) => <li key={this.id}>item.task</li>)}
-        </ul>
-    );
+    if (props.todo.length > 0) {
+        return (
+            <ul className={props.displayStyle}>
+                {props.todo.map((item, index) => <li key={this.id}>{item}</li>)}
+            </ul>
+        );
+    } else{
+        return (
+            <p>Start your list!</p>
+        )
+    }
 }
 
 export default Todo;

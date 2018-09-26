@@ -4,7 +4,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 let data = [];
-
 // design `App` to be the parent component of your application.
 class App extends React.Component {
   //store your state in this component.
@@ -28,9 +27,10 @@ class App extends React.Component {
     event.preventDefault();
     this.setState({
       task: this.state.task,
-      id: parseInt(this.state.id)+1,
+      id: Date.now(),
     })
     data.push(this.state)
+    //data.push([this.state.id, this.state.task, this.state.completed])
   }
   removeCompleted(){
     console.log("cleared")
@@ -38,12 +38,6 @@ class App extends React.Component {
   render() {
     return (
       <TodoList state={data} input={this.handleInput} add={this.addTodo} remove={this.removeCompleted}/>
-      // <div className="form-container">
-      //     <h1>Todo List: MVP</h1>
-      //     <input onChange={this.handleInput} />
-      //     <button onClick={this.addTodo}>Add Todo</button>
-      //     <button onClick={this.removeCompleted}>Clear Completed</button>
-      // </div>
     );
   }
 }
