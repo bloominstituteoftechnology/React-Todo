@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state ={
-      list:[{task:'Laundry', id:Date.now(), completed:false}],
+      list:[{task:'This is the beginning of your list', id:Date.now(), completed:false}],
       task:""
     }
   }
@@ -34,7 +34,7 @@ class App extends React.Component {
 
     this.setState({
       list:[...this.state.list, obj],
-      task:""
+      task:" "
     })
   }
   render() {
@@ -42,7 +42,7 @@ class App extends React.Component {
       <div>
         <h2>Need Todo the following items:</h2>
         <TodoList value={this.state.list} />
-        <ToDoForm inputHandler={this.inputHandler} addTaskHandler={this.addTaskHandler} />
+        <ToDoForm value={this.state.task}inputHandler={this.inputHandler} addTaskHandler={this.addTaskHandler} />
       </div>
     );
   }
