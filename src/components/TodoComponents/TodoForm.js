@@ -3,7 +3,12 @@ import React from 'react';
 
 const TodoForm = () => {
   return (
-    <input type ='text' placeholder='put something in your list!' />
+    //
+    <div className="form">
+      <input type ='text' placeholder='put something in your list!' />
+      <button> Add Todo </button>
+      <button> Clear </button>
+    </div>
   );
 }
 

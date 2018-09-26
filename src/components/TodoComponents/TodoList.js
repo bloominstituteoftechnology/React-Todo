@@ -6,11 +6,11 @@ import React from 'react';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
 
-const TodoList = () => {
+const TodoList = (props) => {
   return(
     <div className="toDoList-container">
        <TodoForm />
-       <Todo />
+       <Todo list={props.list} />
     </div>
   );
 }
