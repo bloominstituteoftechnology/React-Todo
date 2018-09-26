@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css'
 import { Todo } from './components/TodoComponents/Todo'
 const todoData = require ('./components/TodoComponents/TodoData.json')
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -66,6 +67,7 @@ class App extends React.Component {
     return (
       <div className="app-body">
         <h2>REACT - TO DO LIST</h2>
+        <h1>Stefan</h1>
         <Todo todos={this.state.todos} text={this.state.text} addTodo={this.addTodo} handleKeyPress={this.handleKeyPress} todoList={this.todoList} handleChange={this.handleChange} />
       </div>
     )
