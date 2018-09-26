@@ -7,11 +7,15 @@ import ToDo from './Todo';
 const List = (props) => {
     return (
         <ul>
-            {/* {this.state.todolist.map(newToDo => {
+            {props.todolist.map(newToDo => {
                 return (
-                    <ToDo key={newToDo.id} value={newToDo.task} />
+                    <ToDo 
+                        key={newToDo.id} 
+                        value={newToDo.task} 
+                        className={newToDo.completed} 
+                    />
                 )
-            })} */}
+            })}
         </ul>
     )
 }

@@ -23,34 +23,39 @@ class App extends React.Component {
     };
   }
 
-  handleClick = (event) => {
+  handleInput = (event) => {
+    const {value} = event.target;
+    console.log(value);
+    this.setState({
+      input: value,
+    });
+  };
+
+  handleSubmit = (event) => {
     event.preventDefault();
     const obj = {
-      task: this.state.name,
+      task: this.state.input,
       id: Date.now(),
       completed: false
     }
     console.log(obj);
     this.setState({
       info: [...obj],
-      task: ''
+      input: ''
     })
   };
 
-  handleInput = (event) => {
-    const {value} = event.target;
-
-    this.setState({
-      task: value,
-    });
-  };
 
   render() {
     return (
       <div>
         <h1>Todo List: MVP</h1>
         <List />
-        <Form input={this.state.input} handleClick={this.handleClick} handleInput={this.handleInput} />
+        <Form 
+          input={this.state.input} 
+          handleSubmit={this.handleSubmit} 
+          handleInput={this.handleInput} 
+        />
       </div>
     );
   }

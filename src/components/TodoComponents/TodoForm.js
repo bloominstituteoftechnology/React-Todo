@@ -3,8 +3,8 @@ import React from 'react';
 const Form = (props) => {
     return (
         <form>
-            <input onChange={this.handleInput} />
-            <button onClick={this.handleClick}>Add todo</button>
+            <input value={props.input} onChange={props.handleInput} />
+            <button onClick={props.handleSubmit}>Add todo</button>
             <button>Clear Completed</button>
         </form>
     )
