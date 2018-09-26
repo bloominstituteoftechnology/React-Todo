@@ -1,18 +1,16 @@
 import React from 'react';
 import TodoForm from './TodoForm';
-import TodoList from './TodoList';
+
 
 // Pull all of the components together to form the todo app.
 const Todo = (props) => {
     console.log("todo", props);
 
-    // props.todoArray: Pass the state array to TodoList.
+    // props.id : number key
+    // props.task : string task description
+    // props.completed : boolean status
     return (
-        <div>
-            <div>Todo.js</div>
-            <TodoForm />
-            <TodoList todoArray={props.todoArray} />
-        </div>
+        <div key={props.id} class={props.flag}>{props.task}</div>
     );
 }
 
