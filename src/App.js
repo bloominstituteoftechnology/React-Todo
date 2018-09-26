@@ -19,9 +19,14 @@ class App extends React.Component {
   }
 
   handleSubmit = (event) => {
+
+    if (this.state.currentInputValue === '') {
+      alert('No Todo Item Entered')
+    } else {
     let newTaskList = this.state.todos.concat({task: this.state.currentInputValue, key: Date.now(), completed: false})
     this.setState({todos: newTaskList, currentInputValue: ''});
     console.log(this.state.todos);
+    }
   }
 
   onKeyPress = (event) => {
