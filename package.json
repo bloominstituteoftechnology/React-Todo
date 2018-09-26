@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm install preact-cli && preact build"
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
