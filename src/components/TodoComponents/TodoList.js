@@ -12,7 +12,7 @@ const TodoList = props => {
                     <Todo task={todo.task} /> 
                 </div>
             ))}
-            <TodoForm handleSubmit={props.handleSubmit}/>
+            <TodoForm enterPressed={props.enterPressed} handleSubmit={props.handleSubmit}/>
         </div>
     );
 };
