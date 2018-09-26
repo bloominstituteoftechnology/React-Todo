@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import TodoList from './components/TodoComponents/TodoList'
 
 class App extends React.Component {
@@ -58,14 +59,14 @@ toggleComplete = (element) => {
 
     // Get the current todo (the one being clicked)
     const current = element.target;
-    console.log(current.id)
     
     // Get the todo array so that the completed state of the current todo can be toggled between true and false.
     // Iterate through using .map
     const todos = this.state.todos.map(todo => {
-      console.log(todo.id)
+
       // Check if current todo matches the todo id
-      if (current.id === todo.id) {
+      // Convert current.id to a number since it's currently a string
+      if (Number(current.id) === todo.id) {
         // Add a class that strikes through the word
         current.classList.toggle('completed');
 

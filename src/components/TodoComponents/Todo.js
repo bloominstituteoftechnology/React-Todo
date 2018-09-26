@@ -5,7 +5,7 @@ const Todo = (props) => {
     return (
       <div>
           <p className="task" id={props.id} onClick={props.onClick}>
-            {props.task}
+            - {props.task}
           </p>
       </div>
     )
