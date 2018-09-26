@@ -5,10 +5,12 @@ import './Todo.css';
 const TodoForm = (props) => {
 
     return (
-        <div>
+        <div className="form">
             <input className="input" value={props.inputValue} onChange={props.inputFunction} onKeyPress={props.enterFunction}/>
-            <button onClick={props.submitFunction} >Submit</button>
-            <button>Remove Completed</button>
+            <div className="buttonsDiv">          
+                <div className="button" onClick={props.submitFunction} >+</div>
+                <div className="button remove">-</div>
+            </div>  
         </div>
     )
 };
