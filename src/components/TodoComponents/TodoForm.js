@@ -3,7 +3,9 @@ import React from 'react';
 const TodoForm = (props) => {
     return (
         <form>
-            <input onChange={props.handleInput} />
+            <input value={props.textInput} onChange={props.handleInput} />
+            <button onClick={props.handleClick}>Add ToDo</button>
+            <button>Clear Completed</button>
         </form>
     );
 }
