@@ -1,10 +1,12 @@
 import React from 'react';
 
+//contains input field and buttons for creating a todo object
+
 const ToDoForm = (props) => {
     return (
-        <form>
-            <input placeholder='...todo' onClick={(e) => alert(e.target.value)}></input>
-            <button>Add Todo</button>
+        <form onSubmit={props.onSubmit}>
+            <input placeholder='...todo'></input>
+            <button type='submit'>Add Todo</button>
             <button>Clear Completed</button>
         </form> 
     )

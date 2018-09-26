@@ -1,14 +1,14 @@
 import React from 'react';
 import Todo from './Todo'
 
-let todos = [{task: 'test'}, {task: 'test2'}]
+//map over array of todo objects and render a todo component showing the task
 
 const TodoList = (props) => {
     return (
-        todos.map(
+        props.todos.map(
             todo => {
                 return (
-                    <p>{todo.task}</p>
+                    <Todo task={todo.task}/>
                 )       
             }
         )

@@ -1,8 +1,10 @@
 import React from 'react';
 
+//render each todo list task
+
 const Todo = (props) => {
     return (
-        <p>{props.task}</p>
+        <div>{props.task}</div>
     )
 } 
 
