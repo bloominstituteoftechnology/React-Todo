@@ -20,7 +20,7 @@ h2 {
 
 h1 {
     text-align: center;
-    font-size: 65px;
+    font-size: 55px;
     background-image: linear-gradient(to bottom, dodgerblue, rgba(225, 0, 255, 0.89));
     color: transparent;
     -webkit-background-clip: text;
@@ -34,6 +34,6 @@ h1 {
     /* IE */
     -ms-transform: rotate(-45deg);
     position: absolute;
-    margin-left: -62px;
-    margin-top: -199px;
+    margin-left: -52px;
+    margin-top: -179px;
 }
