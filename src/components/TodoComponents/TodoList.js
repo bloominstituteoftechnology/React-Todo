@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-import Todo from './components/TodoComponents/Todo.js'
+import Todo from './Todo.js'
 
 const TodoList = (props) => {
   return (
