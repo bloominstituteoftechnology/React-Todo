@@ -40,9 +40,10 @@ class App extends React.Component {
     }
     console.log(obj);
     this.setState({
-      info: [...obj],
+      todolist: [...this.state.todolist, obj],
       input: ''
     })
+    console.log(this.state.todolist);
   };
 
 
@@ -50,7 +51,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <List />
+        <List todolist={this.state.todolist} />
         <Form 
           input={this.state.input} 
           handleSubmit={this.handleSubmit} 
