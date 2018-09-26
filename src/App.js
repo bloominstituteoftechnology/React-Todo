@@ -3,6 +3,8 @@ import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
+
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -23,12 +25,14 @@ class App extends React.Component {
   changeInput = event => {
     this.setState({ Todo: event.target.value })};
 
-  
+  addTask = event => {
+    console.log('Button Clicked');
+  }
   
   render() {
     return (
       <div>
-        <TodoForm onChangeInput={this.changeInput} />
+        <TodoForm onChangeInput={this.changeInput} clickEvent={this.addTask} />
         <TodoList todos={this.state.Todos} />
         <h1>State on input: {this.state.Todo}</h1>
       </div>
