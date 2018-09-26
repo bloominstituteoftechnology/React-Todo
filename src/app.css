@@ -18,7 +18,13 @@
 }
 
 .todo {
+  align-items: center;
+  background-color: rgb(99, 166, 166);
+  display: flex;
   font-size: 24px;
+  height: 100px;
+  justify-content: flex-start;
+  padding: 0 10px;
 }
 
 .todo:hover {
@@ -28,6 +34,9 @@
 .todo-form {
   display: flex;
   flex-direction: column;
+  position: sticky;
+  top: 30px;
+  width: 40%;
 }
 .todo-input {
   font-size: 20px;

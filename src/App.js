@@ -8,17 +8,21 @@ class App extends React.Component {
 
     this.state = {
       todos: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        }, {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
       ]
     }
+  }
+  componentDidMount() {
+    window.addEventListener('load', this.getTodoStorage());
+  }
+  getTodoStorage = () => {
+    // set a const to the local storage item
+    const todoList = localStorage.getItem('todoList');
+    // change local storage item from a string to object
+    let todos = JSON.parse(todoList);
+    // set state on load
+    this.setState({
+      todos
+    })
   }
   addToDoItemHandler = (element) => {
     // prevent the page from being refreshed
@@ -43,7 +47,8 @@ class App extends React.Component {
     // add the new object to the state
     const todos = this.state.todos;
     todos.push(todo);
-
+    // update todoList  to local storage
+    this.storeLocally(todos);
     // set the state of todos with the new to do item in the array
     this.setState({todos})
   }
@@ -64,6 +69,8 @@ class App extends React.Component {
       }
       return todo;
     });
+    // update todoList  to local storage
+    this.storeLocally(todos);
     // set state of todos to update on page
     this.setState({todos})
   }
@@ -83,14 +90,21 @@ class App extends React.Component {
     })
     // update todos and push to new state
     todos = result;
+
+    // set the local storage to new state
+    // update todoList  to local storage
+    this.storeLocally(todos);
     this.setState({
       todos
     })
   }
+  storeLocally = (todos) => {
+    return localStorage.setItem('todoList', JSON.stringify(todos));
+  }
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
-    return (<div className="todo-container">
+    return (<div className="todo-container" onLoad={this.getTodoStorage}>
       <h1>Todo List: MVP
       </h1>
       <TodoList list={this.state.todos} submit={this.addToDoItemHandler} toggleCompleted={this.toggleCompleted}
