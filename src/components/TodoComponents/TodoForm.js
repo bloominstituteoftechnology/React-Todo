@@ -8,7 +8,7 @@ const Todoform  = (props) =>{
         <form>
           <input type="text" onChange={props.value} />
           <input type="submit" value="Submit" onClick={props.submit} />
-          <input type="submit" value="Clear All" />
+          <input type="submit" value="Clear All" onClick={props.cleared} />
         </form>
         </div>
     )

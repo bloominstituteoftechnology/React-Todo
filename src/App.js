@@ -34,6 +34,17 @@ class App extends React.Component {
     this.setState(formArr);
   };
 
+  filterArr = (e) => {
+    e.preventDefault();
+    let {formArr} = this.state;
+    formArr = formArr.filter(item => item.completed == true);
+    formArr.forEach(item => {
+      item.style = 'cleared';
+      console.log(item.style);
+    })
+    this.setState(formArr);
+  }
+
   handleSubmit = e => {
     let { formArr, value, count, completed } = this.state;
     e.preventDefault();
@@ -58,7 +69,7 @@ class App extends React.Component {
        <div>
          
          <TodoList list={this.state.formArr} change={this.handleCheck}/>
-        <TodoForm value={this.handleChange} submit={this.handleSubmit}/>
+        <TodoForm value={this.handleChange} submit={this.handleSubmit} cleared={this.filterArr}/>
         </div>
       </div>
     );
