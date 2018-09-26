@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from '../src/components/TodoComponents/TodoForm';
+import List from '../src/components/TodoComponents/TodoList';
 
   
   // you will need a place to store your state in this component.
@@ -13,26 +14,34 @@ class App extends React.Component {
     this.state={
       input: '',
       todolist: [
-        {
-          task: '',
-          id: 1,
-          completed: false
-        },
+        // {
+        //   task: '',
+        //   id: '',
+        //   completed: false
+        // },
       ]
     };
   }
 
   handleClick = (event) => {
-    this.setState({
-      task: event.target.value,
+    event.preventDefault();
+    const obj = {
+      task: this.state.name,
       id: Date.now(),
+      completed: false
+    }
+    console.log(obj);
+    this.setState({
+      info: [...obj],
+      task: ''
     })
   };
 
   handleInput = (event) => {
-    console.log(event.target.value);
+    const {value} = event.target;
+
     this.setState({
-      input: event.target.value,
+      task: value,
     });
   };
 
@@ -40,7 +49,8 @@ class App extends React.Component {
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <Form />
+        <List />
+        <Form input={this.state.input} handleClick={this.handleClick} handleInput={this.handleInput} />
       </div>
     );
   }

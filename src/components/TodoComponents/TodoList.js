@@ -6,34 +6,14 @@ import ToDo from './Todo';
 
 const List = (props) => {
     return (
-        <div>
-            {this.state.todolist.map(newToDo => {
+        <ul>
+            {/* {this.state.todolist.map(newToDo => {
                 return (
                     <ToDo key={newToDo.id} value={newToDo.task} />
                 )
-            })}
-        </div>
+            })} */}
+        </ul>
     )
 }
 
 export default List;
-
-// class List extends App {
-//     constructor(){
-//         super();
-//     }
-
-//     render(){
-//         return(
-//             <div>
-//                 {this.state.todolist.map(newToDo => {
-//                     return (
-//                         <div key={newToDo.id}>
-//                             {newToDo.task}
-//                         </div>
-//                     )
-//                 })}
-//             </div>
-//         )
-//     }
-// }
