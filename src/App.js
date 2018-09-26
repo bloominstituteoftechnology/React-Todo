@@ -22,6 +22,7 @@ constructor(){
         completed: false
       }
     ],
+    id: 1528817084358,
   }
 }
   render() {
@@ -30,8 +31,9 @@ constructor(){
        <TodoForm
          inputField = {this.state.inputField}
           clickHandler={this.clickHandler}
+          clearClickHandler={this.clearClickHandler}
           messageChangeHandler={this.messageChangeHandler} />
-        <TodoList todoList={this.state.todoList} />
+        <TodoList todoList={this.state.todoList} itemCompleted={this.itemCompleted} />
 
       </div>
     );
@@ -40,17 +42,34 @@ constructor(){
    event.preventDefault();
    this.setState({todoList: [...this.state.todoList, {
      task: this.state.inputField,
-     id: 1528817084359,
+     id: this.state.id+1,
      completed: false}],
      inputField: ''
    });
+   this.setState({id: this.state.id+1});
+
+ }
+ itemCompleted = id =>{
+   let copy = [...this.state.todoList];
+   copy = copy.map(task => {
+     if(task.id === id) {
+       task.completed = !task.completed;
+       return task;
+     } else {
+       return task;
+     }
+   });
+   this.setState({copy});
 
  }
   messageChangeHandler = event =>{
     event.preventDefault();
     this.setState({inputField: event.target.value});
-    console.log(this.state.inputField);
   };
+
+  clearClickHandler = event =>{
+    event.preventDefault();
+  }
 }
 
 export default App;
