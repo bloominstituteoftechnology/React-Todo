@@ -2,7 +2,7 @@ import React from 'react';
 import TodoForm from './TodoForm';
 import './Todo.css';
 
-// Pull all of the components together to form the todo app.
+// Takes in the props for each todo item & displays.
 const Todo = (props) => {
     console.log("todo", props);
 
