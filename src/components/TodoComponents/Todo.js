@@ -3,10 +3,11 @@ import React from 'react';
 
 const Todo = (props) => {
     return(
-        <div key={props.nitem.id}>
+        <div key={props.nitem.id} className={props.nitem.style}>
         <input
           id={props.nitem.id}
           type="checkbox"
+          onChange={props.change}
           
         />
         {props.nitem.id + 1}: {props.nitem.text} @{new Intl.DateTimeFormat("en-US", {

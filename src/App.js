@@ -20,10 +20,18 @@ class App extends React.Component {
 
   handleCheck = e => {
     let { formArr } = this.state;
-    console.log(e.id);
-    console.log(formArr[0]);
+    console.log(e.target.id);
+    
 
-    formArr[e.id].completed = true;
+    formArr[e.target.id].completed = !formArr[e.target.id].completed;
+    console.log(formArr[e.target.id]);
+    if(formArr[e.target.id].completed === true){
+      formArr[e.target.id].style='done';
+    }else{
+      formArr[e.target.id].style='';
+    }
+
+    this.setState(formArr);
   };
 
   handleSubmit = e => {
@@ -34,7 +42,8 @@ class App extends React.Component {
       id: count,
       text: value,
       date: Date.now(),
-      completed: completed
+      completed: completed,
+      style: ''
     });
     console.log(formArr[count]);
     console.log(formArr[0]);
@@ -48,7 +57,7 @@ class App extends React.Component {
       <div className="App">
        <div>
          
-         <TodoList list={this.state.formArr} />
+         <TodoList list={this.state.formArr} change={this.handleCheck}/>
         <TodoForm value={this.handleChange} submit={this.handleSubmit}/>
         </div>
       </div>
