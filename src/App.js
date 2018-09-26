@@ -13,6 +13,7 @@ class App extends React.Component {
       // Setup base list of todo items. Needs timestamp id, task & completed flag.
       todoList: [
         { id: 1528817077286, task: "Organize Garage", completed: false },
+        { id: 1528817084358, task: "Bake Cookies", completed: true },
       ]
     };
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoForm from './TodoForm';
-
+import './Todo.css';
 
 // Pull all of the components together to form the todo app.
 const Todo = (props) => {
@@ -10,7 +10,7 @@ const Todo = (props) => {
     // props.task : string task description
     // props.completed : boolean status
     return (
-        <div key={props.id} class={props.flag}>{props.task}</div>
+        <div key={props.id} className={props.flag.toString()}>{props.task}</div>
     );
 }
 
