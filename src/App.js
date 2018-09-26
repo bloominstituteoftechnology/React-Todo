@@ -25,7 +25,6 @@ class App extends React.Component {
 
   enterPressed = event => {
     if(event.which === 13) {
-      console.log(event.target.value);
       this.setState({
         todoList: this.state.todoList.concat({
           task: event.target.value,
@@ -38,16 +37,24 @@ class App extends React.Component {
 
   handleSubmit = event => {
     this.setState({
-      task: event.target.value,
-      id: Date.now(),
-      completed: false
+      todoList: this.state.todoList.concat({
+        task: event.target.value,
+        id: Date.now(),
+        completed: false
+      }) 
     });
   }
+
+  // markDone = event => {
+  //   this.setState({
+
+  //   })
+  // }
 
   render() {
     return (
       <div>
-        <TodoList todoList={this.state.todoList} handleSubmit={this.handleSubmit} enterPressed={this.enterPressed}/>
+        <TodoList todoList={this.state.todoList} handleSubmit={this.handleSubmit} enterPressed={this.enterPressed} markDone={this.markDone}/>
       </div>
     );
   }

@@ -9,7 +9,7 @@ const TodoList = props => {
         <div>
             {props.todoList.map(todo => (
                 <div key={todo.id}>
-                    <Todo task={todo.task} /> 
+                    <Todo markDone={todo.markDone} task={todo.task} /> 
                 </div>
             ))}
             <TodoForm enterPressed={props.enterPressed} handleSubmit={props.handleSubmit}/>
