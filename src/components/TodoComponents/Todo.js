@@ -2,11 +2,9 @@ import React from 'react';
 import './Todo.css';
 
 const Todo = (props) => {
-  return (
-    <div className="toDoContainer">
-    {props.list.map(todo => <h1>{todo.task}</h1> )}
-     </div>
-  );
+ return(
+   <div class ='todo props.task'>{props.task}</div>
+ )
 }
 
 export default Todo;
