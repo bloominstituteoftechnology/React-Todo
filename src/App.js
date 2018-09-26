@@ -30,12 +30,13 @@ class App extends React.Component {
       manyTodo:[...this.state.manyTodo, singleTodo,],
       task: ""
     });
+    console.log(singleTodo)
   }
-  
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>Get Er' Done</h2>
         <TodoList manyTodo={this.state.manyTodo} />
         <TodoForm inputHander={this.inputHander} submitHander ={this.submitHander} />
       </div>
