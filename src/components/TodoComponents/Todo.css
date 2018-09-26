@@ -1,0 +1,23 @@
+.container {
+   display: flex;
+   width: 50%;
+   height: 300px;
+   flex-direction: center;
+   align-content: center;
+   background: red;
+ }
+
+ form {
+ display: flex;
+ flex-direction: column-reverse;
+ width: 50%;
+ margin: auto;
+ }
+
+ button {
+   margin-bottom: px;
+   height: px;
+   background-color: 
+   border-color: white;
+   color: green;
+ }
