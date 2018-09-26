@@ -32,18 +32,16 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
+
+      <div>
+        <h1>Michaels Awesome To-Do List</h1>
 				<TodoForm
 					addToList={this.addToList}
 					userInput={this.state.inputText}
 					changeUserInput={this.changeUserInput}
 					inputText={this.state.inputText}
-        />
-        <TodoList
-        list={this.state.todoList}
-        id={this.state.id}
-        
-        />
+				/>
+				<TodoList list={this.state.todoList} id={this.state.id} />
 			</div>
 		);
 	}
