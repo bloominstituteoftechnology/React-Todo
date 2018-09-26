@@ -3,13 +3,12 @@
 import React from "react";
 
 const TodoForm = (props) => {
-    console.log("form", props)
     return (
         <div className="form-container">
           <h1>Todo List: MVP</h1>
-          <input onChange={props.handleInput} />
-          <button onClick={props.addTodo}>Add Todo</button>
-          <button onClick={props.removeCompleted}>Clear Completed</button>
+          <input onChange={props.action.input} />
+          <button onClick={props.action.add}>Add Todo</button>
+          <button onClick={props.action.remove}>Clear Completed</button>
       </div>
       );
 }
