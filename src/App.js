@@ -40,13 +40,28 @@ class App extends React.Component {
 		this.setState({todos});
 		//set state of this.state.todos with the new object
 	}
+	
+	completedTask = (event) => {
+        const clickedTodo = event.target;
+		console.log('I am completed');
+		//Getting the element that has been clicked
+		const todosCompleted = this.state.todos.map((todo, index) => {
+				if (clickedTodo.id === todo.id) {
+					todo.completed = !todo.completed;
+				}
+			return todo;
+		});
+		//This is making an array using map for the completed items. Which then will be used to delete.
+		this.setState({todosCompleted});
+	}
+		
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
       <div>
 		<h1>Todo List</h1>
-        <TodoList list={this.state.todos} submit={this.addTodoHandler} />
+        <TodoList items={this.state.todos} submit={this.addTodoHandler} completedTask={this.completedTask}/>
       </div>
     );
   }

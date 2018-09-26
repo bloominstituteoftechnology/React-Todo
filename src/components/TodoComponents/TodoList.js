@@ -6,14 +6,14 @@ import Todo from './Todo.js';
 const TodoList = (props) => {
 	return (
 	   <div>
-		<section className='todolist'>
-        {props.list.map(ToDo => {
+		<div className='list'>
+        {props.items.map(items => {
           return (
-            <Todo key={ToDo.id} id={ToDo.id} task={ToDo.task} completed={ToDo.completed}>
+            <Todo key={items.id} id={items.id} task={items.task} completed={items.completed} onClick={props.completedTask}>
             </Todo>
           );
         })}
-      </section>
+      </div>
 		<TodoForm submit={props.submit}/>
 	   </div>
 	)
