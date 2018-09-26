@@ -12,7 +12,7 @@ const TodoForm = props => {
     return (
         <form onSubmit={e => this.handleAdd(e)}>
             <FlexRow>
-                <input />
+                <input placeholder="Enter task name" />
                 <button type="submit">ADD</button>
                 <button onClick={() => props.handleClear()}>CLEAR COMPLETED</button>
             </FlexRow>

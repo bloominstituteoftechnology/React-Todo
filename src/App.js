@@ -47,11 +47,18 @@ class App extends React.Component {
         this.setState({list: list});
     };
 
+    handleSearch = e => {
+        let list = window.localStorage.getItem('list');
+        list = JSON.parse(list).filter(l => l.task.toLowerCase().includes(e.target.value));
+        this.setState({list: list});
+    };
+
     render() {
         const {list} = this.state;
 
         return (
             <FlexColumn>
+                <input placeholder="Search" onChange={e => this.handleSearch(e)}/>
                 <TodoList list={list} handleCompleted={id => this.handleCompleted(id)}/>
                 <TodoForm handleClear={() => this.handleClear()}
                           handleAdd={e => this.handleAdd(e)}
