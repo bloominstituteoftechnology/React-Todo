@@ -11,6 +11,7 @@ const TodoForm = ({ value, handleChange, submitTodo }) => {
           value={value}
           onChange={handleChange} />
         <button onClick={submitTodo}>Add Todo</button>
+        <button>Clear Completed</button>
       </form>
     </div>
   );
