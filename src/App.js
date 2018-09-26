@@ -17,7 +17,7 @@ class App extends Component {
     if (this.state.todo.match(/\S/)) {
       const list = this.state.list.slice();
       list.push({ task: this.state.todo, id: Date.now(), completed: false });
-      this.setState({ list, todo: '' });
+      this.setState({ list });
     }
     this.setState({ todo: '' });
     e.preventDefault();
