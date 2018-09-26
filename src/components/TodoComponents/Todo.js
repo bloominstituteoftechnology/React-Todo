@@ -2,7 +2,7 @@ import React from 'react';
 import './Todo.css';
 
 const Todo = (props) => {
-	 console.log(props);
+	 // console.log(props);
 	return(<div>
         {props.todos.map(todo => {
           return (

@@ -4,8 +4,8 @@ import './Todo.css';
 const TodoForm = props => {
 	return(
         <div className="TodoForm">
-        	<input type="text" className='input' onChange={props.addTodo} />
-        	<button className='addTodo' >Add Todo</button>
+        	<input type="text" className='input' onClick={props.evenClick} />
+        	<button className='addTodo' onClick={props.bClick}>Add Todo</button>
         	<button className='clearTodo'>Clear Todo</button>
         </div>
     );

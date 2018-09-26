@@ -26,17 +26,28 @@ class App extends React.Component {
   }
 
   addTodo = (event) => {
+  	  
   	 this.setState({
-    	todos: [ ...this.state.todos, {task: event.target.value, id: Date.now(), completed: false }]
+  	 	  todos: [...this.state.todos, {task: event.target.value, id: 1, completed: false }]
   	 }); 
+  	 // console.log(event.tare
+  	 event.target.value = '';
   }
-  
+
+  buttonClick = (event) => {
+  	 this.setState({
+  	 	  todos: [...this.state.todos, {task: event.currentTarget.parentNode.firstChild.value,  id: 1, completed: false }]
+  	 }); 
+  	 // console.log(event.tare
+  	 event.currentTarget.previousElementSibling.value = '';
+
+  }
   render() {
     return (
       <div>
        <h1>Todo List: MVP</h1>
        <Todo todos={this.state.todos}/>
-       <TodoForm  />
+       <TodoForm evenClick={this.addTodo} bClick={this.buttonClick}  />
       </div>
     );
   }
