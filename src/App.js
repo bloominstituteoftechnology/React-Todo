@@ -101,6 +101,25 @@ class App extends React.Component {
   storeLocally = (todos) => {
     return localStorage.setItem('todoList', JSON.stringify(todos));
   }
+  searchForMatches = (e) => {
+    e.preventDefault();
+    const searchValue = e.target.value;
+    let todos = this.state.todos;
+    todos.forEach((todo) => {
+      const id = todo.id;
+      const element = document.getElementById(id);
+      if (todo.task.includes(searchValue)) {
+        element.classList.remove('hidden');
+      }
+      else {
+        element.classList.add('hidden');
+      }
+    })
+    // update the state each time
+    this.setState({
+      todos
+    })
+  }
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
@@ -108,7 +127,8 @@ class App extends React.Component {
       <h1>Todo List: MVP
       </h1>
       <TodoList list={this.state.todos} submit={this.addToDoItemHandler} toggleCompleted={this.toggleCompleted}
-      removeCompleted={this.removeCompleted}/>
+      removeCompleted={this.removeCompleted}
+      searchForMatches={this.searchForMatches}/>
     </div>);
   }
 }

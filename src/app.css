@@ -13,8 +13,13 @@
 
 .todolist {
   background-color: lightgray;
-  padding: 2%;
+  padding: 0 2%;
+  min-height: 400px;
   width: 50%;
+}
+.todolist-header {
+  font-size: 30px;
+  text-align: center;
 }
 
 .todo {
@@ -41,10 +46,16 @@
 .todo-input {
   font-size: 20px;
   padding: 10px 0;
+  margin: 10px 0 0;
+  width: 100%;
 }
 .btn {
   font-size: 20px;
   padding: 10px 3px;
   margin: 10px 0 0;
   width: 100%;
+}
+
+.hidden {
+  display: none;
 }
