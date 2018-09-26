@@ -1,16 +1,21 @@
 import React from 'react';
-import './Todo.css';
-import Todo from './Todo.js';
-import TodoForm from './TodoForm.js';
+import Todo from './Todo';
+import TodoForm  from './TodoForm';
 
 
 const TodoList = (props) => {
-	return (
-		<div>
-			<Todo/>
-			<TodoForm/>
-		</div>
-	)
+		return (
+			<section className='todo-list'>
+			<ul>
+			{props.todoItems.map((todoItem) => {
+				if (!(todoItem.completed) && todoItem.task) {
+					return <Todo todoItem={todoItem.task} key={todoItem.id} idKey={todoItem.id} toggleTodo={props.toggleTodo}/>;
+                }
+					return null;
+					})}
+			</ul>
+			<TodoForm inputText = {props.inputText} updateInput = {props.updateInput} updateTodo = {props.updateTodo}/>
+		</section>
+		)
 }
-
 export default TodoList;

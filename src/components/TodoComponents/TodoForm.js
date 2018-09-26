@@ -1,12 +1,12 @@
 import React from 'react';
-import './Todo.css';
 
-const TodoFrom = (props) => {
+const TodoForm = (props) => {
 	return (
-		<div>
-			TodoFrom
-		</div>
-	)
+		<form>
+			<input type = 'text' value = {props.inputText} onChange = {props.updateInput}/>
+			<button className= 'add-item' onClick = {props.updateTodo}>Add Item</button>
+			<button className = 'clear-completed'>Clear Completed</button>
+		</form>
+	);
 }
-
-export default TodoFrom;
+export default TodoForm;
