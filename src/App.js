@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css'
 import TodoList from './components/TodoComponents/TodoList.js';
 import TodoForm from './components/TodoComponents/TodoForm.js';
+import SearchForm from './components/TodoComponents/SearchForm.js';
 
 class App extends React.Component {
   constructor(){
@@ -28,7 +29,8 @@ class App extends React.Component {
     const newTask = {
       task: task,
       id: Date.now(),
-      isCompleted: false
+      isCompleted: false,
+      isHidden: false
     };
 
     let index = Number.parseInt(this.state.todoData.length / 3, 10);
@@ -75,6 +77,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1 className="header">{this.state.headerText}</h1>
+        <SearchForm/>
         <TodoList todoData={this.state.todoData} completeTask={this.completeTask}/>
         <TodoForm addTask={this.addTask} clearCompleted={this.clearCompleted}/>
       </div>
