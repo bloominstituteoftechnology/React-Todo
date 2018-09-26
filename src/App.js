@@ -25,7 +25,6 @@ class App extends React.Component {
 
   handleInput = (event) => {
     const {value} = event.target;
-    console.log(value);
     this.setState({
       input: value,
     });
@@ -38,12 +37,10 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     }
-    console.log(obj);
     this.setState({
       todolist: [...this.state.todolist, obj],
       input: ''
     })
-    console.log(this.state.todolist);
   };
 
 
