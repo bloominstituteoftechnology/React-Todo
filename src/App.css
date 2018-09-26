@@ -1,0 +1,8 @@
+* {
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 20px;
+}

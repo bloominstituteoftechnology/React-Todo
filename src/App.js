@@ -5,31 +5,72 @@ class App extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      task: '',
-      id: '',
-      completed: false,
-    };
+    this.state = { 
+      todos: [
+        {
+          task: 'Give the dog a bath',
+          id: 1,
+          completed: false,
+        }, {
+          task: 'Paint the walls',
+          id: 2,
+          completed: false,
+        }
+    ]
+  }
+}
+
+// Need a function to add a new todo object to the todo array
+addToDo = (newTask, id) => {
+  // Create a new todo object based on a given task and id
+  const todo = {
+    task: `${newTask}`,
+    id: id,
+    completed: false,
   }
 
-  // Sets what is currently being input to task
-  handleInput = (event) => {
-    this.setState({
-      task: event.target.value
-    })
-  }
+  // Get the todo array and add the new todo to the end using push()
+  const todos = this.state.todos;
+  todos.push(todo)
 
-  handleClick = (event) => {
-    this.setState({
-      task: event.target.value,
-      id: this.state.id + 1,
-    });
-  };
+  // Set the current state with the new todo array
+  this.setState({todos})
+}
+
+// Need a handler that takes the input from the form and creates new todo
+addToDoHandler = (element) => {
+
+  // This prevents the page from being refreshed, otherwise you lose everything when you submit
+  element.preventDefault();
+
+  // Get the input from the node immediately preceding the current one. See: https://developer.mozilla.org/en-US/docs/Web/API/Node/previousSibling
+  const input = element.target.previousSibling.value;
+  
+  // Set the current date as the id for the todo
+  const id = Date.now();
+
+  // Return the newly created object and set the state with it using addToDo function
+  return this.addToDo(input, id)
+}
+
+// Need a function that toggles the task as a completed or unfinished
+toggleComplete = (element) => {
+
+}
+
+// Need a function that removes completed todos
+removeComplete = (element) => {
+
+    // This prevents the page from being refreshed, otherwise you lose everything when you submit
+    element.preventDefault();
+
+}
 
   render() {
     return (
       <div>
-        <TodoList />
+        <h1>ToDo List: MVP</h1>
+        <TodoList key={this.state.todos.id} list={this.state.todos} submit={this.addToDoHandler} toggleComplete={this.toggleComplete} removeComplete={this.removeComplete} />
       </div>
     );
   }
