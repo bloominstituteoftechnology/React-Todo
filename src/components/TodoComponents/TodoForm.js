@@ -2,17 +2,20 @@ import React, { Component } from 'react'
 
 class TodoForm extends Component {
 
-    state = {};
+    state = {todo: {}};
 
-    addTodo = todo => {
-
-    }
+    inputChange = event => {
+        console.log("inputChange");
+        this.setState({
+          todo: {id: Date.now(), task: event.target.value, completed: false}
+        });
+      };
 
     render() {
         return (
         <div>
-            <input />
-            <button>Add</button>
+            <input onChange={this.inputChange} />
+            <button onClick={this.props.addTodo(this.state.todo)}>Add</button>
         </div>
         )
     }
