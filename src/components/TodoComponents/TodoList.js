@@ -7,26 +7,22 @@ import React from "react";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
 
+//todo has a display style that is not formatted yet
+//displays an h1 then maps through prop.values to create new todo components for each item in the array
+//calls todoform to display the user buttons
 const TodoList = (props) => {
-    //console.log("list", props)
-    console.log("list", props.state)
-    console.log(typeof props)
-    for(let i=0; i < props.state.length; i++) {
-        props.state.map((item) => {
-            console.log(item.task)
-            return (
-                <div key={item.id}>
-                    <Todo todo={item.task}/>
-                </div>
-            )
-        })
-    }
+    console.log(props)
     return(
         <div className={props.displayStyle}>
             <h1>Todo List: MVP</h1>
-            {/* <div key={props.state}>
-                <Todo todo={props}/>
-            </div> */}
+            <div className='list'>
+                {props.values.map(item => {
+                return (
+                    <Todo key={item.id} id={item.id} task={item.task} completed={item.completed} onClick={props.strike}>
+                    </Todo>
+                );
+                })}
+            </div>
             <TodoForm action={props}/>
         </div>
     );

@@ -1,20 +1,14 @@
 //is a component that takes in the todo data and displays the task to the screen.
 
 import React from "react";
-
+//to do simply returns the task item
 const Todo = (props) => {
     console.log("todo", props)
-    if (props.todo.length > 0) {
         return (
-            <ul className={props.displayStyle}>
-                {props.todo.map((item, index) => <li key={this.id}>{item}</li>)}
-            </ul>
+            <p className="todo-item">
+                {props.task}
+            </p>
         );
-    } else{
-        return (
-            <p>Start your list!</p>
-        )
-    }
 }
 
 export default Todo;
