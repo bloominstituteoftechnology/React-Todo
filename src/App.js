@@ -18,11 +18,22 @@ class App extends React.Component {
         completed: false
       }],
   }
+  createTodo    =   (value)  =>  {
+      let newTodo = this.state.todo;
+      newTodo.push({
+          task: value,
+          id: Date.now(),
+          completed: false
+      })
+      this.setState((state) =>  ({
+          todo: newTodo
+      }))
+  }
   render() {
     return (
       <div>
         <TodoList todo={this.state.todo}/>
-        <TodoForm />
+        <TodoForm clickAdd={this.createTodo} />
       </div>
     );
   }

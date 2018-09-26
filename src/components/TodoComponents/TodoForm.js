@@ -1,10 +1,11 @@
 import React from 'react';
+import './Todo.css';
 
 const TodoForm  =   (props) =>  {
     return(
-        <div classType="todoForm">
+        <div className="todoForm">
             <input placeholder="...todo" />
-            <div>Add Todo</div>
+            <div onClick={()    =>  props.clickAdd(document.querySelector("input").value)}>Add Todo</div>
             <div>Clear Completed</div>
         </div>
     )
