@@ -7,7 +7,7 @@ const TodoList = (props)  =>  {
     return(
         <div>
             {props.todo.map(td  =>  {
-                return <Todo key={td.id} item={td}/>
+                return <Todo classStyle={td.completed} clickComplete={()    =>  props.clickComplete(td)} key={td.id} item={td}/>
             })}
         </div>
     )

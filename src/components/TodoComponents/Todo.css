@@ -10,3 +10,7 @@
 .todoForm div:hover{
     cursor: pointer;
 }
+
+.completed{
+    text-decoration: line-through;
+}
