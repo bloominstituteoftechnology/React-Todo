@@ -11,23 +11,8 @@ class App extends React.Component {
     super();
 
     this.state = {
-      toDoData: [
-        {
-          task: 'Finish TODO list',
-          id: 1,
-          completed: false
-        },
-        {
-          task: 'Add more funcitonality',
-          id: 2,
-          completed: false
-        },
-        {
-          task: 'Add styling',
-          id: 3,
-          completed: false
-        }
-      ]
+      todoData: [],
+      textField: ''
     };
   }
 
@@ -37,10 +22,26 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         <h1>Todo List: MVP</h1>
         <TodoList data={this.state} />
-        <TodoForm />
+        <TodoForm addNew={this.addTodo} handleInput={this.handleInput} />
       </div>
     );
   }
+
+  addTodo = () => {
+    console.log('clicked');
+
+    this.setState({
+      todoData: [
+        ...this.state.todoData,
+        { task: this.state.textField, id: Date.now(), completed: false }
+      ],
+      textField: ''
+    });
+  };
+
+  handleInput = event => {
+    this.setState({ textField: event.target.value });
+  };
 }
 
 export default App;
