@@ -15,10 +15,9 @@ class TodoForm extends React.Component {
     
     
     }
-
         return(
             <div>
-                <input text={this.state.text}></input>
+                <input text={this.state.text}/>
             </div>
         )
 }
