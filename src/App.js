@@ -65,8 +65,13 @@ class App extends React.Component {
   handleFilter= () =>{
    this.setState({
      todos:this.state.todos.filter(todo =>{
-       
-     })
+       if(todo.completed === true){
+         this.state.todos.splice(todo);
+       }
+       else{
+         return todo
+       }
+     }),
    })
   }
 
