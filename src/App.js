@@ -1,7 +1,65 @@
 import React from 'react';
+// import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
+
+class App extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+      text: 'whoop',
+      todos: [{
+        id: Date.now(),
+        task: '',
+        completed: false
+        
+      }]
+    }
+  }
+
+  handleChange = event => {
+    this.setState({
+      todos: event.target.value
+    })
+  }
+
+  AddTodo = event => {
+    this.setState({
+// arr: state.arr.push(event.target.value)
+    })
+  }
+
+  handleClick = event => {
+      alert("Clicked!")
+  }
+
+  
+  render(){
+
+    return(
+      <div>
+
+        <TodoList  todos={this.state.todos} handleClick={this.handleClick}
 
 
-class App extends React.Component {
+
+
+        />
+      </div>
+    )
+    // return(
+    //   <div>{this.state.text}
+    //   Change Name :
+    //   <input type='text' value={this.state.text} onChange={this.handleChange}
+    //   />
+    //   <button onClick={this.AddTodo} >Add Todo</button>
+    //       <button>Clear All</button>
+    //   </div>
+    // )
+  }
+}
+
+
+/*class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -9,7 +67,6 @@ class App extends React.Component {
   constructor(){
     super() ;
     this.state = {
-
       arr: [
         {task: 1, completed: false}
       ]
@@ -22,9 +79,8 @@ class App extends React.Component {
 
   handleChange = event => {
     this.setState({
-      text: event.target.value,
-    });
-
+      arr: arr.push(event.target.value)
+    })
   }
 
   AddTodo = event => {
@@ -37,7 +93,7 @@ text: this.state.arr.push(event.target.value)
         <div>
         <div>
         {this.state.arr.map(item =>(
-          <div key={item.id}>
+          <div key={item.task}>
 
             
           </div>
@@ -49,12 +105,12 @@ text: this.state.arr.push(event.target.value)
 
 
         </div>
-          <input onClick={this.AddTodo}  />
-          <button onChange={this.handleChange} >Add Todo</button>
+          <input text={this.state.text}/>
+          <button onChange={this.} >Add Todo</button>
           <button>Clear All</button>
           
         </div>
       );
     }
-  }
+} */
 export default  App

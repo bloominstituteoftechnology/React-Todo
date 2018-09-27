@@ -1,15 +1,17 @@
 import React from "react";
-import ReactDom from "react-dom";
+
+
 
 
 class Todo extends React.Component{
-    constructor(){
-        super();
 
 
-        this.setState({
-            
-        })
+    render(){
+        return(
+            <div onClick={this.props.handleClick}>
+            {this.props.todo.task}                
+            </div>
+        )
     }
 }
 
