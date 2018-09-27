@@ -3,6 +3,7 @@
 //All of your handler functions should live here on <App />.
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -12,29 +13,67 @@ class App extends React.Component {
     super();
 
     this.state = {
-      textInput: '',
-      data: [],
+      todos: [
+        {
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
+      ],
     }
   }
 
-  handleChange = (event) => {
+  handleClick = (todoId) => {
     this.setState({
-      textInput: event.target.value
+      todos: this.state.todos.map(todo => {
+        if (todo.id === todoId) {
+          return {
+            task: todo.task,
+            id: todo.id,
+            completed: !todo.completed
+          }
+        } else {
+          return todo
+        }
+      })
     })
   }
 
   handleSubmit = (event) => {
-    let list = this.state.data.concat({task: this.state.textInput, id: Date.now(), completed: false})
-    this.setState({data: list});
+    this.setState({
+      todos: [...this.state.todos, {task: event.target.previousElementSibling.value, id: Date.now(), completed: false }]
+    })
   }
 
-
+  handleClear = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => {
+        if (todo.completed === 'false') {
+          return {
+            todo
+          }
+        }
+      })
+    })
+  }
 
   render() {
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        <TodoList todoItem={this.state.data} submit={this.handleSubmit} input={this.handleChange}/>
+        <TodoList
+          todos={this.state.todos}
+          handleClick={this.handleClick}
+        />
+        <TodoForm
+          submit={this.handleSubmit}
+          clear={this.handleClear}
+        />
       </div>
     );
   }

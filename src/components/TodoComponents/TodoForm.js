@@ -4,14 +4,16 @@
 import React from 'react';
 import './Todo.css';
 
-const TodoForm = (props) => {
-    return (
-        <div>
-            <input onChange={props.input} type="text" name="todoInput" />
-            <button onClick={props.submit}>Add Todo</button>
-            <button>Clear Completed</button>
-        </div>
-    )
+class TodoForm extends React.Component {
+    render() {
+        return (
+            <div>
+                <input type="text" />
+                <button onClick={this.props.submit}>Add Todo</button>
+                <button onClick={this.props.clear}>Clear Completed</button>
+            </div>
+        )
+    }
 }
 
 export default TodoForm;

@@ -2,12 +2,16 @@
 import React from 'react';
 import './Todo.css';
 
-const Todo = (props) => {
-    return (
-    <div>
-        {props.task}
-    </div>
-    )
+class Todo extends React.Component {
+    render() {
+        let className = this.props.todo.completed ? 'todo-complete' : 'todo'
+
+        return (
+            <div className={className} onClick={() => this.props.handleClick(this.props.todo.id)}>
+              {this.props.todo.task}
+            </div>
+        )
+    }
 }
 
 export default Todo;

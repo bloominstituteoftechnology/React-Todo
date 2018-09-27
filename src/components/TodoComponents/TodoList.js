@@ -4,19 +4,20 @@ import './Todo.css';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
 
-const TodoList = (props) => {
+class TodoList extends React.Component {
+  render() {
     return (
-    <div>
-        {props.todoItem.map(item => {
-            return (
-                <div id={props.todoItem.id}>
-                <Todo task={item.task} />
-                </div>
-            )
+      <div>
+        {this.props.todos.map(todo => {
+          return <Todo 
+                    key={todo.id}
+                    todo={todo}
+                    handleClick={this.props.handleClick}
+                  />
         })}
-        <TodoForm submit={props.submit} input={props.input}/>
-    </div>
+      </div>
     )
+  }
 }
 
 export default TodoList;
