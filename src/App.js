@@ -1,7 +1,64 @@
 import React from 'react';
-import ToDoList from './components/TodoComponents/TodoList';
-import ToDoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      todo: [
+        {task: 'Go To Store',
+         id: 123,
+         completed: false},
+        {task: 'Go To Work',
+         id: 124,
+         completed: false},
+      ]
+    }
+;  }
+
+    addItem = (e) => {
+      let temp = {
+        task: e.target.previousSibling.value,
+        id: Date.now(),
+        completed: false
+      };
+
+      this.setState({
+        todo: [...this.state.todo, temp]
+      })
+
+      e.target.previousSibling.value = '';
+    }
+
+    enterItem = (e) => {
+      if (e.charCode === 13) {
+        let temp = {
+          task: e.target.value,
+          id: Date.now(),
+          completed: false
+        };
+  
+        this.setState({
+          todo: [...this.state.todo, temp]
+        })
+  
+        e.target.value = '';
+    }
+    }
+
+  render() {
+    return (
+      <div>
+        <TodoList todoItems={this.state.todo} />
+        <TodoForm 
+         addClick = {this.addItem} 
+         addEnter = {this.enterItem}/>
+      </div>
+    )
+  }
+}
 
 
 export default App
