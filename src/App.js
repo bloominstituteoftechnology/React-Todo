@@ -11,25 +11,34 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      items: [],
+      todos: [],
       currentItem: {
-        text: '',
-        key: '',
+        task: '',
+        id: '',
+        completed: false
       },
     }
   }
-  deleteItem = key => {
-    const filteredItems = this.state.items.filter(item => {
-      return item.key !== key
-    })
+  handleClick = (todoId) => {
+
     this.setState({
-      items: filteredItems,
+      todos: this.state.todos.map(todo => {
+        if (todo.id === todoId) {
+          return {
+            task: todo.task,
+            id: todo.id,
+            completed: !todo.completed
+          }
+        } else {
+          return todo
+        }
+      })
     })
   }
 
   handleInput = e => {
     const itemText = e.target.value
-    const currentItem = { text: itemText, key: Date.now() }
+    const currentItem = { task: itemText, id: Date.now() }
     this.setState({
       currentItem,
     })
@@ -37,11 +46,11 @@ class App extends React.Component {
   addItem = e => {
     e.preventDefault()
     const newItem = this.state.currentItem
-    if (newItem.text !== '') {
-      const items = [...this.state.items, newItem]
+    if (newItem.task !== '') {
+      const todos = [...this.state.todos, newItem]
       this.setState({
-        items: items,
-        currentItem: { text: '', key: '' },
+        todos: todos,
+        currentItem: { task: '', id: '' },
       })
     }
 }
@@ -49,7 +58,10 @@ class App extends React.Component {
     return (
       <div>
         <h1>To-Do List: MVP</h1>
-        <TodoList entries={this.state.items} deleteItem={this.deleteItem} />
+        <TodoList 
+          todos={this.state.todos} 
+          handleClick={this.handleClick} 
+        />
         <TodoForm 
           addItem={this.addItem} 
           inputElement={this.inputElement}
