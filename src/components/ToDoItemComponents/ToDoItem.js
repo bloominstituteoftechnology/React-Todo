@@ -1,20 +1,20 @@
 // this is a single ToDo item
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import './ToDoItem.css';
+import "./ToDoItem.css";
 
-const ToDoItem = () => {
-  return(
-    <div>
-      <ul>
-        <li>
-          todo item is here
-        </li>
-
-      </ul>
-
-    </div>
-  )
+class ToDoItem extends React.Component {
+  render() {
+    const message = this.props.toDoItem.completed ? 'done' : 'not done'
+    return (
+      <div onClick={this.props.handleClick}>
+      {this.props.toDoItems.toDoTitle} is {message}
+        {/* <ul>
+          <li>todo item is here</li>
+        </ul> */}
+      </div>
+    )
+  }
 }
 
-export default ToDoItem
+export default ToDoItem;

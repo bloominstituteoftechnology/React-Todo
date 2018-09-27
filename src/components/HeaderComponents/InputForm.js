@@ -8,9 +8,9 @@ const InputForm = () => {
         <div>
           {/* <ToDoList list={this.state.list} /> */}
           <form>
-            <label>New Task: <input type="text" name="newTask" /></label>
-            <input type="submit" value="Submit" />
-            <button onClick={this.handleButtonClick}>Add this task</button>
+            <label>New Task: <input type="text" name="newTask" placeholder="Enter new task"/></label>
+            <input type="submit" value="Add this task" />
+            <button onClick={this.handleButtonClick}>Clear this entry</button>
           </form>
         </div>
       </div>
