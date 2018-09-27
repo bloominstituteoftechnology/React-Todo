@@ -8,11 +8,18 @@ const TodoList = (props) => {
     console.log("todolist", props);
 
     // Render the list of items in the array.
+
     return (
         <div>
             {props.todoArray.map( todo => {
                 return(
-                    <Todo id={todo.id} task={todo.task} flag={todo.completed} />
+                    <Todo 
+                        key={todo.id} 
+                        id={todo.id} 
+                        task={todo.task} 
+                        flag={todo.completed} 
+                        toggle={props.toggle}
+                    />
                 );
             })}
         </div>

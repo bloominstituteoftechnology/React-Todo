@@ -5,12 +5,19 @@ import './Todo.css';
 const Todo = (props) => {
     console.log("todo", props);
 
+    const todoToggleHandler = () => {
+        props.toggle(props.id)
+    }
+
     // props.id : number key
     // props.task : string task description
     // props.completed : boolean status
     // props.toggle: handler for toggling completion status
     return (
-        <div key={props.id} className={props.flag.toString()} onClick={props.toggle}>{props.task}</div>
+        <div 
+            key={props.id} 
+            onClick={todoToggleHandler} 
+            className={props.flag.toString()}>{props.task}</div>
     );
 }
 

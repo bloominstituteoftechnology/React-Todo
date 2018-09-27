@@ -62,8 +62,20 @@ class App extends React.Component {
   };
 
   // Handle toggling of todo items
-  handleToggle = event => {
-
+  handleToggle = (todoId) => {
+    this.setState({
+      todoList: this.state.todoList.map(todo => {
+        if( todo.id === todoId ) {
+          return {
+            id: todo.id,
+            task: todo.task,
+            completed: !todo.completed
+          }
+        } else {
+          return todo
+        }
+      })
+    });
   };
 
   // Handle clearing completed items
