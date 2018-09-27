@@ -12,7 +12,7 @@ return(
         
           <input onChange={props.inputHandler} value={props.holder} />
           <button onClick={props.clickHandler} className="todo">Add Todo</button>
-          <button className='Completed'>Clear Completed</button>
+          <button onClick={props.screwthisHandler} className='Completed'>Clear Completed</button>
        
         </form>
         </div>

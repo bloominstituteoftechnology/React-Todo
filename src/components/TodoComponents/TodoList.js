@@ -11,6 +11,8 @@ const TodoList = (props) => {
             return (<Todo 
                 key= {item.id}
                 value = {item.task}
+                id ={item.id}
+                completed = {props.removeHandler}
             />)
         })}
         </div>

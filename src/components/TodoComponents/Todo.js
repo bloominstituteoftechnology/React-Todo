@@ -3,8 +3,9 @@ import React from 'react';
 
 const Todo = (props)=>{
     return (
-       <div>
-          {props.value} 
+       <div onClick={(event)=>props.completed(event, props.id)}>
+          {props.value}
+          
        </div> 
     )
 }
