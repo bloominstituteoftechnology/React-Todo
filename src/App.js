@@ -1,5 +1,6 @@
 import React from 'react';
-import Todo from './components/TodoComponents/Todo.js';
+import TodoList from './components/TodoComponents/TodoList.js';
+import TodoForm from './components/TodoComponents/TodoForm.js';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -8,9 +9,27 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      task: '',
-      id: '',
-      completed: ''
+      tasks: [{
+          task: 'Get some sleep',
+          id: Date.now(),
+          completed: false
+        },
+        {
+          task: 'Organize Garage',
+          id: Date.now(),
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: Date.now(),
+          completed: false
+        },
+        {
+          task: 'Finish Project',
+          id: Date.now(),
+          completed: false
+        }
+      ]
     }
   }
   keypressHandler = event => {
@@ -32,7 +51,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>React To Do List</h2>
-        <Todo />
+        <TodoList tasks={this.state.tasks}/>
+        <TodoForm />
       </div>
     );
   }
