@@ -2,13 +2,22 @@
 
 import React from "react";
 //todoform displays the input and todo buttons
-//on click functions are passed down from app.js
+//handlers are passed down from todolist.js
 const TodoForm = (props) => {
+    const filteredList = () =>{
+        props.remove(props.completed)
+    }
     return (
         <div className="form-container">
-          <input onChange={props.action.input} />
-          <button onClick={props.action.add}>Add Todo</button>
-          <button onClick={props.action.remove}>Clear Completed</button>
+          <input value={props.text}
+          onChange={props.input}
+          onKeyDown={(event) => {
+              if (event.keyCode === 13) {
+                props.add
+              }
+          }} />
+          <button onClick={props.add}>Add Todo</button>
+          <button onClick={filteredList}>Clear Completed</button>
       </div>
       );
 }
