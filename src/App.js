@@ -13,12 +13,21 @@ class App extends React.Component {
       'Full Day, Now You\'ve Gone And Done It',
       'Well There\'s Always Tomorrow'
     ]
+
     this.state = {
       headerText: this.headers[0],
-      todoData: JSON.parse(localStorage.getItem("data"))
+      todoData: []
     }
 
     window.onbeforeunload = this.saveData;
+  }
+
+  componentDidMount(){
+    if(JSON.parse(localStorage.getItem("data")) !== null){
+      this.setState({
+        todoData: JSON.parse(localStorage.getItem("data"))
+      })
+    }
   }
 
   saveData= ()=>{
