@@ -7,13 +7,7 @@ class App extends React.Component {
     super();
     this.state={
       textInput: '',
-      todos: [
-        {
-        task: 'finish app',
-        id: 1,
-        completed: false
-      }
-      ]
+      todos: []
     };
   }
 
@@ -24,15 +18,15 @@ class App extends React.Component {
   };
 
   handleClick = (event) => {
-
+    
   }
 
   render() {
     return (
       <div>
         <h1>ToDo List: MVP</h1>
-        <TodoList todo={this.state.todos} />
-        <TodoForm />
+        <TodoList todos={this.state.todos} />
+        <TodoForm textInput={this.state.textInput} handleInput={this.handleInput} handleClick={this.handleClick} />
       </div>
     );
   }

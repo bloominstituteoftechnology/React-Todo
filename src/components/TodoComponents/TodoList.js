@@ -6,8 +6,11 @@ import ToDo from './Todo';
 const TodoList = (props) => {
     return (
         <ul>
-            
-            <ToDo todo={props.todo} />
+            {props.todos.map(todo => {
+                return (
+                    <ToDo key={todo.id} value={todo.task} completed={todo.completed} />
+                )
+            })}
         </ul>
     );
 }

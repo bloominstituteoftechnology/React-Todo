@@ -2,9 +2,9 @@ import React from 'react';
 
 const ToDo = (props) => {
     return (
-        <div>
-            
-        </div>
+        <li>
+            {props.value}
+        </li>
     );
 }
 
