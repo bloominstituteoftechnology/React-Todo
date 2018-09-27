@@ -4,9 +4,9 @@ class TodoForm extends React.Component {
 
 render(){
 
-      const clicked = () => {
-        this.props.clickHandler();
-      }
+      // const clicked = () => {
+      //   this.props.clickHandler();
+      // }
 
       return (
         <div>
@@ -15,7 +15,7 @@ render(){
                 placeholder="Add to do here"
                 type="text"
                 />
-            <button onClick={clicked}>Add Todo</button>
+            <button onClick={this.props.submitHandler}>Add Todo</button>
         </div>
       )
 

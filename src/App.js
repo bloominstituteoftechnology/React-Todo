@@ -21,6 +21,13 @@ class App extends React.Component {
             });
        }
 
+       submitHandler = (e) => {
+
+          this.setState ({
+              task: e.target.state,
+          })
+       }
+
 
   render() {
     
@@ -32,6 +39,7 @@ class App extends React.Component {
 
         <TodoList todos={this.state.todos}
                   valueHandler={this.valueHandler}
+                  submitHandler={this.submitHandler}
         />
       </div>
     );
