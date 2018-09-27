@@ -30,14 +30,14 @@ class App extends React.Component {
   //then renders the list again by calling this.setState and setting the
   // state to the newly modified array. Then it clears the input field.
   add = () => {
-    let val = document.getElementById('inputForm')
+    let input = document.getElementById('inputForm')
     todoArr.push({
-      task: val.value,
+      task: input.value,
       id: Date.now(),
       completed: false,
     });
       this.setState({todoItems : todoArr});
-      val.value = '';
+      input.value = '';
   }
 
   //this checks for when the key event is an 'Enter' key and invokes the add function
