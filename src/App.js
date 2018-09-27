@@ -140,7 +140,7 @@ const TodoList = (props) => {
 const Todo = (props) => {
   return (
     <div>
-        This is the {props.todo.task} task for {props.todo.id} date 
+        This is the {props.todo.task} task for {props.todo.id} date is {props.todo.isCompleted.toString()}.
     </div>
   )
 }
