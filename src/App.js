@@ -48,23 +48,28 @@ class App extends React.Component {
 
     }
   }
-handleDelete= (todoId) => {
+  
+toggleCompleted= (todoId) => {
     // what to do with the todoId?
+ console.log(todoId)
     this.setState({
-      todos: this.state.todos.map(todo => {
-        if (todo.id === todoId) {
-          return {
-            text: todo.text,
-            id: todo.id,
-            isCompleted: !todo.isCompleted
-          }
-        } else {
-          return todo
-        }
-      })
-  })
-  console.log(this)
-  }
+      todos: this.state.todos.map(todo => todo.id !== todoId)
+    })
+//   this.setState({
+//     todos: this.state.todos.filter(todo => {
+//       if (todo.id === todoId) {
+//         return {
+//           text: todo.text,
+//           id: todo.nextId,
+//           isCompleted: !todo.isCompleted
+//         }
+//       } else {
+//         return todo
+//       }
+//     })
+//   })
+// console.log(todoId)
+}
 
   addTodo = (todoText) => {
     // Takeing in the new todo string and adding it to the list
@@ -73,7 +78,7 @@ handleDelete= (todoId) => {
     this.setState({
       todos: todos,
       isCompleted: false,
-      nextId: Date.now() + 1,
+      nextId: Date.now(),
     })
   }
     render() {
@@ -81,7 +86,7 @@ handleDelete= (todoId) => {
       <div className="app-body">
         <h2>REACT - TO DO LIST</h2>
         <h1>Stefan's</h1>
-        <Todo todos={this.state.todos} handleDelete={this.handleDelete} text={this.state.text} addTodo={this.addTodo} handleKeyPress={this.handleKeyPress} todoList={this.todoList} handleChange={this.handleChange} />
+        <Todo todos={this.state.todos} key={this.state.todos.id}  toggleCompleted={this.toggleCompleted} text={this.state.text} addTodo={this.addTodo} handleKeyPress={this.handleKeyPress} todoList={this.todoList} handleChange={this.handleChange} />
       </div>
     )
 
