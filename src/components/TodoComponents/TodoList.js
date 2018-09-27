@@ -5,8 +5,8 @@ import Todo from "./Todo";
 
 const TodoList = props => (
     <div>
-        {props.todos.map(element => {
-            return <Todo text={element.text} />
+        {props.todos.map((element, index) => {
+            return <Todo text={element.text} onClick={props.function} id={index}/>
         })}
     </div>
 );

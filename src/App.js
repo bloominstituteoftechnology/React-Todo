@@ -9,17 +9,7 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   state = {
-    todos: [
-      {
-        text: "test todo"
-      },
-      {
-        text: "more todo"
-      },
-      {
-        text: "another todo"
-      }
-    ],
+    todos: [],
     newTodo: ""
   };
 
@@ -32,7 +22,7 @@ class App extends React.Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-    this.state.todos.push({text: this.state.newTodo});
+    this.state.todos.push({text: this.state.newTodo, completed: false});
     console.log(this.state.todos);
     
     this.setState({
@@ -42,14 +32,38 @@ class App extends React.Component {
     document.querySelector("#todo-input").value = "";
   };
 
+  handleCompletion = event => {
+    const index = event.target.id;
+    
+    this.state.todos[index].completed = true;
+    event.target.classList.add("todo-completed");
+  }
+
+  handleRemoval = event => {
+    event.preventDefault();
+    
+    const newArr = this.state.todos.filter(element => !element.completed);
+
+    this.setState({
+      todos: newArr
+    });
+
+    //fixing misplaced strikethroughs
+    const wrongClass = document.querySelectorAll(".todo-completed");
+    for (let i = 0; i < wrongClass.length; i++) {
+      wrongClass[i].className = "";
+    }
+  }
+
   render() {
     return (
       <div>
-        <TodoList todos={this.state.todos} />
+        <h5>To Do List:</h5>
+        <TodoList todos={this.state.todos} function={this.handleCompletion} />
         <TodoForm>
           <Input id="todo-input" onChange={this.handleChange} name="todo-input" placeholder="Enter New To-do" />
           <Button onClick={this.handleFormSubmit} text="Add To-do" />
-          <Button text="Clear Completed" />
+          <Button text="Clear Completed" onClick={this.handleRemoval} />
         </TodoForm>
       </div>
     );
