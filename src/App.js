@@ -57,13 +57,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h5>To Do List:</h5>
-        <TodoList todos={this.state.todos} function={this.handleCompletion} />
+      <div className="to-do-form">
+        <div className="title-container">
+          <h5 className="title">To Do List</h5>
+        </div>
+        <div className="to-do-container">
+          <TodoList todos={this.state.todos} function={this.handleCompletion} />
+        </div>
         <TodoForm>
-          <Input id="todo-input" onChange={this.handleChange} name="todo-input" placeholder="Enter New To-do" />
-          <Button onClick={this.handleFormSubmit} text="Add To-do" />
-          <Button text="Clear Completed" onClick={this.handleRemoval} />
+          <Input id="todo-input" onChange={this.handleChange} name="todo-input" placeholder="Enter New To-Do" className="input"/><br></br>
+          <Button onClick={this.handleFormSubmit} text="Add To-Do" className="add-to-do-button"/>
+          <Button text="Clear Completed" onClick={this.handleRemoval} className="clear-completed-button"/>
         </TodoForm>
       </div>
     );
