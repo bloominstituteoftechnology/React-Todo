@@ -10,12 +10,13 @@ const TodoForm = (props) => {
     return (
         <div className="form-container">
           <input value={props.text}
-          onChange={props.input}
-          onKeyDown={(event) => {
-              if (event.keyCode === 13) {
-                props.add
-              }
-          }} />
+                onChange={props.input}
+                onKeyDown={(event) => {
+                    if (event.keyCode === 13) {
+                        props.add()
+                    }
+                }} 
+          />
           <button onClick={props.add}>Add Todo</button>
           <button onClick={filteredList}>Clear Completed</button>
       </div>

@@ -18,21 +18,22 @@ class TodoList extends React.Component {
                 <h1>Todo List: MVP</h1>
                 <div className="list">
                     {this.props.state.todos.map(item => {
-                    return (
-                        <Todo key={item.id} 
-                            id={item.id} 
-                            task={item.task} 
-                            completed={item.completed} strike={this.props.strike}
-                            class={this.props.class}
-                        />
-                    );
+                        return (
+                            <Todo key={item.id} 
+                                id={item.id} 
+                                task={item.task} 
+                                completed={item.completed} strike={this.props.strike}
+                                class={this.props.class}
+                            />
+                        );
                     })}
                     <TodoForm 
-                    state={this.props.state}
-                    text={this.props.text}
-                    input={this.props.input} 
-                    add={this.props.add} 
-                    remove={this.props.remove}/>
+                        state={this.props.state}
+                        text={this.props.text}
+                        input={this.props.input} 
+                        add={this.props.add} 
+                        remove={this.props.remove}
+                    />
                 </div>
             </div>
         );
