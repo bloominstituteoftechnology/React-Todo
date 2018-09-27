@@ -28,12 +28,27 @@ class App extends React.Component {
   addTask = event => {
     console.log('Button Clicked');
   }
+
+  toggleClick = event => {
+    console.log('Task Clicked');
+  }
+
+  clearCompleted = event => {
+    console.log("Clear Completed Task Clicked");
+  }
   
   render() {
     return (
       <div>
-        <TodoForm onChangeInput={this.changeInput} clickEvent={this.addTask} />
-        <TodoList todos={this.state.Todos} />
+        <TodoForm 
+        onChangeInput={this.changeInput} 
+        clickEvent={this.addTask} 
+        clearCompleted={this.clearCompleted}
+        />
+        <TodoList 
+        todos={this.state.Todos} 
+        handleClick={this.toggleClick}
+        />
         <h1>State on input: {this.state.Todo}</h1>
       </div>
     );
