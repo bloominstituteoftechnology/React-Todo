@@ -58,11 +58,17 @@ class App extends React.Component {
   markDone = (id) => {
     this.setState({
       todoList: this.state.todoList.map(todo => {
-        if(todo.id === id) {
+        if(todo.id === id && todo.completed === false) {
           return {
             task: todo.task,
             id: todo.id,
             completed: true
+          }
+        } else if(todo.id === id && todo.completed === true) {
+          return {
+            task: todo.task,
+            id: todo.id,
+            completed: false
           }
         } else {
           return todo
