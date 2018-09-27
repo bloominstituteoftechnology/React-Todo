@@ -48,7 +48,7 @@ class App extends React.Component {
     }
     }
 
-    crossOut = (e) => {
+    crossOut = (e, todoId) => {
       if (e.target.style.textDecoration === '' || e.target.style.textDecoration === 'none' ) {
       e.target.style.textDecoration = "line-through"
       } else {
