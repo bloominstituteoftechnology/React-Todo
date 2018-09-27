@@ -1,0 +1,58 @@
+.TodoForm {
+
+
+
+}
+
+.todoForm {
+display: flex;
+flex-direction: row;
+border: 2px solid blue;
+width: 600px;
+height: 50px;
+left: 0px;
+top: 100px;
+align-items: center;
+justify-content: space-between
+
+}
+
+.addTodo {
+    border: 2px solid black;
+display: block;
+width: 120px;
+border-radius: 15px;
+height: 40px;
+left: 100px;
+color: black;
+font-size: 16px;
+
+}
+
+.todoInput {
+    border: 1px solid gray;
+    width: 300px;
+    height: 40px;
+    left: 0px;
+    top: 0px;
+    font-size: 16px;
+    border-radius: 15px;
+}
+
+.clearCompleted {
+    border: 2px solid black;
+    width: 140px;
+    height: 40px;
+    left: 150px;
+    top: 100px;
+    font-size: 16px;
+    background-color: lightgrey;
+    border-radius: 15px;
+}
+
+li {
+
+font-size: 16px;
+
+
+}

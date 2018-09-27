@@ -1,41 +1,62 @@
 import React from 'react';
-import "./components/TodoComponents/Todo.css"
-import Todo from "./components/TodoComponents/Todo.js"
-import TodoForm from "./components/TodoComponents/TodoForm.js"
-import TodoList from "./components/TodoComponents/TodoList.js"
-let todoArray = [];
 
+import TodoList from './components/TodoComponents/TodoList'
+import TodoForm from './components/TodoComponents/TodoForm'
 class App extends React.Component {
+
   // you will need a place to store your state in this component.
+
   // design `App` to be the parent component of your application.
+
   // this component is going to take care of state, and any change handlers you need to work with your state
-  constructor(description) {
-    super(description);
-    // set our default state
-    this.complete = false;
-    this.description = description;
-    this.id = Date.now()
-    this.state = {    }
-    this.handleClick = this.handleClick.bind(this);
-    
+
+  state = {
+    todos: [
+      {
+        task: 'Organize Garage',
+        id: 1528817077286,
+        completed: false
+      },
+      {
+        task: 'Bake Cookies',
+        id: 1528817084358,
+        completed: false
+      }
+    ]
   }
-}      
-  App.prototype.completeToDo = function() {
-    App.complete = true;
- 
+
+
+  handleClick = (todoId) => {
+    // what to do with the todoId?
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === todoId) {
+          return {
+            task: todo.task,
+            id: todo.id,
+            completed: !todo.completed
+          }
+        } else {
+
+          return todo
+        }
+      })
+    })
+  }
+
 
   render() {
     return (
       <div>
-        <h2>Todo App!</h2>
-          <div className="todoList">
-          <ul className="ul">
-          <li className="li"><Todo />
-
-
+        <TodoList
+          todos={this.state.todos}
+          handleClick={this.handleClick}
+        /><TodoForm />
       </div>
     );
   }
 }
+
+
 
 export default App;
