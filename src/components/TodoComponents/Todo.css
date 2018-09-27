@@ -20,6 +20,8 @@
     font-size: 1.2rem;
     margin: 5px 0;
     padding: 0 10px;
+    list-style-type: circle;
+    list-style-position: inside;
 }
 .todo-item:hover{
     cursor: pointer;

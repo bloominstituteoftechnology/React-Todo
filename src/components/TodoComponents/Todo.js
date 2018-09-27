@@ -11,10 +11,10 @@ const Todo = (props) => {
         props.toggle(props.id)
     }
         return (
-                <div className={className} 
+                <ul className={className} 
                     onClick={itemClicked}>
-                    {props.task}
-                </div>
+                    <li>{props.task}</li>
+                </ul>
         );
 }
 
