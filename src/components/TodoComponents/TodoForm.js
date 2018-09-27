@@ -8,8 +8,10 @@ const TodoForm = (props) => {
         props.remove(props.completed)
     }
     return (
-        <div className="form-container">
-          <input value={props.text}
+        <div className={props.displayStyle}>
+          <input value={props.text} 
+                placeholder="Enter Todo"
+                maxLength="50"
                 onChange={props.input}
                 onKeyDown={(event) => {
                     if (event.keyCode === 13) {

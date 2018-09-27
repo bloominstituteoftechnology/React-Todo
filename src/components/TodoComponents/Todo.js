@@ -8,16 +8,13 @@ const Todo = (props) => {
     let className = props.completed ? "todo-item completed" : "todo-item";
 
     const itemClicked = () =>{
-        props.strike(props.id)
-        console.log(className)
+        props.toggle(props.id)
     }
-    console.log("todo", props)
-    console.log()
         return (
-            <p className={className} 
-                onClick={itemClicked}>
-                {props.task}
-            </p>
+                <div className={className} 
+                    onClick={itemClicked}>
+                    {props.task}
+                </div>
         );
 }
 
