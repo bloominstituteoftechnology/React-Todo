@@ -7,7 +7,10 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {input: '', myTodoList: []};
+    this.state = {
+      input: '',
+      myTodoList: []
+    };
   }
 
 
@@ -19,10 +22,15 @@ class App extends React.Component {
       completed: false
     };
 
-    this.setState({
-      myTodoList: [...this.state.myTodoList, myObj],
-      input: ''
-    });
+    if(this.state.input === ''){
+      alert('please enter something');
+    } else {
+      this.setState({
+        myTodoList: [...this.state.myTodoList, myObj],
+        input: ''
+      });
+
+    }
 
   };
 
@@ -37,7 +45,10 @@ class App extends React.Component {
       <div>
         <h2>Todo List: MVP </h2>
         <ListItems myTodoList = {this.state.myTodoList}/>
-        <FormInput input = {this.state.input} handleSubmit = {this.handleSubmit} handleInputs = {this.handleInputs} />
+        <FormInput
+          input = {this.state.input}
+          handleSubmit = {this.handleSubmit}
+          handleInputs = {this.handleInputs} />
       </div>
     );
   }

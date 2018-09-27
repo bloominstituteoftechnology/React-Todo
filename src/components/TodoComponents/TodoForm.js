@@ -4,8 +4,10 @@ const FormInput = (props) => {
 
   return (
     <form>
-      <input value = {props.input} onChange={props.handleInputs}/>
-      <button onClick = {props.handleSubmit}>Add todo</button>
+      <input value = {props.input}
+             onChange={props.handleInputs}
+      />
+      <button onClick = {props.handleSubmit}>Add todo item</button>
       <button> Clear </button>
     </form>
   )
