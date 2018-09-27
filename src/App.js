@@ -36,7 +36,7 @@ class App extends React.Component {
   updateInput = (e) => {
     this.setState({
       input: e.target.value
-    }, console.log(this.state.input)
+    },
     );
   }
 
