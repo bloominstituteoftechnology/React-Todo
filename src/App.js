@@ -22,18 +22,26 @@ class App extends React.Component {
           id: 1528817084358,
           completed: false
         },
-      ]
+      ],
+      text: "",
     };
   };
 
+  inputHandle = (event) => {
+    console.log(event.target.value)
+    this.setState({
+      text: event.target.value,
+    })
+  };
+
   clickHandle = (event) => {
-    console.log('clicked')
+    console.log(event.target.value);
     const newTodo = {
-      task: event.target.value,
+      task: this.state.text,
       id: Date.now(),
       completed: false,
     }
-    this.setState = ({
+    this.setState ({
       todoList: [...this.state.todoList, newTodo]
     })
   }
@@ -43,7 +51,7 @@ class App extends React.Component {
       <div>
         <h1>Todo List: MVP</h1>
         <TodoList array={this.state.todoList} />
-        <TodoForm clickHandle={this.clickHandle} />
+        <TodoForm inputHandle={this.inputHandle} clickHandle={this.clickHandle} />
       </div>
     );
   }
