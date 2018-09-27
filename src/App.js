@@ -37,6 +37,7 @@ addToDo = (newTask, id) => {
 
   // Set the current state with the new todo array
   this.setState({todos})
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 // Need a handler that takes the input from the form and creates new todo
@@ -81,6 +82,7 @@ toggleComplete = (element) => {
 
      // Set the current state with the new todo array
     this.setState({todos})
+    localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 // Need a function that removes completed todos
@@ -108,14 +110,37 @@ removeComplete = (element) => {
     // Set the current state with the new todo array
     todos = filtered;
     this.setState({todos})
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
 
+hydrateStateWithLocalStorage() {
+  // Iterate through all items in state
+  // This was extremely helpful: https://hackernoon.com/how-to-take-advantage-of-local-storage-in-your-react-projects-a895f2b2d3f2
+  for (let key in this.state) {
+    // Check to see if the key exists in localStorage. See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
+    if (localStorage.hasOwnProperty(key)) {
+      let value = localStorage.getItem(key);
+
+      // Parse the localStorage string and setState
+      try {
+        value = JSON.parse(value);
+        this.setState({ [key]: value })
+      } catch (e) {
+        this.setState({ [key]: value })
+      }
+    }
+  }
+}
+
+componentDidMount() {
+  this.hydrateStateWithLocalStorage();
 }
 
   render() {
     return (
       <div>
         <h1>ToDo List: MVP</h1>
-        <TodoList key={this.state.todos.id} list={this.state.todos} toggleComplete={this.toggleComplete} />
+        <TodoList key={this.state.todos.id} todos={this.state.todos} toggleComplete={this.toggleComplete} />
         <TodoForm submit={this.addToDoHandler} removeComplete={this.removeComplete}/>
       </div>
     );

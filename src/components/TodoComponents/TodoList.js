@@ -10,7 +10,7 @@ const TodoList = (props) => {
         <div className="todo-container">
 
           {/* Takes as input (from props) each of the todos in state, iterates through (using .map), and renders them onscreen */}
-          {props.list.map(todo => {
+          {props.todos.map(todo => {
             return (
               <div>
                 <Todo key={todo.id} id={todo.id} task={todo.task} onClick={props.toggleComplete} completed={todo.completed} />
