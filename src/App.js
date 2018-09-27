@@ -27,6 +27,7 @@ class App extends React.Component {
   enterPressed = event => {
     if(event.which === 13) {
       this.setState({
+        userInput: '',
         todoList: this.state.todoList.concat({
           task: event.target.value,
           id: Date.now(),
@@ -44,6 +45,7 @@ class App extends React.Component {
 
   buttonPressed = event => {
     this.setState({
+      userInput: '',
       todoList: this.state.todoList.concat({
         task: this.state.userInput,
         id: Date.now(),
@@ -62,7 +64,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList todoList={this.state.todoList} handleSubmit={this.handleSubmit} buttonPressed={this.buttonPressed} enterPressed={this.enterPressed} markDone={this.markDone}/>
+        <TodoList userInput={this.state.userInput} todoList={this.state.todoList} handleSubmit={this.handleSubmit} buttonPressed={this.buttonPressed} enterPressed={this.enterPressed} markDone={this.markDone}/>
       </div>
     );
   }
