@@ -138,8 +138,8 @@ componentDidMount() {
 
   render() {
     return (
-      <div>
-        <h1>ToDo List: MVP</h1>
+      <div className="todo-container">
+        <h1>ToDo List: Stretch</h1>
         <TodoList key={this.state.todos.id} todos={this.state.todos} toggleComplete={this.toggleComplete} />
         <TodoForm submit={this.addToDoHandler} removeComplete={this.removeComplete}/>
       </div>

@@ -4,11 +4,7 @@ import Todo from './Todo';
 
 const TodoList = (props) => {
     return (
-      <div className="container">
-
-        {/* Section for todos */}
-        <div className="todo-container">
-
+      <div className="list-container">
           {/* Takes as input (from props) each of the todos in state, iterates through (using .map), and renders them onscreen */}
           {props.todos.map(todo => {
             return (
@@ -17,7 +13,6 @@ const TodoList = (props) => {
               </div>
             )
           })}
-        </div>
       </div>
     )
   }

@@ -1,24 +1,51 @@
+.todo-container {
+    width: 500px;
+    margin: 0 auto;
+}
+
 p {
-    font-family: "scriptorama-markdown-jf",sans-serif;
+    font-family: "interstate",sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 24px;
 }
 
 h1 {
-    font-family: "hobeaux-rococeaux",sans-serif;
+    font-family: "interstate",sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 900;
     font-size: 48px;
+    text-align: center;
+    text-decoration: underline;
 }
 
 .completed {
+    color: red;
     text-decoration: line-through;
 }
 
-button, input {
-    font-family: "scriptorama-markdown-jf",sans-serif;
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: "interstate",sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 24px;
+    text-align: center;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 99%;
+    font-family: "interstate",sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    margin: 10px 0;
 }
