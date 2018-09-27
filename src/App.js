@@ -52,7 +52,8 @@ class App extends React.Component {
           isCompleted: false
         }
       ],
-      textInput: ""
+      textInput: "",
+      controlledText: ""
     }//this.state
   }//constructor()
 
@@ -62,15 +63,23 @@ class App extends React.Component {
     })
   }
 
-  //handler function that adds task to the todoArray in state
+  //handler function that adds task to the todoArray in state --pass object into setState()
   addTodoTask = task => {
     this.setState({todoArray: [...this.state.todoArray, task]})
   }
 
-  //handler function that adds textInput into todoArray in state
+  //handler function that adds textInput into todoArray in state --pass object into setState()
   addTextInput = textInput => {
     this.setState({todoArray: [...this.state.todoArray, textInput]})
   }
+
+  //add handler function that clears text
+  handleClickClear = () => {
+    this.setState({
+      textInput: "",
+    })
+  }
+
 
   render() {
     return (
@@ -88,7 +97,7 @@ class App extends React.Component {
             })}
             <div><h3>{this.state.textInput}</h3></div>
           </div>
-          <input onChange={this.printTodoTask} /> <button onClick={this.addTodoTask}> Submit </button> <button> Clear All </button>
+          <input value={this.state.textInput} onChange={this.printTodoTask}/> <button onClick={this.addTodoTask}> Submit </button> <button onClick={this.handleClickClear}> Clear All </button>
           
           
           
@@ -96,7 +105,7 @@ class App extends React.Component {
           <div>
             <h2>List external to App:</h2>
             <TodoList todos={this.state.todoArray} />    
-            <TodoForm addTodoTask={this.addTodoTask} printTodoTask={this.printTodoTask} addTextInput={this.state.textInput} />  
+            <TodoForm addTodoTask={this.addTodoTask} printTodoTask={this.printTodoTask} addTextInput={this.state.textInput} handleClickClear={this.handleClickClear} textInput={this.state.textInput}/>  
             <TextInputDisplay addTextInput={this.state.textInput} />
           </div>
            
@@ -151,18 +160,13 @@ const TodoForm = props => {
   let currentDate = new Date();
   return (
     <div>
-      <input onChange={props.printTodoTask} placeholder="some text" />
+      <input value={props.textInput} onChange={props.printTodoTask} placeholder="placeholder text"/>
       <button onClick={() => {props.addTodoTask({task: props.addTextInput, id: currentDate.toDateString(), isCompleted: false})}}>Add Todo</button>
-      
+      <button onClick={props.handleClickClear}>Clear Button</button>
     </div>
   )
 };
 
-// const NewTask = props => {
-//   return(
-//     <div>{props.}</div>
-//   )
-// }
 
 
 export default App;
