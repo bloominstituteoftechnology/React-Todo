@@ -16,12 +16,19 @@ class ToDoList extends React.Component {
         <div>
           <h2>Current ToDo Items</h2>
         </div>
-          {this.props.toDoItems.map(todo => {
-            return <toDoItems
-                      key={todo.id}
-                      todo={todo}
-                      handleClick={this.props.handleClick} />
-          })}
+        <ul>
+          <li>
+            {this.props.toDoItems.map(todo => {
+              return (
+                <toDoItems
+                  key={todo.id}
+                  todo={todo}
+                  handleClick={this.props.handleClick}
+                />
+              );
+            })}
+          </li>
+        </ul>
       </div>
     );
   }
@@ -39,7 +46,8 @@ export default ToDoList;
   Here, we're simply passing the index of each toDoItem item as the key for the individual React component.
 */
 
-{/* <ul>
+{
+  /* <ul>
         <ToDoItem>ToDo item list appears here.</ToDoItem>
         {props.toDoListItems.map(toDoItem => {
           if (toDoItem.completed) {
@@ -81,4 +89,5 @@ export default ToDoList;
                 );
               }
             })}
-          </ul> */}
+          </ul> */
+}
