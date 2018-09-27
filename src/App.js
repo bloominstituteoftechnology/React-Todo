@@ -48,13 +48,23 @@ class App extends React.Component {
     }
     }
 
+    crossOut = (e) => {
+      if (e.target.style.textDecoration === '' || e.target.style.textDecoration === 'none' ) {
+      e.target.style.textDecoration = "line-through"
+      } else {
+        e.target.style.textDecoration = "none"
+      }
+    }
+
   render() {
     return (
       <div>
-        <TodoList todoItems={this.state.todo} />
+        <TodoList 
+         todoItems={this.state.todo} 
+         strike = {this.crossOut} />
         <TodoForm 
          addClick = {this.addItem} 
-         addEnter = {this.enterItem}/>
+         addEnter = {this.enterItem} />
       </div>
     )
   }

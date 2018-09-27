@@ -7,7 +7,9 @@ class TodoList extends React.Component {
         <div>
           {this.props.todoItems.map(item => {
             return (
-                <Todo item={item.task} />
+                <Todo 
+                 item={item.task} 
+                 strike = {this.props.strike} />
             );
         })}
         </div>

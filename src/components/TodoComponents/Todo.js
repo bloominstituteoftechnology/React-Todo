@@ -3,7 +3,7 @@ import React from 'react';
 class Todo extends React.Component {
     render() {
         return (
-            <p>{this.props.item}</p>
+            <p onClick={this.props.strike}>{this.props.item}</p>
         )
     }
 }
