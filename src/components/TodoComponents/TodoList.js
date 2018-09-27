@@ -2,16 +2,26 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 import TodoForm from './TodoForm';
+import Todo from './Todo';
+
+class TodoList extends React.Component {
+
+    render() {
+        return(
+            <div>
+            <TodoForm valueHandler={this.props.valueHandler} todos={this.props.todos}/>
+
+            <Todo todos={this.props.todos}/>
+        </div>
+        )
+    }
 
 
-const TodoList = (props) => {
 
-return(
 
-    <div>
-        <TodoForm />
-    </div>
-);
+
+
+
 }
 
 export default TodoList;

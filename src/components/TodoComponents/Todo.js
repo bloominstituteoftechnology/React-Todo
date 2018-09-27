@@ -2,14 +2,22 @@ import React from 'react';
 
 
 
-const Todo = (props) => {
+class Todo extends React.Component{
+
+    render() {
 
         return (
 
             <div>
-                {props.todos.map(todo => { return (<div> {todo.task} </div>) })}
+                {this.props.todos.map( todo => {
+                     return (
+                     
+                     <div> {todo.task} </div>
+                     ) 
+                     })}
             </div>
         
-        )}
-
+        )
+    }
+}
 export default Todo;
