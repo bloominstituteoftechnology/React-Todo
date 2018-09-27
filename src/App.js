@@ -43,7 +43,7 @@ class App extends React.Component {
     });
   }
 
-  buttonPressed = event => {
+  buttonPressed = () => {
     this.setState({
       userInput: '',
       todoList: this.state.todoList.concat({
@@ -55,11 +55,21 @@ class App extends React.Component {
   }
 
 
-  // markDone = event => {
-  //   this.setState({
-
-  //   })
-  // }
+  markDone = (id) => {
+    this.setState({
+      todoList: this.state.todoList.map(todo => {
+        if(todo.id === id) {
+          return {
+            task: todo.task,
+            id: todo.id,
+            completed: true
+          }
+        } else {
+          return todo
+        }
+      })
+    })
+  }
 
   render() {
     return (

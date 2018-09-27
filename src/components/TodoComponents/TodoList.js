@@ -8,8 +8,8 @@ const TodoList = props => {
     return (
         <div>
             {props.todoList.map(todo => (
-                <div key={todo.id}>
-                    <Todo markDone={todo.markDone} task={todo.task} /> 
+                <div key={todo.id} onClick={() => props.markDone(todo.id)}>
+                    <Todo task={todo.task} /> 
                 </div>
             ))}
             <TodoForm userInput={props.userInput} buttonPressed={props.buttonPressed} enterPressed={props.enterPressed} handleSubmit={props.handleSubmit}/>
