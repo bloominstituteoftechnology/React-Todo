@@ -1,7 +1,6 @@
 import React from 'react';
 import './Todo.css';
 import Todo from './Todo';
-import TodoForm from './TodoForm';
 
 const TodoList = (props) => {
     return (
@@ -18,11 +17,6 @@ const TodoList = (props) => {
               </div>
             )
           })}
-        </div>
-
-        {/* Section for input form and buttons */}
-        <div className="input-container">
-          <TodoForm submit={props.submit} clear={props.removeComplete}/>
         </div>
       </div>
     )

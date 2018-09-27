@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import TodoList from './components/TodoComponents/TodoList'
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   constructor() {
@@ -88,13 +89,34 @@ removeComplete = (element) => {
     // This prevents the page from being refreshed, otherwise you lose everything when you submit
     element.preventDefault();
 
+    // Create an empty array to hold incomplete items
+    let filtered = [];
+
+    // Get all of the todos with the completed attribute set to false
+    // Use something similar to toggleComplete but use const todos = this.state.todos.filter instead
+    let todos = this.state.todos.filter(todo => {
+      
+      // If todo.completed is false then it adds it to the filtered array
+      if(todo.completed !== true) {
+        filtered.push(todo);
+      }
+
+      // Return the array
+      return filtered;
+    });
+
+    // Set the current state with the new todo array
+    todos = filtered;
+    this.setState({todos})
+
 }
 
   render() {
     return (
       <div>
         <h1>ToDo List: MVP</h1>
-        <TodoList key={this.state.todos.id} list={this.state.todos} submit={this.addToDoHandler} toggleComplete={this.toggleComplete} removeComplete={this.removeComplete} />
+        <TodoList key={this.state.todos.id} list={this.state.todos} toggleComplete={this.toggleComplete} />
+        <TodoForm submit={this.addToDoHandler} removeComplete={this.removeComplete}/>
       </div>
     );
   }

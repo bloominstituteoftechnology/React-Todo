@@ -7,7 +7,7 @@ const TodoForm = (props) => {
           <form>
             <input placeholder="...todo" />
             <button onClick={props.submit}>Add Todo</button>
-            <button onClick={props.clear}>Clear Completed</button>
+            <button onClick={props.removeComplete}>Clear Completed</button>
           </form>
       </div>
     )
