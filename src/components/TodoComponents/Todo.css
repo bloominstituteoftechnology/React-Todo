@@ -10,8 +10,7 @@ li {
     color: blueviolet;
 }
 .app {
-    margin: 0 auto;
-    max-width: 500px;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,6 +23,8 @@ body {
     font-family: 'Permanent Marker', cursive;
 }
 form {
+    margin: 0 auto;
+    max-width: 500px;
     width: 500px;
     display: flex;
     flex-direction: column;
