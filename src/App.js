@@ -37,12 +37,6 @@ class App extends React.Component {
     }
   }
 
-  handleSubmit = event => {
-    this.setState({
-      userInput: event.target.value
-    });
-  }
-
   buttonPressed = () => {
     this.setState({
       userInput: '',
@@ -54,6 +48,11 @@ class App extends React.Component {
     });
   }
 
+  handleSubmit = event => {
+    this.setState({
+      userInput: event.target.value
+    });
+  }
 
   markDone = (id) => {
     this.setState({
@@ -77,10 +76,16 @@ class App extends React.Component {
     })
   }
 
+  clearDone = () => {
+    this.setState({
+      todoList: this.state.todoList.filter(todo => todo.completed === false)
+    })
+  }
+
   render() {
     return (
       <div>
-        <TodoList userInput={this.state.userInput} todoList={this.state.todoList} handleSubmit={this.handleSubmit} buttonPressed={this.buttonPressed} enterPressed={this.enterPressed} markDone={this.markDone}/>
+        <TodoList userInput={this.state.userInput} todoList={this.state.todoList} handleSubmit={this.handleSubmit} buttonPressed={this.buttonPressed} enterPressed={this.enterPressed} markDone={this.markDone} clearDone={this.clearDone} />
       </div>
     );
   }
