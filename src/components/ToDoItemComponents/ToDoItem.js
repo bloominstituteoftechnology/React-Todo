@@ -8,7 +8,7 @@ class ToDoItem extends React.Component {
     const message = this.props.toDoItem.completed ? 'done' : 'not done'
     return (
       <div onClick={this.props.handleClick}>
-      {this.props.toDoItems.toDoTitle} is {message}
+      {this.props.ToDoItems.toDoTitle} is {message}
         {/* <ul>
           <li>todo item is here</li>
         </ul> */}

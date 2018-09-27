@@ -4,9 +4,9 @@ const InputForm = () => {
   return (
       <div>
           {/* creates title for new task */}
-          {/* <h2>{this.state.title}</h2>  */}
+
         <div>
-          {/* <ToDoList list={this.state.list} /> */}
+
           <form>
             <label>New Task: <input type="text" name="newTask" placeholder="Enter new task"/></label>
             <input type="submit" value="Add this task" />
