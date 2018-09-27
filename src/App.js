@@ -45,12 +45,25 @@ class App extends React.Component {
       this.setState({
         text: ''
       })
-      
+
     }
   }
-
-  handleClick = () => {
-  
+handleDelete= (todoId) => {
+    // what to do with the todoId?
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === todoId) {
+          return {
+            text: todo.text,
+            id: todo.id,
+            isCompleted: !todo.isCompleted
+          }
+        } else {
+          return todo
+        }
+      })
+  })
+  console.log(this)
   }
 
   addTodo = (todoText) => {
@@ -68,7 +81,7 @@ class App extends React.Component {
       <div className="app-body">
         <h2>REACT - TO DO LIST</h2>
         <h1>Stefan's</h1>
-        <Todo todos={this.state.todos} text={this.state.text} addTodo={this.addTodo} handleKeyPress={this.handleKeyPress} todoList={this.todoList} handleChange={this.handleChange} />
+        <Todo todos={this.state.todos} handleDelete={this.handleDelete} text={this.state.text} addTodo={this.addTodo} handleKeyPress={this.handleKeyPress} todoList={this.todoList} handleChange={this.handleChange} />
       </div>
     )
 
