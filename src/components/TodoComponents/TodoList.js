@@ -5,13 +5,16 @@ import React from 'react';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
 
-const TodoList = (props) => {
-    return(
-        <div className="toDoListContainer">
-        <TodoForm onChange={props.onChange} onSubmitButton={props.onSubmitButton} onClear={props.onClear} />
-        <Todo list={props.list} completeTask={props.completeTask} />
+class TodoList extends React.Component { 
+    render() { 
+        <div>
+            {this.props.todos.map(todo => {
+                return <Todo key={todo.id} todo={todo} handleClick={this.props.handleClick} />
+            })}
         </div>
-    )
+    }
 }
+
+
 
   export default TodoList;
