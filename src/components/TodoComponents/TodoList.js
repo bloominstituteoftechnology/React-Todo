@@ -6,7 +6,7 @@ render (props) {
     return (
         <div className="list">
             {this.props.tasks.map(todo => {
-                return <Todo key={todo.id} todo={todo} />
+                return <Todo key={todo.id} todo={todo} clickHandler={this.props.clickHandler}/>
             })}
         </div>
     )

@@ -1,9 +1,9 @@
 import React from 'react';
-
+import './Todo.css'
 class Todo extends React.Component {
     render(props) {
         return (
-            <div>{this.props.todo.task}</div>
+            <div onClick={this.props.clickHandler}>{this.props.todo.task}</div>
         )
     }   
 }

@@ -43,15 +43,19 @@ class App extends React.Component {
     event.target.value = "";
   }
 
-  // clickHandler = event => {
-  //   //font style goes here
-  // }
+  clickHandler = (event) => {
+    if(!event.target.classList.contains('strikethrough')) {
+      event.target.classList.add('strikethrough');
+    } else {
+      event.target.classList.remove('strikethrough');
+    }
+  }
 
   render() {
     return (
       <div>
         <h2>React To Do List</h2>
-        <TodoList tasks={this.state.tasks}/>
+        <TodoList tasks={this.state.tasks} clickHandler={this.clickHandler}/>
         <TodoForm />
       </div>
     );
