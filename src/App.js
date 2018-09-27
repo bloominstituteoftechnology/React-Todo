@@ -51,7 +51,7 @@ class App extends React.Component {
     //fixing misplaced strikethroughs
     const wrongClass = document.querySelectorAll(".todo-completed");
     for (let i = 0; i < wrongClass.length; i++) {
-      wrongClass[i].className = "";
+      wrongClass[i].className = "to-do";
     }
   }
 
