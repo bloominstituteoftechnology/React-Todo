@@ -31,6 +31,7 @@ form {
 }
 h1 {
     font-size: 80px;
+    text-align: center;
 }
 input {
     width: 300px;
