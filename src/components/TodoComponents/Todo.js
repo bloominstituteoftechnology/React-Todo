@@ -14,11 +14,13 @@ class Todo extends React.Component{
     }
 
     render(){
+        const classes = this.state.todoItem.isHidden ? 'hidden todo-item' : 'todo-item';
+        
         if(this.state.todoItem.isCompleted){
-            return (<li className="todo-item" onClick={this.handleClick}><strike className="strike-text">{this.state.todoItem.task}</strike></li>)
+            return (<li className={classes} onClick={this.handleClick}><strike className="strike-text">{this.state.todoItem.task}</strike></li>)
         }
         
-        return (<li className="todo-item" onClick={this.handleClick}>{this.state.todoItem.task}</li>)
+        return (<li className={classes} onClick={this.handleClick}>{this.state.todoItem.task}</li>)
     }
     
 }

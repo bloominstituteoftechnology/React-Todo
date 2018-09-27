@@ -23,6 +23,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
+    // Rewrite set variable to JSON then set headerText then setState
     if(JSON.parse(localStorage.getItem("data")) !== null){
       this.setState({
         todoData: JSON.parse(localStorage.getItem("data"))
@@ -82,11 +83,38 @@ class App extends React.Component {
     });
   }
 
+  hideTask = (searchKey)=>{
+    let data = this.state.todoData.map(element=>{
+      if(element.task.includes(searchKey)){
+        element.isHidden = false;
+      }
+      else{
+        element.isHidden = true;
+      }
+      return element;
+    });
+
+    this.setState({
+      todoData: data
+    });
+  }
+
+  showAll = ()=>{
+    let data = this.state.todoData.map(element=>{
+      element.isHidden = false;
+      return element;
+    })
+
+    this.setState({
+      todoData: data
+    })
+  }
+
   render() {
     return (
       <div className="container">
         <h1 className="header">{this.state.headerText}</h1>
-        <SearchForm/>
+        <SearchForm hideTask={this.hideTask} showAll={this.showAll}/>
         <TodoList todoData={this.state.todoData} completeTask={this.completeTask}/>
         <TodoForm addTask={this.addTask} clearCompleted={this.clearCompleted}/>
       </div>

@@ -3,6 +3,10 @@
     margin-bottom: 20px;
 }
 
+.hidden{
+    display: none;
+}
+
 .todo-item{
     margin-bottom: 10px;
     font-size: 2.4rem;

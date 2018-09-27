@@ -4,37 +4,36 @@ import './Todo.css'
 class SearchForm extends React.Component{
     constructor(props){
         super(props);
-        this.taskInputRef = React.createRef();
         this.state = {
-            task: ''
+            searchKey: ''
         }
     }
 
     handleInput = (event)=>{
         this.setState({
-            task: event.target.value
+            searchKey: event.target.value
         })
     }
 
-    handleAddTodo = (event)=>{
+    hideTask = (event)=>{
         event.preventDefault();
-        this.props.addTask(this.state.task);
+        this.props.hideTask(this.state.searchKey);
         this.setState({
-            task: ''
+            searchKey: ''
         })
-        this.taskInputRef.current.value = '';
     }
 
-    handleClearCompleted = (event)=>{
+    showAll = (event)=>{
         event.preventDefault();
-        this.props.clearCompleted();
+        this.props.showAll();
     }
     
     render(){
         return(
             <form className="search-form">
-                <input className="search-input" onChange={this.handleInput} placeholder="find..." ref={this.taskInputRef}/>
-                <input className="search-execute" type="submit" value="Add Todo" onClick={this.handleAddTodo}/>
+                <input className="search-input" onChange={this.handleInput} placeholder="find..." value={this.state.searchKey}/>
+                <input className="search-execute" type="submit" value="Find Todo" onClick={this.hideTask}/>
+                <input className="search-show-all" type="submit" value="Show All" onClick={this.showAll}/>
             </form>
         )
     }
