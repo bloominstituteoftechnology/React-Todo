@@ -80,7 +80,9 @@ class App extends React.Component {
 
   // Handle clearing completed items
   handleClear = event => {
-
+    this.setState({
+      todoList: this.state.todoList.filter( todo => todo.completed === false )
+    });
   };
 
   render() {
@@ -88,7 +90,11 @@ class App extends React.Component {
       <div>
         <h2>ToDo List</h2>
         <TodoList todoArray={this.state.todoList} toggle={this.handleToggle} />
-        <TodoForm newEntry={this.handleNewEntry} clickEntry={this.handleClick} />
+        <TodoForm 
+          newEntry={this.handleNewEntry} 
+          clickEntry={this.handleClick} 
+          clickClear={this.handleClear}
+        />
       </div>
     );
   }
