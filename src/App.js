@@ -18,7 +18,15 @@ class App extends React.Component {
   };
 
   handleClick = (event) => {
-    
+    event.push();
+    const newTodo = {
+      task: this.state.textInput,
+      completed: false,
+      id: Date.now()
+    }
+    this.setState({
+      todos: [this.state.todos.push(newTodo)]
+    })
   }
 
   render() {
