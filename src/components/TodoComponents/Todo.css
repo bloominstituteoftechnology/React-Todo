@@ -1,7 +1,59 @@
 li {
-    text-decoration: none;
+    list-style: none;
+    font-family: 'Cedarville Cursive', cursive;
+    font-family: 'Lobster', cursive;
+    font-size: 26px;
 }
 
 .completed {
     text-decoration: line-through;
+    color: blueviolet;
+}
+.app {
+    margin: 0 auto;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+body {
+    background: url("../../assets/921148530-1024x1024.jpg")no-repeat;
+    background-size: cover;
+    font-weight: bold;
+    font-family: 'Permanent Marker', cursive;
+}
+form {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1 {
+    font-size: 80px;
+}
+input {
+    width: 300px;
+    height: 35px;
+    border-radius: 8px;
+    font-size: 24px;
+}
+.buttons-container {
+    display: flex;
+    justify-content: space-around;
+    width: 300px
+}
+
+.button {
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: blueviolet;
+    color: whitesmoke;
+    width: 45%;
+    height: 45px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
 }

@@ -11,9 +11,27 @@ class App extends React.Component {
         holder: "",
       }
     }
-    toggleClass = (event) => {
-      event.target.classList.add('completed');
-    } 
+    toggleClass = (event, id) => {
+      event.target.classList.toggle('completed');
+      this.setState({
+        tasks: this.state.tasks.map(task => {
+          if (task.id === id) {
+            return {
+              task: task.task,
+              id: task.id,
+              completed: !task.completed
+            }
+          } else {
+            return task
+          }
+        })
+      })
+    }
+    deleteHandler = () => {
+      this.setState({
+        tasks : this.state.tasks.filter(task => task.completed === false)
+      })
+    }  
     inputHandler = (event) => {
       const { value } = event.target;
       this.setState({
@@ -22,24 +40,21 @@ class App extends React.Component {
     }
     clickHandler = (event) => {
       event.preventDefault();
-      const dumbObject = {
+      const obj = {
         task: this.state.holder,
         id: Date.now(),
         completed: false,
       }
       this.setState(
-        {tasks : [...this.state.tasks, dumbObject,], holder: ""}
+        {tasks : [...this.state.tasks, obj,], holder: ""}
       )     
     }
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div>
+      <div className="app">
         <h1>Welcome to your Todo App!</h1>
         <TodoList tasks={this.state.tasks} toggleClass={this.toggleClass} />
-        <TodoForm value={this.state.holder} inputHandler={this.inputHandler} clickHandler = {this.clickHandler} />
+        <TodoForm deleteHandler={this.deleteHandler} value={this.state.holder} inputHandler={this.inputHandler} clickHandler = {this.clickHandler} />
       </div>
     );
   }
