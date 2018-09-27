@@ -1,49 +1,55 @@
 import React, {Component} from 'react';
-import TodoList from './components/TodoComponents/TodoList';
+import Form from './components/TodoComponents/TodoForm'
+import List from './components/TodoComponents/TodoList'
 
 class App extends React.Component {
-  state = { 
-    todos: [
-      {
-        task: 'Graduate Lambda School',
-        id: 1528817077286,
-        completed: false,
-      },
-    {
-      task: 'Rule the world',
-      id: 1528817084358,
-      completed: false,
+  constructor(props){
+    super(props);
+    this.state={
+      input: '',
+      todolist: [],
+    };
+  }
+
+  handleInput = (event) => {
+    const {value} = event.target;
+    this.setState({
+      input: value,
+    });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const obj = {
+      task: this.state.input,
+      id: Date.now(),
+      completed: false
     }
-  ]
-}
-
-handleClick = (todoID) => { 
-  this.setState({ 
-    todos: this.state.todos.map(todo => {
-      if (todo.id === todoID) { 
-        return { 
-          todo: todo.task,
-          id: todo.id,
-          completed: false,
-        }
-      } else { 
-        return todo
-      }
+    this.setState({
+      todolist: [...this.state.todolist, obj],
+      input: '',
     })
-  })
-}
+  };
 
-render() {
-  return(
-    <div className="ToDoList">
-    <TodoList 
-    todos={this.state.todos}
-    handleClick={this.handleClick} />
-    </div>
-  )
-} 
+  completeOrNot = (element) => {
+    let currentToDo = element.target;
+    let todos
+  }
 
 
+  render() {
+    return (
+      <div>
+        <h2>Oh god it's another todo app</h2>
+        <List todolist={this.state.todolist} />
+        <Form 
+          input={this.state.input} 
+          handleSubmit={this.handleSubmit} 
+          handleInput={this.handleInput} 
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
