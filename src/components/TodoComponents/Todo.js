@@ -1,9 +1,9 @@
 import React from 'react'
 const Todo = (props) => {
     return (
-        <div>
-            <p>{props.task}</p>
-        </div>
+        <ul >
+            <li onClick={props.line}>{props.task}</li>
+        </ul>
     )
 }
 

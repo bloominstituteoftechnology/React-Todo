@@ -1,24 +1,12 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
-import Todo from './components/TodoComponents/Todo';
 import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todolists: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ],
+      todolists: [],
       textInput:'',
     }
   }
@@ -46,14 +34,29 @@ class App extends React.Component {
 
     )
   }
+  clearField = () => {
+    this.setState({
+      textInput: ""
+    }
 
-  
+    )
+  }
+  strike= (event)=>{
+    if(event.target.style.textDecoration === ""){
+      event.target.style.textDecoration = "line-through";
+    }else if(event.target.style.textDecoration === "line-through"){
+      event.target.style.textDecoration = ""
+    }
+  }
 
   render() {
+     console.log(this.state.todolists.completed)
     return (
+      
       <div>
-        <TodoForm inputHandler={this.inputHandler} handleClick1={this.handleClick1} />
-        <TodoList tasks={this.state.todolists} />
+        <TodoForm control ={this.state.textInput}inputHandler={this.inputHandler} handleClick1={this.handleClick1} clearField={this.clearField} />
+        <TodoList line={this.strike} tasks={this.state.todolists} />
+       
       </div>
     );
   }
