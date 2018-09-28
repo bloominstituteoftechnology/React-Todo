@@ -1,0 +1,21 @@
+.formContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.clear-btn{
+    background: #c0392b;
+    color: #FAFAFA;
+    margin-left: 50px;
+    border: 2px solid #888888;
+}
+
+button {
+    margin: 0 2px;
+
+}
+
+input {
+    outline: none;
+}

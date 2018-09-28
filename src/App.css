@@ -1,0 +1,13 @@
+.container {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid #222;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+}

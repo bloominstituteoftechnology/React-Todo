@@ -3,7 +3,7 @@ h3 {
 }
 
 .taskComplete {
-    color: red;
+    color: #c0392b;
     text-decoration: line-through;
 
 }

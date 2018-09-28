@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './TodoForm.css'
 
 //props = props.addTodo
 class TodoForm extends Component{
@@ -18,7 +19,10 @@ class TodoForm extends Component{
     submitHandler = (event) =>{
         event.preventDefault();
         //call addTodo of App.js
-        this.props.addTodo(this.state.task)
+        if(this.state.task){
+            this.props.addTodo(this.state.task)
+        }
+
         this.setState({
             task: ''
         })
@@ -33,12 +37,12 @@ class TodoForm extends Component{
 
     render(){
         return (
-            <div>
+            <div className='formContainer'>
                 <form onSubmit={this.submitHandler}>
-                    <input type="text" onChange={this.changeHandler} value={this.state.task} />
+                    <input placeholder="...todo" type="text" onChange={this.changeHandler} value={this.state.task} />
                     <button>Add Todo</button>
                 </form>
-                <button onClick={this.clearHandler}>Clear Completed</button>
+                <button className="clear-btn" onClick={this.clearHandler}>Clear Completed</button>
 
             </div>
         )
