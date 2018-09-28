@@ -17,7 +17,7 @@ class Todo extends React.Component {
 
     render() {
         return (
-            <div onClick={this.completedHandler} className="todoItem">{this.props.item.task}</div>
+            <div onClick={this.completedHandler} className="todoItem"><span>&#9744;</span> {this.props.item.task}</div>
             
         )
     }
