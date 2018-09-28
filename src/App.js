@@ -15,7 +15,7 @@ class App extends React.Component {
     this.state = { 
       Todos: [
         { task: 'Bake Cookies', id: 1, completed: false },
-        { task: 'Prep Cookies for Delivery', id: 2, completed: false },
+        { task: 'Prep Cookies for Delivery', id: 2, completed: true },
         { task: 'Deliver Cookies', id: 3, completed: false },
       ],
       Todo: '', 
@@ -54,7 +54,6 @@ class App extends React.Component {
         todos={this.state.Todos} 
         handleClick={this.toggleClick}
         />
-        <h1>State on input: {this.state.Todo}</h1>
       </div>
     );
   }
