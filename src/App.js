@@ -6,7 +6,6 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentInputValue: '...to do',
       todos : [
       {
         task: 'Why is this so hard?',
@@ -22,16 +21,27 @@ class App extends React.Component {
     ]
   };
   }
-  handleInput = (event) => {
-    this.setState({
-      currentInputValue: event.target.value
-    });
+
+  handleInput = (todoId) => {
+     this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === todoId) {
+          return {
+            task: todo.task,
+            id: todo.id,
+            completed: !todo.completed
+          }
+        } else {
+          return todo
+        }
+      })
+    })
   }
 
-    handleSubmit = (event) => {
-      let newTaskList = this.state.todos.concat({task: this.state.currentInputValue, id: Date.now(), completed: false})
-      this.setState({todos: newTaskList});
-    }
+  handleSubmit = (event) => {
+    let newTaskList = this.state.todos.concat({task: this.state.currentInputValue, id: Date.now(), completed: false})
+    this.setState({todos: newTaskList});
+  }
     
   render() {
     return (

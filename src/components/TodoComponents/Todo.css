@@ -1,0 +1,13 @@
+
+.completed {
+    text-decoration: line-through;
+  }
+  
+.todolist-container {
+   align-items: flex-start;
+   display: flex;
+   flex-direction: column;
+   width: 80%;
+   margin: 20px 0px 0px 20px;
+}
+  
