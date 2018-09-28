@@ -25,6 +25,12 @@ class TodoForm extends Component{
 
     }
 
+    clearHandler = () =>{
+        if(this.props.todos.length){
+            this.props.clearCompleted(this.props.todos)
+        }
+    }
+
     render(){
         return (
             <div>
@@ -32,7 +38,7 @@ class TodoForm extends Component{
                     <input type="text" onChange={this.changeHandler} value={this.state.task} />
                     <button>Add Todo</button>
                 </form>
-                <button>Clear Completed</button>
+                <button onClick={this.clearHandler}>Clear Completed</button>
 
             </div>
         )
