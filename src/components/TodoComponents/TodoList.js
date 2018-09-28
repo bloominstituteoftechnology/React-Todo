@@ -5,12 +5,12 @@ import './Todo.css';
 import Todo from './Todo';
 
 const TodoList = (props) =>{
-
+    console.log(props)
     return (
        
         <ul>{props.items.map(item =>(
             
-            <Todo key = {item.id} item ={item.inputTask} completed ={item.completed}/>
+            <Todo toggletodoCompl={props.toggleCompl} key = {item.id} itemkey = {item.id} item ={item.inputTask} DisplayStyle ={item.completed} />
         ))}
              
         </ul>
