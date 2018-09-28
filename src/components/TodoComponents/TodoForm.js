@@ -9,7 +9,7 @@ const TodoForm = (props) => {
             <input className="input" value={props.inputValue} onChange={props.inputFunction} onKeyPress={props.enterFunction}/>
             <div className="buttonsDiv">          
                 <div className="button" onClick={props.submitFunction} >+</div>
-                <div className="button remove">-</div>
+                <div className="button remove" onClick={props.clearCompleted}>-</div>
             </div>  
         </div>
     )

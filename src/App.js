@@ -6,6 +6,7 @@ import './components/TodoComponents/Todo.css';
 class App extends React.Component {
   constructor() {
     super();
+    this.testRef = React.createRef();
     this.state = {
       currentInputValue: '',
       todos : []
@@ -23,7 +24,7 @@ class App extends React.Component {
     if (this.state.currentInputValue === '') {
       alert('No Todo Item Entered')
     } else {
-    let newTaskList = this.state.todos.concat({task: this.state.currentInputValue, key: Date.now(), completed: false})
+    let newTaskList = this.state.todos.concat({task: this.state.currentInputValue, key: Date.now(), completed: false, todoClass: 'incomplete'})
     this.setState({todos: newTaskList, currentInputValue: ''});
     console.log(this.state.todos);
     }
@@ -34,13 +35,46 @@ class App extends React.Component {
       this.handleSubmit();
     };
   };
+
+  handleClear = (todoKey) => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.key === todoKey) {
+          return {
+            task: todo.task,
+            key: todo.key,
+            completed: !todo.completed,
+            todoClass: todo.todoClass == 'incomplete' ? 'complete' : 'incomplete'
+            }
+          } else {
+            return todo
+          }
+      }),   
+    })
+  };
+
+  handleClearCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => todo.completed = false)
+    })
+  }
     
   render() {
     return (
       <div className="container">
         <h1>Tasks Remaining {this.state.todos.length}</h1>
-        <TodoList list={this.state.todos} />
-        <TodoForm inputFunction={this.handleInput} submitFunction={this.handleSubmit} enterFunction={this.onKeyPress} inputValue={this.state.currentInputValue} />
+        <TodoList 
+          list={this.state.todos} 
+          handleClear={this.handleClear}
+          todoClass={this.state.todoClass}
+        />
+        <TodoForm 
+          inputFunction={this.handleInput} 
+          submitFunction={this.handleSubmit} 
+          enterFunction={this.onKeyPress} 
+          inputValue={this.state.currentInputValue}
+          clearComplete={this.handleClearCompleted}
+        />
       </div>
     );
   }
