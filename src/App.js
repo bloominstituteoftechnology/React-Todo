@@ -28,8 +28,8 @@ class App extends React.Component {
     })
   }
 
-  clearCompleted = (todos) =>{
-    let todoList = todos.filter(todo =>{
+  clearCompleted = () =>{
+    let todoList = this.state.todos.filter(todo =>{
       return todo.completed !== true
     });
     this.setState({
@@ -42,11 +42,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Todo List: MVP</h1>
+        <div>
+          <h1>Todo List: MVP</h1>
+        </div>
         <div>
           <TodoList todos={this.state.todos}/>
         </div>
-        <TodoForm addTodo={this.addTodo} clearCompleted={this.clearCompleted} todos={this.state.todos}/>
+        <TodoForm addTodo={this.addTodo} clearCompleted={this.clearCompleted} />
       </div>
     );
   }

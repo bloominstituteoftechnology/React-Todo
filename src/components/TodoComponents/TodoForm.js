@@ -30,9 +30,7 @@ class TodoForm extends Component{
     }
 
     clearHandler = () =>{
-        if(this.props.todos.length){
-            this.props.clearCompleted(this.props.todos)
-        }
+        this.props.clearCompleted()
     }
 
     render(){
