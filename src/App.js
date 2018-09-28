@@ -94,7 +94,7 @@ handleFilter = () =>{
 
 handleSearch = query =>{
   const arr = this.state.todos.filter(todo =>{
-    if (todo.task === query){
+    if (!todo.task === query.toString()){
       return todo
     }
   })

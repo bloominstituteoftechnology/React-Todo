@@ -5,13 +5,22 @@ import Todo from "../TodoComponents/Todo";
 
 class TodoList extends React.Component {
   render() {
-    return (
-      <div className="display-todo">
-        {this.props.taskLists.map(todo => {
-          return <Todo key={todo.id} todo={todo} selected={this.props.selected}/>;
-        })}
-      </div>
-    );
+    if(this.props.taskLists.length === 0){
+      return(
+        <div className="notice-todo">
+          <p>Please add some Todos</p>
+        </div>
+      );
+    }
+    else{
+      return (
+        <div className="display-todo">
+          {this.props.taskLists.map(todo => {
+            return <Todo key={todo.id} todo={todo} selected={this.props.selected}/>;
+          })}
+        </div>
+      );
+    }
   }
 }
 

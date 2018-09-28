@@ -169,3 +169,16 @@ html{
   letter-spacing: 1px;
   color:#888888;
 }
+
+.notice-todo{
+  width: 90%;
+  margin-top: 2px;
+  padding: 15px;
+  color:#9C9C9C;
+  letter-spacing: 1px;
+  font-family: Arial, Helvetica, sans-serif;
+  border:2px dashed #9C9C9C;
+  text-transform: capitalize;
+  text-align:center;
+  margin-bottom:20px;
+}
