@@ -39,14 +39,25 @@ class App extends React.Component {
     this.setState({
       newTask: event.target.value
     })
+  }
+  handleClick = (givenId) => {
+    this.setState({
+      todo: this.state.todo.map(toDoObj =>{
+        if(givenId === toDoObj.id){
+          toDoObj.completed = !toDoObj.completed
+        }
+        return toDoObj;
+      })
+    })
 
     
   }
   render() {
+    console.log(this.state.todo)
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <TodoList list = {this.state.todo}/>
+        <TodoList handleClick = {this.handleClick} list = {this.state.todo}/>
         <ToDoForm addItem = {this.addItem} handleInput = {this.handleInput}/>
 
       </div>
