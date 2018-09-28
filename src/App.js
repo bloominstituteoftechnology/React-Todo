@@ -2,7 +2,6 @@ import React from "react";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
 
-
 class App extends React.Component {
   constructor() {
     super();
@@ -16,7 +15,7 @@ class App extends React.Component {
     this.setState({ task: event.target.value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
     this.setState(prevState => {
       return {
@@ -24,43 +23,51 @@ class App extends React.Component {
           id: Date.now(),
           task: this.state.task,
           complete: false
-        }), 
-        task: "" 
-      }
+        }),
+        task: ""
+      };
+    });
+  };
+
+  completeHandler = id => {
+    this.setState({
+      list: this.state.list.map(item => {
+        if (item.id === id) {
+          return {
+            id: item.id,
+            task: item.task,
+            complete: !item.complete
+          };
+        } else {
+          return item;
+        }
+      })
+    });
+  };
+
+  clearHandler = () => {
+    this.setState({
+      list: this.state.list.filter(item => !item.complete)
     });
   };
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className='container'>
+        <h2 className='main-title'>Welcome to your Todo List!</h2>
         <TodoForm
           handleInput={this.handleInput}
           handleSubmit={this.handleSubmit}
           value={this.state.task}
         />
-        <TodoList list={this.state.list}/>
-        <input type="submit" value="Clear" />
+        <TodoList
+          completeHandler={this.completeHandler}
+          list={this.state.list}
+        />
+        <input className='clear-completed' type="submit" value="Clear Completed" onClick={this.clearHandler} />
       </div>
     );
   }
 }
 
 export default App;
-
-// <ul>{this.state.list.map(item => <li key={item}>{item}</li>)}</ul>
-//App will contain a return with:
-
-// <h1></h1>
-// <TodoList />
-// <TodoForm />
-
-// TodoList.js will return:
-// <ul>
-// props.array.map(
-// return (<Todo/>)
-// )
-// </ul>
-
-// Todo.js will return:
-// <li></li>

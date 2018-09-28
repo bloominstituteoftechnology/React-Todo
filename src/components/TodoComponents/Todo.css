@@ -1,0 +1,224 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Reset above this line */
+
+body {
+  font-size: 62.5%;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: 25px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-box-shadow: 24px 25px 34px 10px rgba(12, 26, 14, 1);
+  -moz-box-shadow: 24px 25px 34px 10px rgba(12, 26, 14, 1);
+  box-shadow: 24px 25px 34px 10px rgba(12, 26, 14, 1);
+  padding: 25px 0;
+}
+
+.main-title {
+  font-size: 2.4rem;
+  padding: 25px 0;
+}
+
+.todo-form-enter {
+  padding-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  font-size: 1.2rem;
+}
+
+.todo-text-enter {
+  width: 75%;
+  margin: 5px 0;
+  padding: 5px;
+}
+
+.todo-submit {
+  width: 25%;
+  align-self: flex-end;
+  margin-right: 12%;
+}
+
+.todo-container {
+  width: 100%;
+}
+
+.header {
+  font-size: 1.2rem;
+  margin: auto;
+  width: 75%;
+}
+
+.date-header {
+  padding-left: 7%;
+}
+
+.task-header {
+  padding-left: 5%;
+}
+
+.todo-list {
+  padding: 10px 0 25px 5%;
+  margin: auto;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.normal-todo {
+  cursor: pointer;
+  list-style: circle inside;
+  font-size: 1.6rem;
+  padding: 3px 0;
+}
+
+.date-created {
+  color: grey;
+  font-size: 1.2rem;
+  margin-left: -15px;
+  margin-right: 5px;
+}
+
+.strike-through-todo {
+  text-decoration: line-through red;
+  list-style-type: disc;
+}
+
+.clear-completed {
+  width: 40%;
+}
