@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import './components/TodoComponents/ToDo.css';
+import './components/TodoComponents/Todo.css';
 
 class App extends React.Component {
   constructor(){
@@ -41,17 +41,24 @@ class App extends React.Component {
     console.log(this.state.task);
   };
 
-  removeTask = e =>{
-    const { toDoList } = this.state;
-    const listCopy = todoList;
-    listCopy.fliter(item =>{
-      
-    })
+  removeTask = () =>{
+    this.setState({ toDoList: this.state.toDoList.filter(item => !item.completed) })
   }
-
-  completedTask = e =>{
-    const { completed } = this.state;
-    e.target.classList.toggle('completed')
+//toggle
+  completedTask = target =>{
+    this.setState({
+      toDoList: this.state.toDoList.map(item=>{
+        if(item.id === target){
+          return{
+            task: item.task,
+            id: item.id,
+            completed: !item.completed
+          }
+        }else{
+          return item;
+        }
+      })
+    })
   }
 
 
@@ -60,12 +67,15 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-      <TodoList info={this.state.toDoList} click={this.completedTask}/>
+      <TodoList info={this.state.toDoList} 
+        click={this.completedTask}
+        class='list-item'
+      />
       <TodoForm 
-      change={this.formInput}
-      value={this.state.task}
-      clickIn={this.addTask}
-      clickOut={this.removeTask}
+        change={this.formInput}
+        value={this.state.task}
+        clickIn={this.addTask}
+        clickOut={this.removeTask}
       />
       </div>
     );
