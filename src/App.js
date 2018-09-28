@@ -27,6 +27,19 @@ class App extends React.Component {
     });
   };
 
+  crossTodo = (e) => {
+    let list = this.state.todolist.slice();
+    if (list[0].id !== 2049) {
+      let crossItem = list.filter(item => item.task === e.target.textContent);
+      if (crossItem[0].completed === true) {
+        crossItem.forEach(item => item.completed = false);
+      } else if (crossItem[0].completed === false) {
+        crossItem.forEach(item => item.completed = true);
+      }
+    }
+    this.setState({ list: list });
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     const obj = {
@@ -40,16 +53,6 @@ class App extends React.Component {
     })
   };
 
-  completeOrNot = (element) => {
-    let current = element.target;
-    let todos = this.state.todos.map(todo => {
-      if (Number(current.id) === todo.id) {
-        current.classList.toggle('completed');
-        todo.completed = !todo.completed;
-        return todo;
-      }
-    })
-  }
 
 
   render() {
