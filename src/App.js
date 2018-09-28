@@ -61,6 +61,17 @@ class App extends React.Component {
         })
       })
     }
+
+    clearComplete = () => {
+      let temparr = this.state.todo;
+      temparr = temparr.filter((item) => {
+        return item.completed === false;
+      })
+
+      this.setState({
+        todo: temparr
+      })
+    }
   
 
   render() {
@@ -71,7 +82,8 @@ class App extends React.Component {
          strike = {this.crossOut} />
         <TodoForm 
          addClick = {this.addItem} 
-         addEnter = {this.enterItem} />
+         addEnter = {this.enterItem}
+         deleteItems = {this.clearComplete} />
       </div>
     )
   }
