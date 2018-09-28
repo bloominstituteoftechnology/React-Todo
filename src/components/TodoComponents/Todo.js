@@ -1,11 +1,11 @@
 import React from 'react';
 import './Todo.css'
-class Todo extends React.Component {
-    render(props) {
-        return (
-            <div onClick={this.props.clickHandler}>{this.props.todo.task}</div>
-        )
-    }   
-}
 
+const Todo = (props) => {
+    return (
+        <li 
+        onClick={(event) => {props.clickHandler(event, props.item) }} 
+        className='list-item'>{props.item}</li>
+    )
+}
 export default Todo;

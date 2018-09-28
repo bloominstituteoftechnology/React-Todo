@@ -9,56 +9,89 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      input: '',
       tasks: [{
           task: 'Get some sleep',
-          id: Date.now(),
+          id: 123456789,
           completed: false
         },
         {
           task: 'Organize Garage',
-          id: Date.now(),
+          id: 234567891,
           completed: false
         },
         {
           task: 'Bake Cookies',
-          id: Date.now(),
+          id: 345678901,
           completed: false
         },
         {
           task: 'Finish Project',
-          id: Date.now(),
+          id: 456789012,
           completed: false
         }
       ]
     }
   }
+
+
   keypressHandler = event => {
-    if (event.keycode === 13) {
+    const obj = {
+      task: this.state.input,
+      id: Date.now(),
+      completed: false
+    }
+    if (event.key === 'Enter') {
       this.setState({
-        task: event.target.value,
-        id: Date.now(),
-        completed: false
+        tasks: [...this.state.tasks, obj],
+        input: ''
       });
     }
-    event.target.value = "";
   }
 
-  clickHandler = (event) => {
-    if(!event.target.classList.contains('strikethrough')) {
-      event.target.classList.add('strikethrough');
+  changeHandler = event => {
+    const value = event.target.value;
+    this.setState({
+      input: value,
+    })
+  }
+  clickHandler = (event, item) => {
+    event.preventDefault();
+    if (event.target.classList.contains('strikethrough')) {
+      event.target.classList.remove('strikethrough')
     } else {
-      event.target.classList.remove('strikethrough');
+      event.target.classList.add('strikethrough');
     }
+    this.setState({
+      tasks: this.state.tasks.map(task => {
+        if(task.task === item) {
+          return {
+            task: task.task,
+            id: task.id,
+            completed: !task.completed
+          }
+        } else return task;
+      })
+    })
+  }
+
+
+  clearHandler = () => {
+    this.setState({
+      tasks: this.state.tasks.filter(task => {
+      return task.completed === false
+      })
+    })
+    document.querySelectorAll('li').forEach(item => item.classList.remove('strikethrough'))
   }
 
   render() {
-    return (
-      <div>
+    return <div>
         <h2>React To Do List</h2>
-        <TodoList tasks={this.state.tasks} clickHandler={this.clickHandler}/>
-        <TodoForm />
-      </div>
-    );
+        <TodoList tasks={this.state.tasks} clickHandler={this.clickHandler} />
+        <TodoForm keypressHandler={this.keypressHandler}
+        changeHandler={this.changeHandler} input={this.state.input} clearHandler={this.clearHandler}/>
+      </div>;
   }
 }
 
