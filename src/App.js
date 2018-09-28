@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from '../src/components/TodoComponents/TodoForm';
 import List from '../src/components/TodoComponents/TodoList';
+import './components/TodoComponents/Todo.css';
 
   
   // you will need a place to store your state in this component.
@@ -32,23 +33,33 @@ class App extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const obj = {
-      task: this.state.input,
-      id: Date.now(),
-      completed: false
+      if (this.state.input) {
+      const obj = {
+        task: this.state.input,
+        id: Date.now(),
+        completed: false
+      }
+      this.setState({
+        todolist: [...this.state.todolist, obj],
+        input: ''
+      })
     }
-    this.setState({
-      todolist: [...this.state.todolist, obj],
-      input: ''
-    })
   };
+
+  crossout = (event) => {
+    event.preventDefault();
+    console.log('it clicks!');
+    const crossedArr = event.target;
+    crossedArr.classList.toggle('completed');
+    console.log(crossedArr);
+  }
 
 
   render() {
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <List todolist={this.state.todolist} />
+        <List todolist={this.state.todolist} crossout={this.crossout} />
         <Form 
           input={this.state.input} 
           handleSubmit={this.handleSubmit} 
@@ -56,7 +67,7 @@ class App extends React.Component {
         />
       </div>
     );
-  }
+  } 
 }
 
 export default App;

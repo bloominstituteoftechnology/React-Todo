@@ -12,7 +12,8 @@ const List = (props) => {
                     <ToDo 
                         key={newToDo.id} 
                         value={newToDo.task} 
-                        className={newToDo.completed} 
+                        className={newToDo.completed}
+                        crossout={props.crossout} 
                     />
                 )
             })}

@@ -3,7 +3,7 @@ import React from 'react';
 
 const Todo = (props) => {
     return(
-        <li>
+        <li onClick={props.crossout}>
             {props.value}
         </li>
     )
