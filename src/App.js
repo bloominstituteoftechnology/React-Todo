@@ -17,20 +17,17 @@ class App extends React.Component {
   }
 
   addItem = (event) => {
-    if (this.state.itemToAdd != '') {
-      let item = {
-        task: this.state.itemToAdd,
-        id: Date.now(),
-        completed: false
-      }
-      this.state.listItems.push(item);
-
+    if (this.state.itemToAdd !== '') {
+      // Thanks to Michael Littleton for the concat() idea!
       this.setState({
-        listItems: this.state.listItems
-      })
+        listItems: this.state.listItems.concat({
+          task: this.state.itemToAdd,
+          id: Date.now(),
+          completed: false
+        })
+      }, this.updateListInStorage)
     }
     this.state.itemToAdd = '';
-    this.updateListInStorage();
   }
 
   markComplete = (taskID) => {
@@ -38,28 +35,26 @@ class App extends React.Component {
       listItems: this.state.listItems.map(item => {
         
         if (item.id.toString() === taskID) {
-          item.completed = !item.completed;
-          this.updateListInStorage();
           return {
             task: item.task,
             id: item.id,
-            completed: item.completed,
+            completed: !item.completed,
           }
         }
         else { 
           this.updateListInStorage();
           return item;
         }
-        })
-      });
+        } )
+      }, this.updateListInStorage);
     }
   
   clearCompleted = () => {
     this.state.listItems = this.state.listItems.filter(item => item.completed === false);
     this.setState({
       listItems: this.state.listItems,
-    })
-    this.updateListInStorage();
+    }, this.updateListInStorage)
+    
   }
 
   textChanged = (event) => {
