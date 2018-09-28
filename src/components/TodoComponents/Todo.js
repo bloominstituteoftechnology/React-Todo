@@ -1,9 +1,11 @@
 //todo component
 import React from "react";
+//being passed in as props.item
+
 const ToDo= (props)=>{
     return(
-<li key={props.id}>
-        {props.item}
+<li key={props.item.key}>
+        {props.item.task}
 </li>
     )
 }
