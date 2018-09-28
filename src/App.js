@@ -11,11 +11,14 @@ class App extends React.Component {
     super()
 
     this.state = {
+
       todos: [],
       text: "",
       isCompleted: false,
       nextId: Date.now()
+
     }
+
   }
 // This will mount everything before it renders onto the screen. All data will get rendered here.
   componentWillMount() {
@@ -48,37 +51,41 @@ class App extends React.Component {
 
     }
   }
-  
-toggleCompleted= (todoId) => {
-    // what to do with the todoId?
- console.log(todoId)
-    this.setState({
-      todos: this.state.todos.map(todo => todo.id !== todoId)
+  deleteItem = (todoId) => {
+      this.setState({
+      todos: this.state.todos.filter(todo => todo.id !== todoId)
     })
-//   this.setState({
-//     todos: this.state.todos.filter(todo => {
-//       if (todo.id === todoId) {
-//         return {
-//           text: todo.text,
-//           id: todo.nextId,
-//           isCompleted: !todo.isCompleted
-//         }
-//       } else {
-//         return todo
-//       }
-//     })
-//   })
-// console.log(todoId)
+  }
+   deleteItems = () => {
+      this.setState({
+      todos: [...this.state.todos].filter(todo => !todo.isCompleted)
+    })
+  }
+
+toggleCompleted= (id) => {
+    // what to do with the todoId?
+   const todosarr = [...this.state.todos]
+   todosarr.forEach(todo => {
+     if (todo.id === id){
+       todo.isCompleted = !todo.isCompleted
+       return todo
+     }
+   })
+   this.setState({
+     todos: todosarr
+   })
+
+ console.log(id)
+
 }
 
   addTodo = (todoText) => {
     // Takeing in the new todo string and adding it to the list
-    let todos = this.state.todos.slice()
+    const todos = Object.assign([],this.state.todos)
     todos.push({ id: this.state.nextId, text: todoText, isCompleted:this.state.isCompleted})
     this.setState({
       todos: todos,
-      isCompleted: false,
-      nextId: Date.now(),
+      nextId: Date.now()
     })
   }
     render() {
@@ -86,7 +93,9 @@ toggleCompleted= (todoId) => {
       <div className="app-body">
         <h2>REACT - TO DO LIST</h2>
         <h1>Stefan's</h1>
-        <Todo todos={this.state.todos} key={this.state.todos.id}  toggleCompleted={this.toggleCompleted} text={this.state.text} addTodo={this.addTodo} handleKeyPress={this.handleKeyPress} todoList={this.todoList} handleChange={this.handleChange} />
+        <Todo todos={this.state.todos} deleteItem={this.deleteItem} key={this.state.todos.id}
+        toggleCompleted={this.toggleCompleted} text={this.state.text} deleteItems={this.deleteItems}
+        addTodo={this.addTodo} handleKeyPress= {this.handleKeyPress} todoList={this.todoList} handleChange={this.handleChange} />
       </div>
     )
 

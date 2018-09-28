@@ -8,8 +8,8 @@ export const Todo = (props) => {
 
     return (
      <div className= 'todo-content'>
-        <TodoForm text={props.text} addTodo={props.addTodo} handleKeyPress={props.handleKeyPress} todoList={props.todoList} handleChange={props.handleChange} />
-        <TodoList key={props.todos.id} toggleCompleted={props.toggleCompleted} todos={props.todos} className= "todo-list"/>
+        <TodoForm text={props.text} addTodo={props.addTodo} deleteItems={props.deleteItems} handleKeyPress={props.handleKeyPress} todoList={props.todoList} handleChange={props.handleChange} />
+        <TodoList  toggleCompleted={props.toggleCompleted} todos={props.todos} deleteItem={props.deleteItem} className= "todo-list"/>
      </div>
      )
 }

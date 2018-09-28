@@ -8,15 +8,12 @@ export  class TodoList extends React.Component {
 
     render() {
 
-        const message = this.props.todos.isCompleted ? 'done' : 'not done'
-        // const myClickyHandler = () => {
-        //     this.props.toggleCompleted(this.props.todos.id)
-         
-        // }
-        return (<div className="display" >{this.props.todos.map(todo => {
+
+
+        return (<div className="display" >{this.props.todos.map((todo, index) => {
             return (
-                <div key={todo.id} id={todo.id} className='list todo-list' onClick={() => this.props.toggleCompleted(todo.id)} >
-                    {todo.text}{" "}{message}<br />
+                <div key={todo.id} id={todo.id} name={index} style={ {textDecoration: todo.isCompleted ? "line-through" : "none"} } className='list todo-list' onClick={() => this.props.toggleCompleted(todo.id)}>
+                    {todo.text}{" "}<br />
                     <br />
                 </div>
             )
