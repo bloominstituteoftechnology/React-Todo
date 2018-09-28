@@ -11,7 +11,7 @@ class App extends React.Component {
     super();
     //input storage
     this.state = {
-      todo: [
+      todos: [
         {
           task: 'Organize Garage',
           id: 1528817077286,
@@ -41,16 +41,34 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     }
-    this.setState(
-      {todo: [...this.state.todo, newObj]}
-    )    
+    this.setState({
+      todos: [...this.state.todos, newObj],
+      newTask: ''
+    })
+  }
+
+  handleComplete = (chosenId) => {
+    this.setState ({
+      todos: this.state.todos.map(x => {
+        if (x.id === chosenId) {
+          return {
+            task: x.task,
+            id: x.id,
+            completed: !x.completed
+          }
+        }
+        else {
+          return x
+        }
+      })
+    })
   }
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList tasks={this.state.todo} />
+        <TodoList todos={this.state.todos} handleComplete={this.handleComplete}/>
         <TodoForm value={this.state.newTask} handleInput={this.handleInput} handleClick = {this.handleClick} />
       </div>
     );

@@ -1,8 +1,14 @@
 import React from 'react';
 
 const Todo = props => {
+    const message = props.todo.completed ? 'done' : 'not done';
+    const clickHandler = () => {
+        props.handleComplete(props.todo.id)
+    }
     return (
-        <li>{props.todo}</li>
+        <li onClick={clickHandler}>
+            {props.todo.task} is {message}
+        </li>
     )
 }
 
