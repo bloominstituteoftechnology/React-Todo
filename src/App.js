@@ -1,6 +1,7 @@
 import React from 'react';
-import TodoForm from './components/TodoComponents/TodoForm'
-import TodoList from './components/TodoComponents/TodoList'
+import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
+import './components/TodoComponents/Todo.css';
 class App extends React.Component {
   constructor() {
     super();
@@ -28,7 +29,7 @@ class App extends React.Component {
     if(formArr[e.target.id].completed === true){
       formArr[e.target.id].style='done';
     }else{
-      formArr[e.target.id].style='';
+      formArr[e.target.id].style='list';
     }
 
     this.setState(formArr);
@@ -54,7 +55,7 @@ class App extends React.Component {
       text: value,
       date: Date.now(),
       completed: completed,
-      style: ''
+      style: 'list'
     });
     console.log(formArr[count]);
     console.log(formArr[0]);
@@ -65,9 +66,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-       <div>
-         
+      <div className="app">
+       <div classNamw="mainapp">
+         <h1>To do list!</h1>
          <TodoList list={this.state.formArr} change={this.handleCheck}/>
         <TodoForm value={this.handleChange} submit={this.handleSubmit} cleared={this.filterArr}/>
         </div>

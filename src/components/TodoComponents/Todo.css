@@ -1,6 +1,60 @@
+.app{
+    margin: 0px auto;
+    width: 400px;
+    border: 1px solid gray;
+    background-color: antiquewhite;
+    font-size: 20px;
+    color: teal;
+}
+
+.mainapp{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    
+}
+
+h1{
+    
+    color: black;
+    text-align: center;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid gray;
+
+
+}
+
+.formdiv{
+    border-top:1px solid gray;
+}
+
+.checkbox{
+    border-right: 1px solid gray;
+}
+
+.listItem{
+    display: flex;
+    
+    border-right: 1px solid gray;
+}
+
+
+.itmdate{
+    display: flex;
+    border-right: 1px solid gray;
+}
+
 .done{
     text-decoration: line-through;
-    
+    display: flex;
+    justify-content: space-between;    
+    border-top: 1px solid gray;
+
 }
 
 .cleared {
