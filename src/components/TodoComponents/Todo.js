@@ -1,9 +1,11 @@
 import React from 'react'
+import './Todo.css'
 const Todo = (props) => {
+    
     return (
-        <ul >
-            <li onClick={props.line}>{props.task}</li>
-        </ul>
+        
+            <li onClick={(event) => {props.line(props.todo.id,event)}}>{props.todo.task}</li>
+        
     )
 }
 

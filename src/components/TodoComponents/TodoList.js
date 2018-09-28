@@ -4,14 +4,13 @@ import React from 'react'
 import Todo from './Todo';
 
 const TodoList = (props) => {
-
     return (
         <div>
             {props.tasks.map(todos => {
                 return (
-                    <div key={todos.id}>
-                        <Todo line={props.line} task={todos.task} />
-                    </div>
+                <ul key={todos.id}>
+                <Todo line={props.line} trueFalse={props.trueFalse} todo={todos} />
+                </ul>
                 );
             })}
         </div>

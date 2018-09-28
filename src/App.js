@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
-
+import './components/TodoComponents/Todo.css';
 class App extends React.Component {
   constructor() {
     super();
@@ -41,20 +41,37 @@ class App extends React.Component {
 
     )
   }
-  strike= (event)=>{
+  strike= (id,event)=>{
+      this.setState({
+      todolists: this.state.todolists.map(obj =>{
+        if(id === obj.id){
+        obj.completed = !obj.completed
+        }
+        console.log(obj.completed)
+        return obj
+      })
+    })
     if(event.target.style.textDecoration === ""){
       event.target.style.textDecoration = "line-through";
     }else if(event.target.style.textDecoration === "line-through"){
       event.target.style.textDecoration = ""
     }
   }
-
+clearCompleted = () => {
+  this.setState({
+    todolists:this.state.todolists.filter(function (obj) {
+      return obj.completed === false;
+    })
+  })
+}
+  
   render() {
-     console.log(this.state.todolists.completed)
+     
     return (
       
       <div>
-        <TodoForm control ={this.state.textInput}inputHandler={this.inputHandler} handleClick1={this.handleClick1} clearField={this.clearField} />
+        <h1>Welcome to my list</h1>
+        <TodoForm clearCompleted={this.clearCompleted} control ={this.state.textInput}inputHandler={this.inputHandler} handleClick1={this.handleClick1} clearField={this.clearField} />
         <TodoList line={this.strike} tasks={this.state.todolists} />
        
       </div>
