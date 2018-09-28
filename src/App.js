@@ -23,10 +23,14 @@ class App extends React.Component {
   }
 
   changeInput = event => {
-    this.setState({ Todo: event.target.value })};
+    this.setState({ Todo: event.target.value })
+  };
 
   addTask = event => {
-    console.log('Button Clicked');
+    const Todos = this.state.Todos.slice();
+    Todos.push({ task: this.state.Todo, id: Date.now(), completed: false });
+    this.setState({ Todos, Todo: '' });
+
   }
 
   toggleClick = event => {
@@ -34,7 +38,7 @@ class App extends React.Component {
   }
 
   clearCompleted = event => {
-    console.log("Clear Completed Task Clicked");
+    this.setState({ Todos: [] });
   }
   
   render() {
@@ -44,6 +48,7 @@ class App extends React.Component {
         onChangeInput={this.changeInput} 
         clickEvent={this.addTask} 
         clearCompleted={this.clearCompleted}
+        valueOfState={this.state.Todo}
         />
         <TodoList 
         todos={this.state.Todos} 
