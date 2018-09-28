@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Todo = ({ todo }) => {
+const Todo = props => {
   return (
-    <div>
-      {todo.task}
+    <div onClick={() => props.onToggleComplete(props.todo.id)}>
+      {props.todo.task}
     </div>
   );
 }

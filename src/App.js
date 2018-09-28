@@ -1,37 +1,53 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
-class App extends Component {
+class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      list: [],
+      todoList: [],
       todo: '',
     };
   }
 
-  handleInputChange = e => this.setState({ [e.target.name]: e.target.value });
+  handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
-  updateTodo = e => {
+  handleSubmitTodo = e => {
     if (this.state.todo.match(/\S/)) {
-      const list = this.state.list.slice();
-      list.push({ task: this.state.todo, id: Date.now(), completed: false });
-      this.setState({ list });
+      const newTodoList = this.state.todoList.slice();
+      newTodoList.push({ task: this.state.todo, id: Date.now(), completed: false });
+      this.setState({ todoList: newTodoList });
     }
     this.setState({ todo: '' });
     e.preventDefault();
+  }
+
+  handleToggleComplete = id => {
+    let newTodoList = this.state.todoList.slice();
+    newTodoList = newTodoList.map(todo => {
+      if (todo.id === id) {
+        return {
+          task: todo.task,
+          id: todo.id,
+          completed: !todo.completed,
+        }
+      }
+      return todo;
+    });
+    this.setState({ todoList: newTodoList });
   }
 
   render() {
     return (
       <div>
         <TodoList
-          list={this.state.list} />
+          todoList={this.state.todoList}
+          onToggleComplete={this.handleToggleComplete} />
         <TodoForm
-          value={this.state.todo}
-          handleChange={this.handleInputChange}
-          submitTodo={this.updateTodo} />
+          todo={this.state.todo}
+          onChange={this.handleChange}
+          onSubmitTodo={this.handleSubmitTodo} />
       </div>
     );
   }
