@@ -50,6 +50,16 @@ class App extends React.Component {
     });
   };
 
+  clearTodos = () => {
+    this.setState({
+      todoData: this.state.todoData.filter(item => {
+        if (!item.completed) {
+          return item;
+        }
+      })
+    });
+  };
+
   render() {
     return (
       <div>
@@ -59,6 +69,7 @@ class App extends React.Component {
         <TodoForm
           addNew={this.addTodo}
           handleInput={this.handleInput}
+          clearTodos={this.clearTodos}
           textField={this.state.textField}
         />
       </div>
