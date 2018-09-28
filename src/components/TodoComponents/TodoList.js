@@ -6,14 +6,14 @@
 import React from "react";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm"
+import "./Todo.css";
 
 //todo has a display style that is not formatted yet
 //displays an h1 then maps through prop.todo to create new todo components for each item in the array
 //displays todo form component
 class TodoList extends React.Component {
     render() {
-        console.log("list", this.props)
-        return(
+         return(
             <div className={this.props.displayStyle}>
                 <h1>Todo List: MVP</h1>
                 <div className="list">
@@ -22,8 +22,8 @@ class TodoList extends React.Component {
                             <Todo key={item.id} 
                                 id={item.id} 
                                 task={item.task} 
-                                completed={item.completed} strike={this.props.strike}
-                                class={this.props.class}
+                                completed={item.completed} toggle={this.props.toggle}
+                                displayStyle="todo-item"
                             />
                         );
                     })}
@@ -33,6 +33,7 @@ class TodoList extends React.Component {
                         input={this.props.input} 
                         add={this.props.add} 
                         remove={this.props.remove}
+                        displayStyle="form"
                     />
                 </div>
             </div>

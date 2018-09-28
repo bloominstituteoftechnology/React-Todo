@@ -3,21 +3,19 @@
 import React from "react";
 import "./Todo.css";
 //to do simply returns the task item name to the screen
+//class name toggles the p tag class names depending on its completed flag
 const Todo = (props) => {
-    const message = props.completed ? "done" : "not done";
+    let className = props.completed ? "todo-item completed" : "todo-item";
 
     const itemClicked = () =>{
-        props.strike(props.id)
-        console.log(props.addClass)
+        props.toggle(props.id)
     }
-    console.log("todo", props)
-    console.log()
         return (
-            <p className={props.class} 
-                onClick={itemClicked}>
-                {props.task} is {message} {props.class}
-            </p>
-        );
+            <ul className={className} 
+            onClick={itemClicked}>
+            <li>{props.task}</li>
+        </ul>
+);
 }
 
 export default Todo;

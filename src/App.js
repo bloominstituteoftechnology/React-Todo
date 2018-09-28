@@ -4,9 +4,7 @@
 
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
-
-//empty array
-let data = [];
+import "./App.css";
 
 class App extends React.Component {
   //stored state in component
@@ -37,8 +35,7 @@ class App extends React.Component {
   //new object is created to append to the todos array
   //set state changes the todos list to include newly added data
   addTodo = () => {
-    console.log(this.state.input)
-    data = {
+    let data = {
       task: this.state.input,
       id: Date.now(),
       completed: false,
@@ -49,8 +46,8 @@ class App extends React.Component {
     })
   }
 
-  //strike toggles the completed flag from true to false
-  strike = (todoId) => {
+  //toggles the completed flag from true to false
+  toggleCompletedFlag = (todoId) => {
     this.setState({
       todos: this.state.todos.map(item => {
         if (item.id === todoId) {
@@ -58,7 +55,6 @@ class App extends React.Component {
             task: item.task,
             id: item.id,
             completed: !item.completed,
-            addClass: !this.state.addClass,
           }
         }else{
           return item;
@@ -70,10 +66,8 @@ class App extends React.Component {
   //handles clear completed button
   //filters all todos the have a completed value of true
   removeCompleted = () =>{
-    console.log("clear")
     this.setState({
       todos: this.state.todos.filter(item => {
-        console.log(item.completed)
           return item.completed === !true;
       })
     })
@@ -82,15 +76,15 @@ class App extends React.Component {
   //render todo list
   render() {
     return (
-      <div>
+      <div className="app-container">
         <TodoList 
           state={this.state} 
           input={this.handleInput}
           text={this.state.input}
           add={this.addTodo} 
           remove={this.removeCompleted} 
-          strike={this.strike}
-          class={this.class}/>
+          toggle={this.toggleCompletedFlag}
+          displayStyle="flex"/>
       </div>
     );
   }
