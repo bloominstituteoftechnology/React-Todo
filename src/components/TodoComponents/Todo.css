@@ -2,6 +2,21 @@
     margin: 0 auto;
     max-width: 546px;
     width: 100%;
+    border: 2px solid #575A5F;
+    border-radius: 4px;
+    height: 500px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    background: #292B30;
+    color: #F7F6FA;
+}
+
+.container h2 {
+    margin-top: 0px;
+    margin-bottom: 6px;
+    padding: 4px 0px 4px 6px;
+    background: #393C43;
 }
 
 .todo-complete {
@@ -9,9 +24,18 @@
     cursor: pointer;
 }
 
+.todoList {
+    height: 433px;
+    margin-left: 6px;
+}
+
 input {
-    width: 57%;
+    width: 63%;
     height: 19px;
+}
+
+.todo {
+    padding-top: 3px;
 }
 
 .todo:hover {
@@ -19,6 +43,7 @@ input {
 }
 
 .todo-form {
+    margin: 5px 4px 4px 6px;
     margin-top: 5px;
 }
 
@@ -28,15 +53,18 @@ input {
 }
 
 .button {
-    background: white;
-    border: 1px solid gainsboro;
+    color: #C4C4C5;
+    background: #666666;
+    border: 1px solid #707070;
+    border-radius: 3px;
     padding: 4px;
-    width: 21%;
+    margin-left: 6px;
 }
 
 .button:hover {
-    background: #A4141D;
-    color: white;
+    background: #F9F9F9;
+    color: black;
+    cursor: pointer;   
 }
 
 .submit {

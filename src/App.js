@@ -59,7 +59,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h2>To-do List:</h2>
+        <h2>PROCASTINATION LIST :</h2>
         <TodoList
           todos={this.state.todos}
           handleClick={this.handleClick}

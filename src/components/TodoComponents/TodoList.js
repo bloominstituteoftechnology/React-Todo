@@ -2,12 +2,11 @@
 import React from 'react';
 import './Todo.css';
 import Todo from './Todo';
-import TodoForm from './TodoForm';
 
 class TodoList extends React.Component {
   render() {
     return (
-      <div>
+      <div className="todoList">
         {this.props.todos.map(todo => {
           return <Todo 
                     key={todo.id}
