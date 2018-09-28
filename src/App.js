@@ -28,16 +28,32 @@ class App extends React.Component {
     });
   };
 
-  handleClick = (event) => {
-    event.push();
+  handleAdd = (event) => {
+    event.preventDefault();
     const newTodo = {
       task: this.state.textInput,
       completed: false,
       id: Date.now()
     }
+    let newState = this.state.todos;
+    newState.push(newTodo);
+    console.log(this.state.todos, newState);
     this.setState({
+      todos: newState,
+      textInput: ''
+    });
+  }
 
+  complete = () => {
+    this.setState({
+      value: this.state.textInput.strike(),
+      completed: this.state.todos.completed
     })
+  }
+
+  handleClear = (event) => {
+    event.preventDefault();
+
   }
   
 
@@ -47,11 +63,12 @@ class App extends React.Component {
         <h1>ToDo List: MVP</h1>
         <TodoList
           todos={this.state.todos}
+          // complete={this.complete}
         />
         <TodoForm 
-          textInput={this.state.textInput} 
+          textInput={this.textInput}
           handleInput={this.handleInput} 
-          handleClick={this.handleClick} 
+          handleAdd={this.handleAdd} 
         />
       </div>
     );
