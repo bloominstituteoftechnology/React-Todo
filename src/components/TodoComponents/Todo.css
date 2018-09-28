@@ -7,6 +7,10 @@
     width: 50%;
     margin: 0 auto;
     padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .todo {
@@ -18,19 +22,24 @@
     width: 100%;
 }
 
-h1 {
-    text-align: center;
-}
-
 .todo-form-container {
     display: flex;
-    justify-content: space-around;
-    width: 80%;
+    justify-content: space-between;
+    width: 100%;
+}
+
+h1 {
+    color: #d35400;
+}
+
+img {
+    width: 40%;
 }
 
 input {
     padding: 10px;
     border: 2px solid #bdc3c7;
+    width: 50%;
 }
 
 button {
