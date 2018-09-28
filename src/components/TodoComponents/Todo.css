@@ -1,3 +1,60 @@
+html{
+    font-family: 'Poor Story', cursive;
+}
+body {
+    background-color:aqua;
+}
+.container {
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    max-width: 500px;
+    height:auto;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color:rosybrown;
+    -webkit-box-shadow: 10px 10px 43px 19px rgba(0,0,0,0.61);
+    -moz-box-shadow: 10px 10px 43px 19px rgba(0,0,0,0.61);
+    box-shadow: 10px 10px 43px 19px rgba(0,0,0,0.61);
+}
+
+.list-container {
+    background-color:lightgray;
+    margin-left:10px;
+}
+
+.list-title {
+    font-size:45px;
+    margin-left:100px;
+}
 .completed {
     text-decoration:line-through black;
+    font-weight: bold;
+    font-size:24px;
+    color:red;
+}
+
+.not-completed {
+    font-size:30px;
+}
+
+.btn{
+    background-color:dodgerblue;
+    color:white;
+    border: 2px solid black;
+    margin-left:15px;
+    padding: 10px 5px;
+    font-size:15px;
+    border-radius:5px;
+}
+
+.input-box{
+    margin:10px;
+    padding:5px;
+    font-size:18px;
+    color:darkgreen;
+    background-color:whitesmoke;
+    border:5px inset grey;
+    
+    border-radius: 5px;
 }

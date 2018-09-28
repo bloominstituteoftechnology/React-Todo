@@ -4,7 +4,7 @@ import './Todo.css';
 
 const TodoList = (props) => {
     return(
-        <ul>{props.value.map(item => <ToDo completeHandler={props.completeToggle} obj={item} key={item.id}/> )}</ul>
+        <ul className="list-container">{props.value.map(item => <ToDo completeHandler={props.completeToggle} obj={item} key={item.id}/> )}</ul>
     )
 }
 
