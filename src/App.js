@@ -24,18 +24,16 @@ class App extends React.Component {
 	};
 
 	clearList = event => {
+		event.preventDefault();
 		let newTodoList = this.state.todoList.slice();
-		console.log(newTodoList);
 
 		newTodoList = newTodoList.filter(item => {
 			return item.completed === false;
 		});
-		console.log(newTodoList);
+
 		this.setState({
 			todoList: newTodoList
 		});
-
-		console.log(newTodoList);
 	};
 	addToList = event => {
 		event.preventDefault();
