@@ -9,7 +9,7 @@
     flex-flow: column;
     justify-content: space-between;
     background: #292B30;
-    color: #F7F6FA;
+    color: #F4F4F4;
 }
 
 .container h2 {
@@ -17,11 +17,7 @@
     margin-bottom: 6px;
     padding: 4px 0px 4px 6px;
     background: #393C43;
-}
-
-.todo-complete {
-    text-decoration: line-through;
-    cursor: pointer;
+    color: #8D9295;
 }
 
 .todoList {
@@ -36,9 +32,17 @@ input {
 
 .todo {
     padding-top: 3px;
+    font-size: 1.1rem;
 }
 
 .todo:hover {
+    cursor: pointer;
+}
+
+.todo-complete {
+    font-size: 1.1rem;
+    padding-top: 3px;
+    text-decoration: line-through;
     cursor: pointer;
 }
 
@@ -62,14 +66,7 @@ input {
 }
 
 .button:hover {
-    background: #F9F9F9;
-    color: black;
+    background: #8D9295;
+    color: #F4F4F4;
     cursor: pointer;   
-}
-
-.submit {
-}
-
-.clear {
-
 }
