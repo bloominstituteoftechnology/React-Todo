@@ -1,8 +1,20 @@
 li{
-    font-size:18px;
+    font-size:24px;
     list-style-type: none;
+    text-shadow: 2px 2px gold;
 }
 .form button{
 margin-left:10px;
-/* margin-right:10px; */
+
+}
+body{
+    background-color:azure;
+}
+.cta{
+    margin:0px auto;
+    border:2px solid dodgerblue;
+    width:500px;
+    height:500px;
+    background-color: beige;
+    padding: 5px 15px 0px 15px;
 }

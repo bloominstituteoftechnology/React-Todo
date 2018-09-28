@@ -21,26 +21,20 @@ class App extends React.Component {
 
     )
   }
-  handleClick1 = () => {
-   
+  addTodo = () => {
     const newTodo = {
       task: this.state.textInput,
       id: Date.now(),
       completed: false,
     }
     this.setState({
-      todolists: [...this.state.todolists, newTodo]
-    }
-
-    )
-  }
-  clearField = () => {
-    this.setState({
+      todolists: [...this.state.todolists, newTodo],
       textInput: ""
     }
 
     )
   }
+ 
   strike= (id,event)=>{
       this.setState({
       todolists: this.state.todolists.map(obj =>{
@@ -56,24 +50,22 @@ class App extends React.Component {
     }else if(event.target.style.textDecoration === "line-through"){
       event.target.style.textDecoration = ""
     }
+  
   }
 clearCompleted = () => {
   this.setState({
-    todolists:this.state.todolists.filter(function (obj) {
+    todolists:this.state.todolists.filter((obj) => {
       return obj.completed === false;
     })
   })
 }
   
   render() {
-     
     return (
-      
-      <div>
+      <div className="cta">
         <h1>Welcome to my list</h1>
-        <TodoForm clearCompleted={this.clearCompleted} control ={this.state.textInput}inputHandler={this.inputHandler} handleClick1={this.handleClick1} clearField={this.clearField} />
+        <TodoForm clearCompleted={this.clearCompleted} control ={this.state.textInput}inputHandler={this.inputHandler} addTodo={this.addTodo} clearField={this.clearField} />
         <TodoList line={this.strike} tasks={this.state.todolists} />
-       
       </div>
     );
   }
