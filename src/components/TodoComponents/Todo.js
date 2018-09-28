@@ -10,7 +10,7 @@ const ToDo = (props) =>{
     
     return(
         <div id ={props.id} onClick = {divClicker} className = {props.item.completed ? "completed" : null}>
-             {props.item.task}
+            <p className = "task">{props.item.task}</p>
         </div>
     )
 }

@@ -55,6 +55,7 @@ class App extends React.Component {
         }
         return toDoObj;
       })
+      
     })
 
     
@@ -62,10 +63,10 @@ class App extends React.Component {
   render() {
     console.log(this.state.todo)
     return (
-      <div>
-        <h1>Todo List: MVP</h1>
+      <div className = "app-to-do">
+        <h1 className = "to-do-header">Todo List: MVP</h1>
         <TodoList handleClick = {this.handleClick} list = {this.state.todo}/>
-        <ToDoForm addItem = {this.addItem} handleInput = {this.handleInput} removeTask = {this.removeTask}/>
+        <ToDoForm   addItem = {this.addItem} handleInput = {this.handleInput} removeTask = {this.removeTask}/>
 
       </div>
     );

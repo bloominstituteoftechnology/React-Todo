@@ -2,12 +2,14 @@ import React from 'react';
 
 const ToDoForm = (props) =>{
     return(
-        <div>
-            <input onChange = {props.handleInput} placeholder =" ..todo"/>
-            <button onClick = {props.addItem}>Add Todo</button>
-            <button onClick = {props.removeTask} >Clear Completed</button>
+        <div className = "to-do-container">
+            <div className = "to-do-form">
+                <input  onChange = {props.handleInput} placeholder =" ..todo"/>
+                <button onClick = {props.addItem} className = "button">Add Todo</button>
+                <button onClick = {props.removeTask} className = "button">Clear Completed</button>
 
-        </div>
+            </div>
+        </div>    
     )
 }
 export default ToDoForm;

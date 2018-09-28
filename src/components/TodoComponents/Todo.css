@@ -1,5 +1,54 @@
-.completed{
-    color:red;
+.app-to-do{
+    max-width:500px;
+    width:100%;
+    text-align: center;
+    margin:50px;
+    font-family: 'Italianno', cursive;
+    background-color:rgb(51, 1, 51);
+    border:7px solid rgb(255, 208, 0);
+    border-radius:10px;
+    padding-bottom:50px;
+    color:white;
+}
+
+.to-do-header{
     font-size:50px;
+    color:rgb(255, 208, 0);
+    text-decoration:underline;
+}
+.to-do-list{
+    font-size:32px;
+}
+
+
+.completed{
+    color:rgb(255, 208, 0);
+    
     text-decoration:line-through;
+  
+}
+.to-do-container{
+    display:flex;
+    flex-wrap:wrap;
+   
+    justify-content:center;
+    
+    
+}
+.to-do-form{
+   display:flex;
+   flex-wrap: wrap;
+    width:40%;
+    justify-content:center;
+    
+}
+.button{
+    width:100%;
+    height:50px;
+    border-radius:5px;
+    margin-top:20px;
+    color:rgb(255, 208, 0);
+    border:2px solid rgb(255, 208, 0);
+    background-color: rgb(70, 6, 70);
+    font-size:20px;
 }
