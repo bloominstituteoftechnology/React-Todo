@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todo.css';
 
 //render each todo list task
 
@@ -11,7 +12,7 @@ class Todo extends React.Component {
         }
 
         return (
-            <div onClick={handleClick}>
+            <div onClick={handleClick} className={this.props.todo.className}>
                 {this.props.todo.task} is {message}
             </div>
         )

@@ -15,12 +15,14 @@ class App extends React.Component {
       todos: [{
         id: 1234,
         task: 'test',
-        completed: false
+        completed: false,
+        className: ''
       },
       {
         id: 5678,
         task: 'test2',
-        completed: false
+        completed: false,
+        className: ''
       }],
       input: ''
     }
@@ -30,14 +32,16 @@ class App extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    this.setState({
-      todos: [...this.state.todos, {
-        id: Date.now(),
-        task: this.state.input,
-        completed: false
-      }],
-      input: ''
-    });
+    if (this.state.input !== '') {
+      this.setState({
+        todos: [...this.state.todos, {
+          id: Date.now(),
+          task: this.state.input,
+          completed: false
+        }],
+        input: ''
+      });
+    }
   }
 
   //handler function for whenever text is typed into input field 
@@ -52,10 +56,10 @@ class App extends React.Component {
 
   handleClick = (todoID) => {
     const todoItems = this.state.todos.slice();
-    console.log(todoItems);
     todoItems.map(todo => {
       if (todo.id === todoID) {
         todo.completed = !todo.completed;
+        todo.className = todo.completed ? 'completed' : '';
         return todo;
       }
       else {
@@ -65,24 +69,19 @@ class App extends React.Component {
     this.setState(
       {todos: todoItems}
     )
+    console.log(this.state.todos);
   }
 
-    // this.setState({
-    //   todos: this.state.todos.map(todo => {
-    //     if (todo.id === todoID) {
-    //       return {
-    //         task: todo.task,
-    //         id: todo.id,
-    //         completed: !todo.completed
-    //       }
-    //     }
-    //     else {
-    //       return todo
-    //     }
-    //   }, console.log(this.state.todos))
-    // })
- 
-  
+  //function to clear completed items
+
+  clearCompleted = (e) => {
+    e.preventDefault();
+    let todoItems = this.state.todos.slice();
+    todoItems = todoItems.filter(todo => todo.completed === false);
+    this.setState(
+      {todos: todoItems}, console.log('test')
+    );
+  }
 
   //invoke individual components and render entire app
 
@@ -95,11 +94,13 @@ class App extends React.Component {
           key={this.state.todos}
           completed={this.state.todos}
           handleClick={this.handleClick}
+          className={this.state.className}
         />
         <ToDoForm 
-          onSubmit = {this.onSubmit} 
+          submit={this.onSubmit} 
           onChange={this.updateInput}
           value={this.state.input}
+          clear={this.clearCompleted}
         />
       </div>
     );

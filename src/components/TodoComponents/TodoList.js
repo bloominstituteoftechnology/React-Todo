@@ -16,6 +16,7 @@ class TodoList extends React.Component {
                                 completed={todo.completed}
                                 handleClick={this.props.handleClick}
                                 todo={todo}
+                                className={this.props.className}
                             />
                         )       
                     }
