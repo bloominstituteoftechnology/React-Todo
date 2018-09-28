@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state ={
-      list:[{task:'This is the beginning of your list', id:Date.now(), completed:false}],
+      list:[],
       task:""
     }
   }
@@ -21,7 +21,6 @@ class App extends React.Component {
     this.setState({
       task: value,
     })
-    // console.log(value)
   }
 
   addTaskHandler = event => {
@@ -43,24 +42,22 @@ class App extends React.Component {
     this.setState({
       list: this.state.list.map(item => {
         if(item.id === listId ) {
-          console.log(item)
           return {
             task: item.task,
             id: item.id,
             completed: !item.completed
           }
         } else {
-          console.log(item)
-          return item
+          return item;
         }
 
       })
     })
   }
-  clearHandler = event => {
+  clearHandler = (event) => {
     event.preventDefault();
     this.setState({
-    list: []
+      list: this.state.list.filter(item => !item.completed)
     })
   }
   render() {
