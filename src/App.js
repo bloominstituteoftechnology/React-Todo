@@ -1,13 +1,22 @@
 import React, {Component} from 'react';
 import Form from './components/TodoComponents/TodoForm'
 import List from './components/TodoComponents/TodoList'
+import './App.css'
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state={
       input: '',
-      todolist: [],
+      todolist: [
+        {
+          task: 'graduate lambda school',
+          id: 1,
+          completed: false,
+        }
+
+      ],
+      id: Date.now()
     };
   }
 
@@ -23,8 +32,8 @@ class App extends React.Component {
     const obj = {
       task: this.state.input,
       id: Date.now(),
-      completed: false
     }
+
     this.setState({
       todolist: [...this.state.todolist, obj],
       input: '',
@@ -32,8 +41,14 @@ class App extends React.Component {
   };
 
   completeOrNot = (element) => {
-    let currentToDo = element.target;
-    let todos
+    let current = element.target;
+    let todos = this.state.todos.map(todo => {
+      if (Number(current.id) === todo.id) {
+        current.classList.toggle('completed');
+        todo.completed = !todo.completed;
+        return todo;
+      }
+    })
   }
 
 
@@ -46,6 +61,7 @@ class App extends React.Component {
           input={this.state.input} 
           handleSubmit={this.handleSubmit} 
           handleInput={this.handleInput} 
+          completeOrNot={this.completeOrNot}
         />
       </div>
     );

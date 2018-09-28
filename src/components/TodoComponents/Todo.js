@@ -1,12 +1,12 @@
 import React from 'react';
 
+
 const Todo = (props) => {
-    return (
+    return(
         <li>
             {props.value}
         </li>
     )
 }
-
 
 export default Todo;
