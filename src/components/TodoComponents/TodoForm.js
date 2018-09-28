@@ -4,24 +4,17 @@
 
 import React from 'react';
 
-class ToDoForm extends React.Component {
-	constructor() {
-        super();
-        
-        this.state = {
-            // something
-        }
-    }
-
-    render() {
+class TodoForm extends React.Component {
+    render () {
         return (
             <div>
-                <input onChange={this.handleInput} />
-                <button onClick={this.handleClick}>Add Todo</button>
-                <button onClick={this.handleClick}>Clear Completed</button>
+                <input type="text" onChange={this.props.handleInput} placeholder="...todo" value={this.props.task} />
+                <button onClick={this.props.addItem}>Add Todo</button>
+                <button onClick={this.props.clearCompleted}>Clear Completed</button>
             </div>
-        );
+        )
     }
 }
 
-export default ToDoForm;
+export default TodoForm;
+

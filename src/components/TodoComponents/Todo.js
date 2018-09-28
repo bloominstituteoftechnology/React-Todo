@@ -2,22 +2,21 @@
 
 import React from 'react';
 
-class ToDo extends React.Component {
-	constructor() {
-        super();
-        
-        this.state = {
-            // something
-        }
-    }
+class Todo extends React.Component {
 
-    render() {
+    render () {
+        const message = this.props.todo.completed ? 'done' : 'not done';
+
+        const TodoClickHandler = () => {
+            this.props.handleClick(this.props.todo.id)
+        }
+
         return (
-            <div>
-                {/* something */}
+            <div onClick ={TodoClickHandler}>
+                {this.props.todo.task} is {message}
             </div>
-        );
+        )
     }
 }
 
-export default ToDo;
+export default Todo;

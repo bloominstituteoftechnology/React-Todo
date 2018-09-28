@@ -5,23 +5,22 @@
 // - `<TodoList />` receives your Todos array and iterates over the list generating a new `<Todo />` for each element in the array.
 
 import React from 'react';
+import Todo from './Todo.js';
 
-class ToDoList extends React.Component {
-	constructor() {
-        super();
-        
-        this.state = {
-            // something
-        }
-    }
-
-    render() {
+class TodoList extends React.Component {
+    render () {
         return (
             <div>
-                {/* something */}
+                {this.props.todos.map(todo => {
+                    return <Todo
+                        key={todo.id}
+                        todo = {todo}
+                        handleClick={this.props.handleClick}
+                        />
+                })}
             </div>
-        );
+        )
     }
 }
 
-export default ToDoList;
+export default TodoList;
