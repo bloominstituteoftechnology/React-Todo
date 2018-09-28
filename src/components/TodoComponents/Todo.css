@@ -1,0 +1,46 @@
+ * {
+   
+     margin: 0 auto ; 
+ }
+
+ body {
+      background-image: url(https://i.ytimg.com/vi/2KjHxZ1voAw/maxresdefault.jpg) ;
+      background-repeat: no-repeat;
+      margin: 0 auto ;
+      width: 60% ;
+ }
+
+#root {
+     width: 60%;
+     font-family: 'Chicle';
+     height: 500px;
+     
+     
+ }
+
+ .thediv {
+     /* border: 7px solid black ; */
+ }
+.todoDiv {
+    height: 70px ;
+    font-size: 2.3rem ;
+    color: rgb(112, 103, 89) ;
+}
+
+ html {
+   font-size: 62.5% ; 
+ }
+
+ .todoFormDiv {
+     display: flex ; 
+     flex-direction: row ;
+     justify-content: space-around ;
+     height: 50px ;
+
+ }
+ button {
+     /* background: transparent ; */
+     height: 25px ;
+     background-color: linear-gradient(rgb(149, 149, 184), rgb(67, 67, 131), rgb(226, 226, 240))
+
+ }

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom' 
+import './Todo.css'
 
 
 class Todo extends React.Component {
@@ -14,8 +15,10 @@ class Todo extends React.Component {
             this.props.handleClick(this.props.todo.id)
         }
         return(
-            <div>
-            <h1 onClick={clickHander}>{this.props.todo.task} is {message}</h1>
+            <div className='todoDiv'>
+            <h1 onClick={clickHander}>
+            {this.props.todo.task} is {message}
+            </h1>
             {/* <input />
             <button onClick={this.props.addTodo}>Add Todo</button>
             <button>Clear All</button> */}

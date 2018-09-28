@@ -21,6 +21,7 @@ class App extends React.Component {
         }
       ],
       newTodo: ''
+    
     }
   }
 
@@ -42,9 +43,10 @@ class App extends React.Component {
       
     })
   }
+
         // eventValue: event.target.value,
 
-  addTodo = event => {
+  addTodo = () => {
 
     const newTodoCopy = this.state.todos.slice();
     
@@ -66,6 +68,22 @@ class App extends React.Component {
 
     })
   }
+
+  /*clearAll = () => {
+
+    let emptyTodo = this.state.todos.slice()
+
+    this.setState(function (){
+          
+   if (emptyTodo !== 0){
+     emptyTodo = []
+     return emptyTodo
+   } else {return emptyTodo}
+  
+    })
+ this.state.todos = emptyTodo
+
+  }*/
   
 //   handleChange = () => {
 //     this.setState = props => {
@@ -84,6 +102,7 @@ class App extends React.Component {
         handleClick={this.handleClick} />
         <div></div>
       <TodoForm 
+      clearAll={this.clearAll}
       addTodo={this.addTodo} 
         newTodo={this.newTodo}
         changeHandler={this.changeHandler}
