@@ -11,27 +11,57 @@ class App extends React.Component {
     this.state = {
       todo: [{task:'Sleep', id:'',completed:false,}],
       task: '',
+      // id: '',
+      // completed: '',
     };
   }
 
   inputHandler = event => {
-    const value = this.target.value;
+    const value = event.target.value;
 
     this.setState (
       {task:value}
-    );
+    ); console.log(value)
   }  
 
+
+
   submitHandler = event => {
+    event.preventDefault();
+
       const obj = {
-        
+        task: this.state.task,
+        id: Date.now(),
+        completed: false,
       }
+
+      this.setState({
+        todo: [...this.state.todo, obj],
+        task: "",
+      });
   }
+
+  eraseHandler = event => {
+    event.preventDefault();
+    
+      const obj = {
+        task: this.state.task,
+        id: Date.now(),
+        completed: false,
+      }
+
+      this.setState({
+        todo: [...this.state.todo, obj],
+        task: "",
+      });
+  }
+
+
   render() {
     return (
       <div>
-        <TodoForm value={this.state.task} onChange={this.inputHandler} />
         <TodoList list={this.state.todo} />
+        <TodoForm value={this.state.task} inputHandler={this.inputHandler} submitHandler={this.submitHandler} />
       </div>
     );
   }

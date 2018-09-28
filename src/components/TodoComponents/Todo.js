@@ -1,5 +1,12 @@
 
+import React from 'react';
 
+const Todo = (props) => {
+    return(
+<div>
+    {props.obj.task}
+</div>
+    )
+}
 
-
-{this.state.todo.map(item => {return (<div key={item.id}> {item.task} </div>)})}
+export default Todo
