@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Todo.css";
 
 const TodoForm = (props) => {
   const filteredList = () =>{
@@ -16,8 +17,8 @@ const TodoForm = (props) => {
                   }
               }} 
         />
-        <button onClick={props.add}>Add Todo</button>
-        <button onClick={filteredList}>Clear Completed</button>
+        <div onClick={props.add} className="add">Add Todo</div>
+        <div onClick={filteredList} className="clear">Clear Completed</div>
     </div>
     );
 }

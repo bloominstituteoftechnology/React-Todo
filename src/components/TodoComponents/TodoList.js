@@ -11,6 +11,15 @@ class TodoList extends React.Component {
                 <h1>To-Do List App!</h1>
                 <h3>by jbrock</h3>
               </div>
+              <div className="form">
+                  <TodoForm 
+                      state={this.props.state}
+                      text={this.props.text}
+                      input={this.props.input} 
+                      add={this.props.add} 
+                      remove={this.props.remove}
+                  />
+              </div>
               <div className="list">
                   {this.props.state.todos.map(item => {
                       return (
@@ -25,15 +34,6 @@ class TodoList extends React.Component {
                       );
                   })}
                 </div>
-                <div className="form">
-                  <TodoForm 
-                      state={this.props.state}
-                      text={this.props.text}
-                      input={this.props.input} 
-                      add={this.props.add} 
-                      remove={this.props.remove}
-                  />
-              </div>
           </div>
       );
   }
