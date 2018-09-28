@@ -7,11 +7,11 @@ import React from 'react';
 class TodoForm extends React.Component {
     render () {
         return (
-            <div>
+            <form>
                 <input type="text" onChange={this.props.handleInput} placeholder="...todo" value={this.props.task} />
                 <button onClick={this.props.addItem}>Add Todo</button>
                 <button onClick={this.props.clearCompleted}>Clear Completed</button>
-            </div>
+            </form>
         )
     }
 }

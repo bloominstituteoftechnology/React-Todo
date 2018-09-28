@@ -24,6 +24,7 @@ class App extends React.Component {
 	// - All of your `handler` functions should live here on `<App />`.
 
 	addItem = (event) => {
+		event.preventDefault();
 		const task = this.state.task;
 		const id = Date.now();
 		const nextToDo = {
@@ -63,6 +64,12 @@ class App extends React.Component {
 		});
 	  };
 	
+	clearCompleted = (event) => {
+		event.preventDefault();
+		let todoArr = [...this.state.todos].filter(todo => !todo.completed);
+		this.setState({ todos: todoArr})
+	}
+
 	render() {
 		return (
 			<div>
@@ -75,6 +82,7 @@ class App extends React.Component {
 					task={this.state.task} 
 					addItem={this.addItem} 
 					handleInput={this.handleInput}
+					clearCompleted ={this.clearCompleted}
 				/>
 			</div>
 		);
