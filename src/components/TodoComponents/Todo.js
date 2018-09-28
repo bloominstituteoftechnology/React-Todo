@@ -6,14 +6,14 @@ import "./Todo.css";
 //class name toggles the p tag class names depending on its completed flag
 
 const Todo = (props) => {
-    // let className = props.completed ? "todo-item completed" : "todo-item"; <--old code would pass this value to className
+    /* let className = props.completed ? "todo-item completed" : "todo-item"; <--old code would pass this value to className
 
     const itemClicked = () =>{
         props.toggle(props.id)
-    }
+    } <---old code was passed to on click to toggle completed flag*/
         return (
                 <ul className={props.completed ? "todo-item completed" : "todo-item"}
-                    onClick={itemClicked}>
+                onClick={() => {props.toggle(props.id)}}>
                     <li>{props.task}</li>
                 </ul>
         );
