@@ -1,3 +1,47 @@
+.container {
+    margin: 0 auto;
+    max-width: 546px;
+    width: 100%;
+}
+
 .todo-complete {
     text-decoration: line-through;
+    cursor: pointer;
+}
+
+input {
+    width: 57%;
+    height: 19px;
+}
+
+.todo:hover {
+    cursor: pointer;
+}
+
+.todo-form {
+    margin-top: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    background: white;
+    border: 1px solid gainsboro;
+    padding: 4px;
+    width: 21%;
+}
+
+.button:hover {
+    background: #A4141D;
+    color: white;
+}
+
+.submit {
+}
+
+.clear {
+
 }

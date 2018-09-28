@@ -52,20 +52,14 @@ class App extends React.Component {
 
   handleClear = () => {
     this.setState({
-      todos: this.state.todos.filter(todo => {
-        if (todo.completed === 'false') {
-          return {
-            todo
-          }
-        }
-      })
+      todos: this.state.todos.filter(todo => todo.completed === false)
     })
   }
 
   render() {
     return (
-      <div>
-        <h2>Todo List: MVP</h2>
+      <div className="container">
+        <h2>To-do List:</h2>
         <TodoList
           todos={this.state.todos}
           handleClick={this.handleClick}

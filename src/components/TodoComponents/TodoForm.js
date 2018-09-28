@@ -7,10 +7,10 @@ import './Todo.css';
 class TodoForm extends React.Component {
     render() {
         return (
-            <div>
-                <input type="text" />
-                <button onClick={this.props.submit}>Add Todo</button>
-                <button onClick={this.props.clear}>Clear Completed</button>
+            <div className="todo-form">
+                    <input type="text" />
+                    <button className="button submit" onClick={this.props.submit}>Add To-do</button>
+                    <button className="button clear" onClick={this.props.clear}>Clear Completed</button>
             </div>
         )
     }
