@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    
+}
+
+body{
+    background: #f6f6f6;
+}
+.appstyle{
+    max-width: 600px;
+    width: 100%;
+    height: 90vh;
+    margin: 10px auto;
+   padding: 20px;
+    border: 5px solid #f2f2f2;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    
+
+}
+
+h2{
+    font-size: 3rem;
+    text-align: center;
+}
