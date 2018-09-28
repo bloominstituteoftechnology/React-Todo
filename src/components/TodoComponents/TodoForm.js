@@ -1,14 +1,16 @@
 //will hold your input field and your Add Todo and Clear Completed buttons.
+
 import React from "react";
+//todoform displays the input and todo buttons
+//on click functions are passed down from app.js
 const TodoForm = (props) => {
-   console.log("form", props)
-   return (
-       <div className="form-container">
-         <h1>Todo List: MVP</h1>
-         <input onChange={props.action.input} />
-         <button onClick={props.action.add}>Add Todo</button>
-         <button onClick={props.action.remove}>Clear Completed</button>
-     </div>
-     );
+    return (
+        <div className="form-container">
+          <input onChange={props.action.input} />
+          <button onClick={props.action.add}>Add Todo</button>
+          <button onClick={props.action.remove}>Clear Completed</button>
+      </div>
+      );
 }
-export default TodoForm;tons.
+
+export default TodoForm;
