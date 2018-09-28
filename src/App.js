@@ -1,37 +1,66 @@
 import React from 'react';
-import List from './components/TodoComponents/TodoList'
-import Form from './components/TodoComponents/TodoForm'
-import Todo from './components/TodoComponents/Todo'
+import TodoList from'./components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 
-class App extends React.Component {
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-  
-  render(){
-    return(
-      <div>
-        <Form/>
-        <Todo/>
-        <List/>
-        
-        
-        
-      </div>
-    )
+  const listTodos=[{
+    task:'',
+    id:Date.now(),
+    completed:false
+  }]
+  class App extends React.Component{
+  constructor(){
+    super();
+    this.state={
+        todos:listTodos,
+        todo:''
+    }
   }
-}
-Form.onChange = (event) =>{
-  Form.setState({term:event.target.value});
-};
 
-Form.onSubmit = (event) =>{
-  event.preventDefault()
-  Form.setState({
-    term:'',
-    items:[...Form.state.items,Form.state.term]
-  });
-}
+  submitTodo=event=>{
+    
+
+  };
+  inputTodo=event=>{
+    this.setState({todo:event.target.value});
+  };
+  toggleTodo=(id)=>{
+  
+  };
+  clearTodo=event=>{
+    
+  }
+  
+
+                render() {
+                  return (
+                          <div>
+                            <h1>
+                              <TodoList 
+                                        todos={this.state.todos} 
+                                        toggleTodo={this.toggleTodo}/>
+                            </h1>
+                              
+                              <TodoForm 
+                                        value={this.state.todo} 
+                                        handlerInputTodo={this.inputTodo}
+                                        handlerSubmitTodo={this.submitTodo}
+                                        clearTodoHandler={this.clearTodo}/>
+                        </div>
+                )
+              }
+            }
+                      
+                      
+
+    
+  
+  
+
+
 
 export default App;
