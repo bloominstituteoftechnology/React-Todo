@@ -29,13 +29,12 @@ class App extends React.Component {
   };
 
   clickHandle = (event) => {
-    console.log(event.target.value);
     const newTodo = {
       task: this.state.text,
       id: Date.now(),
       completed: false,
     }
-    this.setState ({
+    this.setState({
       todoList: [...this.state.todoList, newTodo]
     })
   }
@@ -56,12 +55,25 @@ class App extends React.Component {
     })
   }
 
+  clearCompleted = (event) => {
+    this.setState({
+      todoList: this.state.todoList.filter(task => task.completed === false)
+    })
+}
+
   render() {
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <TodoForm inputHandle={this.inputHandle} clickHandle={this.clickHandle} />
-        <TodoList array={this.state.todoList} handleClick={this.handleClick}/>
+        <TodoForm
+          inputHandle={this.inputHandle}
+          clickHandle={this.clickHandle}
+          clearCompleted={this.clearCompleted}
+        />
+        <TodoList
+          array={this.state.todoList}
+          handleClick={this.handleClick}
+        />
       </div>
     );
   }
