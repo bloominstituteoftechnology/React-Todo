@@ -2,7 +2,6 @@
     width: 800px;
     margin: 0 auto;
 }
-
 .form-control {
     border: 1px solid lightgray;
     height: 40px;
@@ -31,13 +30,13 @@
 }
 
 .btn-delete {
-   background-color: lightgray;
-   border: 1px solid lightgray;
-   color: #ffff;
-   font-size: 18px;
-   height: 45px;
-   margin-left: 10px;
-   width: 110px;
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    color: #ffff;
+    font-size: 18px;
+    height: 45px;
+    margin-left: 10px;
+    width: 110px;
 }
 
 .btn-delete:hover {
