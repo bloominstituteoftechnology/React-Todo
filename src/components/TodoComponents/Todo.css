@@ -1,7 +1,7 @@
-.task {
-    color: blue;
+.completed, .incomplete:hover {
+    cursor: pointer;
 }
 
-.task:hover {
-    cursor: pointer;
+.completed {
+    text-decoration: line-through;
 }

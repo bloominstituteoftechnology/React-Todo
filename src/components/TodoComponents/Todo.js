@@ -9,7 +9,7 @@ const Todo = (props) => {
 
     return (
         <div>
-            <p className='task' onClick={clickyHandler}>{props.todo.task}</p>
+            <p className={props.todo.completed ? 'completed' : 'incomplete'} onClick={clickyHandler}>{props.todo.task}</p>
         </div>
     )
 }

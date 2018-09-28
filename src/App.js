@@ -57,9 +57,12 @@ class App extends React.Component {
 
   clearCompleted = (event) => {
     this.setState({
-      todoList: this.state.todoList.filter(task => task.completed === false)
+      todoList: this.state.todoList.filter(task => {
+          return task.completed === false
+        }
+      )
     })
-}
+  }
 
   render() {
     return (
