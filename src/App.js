@@ -71,7 +71,7 @@ class App extends React.Component {
     });
     //Set the state just for just the isCompleted
     this.setState({
-      todos: todosarr
+      todos: todosarr,
     });
   };
 
@@ -83,9 +83,8 @@ class App extends React.Component {
       text: todoText,
       isCompleted: this.state.isCompleted
     });
-    this.setState({
-      todos: todos
-    });
+    this.setState({ todos: todos,
+       nextId: Date.now() + 1 });
   };
   render() {
     return (
