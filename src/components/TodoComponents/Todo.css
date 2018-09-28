@@ -10,11 +10,18 @@ li {
     color: blueviolet;
 }
 .app {
-    
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+    height: auto;    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    margin-bottom: 100px;
+    -webkit-box-shadow: 10px 10px 21px -1px rgba(0,0,0,0.69);
+    -moz-box-shadow: 10px 10px 21px -1px rgba(0,0,0,0.69);
+    box-shadow: 10px 10px 21px -1px rgba(0,0,0,0.69);
 }
 body {
     background: url("../../assets/921148530-1024x1024.jpg")no-repeat;
@@ -22,17 +29,17 @@ body {
     font-weight: bold;
     font-family: 'Permanent Marker', cursive;
 }
-form {
-    margin: 0 auto;
-    max-width: 500px;
+form {    
     width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 h1 {
-    font-size: 80px;
+    font-size: 60px;
     text-align: center;
+    text-overflow: inherit;
+    overflow: visible;
 }
 input {
     width: 300px;
@@ -58,4 +65,14 @@ input {
     justify-content: center;
     align-items: center;
     font-size: 32px;
+    cursor: pointer;
+}
+.button:hover {
+    color: black;
+    opacity: 0.60;
+    font-size: 24px;
+}
+.search-button {
+    width: 130px;
+    margin-bottom: 50px;
 }
