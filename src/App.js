@@ -75,6 +75,18 @@ class App extends React.Component {
     })
   }
 
+  submitHandler = () => {
+    const obj = {
+      task: this.state.input,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({
+      tasks: [...this.state.tasks, obj],
+      input: ''
+    });
+
+  }
 
   clearHandler = () => {
     this.setState({
@@ -89,8 +101,12 @@ class App extends React.Component {
     return <div>
         <h2>React To Do List</h2>
         <TodoList tasks={this.state.tasks} clickHandler={this.clickHandler} />
-        <TodoForm keypressHandler={this.keypressHandler}
-        changeHandler={this.changeHandler} input={this.state.input} clearHandler={this.clearHandler}/>
+        <TodoForm 
+        keypressHandler={this.keypressHandler}
+        changeHandler={this.changeHandler} 
+        input={this.state.input} 
+        clearHandler={this.clearHandler}
+        submitHandler={this.submitHandler}/>
       </div>;
   }
 }
