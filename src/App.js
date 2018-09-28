@@ -1,17 +1,20 @@
-import React from 'react';
-import List from './components/TodoComponents/TodoList';
+import React , {Component} from 'react';
+import Form from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
 
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    
 
     this.state = {
       input: "",
-      item: []
+      item: [],
+      status: false
     };
   }
 
@@ -19,13 +22,15 @@ class App extends React.Component {
     event.preventDefault()
    this.setState({
      input: "",
-     item: [this.state.items, this.state.term]
+     item: [...this.state.item, {input: this.state.input, id: this.state.id, status: this.state.status}]
    });
 
   };
 
-  onChange= event => {
-   this.setState({input: event.target.value});
+
+  onChange = ( event ) => {
+    this.setState({ input: event.target.value })
+    console.log(event);
 
   };
 
@@ -33,13 +38,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-      <form className="App">
-       <h1>Pascale's ToDos!!!</h1>
- <List items={this.state.items} />
-       <input placeholder="enter todo" value={this.state.item} onChange={this.onChange}/>
-       <button onClick = {this.handleClick}> submit</button>
-     </form>
+      <div className="App">
+        <TodoList />
+    <Form item = { this.state.input } onChange = { this.onChange}  handleClick= { this.onSubmit}  />
+
      </div>
     );
   }
