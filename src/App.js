@@ -68,7 +68,7 @@ class App extends React.Component {
           add={this.addTodo} 
           remove={this.removeCompleted} 
           toggle={this.toggleCompletedFlag}
-          displayStyle="flex"/>
+          />
       </div>
     );
   }

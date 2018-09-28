@@ -6,9 +6,11 @@ import "./Todo.css";
 class TodoList extends React.Component {
   render() {
       return(
-          <div className={this.props.displayStyle}>
-              <h1>To-Do List App!</h1>
-              <h3>by jbrock</h3>
+          <div>
+              <div className="header">
+                <h1>To-Do List App!</h1>
+                <h3>by jbrock</h3>
+              </div>
               <div className="list">
                   {this.props.state.todos.map(item => {
                       return (
@@ -22,6 +24,8 @@ class TodoList extends React.Component {
                         </h2>
                       );
                   })}
+                </div>
+                <div className="form">
                   <TodoForm 
                       state={this.props.state}
                       text={this.props.text}

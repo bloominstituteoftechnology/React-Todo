@@ -1,7 +1,26 @@
+h1 {
+  font-size: 200%;
+}
+h2 {
+  cursor: pointer;
+  padding-bottom: 5%;
+}
+h3 {
+  padding-bottom: 5%;
+  padding-left: 42%;
+}
+.header {
+  border: 1px solid green;
+}
 .completed {
-    text-decoration: line-through;
-  }
-  h2 {
-    cursor: pointer;
-    padding-bottom: 5%;
-  }
+  text-decoration: line-through;
+  color: green;
+}
+.list {
+  
+}
+.form {
+  border: 1px solid green;
+  padding: 5% 0;
+}
+
