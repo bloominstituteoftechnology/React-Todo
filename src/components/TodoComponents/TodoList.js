@@ -3,7 +3,7 @@ import Todo from './Todo';
 
 const TodoList = props => {
   return (
-    <div>
+    <div className="todo-list">
       {props.todoList.map(todo =>
         <Todo
           todo={todo}

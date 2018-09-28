@@ -1,5 +1,4 @@
 import React from 'react';
-import './Todo.css';
 
 const Todo = props => {
   const completed = props.todo.completed ? 'completed-todo' : '';

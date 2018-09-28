@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -56,7 +57,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="app-container">
         <TodoList
           todoList={this.state.todoList}
           onToggleComplete={this.handleToggleComplete}
