@@ -35,9 +35,16 @@ class App extends React.Component {
     
   }
   handleInput = event => {
-    console.log(event.target.value)
+   
     this.setState({
       newTask: event.target.value
+    })
+  }
+  removeTask = () =>{
+    this.setState({
+      todo: this.state.todo.filter((complete) =>{
+        return complete.completed === false
+      })
     })
   }
   handleClick = (givenId) => {
@@ -58,7 +65,7 @@ class App extends React.Component {
       <div>
         <h1>Todo List: MVP</h1>
         <TodoList handleClick = {this.handleClick} list = {this.state.todo}/>
-        <ToDoForm addItem = {this.addItem} handleInput = {this.handleInput}/>
+        <ToDoForm addItem = {this.addItem} handleInput = {this.handleInput} removeTask = {this.removeTask}/>
 
       </div>
     );
