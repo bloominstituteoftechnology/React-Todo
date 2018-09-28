@@ -41,13 +41,23 @@ class App extends React.Component {
 
   //function to add strikethrough to completed items
 
-  // markCompleted = (e) => {
-  //   this.setState({
-  //     todos: this.state.todos.map(todo => 
-  //       { return 
-  //         {id: todo.id, task: todo.task, completed: !todo.completed}
-  //       })
-  //   })};
+  handleClick = (todoID) => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === todoID) {
+          return {
+            task: todo.task,
+            id: todo.id,
+            completed: true
+          }
+        }
+        else {
+          return todo
+        }
+      }, console.log(this.state.todos))
+    })
+  };
+  
 
   //invoke individual components and render entire app
 
@@ -59,7 +69,7 @@ class App extends React.Component {
           todos={this.state.todos}
           key={this.state.todos}
           completed={this.state.todos}
-          onClick={this.markCompleted}
+          handleClick={this.handleClick}
         />
         <ToDoForm 
           onSubmit = {this.onSubmit} 
