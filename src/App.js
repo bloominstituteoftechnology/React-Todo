@@ -36,9 +36,18 @@ class App extends React.Component {
   updateInput = (e) => {
     this.setState({
       input: e.target.value
-    },
-    );
+    });
   }
+
+  //function to add strikethrough to completed items
+
+  // markCompleted = (e) => {
+  //   this.setState({
+  //     todos: this.state.todos.map(todo => 
+  //       { return 
+  //         {id: todo.id, task: todo.task, completed: !todo.completed}
+  //       })
+  //   })};
 
   //invoke individual components and render entire app
 
@@ -46,11 +55,17 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos}/>
+        <TodoList 
+          todos={this.state.todos}
+          key={this.state.todos}
+          completed={this.state.todos}
+          onClick={this.markCompleted}
+        />
         <ToDoForm 
           onSubmit = {this.onSubmit} 
-          value={this.state.input} 
-          onChange={this.updateInput}/>
+          onChange={this.updateInput}
+          value={this.state.input}
+        />
       </div>
     );
   }

@@ -5,7 +5,12 @@ import React from 'react';
 const ToDoForm = (props) => {
     return (
         <form onSubmit={props.onSubmit} onClick={props.onClick}>
-            <input type='text' placeholder='...todo' onChange={props.onChange} value={props.value}></input>
+            <input 
+                type='text' 
+                placeholder='...todo' 
+                value={props.value}
+                onChange={props.onChange} 
+            />
             <button type='submit'>Add Todo</button>
             <button>Clear Completed</button>
         </form> 
