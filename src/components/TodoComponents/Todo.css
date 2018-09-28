@@ -3,6 +3,16 @@
     flex-direction: column;
     align-items: center;
     margin: auto;
+    width: 400px;
+    background-color: darkblue;
+    color: white;
+}
+
+.todoList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
 }
 
 .form {
@@ -36,11 +46,20 @@
 }
 
 .incomplete {
+    background-color: black;
+    color: white;
     font-size: 20px;
+    min-width: 170px;
+    text-align: center;
+    border: 1px solid red;
 }
 
 .complete {
     font-size: 20px;
-    color: gray;
+    background-color: black;
+    color: lightgray;
     text-decoration: line-through;
+    min-width: 170px;
+    text-align: center;
+    border: 1px solid green;
 }

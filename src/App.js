@@ -44,19 +44,21 @@ class App extends React.Component {
             task: todo.task,
             key: todo.key,
             completed: !todo.completed,
-            todoClass: todo.todoClass == 'incomplete' ? 'complete' : 'incomplete'
+            todoClass: todo.todoClass === 'incomplete' ? 'complete' : 'incomplete'
             }
           } else {
             return todo
           }
       }),   
     })
+    console.log(this.state.todos)
   };
 
-  handleClearCompleted = () => {
+  handleClearCompleted = (e) => {
     this.setState({
-      todos: this.state.todos.filter(todo => todo.completed = false)
-    })
+      todos: this.state.todos.filter(todo => todo.completed === false)
+    });
+    console.log(this.state.todos)
   }
     
   render() {
