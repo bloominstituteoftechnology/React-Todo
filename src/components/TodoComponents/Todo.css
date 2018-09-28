@@ -24,6 +24,7 @@
 .buttonsDiv {
     margin-top: 20px;
     display: flex;
+    margin-bottom: 10px;
 }
 
 .button {
@@ -52,6 +53,9 @@
     min-width: 170px;
     text-align: center;
     border: 1px solid red;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 5px darkgray;
+    border-radius: 5px;
 }
 
 .complete {
@@ -62,4 +66,7 @@
     min-width: 170px;
     text-align: center;
     border: 1px solid green;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 5px darkgray;
+    border-radius: 5px;
 }
