@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './Todo.css';
 
-class TodoForm extends Component {
+class TodoForm extends React.Component {
 
     state = {task: ""};
 
@@ -23,8 +23,8 @@ class TodoForm extends Component {
                 <form onSubmit={this.handleSubmit}>
                 <input value={this.state.task} onChange={this.handleChange} />
                 <button type="submit">Add</button>
-                <button>Clear Selected</button>
                 </form>
+                <button onClick={this.props.clearSelected}>Clear Selected</button>
             </div>
         )
     }
