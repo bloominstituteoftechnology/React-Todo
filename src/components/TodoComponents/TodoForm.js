@@ -1,13 +1,13 @@
 import React from 'react';
 import Todo from './Todo';
+import './Todo.css';
 
 const TodoForm = (props) => {
-    console.log(props);
     return (
         <div className='todo-form-container'>
-            <input onChange={props.textChanged} type='text'/>
+            <input value={props.textValue} onChange={props.textChanged} type='text'/>
             <button onClick={props.addItem}>Add todo</button>
-            <button>Clear completed</button>
+            <button onClick={props.clearCompleted}>Clear completed</button>
         </div>
     )
 }

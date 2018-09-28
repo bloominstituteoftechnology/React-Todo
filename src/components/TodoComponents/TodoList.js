@@ -2,15 +2,21 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 import Todo from './Todo';
+import './Todo.css';
 
 const TodoList = (props) => {
     return (
-        <div>
+        <div className='todo-container'>
+        <ul>
             {props.listItem.map(item => { 
                 return (
-                    <Todo id={item.id} task={item.task} />
+                    <li>
+                        <Todo completedFunc={props.completedFunc} id={item.id.toString()} task={item.task} completed={item.completed} /> 
+                    </li>
                 )
-            })}
+            }
+            )}
+        </ul>
         </div>
         )      
 }

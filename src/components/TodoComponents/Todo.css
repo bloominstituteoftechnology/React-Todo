@@ -1,0 +1,25 @@
+.lineThrough {
+    text-decoration: line-through;
+}
+
+.todo-container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.todo-form-container {
+    margin: 5px;
+}
+
+.todo {
+    font-size: 1.6rem;
+    margin: 5px;
+    color: rgb(40, 40, 40);
+    font-weight: bold;
+}
+
+.todo:hover {
+    text-shadow: 1px 1px 1px sandybrown;
+    cursor: pointer;
+}
