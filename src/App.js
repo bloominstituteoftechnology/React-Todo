@@ -12,7 +12,16 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [],
+      todos: [{
+        id: 1234,
+        task: 'test',
+        completed: false
+      },
+      {
+        id: 5678,
+        task: 'test2',
+        completed: false
+      }],
       input: ''
     }
   }
@@ -42,21 +51,37 @@ class App extends React.Component {
   //function to add strikethrough to completed items
 
   handleClick = (todoID) => {
-    this.setState({
-      todos: this.state.todos.map(todo => {
-        if (todo.id === todoID) {
-          return {
-            task: todo.task,
-            id: todo.id,
-            completed: true
-          }
-        }
-        else {
-          return todo
-        }
-      }, console.log(this.state.todos))
-    })
-  };
+    const todoItems = this.state.todos.slice();
+    console.log(todoItems);
+    todoItems.map(todo => {
+      if (todo.id === todoID) {
+        todo.completed = !todo.completed;
+        return todo;
+      }
+      else {
+        return todo;
+      }
+    });
+    this.setState(
+      {todos: todoItems}
+    )
+  }
+
+    // this.setState({
+    //   todos: this.state.todos.map(todo => {
+    //     if (todo.id === todoID) {
+    //       return {
+    //         task: todo.task,
+    //         id: todo.id,
+    //         completed: !todo.completed
+    //       }
+    //     }
+    //     else {
+    //       return todo
+    //     }
+    //   }, console.log(this.state.todos))
+    // })
+ 
   
 
   //invoke individual components and render entire app
