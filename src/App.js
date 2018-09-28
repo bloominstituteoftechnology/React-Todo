@@ -17,7 +17,7 @@ class App extends React.Component {
     this.setState({
       task: value
     })
-    console.log(value)
+    //console.log(value)
   };
 
   submitHander = (event) => {
@@ -31,13 +31,12 @@ class App extends React.Component {
       manyTodo:[...this.state.manyTodo, singleTodo,],
       task: ""
     });
-    console.log(singleTodo)
+    console.log("blank")
+    console.log(event.target.value)
     
   }
 
   finishedHander = (todoId) =>{
-    console.log(todoId)
-    console.log(this.state.manyTodo)
     this.setState({
       manyTodo: this.state.manyTodo.map(todo => {
         if(todo.id === todoId){
@@ -53,12 +52,18 @@ class App extends React.Component {
     })
   }
 
+  clearHander = (event) =>{
+    event.preventDefault();
+    console.log(this.state.manyTodo)
+
+  }
+
   render() {
     return (
       <div>
         <h2>Get Er' Done</h2>
         <TodoList finishedHander ={this.finishedHander} manyTodo={this.state.manyTodo} />
-        <TodoForm inputHander={this.inputHander} submitHander ={this.submitHander} />
+        <TodoForm inputHander={this.inputHander} submitHander ={this.submitHander} clearHander={this.clearHander} />
       </div>
     );
   }
