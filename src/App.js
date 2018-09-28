@@ -10,25 +10,32 @@ class App extends React.Component {
 			inputText: ''
 		};
 	}
-	toggleComplete = (id )=> {
-    let tempTodos = this.state.todoList 
-      tempTodos.map (todo => {
-      if (todo.id === id){
-        todo.completed = !todo.completed;
-        return todo;
-
-      } else {
-        return todo;
-      }
-    });
-    this.setState({todoList: tempTodos})
+	toggleComplete = id => {
+		let tempTodos = this.state.todoList.slice();
+		tempTodos.map(todo => {
+			if (todo.id === id) {
+				todo.completed = !todo.completed;
+				return todo;
+			} else {
+				return todo;
+			}
+		});
+		this.setState({ todoList: tempTodos });
 	};
 
 	clearList = event => {
-		event.preventDefault();
-		this.setState({
-			todoList: []
+		let newTodoList = this.state.todoList.slice();
+		console.log(newTodoList);
+
+		newTodoList = newTodoList.filter(item => {
+			return item.completed === false;
 		});
+		console.log(newTodoList);
+		this.setState({
+			todoList: newTodoList
+		});
+
+		console.log(newTodoList);
 	};
 	addToList = event => {
 		event.preventDefault();
@@ -54,16 +61,19 @@ class App extends React.Component {
 			<div>
 				<h1>Michaels Awesome To-Do List</h1>
 				<TodoForm
-					className="toDoList"
+					className="todoList"
 					addToList={this.addToList}
 					userInput={this.state.inputText}
 					changeUserInput={this.changeUserInput}
 					inputText={this.state.inputText}
-          clearList={this.clearList}
-          id = {this.state.id}
-					
+					clearList={this.clearList}
+					id={this.state.id}
 				/>
-        <TodoList list={this.state.todoList} id={this.state.id} toggleComplete={this.toggleComplete} />
+				<TodoList
+					list={this.state.todoList}
+					id={this.state.id}
+					toggleComplete={this.toggleComplete}
+				/>
 			</div>
 		);
 	}
