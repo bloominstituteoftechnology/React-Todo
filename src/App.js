@@ -36,6 +36,7 @@ class App extends React.Component {
   };
 
   toggleComplete = event => {
+    // event.preventDefault();
     this.setState({
       todoData: this.state.todoData.map(item => {
         if (item.id == event.target.id) {
@@ -51,7 +52,8 @@ class App extends React.Component {
     });
   };
 
-  clearTodos = () => {
+  clearTodos = event => {
+    event.preventDefault();
     this.setState({
       todoData: this.state.todoData.filter(item => {
         if (!item.completed) {
