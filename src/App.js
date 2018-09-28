@@ -6,10 +6,11 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
-    state = {
+  state = {
+      newTodo: "",
       todos: [{
           task: "",
-          id: Date.now(),
+          id: "",
           completed: false,
       }],
 
@@ -17,30 +18,36 @@ class App extends React.Component {
 
        valueHandler = (e) => {
             this.setState ({
-              task: e.target.value
+              newTodo: e.target.value,
             });
        }
 
-       submitHandler = (e) => {
-
-          this.setState ({
-              task: e.target.state,
-          })
-       }
+  submitHandler = () => {
+    let data = {
+      task: this.state.newTodo, 
+      id: Date.now(),
+      completed: false,
+    };
+    
+    this.setState({
+      newTodo: "",
+      todos: [...this.state.todos,  data ],
+    })
+  };
 
 
   render() {
     
     return (  
       
-      <div key={this.state.todos.id} className="App">
+      <div >
 
-        <h1>{this.state.task}</h1>
+        <h1>My Todo List</h1>
 
         <TodoList todos={this.state.todos}
                   valueHandler={this.valueHandler}
-                  submitHandler={this.submitHandler}
-        />
+                  submitHandler = {this.submitHandler}
+                  />
       </div>
     );
   } //end render

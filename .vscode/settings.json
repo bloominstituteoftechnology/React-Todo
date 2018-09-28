@@ -1,6 +1,6 @@
 {
     "files.autoSave": "afterDelay",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
     "workbench.colorTheme": "Default High Contrast",
     "workbench.iconTheme": "vscode-simpler-icons",
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
