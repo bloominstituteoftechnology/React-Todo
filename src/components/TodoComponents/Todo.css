@@ -12,7 +12,36 @@
 .todo {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     color: white;
     margin: 20px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+.todo-form-container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+input {
+    padding: 10px;
+    border: 2px solid #bdc3c7;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.clear {
+    background-color: #c0392b;
 }
