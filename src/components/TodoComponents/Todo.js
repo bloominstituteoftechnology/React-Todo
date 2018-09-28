@@ -2,10 +2,15 @@ import React from 'react';
 import './Todo.css';
 
 const Todo = (props) => {
+    // const message = props.todo.completed ? 'done' : 'not done';
+
+    const clickyHandler = () => {
+        props.handleClick(props.todo.id)
+    }
+
     return (
         <div>
-            <p>{props.task}</p>
-            <p>{props.bill}</p>
+            <p className='task' onClick={clickyHandler}>{props.todo.task}</p>
         </div>
     )
 }

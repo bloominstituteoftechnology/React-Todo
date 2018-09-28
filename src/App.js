@@ -13,22 +13,16 @@ class App extends React.Component {
     this.state = {
       todoList: [
         {
-          task: 'Organize Garage',
-          id: 1528817077286,
+          task: '',
+          id: '',
           completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        },
+        }
       ],
       text: "",
     };
   };
 
   inputHandle = (event) => {
-    console.log(event.target.value)
     this.setState({
       text: event.target.value,
     })
@@ -46,12 +40,28 @@ class App extends React.Component {
     })
   }
 
+  handleClick = (todoId) => {
+    this.setState({
+      todoList: this.state.todoList.map(todo => {
+        if (todo.id === todoId) {
+          return {
+            task: todo.task,
+            id: todo.id,
+            completed: !todo.completed
+          }
+        } else {
+          return todo
+        }
+      })
+    })
+  }
+
   render() {
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <TodoList array={this.state.todoList} />
         <TodoForm inputHandle={this.inputHandle} clickHandle={this.clickHandle} />
+        <TodoList array={this.state.todoList} handleClick={this.handleClick}/>
       </div>
     );
   }

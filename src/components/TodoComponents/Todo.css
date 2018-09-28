@@ -1,0 +1,7 @@
+.task {
+    color: blue;
+}
+
+.task:hover {
+    cursor: pointer;
+}
