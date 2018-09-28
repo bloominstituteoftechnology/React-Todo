@@ -3,36 +3,19 @@ import React, { Component } from "react";
 import "./ToDoItem";
 import "./ToDoList.css";
 
-class ToDoList extends React.Component {
-  // there is no state
+const ToDoList = props => {
+  // there is no state so there is no need for `class`
 
-  render() {
-    // we need two things in props
-    // 1. the list
-    // 2. a click handler to pass to children
-
-    return (
+  return (
       <div>
-        <div>
-          <h2>Current ToDo Items</h2>
-        </div>
         <ul>
           <li>
-            {this.props.toDoItems.map(todo => {
-              return (
-                <toDoItems
-                  key={todo.id}
-                  todo={todo}
-                  handleClick={this.props.handleClick}
-                />
-              );
-            })}
+            {props.task}
           </li>
         </ul>
       </div>
     );
-  }
-}
+  };
 
 export default ToDoList;
 

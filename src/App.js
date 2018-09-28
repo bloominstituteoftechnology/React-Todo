@@ -59,14 +59,21 @@ class App extends Component {
       <div>
         <h1>D2rd Stuff ToDo</h1>
         <Header />
+
+    <h2>Current ToDo Items</h2>
+    {this.state.toDoItems.map((task, i) => {
+    return (
         <ToDoList
-          ToDoList
-          toDoItems={this.state.toDoItems}
-          handleClick={this.handleClick}
+        task={task.toDoTitle}
+        content={task.toDoContent}
+        key={i}
         />
+    );
+    })}
       </div>
     );
   }
 }
 
 export default App;
+
