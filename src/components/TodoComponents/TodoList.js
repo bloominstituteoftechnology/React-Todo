@@ -9,7 +9,7 @@ class TodoList extends React.Component {
     return (
       <ol>
         {this.props.todos.map(todo => {
-          return <Todo key={todo.id} todo={todo}/>
+          return <Todo key={todo.id} todo={todo} clickHandler={this.props.clickHandler}/>
         })}
       </ol>
     )

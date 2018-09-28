@@ -38,19 +38,36 @@ class App extends React.Component {
     });
   };
 
-  clear = event => {
+  clear = (event, todoComplete) => {
     event.preventDefault();
-    const done = this.state.todos.filter(todo => todo.completed === false);
+    const notDone = this.state.todos.filter(todo => todo.completed === false);
+    console.log(notDone);
     this.setState({
-      todos: [done]
-    });
+      todos: notDone,
+    })
   };
+
+  clickHandler = (todoId) => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if(todo.id === todoId) {
+          return {
+            task: todo.task,
+            id: todo.id,
+            completed: !todo.completed,
+          }
+        } else {
+          return todo
+        }
+      })
+    })
+  }
 
   render() {
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} clickHandler={this.clickHandler} />
         <TodoForm
           todos={this.state.todos}
           todo={this.state.todo}
