@@ -38,19 +38,20 @@ class App extends React.Component {
       listItems: this.state.listItems.map(item => {
         
         if (item.id.toString() === taskID) {
+          item.completed = !item.completed;
+          this.updateListInStorage();
           return {
             task: item.task,
             id: item.id,
-            completed: !item.completed,
+            completed: item.completed,
           }
         }
         else { 
+          this.updateListInStorage();
           return item;
         }
-        
         })
       });
-      this.updateListInStorage();
     }
   
   clearCompleted = () => {
