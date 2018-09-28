@@ -1,6 +1,7 @@
 import React from "react";
 import TodoList from "../src/components/TodoComponents/TodoList";
 import TodoForm from "../src/components/TodoComponents/TodoForm";
+import Img from '../src/components/TodoComponents/Img';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -43,38 +44,41 @@ class App extends React.Component {
     const notDone = this.state.todos.filter(todo => todo.completed === false);
     console.log(notDone);
     this.setState({
-      todos: notDone,
-    })
+      todos: notDone
+    });
   };
 
-  clickHandler = (todoId) => {
+  clickHandler = todoId => {
     this.setState({
       todos: this.state.todos.map(todo => {
-        if(todo.id === todoId) {
+        if (todo.id === todoId) {
           return {
             task: todo.task,
             id: todo.id,
-            completed: !todo.completed,
-          }
+            completed: !todo.completed
+          };
         } else {
-          return todo
+          return todo;
         }
       })
-    })
-  }
+    });
+  };
 
   render() {
     return (
       <div>
-        <h1>Todo List: MVP</h1>
-        <TodoList todos={this.state.todos} clickHandler={this.clickHandler} />
-        <TodoForm
-          todos={this.state.todos}
-          todo={this.state.todo}
-          inputChange={event => this.inputChange(event)}
-          addTodo={this.addTodo}
-          clear={this.clear}
-        />
+        <Img />
+        <div className={'container'}>
+          <h1>Todo List: MVP</h1>
+          <TodoList todos={this.state.todos} clickHandler={this.clickHandler} />
+          <TodoForm
+            todos={this.state.todos}
+            todo={this.state.todo}
+            inputChange={event => this.inputChange(event)}
+            addTodo={this.addTodo}
+            clear={this.clear}
+          />
+        </div>
       </div>
     );
   }

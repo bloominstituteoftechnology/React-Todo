@@ -1,0 +1,113 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    font-family: 'Press Start 2P', cursive;
+}
+
+li {
+    font-size: 1.4rem;
+    font-weight: 100;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    max-width: 880px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+}
+
+
+button {
+    backface-visibility: hidden;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+    background: linear-gradient(0deg,#ff7a78 7.472133534980116%,#ff0a06 41.52803450400493%,#ff5c59 97.45140872682462%,#ff0400 100%,#ff4e4b 100%,#ff5855 100%);
+    border-radius: 100px;
+    border: 1px solid #fff;
+    border-width: 1px 1px 1px 1px;
+    padding: 3px 10px 2px 10px;
+    box-shadow: 0px 0px 6px #ffffff;
+        color: #fff;
+    font-size: 1.2rem;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 200;
+    font-style: normal;
+    letter-spacing: 1px
+}
+
+.background {
+    position: fixed;
+    max-width: 1680px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+  
