@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo: [{task:'Sleep', id:'',completed:false,}],
+      todo: [{task:'', id:'',completed:false,}],
       task: '',
       // id: '',
       // completed: '',
@@ -21,8 +21,10 @@ class App extends React.Component {
 
     this.setState (
       {task:value}
-    ); console.log(value)
-  }  
+    );
+    }
+
+
 
 
 
@@ -41,27 +43,25 @@ class App extends React.Component {
       });
   }
 
-  eraseHandler = event => {
+  clearHandler = event => {
     event.preventDefault();
-    
-      const obj = {
-        task: this.state.task,
-        id: Date.now(),
-        completed: false,
-      }
 
       this.setState({
-        todo: [...this.state.todo, obj],
-        task: "",
+        todo: [{task:'', id:'',completed:false,}],
+        task: '',
       });
   }
 
+  
+
 
   render() {
+    console.log(this.state.todo)
     return (
       <div>
-        <TodoList list={this.state.todo} />
         <TodoForm value={this.state.task} inputHandler={this.inputHandler} submitHandler={this.submitHandler} />
+        <TodoList list={this.state.todo} />
+
       </div>
     );
   }
