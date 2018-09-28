@@ -54,7 +54,16 @@ class App extends React.Component {
 
   clearHander = (event) =>{
     event.preventDefault();
-    console.log(this.state.manyTodo)
+    this.setState({
+      manyTodo: this.state.manyTodo.filter(item =>{
+        if(item.completed === false){
+          return{
+            manyToDo: item
+          }
+        }
+      })
+    })
+    
 
   }
 
