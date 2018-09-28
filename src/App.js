@@ -1,5 +1,5 @@
 import React from "react";
-import Todo from "../src/components/TodoComponents/Todo";
+//import Todo from "../src/components/TodoComponents/Todo";
 import TodoList from "../src/components/TodoComponents/TodoList";
 import TodoForm from "../src/components/TodoComponents/TodoForm";
 // import "./src/app.css";
@@ -62,18 +62,18 @@ class App extends React.Component {
     })
   };
 
-  handleFilter= () =>{
-   this.setState({
-     todos:this.state.todos.filter(todo =>{
-       if(todo.completed === true){
-         this.state.todos.splice(todo);
-       }
-       else{
-         return todo
-       }
-     }),
-   })
-  }
+
+handleFilter = () =>{
+  const arr = this.state.todos.filter(todo =>{
+    if(todo.completed === false){
+      return todo
+    }
+    console.log(todo);
+  })
+  this.setState({
+    todos: arr
+  })
+}
 
   render() {
     console.log(this.state.todos)
@@ -85,6 +85,7 @@ class App extends React.Component {
           submit={this.handleSubmit}
           update={this.handleChange}
           filter={this.handleFilter}
+          enter ={this.handleEnter}
         />
       </div>
     );
