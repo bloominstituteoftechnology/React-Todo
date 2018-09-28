@@ -2,7 +2,7 @@ import React from 'react';
 
 const ToDo = (props)=>{
     return(
-        <div key={props.obj.id}> {props.obj.task} </div>
+        <div> {props.value} </div>
     )
 }
 export default ToDo;
