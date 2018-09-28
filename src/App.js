@@ -19,6 +19,7 @@ class App extends React.Component {
       this.setState((state) =>  ({
           todo: newTodo
       }))
+      document.querySelector("input").value = "";
   }
   completeTask  =   (value) =>  {
       let newTodo = this.state.todo;
