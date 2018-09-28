@@ -12,8 +12,9 @@ const List = (props) => {
                     <ToDo 
                         key={newToDo.id} 
                         value={newToDo.task} 
-                        className={newToDo.completed}
                         crossout={props.crossout} 
+                        id={newToDo.id}
+                        completed={newToDo.completed}
                     />
                 )
             })}
@@ -22,3 +23,6 @@ const List = (props) => {
 }
 
 export default List;
+
+//Must pass id=newToDo.id again because key cannot be used for anything other than setting the unique key value
+//to access id as a variable in Todo.js, we have to set it to id as well

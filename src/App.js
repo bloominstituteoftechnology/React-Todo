@@ -46,14 +46,28 @@ class App extends React.Component {
     }
   };
 
-  crossout = (event) => {
-    event.preventDefault();
-    console.log('it clicks!');
-    const crossedArr = event.target;
-    crossedArr.classList.toggle('completed');
-    console.log(crossedArr);
+  crossout = (elementID) => {
+    this.setState({
+      todolist: this.state.todolist.map( item=>{
+        if(item.id === elementID) {
+          return {
+            task: item.task,
+            id: item.id,
+            completed: !item.completed,
+          }
+        } else {
+          return item;
+        }
+      })
+    })
   }
 
+  clearCompleted = (event) => {
+    event.preventDefault();
+    this.setState({
+      todolist: this.state.todolist.filter(item => item.completed === false)
+    })
+  }
 
   render() {
     return (
@@ -64,6 +78,7 @@ class App extends React.Component {
           input={this.state.input} 
           handleSubmit={this.handleSubmit} 
           handleInput={this.handleInput} 
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );
@@ -71,4 +86,3 @@ class App extends React.Component {
 }
 
 export default App;
-
