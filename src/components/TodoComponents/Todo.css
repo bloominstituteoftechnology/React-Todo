@@ -1,3 +1,25 @@
-.completed {
+.app {
+  width: 40%;
+  margin: 0 auto;
+  background-color: red;
+}
+
+.todoList {
+  /* background-color: blue; */
+  width: 50%;
+  margin: 0 auto;
+}
+
+.todoList div {
+  border: 1px solid black;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.todoList .completed {
   text-decoration: line-through;
+  color: lightgray;
+  border: 1px solid lightgray;
 }
