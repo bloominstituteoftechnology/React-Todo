@@ -10,6 +10,7 @@ class App extends React.Component {
         tasks: [],
         holder: "",
         search:"",
+        arr: [],
       }
     }   
     searchInputHandler = (event) => {
@@ -18,13 +19,14 @@ class App extends React.Component {
         search: value
       })
     }
+    
     searchHandler = (event) => {
-      event.preventDefault();
+      event.preventDefault();      
       this.setState({
-        tasks: this.state.tasks.filter(task => task.task.includes(this.state.search))
-      })
+        tasks: this.state.tasks.filter(task => task.task.toUpperCase().includes(this.state.search.toUpperCase()))
+      })      
     }
-    toggleHandler = (event, id) => {
+    toggleHandler = (id) => {
       this.setState({
         tasks: this.state.tasks.map(task => {
           if (task.id === id) {
@@ -41,7 +43,7 @@ class App extends React.Component {
     }
     deleteHandler = () => {
       this.setState({
-        tasks : this.state.tasks.filter(task => task.completed === false)
+        tasks : this.state.tasks.filter(task => !task.completed)
       })
     }  
     inputHandler = (event) => {
