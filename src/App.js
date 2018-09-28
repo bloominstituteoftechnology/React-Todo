@@ -28,7 +28,7 @@ class App extends React.Component {
         })
       }) 
     }
-    screwthisHandler =(event) => {
+    filterHandler =(event) => {
       event.preventDefault()
       this.setState({
         todos: this.state.todos.filter(task => task.completed === false)
@@ -61,7 +61,7 @@ class App extends React.Component {
       <div>
         <h1>Todo List: MVP</h1>
         <TodoList todos={this.state.todos} removeHandler={this.removeHandler}/>
-        <TodoForm holder={this.state.holder} inputHandler={this.inputHandler} clickHandler={this.clickHandler} screwthisHandler={this.screwthisHandler}/>
+        <TodoForm holder={this.state.holder} inputHandler={this.inputHandler} clickHandler={this.clickHandler} filterHandler={this.filterHandler}/>
         
 
       </div>)

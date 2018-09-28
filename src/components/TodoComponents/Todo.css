@@ -1,4 +1,17 @@
 .completed{
-text-decoration: line-through;
+text-decoration: line-through black;
 color: red;
+}
+button{
+    background-color:blue;
+    color:white;
+}
+div{
+    background-color:lightgray;
+    
+}
+input{
+    background-color:lightblue;
+    color:red;
+    font-weight:bold;
 }
