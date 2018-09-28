@@ -28,7 +28,9 @@ class App extends React.Component {
   handleClick = (todoId) => {
     this.setState({
       todos: this.state.todos.map(todo => {
+        console.log(todo)
         if (todo.id === todoId) {
+          console.log(todoId)
           return {
             task: todo.task,
             id: todo.id,
@@ -49,13 +51,22 @@ class App extends React.Component {
   addTodo = () => {
 
     const newTodoCopy = this.state.todos.slice();
+    // newTodoCopy is a copy of the todos array declared in state.
     
     newTodoCopy.push({task: this.state.newTodo, id: Date.now(), completed: false})
+    // newTodo is pushing a new task object to itself.
       this.setState({
-        
+        // Set state queues up change to component state, and tells react it needs to call render
+        // again and update the state of the component. It should be thought of as a request, as opposed to a command, as it is asynchronous, and may not complete it's task as soon as it's called.
         todos: newTodoCopy
+
+        // The change setState will be applying is a roundabout change to the todos array, by setting it to the new todos array, with the object pushed.
+
           
-      })
+      },
+      
+      console.log(newTodoCopy) 
+      )
 
 
   }
@@ -99,13 +110,20 @@ class App extends React.Component {
         
          
         todos={this.state.todos}
+
+        // This is where the todos array is passed down from state, as a prop.
         handleClick={this.handleClick} />
+        {/* This is where the handleClick function is being passed from state to props.  */}
         <div></div>
       <TodoForm 
       clearAll={this.clearAll}
+       /* This is where the clearAll function is being passed from state to props. */
       addTodo={this.addTodo} 
+       /* This is where the addTodo function is being passed from state to props. */
         newTodo={this.newTodo}
+         /* This is where the newTodo string is being passed from state to props. */
         changeHandler={this.changeHandler}
+         /* This is where the changeHandler function is being passed from state to props. */
       />
       </div>
     )
