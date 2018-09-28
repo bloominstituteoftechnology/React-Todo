@@ -1,0 +1,67 @@
+.main-container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.form-control {
+    border: 1px solid lightgray;
+    height: 40px;
+    width: 500px;
+}
+
+.btn-add {
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    color: #ffff;
+    font-size: 18px;
+    height: 45px;
+    margin-left: 10px;
+    width: 110px;
+}
+
+.btn-add:hover {
+    background-color: rgb(177, 175, 175);
+    border: 1px solid lightgray;
+    color: #ffff;
+    font-size: 18px;
+    height: 45px;
+    margin-left: 10px;
+    transition: ease-in .2s;
+    width: 110px;
+}
+
+.btn-delete {
+   background-color: lightgray;
+   border: 1px solid lightgray;
+   color: #ffff;
+   font-size: 18px;
+   height: 45px;
+   margin-left: 10px;
+   width: 110px;
+}
+
+.btn-delete:hover {
+    background-color: rgb(177, 175, 175);
+    border: 1px solid lightgray;
+    color: #ffff;
+    font-size: 18px;
+    height: 45px;
+    margin-left: 10px;
+    transition: ease-in .2s;
+    width: 110px;
+}
+
+input {
+    color: grey;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.todo-list {
+display: flex;
+align-items: center;
+}
+
+h1, h2, h3, p {
+    font-family: Lato;
+}
