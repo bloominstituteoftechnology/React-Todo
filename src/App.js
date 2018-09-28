@@ -5,9 +5,20 @@ import TodoList from './components/TodoComponents/TodoList';
 class App extends React.Component {
   constructor(){
     super();
-    this.state={
+    this.state = {
       textInput: '',
-      todos: []
+      todos: [
+        {
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
+      ]
     };
   }
 
@@ -25,16 +36,23 @@ class App extends React.Component {
       id: Date.now()
     }
     this.setState({
-      todos: [this.state.todos.push(newTodo)]
+
     })
   }
+  
 
   render() {
     return (
       <div>
         <h1>ToDo List: MVP</h1>
-        <TodoList todos={this.state.todos} />
-        <TodoForm textInput={this.state.textInput} handleInput={this.handleInput} handleClick={this.handleClick} />
+        <TodoList
+          todos={this.state.todos}
+        />
+        <TodoForm 
+          textInput={this.state.textInput} 
+          handleInput={this.handleInput} 
+          handleClick={this.handleClick} 
+        />
       </div>
     );
   }

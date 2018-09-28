@@ -8,7 +8,11 @@ const TodoList = (props) => {
         <ul>
             {props.todos.map(todo => {
                 return (
-                    <ToDo key={todo.id} value={todo.task} completed={todo.completed} />
+                    <ToDo 
+                        key={todo.id} 
+                        value={todo.task} 
+                        completed={todo.completed} 
+                    />
                 )
             })}
         </ul>
