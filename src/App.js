@@ -1,5 +1,6 @@
 import React from 'react';
 import ToDoList from '../src/components/TodoComponents/TodoList.js';
+import TodoForm from '/Users/jamesbierly1/Desktop/React-Todo/src/components/TodoComponents/TodoForm.js';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -18,12 +19,15 @@ class App extends React.Component {
       ]
     };
   }
-
+handleSubmit(){
+console.log("hi");
+}
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <ToDoList todolist={this.state.todos}/>
+        <TodoForm/>
 
       </div>
     );

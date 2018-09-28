@@ -4,7 +4,7 @@ import React from "react";
 
 const ToDo= (props)=>{
     return(
-<li key={props.item.key}>
+<li key={props.item.id}>
         {props.item.task}
 </li>
     )

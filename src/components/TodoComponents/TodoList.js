@@ -13,7 +13,7 @@ const ToDoList=(props)=>{
             <ul>
                 {props.todolist.map(
                     x=>(
-                        <ToDo item={x}/>
+                        <ToDo item={x} key={x.id}/>
                     )
                 )}
             </ul>
