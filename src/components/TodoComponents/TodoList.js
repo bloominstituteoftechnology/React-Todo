@@ -4,7 +4,7 @@
 import React from 'react';
 import ToDo from './Todo';
 
-const List = (props) => {
+const TodoList = (props) => {
     return (
         <ul>
             {props.todolist.map(newToDo => {
@@ -13,6 +13,7 @@ const List = (props) => {
                         key={newToDo.id} 
                         value={newToDo.task} 
                         className={newToDo.completed} 
+                        onClick={() => props.handleClick(newToDo.id)}
                     />
                 )
             })}
@@ -20,4 +21,4 @@ const List = (props) => {
     )
 }
 
-export default List;
+export default TodoList;

@@ -27,17 +27,11 @@ class App extends React.Component {
     });
   };
 
-  crossTodo = (e) => {
-    let list = this.state.todolist.slice();
-    if (list[0].id !== 2049) {
-      let crossItem = list.filter(item => item.task === e.target.textContent);
-      if (crossItem[0].completed === true) {
-        crossItem.forEach(item => item.completed = false);
-      } else if (crossItem[0].completed === false) {
-        crossItem.forEach(item => item.completed = true);
-      }
-    }
-    this.setState({ list: list });
+  handleClick = (id) => {
+    let list = this.state.todolist;
+    let todo = list.findIndex(todo => todo.id === id);
+    list[todo].completed = true
+    this.setState({list: list});
   }
 
   handleSubmit = (event) => {
@@ -53,18 +47,17 @@ class App extends React.Component {
     })
   };
 
-
-
   render() {
     return (
-      <div>
+      <div> 
         <h2>Oh god it's another todo app</h2>
-        <List todolist={this.state.todolist} />
+        <List todolist={this.state.todolist} handleClick={(id) => this.handleClick(id)} />
         <Form 
           input={this.state.input} 
           handleSubmit={this.handleSubmit} 
           handleInput={this.handleInput} 
           completeOrNot={this.completeOrNot}
+          // figure out how react handles if statements
         />
       </div>
     );
