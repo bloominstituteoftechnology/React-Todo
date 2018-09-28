@@ -35,6 +35,7 @@ class App extends React.Component {
   }
 
   handleClick = (e) => {
+    e.preventDefault();
     const newObj = {
       task: this.state.newTask,
       id: Date.now(),
