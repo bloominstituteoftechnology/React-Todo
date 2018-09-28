@@ -10,10 +10,20 @@ class App extends React.Component {
 			inputText: ''
 		};
 	}
-	toggleComplete = e => {
-    console.log('toggled')
-  }
-  
+	toggleComplete = (id )=> {
+    let tempTodos = this.state.todoList 
+      tempTodos.map (todo => {
+      if (todo.id === id){
+        todo.completed = !todo.completed;
+        return todo;
+
+      } else {
+        return todo;
+      }
+    });
+    this.setState({todoList: tempTodos})
+	};
+
 	clearList = event => {
 		event.preventDefault();
 		this.setState({
@@ -49,13 +59,11 @@ class App extends React.Component {
 					userInput={this.state.inputText}
 					changeUserInput={this.changeUserInput}
 					inputText={this.state.inputText}
-					clearList={this.clearList}
+          clearList={this.clearList}
+          id = {this.state.id}
+					
 				/>
-				<TodoList
-					list={this.state.todoList}
-					id={this.state.id}
-					toggleFlag={this.toggleComplete}
-				/>
+        <TodoList list={this.state.todoList} id={this.state.id} toggleComplete={this.toggleComplete} />
 			</div>
 		);
 	}

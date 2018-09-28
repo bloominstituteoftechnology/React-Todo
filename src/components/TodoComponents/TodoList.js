@@ -2,14 +2,16 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = props => {
-	
-	return (
-		<div>
+  
+  const myClickyHandler = () => {
+    this.props.toggleComplete(this.props.id)
+  }
+  
+  return <div>
 			<ol>
-        <Todo list={props.list} id={props.id} onClick={props.toggleComplete}/>
+				<Todo list={props.list} id={props.id} toggleComplete={props.toggleComplete} myClickyHandler={myClickyHandler} />
 			</ol>
-		</div>
-	);
+		</div>;
 };
 
 export default TodoList;
