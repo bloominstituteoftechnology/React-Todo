@@ -11,6 +11,8 @@ class App extends React.Component {
     super();
 
     this.state = {
+      textInput:"",
+
       todos: [
         { id: 1, completed: true, task: "shop" },
         { id: 2, completed: false, task: "eat" },
@@ -22,6 +24,14 @@ class App extends React.Component {
 clickHandler(event){
   this.setState({id:Date.now(), completed: false, task: event.value})
 }
+handleInput = event => {
+  console.log("hi");
+  this.setState({
+    textInput: event.target.value,
+  
+  });
+};
+
   render() {
     return (
       <div>

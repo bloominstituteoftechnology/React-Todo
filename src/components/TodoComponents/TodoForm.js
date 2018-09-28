@@ -4,7 +4,8 @@ const TodoForm=()=>{
     return(
         <form onSubmit={this.clickHandler}>
         <div>
-            <input></input>
+            <input onChange={this.handleInput}
+            value={this.state.textInput} />
             <button >Submit</button>
         </div>
         </form>
