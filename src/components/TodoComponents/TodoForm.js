@@ -4,10 +4,14 @@ class TodoForm extends React.Component {
   render() {
 
     return (
-      <div>
-        <input value={this.props.value} onChange={this.props.update} />
-        <button onClick={this.props.submit}>Add todo</button>
-        <button onClick={this.props.filter} onKeyUp={this.props.enter}>clear completed</button>
+      <div className="form">
+        <div className="form-input">
+          <input type="text" value={this.props.value} onChange={this.props.update} />
+        </div>
+        <div className="form-actions">
+          <div  className ="btn"onClick={this.props.submit}>Add</div>
+          <div className ="btn"onClick={this.props.filter} onKeyPress ={this.props.submit}>clear </div>
+        </div>
       </div>
     );
   }

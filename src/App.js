@@ -2,7 +2,8 @@ import React from "react";
 //import Todo from "../src/components/TodoComponents/Todo";
 import TodoList from "../src/components/TodoComponents/TodoList";
 import TodoForm from "../src/components/TodoComponents/TodoForm";
-// import "./src/app.css";
+import "../src/components/TodoComponents/Todo.css";
+import "../src/components/TodoComponents/reset.css";
 
 class App extends React.Component {
   constructor() {
@@ -79,14 +80,17 @@ handleFilter = () =>{
     console.log(this.state.todos)
     return (
       <div className="container">
-        <TodoList taskLists={this.state.todos} selected={this.handleSelected}/>
-        <TodoForm
-          value={this.state.task}
-          submit={this.handleSubmit}
-          update={this.handleChange}
-          filter={this.handleFilter}
-          enter ={this.handleEnter}
-        />
+        <div className="todo-container">
+          <h1> My daily Todos</h1>
+          <TodoList taskLists={this.state.todos} selected={this.handleSelected}/>
+          <TodoForm
+            value={this.state.task}
+            submit={this.handleSubmit}
+            update={this.handleChange}
+            filter={this.handleFilter}
+            enter ={this.handleEnter}
+          />
+        </div>
       </div>
     );
   }

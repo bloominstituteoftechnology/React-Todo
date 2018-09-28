@@ -4,14 +4,10 @@ import React from "react";
 import Todo from "../TodoComponents/Todo";
 
 class TodoList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     console.log(this.props.taskLists)
     return (
-      <div>
+      <div className="display-todo">
         {this.props.taskLists.map(todo => {
           return <Todo key={todo.id} todo={todo} selected={this.props.selected}/>;
         })}
