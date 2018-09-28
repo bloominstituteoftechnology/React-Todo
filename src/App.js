@@ -35,7 +35,9 @@ class App extends React.Component {
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <TodoList todos={this.state.todos}/>
+        <div>
+          <TodoList todos={this.state.todos}/>
+        </div>
         <TodoForm addTodo={this.addTodo}/>
       </div>
     );

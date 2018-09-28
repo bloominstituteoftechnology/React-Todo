@@ -1,0 +1,9 @@
+h3 {
+    cursor: pointer;
+}
+
+.taskComplete {
+    color: red;
+    text-decoration: line-through;
+
+}
