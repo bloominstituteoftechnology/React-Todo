@@ -1,26 +1,27 @@
 import React, { Component } from 'react'
+import './Todo.css';
 
 class TodoForm extends Component {
 
-    state = {id: Date.now(), task: "", completed: false};
+    state = {task: ""};
 
-    inputChange = event => {
+    handleChange = event => {
         this.setState({
             task: event.target.value
         });
     };
 
-    submitTodo = event => {
+    handleSubmit = event => {
         event.preventDefault();
-        this.props.addTodo(this.state);
+        this.props.addTodo({id: Date.now(), task: this.state.task, completed: false});
         this.setState({task: ""});
     };
 
     render() {
         return (
             <div>
-                <form onSubmit={this.submitTodo}>
-                <input value={this.state.task} onChange={this.inputChange} />
+                <form onSubmit={this.handleSubmit}>
+                <input value={this.state.task} onChange={this.handleChange} />
                 <button type="submit">Add</button>
                 <button>Clear Selected</button>
                 </form>

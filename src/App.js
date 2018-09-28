@@ -7,21 +7,30 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   state = {todos: [
-    {id: Date.now(), task: "blah", completed: false},
-    {id: Date.now(), task: "foo", completed: false},
-    {id: Date.now(), task: "bar", completed: false}
+    {id: 1, task: "blah", completed: false},
+    {id: 2, task: "foo", completed: false},
+    {id: 3, task: "bar", completed: false}
   ]};
 
   addTodo = todo => {
-    const newTodos = this.state.todos.slice();
-    newTodos.push(todo);
-    this.setState({todos: newTodos});
+    this.setState({todos: [...this.state.todos, todo]})
+  }
+
+  toggleCompleted = id => {
+    const todosList = [...this.state.todos];
+    todosList.forEach(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      }
+    })
+    this.setState({todos: todosList});
   }
 
   render() {
     return (
       <div>
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} toggleCompleted={this.toggleCompleted} />
         <TodoForm addTodo={this.addTodo} />
       </div>
     );

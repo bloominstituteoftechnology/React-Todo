@@ -1,10 +1,12 @@
 import React from 'react';
+import './Todo.css';
 
 const Todo = props => {
     return (
-        <div data-id={props.id} data-completed={props.completed}>
-            {props.task}
-        </div>
+        <li className={props.todo.completed ? "done" : ""} 
+            onClick={(event) => { props.toggleCompleted(props.todo.id) }}>
+            {props.todo.task}
+        </li>
     )
 }
 
