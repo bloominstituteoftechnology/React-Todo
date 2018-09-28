@@ -7,13 +7,7 @@ import ToDoItem from "./components/ToDoItemComponents/ToDoItem";
 // HINTS
 // USE .filter to remove todos completed
 
-// const App = () => (
-//   <div>
-//     <h2>Todo App</h2>
-//   <Header />
-//   <ToDoList />
-//   </div>
-// );
+
 class App extends Component {
   // no other module should have state
   state = {

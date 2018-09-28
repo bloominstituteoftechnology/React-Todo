@@ -46,4 +46,48 @@ export default ToDoList;
   Here, we're simply passing the index of each toDoItem item as the key for the individual React component.
 */
 
-
+{
+  /* <ul>
+        <ToDoItem>ToDo item list appears here.</ToDoItem>
+        {props.toDoListItems.map(toDoItem => {
+          if (toDoItem.completed) {
+            return (
+              <li key={toDoItem.id} className="toDoItemComplete">
+              <button
+              className="itemComplete"
+              onClick={() => {
+                props.completedTodo(toDoItem.id);
+              }}
+              />
+              {toDoItem.task}
+              <div className="strikeThrough" />
+              <button
+              className="itemStrikeout"
+              onClick={() => {
+                props.removeTodo(toDoItem.id);
+              }}
+              />
+              </li>
+              );
+            } else {
+              return (
+                <li key={toDoItem.id}>
+                <button
+                className="itemComplete"
+                onClick={() => {
+                  props.completedTodo(toDoItem.id);
+                }}
+                />
+                {toDoItem.task}
+                <button
+                className="itemNotComplete"
+                onClick={() => {
+                  props.removeTodo(toDoItem.id);
+                }}
+                />
+                </li>
+                );
+              }
+            })}
+          </ul> */
+}
