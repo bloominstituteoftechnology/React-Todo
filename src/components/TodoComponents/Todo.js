@@ -4,7 +4,7 @@ const Todo = (props) => {
    console.log("todo", props)
    return (
        <ul className={props.displayStyle}>
-           {props.data.map((item, index) => <li key={this.id}>item.task</li>)}
+            {props.todo.task.map((item, index) => <li key={this.id}>item.task</li>)}
        </ul>
    );
 }

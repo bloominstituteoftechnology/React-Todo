@@ -4,12 +4,13 @@
 //receives your Todos array and iterates over the list generating a new <Todo /> for each element in the array.
 import React from "react";
 import Todo from "./Todo";
-import TodoForm from "./TodoForm";
+//import Todo from "./Todo";
  const TodoList = (props) => {
     console.log("list", props)
+    //for (var in key )
     return(
         <div className={props.displayStyle}>
-            <TodoForm />
+            <TodoForm action={props}/>
         </div>
     );
 }

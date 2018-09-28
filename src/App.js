@@ -7,6 +7,7 @@ import Todo from './components/TodoComponents/Todo';
 import TodoForm from './components/TodoComponents/TodoForm';
 let data = [];
 
+// design `App` to be the parent component of your application.
 class App extends React.Component {
   //store your state in this component.
   constructor(){
@@ -17,6 +18,7 @@ class App extends React.Component {
       completed: false,
     }
   }
+   // this component is going to take care of state, and any change handlers you need to work with your state
    //handle input takes the input provide in the box and changes the state to reflex that text
   handleInput = (event) => {
     this.setState({
@@ -41,7 +43,7 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <TodoList {...this.state} />
+      <TodoList state={data} input={this.handleInput} add={this.addTodo} remove={this.removeCompleted}/>
         <h2>Welcome to your Todo App!</h2>	      // <div className="form-container">
         </div>	      
       //     <h1>Todo List: MVP</h1>
