@@ -48,13 +48,20 @@ class App extends React.Component {
     }
     }
 
-    crossOut = (e, todoId) => {
-      if (e.target.style.textDecoration === '' || e.target.style.textDecoration === 'none' ) {
-      e.target.style.textDecoration = "line-through"
-      } else {
-        e.target.style.textDecoration = "none"
-      }
+    crossOut = (todoId) => {
+      this.setState ({
+        todo: this.state.todo.map(item => {
+          if (item.id === todoId) {
+            return {
+              task: item.task,
+              id: item.id,
+              completed: !item.completed
+            }
+          } else {return item}
+        })
+      })
     }
+  
 
   render() {
     return (
