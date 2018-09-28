@@ -1,0 +1,58 @@
+.todo-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list {
+    display: flex;
+    align-items: flex-start;
+    width: 600px;
+    height: 25px;
+    margin: 30px;
+    padding: 15px;
+    background-image: linear-gradient(to bottom, rgb(114, 27, 255), rgba(225, 0, 255, 0.89));
+    border-radius: 8px 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(236, 169, 253);
+}
+
+.input-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    width: 600px;
+    height: 25px;
+    margin: 30px;
+    padding: 15px;
+    border-radius: 8px 8px;
+    font-size: 19px;
+    background-image: linear-gradient(to bottom, rgb(0, 195, 255), rgb(0, 255, 242));
+}
+
+.btn {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button {
+    outline: none;
+    width: 100px;
+    height: 45px;
+    margin-left: 30px;
+    border: 2px solid rgb(66, 66, 66);
+    padding: 2px 10px;
+    font-size: 15px;
+    border-radius: 8px 8px;
+    color: Black;
+    font-weight: bold;
+    cursor: pointer;
+    background-image: linear-gradient(to bottom, chartreuse, rgb(0, 255, 242));
+}
+
+button:hover {
+    background-image: linear-gradient(to bottom, rgb(174, 238, 144), rgb(0, 255, 242));
+}

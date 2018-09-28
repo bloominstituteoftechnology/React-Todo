@@ -1,0 +1,39 @@
+body {
+    width: 50%;
+    background-color: #292929;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 2px solid rgba(32, 16, 48, 0.219);
+    box-shadow: 1px 0px 20px 1px rgba(34, 17, 56, 0.445);
+    border-radius: 8px 8px;
+}
+
+h2 {
+    position: relative;
+    text-align: center;
+    font-size: 75px;
+    background-image: linear-gradient(to bottom, rgb(114, 27, 255), rgba(225, 0, 255, 0.89));
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+h1 {
+    text-align: center;
+    font-size: 55px;
+    background-image: linear-gradient(to bottom, orangered, BlueViolet);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: 'Shadows Into Light', cursive;
+    letter-spacing: 8px;
+    /* Safari */
+    -webkit-transform: rotate(-45deg);
+    /* Firefox */
+    -moz-transform: rotate(-45deg);
+    /* IE */
+    -ms-transform: rotate(-45deg);
+    position: absolute;
+    margin-left: -35px;
+    margin-top: -175px;
+}
