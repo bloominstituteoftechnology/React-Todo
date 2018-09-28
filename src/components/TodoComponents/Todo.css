@@ -1,5 +1,42 @@
 /* ToDo List styles go here */
 
-button {
-    margin-left: 10px;
+
+.todo {
+    font-size: 2rem;
+    margin-top: 10px;
+}
+
+.todo:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.todo-form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    margin: 10px;
+    color: grey;
+}
+
+.button-holder {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.button-holder button {
+    width: 40%;
+    margin: 10px;
 }

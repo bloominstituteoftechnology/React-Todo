@@ -1,1 +1,30 @@
 /* App styles go here */
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: azure;
+    border: 1px solid black;
+}
+
+.container h1 {
+    font-size: 4rem;
+    margin: 10px;
+}
+
+.container ul {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.help p {
+    font-size: 1.2rem;
+    color: grey;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
