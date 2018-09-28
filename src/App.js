@@ -38,6 +38,18 @@ class App extends React.Component {
     this.setState({ todoList: newTodoList });
   }
 
+  handleClearCompleted = e => {
+    let newTodoList = this.state.todoList.slice();
+    newTodoList = newTodoList.reduce((incomplete, todo) => {
+      if (!todo.completed) {
+        incomplete.push(todo);
+      }
+      return incomplete;
+    }, []);
+    this.setState({ todoList: newTodoList });
+    e.preventDefault();
+  }
+
   render() {
     return (
       <div>
@@ -47,7 +59,8 @@ class App extends React.Component {
         <TodoForm
           todo={this.state.todo}
           onChange={this.handleChange}
-          onSubmitTodo={this.handleSubmitTodo} />
+          onSubmitTodo={this.handleSubmitTodo}
+          onClearCompleted={this.handleClearCompleted} />
       </div>
     );
   }
