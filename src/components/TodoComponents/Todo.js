@@ -5,15 +5,24 @@ class Todo extends React.Component {
     super(props);
     this.todo= this.props.todo.task;
     this.id = this.props.todo.id
-    this.completed = this.props.todo.completed
+    
   }
   render() {
+    console.log(this.props.todo.completed);
    const handleSelected = () =>{
      this.props.selected(this.id);
    }
-    return (
-      <div className="todo" onClick={handleSelected}>{this.todo}</div>
-    )
+    if(this.props.todo.completed === true){
+      return (
+        <div className="text-strike todo" onClick={handleSelected}>{this.todo}</div>
+      )
+    }
+    else{
+      return (
+        <div className="todo" onClick={handleSelected}>{this.todo}</div>
+      )
+    }
+    
   }
 }
 
