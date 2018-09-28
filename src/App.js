@@ -10,7 +10,16 @@ class App extends React.Component {
 			inputText: ''
 		};
 	}
-
+	toggleComplete = e => {
+    console.log('toggled')
+  }
+  
+	clearList = event => {
+		event.preventDefault();
+		this.setState({
+			todoList: []
+		});
+	};
 	addToList = event => {
 		event.preventDefault();
 		let newArray = this.state.todoList;
@@ -32,16 +41,21 @@ class App extends React.Component {
 
 	render() {
 		return (
-
-      <div>
-        <h1>Michaels Awesome To-Do List</h1>
+			<div>
+				<h1>Michaels Awesome To-Do List</h1>
 				<TodoForm
+					className="toDoList"
 					addToList={this.addToList}
 					userInput={this.state.inputText}
 					changeUserInput={this.changeUserInput}
 					inputText={this.state.inputText}
+					clearList={this.clearList}
 				/>
-				<TodoList list={this.state.todoList} id={this.state.id} />
+				<TodoList
+					list={this.state.todoList}
+					id={this.state.id}
+					toggleFlag={this.toggleComplete}
+				/>
 			</div>
 		);
 	}
