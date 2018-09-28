@@ -9,16 +9,19 @@ class App extends React.Component {
     super();
     this.state = {
       userInput: '',
+      backgroundColors: ['#f1c40f', '#e67e22', '#e74c3c', '#1abc9c', '#2ecc71', '#3498db', '#9b59b6'],
       todoList: [
         {
           task: 'Organize Garage',
           id: 1528817077286,
-          completed: false
+          completed: false,
+          backgroundColor: '#3498db'
         },
         {
           task: 'Bake Cookies',
           id: 1528817084358,
-          completed: false
+          completed: false,
+          backgroundColor: '#9b59b6'
         }
       ]
     };
@@ -31,7 +34,8 @@ class App extends React.Component {
         todoList: this.state.todoList.concat({
           task: event.target.value,
           id: Date.now(),
-          completed: false
+          completed: false,
+          backgroundColor: this.state.backgroundColors[Math.floor(Math.random()*this.state.backgroundColors.length)]
         }) 
       });
     }
@@ -43,7 +47,8 @@ class App extends React.Component {
       todoList: this.state.todoList.concat({
         task: this.state.userInput,
         id: Date.now(),
-        completed: false
+        completed: false,
+        backgroundColor: this.state.backgroundColors[Math.floor(Math.random()*this.state.backgroundColors.length)]
       }) 
     });
   }

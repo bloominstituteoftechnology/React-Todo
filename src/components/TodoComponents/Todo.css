@@ -1,3 +1,18 @@
 .line-through {
     text-decoration: line-through;
 }
+
+.todo-container {
+    background-color: #ecf0f1;
+    width: 50%;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.todo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: white;
+    margin: 20px;
+}
