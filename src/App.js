@@ -35,8 +35,22 @@ class App extends React.Component {
     
   }
 
-  finishedHander = (event) =>{
-    console.log("worked")
+  finishedHander = (todoId) =>{
+    console.log(todoId)
+    console.log(this.state.manyTodo)
+    this.setState({
+      manyTodo: this.state.manyTodo.map(todo => {
+        if(todo.id === todoId){
+          return {
+            task: todo.task,
+            id: todo.id,
+            completed: !todo.completed
+          } 
+          }else {
+            return todo
+        }
+      })
+    })
   }
 
   render() {
