@@ -19,8 +19,8 @@ class App extends React.Component {
       ]
     };
   }
-handleSubmit(){
-console.log("hi");
+clickHandler(event){
+  this.setState({id:Date.now(), completed: false, task: event.value})
 }
   render() {
     return (

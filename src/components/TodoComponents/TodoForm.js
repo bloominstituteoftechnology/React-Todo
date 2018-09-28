@@ -2,12 +2,12 @@ import React from "react";
 
 const TodoForm=()=>{
     return(
+        <form onSubmit={this.clickHandler}>
         <div>
-            <form onSubmit={this.handleSubmit}>
             <input></input>
-            <button type="submit">Submit</button>
-            </form>
+            <button >Submit</button>
         </div>
+        </form>
     )
 }
 
