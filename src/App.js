@@ -2,6 +2,7 @@ import React from "react";
 //import Todo from "../src/components/TodoComponents/Todo";
 import TodoList from "../src/components/TodoComponents/TodoList";
 import TodoForm from "../src/components/TodoComponents/TodoForm";
+import SearchTodo from"../src/components/TodoComponents/SearchTodo";
 import "../src/components/TodoComponents/Todo.css";
 import "../src/components/TodoComponents/reset.css";
 
@@ -10,6 +11,7 @@ class App extends React.Component {
     super();
     this.state = {
       task:"",
+      query:"",
       id:Date.now(),
       completed:false,
       todos: [
@@ -29,11 +31,25 @@ class App extends React.Component {
 
   handleChange = event => {
     this.setState({
-        task: event.target.value,
+        [event.target.name]: event.target.value,
         id:Date.now(),
         completed:false
     });
   };
+
+  handleKeyPress = event =>{
+    const task = {
+      task: this.state.task,
+      id: this.state.id,
+      completed: this.state.completed
+    };
+    if(event.which === 13){
+      this.state.todos.push(task);
+      this.setState({
+        task: ""
+      })
+    }
+  }
 
   handleSubmit = () => {
     const task = {
@@ -47,7 +63,7 @@ class App extends React.Component {
     })
   };
 
-  handleSelected = (id)=> {
+  handleSelected = id => {
     this.setState({
       todos: this.state.todos.map(todo => {
         if (todo.id === id) {
@@ -76,12 +92,28 @@ handleFilter = () =>{
   })
 }
 
+handleSearch = query =>{
+  const arr = this.state.todos.filter(todo =>{
+    if (todo.task === query){
+      return todo
+    }
+  })
+  this.setState({
+    todos:arr
+  })
+}
+
   render() {
-    console.log(this.state.todos)
     return (
       <div className="container">
         <div className="todo-container">
-          <h1> My daily Todos</h1>
+          <div className="todo-header">
+            <h1>Todos</h1>
+            <SearchTodo 
+            search={this.handleSearch} 
+            value={this.state.query} 
+            update={this.handleChange}/>
+          </div>
           <TodoList taskLists={this.state.todos} selected={this.handleSelected}/>
           <TodoForm
             value={this.state.task}
@@ -89,6 +121,7 @@ handleFilter = () =>{
             update={this.handleChange}
             filter={this.handleFilter}
             enter ={this.handleEnter}
+            keypress={this.handleKeyPress}
           />
         </div>
       </div>
