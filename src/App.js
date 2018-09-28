@@ -65,7 +65,8 @@ class App extends React.Component {
 					changeUserInput={this.changeUserInput}
 					inputText={this.state.inputText}
 					clearList={this.clearList}
-					id={this.state.id}
+          id={this.state.id}
+          inputLength={this.state.inputText.length}
 				/>
 				<TodoList
 					list={this.state.todoList}
