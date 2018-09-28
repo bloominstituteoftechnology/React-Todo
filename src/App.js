@@ -58,7 +58,7 @@ import './components/TodoComponents/Todo.css'
                 render() {
                   return (
                           <div className='todoWhole'>
-                            <h1>
+                            <h1 className='todoList'>
                               <TodoList 
                                         todos={this.state.todos} 
                                         toggleTodo={this.toggleTodo}/>

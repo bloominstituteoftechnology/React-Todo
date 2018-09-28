@@ -1,14 +1,15 @@
 .list{
+    max-width: 400px;
+    width: 100%;
     margin-left: 5%;
     color: rgb(228, 19, 19);
-    max-width: 500px;
-    width: 100%;
-    
-    
+    text-decoration: underline dashed black;
+    text-decoration-skip-ink: auto;
     
 }
 .dash{
-    text-decoration: none;
+    
+    
     text-decoration:line-through;
     text-decoration-color:black;
     text-decoration-style:wavy;
@@ -17,9 +18,8 @@
     transition-duration: 1s;
     transition-delay: 5ms;
     transition-duration: 2s;
-    
-
 }
+
 body{
     background-image:url('../../todopic.jpg');
     background-size:cover;
@@ -32,7 +32,6 @@ body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 form{
-  
     max-width: 600px;
     width: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
@@ -53,8 +52,6 @@ input{
     display: flex;
     justify-content: space-between;
     margin-top: 3%;
-    
-    
 }
 button{
     border-radius:5px;
@@ -63,15 +60,11 @@ button{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 button:hover{
-    
     box-shadow:10px 10px 10px white;
-    
 }
 button:focus,input[type="button"]:focus{
     outline:none;
 }
 button:active{
-    
     margin-top: 1%;
-    
 }
