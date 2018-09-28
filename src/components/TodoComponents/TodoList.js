@@ -11,9 +11,9 @@ const TodoList = (props) => {
                 return (
                     <ToDo 
                         key={newToDo.id} 
-                        value={newToDo.task} 
-                        className={newToDo.completed} 
-                        onClick={() => props.handleClick(newToDo.id)}
+                        value={newToDo}
+                        // className={"completed"} 
+                        handleClick={props.handleClick}
                     />
                 )
             })}

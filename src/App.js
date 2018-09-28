@@ -8,6 +8,7 @@ class App extends React.Component {
     super(props);
     this.state={
       input: '',
+     
       todolist: [
         {
           task: 'graduate lambda school',
@@ -16,7 +17,7 @@ class App extends React.Component {
         }
 
       ],
-      id: Date.now()
+     
     };
   }
 
@@ -28,7 +29,7 @@ class App extends React.Component {
   };
 
   handleClick = (id) => {
-    let list = this.state.todolist;
+    let list = this.state.todolist.slice();
     let todo = list.findIndex(todo => todo.id === id);
     list[todo].completed = true
     this.setState({list: list});
@@ -39,6 +40,7 @@ class App extends React.Component {
     const obj = {
       task: this.state.input,
       id: Date.now(),
+      completed: false,
     }
 
     this.setState({
