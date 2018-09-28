@@ -83,22 +83,21 @@ class App extends React.Component {
 handleFilter = () =>{
   const arr = this.state.todos.filter(todo =>{
     if(todo.completed === false){
-      return todo
+      return todo;
     }
-    console.log(todo);
   })
   this.setState({
     todos: arr
   })
 }
 
-handleSearch = query =>{
-  const arr = this.state.todos.filter(todo =>{
-    if (!todo.task === query.toString()){
-      return todo
-    }
-  })
+handleSearch = () =>{
+ let search = this.state.query.trim().toLowerCase();
+ const arr = this.state.todos.filter(todo =>{
+    return todo.task.toLowerCase().match(search);
+ })
   this.setState({
+    query:'',
     todos:arr
   })
 }

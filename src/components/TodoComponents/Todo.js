@@ -8,7 +8,6 @@ class Todo extends React.Component {
     
   }
   render() {
-    console.log(this.props.todo.completed);
    const handleSelected = () =>{
      this.props.selected(this.id);
    }
