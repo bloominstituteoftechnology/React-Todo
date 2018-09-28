@@ -7,7 +7,8 @@ class App extends React.Component {
     super();
     this.state = {
       manyTodo: [],
-      task: ""
+      task: "",
+      completed: false,
     };
   }
 
@@ -24,20 +25,25 @@ class App extends React.Component {
     const singleTodo = {
       task: this.state.task,
       id: Date.now(),
-      completed: false
+      completed: this.state.completed,
     };
     this.setState({
       manyTodo:[...this.state.manyTodo, singleTodo,],
       task: ""
     });
     console.log(singleTodo)
+    
+  }
+
+  finishedHander = (event) =>{
+    console.log("worked")
   }
 
   render() {
     return (
       <div>
         <h2>Get Er' Done</h2>
-        <TodoList manyTodo={this.state.manyTodo} />
+        <TodoList finishedHander ={this.finishedHander} manyTodo={this.state.manyTodo} />
         <TodoForm inputHander={this.inputHander} submitHander ={this.submitHander} />
       </div>
     );

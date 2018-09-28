@@ -8,7 +8,7 @@ const TodoList = (props) =>{
         <ul>
             {props.manyTodo.map( item =>{
                 return(
-                    <Todo value={item.task} key={item.id} />
+                    <Todo finishedHander={props.finishedHander} value={item.task} key={item.id} />
                 )
             })}
         </ul>
