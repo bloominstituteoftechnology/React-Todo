@@ -10,14 +10,16 @@ h3 {
   padding-left: 42%;
 }
 .header {
-  color: azure;
+  background-image: url('');
+  color: rgb(82, 103, 160);
 }
 .completed {
   text-decoration: line-through;
   color: green;
 }
 .list {
-
+  color: rgb(82, 103, 160);
+  font-size: 150%;
 }
 .form {
   padding: 5% 0;
@@ -25,20 +27,26 @@ h3 {
   justify-content: center;
   align-items: center;
 }
-
 .add {
-  background-color: azure;
+  background-color: rgb(82, 103, 160);
   text-align: center;
-  width: 40%;
+  width: 30%;
   border-radius: 50%;
   margin: 5% auto;
-
+  padding: 5% 5% 7% 5%;
+  color: azure;
+  cursor: pointer;
+  border: 2px solid white;
 }
 .clear {
   background-color: lightgreen;
   text-align: center;
   width: 70%;
   margin: 5% auto;
+  padding: 5%;
+  border-radius: 40%;
+  cursor: pointer;
+  border: 1px solid black;
 }
 
 

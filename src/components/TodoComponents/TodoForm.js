@@ -17,7 +17,7 @@ const TodoForm = (props) => {
                   }
               }} 
         />
-        <div onClick={props.add} className="add">Add Todo</div>
+        <div onClick={props.add} className="add">Add To-Do</div>
         <div onClick={filteredList} className="clear">Clear Completed</div>
     </div>
     );
