@@ -36,9 +36,8 @@ class App extends React.Component {
   //handles add todo button
   //new object is created to append to the todos array
   //set state changes the todos list to include newly added data
-  addTodo = (event) => {
+  addTodo = () => {
     console.log(this.state.input)
-    event.preventDefault();
     data = {
       task: this.state.input,
       id: Date.now(),
@@ -50,7 +49,7 @@ class App extends React.Component {
     })
   }
 
-  //strike toggles the completed flag state from true to false for crossing out items
+  //strike toggles the completed flag from true to false
   strike = (todoId) => {
     this.setState({
       todos: this.state.todos.map(item => {
@@ -69,6 +68,7 @@ class App extends React.Component {
   }
 
   //handles clear completed button
+  //filters all todos the have a completed value of true
   removeCompleted = () =>{
     console.log("clear")
     this.setState({
@@ -78,16 +78,19 @@ class App extends React.Component {
       })
     })
   }
+
+  //render todo list
   render() {
     return (
       <div>
-        <TodoList state={this.state} 
-        input={this.handleInput}
-        text={this.state.input}
-        add={this.addTodo} 
-        remove={this.removeCompleted} 
-        strike={this.strike}
-        class={this.class}/>
+        <TodoList 
+          state={this.state} 
+          input={this.handleInput}
+          text={this.state.input}
+          add={this.addTodo} 
+          remove={this.removeCompleted} 
+          strike={this.strike}
+          class={this.class}/>
       </div>
     );
   }
