@@ -27,6 +27,7 @@ body {
 .form {
     display: flex;
     justify-content: space-around;
+    width: 100%;
 }
 
 button {
@@ -35,6 +36,7 @@ button {
     border: 1px solid #333;
     box-shadow: 1px 1px 2px grey;
     border-radius: 5px;
+    width: 30%;
 }
 
 input {
@@ -42,6 +44,7 @@ input {
     border: 1px solid #333;
     border-radius: 5px;
     padding-left: 3px;
+    width: 40%;
 }
 
 .todoItem {
@@ -50,5 +53,5 @@ input {
     justify-content: center;
     border-bottom: 1px dashed #333;
     margin: 5px;
-    text-align: center
+    text-align: center;
 }
