@@ -1,3 +1,12 @@
+body {
+    font-family: 'Roboto Mono', monospace; 
+    background: #292B30;
+}
+
+button {
+    font-family: 'Kodchasan', sans-serif;
+}
+
 .container {
     margin: 0 auto;
     max-width: 546px;
@@ -20,13 +29,21 @@
     color: #8D9295;
 }
 
+.background-img {
+    background: url('../../assets/now.png');
+    opacity: 0.1;
+    height: 671%;
+}
+
 .todoList {
     height: 433px;
     margin-left: 6px;
+    position: absolute;
+    margin-top: 42px;
 }
 
 input {
-    width: 63%;
+    width: 59.12%;
     height: 19px;
 }
 

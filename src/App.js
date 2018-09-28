@@ -60,6 +60,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <h2>PROCASTINATION LIST :</h2>
+        <div className="background-img"></div>
         <TodoList
           todos={this.state.todos}
           handleClick={this.handleClick}
