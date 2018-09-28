@@ -35,7 +35,8 @@ class App extends React.Component {
       completed: false,
     }
     this.setState({
-      todoList: [...this.state.todoList, newTodo]
+      todoList: [...this.state.todoList, newTodo],
+      text: "",
     })
   }
 
@@ -69,6 +70,7 @@ class App extends React.Component {
       <div>
         <h1>Todo List: MVP</h1>
         <TodoForm
+          text={this.state.text}  
           inputHandle={this.inputHandle}
           clickHandle={this.clickHandle}
           clearCompleted={this.clearCompleted}

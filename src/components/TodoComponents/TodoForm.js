@@ -4,7 +4,11 @@ import './Todo.css';
 const TodoForm = (props) => {
     return (
         <div>
-            <input placeholder="...todo" onChange={props.inputHandle}/>
+            <input
+                placeholder="...todo"
+                value={props.text}
+                onChange={props.inputHandle}
+            />
             <button onClick={props.clickHandle}>Add Todo</button>
             <button onClick={props.clearCompleted}>Clear Completed</button>
         </div>
