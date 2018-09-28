@@ -7,14 +7,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      todo: [
-        {task: 'Go To Store',
-         id: 123,
-         completed: false},
-        {task: 'Go To Work',
-         id: 124,
-         completed: false},
-      ]
+      todo: []
     }
 ;  }
 
@@ -60,17 +53,31 @@ class App extends React.Component {
           } else {return item}
         })
       })
+      
+
+
+      
     }
 
     clearComplete = () => {
-      let temparr = this.state.todo;
-      temparr = temparr.filter((item) => {
-        return item.completed === false;
+      let temparr = [];
+      this.state.todo.forEach(item => {
+        if (item.completed === false) {
+          temparr.push(item);
+        }
+      })
+
+      temparr.forEach(item => {
+        item.completed = false
       })
 
       this.setState({
         todo: temparr
       })
+
+      console.log(this.state.todo)
+      console.log(temparr)
+
     }
   
 

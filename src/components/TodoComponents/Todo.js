@@ -5,11 +5,12 @@ class Todo extends React.Component {
 
     completedHandler = (e) => {
         this.props.strike(this.props.item.id)
-        if (e.target.style.textDecoration === '' || e.target.style.textDecoration === 'none') {
-            e.target.style.textDecoration = "line-through"
+        if (this.props.item.completed === false) {
+            e.target.style.textDecoration = 'line-through'
         } else {
-            e.target.style.textDecoration = "none"
+            e.target.style.textDecoration = 'none'
         }
+
     };
 
     render() {
