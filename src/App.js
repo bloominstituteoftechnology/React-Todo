@@ -55,8 +55,9 @@ class App extends React.Component {
     }
   
   clearCompleted = () => {
+    this.state.listItems = this.state.listItems.filter(item => item.completed === false);
     this.setState({
-      listItems: this.state.listItems.filter(item => item.completed === false),
+      listItems: this.state.listItems,
     })
     this.updateListInStorage();
   }
