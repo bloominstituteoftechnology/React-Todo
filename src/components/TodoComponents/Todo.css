@@ -1,3 +1,77 @@
+.list{
+    margin-left: 5%;
+    color: rgb(228, 19, 19);
+    max-width: 500px;
+    width: 100%;
+    
+    
+    
+}
 .dash{
-    text-decoration: line-through;
+    text-decoration: none;
+    text-decoration:line-through;
+    text-decoration-color:black;
+    text-decoration-style:wavy;
+    color: rgb(3, 184, 3);
+    transition-delay: 5ms;
+    transition-duration: 1s;
+    transition-delay: 5ms;
+    transition-duration: 2s;
+    
+
+}
+body{
+    background-image:url('../../todopic.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.todoWhole{
+  margin-left:29%;
+  margin-top: 25%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+form{
+  
+    max-width: 600px;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+input{  
+    display: flex;
+    justify-content: space-between;
+    max-width: 540px;
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px black ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    
+}
+.button{
+    max-width: 540px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+    
+    
+}
+button{
+    border-radius:5px;
+    box-shadow:5px 5px 10px black;
+    height: 35px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+button:hover{
+    
+    box-shadow:10px 10px 10px white;
+    
+}
+button:focus,input[type="button"]:focus{
+    outline:none;
+}
+button:active{
+    
+    margin-top: 1%;
+    
 }

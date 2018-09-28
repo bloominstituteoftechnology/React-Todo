@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from'./components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './components/TodoComponents/Todo.css'
 
 
 
@@ -22,23 +23,41 @@ import TodoForm from './components/TodoComponents/TodoForm';
   }
 
   submitTodo=event=>{
-    
+    event.preventDefault();
+    const todos=this.state.todos.slice();
+    todos.push({ task:this.state.todo,
+                 completed:false,
+                 id: Date.now()});
+                 this.setState({todos,todo:''});
 
   };
   inputTodo=event=>{
     this.setState({todo:event.target.value});
   };
   toggleTodo=(id)=>{
-  
+    this.setState(prevState=>{
+      return{
+        todos: prevState.todos.map(todo=>{
+          if(id===todo.id){
+            return{
+              ...todo,completed:!todo.completed
+            }
+          } else return todo
+        })
+      }
+    });
   };
   clearTodo=event=>{
-    
+    event.preventDefault();
+    let todos = this.state.todos.slice();
+    todos=todos.filter(todo=>!todo.completed);
+    this.setState({todos});
   }
   
 
                 render() {
                   return (
-                          <div>
+                          <div className='todoWhole'>
                             <h1>
                               <TodoList 
                                         todos={this.state.todos} 
