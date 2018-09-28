@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm';
+import { InstantSearch } from 'react-instantsearch-dom';
 
 class App extends React.Component {
   constructor() {
@@ -140,6 +141,9 @@ componentDidMount() {
     return (
       <div className="todo-container">
         <h1>ToDo List: Stretch</h1>
+        <InstantSearch appId="latency" apiKey="3d9875e51fbd20c7754e65422f7ce5e1" indexName="bestbuy">
+          {/* Search widgets will go there */}
+        </InstantSearch>
         <TodoList key={this.state.todos.id} todos={this.state.todos} toggleComplete={this.toggleComplete} />
         <TodoForm submit={this.addToDoHandler} removeComplete={this.removeComplete}/>
       </div>
