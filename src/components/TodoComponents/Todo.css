@@ -24,6 +24,14 @@
     width: 100%;
 }
 
+.search-form{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
 .todo-form div{
     display: flex;
     justify-content: center;
@@ -35,6 +43,16 @@
     width: 50%;
     height: 30px;
     margin-bottom: 10px;
+    font-size: 1.8rem;
+    border-radius: 10px;
+    outline: none;
+}
+
+.search-input{
+    width: 30%;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-right: 10px;
     font-size: 1.8rem;
     border-radius: 10px;
     outline: none;

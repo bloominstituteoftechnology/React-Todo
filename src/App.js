@@ -23,10 +23,21 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    // Rewrite set variable to JSON then set headerText then setState
-    if(JSON.parse(localStorage.getItem("data")) !== null){
+    const data = JSON.parse(localStorage.getItem("data"));
+
+    let index = Number.parseInt(data.length / 3, 10);
+    index = index >= this.headers.length ? this.headers.length - 1 : index;
+
+    if(data !== null){
       this.setState({
-        todoData: JSON.parse(localStorage.getItem("data"))
+        todoData: JSON.parse(localStorage.getItem("data")),
+        headerText: this.headers[index]
+      })
+    }
+
+    else{
+      this.setState({
+        headerText: this.headers[index]
       })
     }
   }

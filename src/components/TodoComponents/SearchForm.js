@@ -32,8 +32,8 @@ class SearchForm extends React.Component{
         return(
             <form className="search-form">
                 <input className="search-input" onChange={this.handleInput} placeholder="find..." value={this.state.searchKey}/>
-                <input className="search-execute" type="submit" value="Find Todo" onClick={this.hideTask}/>
-                <input className="search-show-all" type="submit" value="Show All" onClick={this.showAll}/>
+                <input className="button search-execute" type="submit" value="Find Todo" onClick={this.hideTask}/>
+                <input className="button search-show-all" type="submit" value="Show All" onClick={this.showAll}/>
             </form>
         )
     }
