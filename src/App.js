@@ -21,7 +21,7 @@ class App extends React.Component {
     this.setState({
       task: value,
     })
-    console.log(value)
+    // console.log(value)
   }
 
   addTaskHandler = event => {
@@ -37,12 +37,42 @@ class App extends React.Component {
       task:" "
     })
   }
+
+
+  completeToggle = (listId) => {
+    this.setState({
+      list: this.state.list.map(item => {
+        if(item.id === listId ) {
+          console.log(item)
+          return {
+            task: item.task,
+            id: item.id,
+            completed: !item.completed
+          }
+        } else {
+          console.log(item)
+          return item
+        }
+
+      })
+    })
+  }
+  clearHandler = event => {
+    event.preventDefault();
+    this.setState({
+    list: []
+    })
+  }
   render() {
     return (
       <div>
         <h2>Need Todo the following items:</h2>
-        <TodoList value={this.state.list} />
-        <ToDoForm value={this.state.task}inputHandler={this.inputHandler} addTaskHandler={this.addTaskHandler} />
+        <TodoList value={this.state.list} 
+          completeToggle={this.completeToggle}/>
+        <ToDoForm value={this.state.task}
+          inputHandler={this.inputHandler} 
+          addTaskHandler={this.addTaskHandler}
+          clearHandler={this.clearHandler}/>
       </div>
     );
   }

@@ -3,7 +3,7 @@ import './Todo.css';
 
 const ToDo = (props) => {
     return (
-        <li>{props.obj.task}</li>
+        <li className={props.obj.completed ? 'completed' : null} onClick={() => props.completeHandler(props.obj.id)}> {props.obj.task} </li>
     );
 };
 
