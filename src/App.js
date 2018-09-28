@@ -83,7 +83,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="app">
+        <h1>To Do</h1>
         <TodoList 
          todoItems={this.state.todo} 
          strike = {this.crossOut} />

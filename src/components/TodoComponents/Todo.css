@@ -1,0 +1,54 @@
+body {
+    background: 
+    linear-gradient(135deg, white 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, white 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, white 25%, transparent 25%),
+    linear-gradient(45deg, white 25%, transparent 25%);	
+    background-size: 100px 100px;
+    background-color: #333;
+    font-family: sans-serif;
+    font-size: 62.5%;
+}
+
+.app {
+    width: 50%;
+    margin: 50px auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px grey;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+.form {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    margin: 5px;
+    font-size: .9rem;
+    border: 1px solid #333;
+    box-shadow: 1px 1px 2px grey;
+    border-radius: 5px;
+}
+
+input {
+    font-size: 1rem;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding-left: 3px;
+}
+
+.todoItem {
+    display: block;
+    width: 40vw;
+    justify-content: center;
+    border-bottom: 1px dashed #333;
+    margin: 5px;
+    text-align: center
+}
