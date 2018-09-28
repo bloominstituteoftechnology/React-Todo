@@ -21,7 +21,7 @@ class TodoForm extends React.Component {
       <form>
         <input
           type="text"
-          placeholder="...Todo"
+          placeholder="Type Todo here"
           onChange={this.props.handleInput}
           value={this.props.textField}
         />
