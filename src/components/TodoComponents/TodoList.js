@@ -8,7 +8,8 @@ const TodoList = props => {
         <Todo
           todo={todo}
           key={todo.id}
-          onToggleComplete={props.onToggleComplete} />)}
+          onToggleComplete={props.onToggleComplete}
+          onMouseDown={props.onMouseDown} />)}
     </div>
   );
 }

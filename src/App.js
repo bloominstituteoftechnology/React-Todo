@@ -50,12 +50,17 @@ class App extends React.Component {
     e.preventDefault();
   }
 
+  handleMouseDown = e => {
+    e.preventDefault();
+  }
+
   render() {
     return (
       <div>
         <TodoList
           todoList={this.state.todoList}
-          onToggleComplete={this.handleToggleComplete} />
+          onToggleComplete={this.handleToggleComplete}
+          onMouseDown={this.handleMouseDown} />
         <TodoForm
           todo={this.state.todo}
           onChange={this.handleChange}
