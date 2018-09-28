@@ -1,7 +1,7 @@
 .completed {
     text-decoration: line-through;
   }
-  .toDo {
+  h2 {
     cursor: pointer;
     padding-bottom: 5%;
   }

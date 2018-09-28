@@ -1,22 +1,38 @@
 import React from 'react';
+import Todo from './Todo';
+import TodoForm from "./TodoForm";
+import "./Todo.css";
 
 class TodoList extends React.Component {
-    createTasks = todo => {
-      return (
-        <li key={todo.id}
-            todo={todo}
-            onClick={this.props.handleClick}
-            >
-                {todo.task}
-        </li>
-      )
-    }
-    render() {
-      const todoEntries = this.props.todos
-      const listItems = todoEntries.map(this.createTasks)
-  
-      return <ul className="theList">{listItems}</ul>
-    }
+  render() {
+      return(
+          <div className={this.props.displayStyle}>
+              <h1>To-Do List App!</h1>
+              <h3>by jbrock</h3>
+              <div className="list">
+                  {this.props.state.todos.map(item => {
+                      return (
+                        <h2>
+                          <Todo key={item.id} 
+                              id={item.id} 
+                              task={item.task} 
+                              completed={item.completed} toggle={this.props.toggle}
+                              className="toDo"
+                          />
+                        </h2>
+                      );
+                  })}
+                  <TodoForm 
+                      state={this.props.state}
+                      text={this.props.text}
+                      input={this.props.input} 
+                      add={this.props.add} 
+                      remove={this.props.remove}
+                  />
+              </div>
+          </div>
+      );
+  }
 }
-    
-export default TodoList
+
+export default TodoList;
