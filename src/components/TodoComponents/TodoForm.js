@@ -7,7 +7,7 @@ class TodoForm extends React.Component {
   render() {
     return (
       <div className="todo-form">
-      
+
         <input onFocus={this.props.controller.focusHandler}
                onBlur={this.props.controller.blurHandler}
                onChange={this.props.controller.inputHandler}

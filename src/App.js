@@ -9,9 +9,10 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      todoList: [],              // list of Todo objects
-      inputValue: "...todo",     // value of text input field
-      inputEdit: false           // has the user entered text?
+      todoList: [],                    // list of Todo objects
+      placeholder: "enter todo here",  // default text for input field
+      inputValue: "enter todo here",   // value of text input field (initialize to placeholder)
+      inputEdit: false                 // has the user entered text?
     };
   }
 
@@ -28,7 +29,7 @@ class App extends React.Component {
   // 'prompt' text if nothing has been entered yet
   blurHandler = (event) => {
     if (this.state.inputEdit === false) {
-      this.setState({inputValue: "...todo"});
+      this.setState({inputValue: this.state.placeholder});
     }
   };
 
@@ -82,7 +83,7 @@ class App extends React.Component {
 
       this.setState(
         {todoList: newTodoList,
-         inputValue: "...todo",
+         inputValue: this.state.placeholder,
          inputEdit: false
         });
   };
