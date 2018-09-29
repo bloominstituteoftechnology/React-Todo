@@ -4,8 +4,8 @@ import React from 'react';
     return (
         <form>
             <input value={props.input} onChange={props.inputHandler} />
-            <button onClick={props.submit}>Add todo</button>
-            <button>Clear Completed</button>
+            <button onClick={props.submit}>Add</button>
+            <button onClick={props.clear}>Clear</button>
         </form>
     )
 }

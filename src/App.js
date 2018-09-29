@@ -1,6 +1,8 @@
 import React from 'react';
 import TodoForm from '../src/components/TodoComponents/TodoForm';
 import TodoList from '../src/components/TodoComponents/TodoList';
+import './components/TodoComponents/Todo.css';
+
 
 class App extends React.Component {
   constructor(props){
@@ -19,34 +21,58 @@ class App extends React.Component {
     });
   };
 
-  submit = (event) => {
+  submit = (event, todoId) => {
     event.preventDefault();
+    if(this.state.input){
     const obj = {
       task: this.state.input,
       id: Date.now(),
       completed: false
     }
-
-    console.log(obj);
     this.setState({
       todolist: [...this.state.todolist, obj],
       input: ''
     })
-    console.log(this.state.todolist);
+   }
   };
+
+  textStrike = (itemID) => {
+    this.setState({
+      todolist: this.state.todolist.map( item=>{
+        if(item.id === itemID) {
+          return {
+            task: item.task,
+            id: item.id,
+            completed: !item.completed,
+          } 
+        } else {
+          return item;
+        }
+      })
+    })
+  }
+
+  clear = (event) => {
+    event.preventDefault();
+    this.setState({
+      todolist: this.state.todolist.filter(item => item.completed === false)
+    })
+  }
 
   render() {
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <TodoList todolist={this.state.todolist} />
+        <TodoList todolist={this.state.todolist} textStrike={this.textStrike} />
         <TodoForm 
           input={this.state.input} 
           submit={this.submit} 
           inputHandler={this.inputHandler} 
+          clear={this.clear}
         />
       </div>
     );
   }
 }
+
  export default App;
