@@ -158,31 +158,88 @@ const TextInputDisplay = props => {
 // Trick is to set task to 'props.addTextInput', which is the name of the argument AND handler-function (so technically, it's a call-back?) to task. 
 //turn into a class component
 
-// const TodoForm = props => {
-//   let currentDate = new Date();
+
+// class TodoForm extends React.Component {
+//   render() {
 //     return (
 //       <div>
-//           <input value={props.textInput} onChange={props.printTodoTask} placeholder="placeholder text"/>
-//           <button onClick={() => {props.addTodoTask({task: props.addTextInput, id: currentDate.toDateString(), isCompleted: false})}}>Add Todo</button>
-//           <button onClick={props.handleClickClear}>Clear Button</button>
-//           <button>Clear Completed Task</button>
+//           <input value={this.props.textInput} onChange={this.props.printTodoTask} placeholder="placeholder text"/>
+//           <button onClick={() => {this.props.addTodoTask({task: this.props.addTextInput, id: Date.now(), isCompleted: false})}}>Add Todo</button>
+//           <button onClick={this.props.handleClickClear}>Clear Button</button>
+//           <button onClick={this.props.clearCompleted}>Clear Completed Task</button>
 //       </div>
 //     )
-// };
+//   }
+// }
+
+
+// class TodoForm extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {value: ''};
+
+//     this.handleChange = this.handleChange.bind(this);
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//   }
+
+//   handleChange(event){
+//     this.setState({value: event.target.value});
+//   }
+
+//   handleSubmit(event) {
+//     // alert('A name was submitted: ' + this.state.value);
+//     event.preventDefault();
+//   }
+
+//   render() {
+//     return (
+//       <form onSubmit={this.handleSubmit}>
+//         <label>
+//           Todo Task: 
+//           <input type="text" value={this.props.textInput} onChange={this.props.printTodoTask} placeholder="placeholder text"/>
+//         </label>
+//           <input type="submit" value="Submit"/>
+//           <button onClick={() => {this.props.addTodoTask({task: this.props.addTextInput, id: Date.now(), isCompleted: false})}}>Add Todo</button>
+//           <button onClick={this.props.handleClickClear}>Clear Button</button>
+//           <button onClick={this.props.clearCompleted}>Clear Completed Task</button>
+//       </form>
+//     )
+//   }
+// }// class TodoForm
+
 
 class TodoForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event){
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    // alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
   render() {
     return (
-      <div>
-          <input value={this.props.textInput} onChange={this.props.printTodoTask} placeholder="placeholder text"/>
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Todo Task: 
+          <input type="text" value={this.props.textInput} onChange={this.props.printTodoTask} placeholder="placeholder text"/>
+        </label>
+          <input type="submit" value="Submit"/>
           <button onClick={() => {this.props.addTodoTask({task: this.props.addTextInput, id: Date.now(), isCompleted: false})}}>Add Todo</button>
           <button onClick={this.props.handleClickClear}>Clear Button</button>
           <button onClick={this.props.clearCompleted}>Clear Completed Task</button>
-      </div>
+      </form>
     )
   }
-}
-
-
+}// class TodoForm
 
 export default App;
