@@ -9,7 +9,7 @@ const TodoForm = (props) => {
         </div>
         <div className="buttons">
           <button type="submit" className="button"onClick={props.submitHandler}>
-            Submit
+            Add Task
           </button>
           <button className="button" onClick={props.clearHandler}>
             Clear Completed
