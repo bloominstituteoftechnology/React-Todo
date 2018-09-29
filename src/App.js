@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoList from './components/TodoComponents/TodoList';
 
 
 class App extends React.Component {
@@ -109,47 +110,15 @@ class App extends React.Component {
 // props.printTodoTask (App-Parent-to-TodoForm-function-child); props.addTextInput (App-state-to-TodoForm-props)
 
 
-
-
 //functional component takes "todos" property which is linked to 'todoArray', iterates and returns each 'object' within the array
 //each 'object' within array is returned as a <Todo /> component, which has property 'todo' (singular)
-
-
-class TodoList extends React.Component {
-  render(){
-    return this.props.todos.map((e) => {
-      return (
-        <ul>
-          <li><Todo key={e.id} todo={e} toggleCompleted={this.props.toggleCompleted}/></li>
-        </ul>
-      )
-    })
-  }
-}
-
 
 
 
 // the <Todo /> functional component is defined here; it has access to the properties of each todo 'object' (i.e., task, id)
 // it calls the properties of each todo 'object' through props.todo
-class Todo extends React.Component {
-  render() {
 
-    return (
-      <div key={this.props.todo.id} onClick={() => this.props.toggleCompleted(this.props.todo.id)} style={{textDecoration: this.props.todo.isCompleted ? 'line-through' : 'none'}}>
-          This is the {this.props.todo.task} task for {this.props.todo.id} date is completed?: {this.props.todo.isCompleted.toString()}.
-      </div>
-    )
-  }
-}
 
-// const TextInputDisplay = props => {
-//   return (
-//     <div>
-//         {props.addTextInput}
-//     </div>
-//   )
-// }
 
 class TextInputDisplay extends React.Component {
   render() {
