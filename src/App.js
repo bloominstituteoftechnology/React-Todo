@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TextInputDisplay from './components/TodoComponents/TextInputDisplay';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './components/TodoComponents/Todo.css';
 
 
 class App extends React.Component {
@@ -80,14 +81,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-      
           <div>
-            <h2>List starts here:</h2>
-            <TodoList 
-                todos={this.state.todoArray} 
-                changeTaskStatus={this.changeTaskStatus} 
-                toggleCompleted={this.toggleCompleted}/>    
+            <h2 class="todo-heading">Todos</h2>
+            
             <TodoForm 
                 addTodoTask={this.addTodoTask} 
                 printTodoTask={this.printTodoTask} 
@@ -96,8 +92,13 @@ class App extends React.Component {
                 textInput={this.state.textInput}
                 clearCompleted={this.clearCompleted}
                 />  
+            <TodoList 
+                todos={this.state.todoArray} 
+                changeTaskStatus={this.changeTaskStatus} 
+                toggleCompleted={this.toggleCompleted}/> 
             <TextInputDisplay 
-                addTextInput={this.state.textInput} />
+                addTextInput={this.state.textInput}
+                clearCompleted={this.clearCompleted} />
           </div>
           
       </div>
@@ -111,64 +112,14 @@ class App extends React.Component {
 // props.todos (App-state-to-TodoList-props); props.todo.task (parent-to-child); props.addTextInput (App-Parent-to-TextInputDisplay-Function-child)
 // props.printTodoTask (App-Parent-to-TodoForm-function-child); props.addTextInput (App-state-to-TodoForm-props)
 
-
 //functional component takes "todos" property which is linked to 'todoArray', iterates and returns each 'object' within the array
 //each 'object' within array is returned as a <Todo /> component, which has property 'todo' (singular)
-
-
 
 // the <Todo /> functional component is defined here; it has access to the properties of each todo 'object' (i.e., task, id)
 // it calls the properties of each todo 'object' through props.todo
 
-
-
-
-
 // Trick is to set task to 'props.addTextInput', which is the name of the argument AND handler-function (so technically, it's a call-back?) to task. 
 //turn into a class component
 
-
-// class TodoForm extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {task: ''};
-
-//     this.handleChange = this.handleChange.bind(this);
-//     this.handleSubmit = this.handleSubmit.bind(this);
-//   }
-
-//   handleChange(event){
-//     this.props.printTodoTask
-//     this.setState({
-//         task: event.target.value
-//     });
-//   }
-
-//   handleSubmit(event) {
-//     event.preventDefault();
-//     // this.props.addTodoTask({task: this.props.addTextInput, id: Date.now(), isCompleted: false});
-//     this.props.addTodoTask({task: this.state.task, id: Date.now(), isCompleted: false});
-//     this.props.handleClickClear;
-//     this.props.clearCompleted;
-//     this.setState({task: ''});
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <form onSubmit={this.handleSubmit}>
-//             <label>
-//               Todo Task: 
-//               <input type="text" value={this.state.task} onChange={this.handleChange} placeholder="placeholder text"/>
-//             </label>
-
-//             <button type="submit">Add Todo</button>
-//         </form>
-
-//         <button onClick={this.props.clearCompleted}>Clear Completed Task</button>
-//       </div>
-//     )
-//   }
-// }// class TodoForm
 
 export default App;

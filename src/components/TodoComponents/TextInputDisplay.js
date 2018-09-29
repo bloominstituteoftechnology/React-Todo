@@ -5,6 +5,7 @@ class TextInputDisplay extends React.Component {
         return (
             <div>
                 {this.props.addTextInput}
+                <button onClick={this.props.clearCompleted}>Clear Completed Task</button>
             </div>
         )
     }
