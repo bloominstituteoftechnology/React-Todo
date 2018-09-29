@@ -1,0 +1,8 @@
+div div div{
+    cursor: pointer;
+}
+
+.task-completed{
+    text-decoration: line-through;
+    background-color: red;
+}
