@@ -2,17 +2,17 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 import './Todo.css';
+import Todo from "./Todo";
 
-class ToDoList extends React.Component{
-    constructor(){
-        super();
+const ToDoList = (props)=>{
 
-    }
-    render (){
-        return(
-        <h1 className={'todoTitle'}>To Do List</h1>
-        );
-    }
+return(
+    <div className="ToDoListItems">
+        {props.todos.map(item =>{
+            return (<Todo key={item.id} value={item.task} id={item.id} completed={props.removeHandler}/>)
+        })}
+    </div>
+    )
 }
 
 export default ToDoList

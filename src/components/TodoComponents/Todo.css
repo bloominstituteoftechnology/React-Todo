@@ -1,44 +1,32 @@
-.todoTitle{
-    display: flex;
-    color: red;
-    position: fixed;
-    border: 1px solid black;
-    width: 230px;
-    height: 55px;
-    justify-content: center;
-    padding-top: 5px;
-    align-content: center;
-    border-radius: 35px;
-}
+.finished{
+    text-decoration: line-through black;
+    }
 
-.todoListRender{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    top: 100px;
-    border: 1px solid black;
-    width: 235px;
-    border-radius: 15px;
-}
-.todoItems{
-    margin: 0 auto;
-    line-height: 50px;
-}
-
-.todoForm{
-    display: flex;
-    justify-content: center;
-    position: relative;
-    width: 235px;
-    height: 28px;
-    padding-top: 2px;
-    border: 1px solid black;
-    border-radius: 10px;
-    top: 105px;
-}
-.todoFormDisplay{
- border: none;
-}
 input{
-    border: none;
+    border: 2px solid black;
+    width: 285px;
+    border-radius: 5px;
+    font-size: 24px;
+}
+
+button{
+    position: relative;
+    bottom: 3px;
+    height: 39px;
+    margin: 0px 2px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.ToDoListItems{
+
+    margin-bottom: 10px;
+    width: 400px;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.Middle{
+    border-bottom: dashed 1px black;
 }

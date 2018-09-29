@@ -2,30 +2,19 @@
 import React from 'react';
 import './Todo.css';
 
-class ToDoForm extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-        text: 'What needs to be done?',
-    }  
-    this.handleChange = this.handleChange.bind(this);
-    }
-    handleChange(event){
-        this.setState({text: event.target.value});
-    }
 
-    render(){
-        return(
-            <div className={'todoForm'}>
-                <form className={"todoFormDisplay"}>
-                    To do:{" "}
-                    <input className={"todoFormInput"}  type="text" name="input" placeholder={this.state.text} onChange={this.handleChange}/>
-                </form>
-            
-            
-            </div>
-        );
-    }
+const ToDoForm = (props)=>{
+    return(
+        <div className='toDoForm'>    
+            <form>
+                <input onChange={props.inputHandler} value={props.holder} />
+                <button onClick={props.clickHandler} className="addButton">Add</button>
+                <button onClick={props.filters} className='removebutton'>Remove</button>
+       
+            </form>
+        </div>
+    )
 }
 
-export default ToDoForm
+      
+export default ToDoForm;
