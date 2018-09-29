@@ -114,16 +114,6 @@ class App extends React.Component {
 //functional component takes "todos" property which is linked to 'todoArray', iterates and returns each 'object' within the array
 //each 'object' within array is returned as a <Todo /> component, which has property 'todo' (singular)
 
-// const TodoList = (props) => {
-//   return props.todos.map((e) => {
-//     return (
-//       <ul>
-//         <li><Todo key={e.id} todo={e} toggleCompleted={props.toggleCompleted}/></li>
-//       </ul>
-//     )
-//   })
-// }
-
 
 class TodoList extends React.Component {
   render(){
@@ -153,13 +143,24 @@ class Todo extends React.Component {
   }
 }
 
-const TextInputDisplay = props => {
-  return (
-    <div>
-        {props.addTextInput}
-    </div>
-  )
+// const TextInputDisplay = props => {
+//   return (
+//     <div>
+//         {props.addTextInput}
+//     </div>
+//   )
+// }
+
+class TextInputDisplay extends React.Component {
+  render() {
+    return (
+      <div>
+          {this.props.addTextInput}
+      </div>
+    )
+  }
 }
+
 
 
 // Trick is to set task to 'props.addTextInput', which is the name of the argument AND handler-function (so technically, it's a call-back?) to task. 
