@@ -121,7 +121,7 @@ class App extends React.Component {
         <Img />
         <div className={'container'}>
           <Music play={this.play} />
-          <h1>Todo List: MVP</h1>
+          <h1>Todo List:</h1>
           <TodoList todos={this.state.todos} clickHandler={this.clickHandler} />
           <TodoForm
             todos={this.state.todos}
