@@ -28,6 +28,7 @@
 .buttonsDiv {
     margin-top: 20px;
     display: flex;
+    align-self: center;
     margin-bottom: 10px;
 }
 
