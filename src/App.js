@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
+import TextInputDisplay from './components/TodoComponents/TextInputDisplay';
 
 
 class App extends React.Component {
@@ -120,15 +121,15 @@ class App extends React.Component {
 
 
 
-class TextInputDisplay extends React.Component {
-  render() {
-    return (
-      <div>
-          {this.props.addTextInput}
-      </div>
-    )
-  }
-}
+// class TextInputDisplay extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//           {this.props.addTextInput}
+//       </div>
+//     )
+//   }
+// }
 
 
 
