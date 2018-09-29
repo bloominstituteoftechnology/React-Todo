@@ -30,14 +30,14 @@ class TodoForm extends React.Component {
         return (
         <div>
             <form onSubmit={this.handleSubmit}>
-                <label>
+                <label class="label">
                     <input class="main-input" type="text" value={this.state.task} onChange={this.handleChange} placeholder="What needs to get done?"/>
                 </label>
 
                 <button class="hide-button" type="submit">Add Todo</button>
             </form>
 
-            <button class="hide-button" onClick={this.props.clearCompleted}>Clear Completed Task</button>
+            <button class="show-button" onClick={this.props.clearCompleted}>Clear Completed Task</button>
         </div>
         )
     }

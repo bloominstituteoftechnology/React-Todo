@@ -4,15 +4,16 @@ html {
 }
 
 body {
-    border: 3px solid green;
+    /* border: 3px solid green; */
+    background-color: whitesmoke;
 }
 
 #root {
-    background-color: lightgray;
-    border: 3px solid tomato;
+    background-color: whitesmoke;
+    /* border: 3px solid tomato; */
     max-width: 700px;
     width: 100%;
-    height: 600px;
+    height: 800px;
     margin: 0 auto;
 }
 
@@ -26,26 +27,22 @@ body {
     display: none;
 }
 
+.label .main-input {
+    border: 1px solid white;
+}
+
 .main-input {
-    width: 84%;
+    width: 84.5%;
     height: 60px;
     margin-left: 40px;
     margin-bottom: 30px;
-    box-shadow: 5px 5px 5px gray;
+    box-shadow: 5px 5px 5px pink;
     -webkit-appearance: none;
     font-size: 2.5rem;
-    color: lightskyblue;
+    color: pink;
+    padding-left: 20px;
 }
 
-
-label {
-    /* position: absolute;
-    top: 0; */
-    /* font-size: 3rem; */
-    /* opacity: 1;
-    transform: translateY(0);
-    transition: all 0.5s ease-out; */
-}
 
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -59,11 +56,16 @@ ul {
 }
 
 .todo-list-item {
-    border: 1px solid pink;
+    border: 1px solid white;
     height: 60px;
     width: 90%;
     font-size: 2rem;
     background: white;
-    box-shadow: 5px 5px 5px gray;
-    
+    box-shadow: 5px 5px 5px pink;
+    padding-left: 20px;
+}
+
+.show-button {
+    margin-top: 500px;
+    position: fixed;
 }
