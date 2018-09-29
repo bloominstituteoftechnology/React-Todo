@@ -13,7 +13,7 @@ class App extends React.Component {
       };
       window.onbeforeunload = this.saveData;
   }
-
+  
   componentDidMount(){
     const data = JSON.parse(localStorage.getItem('data'));
 

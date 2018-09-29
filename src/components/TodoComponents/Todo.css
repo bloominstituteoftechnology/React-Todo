@@ -5,8 +5,8 @@
     margin: auto;
     width: 100%;
     max-width: 400px;
-    background-color: rgb(91, 91, 143);
-    color: white;
+    background-image: linear-gradient(rgb(255, 0, 0), rgb(173, 173, 76));
+    color: black;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
