@@ -113,14 +113,28 @@ class App extends React.Component {
 
 //functional component takes "todos" property which is linked to 'todoArray', iterates and returns each 'object' within the array
 //each 'object' within array is returned as a <Todo /> component, which has property 'todo' (singular)
-const TodoList = (props) => {
-  return props.todos.map((e) => {
-    return (
-      <ul>
-        <li><Todo key={e.id} todo={e} toggleCompleted={props.toggleCompleted}/></li>
-      </ul>
-    )
-  })
+
+// const TodoList = (props) => {
+//   return props.todos.map((e) => {
+//     return (
+//       <ul>
+//         <li><Todo key={e.id} todo={e} toggleCompleted={props.toggleCompleted}/></li>
+//       </ul>
+//     )
+//   })
+// }
+
+
+class TodoList extends React.Component {
+  render(){
+    return this.props.todos.map((e) => {
+      return (
+        <ul>
+          <li><Todo key={e.id} todo={e} toggleCompleted={this.props.toggleCompleted}/></li>
+        </ul>
+      )
+    })
+  }
 }
 
 
