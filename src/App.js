@@ -59,7 +59,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h2>PROCASTINATION LIST :</h2>
+        <h2>PROCRASTINATION LIST :</h2>
         <div className="background-img"></div>
         <TodoList
           todos={this.state.todos}
