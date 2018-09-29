@@ -1,6 +1,8 @@
 import React from 'react';
 import ToDoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import './components/TodoComponents/Todo.css'
+
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -12,35 +14,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [{
-        id: 1234,
-        task: 'test',
-        completed: false,
-        className: ''
-      },
-      {
-        id: 5678,
-        task: 'test2',
-        completed: false,
-        className: ''
-      }],
+      todos: [],
       input: ''
-    }
-  }
-
-  //handler function for whenever todo list item is submitted
-
-  onSubmit = (event) => {
-    event.preventDefault();
-    if (this.state.input !== '') {
-      this.setState({
-        todos: [...this.state.todos, {
-          id: Date.now(),
-          task: this.state.input,
-          completed: false
-        }],
-        input: ''
-      });
     }
   }
 
@@ -52,6 +27,23 @@ class App extends React.Component {
     });
   }
 
+  //handler function for whenever todo list item is submitted
+
+  onSubmit = (event) => {
+    event.preventDefault();
+    if (this.state.input !== '') {
+      this.setState({
+        todos: [...this.state.todos, {
+          id: Date.now(),
+          task: this.state.input,
+          completed: false,
+          class: 'todo'
+        }],
+        input: ''
+      });
+    }
+  }
+
   //function to add strikethrough to completed items
 
   handleClick = (todoID) => {
@@ -59,7 +51,7 @@ class App extends React.Component {
     todoItems.map(todo => {
       if (todo.id === todoID) {
         todo.completed = !todo.completed;
-        todo.className = todo.completed ? 'completed' : '';
+        todo.class = todo.completed ? 'todo completed' : 'todo';
         return todo;
       }
       else {
@@ -79,7 +71,7 @@ class App extends React.Component {
     let todoItems = this.state.todos.slice();
     todoItems = todoItems.filter(todo => todo.completed === false);
     this.setState(
-      {todos: todoItems}, console.log('test')
+      {todos: todoItems}
     );
   }
 
@@ -87,20 +79,22 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className='container'>
+        <h1>Welcome to your Todo App!</h1>
         <TodoList 
           todos={this.state.todos}
           key={this.state.todos}
           completed={this.state.todos}
           handleClick={this.handleClick}
-          className={this.state.className}
+          todoClass={this.state.class}
+          className='list'
         />
         <ToDoForm 
           submit={this.onSubmit} 
           onChange={this.updateInput}
           value={this.state.input}
           clear={this.clearCompleted}
+          className='form'
         />
       </div>
     );
