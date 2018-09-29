@@ -1,34 +1,13 @@
 import React from 'react';
 import "./Todo.css"
 
-
-class TodoForm  extends React.Component  {
-  render () {
-
-
-
-  
-  
-  
-  return (
-    <form className="todoForm">
-      <input className="todoInput" type="text" value={this.props.value} />
-      <input
-        type="button"
-        className="addTodo"
-        onClick={this.props.handleClick}
-        text="Add Todo"
-        value="Add Todo"
-      /> <input
-        type="button"
-        className="clearCompleted"
-        onClick={this.props.handleClick}
-        text="Clear Completed"
-        value="Clear Completed"
-      />
-    </form>
-  )
-}
-}
-
+const TodoForm = props => {
+	return (
+		<form>
+			<input className="inputField" value={props.inputText} onChange={props.updateUserInput} />
+			<button className="inputButton" disabled={props.inputLength === 0}onClick={props.addToList}>Add Item</button>
+			<button className="clearButton" onClick={props.clearComplete}>Clear Completed</button>
+		</form>
+	);
+};
 export default TodoForm;

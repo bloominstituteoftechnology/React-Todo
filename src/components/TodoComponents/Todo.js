@@ -1,24 +1,19 @@
-//Todo.js
-
 import React from 'react'
 import "./Todo.css"
 
+const Todo = props => {
+  return props.list.map((item, id) => (
+    <li
+      onClick={() => props.toggleComplete(item.id)}
+      key={id}
+      id={id}
+      style={{
+        textDecoration: item.completed ? 'line-through' : 'none'
+      }}
+    >
+      {item.task}
+    </li>
+  ));
+};
 
-class Todo extends React.Component {
-  render() {
-    const message = this.props.todo.completed ? 'done' : 'not done'
-    const myClickyHandler = () => {
-      this.props.handleClick(this.props.todo.id)
-    }
-
-    return (
-      <div onClick={myClickyHandler}>
-        {this.props.todo.task} is {message}
-      </div>
-    )
-  }
-}
-
-
-
-export default Todo
+export default Todo;
