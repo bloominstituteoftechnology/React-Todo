@@ -13,11 +13,7 @@ class App extends React.Component {
     super();
 
     this.state = { 
-      Todos: [
-        { task: 'Bake Cookies', id: 1, completed: false },
-        { task: 'Prep Cookies for Delivery', id: 2, completed: true },
-        { task: 'Deliver Cookies', id: 3, completed: false },
-      ],
+      Todos: [],
       Todo: '', 
     };
   }
@@ -27,18 +23,31 @@ class App extends React.Component {
   };
 
   addTask = event => {
+    event.preventDefault();
     const Todos = this.state.Todos.slice();
     Todos.push({ task: this.state.Todo, id: Date.now(), completed: false });
     this.setState({ Todos, Todo: '' });
 
   }
 
-  toggleClick = event => {
-    console.log('Task Clicked');
+  toggleClick = id => {
+    let todos = this.state.Todos.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ todos });
   }
 
   clearCompleted = event => {
-    this.setState({ Todos: [] });
+    event.preventDefault();
+    let Todos = this.state.Todos.slice();
+    Todos = Todos.filter(Todo => !Todo.completed);
+    this.setState({ Todos });
   }
   
   render() {
