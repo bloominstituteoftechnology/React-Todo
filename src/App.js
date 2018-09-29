@@ -70,16 +70,33 @@ class App extends React.Component {
   }
 
 
+  // clearCompleted = (id) => {
+  //   const todoArr = [...this.state.todoArray];
+  //   todoArr.filter((todo,index) => {
+  //     if (todo.isCompleted) {
+  //       console.log(index)
+  //       todoArr.splice(index,1)
+  //       // this.deleteByValue();
+  //     }
+  //   })
+  //   this.setState({ todoArray: todoArr})
+  // }
+
+
   clearCompleted = (id) => {
-    const todoArr = [...this.state.todoArray];
-    todoArr.filter((todo,index) => {
-      if (todo.isCompleted) {
-        console.log(index)
-        todoArr.splice(index,1)
-      }
-    })
+    let todoArr = [...this.state.todoArray];
+    todoArr = todoArr.filter((todo) => { return !todo.isCompleted} );
     this.setState({ todoArray: todoArr})
   }
+
+  // deleteByValue = () => {
+  //   const todoArr = [...this.state.todoArray];
+  //   for(let i in todoArr) {
+  //     if (todoArr[i].isCompleted === true) {
+  //       delete todoArr[i];
+  //     }
+  //   }
+  // }
 
   render() {
     return (
@@ -237,15 +254,14 @@ class TodoForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-        <label>
-          Todo Task: 
-          <input type="text" value={this.state.task} onChange={this.handleChange} placeholder="placeholder text"/>
-        </label>
+            <label>
+              Todo Task: 
+              <input type="text" value={this.state.task} onChange={this.handleChange} placeholder="placeholder text"/>
+            </label>
 
-          {/* <button type="submit">Add Todo</button> */}
-          <button type="submit">Add Todo</button>
-          {/* <button onClick={this.props.clearCompleted}>Clear Completed Task</button> */}
+            <button type="submit">Add Todo</button>
         </form>
+
         <button onClick={this.props.clearCompleted}>Clear Completed Task</button>
       </div>
     )
