@@ -79,7 +79,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Tasks Remaining {this.state.todos.length}</h1>
+        <h1 className="header">Tasks Remaining {this.state.todos.length}</h1>
         <TodoList 
           list={this.state.todos} 
           handleClear={this.handleClear}
