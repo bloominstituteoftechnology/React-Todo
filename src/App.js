@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoStyle from './components/TodoComponents/TodoStyle.css';
 import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
@@ -20,7 +21,24 @@ class App extends React.Component {
             this.setState ({
               newTodo: e.target.value,
             });
+  }//end valueHandler
+  
+ toggleCompletedFlag = (todoId) => {
+   this.setState({
+     todos: this.state.todos.map(item => {
+       if (item.id === todoId) {
+         return {
+           task: item.task,
+           id: item.id,
+           completed: !item.completed,
+         }
+       } else {
+         return item;
        }
+     })
+   })
+ }
+
 
   submitHandler = () => {
     let data = {
@@ -28,12 +46,22 @@ class App extends React.Component {
       id: Date.now(),
       completed: false,
     };
-    
-    this.setState({
+
+    this.setState ({
       newTodo: "",
       todos: [...this.state.todos,  data ],
     })
-  };
+  }; //end submitHandler
+
+
+  checkHandler = () => {
+    this.setState({
+      todos: this.state.todos.filter(item => {
+        return item.completed === !true;
+          })
+        })
+}
+
 
 
   render() {
@@ -41,14 +69,17 @@ class App extends React.Component {
     return (  
       
       <div >
-
         <h1>My Todo List</h1>
+        <TodoList
 
-        <TodoList todos={this.state.todos}
-                  valueHandler={this.valueHandler}
-                  submitHandler = {this.submitHandler}
-                  />
-      </div>
+                          toggle = {this.state.toggleCompletedFlag}
+                          input={this.state.newTodo}
+                          state={this.state}
+                          todos={this.state.todos}
+                          valueHandler={this.valueHandler}
+                          submitHandler={this.submitHandler}
+                           checkHandler={this.checkHandler}  />
+       </div>
     );
   } //end render
 } //end class app
