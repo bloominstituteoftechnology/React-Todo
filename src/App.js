@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import './components/TodoComponents/Todo.css';
 
 class App extends React.Component {
 	// you will need a place to store your state in this component.
@@ -25,20 +26,22 @@ class App extends React.Component {
 
 	addItem = (event) => {
 		event.preventDefault();
-		const task = this.state.task;
-		const id = Date.now();
-		const nextToDo = {
-			task: task,
-			id: id,
-			completed: false,
-		};
-		console.log(nextToDo);
-		let todos = this.state.todos;
-		todos.push(nextToDo);
-		this.setState ( {
-			todos: todos,
-			task: '',
-		});
+		if(this.state.task !== '') {
+			const task = this.state.task;
+			const id = Date.now();
+			const nextToDo = {
+				task: task,
+				id: id,
+				completed: false,
+			};
+			console.log(nextToDo);
+			let todos = this.state.todos;
+			todos.push(nextToDo);
+			this.setState ( {
+				todos: todos,
+				task: '',
+			});
+		}
 	};
 
 	handleClick = (todoId) => {
@@ -72,18 +75,20 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<h1>Todo List: MVP</h1>
-				<TodoList 
-					todos = {this.state.todos}
-					handleClick = {this.handleClick}
-				/>
-				<TodoForm 
-					task={this.state.task} 
-					addItem={this.addItem} 
-					handleInput={this.handleInput}
-					clearCompleted ={this.clearCompleted}
-				/>
+			<div className="container">
+				<div className='App'>
+					<h1>Todo List: MVP</h1>
+					<TodoList 
+						todos = {this.state.todos}
+						handleClick = {this.handleClick}
+					/>
+					<TodoForm 
+						task={this.state.task} 
+						addItem={this.addItem} 
+						handleInput={this.handleInput}
+						clearCompleted ={this.clearCompleted}
+					/>
+				</div>
 			</div>
 		);
 	}

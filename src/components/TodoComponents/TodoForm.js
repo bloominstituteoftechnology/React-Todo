@@ -9,8 +9,10 @@ class TodoForm extends React.Component {
         return (
             <form>
                 <input type="text" onChange={this.props.handleInput} placeholder="...todo" value={this.props.task} />
-                <button onClick={this.props.addItem}>Add Todo</button>
-                <button onClick={this.props.clearCompleted}>Clear Completed</button>
+                    <div className="button-div">
+                        <button onClick={this.props.addItem} className="form-button">Add Todo</button>
+                        <button onClick={this.props.clearCompleted} className="form-button">Clear Completed</button>
+                    </div>
             </form>
         )
     }

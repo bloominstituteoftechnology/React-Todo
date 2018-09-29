@@ -12,8 +12,8 @@ class Todo extends React.Component {
         }
 
         return (
-            <div onClick ={TodoClickHandler} style = {{textDecorationLine: this.props.todo.completed ? 'line-through' : 'none'}}>
-                {this.props.todo.task}
+            <div onClick ={TodoClickHandler} style = {{textDecorationLine: this.props.todo.completed ? 'line-through' : 'none'}} className="individual-todo">
+                &bull; &nbsp; {this.props.todo.task}
 
                 {/* {this.props.todo.task} is {message} */}
                 {/* No longer needed after testing purposes */}

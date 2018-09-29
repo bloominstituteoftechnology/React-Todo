@@ -1,0 +1,73 @@
+html {
+    background: url('https://images.pexels.com/photos/1020315/pexels-photo-1020315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-size: 62.5%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+    max-width: 880px;
+    width: 100%;
+    background-color: lightgrey;
+    background: url('https://media.istockphoto.com/vectors/realistic-sticky-note-isolated-on-white-background-vector-id533711626?k=6&m=533711626&s=612x612&w=0&h=ov2BQfMySV1J9OqOhMuNjKRujRmKt0np_BrVFoFBcME=') no-repeat center center fixed;
+    background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    margin-top: 60px;
+}
+
+h1 {
+    font-size: 5.0rem;
+    text-decoration: dodgerblue underline;
+}
+
+.individual-todo {
+    font-size: 3.5rem;
+}
+
+
+
+.form-button {
+    background-color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    width: 180px;
+    height: 60px;
+    text-decoration: none;
+    border-style: none;
+}
+
+input {
+    width: 450px;
+    height: 65px;
+    font-size: 2.5rem;
+    margin-top: 20px;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.button-div {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
