@@ -1,20 +1,16 @@
 import React from 'react';
-import Todo from './Todo';
-import './Todo.css';
+import Todo from "./Todo.js";
+
+
 
 const TodoList = (props) => {
-
     return (
-        <div className="todolist-container">
-            {props.list.map(item => {
-                return (
-                    <div key={props.list.key}>
-                        <p><Todo listItem={item.task} /></p>
-                    </div>
-                );
+        <div className="list">
+            {props.tasks.map(task => {
+                return <Todo item={task.task} clickHandler={props.clickHandler} />
             })}
         </div>
     )
-};
+}
 
-export default TodoList;
+export default TodoList

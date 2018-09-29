@@ -1,55 +1,101 @@
 import React from 'react';
-import TodoForm from './components/TodoComponents/TodoForm'
-import TodoList from './components/TodoComponents/TodoList'
+import TodoList from './components/TodoComponents/TodoList.js';
+import TodoForm from './components/TodoComponents/TodoForm.js';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos : [
-      {
-        task: 'Why is this so hard?',
-        id: 1234,
-        completed: false
-      },
-      {
-        task: 'Seriously Why?',
-        id: 1234,
-        completed: false
-      },
-
-    ]
-  };
+      input: '',
+      tasks: [{
+          task: 'Why is this so hard?',
+          id: 123456789,
+          completed: false
+        },
+        {
+          task: 'Seriously Why?',
+          id: 234567891,
+          completed: false
+        },
+      ]
+    }
   }
 
-  handleInput = (todoId) => {
-     this.setState({
-      todos: this.state.todos.map(todo => {
-        if (todo.id === todoId) {
+
+  keypressHandler = event => {
+    const obj = {
+      task: this.state.input,
+      id: Date.now(),
+      completed: false
+    }
+    if (event.key === 'Enter') {
+      this.setState({
+        tasks: [...this.state.tasks, obj],
+        input: ''
+      });
+    }
+  }
+
+  changeHandler = event => {
+    const value = event.target.value;
+    this.setState({
+      input: value,
+    })
+  }
+
+  clickHandler = (event, item) => {
+    event.preventDefault();
+    if (event.target.classList.contains('strikethrough')) {
+      event.target.classList.remove('strikethrough')
+    } else {
+      event.target.classList.add('strikethrough');
+    }
+    this.setState({
+      tasks: this.state.tasks.map(task => {
+        if(task.task === item) {
           return {
-            task: todo.task,
-            id: todo.id,
-            completed: !todo.completed
+            task: task.task,
+            id: task.id,
+            completed: !task.completed
           }
-        } else {
-          return todo
-        }
+        } else return task;
       })
     })
   }
 
-  handleSubmit = (event) => {
-    let newTaskList = this.state.todos.concat({task: this.state.currentInputValue, id: Date.now(), completed: false})
-    this.setState({todos: newTaskList});
+  submitHandler = () => {
+    const obj = {
+      task: this.state.input,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({
+      tasks: [...this.state.tasks, obj],
+      input: ''
+    });
+
   }
-    
+
+  clearHandler = () => {
+    this.setState({
+      tasks: this.state.tasks.filter(task => {
+      return task.completed === false
+      })
+    })
+    document.querySelectorAll('li').forEach(item => item.classList.remove('strikethrough'))
+  }
+
   render() {
-    return (
-      <div>
-        <TodoList list={this.state.todos} />
-        <TodoForm inputFunction={this.handleInput} submitFunction={this.handleSubmit} />
-      </div>
-    );
+    return <div>
+        <h2>React To Do List</h2>
+        <TodoList tasks={this.state.tasks} clickHandler={this.clickHandler} />
+        <TodoForm 
+        keypressHandler={this.keypressHandler}
+        changeHandler={this.changeHandler} 
+        input={this.state.input} 
+        clearHandler={this.clearHandler}
+        submitHandler={this.submitHandler}/>
+      </div>;
   }
 }
 
