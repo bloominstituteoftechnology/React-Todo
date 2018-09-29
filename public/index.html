@@ -37,5 +37,16 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <script type="text/javascript" src="autosave.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                AutoSave.start();
+            })
+            $(window).unload(function(){
+                AutoSave.stop();
+            });
+        </script>
   </body>
 </html>
