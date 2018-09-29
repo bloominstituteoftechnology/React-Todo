@@ -9,36 +9,32 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      todoList: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ],
-      inputValue: "...todo",
-      inputEdit: false
+      todoList: [],              // list of Todo objects
+      inputValue: "...todo",     // value of text input field
+      inputEdit: false           // has the user entered text?
     };
   }
 
-
+  // when the text input field gains focus, blank out
+  // the 'prompt' text if nothing has been entered yet
   focusHandler = (event) => {
     if (this.state.inputEdit === false) {
       this.setState({inputValue: ""});
     }
   };
 
+
+  // when the text input field loses focus, reset the
+  // 'prompt' text if nothing has been entered yet
   blurHandler = (event) => {
     if (this.state.inputEdit === false) {
       this.setState({inputValue: "...todo"});
     }
   };
 
+
+  // if text is entered, update the value and set edit state
+  // to true; if all text is backed out, set edit state to false
   inputHandler = (event) => {
       if (event.target.value !== "") {
         this.setState(
@@ -53,28 +49,65 @@ class App extends React.Component {
       }
   };
 
-  addHandler = (event) => {
-    console.log("Add todo");
-  };
 
+  // if a Todo task is clicked on, change its completion
+  // status and then update the Todo list
   taskHandler = (event, todo) => {
-    todo.completed = !todo.completed;
-    this.setState({todoList: this.state.todoList});
+    const stateSwitcher = (item) => {
+      if (item === todo) {
+        item.completed = !item.completed;
+      }
+      return item;
+    };
+
+    const newTodoList = Array.from(this.state.todoList, stateSwitcher);
+    this.setState({todoList: newTodoList});
   };
 
+
+  // if the 'add Todo' button is clicked, and text has been
+  // entered, then create a new Todo, add it to updated TodoList,
+  // and reset the input text field and edit state
+  addHandler = (event) => {
+      if (this.state.inputEdit === false) return;
+
+      const newTodo = 
+        {task: this.state.inputValue,
+          id: Date.now(),
+          completed: false
+        };
+
+      const newTodoList = Array.from(this.state.todoList);
+      newTodoList.push(newTodo);
+
+      this.setState(
+        {todoList: newTodoList,
+         inputValue: "...todo",
+         inputEdit: false
+        });
+  };
+
+
+  // if 'clear' button is clicked, filter out
+  // completed Todo objects from the TodoList
   clearHandler = (event) => {
-    console.log("Clear completed todos");
+    const newTodoList = this.state.todoList.filter(todo => !todo.completed);
+    this.setState({todoList: newTodoList});
   };
 
 
   render() {
     return (
       <div className="container">
+
         <h1>Mini-Todo!</h1>
+
         <div className="list-container">
           <TodoList controller={this} todoList={this.state.todoList} />
         </div>
+
         <TodoForm controller={this} />
+
         <div className="help">
           <p>
             Type into the text field and then click 'Add Todo'<br />
@@ -82,6 +115,7 @@ class App extends React.Component {
             Click 'Clear Completed' to remove completed todos
           </p>
         </div>
+
       </div>
     );
   }

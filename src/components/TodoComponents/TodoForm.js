@@ -3,25 +3,21 @@ import './Todo.css';
 
 
 class TodoForm extends React.Component {
-  constructor(props) {
-    super();
-
-    this.state = {
-      controller: props.controller
-    };
-  }
 
   render() {
     return (
       <div className="todo-form">
-        <input onFocus={this.state.controller.focusHandler}
-               onBlur={this.state.controller.blurHandler}
-               onChange={this.state.controller.inputHandler}
-               value={this.state.controller.state.inputValue} />
+      
+        <input onFocus={this.props.controller.focusHandler}
+               onBlur={this.props.controller.blurHandler}
+               onChange={this.props.controller.inputHandler}
+               value={this.props.controller.state.inputValue} />
+
         <div className='button-holder'>
-            <button onClick={this.state.controller.addHandler}>Add Todo</button>
-            <button onClick={this.state.controller.clearHandler}>Clear Completed</button>
+            <button onClick={this.props.controller.addHandler}>Add Todo</button>
+            <button onClick={this.props.controller.clearHandler}>Clear Completed</button>
         </div>
+
       </div>
     );
   }

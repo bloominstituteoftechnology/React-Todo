@@ -3,23 +3,16 @@ import './Todo.css';
 
 
 class Todo extends React.Component {
-    constructor(props) {
-        super(props);
 
-        this.todo = props.todo;
-        this.controller = props.controller;
-    }
-
-    taskHandlerHelper = (event) => {
-      this.controller.taskHandler(event, this.todo);
-    };
-
+  taskHandlerHelper = (event) => {
+    this.props.controller.taskHandler(event, this.props.todo);
+  };
 
   render() {
     return (
-      <li className={this.todo.completed ? "todo completed" : "todo"}
+      <li className={this.props.todo.completed ? "todo completed" : "todo"}
           onClick={this.taskHandlerHelper} >
-        {this.todo.task}
+        {this.props.todo.task}
       </li>
     );
   }
