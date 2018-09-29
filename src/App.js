@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo: [{task:'', id:'',completed:false,}],
+      todo: [{task:'', id:'',completed:false,important:false,}],
       task: '',
       // id: '',
       // completed: '',
@@ -35,6 +35,7 @@ class App extends React.Component {
         task: this.state.task,
         id: Date.now(),
         completed: false,
+        important:false,
       }
 
       this.setState({
@@ -53,6 +54,48 @@ class App extends React.Component {
   }
 
   
+  completedHandler = event => {
+  
+    const ID = parseInt(event.target.getAttribute('data-id'));
+    const todos = this.state.todo.map( item => {
+      if (ID ===item.id) {
+        event.target.className='completed';
+        return {...item, completed:!item.completed}
+      }
+      else {return item}
+    })
+
+    const filtered = this.state.todo.filter( item => ID !==item.id)
+    setTimeout(()=>{this.setState ({
+      todo: filtered,
+    })},1000
+    )
+    this.setState ({
+      todo: todos,
+    })
+  }
+
+  importantHandler = event => {
+  
+    const ID = parseInt(event.target.getAttribute('data-id'));
+    const todos = this.state.todo.map( item => {
+      if (ID ===item.id) {
+        event.target.className='important';
+        return {...item, important:!item.important}
+      }
+      else {return item}
+    })
+
+    this.setState ({
+      todo: todos,
+    })
+  }
+
+
+
+
+
+  
 
 
   render() {
@@ -60,7 +103,7 @@ class App extends React.Component {
     return (
       <div>
         <TodoForm value={this.state.task} inputHandler={this.inputHandler} submitHandler={this.submitHandler} />
-        <TodoList list={this.state.todo} />
+        <TodoList list={this.state.todo} completedHandler={this.completedHandler} importantdHandler={this.importantdHandler} />
 
       </div>
     );

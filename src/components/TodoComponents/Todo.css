@@ -1,3 +1,13 @@
-.listItem {
-    color:goldenrod;
+.completed {
+    text-decoration:line-through;
+    font-weight: lighter;
+    font-size: 50%;
+    color: red;
+}
+
+.important {
+    text-decoration:underline;
+    font-weight: bold;
+    font-size: 150%;
+    color: green;
 }
