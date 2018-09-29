@@ -11,7 +11,22 @@ class App extends React.Component {
       currentInputValue: '',
       todos : []
       };
+      window.onbeforeunload = this.saveData;
   }
+
+  componentDidMount(){
+    const data = JSON.parse(localStorage.getItem('data'));
+
+    if(data !== null) {
+      this.setState({
+        todos: JSON.parse(localStorage.getItem('data'))
+      })
+    }
+  };
+
+  saveData = () => {
+    localStorage.setItem('data', JSON.stringify(this.state.todos))
+  };
 
   handleInput = (event) => {
     this.setState({

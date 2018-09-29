@@ -3,9 +3,11 @@
     flex-direction: column;
     align-items: center;
     margin: auto;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     background-color: darkblue;
     color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .todoList {
