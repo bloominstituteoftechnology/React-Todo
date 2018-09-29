@@ -1,3 +1,4 @@
 li.completedTask {
     text-decoration-line: line-through;
+    color: #ff0a06;
 }
