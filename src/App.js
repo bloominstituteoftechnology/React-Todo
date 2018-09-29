@@ -211,33 +211,43 @@ const TextInputDisplay = props => {
 class TodoForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {task: ''};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event){
-    this.setState({value: event.target.value});
+    this.props.printTodoTask
+    this.setState({
+        task: event.target.value
+    });
   }
 
   handleSubmit(event) {
-    // alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
+    // this.props.addTodoTask({task: this.props.addTextInput, id: Date.now(), isCompleted: false});
+    this.props.addTodoTask({task: this.state.task, id: Date.now(), isCompleted: false});
+    this.props.handleClickClear;
+    this.props.clearCompleted;
+    this.setState({task: ''});
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <div>
+        <form onSubmit={this.handleSubmit}>
         <label>
           Todo Task: 
-          <input type="text" value={this.props.textInput} onChange={this.props.printTodoTask} placeholder="placeholder text"/>
+          <input type="text" value={this.state.task} onChange={this.handleChange} placeholder="placeholder text"/>
         </label>
-          <input type="submit" value="Submit"/>
-          <button onClick={() => {this.props.addTodoTask({task: this.props.addTextInput, id: Date.now(), isCompleted: false})}}>Add Todo</button>
-          <button onClick={this.props.handleClickClear}>Clear Button</button>
-          <button onClick={this.props.clearCompleted}>Clear Completed Task</button>
-      </form>
+
+          {/* <button type="submit">Add Todo</button> */}
+          <button type="submit">Add Todo</button>
+          {/* <button onClick={this.props.clearCompleted}>Clear Completed Task</button> */}
+        </form>
+        <button onClick={this.props.clearCompleted}>Clear Completed Task</button>
+      </div>
     )
   }
 }// class TodoForm
