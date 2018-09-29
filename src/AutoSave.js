@@ -1,67 +1,29 @@
-let AutoSave = (function(){
+let list = document.querySelector('.list');
+let listItem = document.querySelectorAll('.todo');
+let add = document.querySelector('.add');
 
-	let timer = null;
+add.addEventListener('submit', function (event) {
 
-	function getEditor(){
+	// Don't submit the form
+	event.preventDefault();
 
-		let elems = document.getElementsByClassName('.list')
-		if (elems.length <= 0)
-			return null;
+	// Ignore it if the tasklist item is empty
+	if (listItem.value.length < 1) return;
 
-		return elems[0];
-	}
+	// Add item to wishlist
+	list.innerHTML += '<li>' + listItem.value + '</li>';
 
+	// Clear input
+	listItem.value = '';
 
-	function save(){
+	// Save the list to localStorage
+	localStorage.setItem('listItems', list.innerHTML);
 
-		let editor = getEditor(); 
-                if (editor) {
-		    localStorage.setItem("AUTOSAVE_" + document.location, editor.value )
-                }
+}, false);
+// Check for saved wishlist items
+let saved = localStorage.getItem('list');
 
-	}
-
-
-	function restore(){
-
-		let saved = localStorage.getItem("AUTOSAVE_" + document.location)
-		let editor = getEditor();
-		if (saved && editor){
-
-			editor.value = saved; 
-		}
-	}
-
-	return { 
-
-		start: function(){
-
-			let editor = getEditor(); 
-
-		 
-			if (editor.value.length <= 0)
-				restore();
-
-			if (timer != null){
-				clearInterval(timer);
-				timer = null;
-			}
-
-			timer = setInterval(save, 5000);
-
-
-		},
-
-		stop: function(){
-
-			if (timer){ 
-				clearInterval(timer);
-				timer = null;
-			}
-
-		}
-	}
-
-}())
-
-export default AutoSave;
+// If there are any saved items, update our list
+if (saved) {
+	list.innerHTML = saved;
+}
