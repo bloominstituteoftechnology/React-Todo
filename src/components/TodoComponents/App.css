@@ -1,0 +1,141 @@
+.container{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+    height: 500px; 
+    animation-name: strobe; 
+    animation-iteration-count: infinite; 
+    animation-duration: 4s; 
+    animation-timing-function: linear; 
+    max-width: 500px; 
+    margin: 50px auto; 
+    border-radius: 20%; 
+    border: 3px solid orange; 
+    background-color: yellow; 
+}
+
+li {
+    margin-right: 40px;
+    line-height: 1.5; 
+    font-size: 20px; 
+    padding-bottom: 15px; 
+
+}
+
+@keyframes strobe{
+    0%{
+        background-color: violet; 
+        border: 10px solid lime; 
+        border-radius: 40%; 
+    }
+    10%{
+        background-color: maroon; 
+        border: 3px solid violet
+    }
+    20% {
+        background-color: lime; 
+        border: 10px solid teal; 
+        border-radius: 20%; 
+    }
+    30%{
+        background-color: pink; 
+        border: 3px solid orange; 
+    }
+    40%{
+        background-color: rgb(218, 54, 218); 
+        border: 10px solid lime; 
+        border-radius: 50%; 
+    }
+    50%{
+        background-color: teal; 
+        border: 3px solid rgb(218, 54, 218); 
+    }
+    60%{
+        background-color: violet; 
+        border: 10px solid lime; 
+        border-radius: 20%; 
+    }
+    70%{
+        background-color: maroon; 
+        border: 3px solid violet
+    }
+    80% {
+        background-color: lime; 
+        border: 10px solid teal; 
+        border-radius: 50%; 
+    }
+    90%{
+        background-color: pink; 
+        border: 3px solid orange; 
+    }
+    100%{
+        border: 10px solid orange; 
+        background-color: yellow; 
+        border-radius: 40%; 
+    }
+
+}
+
+button{
+    animation-name: button; 
+    animation-iteration-count: infinite; 
+    animation-duration: 4s; 
+    animation-timing-function: linear; 
+
+}
+
+@keyframes button{
+    0%{
+        background-color: violet; 
+        border: 2px solid lime; 
+    }
+    10%{
+        background-color: maroon; 
+        border: 2px solid violet
+    }
+    20% {
+        background-color: lime; 
+        border: 2px solid teal; 
+    }
+    30%{
+        background-color: pink; 
+        border: 2px solid orange; 
+    }
+    40%{
+        background-color: rgb(218, 54, 218); 
+        border: 2px solid lime; 
+    }
+    50%{
+        background-color: teal; 
+        border: 2px solid rgb(218, 54, 218); 
+    }
+    60%{
+        background-color: violet; 
+        border: 2px solid lime; 
+    }
+    70%{
+        background-color: maroon; 
+        border: 2px solid violet
+    }
+    80% {
+        background-color: lime; 
+        border: 2px solid teal; 
+    }
+    90%{
+        background-color: pink; 
+        border: 2px solid orange; 
+    }
+    100%{
+        border: 2px solid orange; 
+        background-color: yellow; 
+    }
+}
+
+input{
+    animation-name: button; 
+    animation-iteration-count: infinite; 
+    animation-duration: 4s; 
+    animation-timing-function: linear; 
+    border: 3px;   
+}

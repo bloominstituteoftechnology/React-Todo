@@ -2,7 +2,7 @@ import React from 'react';
 import TodoForm from '../src/components/TodoComponents/TodoForm';
 import TodoList from '../src/components/TodoComponents/TodoList';
 import './components/TodoComponents/Todo.css';
-
+import './components/TodoComponents/App.css';
 
 class App extends React.Component {
   constructor(props){
@@ -61,7 +61,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Todo List: MVP</h1>
         <TodoList todolist={this.state.todolist} textStrike={this.textStrike} />
         <TodoForm 
