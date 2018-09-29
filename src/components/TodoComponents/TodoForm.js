@@ -11,7 +11,7 @@ class TodoForm extends React.Component {
     }
 
     handleChange(event){
-        this.props.printTodoTask
+        // this.props.printTodoTask
         this.setState({
             task: event.target.value
         });
@@ -22,7 +22,7 @@ class TodoForm extends React.Component {
         // this.props.addTodoTask({task: this.props.addTextInput, id: Date.now(), isCompleted: false});
         this.props.addTodoTask({task: this.state.task, id: Date.now(), isCompleted: false});
         this.props.handleClickClear;
-        this.props.clearCompleted;
+        // this.props.clearCompleted;
         this.setState({task: ''});
     }
 

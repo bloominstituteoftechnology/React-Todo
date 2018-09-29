@@ -31,16 +31,16 @@ class App extends React.Component {
           isCompleted: false
         }
       ],
-      textInput: "",
-      controlledText: ""
+      // textInput: "",
+      // controlledText: ""
     }//this.state
   }//constructor()
 
-  printTodoTask = event => {
-    this.setState({
-      textInput: event.target.value
-    })
-  }
+  // printTodoTask = event => {
+  //   this.setState({
+  //     textInput: event.target.value
+  //   })
+  // }
 
   //handler function that adds task to the todoArray in state --pass object into setState()
   addTodoTask = task => {
@@ -86,7 +86,7 @@ class App extends React.Component {
             
             <TodoForm 
                 addTodoTask={this.addTodoTask} 
-                printTodoTask={this.printTodoTask} 
+                // printTodoTask={this.printTodoTask} 
                 addTextInput={this.state.textInput} 
                 handleClickClear={this.handleClickClear} 
                 textInput={this.state.textInput}
