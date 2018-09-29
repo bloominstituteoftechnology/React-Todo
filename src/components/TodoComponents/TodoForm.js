@@ -12,6 +12,10 @@ class TodoForm extends React.Component {
             </button>
             <button onClick={this.props.clear}>Clear Completed</button>
           </div>
+          <div className={'searchDiv'}>
+            <input value={this.props.search} onChange={this.props.searchFunc} placeholder={'Search'} />
+            <button onClick={this.props.reload}>Clear Search</button>
+          </div>
         </form>
       </div>
     );
