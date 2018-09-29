@@ -1,4 +1,5 @@
 import React from 'react';
+import './TodoForm.css';
 
 // const TodoForm = props => {
 //   return (
@@ -25,8 +26,10 @@ class TodoForm extends React.Component {
           onChange={this.props.handleInput}
           value={this.props.textField}
         />
-        <button onClick={this.props.addNew}>Add Todo</button>
-        <button onClick={this.props.clearTodos}>Clear Completed</button>
+        <div className="formBtns">
+          <button onClick={this.props.addNew}>Add Todo</button>
+          <button onClick={this.props.clearTodos}>Clear Completed</button>
+        </div>
       </form>
     );
   }

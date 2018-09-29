@@ -1,6 +1,7 @@
 .app {
   text-align: center;
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
-  background-color: rgb(253, 97, 97);
+  background-color: rgb(226, 226, 226);
+  padding: 20px 0;
 }

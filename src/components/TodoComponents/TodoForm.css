@@ -1,0 +1,42 @@
+form {
+  /* display: ; */
+}
+form input {
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 5px 0;
+  margin-top: 20px;
+  border: none;
+}
+
+form input:focus {
+  outline-color: aquamarine;
+  color: #222222;
+}
+
+form button {
+  box-sizing: border-box;
+  margin: 20px 2% 0 2%;
+  background-color: aquamarine;
+  width: 28%;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: 0.1s;
+  font-size: 1.1rem;
+}
+
+form button:hover {
+  background-color: rgba(188, 255, 233, 0.856);
+}
+
+form button:focus {
+  outline: none;
+}
+
+.formBtns {
+  display: flex;
+  justify-content: center;
+}

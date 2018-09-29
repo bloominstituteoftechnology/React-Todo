@@ -12,7 +12,7 @@ class App extends React.Component {
     super();
 
     this.state = {
-      todoData: [],
+      todoData: [{ task: 'SAMPLE TODO', id: Date.now(), completed: false }],
       textField: ''
     };
   }
@@ -24,7 +24,11 @@ class App extends React.Component {
       this.setState({
         todoData: [
           ...this.state.todoData,
-          { task: this.state.textField, id: Date.now(), completed: false }
+          {
+            task: this.state.textField.toUpperCase(),
+            id: Date.now(),
+            completed: false
+          }
         ],
         textField: ''
       });

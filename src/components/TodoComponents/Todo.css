@@ -1,6 +1,6 @@
 .todoList {
   /* background-color: blue; */
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -9,11 +9,12 @@
   font-size: 1.5rem;
   text-align: center;
   margin-bottom: 5px;
+  padding: 5px 0;
   cursor: pointer;
 }
 
 .todoList .completed {
   text-decoration: line-through;
-  color: lightgray;
-  border: 1px solid lightgray;
+  color: rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(0, 0, 0, 0.37);
 }
