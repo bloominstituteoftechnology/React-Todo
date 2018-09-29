@@ -14,56 +14,45 @@ class App extends React.Component {
       query:"",
       id:Date.now(),
       completed:false,
-      todos: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ]
+      todos: []
     }
   }
 
-  handleChange = event => {
+handleChange = event => {
     this.setState({
         [event.target.name]: event.target.value,
         id:Date.now(),
         completed:false
     });
-  };
+};
 
-  handleKeyPress = event =>{
+handleKeyPress = event =>{
     const task = {
       task: this.state.task,
       id: this.state.id,
       completed: this.state.completed
     };
     if(event.which === 13){
-      this.state.todos.push(task);
       this.setState({
-        task: ""
+        task: "",
+        todos:[...this.state.todos, task]
       })
     }
-  }
+}
 
-  handleSubmit = () => {
+handleSubmit = () => {
     const task = {
       task: this.state.task,
       id: this.state.id,
       completed: this.state.completed
     };
-    this.state.todos.push(task);
     this.setState({
-      task: ""
+      task: "",
+      todos:[...this.state.todos, task]
     })
-  };
+};
 
-  handleSelected = id => {
+handleSelected = id => {
     this.setState({
       todos: this.state.todos.map(todo => {
         if (todo.id === id) {
@@ -77,8 +66,8 @@ class App extends React.Component {
         }
       })
     })
-  };
-
+  
+};
 
 handleFilter = () =>{
   const arr = this.state.todos.filter(todo =>{
@@ -102,6 +91,15 @@ handleSearch = () =>{
   })
 }
 
+componentDidMount() {
+  localStorage.getItem('todos') && this.setState({
+    todos: JSON.parse(localStorage.getItem('todos')),
+  })
+}
+componentWillUpdate(nextProps, state) {
+  localStorage.setItem('todos', JSON.stringify(state.todos))
+}
+
   render() {
     return (
       <div className="container">
@@ -122,6 +120,9 @@ handleSearch = () =>{
             enter ={this.handleEnter}
             keypress={this.handleKeyPress}
           />
+        </div>
+        <div className="footnote">
+        <p>Project made with lambda school support by Obed Lorisson</p>
         </div>
       </div>
     );

@@ -1,6 +1,7 @@
 html{
   font-size:62.5%;
   box-sizing: border-box;
+  background: #F6F6F6;
 }
 .container{
   display:flex;
@@ -10,7 +11,10 @@ html{
   margin:0 auto;
   max-width:520px;
   width:100%;
+  
 }
+
+
 
 .todo-container{
   display: flex;
@@ -18,9 +22,10 @@ html{
   width: 100%;
   justify-content:center;
   align-items: center;
-  background-color: lightblue;
+  background-color:#0C1B33;
   height: auto;
   padding: 15px;
+
 }
 
 .todo-container h1{
@@ -38,7 +43,7 @@ html{
   background-color: #fff;
   margin-top: 2px;
   padding: 15px;
-  color: red;
+  color:#7A306C;
   letter-spacing: 1px;
   font-family: Arial, Helvetica, sans-serif;
   border:1px dotted darkgray;
@@ -122,6 +127,10 @@ html{
   letter-spacing: 1px;
   /* border-radius: 4px; */
 }
+.form-actions .btn:hover{
+  background-color: #03B5AA;
+  color:white;
+}
 
 .text-strike{
   text-decoration: line-through;
@@ -135,17 +144,20 @@ html{
 }
 
 .search-form-input input[type=text]{
-  background-color:#fff;
+  background-color: #fff;
   width: 100%;
   padding: 6px 10px;
   margin: 8px 0;
   display: inline-flex;
   border: 1px solid #ccc;
   color: #434343;
-  font-size:0.78rem;
-  font-weight:normal;
+  font-size: 0.78rem;
+  font-weight: normal;
   text-transform: capitalize;
   letter-spacing: 1px;
+  position: relative;
+  top: -5px;
+  left: 32px;
 }
 
 .search-btn{
@@ -153,13 +165,18 @@ html{
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: beige;
+  background: rgb(218, 198, 130);
   position: relative;
-  top: 9px;
-  right: 42px;
+  top: 4px;
+  right: 10px;
   padding: 3px 10px;
   height: 21px;
   cursor: pointer;
+}
+
+.search-btn:hover{
+  background-color: #03B5AA;
+  color:white;
 }
 
 .search-btn p {
@@ -167,7 +184,11 @@ html{
   font-weight: lighter;
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
-  color:#888888;
+  color:white;
+}
+
+.search-btn p:hover{
+  color:white;
 }
 
 .notice-todo{
@@ -181,4 +202,20 @@ html{
   text-transform: capitalize;
   text-align:center;
   margin-bottom:20px;
+}
+
+.footnote{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+}
+
+.footnote p{
+  margin-top: 10px;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: #dad5d5;
+  font-family: Arial, Helvetica, sans-serif;
 }
