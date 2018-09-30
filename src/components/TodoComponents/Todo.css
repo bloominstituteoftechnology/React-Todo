@@ -1,4 +1,66 @@
-li {
-  list-style: none;
-  color: blue;
+* {
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
+
+.todo-container{
+  border: 4px solid black;
+  margin: 0 auto;
+  width: 50%;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 10rem;
+}
+
+.headerINFO{
+  font-size: 10rem;
+}
+
+.todo-form{
+  font-size: 5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+}
+
+.inputField{
+  width: 50rem;
+}
+
+.items{
+  padding: 1rem 0 0 3rem;
+  font-size: 3rem
+}
+
+.button{
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.button-container{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem 0;
+}
+
+.buttonAdd{
+  background-color: cadetblue;
+  color: white;
+}
+
+.buttonClear{
+  background-color: salmon;
+  color: white;
+}
+
+.items {
+  list-style: none;
+  color: dodgerblue;
+}
+
+.headerInfo{
+  margin: 2rem;
+  padding-left: 5rem;
+}
+
+
