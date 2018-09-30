@@ -1,3 +1,23 @@
+
+html{
+    font-size: 62.5%;
+}
+body{
+    background: url("https://newevolutiondesigns.com/images/freebies/tropical-beach-background-14.jpg");
+    background-size: 100% 100% fixed;
+    background-repeat: no-repeat;
+
+}
+.app{
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+app
 .completed{
     text-decoration: line-through dodgerblue;
+    cursor: pointer;
+    font-size: 1.8rem;
 }

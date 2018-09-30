@@ -19,8 +19,8 @@ class App extends React.Component {
   }
 
   formInput = e => {
+    e.preventDefault();
     const { value } = e.target;
-    console.log("input");
     this.setState({
       task: value
     })
@@ -41,11 +41,13 @@ class App extends React.Component {
     console.log(this.state.task);
   };
 
-  removeTask = () =>{
+  removeTask = (e) =>{
+    e.preventDefault();
     this.setState({ toDoList: this.state.toDoList.filter(item => !item.completed) })
   }
 //toggle
   completedTask = target =>{
+    
     this.setState({
       toDoList: this.state.toDoList.map(item=>{
         if(item.id === target){
@@ -65,18 +67,20 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-      <TodoList info={this.state.toDoList} 
-        click={this.completedTask}
-        class='list-item'
-      />
-      <TodoForm 
-        change={this.formInput}
-        value={this.state.task}
-        clickIn={this.addTask}
-        clickOut={this.removeTask}
-      />
+      <div className='app'>
+        <div>
+            <h2>Welcome to your Todo App!</h2>
+          <TodoList info={this.state.toDoList} 
+            click={this.completedTask}
+            class='list-item'
+          />
+          <TodoForm 
+            change={this.formInput}
+            value={this.state.task}
+            clickIn={this.addTask}
+            clickOut={this.removeTask}
+          />
+        </div>
       </div>
     );
   }
