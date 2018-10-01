@@ -33,7 +33,7 @@ body {
 
 .main-input {
     width: 84.5%;
-    height: 60px;
+    height: 80px;
     margin-left: 40px;
     margin-bottom: 30px;
     box-shadow: 5px 5px 5px pink;
@@ -68,7 +68,23 @@ ul {
     padding-left: 20px;
 }
 
+.clear-todo-list-item {
+    border: 1px solid white;
+    height: 40px;
+    width: 85%;
+    font-size: 2.5rem;
+    background: white;
+    box-shadow: 5px 5px 5px lightgrey;
+    margin-left: 40px;
+    margin-top: 40px;
+    padding-left: 20px;
+    padding-top: 10px;
+    color: lightgrey;
+    text-align: center;
+    opacity: 2;
+}
+
 .show-button {
-    margin-top: 500px;
+    /* margin-top: 500px; */
     position: fixed;
 }
