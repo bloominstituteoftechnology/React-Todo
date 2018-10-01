@@ -1,7 +1,6 @@
 import React, { Component }from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import '/App.css';
 
 class App extends Component {
   constructor() {
@@ -68,8 +67,13 @@ class App extends Component {
           addTask={this.addTask}
           inputText={this.state.inputText}
           setInput={this.setInput}
+          clearCompleted={this.clearCompleted}
+          clearTasks={this.clearTasks}
         />
-        <TodoList todos={this.state.todos} />
+        <TodoList 
+        todos={this.state.todos} 
+        completedTask={this.completedTask}
+        />
       </div>
     )
   }
