@@ -1,12 +1,12 @@
-
+import React from 'react'
 const todolist = [
     {
-      task: 'Organize Garage',
+      task: 'Create Todo list',
       id: 1,
       completed: false
     },
     {
-      task: 'Bake Cookies',
+      task: 'Create form',
       id: 2,
       completed: false
     }

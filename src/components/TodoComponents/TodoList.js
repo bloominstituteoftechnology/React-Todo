@@ -3,12 +3,11 @@
 import todolist from './Todo';
 import React from 'react';
 
-const TodoList = () => {
+const TodoList = props => {
+    const {task} = props.list 
     return (
     <div>
-          {todolist.map (item => {
-        return  ( <h1>{item.task}</h1> )
-        })}
+        <h1>{task}</h1>
     </div>
     )
 }
