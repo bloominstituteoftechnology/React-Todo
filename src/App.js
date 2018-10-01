@@ -77,12 +77,26 @@ class App extends React.Component {
     this.setState({ todoArray: todoArr})
   }
 
+  //localstorage
+  componentWillMount() {
+    localStorage.getItem('todoArray') && this.setState({
+      todoArray: JSON.parse(localStorage.getItem('todoArray'))
+    })
+  }
+
+  //localstorage
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem('todoArray', JSON.stringify(nextState.todoArray));
+  }
+
+
+
 
   render() {
     return (
       <div>
           <div>
-            <h2 class="todo-heading">Todos</h2>
+            <h2 className="todo-heading">Todos</h2>
             
             <TodoForm 
                 addTodoTask={this.addTodoTask} 

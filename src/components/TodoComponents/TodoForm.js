@@ -11,7 +11,6 @@ class TodoForm extends React.Component {
     }
 
     handleChange(event){
-        // this.props.printTodoTask
         this.setState({
             task: event.target.value
         });
@@ -19,10 +18,8 @@ class TodoForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        // this.props.addTodoTask({task: this.props.addTextInput, id: Date.now(), isCompleted: false});
         this.props.addTodoTask({task: this.state.task, id: Date.now(), isCompleted: false});
-        this.props.handleClickClear;
-        // this.props.clearCompleted;
+        // this.props.handleClickClear;
         this.setState({task: ''});
     }
 
@@ -30,14 +27,14 @@ class TodoForm extends React.Component {
         return (
         <div>
             <form onSubmit={this.handleSubmit}>
-                <label class="label">
-                    <input class="main-input" type="text" value={this.state.task} onChange={this.handleChange} placeholder="What needs to get done?"/>
+                <label className="label">
+                    <input className="main-input" type="text" value={this.state.task} onChange={this.handleChange} placeholder="What needs to get done?"/>
                 </label>
 
-                <button class="hide-button" type="submit">Add Todo</button>
+                <button className="hide-button" type="submit">Add Todo</button>
             </form>
 
-            <button class="hide-button" onClick={this.props.clearCompleted}>Clear Completed Task</button>
+            <button className="hide-button" onClick={this.props.clearCompleted}>Clear Completed Task</button>
         </div>
         )
     }
