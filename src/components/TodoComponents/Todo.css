@@ -74,5 +74,9 @@ input {
 }
 .search-button {
     width: 130px;
-    margin-bottom: 50px;
+    margin: 30px 7px 50px 7px;
+}
+.search-buttons {
+    display: flex;
+    justify-content: space-around;
 }

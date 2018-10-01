@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import SearchButtons from './components/TodoComponents/SearchButtons';
 import './components/TodoComponents/Todo.css';
 
 class App extends React.Component {
@@ -23,8 +24,15 @@ class App extends React.Component {
     searchHandler = (event) => {
       event.preventDefault();      
       this.setState({
-        tasks: this.state.tasks.filter(task => task.task.toUpperCase().includes(this.state.search.toUpperCase()))
+        arr: this.state.tasks,
+        tasks: this.state.tasks.filter(task => task.task.toLowerCase().includes(this.state.search.toLowerCase()))
       })      
+    }
+    showAll = (event) => {
+      event.preventDefault();
+      this.setState({
+        tasks:this.state.arr
+      })
     }
     toggleHandler = (id) => {
       this.setState({
@@ -77,7 +85,7 @@ class App extends React.Component {
       <div className="app">
         <h1>Welcome to your Todo App!</h1>
         <input className="search" type="text" placeholder="Search..." value={this.state.search} onChange={this.searchInputHandler}></input>
-        <div className="button search-button" onClick={this.searchHandler}>Search</div>
+        <SearchButtons searchHandler={this.searchHandler} showAll={this.showAll} />
         <TodoList tasks={this.state.tasks} toggleClass={this.toggleHandler} />
         <TodoForm deleteHandler={this.deleteHandler} value={this.state.holder} inputHandler={this.inputHandler} clickHandler = {this.clickHandler} />
       </div>
