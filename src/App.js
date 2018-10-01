@@ -17,13 +17,15 @@ class App extends React.Component {
   handleUpdateStateEnter = event => {
     const Todolist = this.state.Todo.slice();
     Todolist.push({ task:event.target.value,id:Todolist.length,completed: false})
+    console.log(event.type)
     if(event.keyCode === 13){
      this.setState({Todo:Todolist})
      event.preventDefault();
-    } else {
-      return null
+    } else if (event.type === "submit"){
+      this.setState({Todo:Todolist})
+      event.stopPropagation();
     }
-    
+   
   }
 
   render() {
