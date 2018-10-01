@@ -1,4 +1,4 @@
-import React from 'react'
+
 const todolist = [
     {
       task: 'Create Todo list',
