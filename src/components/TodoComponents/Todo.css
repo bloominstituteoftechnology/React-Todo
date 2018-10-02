@@ -1,0 +1,26 @@
+body {
+  font-family: Helvetica;
+}
+
+
+.completed {
+  text-decoration: line-through;
+}
+
+.not-completed {
+  text-decoration: none;
+}
+
+.singleTodo {
+  box-shadow: 10px 10px 5px #aaaaaa;
+  margin: 10px;
+  width: 200px;
+}
+
+todoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}

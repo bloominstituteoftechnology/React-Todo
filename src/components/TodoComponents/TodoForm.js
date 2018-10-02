@@ -3,9 +3,9 @@ import React from "react";
 const TodoForm = (props) => {
   return (
     <div>
-      <input />
-      <button>Add Todo</button>
-      <button>Clear Completed</button>
+      <input onChange={props.changeInput} value={props.vOS} />
+      <button onClick={props.addTodo}>Add Todo</button>
+      <button onClick={props.clearCompleted}>Clear Completed</button>
     </div>
   );
 
