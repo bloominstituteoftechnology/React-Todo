@@ -60,7 +60,17 @@ import TodoList from '../src/components/TodoComponents/TodoList';
   };
 
   taskComplete = () => {
-    
+    this.setState({
+      todolist: this.state.todolist.map(todo => {
+        if (todo.id === todoId) {
+          return {
+            task: todo.task,
+            id:todo.id,
+            completed: !todo.completed
+          }
+        }
+      })
+    })
   }
 
   render() {

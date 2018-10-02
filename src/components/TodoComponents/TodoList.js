@@ -9,6 +9,8 @@ import ToDo from './Todo';
                         key={newToDo.id} 
                         value={newToDo.task} 
                         taskComplete={newToDo.taskComplete} 
+                        id={newToDo.id}
+                        completed={newToDo.completed}
                     />
                 )
             })}
