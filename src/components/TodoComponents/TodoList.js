@@ -8,7 +8,7 @@ import ToDo from './Todo';
                     <ToDo 
                         key={newToDo.id} 
                         value={newToDo.task} 
-                        className={newToDo.completed} 
+                        taskComplete={newToDo.taskComplete} 
                     />
                 )
             })}

@@ -44,6 +44,7 @@ import TodoList from '../src/components/TodoComponents/TodoList';
 
   handleSubmit = (event) => {
     event.preventDefault();
+    if (this.state.input){
     const obj = {
       task: this.state.input,
       id: Date.now(),
@@ -54,9 +55,13 @@ import TodoList from '../src/components/TodoComponents/TodoList';
       todolist: [...this.state.todolist, obj],
       input: ''
     })
+    }
     // console.log(this.state.todolist);
   };
 
+  taskComplete = () => {
+    
+  }
 
   render() {
     return (
