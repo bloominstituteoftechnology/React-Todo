@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
-
+import './app.css';
 class App extends React.Component {
   // you will need a place to store your state in this component.
 	constructor() {
@@ -8,28 +8,24 @@ class App extends React.Component {
 		
 		this.state = {
 			todos: [
-				{
-				 task: "Test",
-				 id: 1234050,
-				 completed: false
-				}
+				
 			]
 		}
 	}
 	
-	addTodoHandler = (event) => {
-		event.preventDefault(); 
+	addTodoObject = (value, id) => {
+		
+	}
+	
+	addTodoHandler = (e) => {
+		e.preventDefault(); 
 		// prevents submit from refreshing
-		const input = event.target.previousElementSibling.value;
+		const input = e.target.previousElementSibling.value;
 		//Grabs the value from input tag
 		const id = Date.now();
 		//Creating the unique ID for Todos
-		return this.addTodoObject(input, id);
-	};
-	
-	addTodoObject = (value, id) => {
 		const ToDo = {
-			task: `${value}`,
+			task: `${input}`,
 			id: id,
 			completed: false
 		};
@@ -39,14 +35,17 @@ class App extends React.Component {
 		//Adding the object to our Class state
 		this.setState({todos});
 		//set state of this.state.todos with the new object
-	}
+	};
 	
-	completedTask = (event) => {
-        const clickedTodo = event.target;
-		console.log('I am completed');
+	
+	
+	completedTask = (e) => {
+        const clickedTodo = e.target;
 		//Getting the element that has been clicked
 		const todosCompleted = this.state.todos.map((todo, index) => {
-				if (clickedTodo.id === todo.id) {
+				if (Number(clickedTodo.id) === todo.id) {
+			    //Had to use Number() to convert the id of the clicked.id from a string to a number to be able to check against todo.id
+					clickedTodo.classList.toggle('completed');
 					todo.completed = !todo.completed;
 				}
 			return todo;
