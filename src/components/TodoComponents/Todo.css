@@ -5,3 +5,35 @@
 .not-completed {
     text-decoration: none;
 }
+
+.todo-form {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgrey;
+    width: 350px;
+    margin: auto;
+}
+
+.todo-form input {
+    width: 300px;
+    margin: 10px auto;
+    height: 50px;
+}
+
+.todo-form button {
+    width: 300px;
+    margin: 10px auto;
+}
+
+.one-todo {
+    width: 300px;
+    margin: 10px auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.todo-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+

@@ -13,7 +13,11 @@ class App extends React.Component {
     super();
 
     this.state = { 
-      Todos: [],
+      Todos: [
+        { task: "Bake Cookies", id:1, completed: false },
+        { task: "Prep Cookies for Delivery", id:2, completed: false },
+        { task: "Deliver Cookies", id:3, completed: false }
+      ],
       Todo: '', 
     };
   }
