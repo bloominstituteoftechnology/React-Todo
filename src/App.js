@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import './app.css';
+import TodoForm from './components/TodoComponents/TodoForm';
 class App extends React.Component {
   // you will need a place to store your state in this component.
 	constructor() {
@@ -11,10 +12,6 @@ class App extends React.Component {
 				
 			]
 		}
-	}
-	
-	addTodoObject = (value, id) => {
-		
 	}
 	
 	addTodoHandler = (e) => {
@@ -33,11 +30,15 @@ class App extends React.Component {
 		const todos = this.state.todos;
 		todos.push(ToDo);
 		//Adding the object to our Class state
-		this.setState({todos});
+		this.setState({todos, task: ''});
 		//set state of this.state.todos with the new object
 	};
 	
-	
+	handleControlledChange = (e) => {
+    this.setState({
+      task: e.target.value
+    });
+  };
 	
 	completedTask = (e) => {
         const clickedTodo = e.target;
@@ -60,7 +61,8 @@ class App extends React.Component {
     return (
       <div>
 		<h1>Todo List</h1>
-        <TodoList items={this.state.todos} submit={this.addTodoHandler} completedTask={this.completedTask}/>
+        <TodoList items={this.state.todos} completedTask={this.completedTask}/>
+		<TodoForm submit={this.addTodoHandler} value={this.state.task} change={this.handleControlledChange}/>
       </div>
     );
   }

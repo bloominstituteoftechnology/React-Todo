@@ -13,9 +13,8 @@ const TodoList = (props) => {
             </Todo>
           );
         })}
-      </div>
-		<TodoForm submit={props.submit}/>
-	   </div>
+         </div>
+		</div>
 	)
 };
 
