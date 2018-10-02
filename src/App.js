@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import SearchButtons from './components/TodoComponents/SearchButtons';
+//import SearchButtons from './components/TodoComponents/SearchButtons';
 import './components/TodoComponents/Todo.css';
 
 class App extends React.Component {
@@ -13,28 +13,31 @@ class App extends React.Component {
         search:"",
         arr: [],
       }
+    }
+    handleChange = (e) => {
+      this.setState({ searchString:e.target.value });
     }   
-    searchInputHandler = (event) => {
-      const { value } = event.target;
-      this.setState({
-        search: value
-      })
-      this.searchHandler(event);
-    }
+    //searchInputHandler = (event) => {
+      //const { value } = event.target;
+      //this.setState({
+        //search: value
+      //})
+      //this.searchHandler(event);
+    //}
     
-    searchHandler = (event) => {
-      event.preventDefault();      
-      this.setState({
-        arr: this.state.tasks,
-        tasks: this.state.tasks.filter(task => task.task.toLowerCase().includes(this.state.search.toLowerCase()))
-      })      
-    }
-    showAll = (event) => {
-      event.preventDefault();
-      this.setState({
-        tasks:this.state.arr
-      })
-    }
+    //searchHandler = (event) => {
+      //event.preventDefault();      
+     // this.setState({
+        //arr: this.state.tasks,
+        //tasks: this.state.tasks.filter(task => task.task.toLowerCase().includes(this.state.search.toLowerCase()))
+      //})      
+    //}
+    //showAll = (event) => {
+     // event.preventDefault();
+      //this.setState({
+        //tasks:this.state.arr
+      //})
+    //}
     toggleHandler = (id) => {
       this.setState({
         tasks: this.state.tasks.map(task => {
@@ -82,11 +85,16 @@ class App extends React.Component {
       localStorage.setItem('tasks', JSON.stringify(state.tasks))
     }
     render() {
+      let tasks = this.state.tasks;
+      let search = this.state.search.trim().toLowerCase();
+      if (search.length > 0) {
+        tasks = tasks.filter(i =>  i.task.toLowerCase().match(search))  
+      }
     return (
       <div className="app">
         <h1>Welcome to your Todo App!</h1>
-        <input className="search" type="text" placeholder="Search..." value={this.state.search} onChange={this.searchInputHandler}></input>
-        <SearchButtons searchHandler={this.searchHandler} showAll={this.showAll} />
+        <input className="search" type="text" placeholder="Search..." value={this.state.search} onChange={this.handleChange}></input>
+        
         <TodoList tasks={this.state.tasks} toggleClass={this.toggleHandler} />
         <TodoForm deleteHandler={this.deleteHandler} value={this.state.holder} inputHandler={this.inputHandler} clickHandler = {this.clickHandler} />
       </div>
@@ -95,3 +103,4 @@ class App extends React.Component {
 }
 
 export default App;
+//<SearchButtons searchHandler={this.searchHandler} showAll={this.showAll} />
