@@ -1,5 +1,6 @@
 import React from 'react';
 import ToDo from './Todo';
+import './Todo.css';
  const TodoList = (props) => {
     return (
         <ul>
@@ -8,7 +9,7 @@ import ToDo from './Todo';
                     <ToDo 
                         key={newToDo.id} 
                         value={newToDo.task} 
-                        taskComplete={newToDo.taskComplete} 
+                        taskComplete={props.taskComplete} 
                         id={newToDo.id}
                         completed={newToDo.completed}
                     />

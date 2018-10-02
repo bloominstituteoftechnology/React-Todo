@@ -2,6 +2,7 @@ import React from 'react';
 import TodoForm from '../src/components/TodoComponents/TodoForm';
 // import Todo from '../src/components/TodoComponents/Todo';
 import TodoList from '../src/components/TodoComponents/TodoList';
+import './components/TodoComponents/Todo.css';
 
   
   // you will need a place to store your state in this component.
@@ -59,29 +60,37 @@ import TodoList from '../src/components/TodoComponents/TodoList';
     // console.log(this.state.todolist);
   };
 
-  taskComplete = () => {
+  taskComplete = (element) => {
     this.setState({
       todolist: this.state.todolist.map(todo => {
-        if (todo.id === todoId) {
+        if (todo.id === element) {
           return {
             task: todo.task,
             id:todo.id,
             completed: !todo.completed
           }
+        }else {
+          return todo
         }
       })
     })
   }
 
+ 
+
+
   render() {
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <TodoList todolist={this.state.todolist} />
+        <TodoList todolist={this.state.todolist} 
+        taskComplete={this.taskComplete}
+        />
         <TodoForm 
           input={this.state.input} 
           handleSubmit={this.handleSubmit} 
           handleInput={this.handleInput} 
+          
         />
       </div>
     );
