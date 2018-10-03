@@ -1,5 +1,18 @@
-.container {
-    display: flex;
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background:
+    linear-gradient(orange, transparent),
+    linear-gradient(to top left, brown, transparent),
+    linear-gradient(to top right, hotpink, transparent);
+    background-blend-mode: screen;
+    color: white
+    
+}
+
+.container {    
+    
 }
 
 

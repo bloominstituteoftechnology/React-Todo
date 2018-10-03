@@ -48,7 +48,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='container'>
         <h1 className='main-header'>TODO LIST</h1>
         <TodoList data={this.state.todoData}/>
         <TodoForm
