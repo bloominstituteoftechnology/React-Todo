@@ -10,45 +10,20 @@ class App extends React.Component {
     super();
       this.state = {
         todos: [],
-        // task: "",
+       
         todo: ""
       };
 
     }
 
-  // Property
 
   addTodo = event => {
-     //stop the default stuff from happening
     event.preventDefault();
-    
-
-      //if we have nothing in the input for the task return from the method and do nothing    
       if(this.state.todo === "") {
         return;
       }
 
-      //grab the task from state
-      // const myNewTask = this.state.task;
-
-      //create an id variable
-      //set the id to the current date and time as a large number to make id into a non-repeated number
-      // const myId = Date.now();
-
-      //build a new todo object from the new task and id with a completed set to false
-      // const myNewToDo = {id: myId, task: myNewTask, completed: false};
-
-      //create a variable for the new array of todos
-      // const currentTodos = this.state.todos;
-
-      //push the new todo into the array of currentTodos
-      // currentTodos.push(myNewToDo);
-
-      //set the state with the new currentTodos and an empty task
-        // this.setState({
-        //   todos: currentTodos, 
-        //   task: ""
-        // });
+    
 
       const todos = this.state.todos.slice();
       todos.push({task: this.state.todo, id: Date.now(), completed: false});
@@ -58,24 +33,14 @@ class App extends React.Component {
                   });
        
   };
-
-  // handleInput = event => {
-  //   this.setState({
-  //     task: event.target.value,
-  //   });
-  // };
-
   handleInput = event => this.setState({ [event.target.name]: event.target.value });
 
   toggle = id => {
-    // id.preventDefault();
-    
+   
     let todos = this.state.todos.slice()
     todos = todos.map(todo => { 
     if(todo.id === id) {
-      // this.setState(prevState => ({
-      //   completed: !prevState.completed
-      // }));
+  
       todo.completed = !todo.completed;
       return todo;
     } else {
@@ -91,10 +56,10 @@ class App extends React.Component {
     todos = todos.filter(todo => !todo.completed);
     this.setState({ todos });
   };
-  //form is called controlled comonent (vs. uncontrolled)
+ 
 
   render() {
-    // this is a lifecycle hook
+   
     return (
       <div>
     
