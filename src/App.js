@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import TodoForm from './components/TodoComponents/TodoForm.js';
+import TodoList from './components/TodoComponents/TodoList.js';
 
 class App extends React.Component {
   //#region you will need a place to store your state in this component.
@@ -9,7 +10,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state={
-      goals: ["placeholder", 2],
+      goals: [],
       temp: "",
       message: ""
     };
@@ -18,6 +19,17 @@ class App extends React.Component {
   inputFunction = (event) => {
     this.setState({temp: event.target.value});//store input in temporary space.
   }
+
+  addTodoFunction = (event) => {
+    event.preventDefault();
+    const task  = {
+    name: this.state.temp,
+    id: Date.now(),
+    completed: false
+  }
+
+  this.state.goals.push(task);
+}
 
   render() {
     return (
@@ -28,9 +40,9 @@ class App extends React.Component {
         <hr/> 
         
         <div className="list">
-          <TodoForm inputHandler={this.inputFunction}/>
+          <TodoForm inputHandler={this.inputFunction} clickHandler={this.addTodoFunction}/>
           <h2 className="goals">Goals</h2>
-          <div className="list_items">PlaceHolder</div>
+          <div className="list_items"><TodoList todos={this.state.goals}/></div>
         </div>
       </div>
 
