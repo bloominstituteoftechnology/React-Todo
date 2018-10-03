@@ -1,4 +1,5 @@
 import React from "react";
+import './Todo.css';
 
 const Form = props => {
   return (
@@ -10,8 +11,9 @@ const Form = props => {
         value={props.inputText}
         
       />
-      <button type="submit" onClick={props.prevent}>Add</button>
+      <button type="submit">Add</button>
     </form>
+    
   );
 };
 

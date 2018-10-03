@@ -1,0 +1,10 @@
+li {
+    list-style-image: url(../assets/square.svg);
+    cursor: pointer;
+}
+
+.checked{
+    list-style-image: url(../assets/check-square.svg);
+    color: red;
+    text-decoration: line-through;
+}

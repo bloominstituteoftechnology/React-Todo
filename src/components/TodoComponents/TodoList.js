@@ -2,11 +2,16 @@ import React from "react";
 
 const List = props => {
   return (
-    <ul>
-      {props.toDo.map(item => (
-        <li key={item.listItem}>{item.listItem}</li>
-      ))}
-    </ul>
+    <div>
+      <ul>
+        {props.toDo.map((item, index) => (
+          <li key={index} id={index} onClick={props.crossOff}>
+            {item.listItem}
+          </li>
+        ))}
+      </ul>
+      <button onClick={props.removeChecked}>Clean up</button>
+    </div>
   );
 };
 
