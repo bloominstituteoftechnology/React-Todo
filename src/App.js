@@ -31,7 +31,7 @@ addNewTodo = event => {
   this.setState({
     todoData :[
       ...this.state.todoData,
-      { task : this.state.newTask }
+      { task : this.state.newTask, id: Math.floor(Math.random()*1000000), completed: false }
     ],
     newTask: ''
   });
@@ -43,7 +43,7 @@ addNewTodo = event => {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>To-do List:</h2>
         <TodoForm
           todoData={this.state.todoData}
           addNewTodo={this.addNewTodo}
