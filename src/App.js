@@ -9,15 +9,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formData: [
-        { todo: "To do" },
-        { todo: "make this app work" },
-        { todo: "make this app work" },
-        { todo: "make this app work" },
-        { todo: "make this app work" }
-      ],
-      formText: "",
-      newTodo: ""
+      formData: [],
+      formText: ""
     };
   }
 
@@ -30,15 +23,18 @@ class App extends React.Component {
   addNewTodo = event => {
     event.preventDefault();
     this.setState({
-      formData: [...this.state.formData, { todo: this.state.newTodo }],
-      newTodo: ""
+      formData: [
+        ...this.state.formData,
+        { todo: this.state.formText, id: Date.now() }
+      ],
+      formText: ""
     });
   };
   render() {
     return (
       <div>
         <TodoList
-          addNewTodo={this.addNewTodo}
+          // addNewTodo={this.addNewTodo}
           formData={this.state.formData}
           newTodo={this.state.newTodo}
         />
