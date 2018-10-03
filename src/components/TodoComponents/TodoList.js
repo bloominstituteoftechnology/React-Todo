@@ -3,4 +3,11 @@
 import React from 'react'
 import './Todo.css'
 
-const Task = props => <p>Learn setState()</p>
+const Todo = props => {
+    return (
+        <h3>Task: {props.propsTodoList}</h3>
+    )
+}
+
+export default Todo;
+{/* <h1>{props.propsTodoList}</h1> */}

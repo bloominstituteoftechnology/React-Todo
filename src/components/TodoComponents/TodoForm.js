@@ -1,4 +1,10 @@
 import React from 'react'
 import './Todo.css'
 
-const 
+const InputField = props => {
+    return (
+        <input placeholder="...todo" onChange={this.handleInputChange}></input>
+    )
+}
+
+export default InputField;
