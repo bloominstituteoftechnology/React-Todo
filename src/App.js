@@ -25,7 +25,7 @@ class App extends Component {
       inputText: '',
     }
   }
-s
+
   changeHandler = event => {
     this.setState({ newTask: event.target.value });
   };
