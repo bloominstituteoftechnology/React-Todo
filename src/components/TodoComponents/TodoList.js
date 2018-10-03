@@ -2,10 +2,21 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 
-const TodoList = props => {
+import Todo from './Todo';
+
+const TodoList = ({todos}) => {
     return (
         <div>
-            {props.todos.map(todo => )}
+            {todos.map(todo => {
+                return (
+                <Todo
+                    key={todo.id}
+                    todo={todo}
+                />
+                );
+            })}
         </div>
     );
 }
+
+export default TodoList;
