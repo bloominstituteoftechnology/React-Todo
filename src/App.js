@@ -14,7 +14,8 @@ class App extends React.Component {
       ],
       inputText: "",
       id: Date.now(),
-      completed: false
+      completed: false,
+      newTodo: ""
     };
   }
   // you will need a place to store your state in this component.
@@ -25,6 +26,19 @@ class App extends React.Component {
     e.preventDefault();
   };
 
+  addNewTodo = e => {
+    e.preventDefault();
+    this.setState({
+      tasks: [...this.state.tasks, { taskName: this.state.newTodo }],
+      newTodo: ""
+    });
+  };
+
+  changeHandler = e => {
+    console.log(e.target.name);
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   render() {
     // console.log(this.state.todo.task);
     return (
@@ -32,7 +46,12 @@ class App extends React.Component {
         <h2>Todo App</h2>
         <TodoList taskList={this.state.tasks} />
         <Todo />
-        <TodoForm />
+        <TodoForm
+          addNewTodo={this.addNewTodo}
+          changeHandler={this.changeHandler}
+          inputText={this.state.inputText}
+          newTodo={this.state.newTodo}
+        />
       </div>
     );
   }
