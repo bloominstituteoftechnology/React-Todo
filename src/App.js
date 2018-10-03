@@ -47,8 +47,20 @@ class App extends React.Component {
     }
   }
 
-  toggleCompleted = event => {
-    console.log("hello!");
+  toggleCompleted = (event, id) => {
+    let listContentHolder = this.state.listContent;
+
+    if(event.target.classList.contains('strikethrough')){
+      listContentHolder.find((element) => element.id === id).completed = false;
+    } else {
+      listContentHolder.find((element) => element.id === id).completed = true;
+    }
+
+    event.target.classList.toggle('strikethrough');
+
+    this.setState({
+      listContent: listContentHolder
+    });
   }
 
   render() {
