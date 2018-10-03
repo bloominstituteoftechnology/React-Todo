@@ -36,9 +36,10 @@ class App extends React.Component {
             id: Date.now(),
             completed: false
           }
-        ],
-        newItem: ""
+        ]
       });
+      this.setState({ newItem: "" });
+      console.log(this.state.list);
       window.localStorage.setItem("todoList", JSON.stringify(this.state.list));
     }
   };
