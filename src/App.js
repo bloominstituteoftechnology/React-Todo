@@ -21,14 +21,38 @@ class App extends React.Component {
           completed: false
         }
       ],
+      currentTask: '',
     }
+
+    this.addTask = this.addTask.bind(this);
+    this.onChangeTask = this.onChangeTask.bind(this);
+  }
+
+  addTask(event) {
+    event.preventDefault();
+    let taskObj = {
+      task: this.state.currentTask,
+      id: Date.now(),
+      completed: false
+    }
+    let todoList = this.state.todoList;
+    todoList.push(taskObj)
+    this.setState({todoList, currentTask: ''});
+  }
+
+  onChangeTask(event) {
+    this.setState({currentTask: event.target.value});
   }
   
   render() {
     return (
       <div>
         <TodoList list={this.state.todoList} />
-        <TodoForm />
+        <TodoForm 
+          currentTask={this.state.currentTask}
+          addTask={this.addTask}
+          onChange={this.onChangeTask}
+        />
       </div>
     );
   }

@@ -1,10 +1,14 @@
 import React from 'react';
 
-const TodoForm = () => {
+const TodoForm = ({currentTask, addTask, onChange}) => {
     return (
         <div>
-            <form>
-                <input type="text" placeholder="Task" />
+            <form onSubmit={addTask.bind(this)}>
+                <input 
+                    type="text"
+                    value={currentTask}
+                    onChange={onChange.bind(this)}
+                />
                 <button>Submit</button>
             </form>
         </div>
