@@ -17,7 +17,7 @@ class App extends React.Component {
   handleChange = event => {
     this.setState({
         task: event.target.value,
-        id:Date.now(),
+        id: Date.now(),
         completed:false
     });
   };
@@ -30,7 +30,7 @@ class App extends React.Component {
     };
     this.state.todos.push(task);
     this.setState({
-      task: ""
+      task: "",
     })
   };
 
@@ -49,6 +49,17 @@ class App extends React.Component {
       })
     })
   };
+
+  handleFilter= () =>{
+    this.setState({
+      todos:this.state.todos.filter(todo => {
+        if(todo.completed === true){
+          this.state.todos.splice(todo);
+        }
+        return todo;
+      }),
+    })
+   }
 
   render() {
     console.log(this.state.todos)
