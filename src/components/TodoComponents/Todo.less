@@ -28,26 +28,48 @@ html {
             height: 40px;
             font-size: 1.6rem;
             cursor: pointer;
+            position: relative;
             .input {
-                -webkit-appearance: textarea;
                 font-size: 1.6rem;
                 font-family: gotham-light;
                 border: none;
-                background-color: unset;
-                display: inline;
+                color: #a0011f;
+                text-decoration: underline;
+                &:focus {
+                    outline: none;
+                }
             }
             .none {
                 display: none;
             }
             .view {
                 display: inline-block;
+                position: relative;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 1px;
+                    bottom: -2px;
+                    background: #a0011f;
+                    visibility: hidden;
+                    transform: scaleX(0);
+                    transition: .25s;
+                }
+                &:hover:before {
+                    visibility: visible;
+                    transform: scaleX(1);
+                }
+                &:hover {
+                    color: #a0011f;
+                }
             }
             .checkbox {
                 height: 20px;
                 width: 20px;
-                :checked {
-                    color: blue;
-                }
+                position: relative;
+                top: 5px;
+                right:10px;
             }
         }
     }
@@ -60,8 +82,13 @@ html {
             width: 200px;
             margin-left: 100px;
             padding-left: 20px;
-            font-family: gotham-light; // background-color: aliceblue;
+            font-family: gotham-light;
             border: none;
+            color: #a0011f;
+            &:focus {
+                outline: none;
+                text-decoration: underline;
+            }
         }
         .hide {
             display: none;

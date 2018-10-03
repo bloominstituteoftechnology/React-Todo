@@ -28,28 +28,49 @@ html {
   height: 40px;
   font-size: 1.6rem;
   cursor: pointer;
+  position: relative;
 }
 .app .list .task .input {
-  -webkit-appearance: textarea;
   font-size: 1.6rem;
   font-family: gotham-light;
   border: none;
-  background-color: unset;
-  display: inline;
+  color: #a0011f;
+  text-decoration: underline;
+}
+.app .list .task .input:focus {
+  outline: none;
 }
 .app .list .task .none {
   display: none;
 }
 .app .list .task .view {
   display: inline-block;
+  position: relative;
+}
+.app .list .task .view:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  background: #a0011f;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: 0.25s;
+}
+.app .list .task .view:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+.app .list .task .view:hover {
+  color: #a0011f;
 }
 .app .list .task .checkbox {
-  margin: 0 10px;
   height: 20px;
   width: 20px;
-}
-.app .list .task .checkbox :checked {
-  color: blue;
+  position: relative;
+  top: 5px;
+  right: 10px;
 }
 .app .form {
   display: flex;
@@ -63,6 +84,11 @@ html {
   padding-left: 20px;
   font-family: gotham-light;
   border: none;
+  color: #a0011f;
+}
+.app .form .input:focus {
+  outline: none;
+  text-decoration: underline;
 }
 .app .form .hide {
   display: none;
