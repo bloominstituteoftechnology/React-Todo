@@ -11,6 +11,7 @@ const TodoList = props => {
           <Todo
             task={item.task}
             key={item.id}
+            id={item.id}
             toggleComplete={props.toggleComplete}
             //this will be used to make a classList for each Todo, which will be used for styling
             completed={item.completed ? "complete" : "incomplete"}
