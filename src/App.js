@@ -23,7 +23,7 @@ class App extends React.Component {
           handleToggle={this.toggleToDo}
         />
         <ToDoForm
-          inputText={this.state.inputText}
+          inputValue={this.state.inputText}
           handleChange={this.changeInput}
           handleAdd={this.add}
           handleClear={this.clear}
@@ -41,10 +41,11 @@ class App extends React.Component {
       completed: false
     };
     this.setState({
-      toDoList: [...this.state.toDoList, newTask],
-      inputText: ''
+      inputText: '',
+      toDoList: [...this.state.toDoList, newTask]
     });
   }
+
   clear = eventClick => {
     eventClick.preventDefault();
     let remainingTasks = [];
@@ -57,6 +58,7 @@ class App extends React.Component {
       toDoList: remainingTasks
     });
   }
+
   toggleToDo = eventClick => {
     eventClick.preventDefault();
     let taskId = eventClick.target.dataset.taskid;
@@ -68,12 +70,14 @@ class App extends React.Component {
       toDoList: [...this.state.toDoList]
     });
   }
+
   changeInput = eventChange => {
-    eventChange.preventDefault();
+    //eventChange.preventDefault();
     this.setState({
       inputText: eventChange.target.value
     });
   }
 }
 
+//------------------------------------------------
 export default App;

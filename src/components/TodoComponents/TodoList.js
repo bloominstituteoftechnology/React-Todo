@@ -10,7 +10,7 @@ const ToDoList = props => (
             <ToDo
                 className={toDo.completed? 'completed' : ''}
                 key={toDo.id}
-                whatthehelldoyoumeankeyisntapropwhydidyouhavemedeclareitthen={toDo.id}
+                whatTheHellDoYouMeanKeyIsntAPropWhyDidYouHaveMeDeclareItThen={toDo.id}
                 onClick={props.handleToggle}
             >{toDo.task}</ToDo>
         ))}
