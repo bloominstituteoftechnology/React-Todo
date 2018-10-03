@@ -1,3 +1,12 @@
-.todoList {
+.todoContainer {
+  background-image: url('https://img.freepik.com/free-photo/empty-school-board_23-2147849671.jpg?size=338&ext=jpg');
+  color: white;
   border: 1px solid blue;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 10px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.6rem;
+
+
 }

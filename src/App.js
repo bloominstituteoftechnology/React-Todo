@@ -34,9 +34,14 @@ class App extends React.Component {
   //handler functions
 
   toggleCompleted = e => {
-    console.log(e.target);
     console.log(e.target.id);
-    this.setState();
+    console.log(e.target);
+    console.log(e.currentTarget);
+    this.state.todoArr.forEach(function(task) {
+      if (task.id === e.target.id) {
+        setState(task)
+      }
+    }
   };
 
   changeHandler = e => {
@@ -44,14 +49,21 @@ class App extends React.Component {
   };
 
   addNewTask = e => {
+    e.preventDefault();
     this.setState({todoArr: [
       ...this.state.todoArr,
       {task: this.state.inputText,
       id: Date.now(),
       completed: false
   },
-    ]})
+    ],
+    inputText: ''});
   }
+
+  clearAllCompleted = e => {
+    // pass
+  }
+
 
   // calls <TodoList /> with this.state.todoArr as props.
   // TodoList sends a single object to Todo.
@@ -59,7 +71,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="todoContainer">
         <h2>Welcome to your Todo App!</h2>
         <TodoList
           todoArr={this.state.todoArr}
