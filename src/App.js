@@ -1,4 +1,6 @@
 import React from 'react';
+import List from './components/TodoComponents/TodoList'
+
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -7,7 +9,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state ={
-      ' ': ''
+      toDo: [{listItem:'Learn setState()', done:false}, {listItem:'Style my Todo List', done:false}]
     }
   }
 
@@ -15,6 +17,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <List toDo={this.state.toDo} />
       </div>
     );
   }
