@@ -27,3 +27,7 @@
 .app form * {
     margin: 0 3px;
 }
+
+.app form input {
+    border-radius: 2px;
+}
