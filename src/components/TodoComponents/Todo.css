@@ -113,8 +113,8 @@ bod {
 
 .form-new button {
   border-radius: 10px;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   margin-left: 3%;
   font-size: 1.6rem;
 }
@@ -124,7 +124,7 @@ bod {
   padding: 1% 2%;
   font-family: 'Archivo', sans-serif;
   font-size: 1rem;
-  height: 45px;
+  height: 40px;
 }
 
 .form-clear{
@@ -139,7 +139,7 @@ bod {
   border-radius: 10px;
   font-family: 'Archivo', sans-serif;
   font-size: 1rem;
-  height: 45px;
+  height: 40px;
   width: 70%;
   margin: 3%;
 
@@ -159,8 +159,8 @@ bod {
 }
 
 .form-search input {
-  height: 45px;
-  border-radius: 10px;
+  height: 40px;
+  border-radius: 5px;
   font-family: 'Archivo', sans-serif;
   font-size: 1rem;
   padding: 1% 2%;

@@ -3,7 +3,13 @@ import TodoForm from "./components/TodoComponents/TodoForm.js";
 import TodoList from "./components/TodoComponents/TodoList.js";
 import "./components/TodoComponents/Todo.css";
 
-let initialList = [];
+let initialList = [
+  {
+    task: 'make a to-do list'
+    id: Date.now().toString();
+    complete: false; 
+  }
+];
 let storedList = localStorage.getItem('todoList');
 if (storedList !== null) {
   initialList = JSON.parse(storedList);
