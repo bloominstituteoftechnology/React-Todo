@@ -4,8 +4,13 @@ import './Todo.css'
 class Todo extends React.Component {
 
   render() {
-    <div className="Todo">
-    
-    </div>
-  }
+    return (
+
+        <div className="Todo">
+        <span>{this.props.task} </span><span>{this.props.completed}</span>
+        </div>
+      )
+    }
 }
+
+export default Todo;
