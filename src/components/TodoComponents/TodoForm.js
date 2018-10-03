@@ -6,7 +6,7 @@ let Form = props => {
         <input id="input" type="text" placeholder="Just drop a task here to get started!" value={props.value} name='newTodo' onChange={props.changeHandler}/>
         <div className="buttons">
             <button id="addTask" onClick={props.addTodo}>Add Task</button>
-            <button id="clearCompleted" onClick={props.clearTodos}>Clear Completed</button>
+            <button id="clearCompleted" onClick={props.clearTodos}>Clear Completed Tasks</button>
         </div>
     </form>
     )

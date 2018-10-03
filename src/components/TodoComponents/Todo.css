@@ -57,7 +57,7 @@ form .buttons {
 
 form .buttons button {
     padding: 10px;
-    width: 30%;
+    width: 300px;
     height: 60px;
     background: white;
     color: black;
@@ -94,6 +94,7 @@ ul {
     flex-flow: column nowrap;
     align-items: left;
     width: 800px;
+    list-style-type: circle;
 }
 
 ul li {
