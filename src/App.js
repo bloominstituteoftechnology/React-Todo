@@ -93,7 +93,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <h1>Welcome to your Todo App!</h1>
-        <input className="search" type="text" placeholder="Search..." value={this.state.search} onChange={this.handleChange}></input>
+        <input className="search" type="text" placeholder="Search..." value={this.state.search} onChange={this.handleChange.bind(this)}></input>
         
         <TodoList tasks={this.state.tasks} toggleClass={this.toggleHandler} />
         <TodoForm deleteHandler={this.deleteHandler} value={this.state.holder} inputHandler={this.inputHandler} clickHandler = {this.clickHandler} />
