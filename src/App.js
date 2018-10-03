@@ -22,6 +22,7 @@ class App extends React.Component {
         }
       ],
       newTodo: '',
+      search: '',
     }
   }
 
