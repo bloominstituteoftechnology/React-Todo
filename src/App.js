@@ -19,7 +19,23 @@ class App extends React.Component {
   }
 
   inputChangeHandler = event => {
-    this.setState({ newItem: event.target.value })
+    this.setState({ newItem: event.target.value });
+  };
+
+  addItem = event => {
+    event.preventDefault();
+    console.log("Event fired!");
+    this.setState({ 
+      list: [
+        ...this.state.list,
+        {
+          task: this.state.newItem,
+          id: Date.now(),
+          completed: false
+        }
+      ],
+      newItem: ""
+    });
   };
   
   render() {
@@ -27,7 +43,7 @@ class App extends React.Component {
       <div className="app">
         <h1>To-Do List: MVP</h1>
         <TodoList todoList={this.state.list} />
-        <TodoForm text={this.state.newItem} inputChangeHandler={this.inputChangeHandler} />
+        <TodoForm text={this.state.newItem} inputChangeHandler={this.inputChangeHandler} addItem={this.addItem} />
       </div>
     );
   }
