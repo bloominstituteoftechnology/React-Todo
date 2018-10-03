@@ -22,12 +22,39 @@ class App extends React.Component {
           completed: false
         }
       ],
+      newTask: ''
     };
+  };
+
+  addTodoInput = event => {
+    event.preventDefault();
+    this.setState({
+      todoData: [...this.state.todoData, {task: this.state.newTask,
+                                          id: Date.now(),
+                                          completed: false}],
+     newTask: ''
+    });
+  };
+
+  inputChange = event => {
+    this.setState({[event.target.name]: event.target.value});
+  };
+
+  completeTaskWipe = event => {
+    console.log(event.target.id);
+    this.setState({[event.target.id]: true});
   }
+
   render() {
     return (
       <div className = 'app'>
-        <Todo todoData={this.state.todoData}/>
+        <Todo 
+        todoData={this.state.todoData} 
+        newTask={this.state.newTask}
+        addTodoInput={this.addTodoInput}
+        inputChange={this.inputChange}
+        completeTaskWipe={this.completeTaskWipe}
+          />
       </div>
     );
   }

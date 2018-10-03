@@ -7,7 +7,7 @@ const TodoList = props => {
     return (
         <div className = 'todolist'>
             {props.todoData.map(item => {
-                return <p>{item.task}</p>;
+                return <p id="comepleted" onClick={props.completeTaskWipe}>{item.task}</p>;
             })}
         </div>
     );
