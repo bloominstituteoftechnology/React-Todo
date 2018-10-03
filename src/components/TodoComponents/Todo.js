@@ -11,10 +11,9 @@ import React from "react";
 const Todo = props => {
   return (
     <div>
-      <p 
-      onClick={props.toggleCompleted}>
-
-      {props.todo.task}</p>
+      <p>
+      {props.todo.task}
+      </p>
     </div>
   );
 };

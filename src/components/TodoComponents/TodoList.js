@@ -9,7 +9,10 @@ function TodoList(props) {
     <div className="todoList">
       <h1>TodoList Component</h1>
       {props.todoArr.map(t => (
-        <Todo key={t.id} todo={t} toggleCompleted={props.toggleCompleted}/>
+        <Todo 
+        key={t.id} 
+        todo={t} 
+        onClick={props.toggleCompleted} />
       ))}
     </div>
   );
