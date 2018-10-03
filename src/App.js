@@ -25,6 +25,14 @@ class App extends React.Component {
     }
   }
 
+  changeCompleted = () => {
+    if (this.state.completed === false) {
+      this.setState({ completed: true });
+    } else {
+      this.setState({ completed: false });
+    }
+  };
+
   changeHandler = event => {
     console.log(event.target.name);
     this.setState({ [event.target.name]: event.target.value });
@@ -47,6 +55,7 @@ class App extends React.Component {
         <h1>Todo List:</h1>
         <TodoList 
           todoData={this.state.todoData}
+          changeCompleted={this.state.changeCompleted}
           />
         <TodoForm 
           changeHandler={this.changeHandler}
