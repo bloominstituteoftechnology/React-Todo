@@ -25,9 +25,9 @@ class TodoList extends React.Component {
     return (
       <div className="TodoList">
         {this.state.todos.map(todo => {
-          return <Todo task={todo.task} completed={todo.completed} />
+          return <Todo task={todo.task} completed={todo.completed}/>
         })}
-        <Todo task="finish mvp" completed="false"/>
+        <Todo task="finish mvp" completed={false}/>
       </div>
     )
   }

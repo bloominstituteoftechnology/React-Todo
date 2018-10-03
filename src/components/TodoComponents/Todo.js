@@ -5,9 +5,9 @@ class Todo extends React.Component {
 
   render() {
     return (
-
         <div className="Todo">
-        <span>{this.props.task} </span><span>{this.props.completed}</span>
+        <span>{this.props.task} </span>
+        <span>{this.props.completed ? 'True' : 'False'}</span>
         </div>
       )
     }
