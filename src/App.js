@@ -15,6 +15,9 @@ class App extends React.Component {
 
   addTodo(item) {
     let  newItem = {task: item, id: Date.now(), completed: false };
+    this.setState({ items: this.state.items.push(newItem) });
+    console.log(`addTodo ${this.state.items}`);
+    console.log(this.state.items);
   }
  
  
@@ -24,7 +27,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>First Commit!</h2>
+        <h2>Welcome to your Todo App!</h2>
       </div>
     );
   }
