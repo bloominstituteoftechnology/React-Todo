@@ -2,22 +2,32 @@ import React from 'react';
 import { start } from 'pretty-error';
 
 class TodoForm extends React.Component {
+    constructor(props){
+        super(props);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
 
-    render() {
+    onSubmit(e){
+        e.preventDefault();
+        let newItem = this.refs.item.value;
+console.log(newItem);
+        if(newItem){
+            this.props.addTodo(newItem);
+            this.refs.form.reset();
+        }
+    }
+        render(){
         return (
           <div>
-              <form className="App" onSubmit={props.onSubmit}>
-                 <input type="text" placeholder="Add Todo" ></input>
-                <button>Add Todo</button>
+              <form ref="form" className="AddTodo" onSubmit={this.onSubmit}>
+                 <input type="text" ref="item" placeholder="Add Todo" ></input>
+                <button type="submit">Add Todo</button>
                 <button>Clear Completed</button>
             </form>
            </div>
         );
-
+        }
 }
-<form className="App" onSubmit={this.onSubmit}>
-<input value={this.state.term} onChange={this.onChange} />
-<button>Submit</button>
-</form>
+
 
 export default TodoForm;
