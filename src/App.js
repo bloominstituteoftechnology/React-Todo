@@ -5,22 +5,28 @@ import TodoForm from './components/TodoComponents/TodoForm';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { items: [] };
+    this.state = { todoList: [] };
     this.addTodo = this.addTodo.bind(this);
   }
 
   addTodo(input) {
-    const { items } = this.state;
-    this.setState({ items: [...items, input] })
+    const { todoList } = this.state;
+    let todo = {
+      task: input,
+      id: Date.now().toString(),
+      completed: false
+    }
+    console.log(todo);
+    this.setState({ todoList: [...todoList, todo] })
   }
 
   render() {
-    const { items } = this.state;
+    const { todoList } = this.state;
 
     return (
       <div className="App">
         <h1>Todo List: MVP</h1>
-        <TodoList items={items} />
+        <TodoList todoList={todoList} />
         <TodoForm onSubmit={this.addTodo} />
       </div>
     );
