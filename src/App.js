@@ -49,11 +49,21 @@ class App extends React.Component {
   };
 
   toggleComplete = event => {
+    //this works but changes the class of the individual button. I want to write it
+    //so the `completed` status for the particular task in todoList gets changed
     if (event.target.className === "incomplete") {
       event.target.className = "complete";
     } else {
       event.target.className = "incomplete";
     }
+
+    //instead, write this new version: create a copy of the todoList array,
+    //where the only modification is that the clicked item's `completed`
+    //value changes. then use setState({todoList: newArray})
+  };
+
+  filterComplete = event => {
+    console.log(this.state);
   };
 
   render() {
@@ -64,6 +74,7 @@ class App extends React.Component {
           toggleComplete={this.toggleComplete}
         />
         <TodoForm
+          filterComplete={this.filterComplete}
           addNewTodo={this.addNewTodo}
           changeHandler={this.changeHandler}
           newTodo={this.state.newTodo}
