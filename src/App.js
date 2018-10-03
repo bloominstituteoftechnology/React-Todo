@@ -30,7 +30,7 @@ class App extends React.Component {
       completed: false
     };
 
-    this.setState({ todos: [...this.state.todos, task] });
+    this.setState({ todos: [...this.state.todos, task], input: '' });
   };
 
   handleInputChange = e => {
@@ -43,6 +43,7 @@ class App extends React.Component {
         <TodoForm
           handleNewToDo={this.handleNewToDo}
           handleInputChange={this.handleInputChange}
+          input={this.state.input}
         />
         <TodoList todos={this.state.todos} />
       </div>
