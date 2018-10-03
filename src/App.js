@@ -32,9 +32,6 @@ class App extends React.Component {
 
   changeText = event => {
     event.preventDefault();
-    if (event.key === 'Enter') {
-      console.log('ENTER PRESSED');
-    }
     this.setState({inputText: event.target.value});
   }
 
