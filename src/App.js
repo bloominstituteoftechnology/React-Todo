@@ -5,9 +5,9 @@ import "./components/TodoComponents/Todo.css";
 
 let initialList = [
   {
-    task: 'make a to-do list'
-    id: Date.now().toString();
-    complete: false; 
+    task: 'make a to-do list',
+    id: Date.now().toString(),
+    complete: false, 
   }
 ];
 let storedList = localStorage.getItem('todoList');
