@@ -42,6 +42,10 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  clearCompleted = event => {
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div className="App">
@@ -55,6 +59,7 @@ class App extends React.Component {
           value={this.state.inputTodo}
           handleTodoChange={this.changeTodo}
           handleAddTodo={this.addTodo}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );
