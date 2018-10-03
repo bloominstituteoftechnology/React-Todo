@@ -27,7 +27,10 @@ class App extends Component {
         this.setState({
           todoData: [
             ...this.state.todoData,
-            { task: this.state.todoText }
+            { task: this.state.todoText,
+              id: Date.now(),
+              completed: false
+            }
           ],
           todoText: ''
         });
