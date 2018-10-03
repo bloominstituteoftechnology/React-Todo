@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -7,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      todo: [
+      todoData: [
         {
           task: 'Organize Garage',
           id: 1528817077286,
@@ -26,6 +27,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Todo List:</h2>
+        <TodoList todoData={this.state.todoData}/>
       </div>
     );
   }
