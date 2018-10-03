@@ -3,18 +3,17 @@ import ToDoList from './components/ToDoComponents/ToDoList.js';
 import ToDoForm from './components/ToDoComponents/ToDoForm.js';
 
 class App extends React.Component {
+
+//-- Setup and State -----------------------------
   constructor(init) {
     super(...arguments);
     this.state = {
       inputText: '',
-      toDoList: [
-        {description:'asdf'}
-      ]
+      toDoList: []
     };
   }
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+
+//-- Rendering -----------------------------------
   render() {
     return (
       <div>
@@ -32,10 +31,14 @@ class App extends React.Component {
       </div>
     );
   }
+  
+//-- Event Handlers ------------------------------
   add = eventClick => {
     eventClick.preventDefault();
     const newTask = {
-      description: this.state.inputText
+      task: this.state.inputText,
+      id: Date.now(),
+      completed: false
     };
     this.setState({
       toDoList: [...this.state.toDoList, newTask],
@@ -44,12 +47,25 @@ class App extends React.Component {
   }
   clear = eventClick => {
     eventClick.preventDefault();
+    let remainingTasks = [];
+    this.state.toDoList.forEach(toDo => {
+      if(!toDo.completed){
+        remainingTasks.push(toDo);
+      }
+    });
+    this.setState({
+      toDoList: remainingTasks
+    });
   }
   toggleToDo = eventClick => {
     eventClick.preventDefault();
-    console.log('asdf')
+    let taskId = eventClick.target.dataset.taskid;
+    let task = this.state.toDoList.find(toDo => {
+      return (toDo.id.toString() === taskId.toString());
+    });
+    task.completed = !task.completed;
     this.setState({
-      toDoList: [...this.state.toDoList, Math.random()]
+      toDoList: [...this.state.toDoList]
     });
   }
   changeInput = eventChange => {

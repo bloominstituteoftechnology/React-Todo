@@ -1,7 +1,12 @@
 import React from 'react';
+import './ToDo.css';
 
 const ToDo = props => (
-    <li onClick={props.onClick}>{props.children}</li>
+    <li
+        className={props.className}
+        data-taskid={props.whatthehelldoyoumeankeyisntapropwhydidyouhavemedeclareitthen}
+        onClick={props.onClick}
+    >{props.children}</li>
 );
 
 export default ToDo;

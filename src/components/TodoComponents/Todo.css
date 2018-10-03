@@ -1,0 +1,6 @@
+.completed {
+    color: red;
+    text-decoration: black wavy line-through;
+    /*text-decoration: line-through;
+    */
+}

@@ -8,9 +8,11 @@ const ToDoList = props => (
     <ul>
         {props.toDoList.map(toDo => (
             <ToDo
-                key={Math.random()}
+                className={toDo.completed? 'completed' : ''}
+                key={toDo.id}
+                whatthehelldoyoumeankeyisntapropwhydidyouhavemedeclareitthen={toDo.id}
                 onClick={props.handleToggle}
-            >{toDo.description}</ToDo>
+            >{toDo.task}</ToDo>
         ))}
     </ul>
 );
