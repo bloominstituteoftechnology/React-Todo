@@ -4,13 +4,11 @@ import React, { Component } from 'react';
 const TodoForm = (props) => {
     return (
         <div>            
-            <input
+            <input onChange={props.handleTodoChange}
                 type="text"
-                name="inputText"
-                placeholder="...Todo"
-                onChange={props.changeHandler}
-                value={props.inputText}/>
-            <button onClick={props.changeColor}>Add ToDo</button>
+                name="todo"
+                placeholder="...todo"/>
+      <button onClick={props.handleAddTodo}>Add Todo</button>
             <button onClick={props.changeColor}>Clear Completed</button>    
         </div>
     );
