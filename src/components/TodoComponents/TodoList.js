@@ -9,7 +9,7 @@ const TodoList = props => {
         <div>
             {props.myToDoList.map(x => {
                 return (
-                    <div>{x.task}</div>
+                    <div key={x.id}>{x.task}</div>
                 )
             })}
         </div>
