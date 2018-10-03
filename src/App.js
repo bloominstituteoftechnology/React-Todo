@@ -20,15 +20,23 @@ class App extends React.Component {
             <div className="listview">
               <form className="form">
                 <input className="inputform" placeholder="What is your goal?"/>
-                <input type="submit" value="Submit"/>
+                <div className="actionbuttons">
+                  <button className="addtodo button">Add Todo</button>
+                  <button className="clear button">Clear list</button>
+                </div>
               </form>
               
-              <div className="actionbuttons">
-                <button className="addtodo button">Add Todo</button>
-                <button className="clear button">Clear</button>
-              </div>
-            
               <div className="listitems">
+                <h2 className="theGoal">Goals</h2>
+                <div className="goals">
+                  <ul>
+                    <li>sometodo</li>
+                  </ul>
+                </div>
+
+                <div>
+
+                </div>
               </div>
             </div>
         </div>
