@@ -28,7 +28,6 @@ class App extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log('hi')
     this.setState({
       todos: [
         ...this.state.todos,
@@ -42,14 +41,41 @@ class App extends Component {
     })
   }
 
+  completeTodo = id => {
+    this.setState({
+      todos: [
+        ...this.state.todos.map(
+          todo => (todo.id === id ? { ...todo, completed: true } : todo)
+        )
+      ]
+    })
+  }
+
+  removeCompletedTodos = event => {
+    event.preventDefault()
+    this.setState({
+      todos: [...this.state.todos.filter(todo => todo.completed === false)]
+    })
+  }
+
   render() {
     const { todos, value } = this.state
-    const { handleChange, handleSubmit } = this
+    const {
+      handleChange,
+      handleSubmit,
+      completeTodo,
+      removeCompletedTodos
+    } = this
 
     return (
       <div>
-        <TodoList todos={todos} />
-        <TodoForm handleChange={handleChange} handleSubmit={handleSubmit} value={value} />
+        <TodoList todos={todos} completeTodo={completeTodo} />
+        <TodoForm
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          removeCompletedTodos={removeCompletedTodos}
+          value={value}
+        />
       </div>
     )
   }

@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 
-const TodoForm = ({ handleChange, handleSubmit, value }) => (
+const TodoForm = ({ handleChange, handleSubmit, removeCompletedTodos, value }) => (
   <Fragment>
     <form onSubmit={handleSubmit}>
       <input type="text" value={value} onChange={handleChange} />
       <button type="submit">add todo</button>
     </form>
 
-    <button type="clear completed">clear completed</button>
+    <button type="submit" onClick={removeCompletedTodos}>clear completed</button>
   </Fragment>
 )
 
