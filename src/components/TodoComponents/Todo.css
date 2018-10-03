@@ -1,0 +1,9 @@
+.strikethrough {
+    text-decoration: line-through;
+}
+ .list-item:hover {
+    cursor: pointer;
+}
+ li {
+    list-style-type: none;
+}

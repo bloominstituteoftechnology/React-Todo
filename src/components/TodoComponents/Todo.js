@@ -1,12 +1,11 @@
 import React from 'react';
-import TodoList from './TodoList.js';
-import TodoForm from './TodoForm.js';
- const Todo = () => {
+import './Todo.css'
+
+const Todo = (props) => {
     return (
-        <div>
-            <TodoList items='todoData'/>
-            <TodoForm />
-        </div>
+        <li 
+        onClick={(event) => {props.clickHandler(event, props.item) }} 
+        className='list-item'>{props.item}</li>
     )
 }
- export default Todo;
+export default Todo;
