@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from "./components/TodoComponents/TodoForm";
 
 class App extends Component {
     constructor(props) {
@@ -18,8 +19,7 @@ class App extends Component {
               completed: false
             }
           ],
-        todoText: '',
-        newTodo: ''
+        todoText: ''
       };
     }
     addNewTodo = event => {
@@ -27,9 +27,9 @@ class App extends Component {
         this.setState({
           todoData: [
             ...this.state.todoData,
-            { task: this.state.newTodo }
+            { task: this.state.todoText }
           ],
-          newTodo: ''
+          todoText: ''
         });
     };
     changeHandler = event => {
@@ -39,11 +39,14 @@ class App extends Component {
         return (
           <div className="App">
             <TodoList
-              // addNewTodo={this.addNewTodo}
-              // changeHandler={this.changeHandler}
-              todoData={this.state.todoData}
-              // todoText={this.state.todoText}
-              // newTodo={this.state.newTodo}
+
+              todoData={this.state.todoData}            
+            />
+            <TodoForm 
+              addNewTodo={this.addNewTodo}
+              changeHandler={this.changeHandler}
+              todoText={this.state.todoText}
+              newTodo={this.state.newTodo}
             />
 
           </div>
