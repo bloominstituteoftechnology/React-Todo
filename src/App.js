@@ -12,13 +12,15 @@ class App extends React.Component {
     }
   }
   inputChange = e => {
-    this.setState({ todo: e.target.value });
+    console.log(e.target.name)
+    this.setState({ [e.target.name]: e.target.value });
   }
   addTodo = e => {
     e.preventDefault();
-    this.state.todos.push({task: this.state.todo, id: Date.now(), completed: false});
-    this.setState({ todos: this.state.todos, todo: '' });
-    document.querySelector('#todoInput').value = '';
+    this.setState({ 
+      todos: [...this.state.todos, {task: this.state.todo, id: Date.now(), completed: false}],
+      todo: '' 
+    });
   }
   clearTodo = e => {
     e.preventDefault();
@@ -30,7 +32,12 @@ class App extends React.Component {
       <div className="app-container">
         <h1>Todo List</h1>
         <TodoList todos={this.state.todos}/>
-        <TodoForm inputChange={this.inputChange} addTodo={this.addTodo} clearTodo={this.clearTodo}/>
+        <TodoForm 
+          inputChange={this.inputChange} 
+          addTodo={this.addTodo} 
+          clearTodo={this.clearTodo}
+          todo={this.state.todo}
+        />
       </div>
     );
   }
