@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import './components/TodoComponents/Todo.css';
 
@@ -35,9 +35,13 @@ class App extends React.Component {
   }
   addTodo = event => {
     event.preventDefault();
-    const todos = this.state.todoData.slice();
-    todos.push({ task: this.state.todo, completed: false, id: Date.now() });
-    this.setState({ todos, todo: '' });
+    this.setState({
+      todoData: [
+        ...this.state.todoData,
+        { task: this.state.todo, completed: false, id: Date.now() }
+      ],
+      todo: ''
+    });
   };
 
   changeTodo = event => this.setState({ [event.target.name]: event.target.value });
@@ -50,7 +54,7 @@ class App extends React.Component {
         <TodoForm
           value={this.state.todo}
           handleTodoChange={this.changeTodo}
-          handleAddTodo={this.addTodo}/>
+          AddTodoHandler={this.addTodo}/>
       </div>
     );
   }
