@@ -1,9 +1,10 @@
 import React from "react";
+import Todo from "./Todo";
 
 const List = props => (
   <ul>
     {props.toDo.map(item => (
-      <li key={item.task}>{item.task}</li>
+      <Todo task={item.task} />
     ))}
   </ul>
 );
