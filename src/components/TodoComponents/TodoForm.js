@@ -9,6 +9,7 @@ const TodoForm = (props) => {
           Add Todo!
         </button>
       </form>
+      <button onClick={props.clearAll}>Clear All!</button>
     </div>
   );
 };

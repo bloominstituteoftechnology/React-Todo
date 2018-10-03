@@ -26,6 +26,15 @@ class App extends React.Component {
     }
   };
 
+  clearAll = (event) => {
+    event.preventDefault();
+    const todoCopy = this.state.todo.slice();
+    todoCopy.splice(0, this.state.todo.length);
+    this.setState({
+      todo: todoCopy,
+    });
+  };
+
   changeHandler = (event) => {
     this.setState({ newTodoItem: event.target.value });
   };
