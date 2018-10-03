@@ -1,0 +1,42 @@
+.todoListContainer {
+  width: 500px;
+  margin: 0 auto;
+  border: 2px solid blue;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.todoListContainer h1 {
+    color: green;
+    position: relative;
+    margin: 50px;   
+    width: 496px; 
+}
+
+.todoItem {
+    font-size: 48px;
+    width: 496px;
+    height: 60px;
+    text-align: center;
+    /* animation-name: fade;
+    animation-duration: 5s; */
+}
+.todoItem:nth-child(even) {
+    background: gray;
+}
+
+.todoItem:nth-child(odd) {
+    background: blue;
+}
+/* @keyframes fade {
+    10% {font-size: 10px}
+    50% {font-size: 50px}
+    100% {font-size: 25px}
+} */
+
+.todoForm {
+    width: 500px;
+    display: flex;
+    justify-content: space-evenly;
+}
