@@ -22,6 +22,7 @@ class App extends React.Component {
   }
 
 changeHandler = event => {
+  console.log('target',event.target.name);
   this.setState({ [event.target.name]: event.target.value });
 };
 
@@ -44,7 +45,8 @@ addNewTodo = event => {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm 
+        <TodoForm
+          todoData={this.state.todoData}
           addNewTodo={this.addNewTodo}
           changeHandler={this.changeHandler}
           newTask={this.state.newTask}

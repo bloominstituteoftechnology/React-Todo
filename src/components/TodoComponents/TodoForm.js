@@ -1,4 +1,5 @@
 import React from 'react';
+import Todo from './Todo'
 
 //Input field
 //Add Todo button
@@ -7,13 +8,19 @@ import React from 'react';
 const TodoForm = props => {
     return (
         <div>
+            <Todo todoData={props.todoData}/>
+            <form onSubmit={props.addNewTodo}>
             <input 
             type="text"
             name="todoInput"
             placeholder="...todo"
-            value={props.inputText}
+            onChange={props.changeHandler}
+            value={props.newTask}
             />
-            <button>Add Todo</button>
+            <button type="submit" onClick={props.addNewTodo}>
+            Add Todo
+            </button>
+            </form>
             <button>Clear Completed</button>
         </div>
     )
