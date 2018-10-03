@@ -12,7 +12,7 @@ function TodoList(props) {
         <Todo 
         key={t.id} 
         todo={t} 
-        onClick={props.toggleCompleted} />
+        toggleCompleted={props.toggleCompleted} />
       ))}
     </div>
   );

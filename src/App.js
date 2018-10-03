@@ -1,6 +1,7 @@
-import React from 'react';
-import TodoList from './components/TodoComponents/TodoList';
-import TodoForm from './components/TodoComponents/TodoForm';
+import React from "react";
+import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
+import "./components/TodoComponents/Todo.css";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -9,35 +10,40 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todoArr: [{
-        task: 'build todo app',
-        id: '4',
-        completed: false,
-      },
-      {
-        task: 'do some stuff',
-        id: 8,
-        completed: false,
-      },
-      {
-        task: 'do some more stuff',
-        id: 15,
-        completed: false,
-      }
-    ]
+      todoArr: [
+        {
+          task: "build todo app",
+          id: "4",
+          completed: false
+        },
+        {
+          task: "do some stuff",
+          id: 8,
+          completed: false
+        },
+        {
+          task: "do some more stuff",
+          id: 15,
+          completed: false
+        }
+      ],
+      inputText: ""
     };
   }
 
   //handler functions
 
-  toggleCompleted = (e) => {
-    console.log(e.target.key);
-    console.log(e.currentTarget.key);
+  toggleCompleted = e => {
+    console.log(e.target);
+    console.log(e.target.id);
+    this.setState();
+  };
 
-
-  }
-
-
+  changeHandler = e => {
+    console.log(e.name);
+    console.log(e.target.value);
+    this.setState({inputText: e.target.value});
+  };
 
   // calls <TodoList /> with this.state.todoArr as props.
   // TodoList sends a single object to Todo.
@@ -47,9 +53,14 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todoArr={this.state.todoArr}
-                  toggleCompleted={this.toggleCompleted}/>
-                  <TodoForm />
+        <TodoList
+          todoArr={this.state.todoArr}
+          toggleCompleted={this.toggleCompleted}
+        />
+        <TodoForm 
+        inputText={this.state.inputText} 
+        changeHandler={this.changeHandler}
+        />
       </div>
     );
   }
