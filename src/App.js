@@ -17,12 +17,11 @@ class App extends React.Component {
           completed: false
         }
       ],
-      newTask: ''
+      newTask: '',
     }
   }
 
 changeHandler = event => {
-  console.log('target',event.target.name);
   this.setState({ [event.target.name]: event.target.value });
 };
 
