@@ -8,11 +8,11 @@ let TodoList = props => {
     return (
 
         <div>
-            <h1>Todo List: MVP</h1>
+            <h1>What do you need to do today?</h1>
+            <Form changeHandler={props.changeHandler} addTodo={props.addTodo} clearTodos={props.clearTodos}/>
             <ul>
                 {props.todos.map(todo => <Todo todo={todo} completeTask={props.completeTask} />)}
             </ul>
-            <Form changeHandler={props.changeHandler} addTodo={props.addTodo} clearTodos={props.clearTodos}/>
         </div>
     )
 } 

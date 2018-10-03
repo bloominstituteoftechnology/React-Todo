@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    background: lightcoral;
+}
+
+h1 {
+    font-size: 5rem;
+    width: 800px;
+    text-align: center;
+    color: white;
+    margin: 100px auto 50px;
+    border-bottom: 10px groove white;
+    padding-bottom: 20px;
+}
+
+li {
+    font-size: 2rem;
+}
+
+form {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    font-family: Helvetica, sans-serif
+}
+
+form #input {
+    width: 80%;
+    padding: 20px 40px;
+    border-radius: 50px;
+    border: transparent;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    color: lightcoral;
+    font-size: 2.5rem;
+    height: 75px;
+}
+
+form #input:focus {
+    outline: none;
+}
+
+form .buttons {
+    width: 60%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+
+form .buttons button {
+    padding: 10px;
+    width: 30%;
+    height: 60px;
+    background: white;
+    color: black;
+    border: transparent;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+form .buttons button:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+form .buttons button:focus {
+    outline: none;
+}
+
+form .buttons #addTask:hover {
+    background: #15b565;
+    color: white;
+}
+
+form .buttons #clearCompleted:hover {
+    background: #80b8f0;
+    color: white;
+}
+
+ul {
+    font-size: 1.6rem;
+    margin: 75px auto 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: left;
+    width: 800px;
+}
+
+ul li {
+    font-size: 3rem;
+    padding-top: 10px;
+    color: white;
+}
