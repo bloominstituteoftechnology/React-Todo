@@ -16,6 +16,12 @@
   border-radius: 5px;
 }
 
+.App .todolist .Complete {
+  color: white;
+  font-size: 24px;
+  background-color: rgb(0, 26, 255);
+}
+
 .App .todoform {
   display:flex;
   flex-direction: column;
@@ -44,3 +50,4 @@
   letter-spacing: 5px;
   cursor: pointer;
 }
+

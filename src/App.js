@@ -33,6 +33,7 @@ class App extends React.Component {
 
   addNewTask = event => {
     event.preventDefault();
+
     this.setState({
       list: [
         ...this.state.list,
@@ -50,13 +51,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-
+        {/* list of tasks */}
         <div className="todolist">
           <ToDoList
             list={this.state.list}
           />
         </div>
 
+        {/* input field and button */}
         <div className="todoform">
           <Form
             type="text"

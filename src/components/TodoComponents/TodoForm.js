@@ -4,14 +4,14 @@ import './Todo.css';
 const Form = (props) => {
   return (
 
-    <form onSubmit={props.addNewtask}>
+    <form onSubmit={props.addNewTask}>
       <input
         type="text"
         name="newTask"
         onChange={props.changeHandler}
         value={props.newTask}
       />
-      <button type="submit" onClick={props.addNewtask}>
+      <button type="submit" onClick={props.addNewTask}>
         Add New Task
       </button>
     </form>
