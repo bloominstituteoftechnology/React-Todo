@@ -1,0 +1,87 @@
+@font-face {
+  font-family: gotham-light;
+  src: url('./Gotham-Font/Gotham-Light.otf');
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  font-family: gotham-light;
+}
+.app {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.app h2 {
+  font-size: 3rem;
+  padding-left: 50px;
+}
+.app .list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  list-style: none;
+  margin: 0 50px;
+}
+.app .list .task {
+  height: 40px;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.app .list .task .input {
+  -webkit-appearance: textarea;
+  font-size: 1.6rem;
+  font-family: gotham-light;
+  border: none;
+  background-color: unset;
+  display: inline;
+}
+.app .list .task .none {
+  display: none;
+}
+.app .list .task .view {
+  display: inline-block;
+}
+.app .list .task .checkbox {
+  margin: 0 10px;
+  height: 20px;
+  width: 20px;
+}
+.app .list .task .checkbox :checked {
+  color: blue;
+}
+.app .form {
+  display: flex;
+  flex-direction: column;
+}
+.app .form .input {
+  font-size: 1.6rem;
+  height: 30px;
+  width: 200px;
+  margin-left: 100px;
+  padding-left: 20px;
+  font-family: gotham-light;
+  border: none;
+}
+.app .form .hide {
+  display: none;
+}
+.app .form .button {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: 100px;
+  font-size: 1.6rem;
+  font-family: gotham-light;
+  width: 200px;
+  height: 30px;
+  border: 1px solid black;
+  outline: 0;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.app .form .button:hover {
+  color: white;
+  background-color: black;
+}

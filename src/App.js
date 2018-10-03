@@ -1,7 +1,8 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-
+import './components/TodoComponents/Todo.css';
+// @ts-check
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -41,42 +42,43 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     }
-    this.setState({
-      todos: [...this.state.todos, newObj],
-      newTask: ''
-    })
+    if (this.state.newTask !== '') {
+      this.setState({
+        todos: [...this.state.todos, newObj],
+        newTask: ''
+      })
+    }
   }
 
-  handleComplete = (chosenId) => {
-    this.setState ({
-      todos: this.state.todos.map(x => {
-        if (x.id === chosenId) {
-          return {
-            task: x.task,
-            id: x.id,
-            completed: !x.completed
-          }
-        }
-        else {
-          return x
-        }
-      })
-    })
+  handleComplete = (selectedId) => {
+    let selected = this.state.todos.find(
+      x => { return x.id === selectedId }
+    );
+    selected.completed = !selected.completed;
+    this.setState({ todos: this.state.todos });
   }
 
   handleClear = (e) => {
     e.preventDefault();
-    this.setState ({
-      todos: this.state.todos.filter (x => x.completed === false)
+    this.setState({
+      todos: this.state.todos.filter(x => x.completed === false)
     })
   }
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos} handleComplete={this.handleComplete}/>
-        <TodoForm value={this.state.newTask} handleInput={this.handleInput} handleClick = {this.handleClick} handleClear = {this.handleClear}/>
+      <div className='app'>
+        <h2>To-do List</h2>
+        <TodoList
+          todos={this.state.todos}
+          handleComplete={this.handleComplete}
+        />
+        <TodoForm
+          value={this.state.newTask}
+          handleInput={this.handleInput}
+          handleClick={this.handleClick}
+          handleClear={this.handleClear}
+        />
       </div>
     );
   }
