@@ -1,13 +1,13 @@
 import React from 'react';
 
-const todoList = props => {
+const TodoList = props => {
   return (
     <div>
-    {props.todoArray.map(item => {
-      return <h1>{item.task}</h1>
-    })}
+      {props.todoArray.map(item => {
+        return <h1>{item.task}</h1>
+      })}
     </div>
   )
 }
 
-export default todoList
+export default TodoList;

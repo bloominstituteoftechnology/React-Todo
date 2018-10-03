@@ -1,6 +1,7 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-import todoList from './components/TodoList';
+import TodoList from './components/TodoList';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -24,7 +25,7 @@ class App extends React.Component {
   }
 
   render() {
-    return <div><todoList /></div>
+    return <div><TodoList /></div>
   }
 
 }
