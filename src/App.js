@@ -40,10 +40,18 @@ class App extends React.Component {
   };
 
   changeHandler = e => {
-    console.log(e.name);
-    console.log(e.target.value);
     this.setState({inputText: e.target.value});
   };
+
+  addNewTask = e => {
+    this.setState({todoArr: [
+      ...this.state.todoArr,
+      {task: this.state.inputText,
+      id: Date.now(),
+      completed: false
+  },
+    ]})
+  }
 
   // calls <TodoList /> with this.state.todoArr as props.
   // TodoList sends a single object to Todo.
@@ -58,6 +66,7 @@ class App extends React.Component {
           toggleCompleted={this.toggleCompleted}
         />
         <TodoForm 
+        addNewTask={this.addNewTask}
         inputText={this.state.inputText} 
         changeHandler={this.changeHandler}
         />
