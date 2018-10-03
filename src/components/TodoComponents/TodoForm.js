@@ -1,11 +1,11 @@
 import React from "react";
 
-const TodoForm = props => {
+const TodoForm = props => (
   <form>
     <input type="text" onChange={props.handleInputChange} />
     <button onClick={props.handleNewToDo}>Add Todo</button>
     <button>Clear All</button>
-  </form>;
-};
+  </form>
+);
 
 export default TodoForm;
