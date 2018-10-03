@@ -13,7 +13,8 @@ import TodoList from './components/TodoComponents/TodoList';
               },
           ],
           inputText: '',
-          newTodo: ''
+          newTodo: '',
+          setToFalse:false
         };
     }
 
@@ -27,7 +28,9 @@ import TodoList from './components/TodoComponents/TodoList';
         this.setState({
         listData: [
             ...this.state.listData,
-            { listItem: this.state.newTodo }
+            { listItem: this.state.newTodo,
+              completed:this.state.setToFalse
+            }
         ],
         newTodo: ''
         });
