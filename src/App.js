@@ -24,17 +24,19 @@ class App extends React.Component {
 
   addItem = event => {
     event.preventDefault();
-    this.setState({ 
-      list: [
-        ...this.state.list,
-        {
-          task: this.state.newItem,
-          id: Date.now(),
-          completed: false
-        }
-      ],
-      newItem: ""
-    });
+    if (this.state.newItem !== "") {
+      this.setState({ 
+        list: [
+          ...this.state.list,
+          {
+            task: this.state.newItem,
+            id: Date.now(),
+            completed: false
+          }
+        ],
+        newItem: ""
+      });
+    }
   };
 
   completeToggle = event => {
