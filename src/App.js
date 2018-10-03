@@ -73,11 +73,18 @@ class App extends React.Component {
     this.setState({
       todoList: newArray
     });
-    console.log(this.state.todoList);
   };
 
+  //filterComplete first makes copy of the current todoList array and filters through it,
+  //creating a new filteredArray only made up of incomplete items
+  //then sets itself as the new todoList array via setState
   filterComplete = event => {
-    console.log(this.state);
+    let filteredArray = this.state.todoList.filter(
+      item => item.completed === false && item.task !== ""
+    );
+    this.setState({
+      todoList: filteredArray
+    });
   };
 
   render() {
