@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 // class Todo extends React.Component {
 //   constructor(props) {
@@ -6,15 +6,17 @@ import React from 'react';
 
 //   }
 
-const Todo = (props) =>
-{
 
+      // {/* className={props.todo.completed} */}
+const Todo = props => {
+  return (
+    <div>
+      <p 
+      onClick={props.toggleCompleted}>
 
-    return (
-      <div>
-        <h3>Todo Component</h3>
-      </div>
-    );
-  }
+      {props.todo.task}</p>
+    </div>
+  );
+};
 
 export default Todo;

@@ -29,6 +29,12 @@ class App extends React.Component {
 
   //handler functions
 
+  toggleCompleted = (e) => {
+    console.log(e.target.value);
+    console.log('click');
+  }
+
+
 
   // calls <TodoList /> with this.state.todoArr as props.
   // TodoList sends a single object to Todo.
@@ -38,7 +44,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todoArr={this.state.todoArr}/>
+        <TodoList todoArr={this.state.todoArr}
+                  toggleCompleted={this.toggleCompleted}/>
       </div>
     );
   }
