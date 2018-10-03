@@ -11,12 +11,12 @@ class App extends React.Component {
     this.state = {
       toDoData: [
         {
-          task: "meet girl",
+          task: "Meet new girl",
           id: Date.now(),
           completed: false
         },
         {
-          task: "Ask out on a date",
+          task: "Ask her out on a date",
           id: Date.now(),
           completed: false
         },
@@ -26,27 +26,28 @@ class App extends React.Component {
           completed: false
         },
         {
-          task: "get engaged",
+          task: "Get engaged",
           id: Date.now(),
           completed: false
         },
         {
-          task: "get married",
+          task: "Get married",
           id: Date.now(),
           completed: false
         },
         {
-          task: "determine we are both assassins",
+          task: "Determine we are both assassins",
           id: Date.now(),
           completed: false
         },
         {
-          task: "start the plot of the movie Mr. and Mrs. Smith",
+          task: "Start the plot of the movie Mr. and Mrs. Smith",
           id: Date.now(),
           completed: false
         }
       ],
-      inputText: ""
+      inputText: "",
+      newTask: ""
     };
   }
 
@@ -54,11 +55,21 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  addToDoHandler = event => {
+    event.preventDefault();
+    this.setState({
+      toDoData: [...this.state.toDoData, { task: this.state.newTask }], //do I need to add id: and completed: to this?
+      newTask: ""
+    });
+  };
+
   render() {
     return (
       <div>
         <TodoList
+          addToDoHandler={this.addToDoHandler}
           inputText={this.state.inputText}
+          newTask={this.state.newTask}
           changeHandler={this.changeHandler}
           toDoData={this.state.toDoData}
         />
@@ -69,10 +80,8 @@ class App extends React.Component {
 
 export default App;
 
-{
-  /* 
+/* 
 <App /> will hold all the data needed for this project. It will also be the container for your Todo Components.
 All of your application data will be stored here on <App />.
 All of your handler functions should live here on <App />.
  */
-}

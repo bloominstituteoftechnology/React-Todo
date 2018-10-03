@@ -14,12 +14,18 @@ const TodoList = props => {
       })}
 
       <div>
-        <input
-          type="text"
-          placeholder="...To do"
-          onChange={props.changeHandler}
-          value={props.inputText}
-        />
+        <form onSubmit={props.addToDoHandler}>
+          <input
+            type="text"
+            name="newTask"
+            placeholder="...To do"
+            onChange={props.changeHandler}
+            value={props.newTask}
+          />
+
+          <button onClick={props.addNewToDo}>New Todo</button>
+          <button>Clear Completed</button>
+        </form>
       </div>
     </div>
   );
