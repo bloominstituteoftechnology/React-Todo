@@ -22,7 +22,19 @@ class App extends React.Component {
     }
   }
 
-
+  addTodoHandler = (event) => {
+		event.preventDefault(); 
+		const input = event.target.previousElementSibling.value;
+		const id = Date.now();
+		const TodoItem = {
+			task: `${input}`,
+			id: id,
+			completed: false
+		};	
+		const todos = this.state.todos;
+		todos.push(TodoItem);
+		this.setState({todos, task: ''});
+	};
 
   render() {
     return (
