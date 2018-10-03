@@ -25,10 +25,17 @@ class App extends React.Component {
  
  
   render() {
+    console.log(`App render ${this.state.items}`);
+    console.log(this.state.items);
     return (
       <div>
+
         <h2>Welcome to your Todo App!</h2>
+        <TodoList key={this.state.id}  items={this.state.items} />
+        <TodoForm addTodo={this.addTodo}/>
+        
       </div>
+
     );
   }
 }
