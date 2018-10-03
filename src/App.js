@@ -24,11 +24,21 @@ class App extends React.Component {
       newTodo: ""
     };
   }
+
+  addTodo = event => {
+    event.preventDefault();
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        {task: this.state.newTodo}
+      ],
+      newTodo: ""
+    });
+  }
   render() {
     return (
       <div>
         <TodoForm />
-        <TodoList />
       </div>
     );
   }
