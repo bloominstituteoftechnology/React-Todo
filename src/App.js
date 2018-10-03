@@ -45,13 +45,23 @@ class App extends React.Component {
     temp[index].completed = (temp[index].completed) ? false : true;
     this.setState({ list: temp });
   };
+
+  cleanup = event => {
+    event.preventDefault();
+    this.setState({ list: this.state.list.filter(item => !item.completed) });
+  };
   
   render() {
     return (
       <div className="app">
         <h1>To-Do List: MVP</h1>
         <TodoList todoList={this.state.list} toggle={this.completeToggle} />
-        <TodoForm text={this.state.newItem} inputChangeHandler={this.inputChangeHandler} addItem={this.addItem} />
+        <TodoForm 
+          text={this.state.newItem} 
+          inputChangeHandler={this.inputChangeHandler} 
+          addItem={this.addItem} 
+          cleanup={this.cleanup}
+        />
       </div>
     );
   }
