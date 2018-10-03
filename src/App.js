@@ -14,11 +14,10 @@ class App extends React.Component {
       Todo:todolist,
       Todos:''
     }
-    console.log(props);
   }
   handleUpdateStateEnter = event => {
     const value = event.target.value
-    const Todolist = this.state.Todo.slice();
+    let Todolist = this.state.Todo.slice();
     Todolist.push({
         id:Todolist.length,
         task:value,
@@ -46,7 +45,7 @@ class App extends React.Component {
   }
 
   handleUpdateStateButton = (event) => {
-    const Todolist = this.state.Todo.slice();
+    let Todolist = this.state.Todo.slice();
     Todolist.push({
         id:Todolist.length,
         task:this.state.Todos,
@@ -65,13 +64,41 @@ class App extends React.Component {
     
     event.preventDefault();
   }
+
+  clickComplete = (id) => {
+    let Todolist = this.state.Todo.slice();
+    Todolist.map ( item => {
+      if(item.id === id) {
+       return item.completed = !item.completed
+      } else {
+        return item;
+      }
+      
+    })
+    this.setState( {Todo: Todolist})
+  }
+
+  clear = (event) => {
+    event.preventDefault();
+    let Todolist = this.state.Todo.slice();
+    Todolist.filter ( item => {
+      if (item.completed === false){
+        return item
+      } else {
+        return null
+      }
+    })
+    console.log(Todolist)
+    this.setState ( {Todo: Todolist})
+  }
+
   
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-      {this.state.Todo.map( list => <TodoList list={list} />)}
-      <TodoForm func={this.handleUpdateStateEnter} buttonfunc={this.handleUpdateStateButton} value={this.state.Todos}/>
+      <TodoList list={this.state.Todo} clickComplete={this.clickComplete}/>
+      <TodoForm  clear ={this.clear} func={this.handleUpdateStateEnter} buttonfunc={this.handleUpdateStateButton} value={this.state.Todos}/>
       </div>
     );
   }

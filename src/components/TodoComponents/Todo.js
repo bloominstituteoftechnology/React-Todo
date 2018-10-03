@@ -2,12 +2,12 @@
 const todolist = [
     {
       task: 'Create Todo list',
-      id: 1,
+      id: 0,
       completed: false
     },
     {
       task: 'Create form',
-      id: 2,
+      id: 1,
       completed: false
     }
   ];

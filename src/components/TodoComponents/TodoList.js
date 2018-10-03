@@ -3,10 +3,11 @@
 import React from 'react';
 
 const TodoList = props => {
-    const {task} = props.list 
     return (
     <div>
-        <h1>{task}</h1>
+        {props.list.map( (item) => {
+             return (<h1 onClick={() => props.clickComplete(item.id)} style={item.completed ? {textDecoration:'underline'} : null}>{item.task}</h1>)
+        })}
     </div>
     )
 }
