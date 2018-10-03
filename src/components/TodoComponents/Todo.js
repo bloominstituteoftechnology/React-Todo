@@ -12,12 +12,11 @@
 // export default Todo;
 
 import React from "react";
-import { isRegExp } from "util";
 
-const Todo = (props) => {
-	return <div>{props.todo}</div>;
-	// crossout={props.todo ? { textDecoration: 'line-through'} :null};
-	// onclick={() =>  }
+const Todo = props => {
+  return <div>{props.todo}</div>;
+  // crossout={props.todo ? { textDecoration: 'line-through'} :null};
+  // onclick={() =>  }
 };
 
 export default Todo;
