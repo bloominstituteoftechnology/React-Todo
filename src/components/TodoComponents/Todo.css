@@ -1,4 +1,29 @@
 
-.completed {
+.app {
+    background-image: url("../../wood-background.jpg");
+    width: 100%;
+    max-width: 600px;
+    margin: 50px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px black;
+}
+
+.app h1 {
+    margin: 0;
+    padding: 0;
+    text-shadow: -1px -1px 3px white;
+}
+
+.app .main li {
+    cursor: pointer;
+}
+
+.app .main li.completed {
     text-decoration: line-through;
+    color: darkred;
+}
+
+.app form * {
+    margin: 0 3px;
 }
