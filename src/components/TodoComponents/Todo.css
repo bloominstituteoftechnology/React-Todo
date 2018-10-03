@@ -40,6 +40,7 @@ bod {
   padding-right: 2%;
   background-color: #fdf0d5;
   width: 100%;
+  min-height: 50px; 
 }
 
 .line {
