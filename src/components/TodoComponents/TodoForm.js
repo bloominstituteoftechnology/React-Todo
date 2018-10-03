@@ -6,8 +6,9 @@ const TodoForm = ({task, addTask, onChange}) => {
             <form onSubmit={addTask.bind(this)}>
                 <input 
                     type="text"
-                    value={task}
                     name="task"
+                    placeholder="todo..."
+                    value={task}
                     onChange={onChange.bind(this)}
                 />
                 <button>Submit</button>

@@ -4,12 +4,12 @@
 import React from 'react';
 import Todo from './Todo';
 
-const TodoList = ({list}) => {
+const TodoList = ({list, toggle}) => {
     return (
         <div>
             {
-                list.map((todo, i) => {
-                    return <Todo task={todo.task} key={todo.id}/>
+                list.map(todo => {
+                    return <Todo todo={todo} key={todo.id} toggle={toggle}/>
                 })
             }
         </div>

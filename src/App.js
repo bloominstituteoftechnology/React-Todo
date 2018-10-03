@@ -13,7 +13,7 @@ class App extends React.Component {
         {
           task: 'Organize Garage',
           id: 1528817077286,
-          completed: false
+          completed: false,
         },
         {
           task: 'Bake Cookies',
@@ -26,6 +26,7 @@ class App extends React.Component {
 
     this.addTask = this.addTask.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
+    this.toggleComplete = this.toggleComplete.bind(this);
   }
 
   addTask(event) {
@@ -43,11 +44,26 @@ class App extends React.Component {
   changeHandler(event) {
     this.setState({[event.target.name]: event.target.value});
   }
+
+  toggleComplete(id) {
+    let todoList = this.state.todoList;
+
+    todoList.forEach(obj => {
+      if (obj.id === id) {
+        let completed = !obj.completed
+        obj.completed = completed;
+      }
+    });
+    this.setState({todoList})
+  }
   
   render() {
     return (
       <div>
-        <TodoList list={this.state.todoList} />
+        <TodoList 
+          list={this.state.todoList} 
+          toggle={this.toggleComplete}
+        />
         <TodoForm 
           task={this.state.task}
           addTask={this.addTask}
