@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+
 const TodoForm = ({
   handleChange,
   handleSubmit,
@@ -9,10 +10,10 @@ const TodoForm = ({
     <form onSubmit={handleSubmit}>
       <input type="text" value={value} onChange={handleChange} />
       <button type="submit">add todo</button>
+      <button type="submit" onClick={removeCompletedTodos}>
+        clear completed
+      </button>
     </form>
-    <button type="submit" onClick={removeCompletedTodos}>
-      clear completed
-    </button>
   </Fragment>
 );
 export default TodoForm;
