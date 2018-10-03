@@ -63,6 +63,18 @@ class App extends React.Component {
     });
   }
 
+  clearCompleted = (event) => {
+    event.preventDefault();
+
+    let listContentHolder = this.state.listContent;
+
+    listContentHolder = listContentHolder.filter((listItem) => listItem.completed === false);
+
+    this.setState({
+      listContent: listContentHolder
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -72,6 +84,7 @@ class App extends React.Component {
           changeHandler={this.changeHandler}
           addNewListItem={this.addNewListItem}
           toggleCompleted={this.toggleCompleted}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );

@@ -12,7 +12,7 @@ const TodoList = props => {
                 return (
                     <Todo
                         listItem={listItem}
-                        onClick={props.toggleCompleted}
+                        toggleCompleted={props.toggleCompleted}
                         key={listItem.id}
                     />
                 )
@@ -22,6 +22,7 @@ const TodoList = props => {
                 newListItem={props.newListItem}
                 changeHandler={props.changeHandler}
                 addNewListItem={props.addNewListItem}
+                clearCompleted={props.clearCompleted}
             />
         </div>
     );
