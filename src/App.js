@@ -17,13 +17,17 @@ class App extends React.Component {
     this.state.list = [firstItem];
     this.state.newItem = "";
   }
+
+  inputChangeHandler = event => {
+    this.setState({ newItem: event.target.value })
+  };
   
   render() {
     return (
       <div className="app">
         <h1>To-Do List: MVP</h1>
         <TodoList todoList={this.state.list} />
-        <TodoForm text={this.state.newItem} />
+        <TodoForm text={this.state.newItem} inputChangeHandler={this.inputChangeHandler} />
       </div>
     );
   }
