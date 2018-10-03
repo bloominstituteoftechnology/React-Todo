@@ -1,10 +1,11 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import Todo from './components/TodoComponents/Todo';
 
 
 
-let todoItem = [{task : '1st', id : Date.now(),  completed : false}];
+let todoItem = [{task : '#1', id : Date.now(),  completed : false}];
 
 class App extends React.Component {
   constructor(props){
@@ -21,19 +22,16 @@ class App extends React.Component {
   }
  
  
- 
- 
- 
   render() {
     console.log(`App render ${this.state.items}`);
     console.log(this.state.items);
     return (
       <div>
 
-        <h2>Welcome to your Todo App!</h2>
+        <h2>Welcome to the Best Todo App Ever!</h2>
         <TodoList key={this.state.id}  items={this.state.items} />
         <TodoForm addTodo={this.addTodo}/>
-        
+
       </div>
 
     );
