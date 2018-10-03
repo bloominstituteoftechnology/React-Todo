@@ -1,0 +1,21 @@
+.app-container {
+  max-width: 310px;
+  margin: 50px auto;
+  text-align: center;
+  background: lightpink;
+  border-radius: 10px;
+  padding: 5px 10px 20px;
+}
+
+.app-container h1 {
+  padding: 0;
+  margin: 10px 0;
+}
+
+.app-container form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
