@@ -62,7 +62,9 @@ class App extends React.Component {
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        <TodoList todolist={this.state.todolist} crossout={this.crossout} />
+        <TodoList todolist={this.state.todolist} 
+          crossout={this.crossout} 
+        />
         <Form 
           input={this.state.input}
           handleSubmit={this.handleSubmit}
