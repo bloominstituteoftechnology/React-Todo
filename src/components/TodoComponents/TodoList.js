@@ -1,5 +1,6 @@
 import React from 'react';
 import Todo from './Todo';
+import './Todo.css';
 
 const TodoList = props => {
   return (
@@ -11,8 +12,7 @@ const TodoList = props => {
             key={todo.id}
             task={todo.task}
             id={todo.id}
-            completed={todo.completed}
-            style={props.style}
+            style={todo.completed === true ? 'Cleared' : props.style}
           />
         );
       })}

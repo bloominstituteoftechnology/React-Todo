@@ -47,12 +47,20 @@ class App extends React.Component {
     });
   };
 
+  handleCompletedTasks = e => {
+    e.preventDefault();
+    // const completed = this.state.todos.filter(todo => todo.completed);
+    this.setState({ todos: this.state.todos });
+    // console.log(completed);
+  };
+
   render() {
     return (
       <div className="App">
         <TodoForm
           handleNewToDo={this.handleNewToDo}
           handleInputChange={this.handleInputChange}
+          handleCompletedTasks={this.handleCompletedTasks}
           input={this.state.input}
         />
         <TodoList

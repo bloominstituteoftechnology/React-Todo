@@ -6,3 +6,7 @@
 .Complete {
   text-decoration: line-through;
 }
+
+.Cleared {
+  display: none;
+}
