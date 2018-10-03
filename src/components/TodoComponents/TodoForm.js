@@ -1,11 +1,11 @@
 import React from "react";
 
-function TodoForm(props) {
+const TodoForm = props => {
   return (
     <form>
       <input 
         value={props.inputText} 
-        onChange={props.handleInput}
+        onChange={props.inputHandler}
         type="text"
         name="todo"
         placeholder="Enter tasks here" />

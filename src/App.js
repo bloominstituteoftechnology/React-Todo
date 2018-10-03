@@ -1,4 +1,6 @@
 import React from 'react';
+import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
 class App extends React.Component {
   constructor() {
@@ -49,12 +51,12 @@ render() {
     <div>
       <h1>Todo</h1>
       <TodoList todo4={this.state.todos} 
-      handleComplete = {this.todoComplete} />
+      handleComplete = {this.completeTodo} />
       <TodoForm
       addTodo={this.addTodo}
       inputText={this.state.inputText}
-      handleInput={this.handleInput}
-      handleClearTodos={this.clearCompleted} />
+      inputHandler={this.inputHandler}
+      handleClearTodos={this.clearedTodo} />
     </div>
     );
   }
