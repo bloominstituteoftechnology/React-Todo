@@ -92,7 +92,7 @@ class App extends React.Component {
     return (
     <div className='app'>
       <div className='header'>
-        <h2>TaskList</h2>
+        <h2>Task List</h2>
       </div>
       <div className='list-container'>
         <TodoList list={this.state.todoList} handleClick={this.markDone} />

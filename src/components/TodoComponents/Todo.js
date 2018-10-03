@@ -7,10 +7,15 @@ const Todo = (props) => {
         classes += ' done';
     }
     if (props.hidden) {
-      classes += ' hidden'; 
+      classes += ' hidden';
     }
   return(
+    <div className='line'>
+      <div className='wire one'/>
+      <div className='wire two'/>
+      <div className='divider' />
     <h3 id={props.id} className={classes} onClick={props.handleClick}>{props.task}</h3>
+  </div>
   )
 
 }
