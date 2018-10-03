@@ -8,13 +8,16 @@ class App extends React.Component {
     super(props);
     this.state = {};
     
-    let firstItem = {
-      task: "Write to-do list",
-      id: Date.now(),
-      completed: false
-    };
-
-    this.state.list = [firstItem];
+    if (localStorage.getItem("todoList") === null) {
+      let firstItem = {
+        task: "Write to-do list",
+        id: Date.now(),
+        completed: false
+      };
+      this.state.list = [firstItem];
+    } else {
+      this.state.list = JSON.parse(localStorage.getItem("todoList"));
+    }
     this.state.newItem = "";
   }
 
@@ -36,6 +39,7 @@ class App extends React.Component {
         ],
         newItem: ""
       });
+      window.localStorage.setItem("todoList", JSON.stringify(this.state.list));
     }
   };
 
@@ -44,6 +48,7 @@ class App extends React.Component {
     let temp = this.state.list.slice();
     temp[index].completed = (temp[index].completed) ? false : true;
     this.setState({ list: temp });
+    window.localStorage.setItem("todoList", JSON.stringify(this.state.list));
   };
 
   cleanup = event => {

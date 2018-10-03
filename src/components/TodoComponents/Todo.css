@@ -6,13 +6,13 @@
     margin: 50px;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 0 15px black;
+    box-shadow: 0 0 20px black;
 }
 
 .app h1 {
     margin: 0;
     padding: 0;
-    text-shadow: -1px -1px 3px white;
+    text-shadow: -1px -1px 3px darkblue;
 }
 
 .app .main li {
