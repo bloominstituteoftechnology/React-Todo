@@ -5,11 +5,11 @@ import Todo from "./Todo";
 
 const TodoList = props => {
   return (
-    <p>
+    <div>
       {props.taskList.map(task => {
         return <h3>{task.taskName}</h3>;
       })}
-    </p>
+    </div>
     // <Todo />
   );
 };

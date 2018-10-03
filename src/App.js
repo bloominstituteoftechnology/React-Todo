@@ -7,12 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: [
-        { taskName: "Study Training Kit" },
-        { taskName: "Practice React" },
-        { taskName: "Attempt Stretch Task" }
-      ],
-      inputText: "",
+      tasks: [],
       id: Date.now(),
       completed: false,
       newTodo: ""
@@ -32,6 +27,7 @@ class App extends React.Component {
       tasks: [...this.state.tasks, { taskName: this.state.newTodo }],
       newTodo: ""
     });
+    console.log(this.state.id);
   };
 
   changeHandler = e => {
@@ -39,18 +35,24 @@ class App extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  clearCompleted = e => {
+    this.setState({
+      tasks: []
+    });
+  };
+
   render() {
     // console.log(this.state.todo.task);
     return (
       <div>
-        <h2>Todo App</h2>
+        <h2>Todo App: MVP version</h2>
         <TodoList taskList={this.state.tasks} />
-        <Todo />
+        {/* <Todo /> */}
         <TodoForm
           addNewTodo={this.addNewTodo}
           changeHandler={this.changeHandler}
-          inputText={this.state.inputText}
           newTodo={this.state.newTodo}
+          clear={this.clearCompleted}
         />
       </div>
     );
