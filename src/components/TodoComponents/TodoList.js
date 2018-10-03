@@ -8,7 +8,11 @@ const TodoList = props => {
         <div>
             {props.listContent.map((listItem) => {
                 return (
-                <Todo listItem={listItem} />
+                    <Todo
+                        listItem={listItem}
+                        onClick={props.toggleCompleted}
+                        key={listItem.id}
+                    />
                 )
             })}
             <TodoForm

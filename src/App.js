@@ -27,24 +27,28 @@ class App extends React.Component {
 
   addNewListItem = event => {
     event.preventDefault();
-    if(this.state.newListItem != ''){
-    this.setState({
-      listContent: [
-        ...this.state.listContent, 
-        {
-          task: this.state.newListItem,
-          id: createId(),
-          completed: false
-        }
-      ],
-      newListItem: ''
-    });
-  }
+    if (this.state.newListItem !== '') {
+      this.setState({
+        listContent: [
+          ...this.state.listContent,
+          {
+            task: this.state.newListItem,
+            id: createId(),
+            completed: false
+          }
+        ],
+        newListItem: ''
+      });
+    }
 
     function createId() {
       let id = Date.now();
       return id;
     }
+  }
+
+  toggleCompleted = event => {
+    console.log("hello!");
   }
 
   render() {
@@ -55,6 +59,7 @@ class App extends React.Component {
           newListItem={this.state.newListItem}
           changeHandler={this.changeHandler}
           addNewListItem={this.addNewListItem}
+          toggleCompleted={this.toggleCompleted}
         />
       </div>
     );
