@@ -2,7 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       listContent: [
@@ -16,16 +16,46 @@ class App extends React.Component {
           id: 1528817084358,
           completed: false
         }
-      ], /* holds all items added to todo list */ 
-      inputText: '', /* text currently in the input field */
+      ], /* holds all items added to todo list */
       newListItem: '' /* item being added to list upon submit */
     }
-  };
+  }
+
+  changeHandler = (event) => {
+    this.setState({ [event.target.name]: event.target.value })
+  }
+
+  addNewListItem = event => {
+    event.preventDefault();
+    if(this.state.newListItem != ''){
+    this.setState({
+      listContent: [
+        ...this.state.listContent, 
+        {
+          task: this.state.newListItem,
+          id: createId(),
+          completed: false
+        }
+      ],
+      newListItem: ''
+    });
+  }
+
+    function createId() {
+      let id = Date.now();
+      return id;
+    }
+  }
 
   render() {
     return (
       <div className="App">
-        <TodoList listContent={this.state.listContent} inputText={this.state.inputText} newListItem={this.state.newListItem} />
+        <TodoList
+          listContent={this.state.listContent}
+          newListItem={this.state.newListItem}
+          changeHandler={this.changeHandler}
+          addNewListItem={this.addNewListItem}
+        />
       </div>
     );
   }
