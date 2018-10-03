@@ -31,9 +31,9 @@ class App extends React.Component {
         ...this.state.TodoData,
         { task: this.state.newTodo }
       ],
-      newTodo: '',
-    })
-  }
+      newTodo: ''
+    });
+  };
 
   changeHandler = event => {
     console.log(event.target.name);
@@ -54,6 +54,7 @@ class App extends React.Component {
           changeHandler={this.changeHandler}
           inputText={this.state.inputText}
           todoData={this.state.TodoData}
+          newTodo={this.state.newTodo}
         />
       </div>
     );
