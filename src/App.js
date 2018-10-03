@@ -23,14 +23,9 @@ class App extends React.Component {
       ],
       task: '',
     }
-
-    this.addTask = this.addTask.bind(this);
-    this.changeHandler = this.changeHandler.bind(this);
-    this.toggleComplete = this.toggleComplete.bind(this);
-    this.clearCompleted = this.clearCompleted.bind(this);
   }
 
-  clearCompleted(event) {
+  clearCompleted = event => {
     event.preventDefault();
 
     let tdl = this.state.todoList;
@@ -39,7 +34,7 @@ class App extends React.Component {
     this.setState({todoList});
   }
 
-  toggleComplete(id) {
+  toggleComplete = id => {
     let todoList = this.state.todoList;
 
     todoList.forEach(obj => {
@@ -51,7 +46,7 @@ class App extends React.Component {
     this.setState({todoList})
   }
 
-  addTask(event) {
+  addTask = event => {
     event.preventDefault();
     let taskObj = {
       task: this.state.task,
@@ -63,7 +58,7 @@ class App extends React.Component {
     this.setState({todoList, task: ''});
   }
 
-  changeHandler(event) {
+  changeHandler = event => {
     this.setState({[event.target.name]: event.target.value});
   }
   
