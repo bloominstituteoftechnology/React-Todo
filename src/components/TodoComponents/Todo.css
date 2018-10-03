@@ -1,9 +1,11 @@
 .completed {
     text-decoration: line-through;
+    color: red;
 }
 
 .not-completed {
     text-decoration: none;
+    color: blue;
 }
 
 .todo-form {
@@ -18,6 +20,7 @@
     width: 300px;
     margin: 10px auto;
     height: 50px;
+    text-align: center;
 }
 
 .todo-form button {

@@ -4,7 +4,8 @@ import './Todo.css';
 
 const Todo = (props) => {
     return (
-        <div style={props.todo.completed ? { textDecoration: 'line-through' } : null } 
+        <div
+        style={props.todo.completed ? { textDecoration: 'line-through' } : null } 
         onClick={() => props.handleClick(props.todo.id)}
         className="one-todo"
         >
