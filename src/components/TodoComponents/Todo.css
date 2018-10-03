@@ -1,0 +1,8 @@
+.Todo {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.Complete {
+  text-decoration: line-through;
+}

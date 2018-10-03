@@ -19,7 +19,8 @@ class App extends React.Component {
           id: 1528817084358,
           completed: false
         }
-      ]
+      ],
+      todoStyle: 'Todo'
     };
   }
   handleNewToDo = e => {
@@ -37,6 +38,15 @@ class App extends React.Component {
     this.setState({ input: e.target.value });
   };
 
+  toggleCompleteTask = e => {
+    this.state.todos.forEach(todo => {
+      if (String(todo.task) === e.target.textContent) {
+        todo.completed = !todo.completed;
+        e.target.classList.toggle('Complete');
+      }
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -45,7 +55,11 @@ class App extends React.Component {
           handleInputChange={this.handleInputChange}
           input={this.state.input}
         />
-        <TodoList todos={this.state.todos} />
+        <TodoList
+          todos={this.state.todos}
+          toggleCompleteTask={this.toggleCompleteTask}
+          style={this.state.todoStyle}
+        />
       </div>
     );
   }
