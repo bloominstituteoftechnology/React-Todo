@@ -32,24 +32,27 @@ class App extends Component {
 
   addTask = event => {
     event.preventDefault();
+    if(this.state.newTask === '') {
+      return
+    }
     this.setState({todoData: [
       ...this.state.todoData,
       { task: this.state.newTask, id:Math.random(), completed: false}
     ],
     newTask: ''
     });
+    console.log(this.state.todoData)
   }
-
   render() {
     // console.log(this.state);  Checks This.state is working 
     return (
       <div>
-        <TodoList todoData={this.state.todoData} />
         <TodoForm 
         addTask={this.addTask}
         changeHandler={this.changeHandler}
         newTask={this.state.newTask}
         />
+        <TodoList todoData={this.state.todoData} />
       </div>
     );
   }
