@@ -31,16 +31,37 @@
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
-/*actions section*/
-.buttons {
+/*List section*/
+.listview {
+    display:flex;
+    flex-direction:column;
+    width:80%;
+    margin:auto;
+}
+
+/*listview_form*/
+.form {
+    display:flex;
+    justify-content:center;
+}
+
+.form input {
+    height:45px;
+    margin:2.5%;
+    width:20%;
+}
+
+/*listview_buttons*/
+.actionbuttons {
     display:flex;
     justify-content: space-between;
     width:50%;
     margin:auto;
+    margin-bottom:50px;
 }
 .button {
-    width:25%;
-    background-color: firebrick;
+    width:33%;
+    background-color:firebrick;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -49,4 +70,10 @@
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+}
+
+/*listed items*/
+.listitems {
+    min-height:50px;
+    border:2px solid red;
 }

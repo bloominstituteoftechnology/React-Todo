@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoList from './components/TodoComponents/TodoList.js';
+import './App.css';
 
 class App extends React.Component {
   //#region you will need a place to store your state in this component.
@@ -12,9 +12,27 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
-       <TodoList />
-      </div>
+    <div>
+        <div className="display">
+            <h1>Just Do It! <span>the list.</span></h1>
+            <hr/>
+
+            <div className="listview">
+              <form className="form">
+                <input className="inputform" placeholder="What is your goal?"/>
+                <input type="submit" value="Submit"/>
+              </form>
+              
+              <div className="actionbuttons">
+                <button className="addtodo button">Add Todo</button>
+                <button className="clear button">Clear</button>
+              </div>
+            
+              <div className="listitems">
+              </div>
+            </div>
+        </div>
+    </div>
     );
   }
 }
