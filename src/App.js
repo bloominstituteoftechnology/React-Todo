@@ -65,6 +65,29 @@ class App extends React.Component {
     localStorage.setItem('todoList', stringTodoList);
   }
 
+  handleSearch = event => {
+    let searchString = event.target.value;
+    this.setState({
+      searchTerm: searchString
+    });
+
+    let searchingList = this.state.todoList.map(todo => {
+      let noMatch = false;
+      if (todo.task.indexOf(searchString) === -1) {
+        noMatch = true;
+      }
+      return {
+        id: todo.id,
+        task: todo.task,
+        complete: todo.complete,
+        hidden: noMatch
+      }
+    });
+    this.setState({
+      todoList: searchingList
+    });
+  }
+
   render() {
     return (
     <div className='app'>
@@ -78,6 +101,8 @@ class App extends React.Component {
           handleNewTodo={this.handleNewTodo}
           addTodo={this.addTodo}
           clearDone={this.clearDone}
+          searchValue={this.state.searchTerm}
+          handleSearch={this.handleSearch}
         />
 
       </div>

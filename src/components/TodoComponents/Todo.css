@@ -3,3 +3,7 @@
    .done {
     text-decoration-line: line-through;
   }
+
+  .hidden {
+    visibility: hidden;
+  }

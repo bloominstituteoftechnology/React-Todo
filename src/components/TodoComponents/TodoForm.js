@@ -30,6 +30,8 @@ const TodoForm = props => {
           id='searchTodo'
           type='text'
           placeholder='search tasks'
+          value={props.searchValue}
+          onChange={props.handleSearch}
         />
       </div>
     </div>
