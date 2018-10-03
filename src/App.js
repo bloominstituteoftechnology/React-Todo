@@ -18,9 +18,10 @@ class App extends React.Component {
           task: 'Bake Cookies',
           id: 1528817084358,
           completed: false,
-        },
-      ]
+        }
+      ],
 
+    newTask:''
     }
   }
 changeHandler = event =>{
@@ -33,11 +34,28 @@ addNewTask = event =>{
   this.setState({
     toDolists: [
       ...this.state.toDolists,
-      {task: this.state.newTask}
+      { task: this.state.newTask }
     ],
     newTask:''
   });
 };
+
+removeTask = event =>{
+  event.preventDefault();
+  this.setState({
+
+  })
+}
+
+taskCompleted =event=>{
+  if (this.state.completed === false){
+    this.setState({completed: true});
+  }else{
+    this.setState({completed: false});
+  }
+};
+
+
 
 
   // you will need a place to store your state in this component.
@@ -52,10 +70,12 @@ addNewTask = event =>{
       /> */}
       <Task
       toDolists= {this.state.toDolists}
+      taskCompleted= {this.state.taskCompleted}
       />
       <TodoForm
       changeHandler={this.changeHandler}
       addNewTask={this.addNewTask}
+      newTask={this.state.newTask}
       />
       </div>
     );
