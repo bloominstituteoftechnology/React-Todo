@@ -6,7 +6,18 @@ class TodoList extends React.Component {
         super(props);
     }
     render() {
-
+        // console.log(this.props.items);
+        console.log(`TodoList ${this.props.items}`)
+        let items = this.props.items.map((item,index) => {
+            return(
+                <TodoListItem key={index} item={item} index={index} />
+            )
+        });
+        return(
+            <ul>
+                {items}
+            </ul>
+        );
     }
 }
 
