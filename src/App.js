@@ -2,6 +2,8 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -22,16 +24,46 @@ class App extends React.Component {
           completed: false
         }
       ],
+      inputText: '',
+      newTodo: {}
     };
   }
+
+
+  changeText = event => {
+    event.preventDefault();
+    if (event.key === 'Enter') {
+      console.log('ENTER PRESSED');
+    }
+    this.setState({inputText: event.target.value});
+  }
+
+  addNewTodo = event => {
+    event.preventDefault();
+    this.setState({
+      tasks: [
+        ...this.state.tasks,
+        { task: this.state.inputText,
+          id: Date.now(),
+          completed: false
+        }
+      ]
+    });
+    this.setState({inputText: ''});
+  };
 
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <TodoForm 
+          addNewTodo={this.addNewTodo}
+          changeText={this.changeText}
+          inputText={this.state.inputText} 
+          tasks={this.tasks}
+        />
         <TodoList tasks={this.state.tasks} />
-        <TodoForm />
       </div>
     );
   }
