@@ -34,8 +34,8 @@ class App extends React.Component {
   addNewItem = event => {
     event.preventDefault();
     const todoList = [...this.state.todoList];
-    todoList.push({ newList: this.state.newItem, completed: false});
-    this.setState({ todoList, newItem: '' });
+    todoList.push({ task: this.state.newItem});
+    this.setState({ todoList });
   };
 
   render() {
@@ -45,7 +45,7 @@ class App extends React.Component {
           todoList={this.state.todoList}
         />
         <TodoForm
-          value={this.state.newItem}
+          value={this.state.task}
           changeHandler={this.changeHandler}
           addNewItem={this.addNewItem}
         />

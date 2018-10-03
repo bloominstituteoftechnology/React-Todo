@@ -4,12 +4,13 @@ import React from 'react';
 const TodoForm = props => {
     return (
         <div>
-            <form onChange={props.changeHandler}>
+            <form onSubmit={props.addNewItem}>
                 <input
-                type="text"
-                name="newItem"
-                placeholder="...todo"
-                value={props.newItem}
+                    type="text"
+                    name="newItem"
+                    placeholder="...todo"
+                    value={props.newItem}
+                    onChange={props.changeHandler}
                 />
                 <button type="submit" onClick={props.addNewItem}>
                 Add Todo
