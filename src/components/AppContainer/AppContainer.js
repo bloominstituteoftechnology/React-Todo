@@ -6,10 +6,11 @@ import ListContainer from '../ListContainer/ListContainer';
 
 
 const AppContainer = props => {
+    console.log('props - ', props)
     return (
         <div className='app-container'>
-            <InputContainer />
-            <ListContainer />
+            <InputContainer changeHandler={props.changeHandler} addItemHandler={props.addItemHandler} />
+            <ListContainer completeTaskHandler={props.completeTaskHandler} data={props.data}/>
         </div>
     )
 }

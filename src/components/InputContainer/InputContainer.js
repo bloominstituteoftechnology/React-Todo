@@ -5,10 +5,11 @@ import NewItemField from '../NewItemField/NewItemField';
 
 
 const InputContainer = props =>{
+    console.log('props container - ', props)
     return (
         <div className='input-container'>
             <Header headerText='Add New Item' />
-            <NewItemField></NewItemField>
+            <NewItemField changeHandler={props.changeHandler} addItemHandler={props.addItemHandler} />
         </div>
     )
 }

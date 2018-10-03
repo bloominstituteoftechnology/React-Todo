@@ -8,10 +8,10 @@ const ListContainer = props =>{
     return(
         <div className='list-container'>
             <div className='list-todo-list'>
-                <ToDoList />
+                <ToDoList completeTaskHandler={props.completeTaskHandler} data={props.data}/>
             </div>
             <div className='list-done-list'>
-                <DoneList />
+                <DoneList data={props.data}/>
             </div>
         </div>
     )
