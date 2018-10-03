@@ -47,7 +47,10 @@ class App extends Component {
     this.setState({
       todos: [
         ...this.state.todos.map(
-          todo => (todo.id === id ? { ...todo, completed: true } : todo)
+          todo =>
+            todo.id === id
+              ? { ...todo, completed: todo.completed === true ? false : true }
+              : todo
         )
       ]
     })
