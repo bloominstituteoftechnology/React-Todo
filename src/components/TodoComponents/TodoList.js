@@ -5,7 +5,7 @@ const ToDoNow = props => {
     return (
         <div>
         <h4>{props.ToDoing.map(todo => 
-        {return <li>{todo.taskToDo}</li>
+        {return <div onClick={props.changeStyle}>{todo.taskToDo}</div>
         })}</h4>
 
             <form onSubmit={props.addNewTask}>
@@ -17,6 +17,9 @@ const ToDoNow = props => {
                     />
                     <button type="submit" onClick={props.addNewTask}>
                     Add Todo
+                    </button>
+                    <button type="submit" onClick={props.clearTask}>
+                    Clear Completed
                     </button>
             </form>
         </div>
