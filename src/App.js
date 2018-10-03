@@ -17,17 +17,19 @@ class App extends React.Component {
          id: Date.now(),
          complete: false}
       ],
-      newItem: ''
+      newItem: '',
+      newThing: 1 
+
       }
 
   }
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
 
   changeHandler = event => {
     this.setState({newItem: event.target.value})
+    this.setState({newthing: this.state.newThing += 1}) 
+    console.log(this.state.newThing);
   }
+
   addItem = (event) => {
     event.preventDefault();
     this.setState( {
@@ -37,6 +39,7 @@ class App extends React.Component {
         ], newItem: ''
     });
   }
+
   render() {
     return (
       <div>
