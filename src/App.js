@@ -51,10 +51,10 @@ class App extends React.Component {
         todos={this.state.todos} 
         />
         <TodoForm 
-        inputText={this.state.newTodo}
-        addNewTodo={this.addNewTodo} 
+        inputText={this.state.newToDo}
+        addNewTodo={this.addNewToDo} 
         updateInput={this.updateInput}
-        newTodo = {this.state.newToDo}
+        newToDo = {this.state.newToDo}
         />
      </div>
      )
