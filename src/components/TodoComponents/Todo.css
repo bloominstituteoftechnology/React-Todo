@@ -1,46 +1,30 @@
-/*Main display*/
-
-.display {
+/*listview_form*/
+.list_form {
     display:flex;
-    flex-direction:column;
-    max-width: 1024px;
-    min-width: 200px;
-    margin:auto;
-    border:2px solid black;
 }
 
-.display h1 {
-    font-size: 5rem;
-    font-weight:bold;   
+.list_form .form-input {
+    font-size:2rem;
+    padding-left:20px;
     margin:auto;
 }
 
-.display span {
-    font-size: 2rem;
-    font-style: italic;
-    color:firebrick;
+.form input {
+    width:40%;
+    height:45px;
+    border:1px solid black;
 }
 
-.display hr {
-    width:90%;
-    height: 3px;
-    border: 1px;
-    margin-top:2.5%;
-    margin-bottom:2.5%;
-    background: #333;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
-}
-
-/*actions section*/
-.buttons {
+/*listview_buttons*/
+.actionbuttons {
     display:flex;
     justify-content: space-between;
     width:50%;
-    margin:auto;
 }
 .button {
-    width:25%;
-    background-color: firebrick;
+    width:45%;
+    height:45px;
+    background-color:firebrick;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -49,4 +33,8 @@
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+}
+
+.button:hover {
+    color:black;
 }

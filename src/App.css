@@ -1,5 +1,4 @@
 /*Main display*/
-
 .display {
     display:flex;
     flex-direction:column;
@@ -32,62 +31,24 @@
 }
 
 /*List section*/
-.listview {
+.list {
     display:flex;
     flex-direction:column;
     width:80%;
     margin:auto;
 }
 
-/*listview_form*/
-.form {
-    display:flex;
-}
-
-.form .inputform {
-    font-size:2rem;
-    padding-left:20px;
-    margin:auto;
-}
-
-.form input {
-    width:40%;
-    height:45px;
-    border:1px solid black;
-}
-
-/*listview_buttons*/
-.actionbuttons {
-    display:flex;
-    justify-content: space-between;
-    width:50%;
-}
-.button {
-    width:45%;
-    height:45px;
-    background-color:firebrick;
-    border: none;
-    color: white;
-    padding: 15px 32px;
+.goals {
+    width:20%;
+    margin:2.5% auto 2.5% auto;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.button:hover {
-    color:black;
 }
 
 /*listed items*/
-.listitems {
-    margin:50px 0 0 0;
-    min-height:50px;
+.list_items {
+    display:flex;
+    justify-content:center;
+    border:2px solid blue;
+
 }
 
-.theGoal {
-    width:20%;
-    margin:auto;
-    text-align: center;
-}
