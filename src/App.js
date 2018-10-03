@@ -27,6 +27,28 @@ class App extends React.Component {
     this.addTask = this.addTask.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
     this.toggleComplete = this.toggleComplete.bind(this);
+    this.clearCompleted = this.clearCompleted.bind(this);
+  }
+
+  clearCompleted(event) {
+    event.preventDefault();
+
+    let tdl = this.state.todoList;
+    let todoList = tdl.filter(item => item.completed !== true);
+
+    this.setState({todoList});
+  }
+
+  toggleComplete(id) {
+    let todoList = this.state.todoList;
+
+    todoList.forEach(obj => {
+      if (obj.id === id) {
+        let completed = !obj.completed
+        obj.completed = completed;
+      }
+    });
+    this.setState({todoList})
   }
 
   addTask(event) {
@@ -44,18 +66,6 @@ class App extends React.Component {
   changeHandler(event) {
     this.setState({[event.target.name]: event.target.value});
   }
-
-  toggleComplete(id) {
-    let todoList = this.state.todoList;
-
-    todoList.forEach(obj => {
-      if (obj.id === id) {
-        let completed = !obj.completed
-        obj.completed = completed;
-      }
-    });
-    this.setState({todoList})
-  }
   
   render() {
     return (
@@ -68,6 +78,7 @@ class App extends React.Component {
           task={this.state.task}
           addTask={this.addTask}
           onChange={this.changeHandler}
+          clear={this.clearCompleted}
         />
       </div>
     );

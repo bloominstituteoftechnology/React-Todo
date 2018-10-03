@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TodoForm = ({task, addTask, onChange}) => {
+const TodoForm = ({task, addTask, onChange, clear}) => {
     return (
         <div>
             <form onSubmit={addTask.bind(this)}>
@@ -13,6 +13,9 @@ const TodoForm = ({task, addTask, onChange}) => {
                 />
                 <button>Submit</button>
             </form>
+            <button
+                onClick={clear.bind(this)}
+            >Clear Completed</button>
         </div>
     );
 }
