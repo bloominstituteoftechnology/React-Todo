@@ -30,12 +30,15 @@ class App extends React.Component {
   //handler functions
 
 
+  // calls <TodoList /> with this.state.todoArr as props.
+  // TodoList sends a single object to Todo.
+  // Todo builds the single component.
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList />
+        <TodoList todoArr={this.state.todoArr}/>
       </div>
     );
   }
