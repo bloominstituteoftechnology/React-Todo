@@ -1,0 +1,46 @@
+.App {
+  width: 500px;
+  padding: 25px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.App .todolist {
+  padding: 10px;
+}
+
+.App .todolist p {
+  border: 1px solid slategray;
+  margin: 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.App .todoform {
+  display:flex;
+  flex-direction: column;
+  width: 480px;
+  margin: 0 auto;
+}
+
+.App .todoform form input{
+  width: 472px;
+  height: 30px;
+  border: 1px solid slategray;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 2px;
+}
+
+.App .todoform form button {
+  width: 479px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid slategray;
+  background-color: rgb(11, 236, 131);
+  color: black;
+  margin-top: 10px;
+  font-size: 20px;
+  letter-spacing: 5px;
+  cursor: pointer;
+}
