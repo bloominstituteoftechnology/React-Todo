@@ -1,0 +1,90 @@
+/* Todo List styling */
+
+li {
+    list-style: none;
+    font-size: 1.3rem;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.completed {
+    text-decoration: line-through red;
+    color: dodgerblue;
+}
+
+.app {
+    color: white;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 100px;
+    margin-top: 45px;
+    box-shadow: 10px 10px 21px -1px black;
+}
+
+body {
+    background: url("../../assests/img/woodback.jpg");
+    background-size: cover;
+    font-weight: bold;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+form {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    text-overflow: inherit;
+    overflow: visible;
+}
+
+input {
+    width: 300px;
+    height: 35px;
+    border-radius: 8px;
+    font-size: 1.4rem;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+}
+
+.button {
+    border: 2px solid white;
+    border-radius: 6px;
+    background-color: skyblue;
+    color: gray;
+    width: 45%;
+    height: 45px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+.button:hover {
+    color: black;
+    opacity: 0.90;
+    font-size: 1.4rem;
+}
+.search-button {
+    width: 130px;
+    margin: 30px 7px 50px 7px;
+}
+
+.search-buttons {
+    display: flex;
+    justify-content: space-around;
+}
