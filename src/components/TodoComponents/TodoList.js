@@ -1,6 +1,6 @@
 import React from "react";
 import Todo from "./Todo";
-import TodoForm from "./TodoForm";
+
 
 const TodoList = props => {
     return (
@@ -11,9 +11,11 @@ const TodoList = props => {
                      key={item.id} 
                      id={item.id} 
                      task={item.task} 
-                     onClick={props.complete-toggle}/>
+                     onClick={props.complete}/>
                 })}
             </div>
         </div>
     )
 }
+
+export default TodoList;
