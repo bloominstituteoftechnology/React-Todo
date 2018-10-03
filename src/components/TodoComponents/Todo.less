@@ -1,0 +1,88 @@
+@font-face {
+    font-family: gotham-light;
+    src: url('./Gotham-Font/Gotham-Light.otf');
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    font-family: gotham-light;
+}
+
+.app {
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    h2 {
+        font-size: 3rem;
+        padding-left: 50px;
+    }
+    .list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        list-style: none;
+        margin: 0 50px;
+        .task {
+            height: 40px;
+            font-size: 1.6rem;
+            cursor: pointer;
+            .input {
+                -webkit-appearance: textarea;
+                font-size: 1.6rem;
+                font-family: gotham-light;
+                border: none;
+                background-color: unset;
+                display: inline;
+            }
+            .none {
+                display: none;
+            }
+            .view {
+                display: inline-block;
+            }
+            .checkbox {
+                height: 20px;
+                width: 20px;
+                :checked {
+                    color: blue;
+                }
+            }
+        }
+    }
+    .form {
+        display: flex;
+        flex-direction: column;
+        .input {
+            font-size: 1.6rem;
+            height: 30px;
+            width: 200px;
+            margin-left: 100px;
+            padding-left: 20px;
+            font-family: gotham-light; // background-color: aliceblue;
+            border: none;
+        }
+        .hide {
+            display: none;
+        }
+        .button {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            margin-left: 100px;
+            font-size: 1.6rem;
+            font-family: gotham-light;
+            width: 200px;
+            height: 30px;
+            border: 1px solid black;
+            outline: 0;
+            cursor: pointer;
+            transition-duration: 0.2s;
+            &:hover {
+                color: white;
+                background-color: black;
+            }
+        }
+    }
+}
