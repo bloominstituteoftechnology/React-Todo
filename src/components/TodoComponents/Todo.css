@@ -84,11 +84,87 @@ bod {
   padding-top: 1%;
 }
 
+.form-container {
+  width: 100%;
+  background-color: #c44536;
+  border-radius: 0 0 10px 10px;
+  padding: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-family: 'Archivo', sans-serif;
+}
 
 
+.form-new {
+  width: 70%;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
 
+.form-new label {
+  /* transform: rotateY(180deg); */
+  margin: 2% 3%;
+  font-size: 1.8rem;
+}
 
+.form-new button {
+  border-radius: 10px;
+  width: 45px;
+  height: 45px;
+  margin-left: 3%;
+  font-size: 1.6rem;
+}
+
+.form-new input {
+  border-radius: 5px;
+  padding: 1% 2%;
+  font-family: 'Archivo', sans-serif;
+  font-size: 1rem;
+  height: 45px;
+}
+
+.form-clear{
+  width: 30%;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.form-clear button {
+  border-radius: 10px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 1rem;
+  height: 45px;
+  width: 70%;
+  margin: 3%;
+
+}
+
+.form-search {
+  width: 100%;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-search label {
+  font-size: 1.6rem;
+  margin: 3%;
+}
+
+.form-search input {
+  height: 45px;
+  border-radius: 10px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 1rem;
+  padding: 1% 2%;
+}
 
 
 
