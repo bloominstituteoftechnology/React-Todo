@@ -4,7 +4,7 @@ import './ToDo.css';
 const ToDo = props => (
     <li
         className={props.className}
-        data-taskid={props.whatTheHellDoYouMeanKeyIsntAPropWhyDidYouHaveMeDeclareItThen}
+        data-taskid={props.taskId}
         onClick={props.onClick}
     >{props.children}</li>
 );
