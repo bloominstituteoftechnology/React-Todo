@@ -8,7 +8,6 @@ const TodoList = props => (
         {props.todo.map(item => {
             return <Todo text={item.task} />
         })}
-        <TodoForm />
     </div>
 );
 
