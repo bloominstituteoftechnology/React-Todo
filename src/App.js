@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
@@ -19,12 +20,14 @@ class App extends React.Component {
           id: 1528817084358,
           completed: false
         }
-      ]
+      ],
+      newTodo: ""
     };
   }
   render() {
     return (
       <div>
+        <TodoForm />
         <TodoList />
       </div>
     );
