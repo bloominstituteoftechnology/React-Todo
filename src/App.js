@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from "./components/TodoComponents/TodoForm.js";
 import TodoList from "./components/TodoComponents/TodoList.js";
+import "./components/TodoComponents/Todo.css";
 
 let initialList = [{
   task: 'add filter',
@@ -39,20 +40,20 @@ class App extends React.Component {
     }
   }
 
-  markDone = event => {
+ markDone = event => {
     let target = event.currentTarget;
     let id = target.attributes.id.value;
-    let listCopy = this.state.todoList;
-    for (let i in listCopy) {
-      let todo = listCopy[i];
+    let newList = this.state.todoList;
+    for (let i in newList) {
+      let todo = newList[i];
       if (todo.id === id) {
         todo.completed = !todo.completed;
       }
     }
-    this.setState({todoList: listCopy})
+    this.setState({ todoList: newList });
   }
 
-  clearDone = event => {
+  clearDone = () => {
     let listCopy = this.state.todoList.filter(todo => {
       return !todo.completed;
     });
