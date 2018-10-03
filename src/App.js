@@ -16,12 +16,12 @@ class App extends React.Component {
         {
           task: "meet girl",
           id: Date.now(),
-          completed: flase
+          completed: false
         },
         {
           task: "Ask out on a date",
           id: Date.now(),
-          completed: flase
+          completed: false
         },
         {
           task: "Go on the date",
@@ -31,7 +31,7 @@ class App extends React.Component {
         {
           task: "get engaged",
           id: Date.now(),
-          completed: flase
+          completed: false
         },
         {
           task: "get married",
