@@ -3,11 +3,11 @@ import TodoForm from "./components/TodoComponents/TodoForm.js";
 import TodoList from "./components/TodoComponents/TodoList.js";
 import "./components/TodoComponents/Todo.css";
 
-let initialList = [{
-  task: 'add filter',
-  id: Date.now().toString(),
-  complete: false,
-}];
+let initialList = [];
+let storedList = localStorage.getItem('todoList');
+if (storedList !== null) {
+  initialList = JSON.parse(storedList);
+}
 
 class App extends React.Component {
   constructor() {
@@ -36,7 +36,7 @@ class App extends React.Component {
       this.setState({
         todoList: [...this.state.todoList, newTodo],
         makeTodo: ''
-      })
+      }, this.saveLocally)
     }
   }
 
@@ -50,14 +50,19 @@ class App extends React.Component {
         todo.completed = !todo.completed;
       }
     }
-    this.setState({ todoList: newList });
+    this.setState({ todoList: newList }, this.saveLocally);
   }
 
   clearDone = () => {
     let listCopy = this.state.todoList.filter(todo => {
       return !todo.completed;
     });
-    this.setState({todoList: listCopy})
+    this.setState({todoList: listCopy}, this.saveLocally)
+  }
+
+  saveLocally() {
+    let stringTodoList = JSON.stringify(this.state.todoList);
+    localStorage.setItem('todoList', stringTodoList);
   }
 
   render() {
