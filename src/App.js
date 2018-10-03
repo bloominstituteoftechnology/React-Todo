@@ -18,7 +18,7 @@ class App extends React.Component {
     e.preventDefault();
     this.state.todos.push({task: this.state.todo, id: Date.now(), completed: false});
     this.setState({ todos: this.state.todos, todo: '' });
-    document.querySelector('input').value = '';
+    document.querySelector('#todoInput').value = '';
   }
   clearTodo = e => {
     e.preventDefault();
