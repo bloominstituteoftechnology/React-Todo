@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoForm from "./components/TodoComponents/TodoForm";
-
+import TodoList from "./components/TodoComponents/TodoList";
 
 
 class App extends React.Component {
@@ -39,6 +39,19 @@ class App extends React.Component {
       this.setState({todos, item: ""});
   }    
 
+  toggleComplete = id => {
+    // id.preventDefault();
+    let todoItems = this.state.todos.slice();
+    todoItems = todoItems.map(item => {
+      if(item.id === id) {
+        item.completed = !item.completed;
+        return item;
+      }else {
+        return item;
+      }
+    });
+    this.setState({ todoItems});
+  }
   
 
  
@@ -49,10 +62,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <TodoList item={this.state.todos}/>
         <TodoForm
           value={this.state.item}
           onChange={this.onChange}
-          onSubmit={this.onSubmit}
+          onSubmit={this.onSubmit} 
         />
       </div>
     );
