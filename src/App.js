@@ -20,32 +20,30 @@ class App extends React.Component {
           completed: false
         }
       ],
-      inputText: "",
+
       newTodo: ""
     };
   }
 
   changeHandler = event => {
     this.setState({
-      inputText: event.target.value
+      newTodo: event.target.value
     });
   };
 
   addNewTodo = event => {
     event.preventDefault();
-    console.log(this.state.todoList);
     this.setState({
       todoList: [
         ...this.state.todoList,
         {
-          task: this.state.inputText,
+          task: this.state.newTodo,
           id: Date.now(),
           completed: false
         }
       ],
-      inputText: ""
+      newTodo: ""
     });
-    console.log(this.state.todoList);
   };
 
   render() {
@@ -55,7 +53,6 @@ class App extends React.Component {
         <TodoForm
           addNewTodo={this.addNewTodo}
           changeHandler={this.changeHandler}
-          inputText={this.state.inputText}
           newTodo={this.state.newTodo}
           todoList={this.state.todoList}
         />
