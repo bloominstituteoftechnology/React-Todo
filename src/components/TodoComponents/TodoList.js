@@ -5,8 +5,8 @@ import Todo from "./Todo";
 const TodoList = props => {
     return (
         <ul>
-            {props.todoList.map(item =>
-                <Todo item={item.task} />
+            {props.todoList.map((item, i) =>
+                <Todo item={item.task} index={i} toggle={props.toggle} />
             )}
         </ul>
     );

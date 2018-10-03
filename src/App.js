@@ -24,7 +24,6 @@ class App extends React.Component {
 
   addItem = event => {
     event.preventDefault();
-    console.log("Event fired!");
     this.setState({ 
       list: [
         ...this.state.list,
@@ -37,12 +36,19 @@ class App extends React.Component {
       newItem: ""
     });
   };
+
+  completeToggle = event => {
+    const index = event.target.attributes.index.value;
+    let temp = this.state.list.slice();
+    temp[index].completed = (temp[index].completed) ? false : true;
+    this.setState({ list: temp });
+  };
   
   render() {
     return (
       <div className="app">
         <h1>To-Do List: MVP</h1>
-        <TodoList todoList={this.state.list} />
+        <TodoList todoList={this.state.list} toggle={this.completeToggle} />
         <TodoForm text={this.state.newItem} inputChangeHandler={this.inputChangeHandler} addItem={this.addItem} />
       </div>
     );
