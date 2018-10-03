@@ -33,13 +33,37 @@ class App extends React.Component {
       this.setState(() => {
         return{
           Todo:Todolist,
-        }
+      }
       })
-      event.preventDefault();
-      event.target.value = "";
+      this.setState( () => {
+        return{
+          Todos: "",
+        }
+      })      
+      event.preventDefault();      
     }
     
+  }
+
+  handleUpdateStateButton = (event) => {
+    const Todolist = this.state.Todo.slice();
+    Todolist.push({
+        id:Todolist.length,
+        task:this.state.Todos,
+        completed:false
+      })
+    this.setState( () => {
+      return{
+        Todo:Todolist,
+      }
+    })
+   this.setState( () => {
+     return{
+        Todos:"",
+     }
+   })
     
+    event.preventDefault();
   }
   
   render() {
@@ -47,7 +71,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
       {this.state.Todo.map( list => <TodoList list={list} />)}
-      <TodoForm func={this.handleUpdateStateEnter}/>
+      <TodoForm func={this.handleUpdateStateEnter} buttonfunc={this.handleUpdateStateButton} value={this.state.Todos}/>
       </div>
     );
   }

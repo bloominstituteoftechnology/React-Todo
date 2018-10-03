@@ -2,8 +2,8 @@ import React from 'react';
 
 const TodoForm = props => {
     return (<form>
-        <input type="text"  onChange={props.func} onKeyDown={props.func}/>
-        <button>Add To Do</button>
+        <input type="text"  onChange={props.func} onKeyDown={props.func} value={props.value}/>
+        <button onClick={props.buttonfunc}>Add To Do</button>
         <button>Clear Completed</button>
         </form>
     )
