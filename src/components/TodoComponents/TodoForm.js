@@ -6,9 +6,11 @@ const TodoForm = props => {
       <input
         type="text"
         placeholder="...todo"
-        name="todo"
+        name="newTodo"
+        value={props.newTodo}
+        onChange={props.changeInput}
       />
-      <button>Add Todo</button>
+      <button type="submit" onClick={props.addNewTodo}>Add Todo</button>
       <button>Clear Completed</button>
     </form>
   );

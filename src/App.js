@@ -18,16 +18,41 @@ class App extends React.Component {
           completed: false
         }
       ],
+      newTodo: ''
     }; // this.state
   }
 
-  render() {
+  changeInput = event => {
+    this.setState({ [event.target.name]: event.target.value })
+  };
 
+  addNewTodo = event => {
+    event.preventDefault();
+
+    this.setState({
+      todoData: [
+        ...this.state.todoData,
+        { task: this.state.newTodo }
+      ],
+      newTodo: ''
+    });
+  };
+
+  render() {
+    console.log(this.state.todoData)
     return (
       <div>
         <h2>Todo List: MVP</h2>
         <TodoList todoData={this.state.todoData} />
-        <TodoForm />
+        <TodoForm
+          // input field
+          inputTodo={this.state.newTodo}
+          changeInput={this.changeInput}
+          newTodo={this.state.newTodo}
+
+          // Add Todo button
+          addNewTodo={this.addNewTodo}
+        />
       </div>
     );
   }
