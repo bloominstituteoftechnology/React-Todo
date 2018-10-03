@@ -21,27 +21,27 @@ class App extends React.Component {
           completed: false
         }
       ],
-      currentTask: '',
+      task: '',
     }
 
     this.addTask = this.addTask.bind(this);
-    this.onChangeTask = this.onChangeTask.bind(this);
+    this.changeHandler = this.changeHandler.bind(this);
   }
 
   addTask(event) {
     event.preventDefault();
     let taskObj = {
-      task: this.state.currentTask,
+      task: this.state.task,
       id: Date.now(),
       completed: false
     }
     let todoList = this.state.todoList;
     todoList.push(taskObj)
-    this.setState({todoList, currentTask: ''});
+    this.setState({todoList, task: ''});
   }
 
-  onChangeTask(event) {
-    this.setState({currentTask: event.target.value});
+  changeHandler(event) {
+    this.setState({[event.target.name]: event.target.value});
   }
   
   render() {
@@ -49,9 +49,9 @@ class App extends React.Component {
       <div>
         <TodoList list={this.state.todoList} />
         <TodoForm 
-          currentTask={this.state.currentTask}
+          task={this.state.task}
           addTask={this.addTask}
-          onChange={this.onChangeTask}
+          onChange={this.changeHandler}
         />
       </div>
     );
