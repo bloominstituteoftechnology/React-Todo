@@ -17,16 +17,39 @@ class App extends Component {
           id: 1528817084358,
           completed: false
         }
-      ]
+      ],
+      value: ''
     }
   }
 
+  handleChange = event => {
+    this.setState({ value: event.target.value })
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    console.log('hi')
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        {
+          task: this.state.value,
+          id: Date.now(),
+          completed: false
+        }
+      ],
+      value: ''
+    })
+  }
+
   render() {
-    const { todos } = this.state
+    const { todos, value } = this.state
+    const { handleChange, handleSubmit } = this
 
     return (
       <div>
         <TodoList todos={todos} />
+        <TodoForm handleChange={handleChange} handleSubmit={handleSubmit} value={value} />
       </div>
     )
   }
