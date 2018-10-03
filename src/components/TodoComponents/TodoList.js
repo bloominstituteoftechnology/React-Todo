@@ -6,8 +6,11 @@ import ToDo from './ToDo.js';
 
 const ToDoList = props => (
     <ul>
-        {props.toDo.map(toDo => (
-            <ToDo key={Math.random()}>{toDo}</ToDo>
+        {props.toDoList.map(toDo => (
+            <ToDo
+                key={Math.random()}
+                onClick={props.handleToggle}
+            >{toDo.description}</ToDo>
         ))}
     </ul>
 );

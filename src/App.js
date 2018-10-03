@@ -6,7 +6,10 @@ class App extends React.Component {
   constructor(init) {
     super(...arguments);
     this.state = {
-      toDo: []
+      inputText: '',
+      toDoList: [
+        {description:'asdf'}
+      ]
     };
   }
   // you will need a place to store your state in this component.
@@ -16,19 +19,44 @@ class App extends React.Component {
     return (
       <div>
         <h2>To Do List: MVP!</h2>
-        <ToDoList toDo={this.state.toDo}/>
+        <ToDoList
+          toDoList={this.state.toDoList}
+          handleToggle={this.toggleToDo}
+        />
         <ToDoForm
-          handlerAdd={this.add}
-          handlerClear={this.clear}
+          inputText={this.state.inputText}
+          handleChange={this.changeInput}
+          handleAdd={this.add}
+          handleClear={this.clear}
         />
       </div>
     );
   }
   add = eventClick => {
     eventClick.preventDefault();
+    const newTask = {
+      description: this.state.inputText
+    };
+    this.setState({
+      toDoList: [...this.state.toDoList, newTask],
+      inputText: ''
+    });
   }
   clear = eventClick => {
     eventClick.preventDefault();
+  }
+  toggleToDo = eventClick => {
+    eventClick.preventDefault();
+    console.log('asdf')
+    this.setState({
+      toDoList: [...this.state.toDoList, Math.random()]
+    });
+  }
+  changeInput = eventChange => {
+    eventChange.preventDefault();
+    this.setState({
+      inputText: eventChange.target.value
+    });
   }
 }
 
