@@ -3,11 +3,12 @@ import Todo from './Todo.js';
 
 const TodoList = (props) => {
   let todos = props.list.map(todo => {
-    return (<Todo key={todo.id} id={todo.id} task={todo.task} handlClick={props.handlClick}/>);
+    return (<Todo key={todo.id} id={todo.id} task={todo.task} handleClick={props.handleClick}/>);
   });
+  console.log(TodoList)
   return (
     <div className='todo-list'>{todos}</div>
   );
 }
 
-export default TodoList; 
+export default TodoList;

@@ -22,7 +22,7 @@ const TodoForm = props => {
           onClick={props.addTodo}>add </button>
       </div>
       <div className='form-clear'>
-        <button className='button'>clear finished</button>
+        <button className='button' onClick={props.clearDone}>clear finished</button>
       </div>
       <div className='form-search'>
         <label name='searchTodo'>search</label>

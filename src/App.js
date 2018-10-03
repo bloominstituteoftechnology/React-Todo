@@ -2,7 +2,11 @@ import React from 'react';
 import TodoForm from "./components/TodoComponents/TodoForm.js";
 import TodoList from "./components/TodoComponents/TodoList.js";
 
-let initialList = [];
+let initialList = [{
+  task: 'add filter',
+  id: Date.now().toString(),
+  complete: false,
+}];
 
 class App extends React.Component {
   constructor() {
@@ -35,6 +39,26 @@ class App extends React.Component {
     }
   }
 
+  markDone = event => {
+    let target = event.currentTarget;
+    let id = target.attributes.id.value;
+    let listCopy = this.state.todoList;
+    for (let i in listCopy) {
+      let todo = listCopy[i];
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+      }
+    }
+    this.setState({todoList: listCopy})
+  }
+
+  clearDone = event => {
+    let listCopy = this.state.todoList.filter(todo => {
+      return !todo.completed;
+    });
+    this.setState({todoList: listCopy})
+  }
+
   render() {
     return (
     <div className='app'>
@@ -42,11 +66,13 @@ class App extends React.Component {
         <h2>TaskList</h2>
       </div>
       <div className='list-container'>
-        <TodoList list={this.state.todoList} />
+        <TodoList list={this.state.todoList} handleClick={this.markDone} />
         <TodoForm
           inputValue={this.state.makeTodo}
           handleNewTodo={this.handleNewTodo}
-          addTodo={this.addTodo} />
+          addTodo={this.addTodo}
+          clearDone={this.clearDone}
+        />
 
       </div>
     </div>
