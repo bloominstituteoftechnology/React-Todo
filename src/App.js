@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
+import './reset.css'
+import './app.css'
 
 class App extends Component {
   constructor() {
@@ -68,14 +70,14 @@ class App extends Component {
     } = this
 
     return (
-      <div>
-        <TodoList todos={todos} completeTodo={completeTodo} />
+      <div className="container">
         <TodoForm
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           removeCompletedTodos={removeCompletedTodos}
           value={value}
         />
+        <TodoList todos={todos} completeTodo={completeTodo} />
       </div>
     )
   }
