@@ -8,6 +8,6 @@ const TodoList = props => {
             )}
         </ul>
     );
-}
+};
 
 export default TodoList;
