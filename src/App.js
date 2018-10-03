@@ -8,16 +8,7 @@ class App extends React.Component {
     super();
     this.state ={
       todos: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false,
-        }
+  
       ],
       inputText: '',
       newToDo:''
@@ -38,15 +29,22 @@ class App extends React.Component {
 
 
   updateInput = event => {
-    this.setState({ [event.target.name]: event.target.value })
+    this.setState({ newToDo: event.target.value })
     };
 
+  
+  clearIt = event => {
+    event.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(x => x.completed === false)
+    })
+  }
 
    render () {
     console.log(this.state.todos)
      return(
      <div>
-     <h2>Welcome to your Todo App!</h2>
+     <h2>Todo List: MVP</h2>
         <TodoList 
         todos={this.state.todos} 
         />
@@ -55,6 +53,7 @@ class App extends React.Component {
         addNewTodo={this.addNewToDo} 
         updateInput={this.updateInput}
         newToDo = {this.state.newToDo}
+        clearIt={this.clearIt}
         />
      </div>
      )
