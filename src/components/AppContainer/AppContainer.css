@@ -1,0 +1,18 @@
+html{
+    font-size:62.5%;
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.app-container{
+    max-width: 1000px;
+    margin:0 auto;
+    border:1px solid black;
+    min-height: 500px;
+
+}
+
