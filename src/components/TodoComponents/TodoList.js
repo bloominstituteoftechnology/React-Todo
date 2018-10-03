@@ -6,7 +6,11 @@ import TodoForm from './TodoForm';
 const TodoList = props => {
     return (
         <div>
-            <Todo listContent={props.listContent} />
+            {props.listContent.map((listItem) => {
+                return (
+                <Todo listItem={listItem} />
+                )
+            })}
             <TodoForm
                 listContent={props.listContent}
                 newListItem={props.newListItem}
