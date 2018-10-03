@@ -8,11 +8,26 @@ class App extends React.Component {
     super(props);
     this.state = {
       toDoList: [
-        {taskToDo: 'Wash Dishes'},
-        {taskToDo: 'Sand The Floor'},
-        {taskToDo: 'Paint The Fence'},
-        {taskToDo: 'Wax On'},
-        {taskToDo: 'Wax Off'}
+        {taskToDo: 'Wash Dishes',
+        id: 1323817077286,
+        completed: false
+      },
+        {taskToDo: 'Sand The Floor',
+        id: 1528817687286,
+        completed: false
+      },
+        {taskToDo: 'Paint The Fence',
+        id: 1428817077286,
+        completed: false
+      },  
+        {taskToDo: 'Wax On',
+        id: 1522818057286,
+        completed: false
+      },
+        {taskToDo: 'Wax Off',
+        id: 1598817077186,
+        completed: false
+      },
       ],
       newTask: '',
       textDecoration: 'line-through',
@@ -53,7 +68,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className = "master-div">
         <h2>Todo List: MVP</h2>
         <ToDoNow 
         changeStyle={this.changeStyle}

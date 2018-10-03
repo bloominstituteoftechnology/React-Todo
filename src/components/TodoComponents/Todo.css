@@ -1,3 +1,37 @@
 .toggle-decoration{
     text-decoration: line-through;
+    color: red;
+    transition: 1s;
+}
+
+h4{
+    color: white;
+}
+
+h2{
+    text-shadow: 1px 1px 4px white;
+    text-decoration-line: underline;
+}
+
+.master-div{
+    margin: 0 auto;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #5a48e2;
+    padding-bottom: 20px;
+    border: 2px solid lightblue;
+    box-shadow: 0px 2px 6px red;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    width: 200px;
+    height: 50px;
+    margin: 15px 0 0 0;
 }
