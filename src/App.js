@@ -20,7 +20,8 @@ class App extends React.Component {
     
   // console.log(item);
     let newItem ={task: item, id: Date.now(), completed: false };
-    this.setState({ items: this.state.items.push(newItem) });
+    newItem = this.state.items.push(newItem);
+    this.setState({ items: newItem});
      console.log(`addTodo ${this.state.items}`);
      console.log(this.state.items);
   }
