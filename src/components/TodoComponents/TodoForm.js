@@ -15,6 +15,8 @@ class TodoForm extends React.Component {
             this.props.addTodo(newItem);
             this.refs.form.reset();
         }
+
+        
     }
         render(){
         return (
@@ -22,7 +24,7 @@ class TodoForm extends React.Component {
               <form ref="form" className="AddTodo" onSubmit={this.onSubmit}>
                  <input type="text" ref="item" placeholder="Add Todo" ></input>
                 <button type="submit">Add Todo</button>
-                <button>Clear Completed</button>
+                <button onClick={this.props.deleteItem}>Clear Completed</button>
             </form>
            </div>
         );

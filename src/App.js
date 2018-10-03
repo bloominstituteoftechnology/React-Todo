@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-
+import './App.css';
 
 let todoItem = [{task : '1st', id : Date.now(),  completed : false}];
 
@@ -11,37 +11,48 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
  constructor(props){
    super(props);
-   this.state ={  items : todoItem};
+   this.state ={items : todoItem};
   
    this.addTodo = this.addTodo.bind(this);
+   this.deleteItem = this.deleteItem.bind(this);
+   this.completedItem = this.completedItem.bind(this);
   }
  
   addTodo(item) {
     
   // console.log(item);
     let newItem ={task: item, id: Date.now(), completed: false };
-    console.log(this.state.items);
-     let myArray = this.state.items;
-     myArray.push(newItem);
-    // let newItem2 = myArray.push(newItem);
-    // console.log(newItem2);
-    this.setState({ items: myArray});
-     console.log(`addTodo ${this.state.items}`);
-     console.log(this.state.items);
+    // let myArray = this.state.items;
+    // myArray.push(newItem);
+
+    // below syntax is equal to above (commented out) two lines 
+    this.setState({ items: [...this.state.items, newItem]});
   }
  
-  render() {
-    console.log(`App render ${this.state.items}`);
-    console.log(this.state.items);
-    return (
+  completedItem(index){
+    let myArray = this.state.items;
+    myArray.forEach(item => {
+      if(item.id == index)
+        item.completed = true;
+    });
+    this.setState({ items: myArray});
 
+  }
+
+  deleteItem(){
+    console.log("deletedItem");
+    let myArray = this.state.items;
+
+    myArray = myArray.filter(item => (!item.completed));
+    this.setState({ items: myArray});
+  }
+  render() {
+
+    return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-
-        <TodoList key={this.state.id}  items={this.state.items} />
-        <TodoForm addTodo={this.addTodo}/> 
-       
-
+        <TodoList key={this.state.id}  items={this.state.items} completedItem={this.completedItem} />
+        <TodoForm addTodo={this.addTodo} deleteItem={this.deleteItem}/> 
       </div>
     );
   }
