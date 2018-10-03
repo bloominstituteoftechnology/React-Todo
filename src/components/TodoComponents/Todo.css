@@ -1,0 +1,35 @@
+/*Main display*/
+
+.display {
+    display:flex;
+    flex-direction:column;
+    max-width: 1024px;
+    min-width: 200px;
+    margin:auto;
+    border:2px solid black;
+}
+
+.display h1 {
+    font-size: 5rem;
+    font-weight:bold;   
+    margin:auto;
+}
+
+.display span {
+    font-size: 2rem;
+    font-style: italic;
+    color:firebrick;
+}
+
+.display hr {
+    width:90%;
+    height: 3px;
+    border: 1px;
+    margin-top:2.5%;
+    margin-bottom:2.5%;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+/*actions section*/
+
