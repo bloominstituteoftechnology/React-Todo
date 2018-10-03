@@ -23,7 +23,8 @@ class App extends React.Component {
         }
       ],
       inputText: '',
-      newTask: ''
+      newTask: '',
+      color: 'angry'
     }
   }
   changeHandler = event => {
@@ -33,18 +34,22 @@ class App extends React.Component {
 
   addNewTask = event => {
     event.preventDefault();
+    if (this.state.newTask === '') {
+      alert('Please add a new task')
+    } else {
 
-    this.setState({
-      list: [
-        ...this.state.list,
-        {
-          task: this.state.newTask,
-          id: Date.now(),
-          completed: 'Incomplete'
-        }
-      ],
-      newTask: ''
-    })
+      this.setState({
+        list: [
+          ...this.state.list,
+          {
+            task: this.state.newTask,
+            id: Date.now(),
+            completed: 'Incomplete'
+          }
+        ],
+        newTask: ''
+      })
+    }
   }
 
 
@@ -62,7 +67,7 @@ class App extends React.Component {
         <div className="todoform">
           <Form
             type="text"
-            name="inputText"
+            inputText={this.state.inputText}
             placeholder="Add A New Task"
             addNewTask={this.addNewTask}
             onClick={this.changeHandler}

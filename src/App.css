@@ -3,6 +3,7 @@
   padding: 25px;
   margin: 0 auto;
   border: 1px solid black;
+  border-radius: 10px;
 }
 
 .App .todolist {
@@ -19,7 +20,13 @@
 .App .todolist .Complete {
   color: white;
   font-size: 24px;
-  background-color: rgb(0, 26, 255);
+  background-color: rgba(91, 107, 255, 0.555);
+}
+
+.App .todolist .Incomplete {
+  color: white;
+  font-size: 24px;
+  background-color: rgba(255, 144, 153, 0.712);
 }
 
 .App .todoform {
@@ -43,7 +50,7 @@
   height: 40px;
   border-radius: 5px;
   border: 1px solid slategray;
-  background-color: rgb(11, 236, 131);
+  background-color: rgba(11, 236, 131, 0.5);
   color: black;
   margin-top: 10px;
   font-size: 20px;
@@ -51,3 +58,6 @@
   cursor: pointer;
 }
 
+.angry {
+  border: 1px solid red;
+}
