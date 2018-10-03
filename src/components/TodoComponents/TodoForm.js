@@ -1,10 +1,22 @@
 import React from 'react'
 import './Todo.css'
 
-const InputField = props => {
+const Form = props => {
     return (
-        <input placeholder="...todo" onChange={this.handleInputChange}></input>
+        <div>
+            <form onSubmit={props.handleClickEvent}>
+                <input onChange={props.handleChangeEvent} placeholder="...todo" value={props.newTasks} type="text" name="newTasks"/>
+                
+                <button onClick={props.handleClickEvent} value="submit" type="submit">Add Todo</button>
+                
+                <button>Clear Completed</button>
+            </form>
+        </div>
     )
 }
 
-export default InputField;
+export default Form
+
+
+
+// onChange={this.handleInputChange} (from after placeholder)
