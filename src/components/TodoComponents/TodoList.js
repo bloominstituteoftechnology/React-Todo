@@ -13,7 +13,10 @@ const ToDoNow = props => {
                     type = "text"
                     name = "newTask"
                     onChange={props.changeHandler}
+                    placeholder = "...todo"
                     value={props.newTask}
+                    value={props.newId}
+                    value={props.newCompleted}
                     />
                     <button type="submit" onClick={props.addNewTask}>
                     Add Todo

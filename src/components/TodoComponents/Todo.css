@@ -9,17 +9,18 @@ h4{
 }
 
 h2{
-    text-shadow: 1px 1px 4px white;
+    text-shadow: 1px 1px 6px white;
     text-decoration-line: underline;
 }
 
 .master-div{
     margin: 0 auto;
+    margin-top: 50px;
     width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #5a48e2;
+    background-color: #0d4056;
     padding-bottom: 20px;
     border: 2px solid lightblue;
     box-shadow: 0px 2px 6px red;
@@ -34,4 +35,11 @@ button{
     width: 200px;
     height: 50px;
     margin: 15px 0 0 0;
+    border-radius: 40px;
+}
+
+button:hover{
+    background-color: black;
+    color: white;
+    transition: 0.4s;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import ToDoNow from './components/TodoComponents/TodoList';
 import './components/TodoComponents/Todo.css';
 
@@ -8,7 +8,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       toDoList: [
-        {taskToDo: 'Wash Dishes',
+        {taskToDo: 'Component Code Fu',
         id: 1323817077286,
         completed: false
       },
@@ -30,12 +30,14 @@ class App extends React.Component {
       },
       ],
       newTask: '',
+      newId: `${(Math.random() * 1000000000000) + 1000000000000}`,
+      newCompleted: false,
       textDecoration: 'line-through',
     }
   }
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-
+  
   changeHandler = event => {
     console.log(event.target.name);
     this.setState({ [event.target.name]: event.target.value });
@@ -60,13 +62,19 @@ class App extends React.Component {
     this.setState({
       toDoList: [
         ...this.state.toDoList,
-        { taskToDo: this.state.newTask }
+        { taskToDo: this.state.newTask,
+           id: this.state.newId,
+            completed: this.state.newCompleted},
+
       ],
-      newTask: ''
+      newTask: '',
+      newId: `${(Math.random() * 1000000000000) + 1000000000000}`,
+      newCompleted: false,
     })
   }
 
   render() {
+    console.log(this.state.toDoList);
     return (
       <div className = "master-div">
         <h2>Todo List: MVP</h2>
@@ -77,6 +85,8 @@ class App extends React.Component {
         changeHandler={this.changeHandler}
         newTask={this.state.newTask}
         clearTask={this.clearTask}
+        newId={this.newId}
+        newCompleted={this.newCompleted}
         />
       </div>
     );
