@@ -7,7 +7,15 @@ const TodoList = props => {
   return (
     <div>
       {props.todoList.map(item => {
-        return <Todo task={item.task} key={item.id} />;
+        return (
+          <Todo
+            task={item.task}
+            key={item.id}
+            toggleComplete={props.toggleComplete}
+            //this will be used to make a classList for each Todo, which will be used for styling
+            completed={item.completed ? "complete" : "incomplete"}
+          />
+        );
       })}
     </div>
   );

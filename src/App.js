@@ -1,6 +1,8 @@
 import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+
+import "./components/TodoComponents/Todo.css";
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -17,7 +19,8 @@ class App extends React.Component {
         {
           task: "Bake Cookies",
           id: 1528817084358,
-          completed: false
+          //testing state: should be initially set to false
+          completed: true
         }
       ],
 
@@ -46,10 +49,17 @@ class App extends React.Component {
     });
   };
 
+  toggleComplete = event => {
+    console.log(event.target.classList);
+  };
+
   render() {
     return (
       <div className="App">
-        <TodoList todoList={this.state.todoList} />
+        <TodoList
+          todoList={this.state.todoList}
+          toggleComplete={this.toggleComplete}
+        />
         <TodoForm
           addNewTodo={this.addNewTodo}
           changeHandler={this.changeHandler}
