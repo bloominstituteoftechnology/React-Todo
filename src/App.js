@@ -55,15 +55,14 @@ class App extends React.Component {
 		this.setState({todosCompleted});
 	}
 	
-	removeFinished = (e) => {
+		removeFinished = (e) => {
     // prevent page from reloading on click
     e.preventDefault();
     // set up an empty array to house new data from filter
     let notCompleted = [];
     // set up a filter method to extract only false completed
     let todos = this.state.todos.filter((todo, index) => {
-
-      if (todo.completed !== true) {
+       if (todo.completed !== true) {
         // push the false completed to new array to keep
         notCompleted.push(todo);
       }
@@ -71,12 +70,10 @@ class App extends React.Component {
     })
     // update todos and push to new state
     todos = notCompleted;
-
-    // set the local storage to new state
+     // set the local storage to new state
     // update todoList  to local storage
 	this.setState({todos});
   }
-		
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
@@ -84,7 +81,7 @@ class App extends React.Component {
       <div className="app">
 		<h1>Todo List</h1>
         <TodoList items={this.state.todos} completedTask={this.completedTask}/>
-		<TodoForm submit={this.addTodoHandler} value={this.state.task} change={this.handleControlledChange} remove={this.removeFinished}/>
+		<TodoForm submit={this.addTodoHandler} value={this.state.task} change={this.handleControlledChange}remove={this.removeFinished}/>
       </div>
     );
   }

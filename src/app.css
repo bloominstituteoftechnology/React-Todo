@@ -7,9 +7,8 @@
 	justify-content: center;
 	align-items: center;
 	background-color: dodgerblue;
-}
-
-h1 {
+}	
+ h1 {
 	margin-top: 75px;
 	font-size: 3rem;
 	color: #e57373;
@@ -17,20 +16,17 @@ h1 {
 	font-family: 'Merienda';
 	text-align: center;
 }
-
-.list {
+ .list {
 	color: #e57373;
 	font-size: 2rem;
 }
-
-.form {
+ .form {
 	display: flex;
 	flex-direction: column;
 }
-
-.buttons {
+ .buttons {
 	display: flex;
 	margin: 10px 0 0 0;
 	justify-content: space-between;
 	width: 180px;
-}
+} 
