@@ -3,7 +3,9 @@ import React from 'react';
 const Todo = (props) => {
   return (
     <div>      
-      {props.todo.task}
+      <ul>
+        <li>{props.todo.task}</li>
+      </ul>
     </div>
   );
 };
