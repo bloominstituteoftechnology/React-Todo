@@ -8,26 +8,40 @@ class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       Todo:todolist,
+      Todos:''
     }
+    console.log(props);
   }
   handleUpdateStateEnter = event => {
+    const value = event.target.value
     const Todolist = this.state.Todo.slice();
-    Todolist.push({ task:event.target.value,id:Todolist.length,completed: false})
-    console.log(event.type)
+    Todolist.push({
+        id:Todolist.length,
+        task:value,
+        completed:false
+      })
+    this.setState( () => {
+     return {
+        Todos:value
+      }
+    })
     if(event.keyCode === 13){
-     this.setState({Todo:Todolist})
-     event.preventDefault();
-    } else if (event.type === "submit"){
-      this.setState({Todo:Todolist})
-      event.stopPropagation();
+      this.setState(() => {
+        return{
+          Todo:Todolist,
+        }
+      })
+      event.preventDefault();
+      event.target.value = "";
     }
-   
+    
+    
   }
-
+  
   render() {
     return (
       <div>
@@ -37,6 +51,7 @@ class App extends React.Component {
       </div>
     );
   }
+
 }
 
 export default App;
