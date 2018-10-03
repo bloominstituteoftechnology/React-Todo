@@ -20,9 +20,21 @@ class App extends React.Component {
           completed: false
         }
       ],
-      
+      inputTodo: '',
     }
   }
+
+  changeTodo = e => this.setState({ [e.target.name]: e.target.value });
+
+  addNewTodo = event => {
+    event.preventDefault();
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        { inputTodo: '' }
+      ],
+    });
+  };
 
   render() {
     return (
@@ -32,6 +44,11 @@ class App extends React.Component {
         </div>
         <TodoList 
           todos={this.state.todos}
+        />
+        <TodoForm 
+          value={this.state.todo}
+          changeHandler={this.changeTodo}
+          handleNewTodo={this.addNewTodo}
         />
       </div>
     );
