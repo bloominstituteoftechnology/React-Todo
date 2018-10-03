@@ -8,6 +8,10 @@ let TodoList = props => {
     return (
 
         <div>
+            <nav>
+                <a href="index.html">ToDo App</a>
+                <input placeholder="Search (not functional)"></input>
+            </nav>
             <h1>What do you need to do today?</h1>
             <Form changeHandler={props.changeHandler} addTodo={props.addTodo} clearTodos={props.clearTodos}/>
             <ul>

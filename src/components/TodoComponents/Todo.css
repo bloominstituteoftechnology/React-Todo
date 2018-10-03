@@ -11,12 +11,39 @@ body {
     background: lightcoral;
 }
 
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 81%;
+    margin: 0 auto;
+}
+
+nav a {
+    font-size: 3rem;
+    font-weight: bolder;
+    color: white;
+    text-decoration: none;
+    width: 20%;
+}
+
+nav input {
+    width: 20%;
+    padding: 10px;
+    border-radius: 50px;
+    border: transparent;
+}
+
+nav input:focus {
+    outline: none;
+}
+
 h1 {
     font-size: 5rem;
     width: 800px;
     text-align: center;
     color: white;
-    margin: 100px auto 50px;
+    margin: 120px auto 50px;
     border-bottom: 10px groove white;
     padding-bottom: 20px;
 }
