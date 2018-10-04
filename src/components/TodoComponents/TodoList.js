@@ -7,15 +7,15 @@ import Todo from './Todo';
 
 const TodoList = (props) => {
     return (
-        <div>            
+        <ul>            
             {props.data.map((item) =>  (
                 <Todo
                     key={item.id}
                     todo={item}
-                />
-                    
+                    strikeThru = {props.strikeThru}
+                />                    
             ))}
-        </div>
+        </ul>
     );
 }
 

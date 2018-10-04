@@ -33,6 +33,9 @@ class App extends React.Component {
       todo:''
     }; 
   }
+  strikeThru = id => {
+    
+  };
   addTodo = event => {
     event.preventDefault();
     if (this.state.todo === '') {
@@ -53,11 +56,15 @@ class App extends React.Component {
     return (
       <div className='container'>
         <h1 className='main-header'>TODO LIST</h1>
-        <TodoList data={this.state.todoData}/>
+        <TodoList 
+        data={this.state.todoData}
+        strikeThru={this.strikeThru}
+        />
         <TodoForm
           value={this.state.todo}
           handleTodoChange={this.changeTodo}
-          AddTodoHandler={this.addTodo}/>
+          AddTodoHandler={this.addTodo}
+          />
       </div>
     );
   }
