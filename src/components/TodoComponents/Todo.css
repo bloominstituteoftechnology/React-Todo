@@ -1,0 +1,42 @@
+.container {
+  width: 50%;
+  margin: 0 auto;
+  background: turquoise;
+  padding: 25px 25px 45px 25px ;
+  margin-top: 25px;
+  border: 3px solid lightgray;
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  border-bottom: 2px solid gray;
+  padding-bottom: 10px;
+}
+
+input {
+  width: 95%;
+  padding: 6px;
+  text-align: center;
+  font-size: 18px;
+  margin: 20px 0px;
+  border: none;
+  border-radius: 5px;
+}
+
+
+button{
+  width: 48%;
+  padding: 10px 0px;
+  border-radius: 5px;
+  border: none;
+  margin-right: 6px;
+  font-size: 16px;
+  color: gray;
+}
+
+p{
+  color: white;
+  font-size: 18px;
+}

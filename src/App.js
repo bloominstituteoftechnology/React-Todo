@@ -47,11 +47,18 @@ class App extends React.Component {
   }
 
   render() {
-    return <div>
+    return (
+    <div className="container">
         <h1>Todo List:</h1>
         <TodoList todos={this.state.todos} />
-        <TodoForm changeHandler={this.changeHandler} addNewTodo={this.addNewTodo} newTodo={this.state.newTodo} todos={this.state.todos} />
-      </div>;
+        <TodoForm 
+          changeHandler={this.changeHandler} 
+          addNewTodo={this.addNewTodo} 
+          newTodo={this.state.newTodo} 
+          todos={this.state.todos} 
+        />
+      </div>
+    );
   }
 }
 

@@ -6,6 +6,7 @@ import React from 'react';
 const TodoList = props => {
   return(
     <div>
+
       {props.todos.map(todo => {
         return <p key={todo.id}>{todo.task}</p>;
       })}
