@@ -1,17 +1,25 @@
 .todoListContainer {
-  width: 1000px;
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
+@media (max-width: 500px) {
+  .todoListContainer {
+    width: 100%;
+  }
+
+  
+
+
+}
+
 .todoListContainer h1 {
   color: blue;
   position: absolute;
-  margin: 50px;
   top: -100px;
-  width: 496px;
 }
 .todoListContainer h2 {
   color: red;
@@ -22,25 +30,24 @@
   right: 100px;
 }
 .lists {
-  width: 900px;
+  width: 90%;
   position: absolute;
   top: 100px;
   display: flex;
   justify-content: space-between;
 }
 .TodoList {
-  width: 400px;
+  width: 40%;
   background-color: blue;
 }
 .FinTodoList {
-  width: 400px;
+  width: 40%;
   background-color: red;
   border: 2px dotted blue;
 }
 .FinTodoItem {
   font-size: 60px;
   margin: -60px;
-  width: 496px;
   color: blue;
   text-align: center;
 }
@@ -48,7 +55,6 @@
 .todoItem {
   font-size: 60px;
   margin: -60px;
-  width: 496px;
   text-align: center;
   /* animation-name: fade;
     animation-duration: 5s; */
@@ -62,7 +68,7 @@
 
 .todoForm {
   margin: 20px;
-  width: 500px;
+  width: 50%;
   height: 50px;
   position: absolute;
   display: flex;
