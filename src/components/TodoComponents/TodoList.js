@@ -10,8 +10,8 @@ const ToDoList = (props) => {
         <div>
 
         {props.list.map(item => {
-        
-            return <Todo item={item} />
+            
+            return <Todo item={item} completed={item.completed}key={item.id} id={item.id} onClick={props.onClick} />
         
         })}
             
@@ -21,3 +21,4 @@ const ToDoList = (props) => {
 }
 
 export default ToDoList;
+/*  */
