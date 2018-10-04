@@ -1,15 +1,21 @@
 import React from 'react';
-import TodoList from './TodoList';
-import TodoForm from './TodoForm';
 
 
 const Todo = props => {
     return(
         <div>
-            <TodoList taskData={props.taskData} inputText={props.inputText} taskComplete = {props.taskCompleted}/>
-            <TodoForm changeHandler={props.changeHandler}  inputText={props.inputText} addTask={props.addTask}/>
-        </div>
-    )
+        <h1>Task Entry: {props.inputText}</h1>
+        {props.taskData.map(item => {
+            return (
+            
+            <div className="task" key={item.id}>
+            <p>TaskId: {item.id}</p>
+             <p>Task: {item.task}</p>
+            </div>
+         );
+        })}
+    </div>
+    );
 }
 
 export default Todo;

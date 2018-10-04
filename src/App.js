@@ -1,7 +1,11 @@
 import React from 'react';
-import Todo from './components/TodoComponents/Todo';
+
+import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
 
 import "./components/TodoComponents/Todo.css"
+
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -26,7 +30,7 @@ class App extends React.Component {
   
   addTask = event =>{
     event.preventDefault();
- 
+
     this.setState({
       taskList: [
         ...this.state.taskList, 
@@ -34,8 +38,19 @@ class App extends React.Component {
       ],
      inputText : ""
     });
+  }
 
-   
+  enterTask = event => {
+
+    if(event.key === "Enter"){
+      this.setState({
+        taskList: [
+          ...this.state.taskList, 
+          {id: this.randomIdGenerator(), task: this.state.inputText, complete: true}
+        ],
+       inputText : ""
+      });
+    }
   }
 
   taskCompleted = event => {
@@ -45,22 +60,18 @@ class App extends React.Component {
 
   clearCompletedTasks = event =>{
     console.log(event.target);
-    // if(this.state.taskList.completed === true){
-    //   this.setState({taskList: []});
-    // }
   }
 
   render() {
     return (
       <div>
-        <Todo 
-          taskData={this.state.taskList} 
-          changeHandler={this.changeHandler} 
+        <TodoList taskData={this.state.taskList}   
+        inputText={this.state.inputText}/>
+
+        <TodoForm changeHandler={this.changeHandler} 
           inputText={this.state.inputText}
           addTask= {this.addTask}
-          taskComplete = {this.taskCompleted}
-          clearTasks = {this.clearCompletedTasks}
-        />
+          enterTask = {this.enterTask} />
       </div>
     );
   }
