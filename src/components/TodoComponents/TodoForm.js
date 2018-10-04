@@ -3,10 +3,17 @@ import TodoList from './TodoList';
 import Todo from './Todo';
 
 const TodoForm = (props) => {
-    console.log(props);
     return <div>
-        <TodoList />
-        <Todo changeHandler={props.changeHandler} value={props.todoItem} />
+        <TodoList
+            todoList={props.todoList}
+            addToList={props.addToList}
+        />
+        <Todo
+            changeHandler={props.changeHandler}
+            value={props.todoItem}
+        />
+        
+        <button type='submit' onClick={props.addToList}>ADD</button>
       </div>;
 }
 
