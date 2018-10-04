@@ -20,7 +20,8 @@ class App extends React.Component {
             complete: false
           }
       ],
-      inputText : ""
+      inputText : "",
+      newTask: ""
     };
   }
 
@@ -30,9 +31,12 @@ class App extends React.Component {
 
   changeHandler = event => {
     event.preventDefault();
-    this.setState({ inputText: event.target.value});
+    this.setState({ [event.target.name] : event.target.value});
   }
   
+  addTask = event =>{
+    event.preventDefault();
+  }
 
   render() {
     return (
