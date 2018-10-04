@@ -7,7 +7,7 @@ const Todo = props => {
     return(
         <div>
             <TodoList taskData={props.taskData} inputText={props.inputText} taskComplete = {props.taskCompleted}/>
-            <TodoForm changeHandler={props.changeHandler}  inputText={props.inputText} addTask={props.addTask}/>
+            <TodoForm changeHandler={props.changeHandler}  inputText={props.inputText} addTask={props.addTask} clearTasks={props.clearTasks}/>
         </div>
     )
 }

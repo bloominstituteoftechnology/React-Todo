@@ -31,13 +31,22 @@ class App extends React.Component {
       taskList: [
         ...this.state.taskList, 
         {id: this.randomIdGenerator(), task: this.state.inputText, complete: false}
-      ]
-    })
+      ],
+     inputText : ""
+    });
+
+   
   }
 
   taskCompleted = event => {
     event.preventDefault();
     
+  }
+
+  clearTasks = () =>{
+    this.setState({
+      taskList: []
+    });
   }
 
   render() {
@@ -49,6 +58,7 @@ class App extends React.Component {
           inputText={this.state.inputText}
           addTask= {this.addTask}
           taskComplete = {this.taskCompleted}
+          clearTasks = {this.clearTasks}
         />
       </div>
     );

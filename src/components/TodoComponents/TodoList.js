@@ -9,7 +9,7 @@ const TodoList = props => {
            {props.taskData.map(item => {
                return (
                
-               <div className="task" key={item.id} onClick={props.taskCompleted}>
+               <div className="task" key={item.id} onClick={this.taskCompleted}>
                <p>TaskId: {item.id}</p>
                 <p>Task: {item.task}</p>
                </div>
