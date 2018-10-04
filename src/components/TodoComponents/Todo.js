@@ -6,7 +6,7 @@ class Todo extends React.Component {
     return (
         <div className="Todo" onClick={(event) => this.props.completeTask(event, this.props.id)}>
           <span>{this.props.task} </span>
-          <span>{this.props.completed ? 'True' : 'False'}</span>
+          <span>{this.props.completed ? 'Done' : 'Not done'}</span>
         </div>
       )
     }
