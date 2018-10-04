@@ -1,0 +1,122 @@
+.TheList {
+  margin: 2rem;
+  margin-top: 0;
+  width: 80%;
+  height: 100%;
+  max-height: 650px;
+  overflow: hidden;
+}
+
+.TheList p {
+  font-family: cursive;
+  background-image: url(./blackPin.png), url(./blackPin.png);
+  background-position: left, right;
+  background-repeat: no-repeat;
+  background-color:  #E9E9E9;
+  margin: 2rem;
+  color :#BC243C;
+  font-weight: bolder;
+  font-size: 24px;
+  text-transform: capitalize;
+  text-align: center;
+  line-height: 30px;
+  padding: 1rem;
+  max-width: 250px;
+  border: 1px solid rgba(233, 233, 233, .3);
+  border-radius: 2%;
+  box-shadow: 2px 5px 25px black;
+  text-decoration: none;
+}
+
+p.none {
+  font-family: cursive;
+  background-image: url(./blackPin.png), url(./blackPin.png);
+  background-position: left, right;
+  background-repeat: no-repeat;
+  background-color:  #E9E9E9;
+  margin: 2rem;
+  color :#BC243C;
+  font-weight: bolder;
+  font-size: 24px;
+  text-transform: capitalize;
+  text-align: center;
+  line-height: 30px;
+  padding: 1rem;
+  max-width: 250px;
+  border: 1px solid rgba(233, 233, 233, .3);
+  border-radius: 2%;
+  box-shadow: 2px 5px 25px black;
+  text-decoration: none;
+}
+
+p.line-through {
+  font-family: cursive;
+  background-image: url(./blackPin.png), url(./blackPin.png);
+  background-position: left, right;
+  background-repeat: no-repeat;
+  background-color:  #E9E9E9;
+  margin: 2rem;
+  color :#BC243C;
+  font-weight: bolder;
+  font-size: 24px;
+  text-transform: capitalize;
+  text-align: center;
+  line-height: 30px;
+  padding: 1rem;
+  max-width: 250px;
+  border: 1px solid rgba(233, 233, 233, .3);
+  border-radius: 2%;
+  box-shadow: 2px 5px 25px black;
+  text-decoration: line-through;
+}
+
+.TheList p:first-child {
+  margin: 0;
+  padding: 0;
+  width: 0;
+  display: none;
+}
+
+.TodoForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.TodoForm input {
+  width: 80px;
+  height: 80px;
+  margin: 1rem;
+  margin-top: 2rem;
+  border: 1px solid rgba(233, 233, 233, .3);
+  border-radius: 5%;
+  font-size: 20px;
+  text-align: center;
+  background-color:  #E9E9E9;
+  box-shadow: 2px 2px 25px black;
+  text-shadow: .5px .5px 5px #E9E9E9;
+}
+
+.adderBtn {
+  height: 80px;
+  width: 80px;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 50%;
+  color: #E9E9E9;
+  font-size: 20px;
+  margin: 1rem;
+}
+
+.clearBtn {
+  height: 80px;
+  width: 80px;
+  background-color: rgba(233, 233, 233, .3);
+  border: 1px solid rgba(233, 233, 233, .3);
+  border-radius: 5%;
+  color: #E9E9E9;
+  font-size: 20px;
+  line-height: 20px;
+  margin: 1rem;
+  box-shadow: 2px 2px 25px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 5px #222222;
+}

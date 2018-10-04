@@ -1,0 +1,29 @@
+body {
+  background-image: url(./woodBackground.jpeg); 
+  height: 100vh;
+  min-height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.App h1 {
+  display: block;
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-style: oblique;
+  color: white;
+  font-size: 50px;
+  text-shadow: 2px 2px 25px black;
+
+}
+
+.ListAndForm {
+  display: flex;
+  flex-direction: row;
+}
