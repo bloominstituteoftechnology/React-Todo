@@ -1,0 +1,7 @@
+.completed {
+  text-decoration: line-through;
+}
+
+.task {
+  font-size: 3rem;
+}
