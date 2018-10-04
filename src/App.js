@@ -63,15 +63,6 @@ class App extends React.Component {
     }
   }
 
-  // taskCompleted = event => {
-  //   event.preventDefault();
-  //   console.log(event);
-  // }
-
-  // clearCompletedTasks = event =>{
-  //   console.log(event.target);
-  // }
-
   render() {
     return (
       <div>
