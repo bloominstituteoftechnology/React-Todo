@@ -1,0 +1,54 @@
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.todo-form .submit-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(201, 201, 201)
+  
+}
+
+.todo-form .submit-form input {
+  height: 30px;
+  padding: 0 15px;
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 10px;
+  outline: 0 none;
+  width: 100%;
+}
+
+.todo-form .submit-form button {
+  margin-top: 10px;
+}
+  .todo-form .clear-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.todo-form button {
+  width: 200px;
+  border: none;
+  outline: 0 none;
+  background: rgb(188, 220, 233);
+  color: rgb(58, 150, 187);
+  border-radius: 10px;
+  
+}
+
+.todo-form button:hover {
+  background: rgb(58, 150, 187);
+  color: rgb(188, 220, 233);
+  border-radius: 10px;
+}
+
+.todo-form button:active {
+  background: rgb(187, 58, 58);
+  color: rgb(233, 188, 188);        
+}
