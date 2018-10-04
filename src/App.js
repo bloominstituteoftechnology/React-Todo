@@ -1,4 +1,6 @@
 import React from 'react';
+import TodoForm from './components/TodoComponents/TodoForm'
+import Todo from './components/TodoComponents/Todo'
 
 class App extends React.Component {
   constructor () {
@@ -18,7 +20,7 @@ class App extends React.Component {
           completed: false
         }
       ],
-      input: {}
+      input: " "
     };
   }
   // design `App` to be the parent component of your application.
@@ -30,21 +32,18 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  addTodoHandler = () => {
+    const todos = this.state.todos.slice();
+    todos.push({task: this.state.input, completed: false, id: Date.now()});
+    this.setState({ todos: todos, input: " " });
+  };
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <div>
-        <input
-          name="input"
-          onChange={this.changeInputHandler}
-          placeholder= "....todo"
-          value={this.state.input}
-        />
-        <button onClick={this.addTodo}>Add</button>
-        <button>Clear Completed</button>
-        </div>
+        <TodoForm />
+        <Todo dailyTodos={this.state.todos} />
       </div>
     );
   }
