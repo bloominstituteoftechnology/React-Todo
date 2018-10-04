@@ -7,7 +7,7 @@ const Todo = ({todo, toggle}) => {
         <div className='todo' onClick={() => toggle(todo.id)}>
             <div style={completed ? { textDecorationLine: 'line-through', color: 'rgb(64, 247, 168)'} : {}}
             >{task}</div>
-            <i className="far fa-check-square"style={completed ? {color: 'rgb(64, 247, 168)'} : {color:'rgb(247, 150, 64)'}}></i>
+            <i className="fa fa-check-square"style={completed ? {color: 'rgb(64, 247, 168)'} : {color:'rgb(247, 150, 64)'}}></i>
         </div>
     );
 }
