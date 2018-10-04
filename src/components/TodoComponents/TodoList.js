@@ -7,13 +7,14 @@ const ToDoList = (props) => {
     <React.Fragment>
       {
         props.list.map(item => {
-          return (<div key={item.id} className={`todoComponent ${item.completed}`}>
-            <p>{item.task}</p>
-            <div className="icons">
-              <i className={item.icon} onClick={() => props.completeTask(item.id)}></i>
-              <i className="fas fa-times" onClick={() => props.closeTask(item.id)}></i>
+          return (
+            <div key={item.id} className={`todoComponent ${item.completed}`}>
+              <p>{item.task}</p>
+              <div className="icons">
+                <i className={item.icon} onClick={() => props.completeTask(item.id)}></i>
+                <i className="fas fa-times" onClick={() => props.closeTask(item.id)}></i>
+              </div>
             </div>
-          </div>
           )
         })
       }

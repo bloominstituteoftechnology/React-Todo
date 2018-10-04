@@ -38,10 +38,17 @@ body {
 
 .App .todolist .todoComponent .icons {
   display:flex;
+  text-decoration: none;
   width: 20%;
   justify-content: space-around;
 }
 
+.red {
+  background: rgba(0, 0, 0, 0.904);
+  color: rgb(255, 0, 0);
+  border:2px solid rgba(32, 134, 32, 0.425);
+  border-radius: 50%;
+}
 
 .green {
   color: rgb(0, 255, 0);
@@ -50,24 +57,15 @@ body {
   border-radius: 50%;
 }
 
-.close {
-  color: black;
-}
-
 .App .todolist .todoComponent.Incomplete {
   color: white;
   background-color: rgba(255, 144, 153, 0.712);
 }
 
 .App .todolist .todoComponent.Complete {
+  text-decoration: line-through;
   color: white;
   background-color: rgba(144, 183, 255, 0.712);
-}
-
-.red {
-  background: rgba(0, 0, 0, 0.904);
-  color: rgb(255, 0, 0);
-  border-radius: 50%;
 }
 
 .App .todoform {

@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import ToDoList from './components/TodoComponents/TodoList';
 import Form from './components/TodoComponents/TodoForm';
+import SimpleStorage from 'react-simple-storage';
 
 // you will need a place to store your state in this component.
 // design `App` to be the parent component of your application.
@@ -66,19 +67,22 @@ class App extends React.Component {
           }
         }
       })
-    });
+    }
+      // , () => {
+      //   localStorage.setItem("toDoList", JSON.stringify(this.state.list));
+      // }
+    )
   }
 
   changeHandler = event => {
     event.preventDefault();
-    this.setState({ newTask: event.target.value })
+    this.setState({ newTask: event.target.value });
   }
 
   addNewTask = event => {
     event.preventDefault();
-    if (this.state.newTask === '') {
+    if (!this.state.newTask) {
       alert('Please add a new task');
-      this.setState({ newTask: '' });
     } else {
       this.setState({
         list: [
@@ -92,21 +96,24 @@ class App extends React.Component {
           }
         ],
         newTask: ''
-      });
+      }
+        // , () => {
+        //   localStorage.setItem("toDoList", JSON.stringify(this.state.list))
+        // }
+      );
     };
   }
 
-  handleDelete = event => {
-    console.log(event.target);
-    event.preventDefault();
-    event.stopPropagation();
 
-  }
+
+
+
 
   render() {
 
     return (
       <div className="App">
+        <SimpleStorage parent={this} />
         {/* list of tasks */}
         <h1>Things to do when you're bored</h1>
         <div className="todolist">
@@ -115,7 +122,6 @@ class App extends React.Component {
             list={this.state.list}
             key={this.state.id}
             closeTask={this.closeTask}
-          // onClick={this.handleDelete}
           />
         </div>
 
