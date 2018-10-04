@@ -48,11 +48,8 @@ class App extends React.Component {
 
   clear = eventClick => {
     eventClick.preventDefault();
-    let remainingTasks = [];
-    this.state.toDoList.forEach(toDo => {
-      if(!toDo.completed){
-        remainingTasks.push(toDo);
-      }
+    let remainingTasks = this.state.toDoList.filter(toDo => {
+      return !toDo.completed
     });
     this.setState({
       toDoList: remainingTasks
