@@ -1,6 +1,4 @@
 import React from 'react';
-import { start } from 'pretty-error';
-
 class TodoForm extends React.Component {
     constructor(props){
         super(props);
@@ -31,4 +29,4 @@ class TodoForm extends React.Component {
         }
 }
 
-    export default TodoForm;
+export default TodoForm;

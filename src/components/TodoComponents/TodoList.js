@@ -1,25 +1,31 @@
 import React from 'react';
-import Todo from './Todo';
+import TodoListItem from './TodoListItem';
 
 class TodoList extends React.Component {
     constructor(props) {
-        super(props);
+        super(props);  
+
+        this.completedItem = this.completedItem.bind(this);
     }
-    render() {
-        // console.log(this.props.items);
-        console.log(`TodoList ${this.props.items}`)
-        let items = this.props.items;
-        items.map((item,index) => {
+
+    completedItem(index){
+        this.props.completedItem(index);
+    }
+
+    render() { 
+
+        let items = this.props.items.map((item, index) => {
             return(
-                <Todo key={index} item={item} index={index} />
+                <TodoListItem key={index} item={item} index={item.id} completedItem={this.completedItem}/>
             )
-        });
-        return(
+        })
+        return ( 
             <ul>
                 {items}
             </ul>
-        );
-    }
-}
 
+         );
+    };
+
+}
 export default TodoList;
