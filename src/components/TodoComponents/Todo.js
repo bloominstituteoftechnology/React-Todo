@@ -13,6 +13,7 @@ const Todo = props => {
                 inputChange = {props.inputChange}
                 addTodoInput = {props.addTodoInput}
                 completeTaskWipe={props.completeTaskWipe}
+                inputChangeFilter={props.inputChangeFilter}
                 />   
             </div> 
             <TodoList 

@@ -35,6 +35,8 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: gray;
+    width: 15%;
+    padding: 2rem 2rem;
 }
 
 .todolist {
@@ -50,19 +52,22 @@
 
 .todoButton1 {
    margin: 2rem 5% 2rem 30%;
-   width: 15%;
+   
 }
 
 .todoButton2 {
     margin: 2rem 30% 2rem  5%;
-    width: 15%;
-    padding: 2rem 2rem;
+ }
+ 
+ .filterButton {
+     margin: 2rem 0 2rem 0;
  }
 
 .todo form {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .no-decoration {

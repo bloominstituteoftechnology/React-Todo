@@ -71,6 +71,17 @@ class App extends React.Component {
     })
   };
 
+  inputChangeFilter = event => {
+    this.setState({
+      todoData: this.state.todoData.filter(tasks => {
+        let upperCase = tasks.task.toUpperCase();
+        if(upperCase.includes(event.target.value.toUpperCase())) {
+          return tasks;
+        }
+      })
+    })
+  };
+
   render() {
     return (
       <div className = 'app'>
@@ -82,6 +93,7 @@ class App extends React.Component {
         completeTaskSelect={this.completeTaskSelect}
         decorate={this.state.decorate}
         completeTaskWipe={this.completeTaskWipe}
+        inputChangeFilter={this.inputChangeFilter}
           />
       </div>
     );
