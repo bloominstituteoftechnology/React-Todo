@@ -172,7 +172,7 @@ html {
 
 h2 {
     font-family: 'Cormorant', serif;
-    color: #2D3142;
+    color: #1D2D44;
     display: block;
     text-align: center;
     font-size: 6rem;
@@ -185,22 +185,35 @@ ul {
     flex-direction: column;
     flex-wrap: wrap;
     border: 2px solid gray;
+    background-color: gray;
+    color: #E0E0E2;
     border-radius: 5px;
     padding: 10px;
     line-height: 2rem;
-    margin: 20px 5%;
-    width: 40%;
+    margin: 20px 0px;
+    width: 45%;
+    height: auto;
+    cursor: pointer;
+}
+
+ul:hover {
+    background-color:#7389AE;
+    color: #E0E0E2;
+    border: 2px solid #7389AE;
 }
 
 li {
     font-size: 3rem;
+    text-transform: lowercase;
 }
 
 .form {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     margin: 20px 0px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #7389AE
 }
 
 .input {
@@ -209,6 +222,9 @@ li {
     padding: 5px;
     border: 1px solid #7389AE;
     border-radius: 5px;
+}
+.input:focus {
+    outline-color: #7389AE;
 }
 
 
@@ -219,11 +235,11 @@ button {
     width: auto;
     padding: 0px 15px;
     font-size: 2.5rem;
-    background-color: #A09ABC;
+    background-color: #7389AE;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #7389AE;
+    background-color:gray; 
     color: #E0E0E2;
 }
