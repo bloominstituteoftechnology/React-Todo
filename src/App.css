@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+  color: rgb(32, 31, 32);
+  font-size: 1.2rem;  
+}
+
+.app {
+  background: rgb(241, 240, 240);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 20px 10%;
+}
