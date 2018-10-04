@@ -91,7 +91,7 @@ class App extends React.Component {
 
   filteredList = () => {
     let todoList = this.state.todoList.filter(todo => 
-      todo.task.indexOf(this.state.search) !== -1
+      todo.task.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
     )
     return todoList;
   }
