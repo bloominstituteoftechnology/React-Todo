@@ -6,6 +6,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			controlledText: '',
 			todos: [
 				{
 					task: 'Organize Garage',
@@ -21,6 +22,15 @@ class App extends React.Component {
 		};
 	}
 
+	//handleclick
+
+	//handleChange
+	handleChange = event => {
+		this.setState({
+			controlledText: event.target.value
+		});
+	};
+
 	// you will need a place to store your state in this component.
 	// design `App` to be the parent component of your application.
 	// this component is going to take care of state, and any change handlers you need to work with your state
@@ -31,7 +41,10 @@ class App extends React.Component {
 				<div>
 					<TodoList todos={this.state.todos} />
 				</div>
-				<TodoForm myProp="form connected" />
+				<TodoForm
+					handleChange={this.handleChange}
+					val={this.state.controlledText}
+				/>
 			</div>
 		);
 	}
