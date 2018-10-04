@@ -6,6 +6,7 @@ const TodoList = props => {
         {props.todoData.map((item, index) => {
     return(
         <p
+        key={item.id}
         onClick={() => props.strikeThrough(index)}
         className={item.textDecoration}
         >

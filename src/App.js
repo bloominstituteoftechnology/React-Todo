@@ -44,7 +44,7 @@ addNewTodo = event => {
   this.setState({
     todoData: [
       ...this.state.todoData,
-      { task : this.state.newTask, id: Math.floor(Math.random()*1000000), completed: false, textDecoration: 'none' }
+      { task : this.state.newTask, id: Math.floor(Math.random()*1000000), completed: false, textDecoration: 'none'}
     ],
     newTask: ''
   });
