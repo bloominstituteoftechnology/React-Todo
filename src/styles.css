@@ -213,7 +213,8 @@ li {
     align-items: center;
     margin: 20px 0px;
     padding-bottom: 20px;
-    border-bottom: 2px solid #7389AE
+    border-bottom: 2px solid #7389AE;
+    flex-wrap: wrap;
 }
 
 .input {
@@ -243,4 +244,25 @@ button {
 button:hover {
     background-color:gray; 
     color: #E0E0E2;
+}
+
+@media (max-width: 580px) {
+    form button {
+        width: 100%;
+        margin: 10px 0px;
+    }
+    form input {
+        width: 100%;
+    }
+
+    .container {
+        margin: 0 auto;
+        padding-top: 0px;
+    }
+    h2 {
+        font-size: 5rem;
+    }
+    ul {
+        width: auto;
+    }
 }
