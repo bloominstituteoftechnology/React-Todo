@@ -78,8 +78,20 @@ class App extends React.Component {
     this.updateSession(todoList);
   }
 
+  clearSearch = () => {
+    this.setState({search: ''});
+  }
+
+  filteredList = () => {
+    let todoList = this.state.todoList.filter(todo => 
+      todo.task.indexOf(this.state.search) !== -1
+    )
+    return todoList;
+  }
+
   changeHandler = event => {
     this.setState({[event.target.name]: event.target.value});
+    if (event.target.name === 'search') this.search(event.target.value);
   }
   
   render() {
@@ -88,6 +100,7 @@ class App extends React.Component {
         <Search 
           value={this.state.search}
           onChange={this.changeHandler}
+          clearSearch={this.clearSearch}
         />
         <div className="container">
           <TodoForm 
@@ -97,7 +110,7 @@ class App extends React.Component {
             clear={this.clearCompleted}
             />
           <TodoList
-            list={this.state.todoList} 
+            list={this.filteredList()} 
             toggle={this.toggleComplete}
             />
           <button onClick={this.clearCompleted} className="clear-btn">Clear Completed</button>
