@@ -81,5 +81,18 @@
 .Todo {
   padding: 1rem;
   cursor: pointer;
-  border-bottom: 1px solid #333;
+  /* border-bottom: 1px solid #333; */
+  transition: all 200ms;
+}
+
+.Todo:nth-child(even) {
+  color: white;
+  background: #8395a7;
+}
+
+.Todo:hover {
+  background: #c8d6e5;
+  transform: scale(1.1);
+  border-bottom: none;
+  color: white;
 }
