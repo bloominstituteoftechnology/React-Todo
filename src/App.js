@@ -4,8 +4,7 @@ import TodoList from "./components/TodoComponents/TodoList.js";
 import Eraser from './components/TodoComponents/Eraser.js';
 import "./components/TodoComponents/Todo.css";
 
-let initialList = [];
-let startUpList = [{
+let initialList = [{
         task: 'enter a new task in the upper left',
         id: Date.now().toString(),
         complete: false
@@ -34,7 +33,7 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      todoList: initialList, [ ...startUpList],
+      todoList: ...initialList,
       makeTodo: '',
       searchTerm: ''
     };
