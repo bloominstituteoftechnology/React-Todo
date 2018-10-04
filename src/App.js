@@ -33,13 +33,15 @@ class App extends React.Component {
     event.preventDefault();
 
     const todoData = this.state.todoData.slice();
-    todoData.push(
-      {
-        task: this.state.newTodo,
-        id: Date.now(),
-        completed: false
-      }
-    );
+    if (this.state.newTodo !== '' && this.state.todoData.length < 6) {
+      todoData.push(
+        {
+          task: this.state.newTodo,
+          id: Date.now(),
+          completed: false
+        }
+      );
+    }
 
     this.setState({
       todoData: todoData,
@@ -69,7 +71,6 @@ class App extends React.Component {
 
     let todoData = this.state.todoData;
     todoData = todoData.filter(todo => !todo.completed);
-    console.log(todoData);
 
     this.setState({
       todoData: todoData
