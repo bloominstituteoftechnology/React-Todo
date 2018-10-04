@@ -2,11 +2,11 @@ import React from "react";
 
 function Todo(props) { 
   return (
-  <div className ="list-items">
+  <div className ="list-card">
         <li onClick={() => props.handleToggle(props.todo.id)}
               style={props.todo.completed ? { textDecoration: 'line-through' } : null}>
               
-              {props.todo.task}
+             <h1>{props.todo.task}</h1> 
               
         </li>
         </div>

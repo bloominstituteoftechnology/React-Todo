@@ -17,6 +17,7 @@ body{
 .content{
     display:flex;
     width:100%;
+    background: #F0F0F0;
     
 }
 
@@ -31,6 +32,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index:2;
 
 }
 
@@ -47,24 +49,65 @@ form{
 }
 
 
+/*my main display*/
+.ul-content{
+    width: 82.5%;
+    display:flex;
+    background: #F0F0F0;
+    position: absolute;
+    right: 0;
+}
 
-
+ul{
+    overflow : auto;
+    flex-flow: row wrap;
+    /* width: 100%; */
+    display: flex;
+}
 
 /*list items*/
 li{
     cursor: pointer;
+    max-width: 200px;
+    overflow: auto;
+    max-height: 200px;
+    word-break: break-all;
 }
 
+.list-card{
+    
+    background: white;
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.16), 0px 3px 6px rgba(0,0,0,0.23);
+    
 
+}
+::-webkit-scrollbar
+{
+    width: 0px;
+}
+::-webkit-scrollbar-track-piece
+{
+    background-color: transparent;
+    -webkit-border-radius: 6px;
+}
 
 /* ## buttons */
 .buttons {
     text-align: center;
     height: 100%;
     display: flex;
-    background: aliceblue;
+    background: #c5f7f7;
     flex-direction: column;
     justify-content: space-around;
+    position: fixed;
+
     
     
 }
