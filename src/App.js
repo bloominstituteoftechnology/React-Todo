@@ -34,7 +34,17 @@ class App extends React.Component {
     }; 
   }
   strikeThru = id => {
-    
+    let newTodo = this.state.todoData.slice();
+    newTodo = newTodo.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ newTodo });
+    console.log(newTodo);
   };
   addTodo = event => {
     event.preventDefault();
