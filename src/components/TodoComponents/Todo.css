@@ -1,3 +1,38 @@
+
+/* App */
+.container {
+    border: 2px solid black;
+}
+
+
+
+
+.todoForm {
+    border: 1px solid salmon;
+}
+
+
+
 .struckThru {
     text-decoration-line: line-through;
 }
+
+/* todoForm */
+.input {
+    background: black;
+    color: blanchedalmond;
+
+}
+
+.add {
+    background: green;
+
+}
+
+.clear {
+    background: white;
+}
+
+/* todoList */
+
+/* todo */

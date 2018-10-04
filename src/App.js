@@ -6,6 +6,7 @@ import React from 'react';
 import Todo from './components/TodoComponents/Todo';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './components/TodoComponents/Todo.css'
 
 // const todoArr = [ 'start late', 'take slow', 'taper off'];
 const todoArr = [
@@ -72,7 +73,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h2>Todos!</h2>
         <Todo passedData={this.state.test}/>
         <TodoList todoArr={this.state.todoArr} mark={this.mark}/>
