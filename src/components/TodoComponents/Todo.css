@@ -1,11 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light|Source+Sans+Pro');
+
+
+*{
+  box-sizing: border-box;
+}
+
+
 .container {
   width: 50%;
   margin: 0 auto;
   background: turquoise;
-  padding: 25px 25px 45px 25px ;
-  margin-top: 25px;
+  padding: 5px 25px 45px 25px;
+  margin-top: 45px;
   border: 3px solid lightgray;
   border-radius: 10px;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 h1 {
@@ -13,30 +23,37 @@ h1 {
   color: white;
   border-bottom: 2px solid gray;
   padding-bottom: 10px;
+  font-size: 60px;
+  margin-top: 10px;
+  letter-spacing: 2px;
+  font-family: 'Shadows Into Light', cursive;
 }
 
 input {
-  width: 95%;
+  width: 100%;
   padding: 6px;
-  text-align: center;
+  color: lightgray;
   font-size: 18px;
   margin: 20px 0px;
-  border: none;
+  border: 1px solid lightgray;
   border-radius: 5px;
 }
 
 
 button{
-  width: 48%;
+  width: 49%;
   padding: 10px 0px;
   border-radius: 5px;
-  border: none;
-  margin-right: 6px;
   font-size: 16px;
+  border: 1px solid lightgray;
   color: gray;
+  
 }
 
+::placeholder {
+  color: lightgray;
+}
 p{
   color: white;
-  font-size: 18px;
+  font-size: 20px;
 }
