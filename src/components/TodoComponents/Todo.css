@@ -1,9 +1,74 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    color: #817F7F;
+}
+
+#root {
+    margin: 0 auto;
+    width: 700px;
+    background-color: #DEF1F4;
+    border-radius: 5px;
+}
+
 .strikethrough {
     text-decoration: line-through;
 }
- .list-item:hover {
+
+.list-item:hover {
     cursor: pointer;
 }
- li {
+
+li {
     list-style-type: none;
+    font-size: 24px;
+    font-weight: lighter;
+}
+
+.todo-form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    align-items: center;
+}
+
+.button {
+    margin: 20px;
+    width: 150px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid silver;
+    font-size: 16px;
+    font-weight: lighter;
+    color: #817F7F;
+}
+
+.button:hover {
+    background-color: #518D98;
+    color: white;
+}
+
+input {
+    width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid silver;
+}
+
+h2 {
+    text-align: center;
+    font-size: 36px;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.list-item {
+    padding: 10px 0px;
+    width: 100%;
+    text-align: center;
 }
