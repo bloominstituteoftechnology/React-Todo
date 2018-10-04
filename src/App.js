@@ -52,13 +52,21 @@ class App extends React.Component {
     })
   }
 
+  filterTasks = event => {
+    event.preventDefault();
+    this.setState({
+      todoArray: this.state.todoArray.filter(todo => !todo.completed)
+    })
+  }
+
   addNewTodo = event => {
     event.preventDefault();
     this.setState({
       todoArray: [...this.state.todoArray, 
         {
           task: this.state.todo,
-          completed: false
+          completed: false,
+          name: 'normal'
         }
       ],
       todo: ''
@@ -74,9 +82,6 @@ class App extends React.Component {
   // }
   
   render() {
-    console.log(this.state.todoArray[0]);
-    console.log(this.state.todoArray[1]);
-    console.log(this.state.todoArray[2]);
     return (
       <div>
         <TodoList 
@@ -88,6 +93,7 @@ class App extends React.Component {
         addNewTodo={this.addNewTodo} 
         changeHandler={this.changeHandler}
         todo={this.state.todo}
+        filterTasks={this.filterTasks}
         />
       </div>
     );
