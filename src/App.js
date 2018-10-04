@@ -52,6 +52,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <h1 className="title">Lambda Todo</h1>
         <TodoForm
           value={this.state.todo}
           handleTodoChange={this.changeTodo}
@@ -61,6 +62,7 @@ class App extends React.Component {
         <TodoList
           todos={this.state.todos}
           handleToggleComplete={this.toggleTodoComplete}
+          className="todo-list"
         />
       </div>
     );

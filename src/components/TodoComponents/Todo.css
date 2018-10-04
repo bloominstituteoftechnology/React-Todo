@@ -1,0 +1,46 @@
+* {
+  font-family: 'Roboto Mono', monospace;
+}
+
+body {
+  padding: 50px;
+  background-color: darkgray;
+  font-family: sans-serif;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  text-align: center;
+  color: white;
+}
+
+.todoForm .input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid black;
+  width: 165px;
+}
+
+.todoForm .button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+  margin-right: 0px;
+  background-color: cornflowerblue;
+  color: white;
+  border: 2px solid black;
+}
+
+.button:hover {
+  background-color: white;
+  color: cornflowerblue;
+  cursor: pointer;
+}
+
+.todo-list {
+  color: white;
+}

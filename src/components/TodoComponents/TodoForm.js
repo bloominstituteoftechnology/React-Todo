@@ -2,13 +2,14 @@ import React from 'react';
 
 const TodoForm = props => {
   return (
-    <form>
+    <form className="todoForm">
       <input
         className="input"
         onChange={props.handleTodoChange}
         value={props.value}
         type="text"
         name="todo"
+        placeholder="Enter todo"
       />
       <button className="button" onClick={props.handleAddTodo}>
         Add Todo
