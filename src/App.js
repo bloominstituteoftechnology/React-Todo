@@ -22,7 +22,7 @@ class App extends React.Component {
           completed: false
         }
       ],
-      newTodo: '',
+      newTodo: {task: ''},
     }
   }
 
@@ -41,7 +41,7 @@ class App extends React.Component {
           completed: false
         }
       ],
-      newToDo: ''
+      newTodo: { task: ''}
     })
   }
 
@@ -55,8 +55,8 @@ class App extends React.Component {
         />
       <TodoForm 
         changeHandler={this.changeHandler}
-        newTodo={this.state.newTodo}
         addNewTodo={this.addNewTodo} //forgot to add ALL the handlers from form
+        newTodo={this.newTodo}
       />
       </div>
     )

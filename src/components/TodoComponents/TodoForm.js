@@ -10,8 +10,9 @@ const TodoForm = (props) => {
         onChange={props.changeHandler}
         value={props.newTodo} //taken from this.state
         />
-        <button type="submit" onClick={props.addNewTodo}>Add New Todo</button>      
-    </form>    
+        <button type="submit" onClick={props.addNewTodo}>Add New Todo</button>
+        <button>Clear Completed (for day 2)</button>        
+    </form>
   )
 }
 
