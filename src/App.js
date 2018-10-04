@@ -54,8 +54,8 @@ addNewTodo = event => {
 
   render() {
     return (
-      <div>
-        <h2>To-do List:</h2>
+      <div className="container">
+        <h2>To Do List:</h2>
         <TodoForm
           todoData={this.state.todoData}
           addNewTodo={this.addNewTodo}

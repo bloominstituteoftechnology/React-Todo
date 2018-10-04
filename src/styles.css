@@ -1,7 +1,229 @@
+/*------------------------------------*\
+RESET
+\*------------------------------------*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+v2.0b1 | 201101 
+NOTE:WORK IN PROGRESS
+USE WITH CAUTION AND TEST WITH ABANDON */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: ’’;
+  content: none;
+}
+ins {
+  text-decoration: none;
+}
+del {
+  text-decoration: line-through;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Beginning of custom code */
+
+
+@import url('https://fonts.googleapis.com/css?family=Cormorant|Pathway+Gothic+One');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+
 .strikeThrough {
     text-decoration: line-through;
 }
 
 .none {
     text-decoration: none;
+}
+
+.container {
+    font-family: 'Pathway Gothic One', sans-serif;
+    display: block;
+    max-width: 800px;
+    /* max-height: 600px; */
+    min-width: 350px;
+    width: 100%;
+    margin: 80px auto;
+    background-color: #E0E0E2;
+    padding: 50px;
+    border: 2px solid #E0E0E2;
+    border-radius: 5px;
+}
+
+h2 {
+    font-family: 'Cormorant', serif;
+    color: #2D3142;
+    display: block;
+    text-align: center;
+    font-size: 6rem;
+    padding: 20px;
+    border-bottom: 2px solid #7389AE
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    line-height: 2rem;
+    margin: 20px 5%;
+    width: 40%;
+}
+
+li {
+    font-size: 3rem;
+}
+
+.form {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.input {
+    height: 3rem;
+    font-size: 2rem;
+    padding: 5px;
+    border: 1px solid #7389AE;
+    border-radius: 5px;
+}
+
+
+button {
+    font-family: inherit;
+    border-radius: 5px;
+    height: 50px;
+    width: auto;
+    padding: 0px 15px;
+    font-size: 2.5rem;
+    background-color: #A09ABC;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7389AE;
+    color: #E0E0E2;
 }

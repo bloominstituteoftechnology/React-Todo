@@ -1,17 +1,21 @@
 import React from 'react';
 
+import './Todo.css'
+
 const TodoList = props => {
     return(
         <div>
         {props.todoData.map((item, index) => {
     return(
-        <p
-        key={item.id}
+        <ul className="listItems">
+        <li
+        key={index}
         onClick={() => props.strikeThrough(index)}
         className={item.textDecoration}
         >
     {item.task}
-    </p>
+    </li>
+    </ul>
     );
     })}
         </div>

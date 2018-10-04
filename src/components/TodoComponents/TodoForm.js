@@ -1,6 +1,8 @@
 import React from 'react';
 import Todo from './Todo'
 
+import './Todo.css'
+
 //Input field
 //Add Todo button
 //Clear Completed button
@@ -8,13 +10,12 @@ import Todo from './Todo'
 const TodoForm = props => {
     return (
         <div>
-            <Todo
-            todoData={props.todoData}
-            strikeThrough={props.strikeThrough}
-            />
-            <form onSubmit={props.addNewTodo}>
+            <form 
+            className="form"
+            onSubmit={props.addNewTodo}>
 
             <input 
+            className="input"
             type="text"
             name="newTask"
             placeholder="...todo"
@@ -26,9 +27,16 @@ const TodoForm = props => {
             Add Todo
             </button>
 
+            <button onClick={props.clearCompleted}>
+            Clear Completed
+            </button>
+
             </form>
 
-            <button onClick={props.clearCompleted}>Clear Completed</button>
+            <Todo
+            todoData={props.todoData}
+            strikeThrough={props.strikeThrough}
+            />
         </div>
     )
 }

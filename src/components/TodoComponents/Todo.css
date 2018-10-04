@@ -1,0 +1,12 @@
+ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 2px solid gray;
+    margin: 20px 5%;
+}
+
+
+li {
+    font-size: 3rem;
+}
