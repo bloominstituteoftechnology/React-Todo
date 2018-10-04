@@ -32,7 +32,7 @@ class App extends React.Component {
      }
     };
 
-    addTodo = event => {  //anonymous or event? 
+    addTodo = event => {
       event.preventDefault();
       const thingsThatNeedDoin = this.state.thingsThatNeedDoin.slice();
       thingsThatNeedDoin.push({
@@ -44,9 +44,22 @@ class App extends React.Component {
     };
 
     handleInputChange = event => {
-      this.setState({ todo: event.target.value }); // target value wha?
+      this.setState({ todo: event.target.value });
       //update state. only way to update state object. new copy of state. original replaced by new version we push inside of it. shallow merging.
-    }
+    };
+
+    toggleCompleted = () => {
+      thingsThatNeedDoin.map(task => {
+        thingsThatNeedDoin.completed ? true : false;
+    });
+    this.setState({ });
+    };
+
+    clearCompleted = event => {
+      event.preventDefault();
+      thingsThatNeedDoin.filter(donesky => !thingsThatNeedDoin.completed);
+      this.setState({ });
+    };
 
     render() {
     return (
