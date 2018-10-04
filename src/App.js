@@ -12,18 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ],
+      tasks: [],
       inputText: ''
     };
   }
@@ -31,7 +20,7 @@ class App extends React.Component {
 
   changeText = event => {
     event.preventDefault();
-    this.setState({inputText: event.target.value});
+    this.setState({ [event.target.name]: event.target.value});
   }
 
   addNewTodo = event => {
@@ -49,24 +38,33 @@ class App extends React.Component {
     }
   };
 
-  // todoClickHandler = event => {
-  //   event.preventDefault();
-  //   this.setState(
-  //     this.completed: !this.completed;
-  //   );
-  // }
+  completedHandler = (id) => {
+    console.log('completed handler');
+    this.setState({
+      tasks: this.state.tasks.filter((task, id) => {
+      if(task.id !== id) {
+        return task;
+      } else {
+        return {
+          ...task,
+          completed: task.completed === true ? false : true
+        };
+      }
+    })
+  })
+}
 
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h1>Things To Do</h1>
         <TodoForm 
           addNewTodo={this.addNewTodo}
           changeText={this.changeText}
           inputText={this.state.inputText} 
           tasks={this.tasks}
         />
-        <TodoList tasks={this.state.tasks} />
+        <TodoList tasks={this.state.tasks} completedHandler={this.completedHandler} />
       </div>
     );
   }
