@@ -4,14 +4,14 @@ import ToDo from './Todo';
 const TodoList = (props) => {
     return (
         <ul>
-            {props.todolist.map(newToDo => {
+            {props.todolist.map(todos => {
                 return (
                     <ToDo 
-                        key={newToDo.id} 
-                        value={newToDo.task} 
+                        key={todos.id} 
+                        value={todos.task} 
                         crossout={props.crossout} 
-                        id={newToDo.id}
-                        completed={newToDo.completed}
+                        id={todos.id}
+                        completed={todos.completed}
                     />
                 )
             })}

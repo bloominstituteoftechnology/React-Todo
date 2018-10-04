@@ -35,10 +35,10 @@ class App extends React.Component {
     }
   }
 
-  crossout = (elementID) => {
+  crossout = (id) => {
     this.setState({
       todolist: this.state.todolist.map( items=>{
-        if(items.id === elementID) {
+        if(items.id === id) {
           return {
             task: items.task,
             id: items.id,
