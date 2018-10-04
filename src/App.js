@@ -21,12 +21,14 @@ class App extends React.Component {
   }
   addTodo = e => {
     e.preventDefault();
-    let newTodos = [...this.state.todos, {task: this.state.todo, id: Date.now(), completed: false}];
-    this.setState({ 
-      todos: newTodos,
-      todo: '' 
-    });
-    localStorage.setItem('todos', JSON.stringify(newTodos));
+    if (this.state.todo) {
+      let newTodos = [...this.state.todos, {task: this.state.todo, id: Date.now(), completed: false}];
+      this.setState({ 
+        todos: newTodos,
+        todo: '' 
+      });
+      localStorage.setItem('todos', JSON.stringify(newTodos));
+    }
   }
   clearTodo = e => {
     e.preventDefault();
