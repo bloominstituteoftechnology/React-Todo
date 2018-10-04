@@ -2,6 +2,7 @@ import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 import './App.css';
+import TodoHeader from './components/TodoComponents/TodoHeader';
 
 class App extends React.Component {
   constructor() {
@@ -34,6 +35,9 @@ class App extends React.Component {
     };
 
     this.setState({ todos: [...this.state.todos, task], input: '' });
+
+    // Local Storage
+    localStorage.setItem('task', JSON.stringify(task));
   };
 
   handleInputChange = e => {
@@ -62,6 +66,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <TodoHeader />
         <TodoForm
           handleNewToDo={this.handleNewToDo}
           handleInputChange={this.handleInputChange}

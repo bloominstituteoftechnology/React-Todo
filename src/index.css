@@ -147,6 +147,8 @@ html {
 body {
   margin: 0;
   padding: 0.4rem;
-  font-family: sans-serif;
+  line-height: 1.5;
   font-size: 1.6rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }

@@ -1,12 +1,56 @@
-.Todo {
-  padding: 20px;
+.TodoHeader {
+  text-align: center;
+  font-size: 3.6rem;
+  margin-bottom: 3rem;
+}
+
+.TodoForm {
+  display: flex;
+  justify-content: space-between;
+}
+
+.TodoInput {
+  display: block;
+  /* width: 100%; */
+  padding: 1rem;
+  font-size: 2rem;
+  outline: 0;
+  border-radius: 5px;
+  border: 2px solid #333;
+  font-family: inherit;
+  width: 60%;
+}
+
+.TodoButton {
+  width: 15%;
+  outline: 0;
+  border-radius: 5px;
   cursor: pointer;
+  color: white;
+  transition: all 200ms;
 }
 
-.Complete {
-  text-decoration: line-through;
+.add {
+  border: 2px solid #10ac84;
+  background: #1dd1a1;
+  font-size: 3rem;
 }
 
-.Cleared {
-  display: none;
+.add:hover {
+  transform: scale(1.1);
+}
+
+.clear {
+  background: #ff6b6b;
+  border: 1px solid #ee5253;
+}
+
+.TodoList {
+  margin-top: 4rem;
+}
+
+.Todo {
+  padding: 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
 }
