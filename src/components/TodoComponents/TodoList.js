@@ -5,28 +5,14 @@
 //iterates over the list generating a new <Todo /> for each element in the array.
 
 import React from "react";
+import Todo from "./Todo";
 
 const TodoList = props => {
   return (
     <div>
-      {props.toDoData.map(item => {
-        return <p>{item.task}</p>;
-      })}
-
-      <div>
-        <form onSubmit={props.addToDoHandler}>
-          <input
-            type="text"
-            name="newTask"
-            placeholder="...To do"
-            onChange={props.changeHandler}
-            value={props.newTask}
-          />
-
-          <button onClick={props.addNewToDo}>New Todo</button>
-          <button>Clear Completed</button>
-        </form>
-      </div>
+      {props.toDoData.map(newTask => (
+        <Todo newTask={newTask} />
+      ))}
     </div>
   );
 };
