@@ -86,7 +86,7 @@ class App extends React.Component {
     event.preventDefault();
     let todos = this.state.todos;
     todos = todos.filter(todo => todo.completed === false)
-    this.setState({todos});
+    this.setState({todos, backupList:todos});
   }
 
   searchHandler = (event) => {
