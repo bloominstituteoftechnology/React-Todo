@@ -20,7 +20,9 @@ class App extends React.Component {
           id: 1528817084358,
           completed: false
         }
-      ]
+      ],
+      toDoStyle: "toDo",
+      strikethrough: { textDecoration: "line-through" }
     };
   }
 
@@ -52,6 +54,13 @@ class App extends React.Component {
           return item;
         }
       })
+    });
+  };
+
+  removeCompleted = event => {
+    event.preventDefault();
+    this.setState({
+      toDo: this.state.toDo.filter(toDo => (!toDo.completed ? toDo : null))
     });
   };
 
@@ -105,6 +114,7 @@ class App extends React.Component {
         <TodoForm
           handleNewToDo={this.handleNewToDo}
           handleInputChange={this.handleInputChange}
+          removeCompleted={this.removeCompleted}
         />
       </div>
     );

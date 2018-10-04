@@ -9,6 +9,7 @@ const List = props => (
         id={item.id}
         task={item.task}
         handleCompleted={props.handleCompleted}
+        className={props.style}
       />
     ))}
   </ul>
