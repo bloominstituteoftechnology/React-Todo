@@ -4,11 +4,13 @@ import TodoSearch from './components/TodoComponents/TodoSearch';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+let initialTodos;
+localStorage.getItem('todos') ? initialTodos = JSON.parse(localStorage.getItem('todos')) : initialTodos = []; 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [],
+      todos: initialTodos,
       todo: '',
       search: '',
       storedTodos: []
@@ -19,20 +21,23 @@ class App extends React.Component {
   }
   addTodo = e => {
     e.preventDefault();
+    let newTodos = [...this.state.todos, {task: this.state.todo, id: Date.now(), completed: false}];
     this.setState({ 
-      todos: [...this.state.todos, {task: this.state.todo, id: Date.now(), completed: false}],
+      todos: newTodos,
       todo: '' 
     });
+    localStorage.setItem('todos', JSON.stringify(newTodos));
   }
   clearTodo = e => {
     e.preventDefault();
     let filteredTodos = this.state.todos.filter(todo => todo.completed === false);
     this.setState({ todos: filteredTodos });
+    localStorage.setItem('todos', JSON.stringify(filteredTodos));
   }
   handleSearch = e => {
     this.setState({ search: e.target.value, storedTodos: this.state.todos })
     if (e.target.value) {
-      let filteredTodos = this.state.todos.filter(todo => todo.task.indexOf(e.target.value) > -1);
+      let filteredTodos = this.state.todos.filter(todo => todo.task.indexOf(e.target.value) !== -1);
       this.setState({ todos: filteredTodos });
     } else {
       this.setState({ todos: this.state.storedTodos });
