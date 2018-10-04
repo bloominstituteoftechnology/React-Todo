@@ -8,6 +8,7 @@ const TodoForm = props => (
             placeholder='todo...' 
             onChange={props.changeHandler}
             value={props.inputText}
+            required
         />
         <button className='add-btn' onClick={props.addTodo}>Add Todo</button>
         <button className='clear-btn'>Clear Completed</button>

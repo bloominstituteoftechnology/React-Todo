@@ -33,12 +33,23 @@ class App extends React.Component {
     this.setState({
       todo: [
         ...this.state.todo,
-        {task: this.state.inputText,
-        id: Date.now(),
-        completed: false}
+        {
+          task: this.state.inputText,
+          id: Date.now(),
+          completed: false
+        }
       ]
     })
 
+  }
+
+
+  toggleTodo = task => {
+    this.setState({
+      todo: this.state.todo.map (
+        item => (item.task === task ? { ...item, completed: !item.completed} : item)
+      )
+    })
   }
 
   render() {
@@ -46,6 +57,7 @@ class App extends React.Component {
       <div>
         <TodoList 
           todo={this.state.todo}
+          toggleTodo={this.toggleTodo}
         />
         <TodoForm
           inputText={this.state.inputText}
