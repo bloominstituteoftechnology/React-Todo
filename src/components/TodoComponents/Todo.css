@@ -27,13 +27,13 @@ nav a {
     font-weight: bolder;
     color: lightcoral;
     text-decoration: none;
-    width: 20%;
+    width: 50%;
     text-shadow: 1px 1.5px 0px rgba(0,0,0,0.2);
 }
 
 nav input {
     width: 25%;
-    padding: 10px;
+    padding: 10px 15px;
     border-radius: 50px;
     border: 1px solid lightcoral;
     color: lightcoral;

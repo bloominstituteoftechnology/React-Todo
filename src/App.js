@@ -22,7 +22,19 @@ class App extends React.Component {
         }
       ],
       newTodo: '',
-      search: '',
+      searchText: '',
+      backupList: [
+        {
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
+      ],
     }
   }
 
@@ -43,6 +55,13 @@ class App extends React.Component {
           }
         ],
         newTodo: '',
+        backupList: [
+          ...this.state.todos, { 
+            task: this.state.newTodo,
+            id: Date.now(),
+            completed: false,
+          }
+        ]
       });
       document.getElementById('form').reset();
     }
@@ -70,6 +89,21 @@ class App extends React.Component {
     this.setState({todos});
   }
 
+  searchHandler = (event) => {
+    event.preventDefault();
+    if (event.target.value == '') {
+      this.setState({
+        searchText: '',
+        todos: this.state.backupList,
+      })
+    }
+    else {
+      this.setState({[event.target.name]: event.target.value})
+      let searched = this.state.todos.filter(todo => todo.task.includes(event.target.value));
+      this.setState({todos: searched})
+    }
+  }
+
   render() {
     return (
       <TodoList 
@@ -78,6 +112,7 @@ class App extends React.Component {
         addTodo={this.addTodo}
         completeTask={this.completeTask}
         clearTodos={this.clearTodos}
+        searchHandler={this.searchHandler}
       />
     )
   }
