@@ -9,6 +9,7 @@
 */
 
 /* reset */
+
 @import url('https://fonts.googleapis.com/css?family=Cinzel|Roboto');
 html,
 body,
@@ -183,7 +184,8 @@ a:hover {
     flex-direction: column;
     background: linear-gradient(rgba(216, 184, 231, 0.726), transparent), linear-gradient(to top left, rgba(197, 226, 67, 0.829), transparent), linear-gradient(to top right, rgb(228, 131, 62), transparent);
     background-blend-mode: screen;
-    color: #ffffff
+    color: #ffffff;
+    border-radius: 10px;
 }
 
 h1 {
@@ -191,20 +193,26 @@ h1 {
     font-size: 4rem;
     font-weight: 700;
     letter-spacing: 4px;
-    margin: 2rem;
+    margin-top: 2rem;
     text-decoration: underline;
     text-align: center;
 }
 
-li {
+ul {
     margin: 2rem;
+}
+li {
+    margin: .5rem 2rem;
     text-align: center;
     font-size: 1.8rem;
 }
+
 form {
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 2rem;
 }
+
 button {
     font-family: Cinzel, serif;
     font-weight: bold;
@@ -219,6 +227,7 @@ button {
 button:hover {
     color: #ffffff;
     background: #222222;
+    background: none;
     cursor: pointer;
 }
 
