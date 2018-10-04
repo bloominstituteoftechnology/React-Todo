@@ -33,21 +33,23 @@
 }
 
 .add-form input {
-    width: 220px;
+    width: 210px;
     height: 35px;
     font-size: 18px;
-    border: solid 1px #18191C;
-    border-radius: 10px;
-    padding: 0px 10px;
+    border: solid 1px rgb(247, 150, 64);
+    border-radius: 20px;
+    padding: 0px 20px;
     outline: none;
+    color: rgb(247, 150, 64);
 }
 
 .add-form button {
     width: 100px;
     height: 35px;
     font-size: 14px;
-    border: solid 1px #18191C;
-    border-radius: 10px;
+    border: solid 1px rgb(247, 150, 64);
+    border-radius: 20px;
     padding: 0px 10px;
     outline: none;
+    color: rgb(247, 150, 64);
 }

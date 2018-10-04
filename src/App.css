@@ -6,9 +6,9 @@
 
 body {
     font-family: 'Roboto', Arial, sans-serif;
-    background: linear-gradient(210deg, rgba(24, 25, 28, 0.8), #18191C);
+    background: linear-gradient(210deg, rgba(247, 150, 64, 1), rgba(247, 150, 64, 0.9));
     height: 100vh;
-    color: #18191C;
+    color: rgb(247, 150, 64);
 }
 
 .container {
@@ -20,21 +20,22 @@ body {
     align-items: flex-start;
     margin: 50px auto;
     background: white;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 0 5px rgba(25,25,25,.25);
-    padding: 10px;
+    padding: 15px;
     position: relative;
 }
 
 
 .clear-btn { 
-    width:95%;
+    width: 320px;
     height: 35px;
     font-size: 14px;
-    border: solid 1px #18191C;
-    border-radius: 10px;
+    border: solid 1px rgb(247, 150, 64);
+    border-radius: 20px;
     padding: 0px 10px;
     outline: none;
     position: absolute;
     bottom: 10px;
+    color: rgb(247, 150, 64);
 }

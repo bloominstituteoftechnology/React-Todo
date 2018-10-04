@@ -11,8 +11,9 @@ const TodoForm = ({task, addTask, onChange}) => {
                     value={task}
                     onChange={onChange}
                     autocomplete="off"
+                    maxlength="20"
                 />
-                <button>Submit</button>
+                <button>Add</button>
             </form>
         </div>
     );

@@ -49,6 +49,7 @@ class App extends React.Component {
 
   addTask = event => {
     event.preventDefault();
+    if (this.state.task === '') return;
     let taskObj = {
       task: this.state.task,
       id: Date.now(),
