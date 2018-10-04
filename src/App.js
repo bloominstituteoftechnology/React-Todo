@@ -40,13 +40,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoForm 
+        <TodoList todos={this.state.todos} />
+
+        <TodoForm
           addTodo={this.addTodo}
           changeHandler={this.changeHandler}
           newTodo={this.state.newTodo}
         />
-        
-        <TodoList todos={this.state.todos} />
 
       </div>
     );
