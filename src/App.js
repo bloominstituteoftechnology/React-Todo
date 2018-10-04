@@ -29,8 +29,23 @@ class App extends React.Component {
 
  addNewCharacter = (event) => {
    event.preventDefault()
-   this.setState({TodoList: [...this.state.TodoList, {entry: this.state.inputText}]})
+   this.setState({TodoList: [...this.state.TodoList, {entry: this.state.inputText, style: ""}]})
+   
+ }
 
+ setStyle = (index) => {
+   this.setState({
+     TodoList: this.state.TodoList.map(item, ind => {
+       if (index !== ind) {
+         return item;
+       } else {
+         return {
+           ...name,
+           style: name.style = "strikethrough"
+         }
+       }
+     })
+   })
  }
 
   render() {
