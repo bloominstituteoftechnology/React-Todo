@@ -8,19 +8,34 @@ class App extends Component {
       super(props);
       this.state = {
         todoData: [
-            {
-              task: 'Organize Garage',
-              id: 1528817077286,
-              completed: false
-            },
-            {
-              task: 'Bake Cookies',
-              id: 1528817084358,
-              completed: false
-            }
+            
           ],
         todoText: ''
       };
+    }
+    completedItem =event =>{
+      let id = parseInt(event.target.id);
+      this.setState({
+        todoData: this.state.todoData.map((item) => {
+
+          if (id !== item.id) {
+            return item;
+          } else {
+
+            return {
+              ...item,
+              completed: true
+            };
+          }
+        })
+      });
+      
+    }
+    clearCompleted =event =>{
+      event.preventDefault();
+      const copyOfData= this.state.todoData
+      this.setState({
+        todoData: copyOfData.filter ((item) => item.completed===false)})
     }
     addNewTodo = event => {
         event.preventDefault();
@@ -42,7 +57,7 @@ class App extends Component {
         return (
           <div className="App">
             <TodoList
-
+              completedItem={this.completedItem}
               todoData={this.state.todoData}            
             />
             <TodoForm 
@@ -50,6 +65,8 @@ class App extends Component {
               changeHandler={this.changeHandler}
               todoText={this.state.todoText}
               newTodo={this.state.newTodo}
+              clearCompleted={this.clearCompleted}
+              
             />
 
           </div>
