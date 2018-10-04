@@ -1,13 +1,14 @@
 import React from 'react';
 import TodoForm from "./components/TodoComponents/TodoForm.js";
 import TodoList from "./components/TodoComponents/TodoList.js";
+import Eraser from './components/TodoComponents/Eraser.js';
 import "./components/TodoComponents/Todo.css";
 
 let initialList = [
   {
     task: 'make a to-do list',
     id: Date.now().toString(),
-    complete: false, 
+    complete: false
   }
 ];
 let storedList = localStorage.getItem('todoList');
@@ -21,14 +22,12 @@ class App extends React.Component {
     this.state = {
       todoList: initialList,
       makeTodo: '',
-      searchTerm: '',
+      searchTerm: ''
     };
 
   }
   handleNewTodo = event => {
-    this.setState({
-      makeTodo: event.target.value
-    })
+    this.setState({makeTodo: event.target.value})
   }
 
   addTodo = event => {
@@ -37,16 +36,19 @@ class App extends React.Component {
       let newTodo = {
         task: newTask,
         id: Date.now().toString(),
-        complete: false,
+        complete: false
       }
       this.setState({
-        todoList: [...this.state.todoList, newTodo],
+        todoList: [
+          ...this.state.todoList,
+          newTodo
+        ],
         makeTodo: ''
       }, this.saveLocally)
     }
   }
 
- markDone = event => {
+  markDone = event => {
     let target = event.currentTarget;
     let id = target.attributes.id.value;
     let newList = this.state.todoList;
@@ -56,14 +58,19 @@ class App extends React.Component {
         todo.completed = !todo.completed;
       }
     }
-    this.setState({ todoList: newList }, this.saveLocally);
+    this.setState({
+      todoList: newList
+    }, this.saveLocally);
   }
 
-  clearDone = () => {
+  clearDone = event => {
+    event.preventDefault(); 
     let listCopy = this.state.todoList.filter(todo => {
       return !todo.completed;
     });
-    this.setState({todoList: listCopy}, this.saveLocally)
+    this.setState({
+      todoList: listCopy
+    }, this.saveLocally)
   }
 
   saveLocally() {
@@ -73,47 +80,31 @@ class App extends React.Component {
 
   handleSearch = event => {
     let searchString = event.target.value;
-    this.setState({
-      searchTerm: searchString
-    });
+    this.setState({searchTerm: searchString});
 
     let searchingList = this.state.todoList.map(todo => {
       let noMatch = false;
       if (todo.task.indexOf(searchString) === -1) {
         noMatch = true;
       }
-      return {
-        id: todo.id,
-        task: todo.task,
-        complete: todo.complete,
-        hidden: noMatch
-      }
+      return {id: todo.id, task: todo.task, complete: todo.complete, hidden: noMatch}
     });
-    this.setState({
-      todoList: searchingList
-    });
+    this.setState({todoList: searchingList});
   }
 
   render() {
-    return (
-    <div className='app'>
+    return (<div className='app'>
       <div className='header'>
         <h2>Task List</h2>
       </div>
+      <TodoForm inputValue={this.state.makeTodo} handleNewTodo={this.handleNewTodo} addTodo={this.addTodo} searchValue={this.state.searchTerm} handleSearch={this.handleSearch}/>
       <div className='list-container'>
-        <TodoList list={this.state.todoList} handleClick={this.markDone} />
-        <TodoForm
-          inputValue={this.state.makeTodo}
-          handleNewTodo={this.handleNewTodo}
-          addTodo={this.addTodo}
-          clearDone={this.clearDone}
-          searchValue={this.state.searchTerm}
-          handleSearch={this.handleSearch}
-        />
-
+        <TodoList list={this.state.todoList} handleClick={this.markDone}/>
+        <div className='footer'/>
       </div>
-    </div>
-    );
+      <Eraser clearDone={this.clearDone} />
+      </div>
+        );
   }
 }
 

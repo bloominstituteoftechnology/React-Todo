@@ -11,25 +11,27 @@ bod {
 }
 
 .app {
-  /* color: #197278; */
   max-width: 600px;
   width: 100%;
   margin: 0 auto;
+  box-shadow: 7px 10px gray;
+  border-radius: 10px;
+  background-color: #fdf0d5;
 }
 
 .header {
   font-family: 'Archivo Black', sans-serif;
-  background-color: #fabc3c;
+  background-color: #c44536;
   border-radius: 10px 10px 0 0;
   display: flex;
   align-items: center;
 }
 
 .header h2 {
-  font-size: 3rem;
+  font-size: 2.6rem;
   width: 100%;
   text-align: center;
-  color: #C44536;
+  color: #114B5F;
 }
 
 .todo-list {
@@ -40,7 +42,8 @@ bod {
   padding-right: 2%;
   background-color: #fdf0d5;
   width: 100%;
-  min-height: 50px; 
+  min-height: 50px;
+  border-radius: 0 0 10px 10px;
 }
 
 .line {
@@ -61,8 +64,7 @@ bod {
     position: relative;
     left: -20px;
     top: 20px;
-    /* border: 1px solid gray; */
-    box-shadow: inset 1px 2px #bdbdbd;
+    box-shadow: inset 1px 2px gray;
 }
 
 .two {
@@ -87,90 +89,118 @@ bod {
 
 .form-container {
   width: 100%;
+  /* background-color: #fdf0d5; */
   background-color: #c44536;
-  border-radius: 0 0 10px 10px;
-  padding: 3%;
+  padding:  0 2% 2%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  font-family: 'Archivo', sans-serif;
+  justify-content: space-between;
+  border-bottom: 1px solid #114B5F;
 }
 
 
 .form-new {
-  width: 70%;
-  padding: 1%;
+  width: 45%;
   display: flex;
   justify-content: center;
   align-items: center;
+
 
 }
 
 .form-new label {
-  /* transform: rotateY(180deg); */
-  margin: 2% 3%;
-  font-size: 1.8rem;
+  transform: rotateY(180deg);
+  font-size: 1.2rem;
+  color: #114B5F;
 }
 
 .form-new button {
   border-radius: 10px;
-  width: 40px;
-  height: 40px;
-  margin-left: 3%;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-style: none;
+  background: transparent;
+  color: #114B5F;
+}
+
+.form-new button:focus{
+  outline: none;
 }
 
 .form-new input {
-  border-radius: 5px;
-  padding: 1% 2%;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Special Elite', cursive;
   font-size: 1rem;
-  height: 40px;
+  margin: 0 2%;
+  padding: 0 5%;
+  border: none;
+  background: transparent;
+  border-bottom: 1px dashed #197278;
+  width: 150px;
+  height: 30px;
+}
+
+input::placeholder {
+  color: #666666;
+}
+input:focus {
+  outline: none;
+
 }
 
 .form-clear{
-  width: 30%;
-  padding: 1%;
+  width: 100%;
   display: flex;
-  justify-content: center;
-
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2%;
 }
 
 .form-clear button {
-  border-radius: 10px;
-  font-family: 'Archivo', sans-serif;
-  font-size: 1rem;
-  height: 40px;
-  width: 70%;
-  margin: 3%;
-
-}
-
-.form-search {
-  width: 100%;
-  padding: 1%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.form-search label {
-  font-size: 1.6rem;
-  margin: 3%;
-}
-
-.form-search input {
-  height: 40px;
   border-radius: 5px;
   font-family: 'Archivo', sans-serif;
   font-size: 1rem;
-  padding: 1% 2%;
+  cursor: pointer;
+  background: pink;
+  border: 2px solid lightgray;
+  box-shadow: 2px 2px gray;
+
+}
+
+.form-clear button:focus{
+  outline: none;
+}
+
+
+.form-search {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+}
+
+.form-search label {
+  font-size: 1.2rem;
+  color: #114B5F;
+}
+
+.form-search input {
+  font-family: 'Special Elite', cursive;
+  font-size: 1rem;
+  margin:0 2%;
+  padding: 0 3%;
+  border: none;
+  background: transparent;
+  border-bottom: 1px dashed #114B5F;
+  width: 150px;
+  height: 30px;
 }
 
 
 
 
    .done {
+    font-color: #C44536;
     text-decoration-line: line-through;
   }
 
