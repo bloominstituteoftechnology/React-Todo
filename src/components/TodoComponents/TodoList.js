@@ -5,7 +5,7 @@ const List = props => {
     <div>
       <ul>
         {props.toDo.map((item, index) => (
-          <li key={index} id={index} onClick={props.crossOff}>
+          <li key={index} id={index} onClick={props.crossOff} className={item.done ? 'checked':'unchecked'}>
             {item.listItem}
           </li>
         ))}

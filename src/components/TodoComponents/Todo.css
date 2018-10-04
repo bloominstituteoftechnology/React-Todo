@@ -1,10 +1,21 @@
 li {
-    list-style-image: url(../assets/square.svg);
     cursor: pointer;
+    font-size: 26px;
+    
+    
 }
+
+.unchecked{
+    list-style-image: url(../assets/square.svg);
+}
+
 
 .checked{
     list-style-image: url(../assets/check-square.svg);
     color: red;
     text-decoration: line-through;
+}
+
+.checked svg{
+    color: red;
 }
