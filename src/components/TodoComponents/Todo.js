@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Todo = ({todo}) => {
+const Todo = props => {
     return (
-        <div  style={todo.completed ? { textDecoration: 'line-through' } : null}
-        onClick={() => todo.handleToggleComplete(todo.id)}
+        <div  style={props.todo.completed ? { textDecoration: 'line-through' } : null}
+        onClick={() => props.handleToggleCompleted(props.todo.id)}
       >
         
-            {todo.task}
+            {props.todo.task}
         </div>
     );
 }

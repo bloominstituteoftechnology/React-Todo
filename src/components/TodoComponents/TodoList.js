@@ -4,13 +4,13 @@ import React from 'react';
 
 import Todo from './Todo';
 
-const TodoList = ({todos}) => {
+const TodoList = props => {
     return (
         <div>
-            {todos.map(todo => {
+            {props.todos.map(todo => {
                 return (
                 <Todo
-                    handleToggleCompleted={todos.toggleCompleted}
+                    handleToggleCompleted={props.handleToggleCompleted}
                     key={todo.id}
                     todo={todo}
                 />
