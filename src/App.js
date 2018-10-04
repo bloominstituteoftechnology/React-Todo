@@ -33,22 +33,30 @@ class App extends React.Component {
   addTodoInput = event => {
     event.preventDefault();
     this.setState({
+      filter: [...this.state.filter, {task: this.state.newTask,
+                                          id: Date.now(),
+                                          completed: false,
+                                          decorate: 'no-decoration'}],
       todoData: [...this.state.todoData, {task: this.state.newTask,
                                           id: Date.now(),
                                           completed: false,
                                           decorate: 'no-decoration'}],
      newTask: ''
     });
+   
   };
 
+  ///////////////////////////////////////////////////////////////
   inputChange = event => {
     
     this.setState({[event.target.name]: event.target.value});
+    
   };
 
+//////////////////////////////////////////////////////////////////
   completeTaskSelect = index => {
     this.setState({
-      todoData: this.state.todoData.map((task, idx) => {
+      filter: this.state.filter.map((task, idx) => {
         if(index != idx) {
           return task;
         } else {
@@ -60,30 +68,35 @@ class App extends React.Component {
         }
       })
     })
+
+    
+  };
+/////////////////////////////////////////////////////////
+  componentWillMount = () => {
+    this.setState({filter: this.state.todoData});
+   
   };
 
-  componentWillMount() {
-    this.setState({filter: this.state.todoData})
-  };
-
+  
   completeTaskWipe = event => {
     this.setState({
-      todoData: this.state.todoData.filter(task => {
+      filter: this.state.filter.filter(task => {
         if(task.completed === false) {
           return task;
         }
       })
     })
   };
-
+///////////////////////////////////////////////////////////
   inputChangeFilter = event => {
     let filterTasks = this.state.todoData;
-    filterTasks =this.state.todoData.filter(tasks => {
+    filterTasks = this.state.todoData.filter(tasks => {
       let upperCase = tasks.task.toUpperCase();
       if(upperCase.includes(event.target.value.toUpperCase())) {
         return tasks;
       }})
       this.setState({filter: filterTasks});
+      
     };
 
   render() {
