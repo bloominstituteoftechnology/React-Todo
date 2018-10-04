@@ -52,15 +52,30 @@
 
 .clear {
   background: #ff6b6b;
-  border: 1px solid #ee5253;
+  border: 2px solid #ee5253;
 }
 
 .clear:hover {
   background: #ee5253;
 }
 
+.TodoMessage {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #ff6b6b;
+  border-radius: 5px;
+  color: white;
+  border: 5px solid #ee5253;
+  font-size: 2rem;
+  display: none;
+}
+
+.TodoMessage i {
+  margin-right: 1rem;
+}
+
 .TodoList {
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 .Todo {
