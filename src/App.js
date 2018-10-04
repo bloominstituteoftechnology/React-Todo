@@ -1,5 +1,6 @@
 import React from "react";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import "./App.css";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -28,7 +29,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="to-do-list">
         <h1>Todo List: MVP</h1>
         <TodoForm
           changeHandler={this.changeHandler}
