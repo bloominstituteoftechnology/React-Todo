@@ -12,13 +12,13 @@ class App extends React.Component {
     this.state = {
       todoArray: [
         {
-          task: 'Organize Garage',
+          task: 'Example 1',
           id: 1528817077286,
           completed: false,
           name: 'normal'
         },
         {
-          task: 'Bake Cookies',
+          task: 'Example 2',
           id: 1528817084358,
           completed: false,
           name: 'normal'
@@ -82,9 +82,8 @@ class App extends React.Component {
   // }
   
   render() {
-    console.log(this.state.todoArray[0]);
     return (
-      <div>
+      <div className="app">
         <TodoList 
         todoArray={this.state.todoArray}
         changeText={this.changeText} 
