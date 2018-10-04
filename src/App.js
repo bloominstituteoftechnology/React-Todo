@@ -13,14 +13,14 @@ class App extends React.Component {
        search: "",
        arr: [],
      }
-   }
+   };
 
    searchInputHandler = (event) => {
      const {value} = event.target;
      this.setState({
        search: value
      })
-   }
+   };
 
    searchHandler = (event) => {
      event.preventDefault();
@@ -28,14 +28,14 @@ class App extends React.Component {
        arr: this.state.tasks,
        tasks: this.state.tasks.filter(task => task.task.toLowerCase().includes(this.state.search.toLowerCase()))
      })
-   }
+   };
 
    showAll = (event) => {
      event.preventDefault();
      this.setState({
        tasks:this.state.arr
      })
-   }
+   };
 
    toggleHandler = (id) => {
      this.setState({
@@ -51,13 +51,13 @@ class App extends React.Component {
          }
        })
      })
-   }
+   };
 
    deleteHandler = () => {
      this.setState({
-       tasks: this.state.tasks.filter(task => !task.complete)
+       tasks: this.state.tasks.filter(task => !task.completed)
      })
-   }
+   };
 
    inputHandler = (event) => {
      const {value} = event.target;
@@ -65,7 +65,7 @@ class App extends React.Component {
        holder: value
      })
      this.state.tasks.completed === true ? event.target.classList.toggle('completed') : event.target.classList.remove('completed');
-   }
+   };
 
    clickHandler = (event) => {
      event.preventDefault();
@@ -77,17 +77,17 @@ class App extends React.Component {
      this.setState(
        {tasks : [...this.state.tasks, obj,], holder: ""}
      )
-   }
+   };
 
    componentDidMount() {
      localStorage.getItem('tasks') && this.setState({
        tasks: JSON.parse(localStorage.getItem('tasks')),
      })
-   }
+   };
    
    componentWillUpdate(nextProps, state) {
      localStorage.setItem('tasks', JSON.stringify(state.tasks))
-   }
+   };
    
    render() {
      return (
