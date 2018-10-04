@@ -4,10 +4,18 @@
     padding: 0;
 }
 body {
-    background-image: url('https://images.unsplash.com/photo-1538617648085-8cd6adae0835?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d079ea4a9ecc9bd19ecced59bc0ce005&auto=format&fit=crop&w=1534&q=80')
+    background-image: url('https://images.unsplash.com/photo-1538617648085-8cd6adae0835?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d079ea4a9ecc9bd19ecced59bc0ce005&auto=format&fit=crop&w=1534&q=80');
+    background-size: cover;
+    background-position: center;
 }
 .selectedTodoItem {
-    text-decoration: line-through;
+    /* text-decoration: line-through; */
+    background: #d83232;
+}
+
+.selectedTodoItem:hover {
+    background: #d83232;
+    color: white;
 }
 
 .todoListContainer {
