@@ -9,6 +9,7 @@ const TodoForm = (props) => {
             addToList={props.addToList}
         />
         <Todo
+            todoItem={props.todoItem}
             changeHandler={props.changeHandler}
             value={props.todoItem}
         />
