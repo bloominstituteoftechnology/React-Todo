@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import './components/TodoComponents/Todo.css';
+
 class App extends Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todoData: [
+      todoData : [
         {
           task: 'Organize Garage',
           id: 1528817077286,
@@ -19,40 +19,41 @@ class App extends Component {
           task: 'Bake Cookies',
           id: 1528817084358,
           completed: false
-        },
+        }
       ],
-      newTask: '',
-      inputText: '',
+      newTask: ''
     }
   }
 
   changeHandler = event => {
-    this.setState({ newTask: event.target.value });
-  };
+    // console.log(event.target.value);
+    this.setState({newTask: event.target.value});
+  }
 
   addTask = event => {
     event.preventDefault();
-    if(this.state.newTask === '') {
-      return
-    }
-    this.setState({todoData: [
-      ...this.state.todoData,
-      { task: this.state.newTask, id:Math.random(), completed: false}
-    ],
-    newTask: ''
-    });
-    console.log(this.state.todoData)
+    if(!this.state.newTask) return
+    this.setState({
+      todoData: [
+        ...this.state.todoData,
+        {task: this.state.newTask, id: Math.ceil(Math.random() * 10000), completed: false}
+      ],
+      newTask: ''
+    })
   }
+
   render() {
-    // console.log(this.state);  Checks This.state is working 
+    // console.log(this.state.todoData)
     return (
       <div>
+        <h1>Good Morning What Will You Get Done Today?</h1>
         <TodoForm 
         addTask={this.addTask}
         changeHandler={this.changeHandler}
         newTask={this.state.newTask}
         />
-        <TodoList todoData={this.state.todoData} />
+        <h2>Task for the Day</h2>
+        <TodoList todoData={this.state.todoData}/>
       </div>
     );
   }
