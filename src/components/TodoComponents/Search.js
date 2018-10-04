@@ -15,6 +15,7 @@ const Search = ({value, onChange, showSearch, searchClicked}) => {
                 onChange={onChange}
                 placeholder="search..."
                 className={`search-input ${showSearch ? 'show-input' : ''}`}
+                maxLength="20"
             />
         </div>
     );
