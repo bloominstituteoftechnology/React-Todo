@@ -4,10 +4,14 @@ import Todo from "./Todo.js";
 
 const ToDoList = props => {
  let todoArray = props.todoData.map(item => {
-    return <Todo id={item.id} task={item.task}/>; 
+    return <Todo key={item.id} id={item.id} task={item.task}/>; 
    }   
 );
-return <div>{todoArray}</div> 
+
+return <div>
+    <h1> ToDo List </h1>
+    {todoArray}
+    </div> 
  };
 
   
