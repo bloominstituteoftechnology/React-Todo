@@ -18,34 +18,49 @@ class App extends React.Component {
          complete: false}
       ],
       newItem: '',
-      newThing: 1 
+      newThing: 1, 
+      style: 'none'
 
       }
 
   }
 
+  crossOut = event => {
+    console.log(event.target);
+    this.setState({style: 'strikeout'});
+  }
+
   changeHandler = event => {
     this.setState({newItem: event.target.value})
-    this.setState({newthing: this.state.newThing += 1}) 
-    console.log(this.state.newThing);
+    // this.setState({newthing: this.state.newThing += 1}) 
+    // console.log(this.state.newThing);
   }
 
   addItem = (event) => {
     event.preventDefault();
-    this.setState( {
-        list: [
-        ...this.state.list,
-        {item: this.state.newItem, id: Date.now(), complete: false}
-        ], newItem: ''
-    });
+    this.setState({list: [...this.state.list, {item: this.state.newItem, id: Date.now(), complete: false}]});
+    this.setState({newItem: ''});
   }
+
+  // addItem = (event) => {
+  //   event.preventDefault();
+  //   this.setState( {
+  //       list: [
+  //       ...this.state.list,
+  //       {item: this.state.newItem, id: Date.now(), complete: false}
+  //       ], newItem: ''
+  //   });
+  // }
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList list={this.state.list} />
-        <Todo />
+        <TodoList 
+          list={this.state.list}
+          crossOut={this.crossOut}
+          style={this.style}
+          />
         <TodoForm
           newItem={this.state.newItem}
           changeHandler={this.changeHandler}

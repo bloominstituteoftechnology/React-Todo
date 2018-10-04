@@ -7,7 +7,7 @@ const TodoList = props => {
   return (
       <div>
         {props.list.map(item => {
-         return <p>{item.item}</p> 
+         return <p className={props.style} onClick={props.crossOut}>{item.item}</p> 
         })}
       </div>
       );
