@@ -3,6 +3,7 @@ import TodoList from './components/TodoComponents/TodoList.js';
 import TodoForm from './components/TodoComponents/TodoForm.js';
 
 
+
 class App extends React.Component {
   constructor() {
     super();
@@ -21,7 +22,11 @@ class App extends React.Component {
     this.setState({
       todos: [
         ...this.state.todos,
-        { task: this.state.newToDo}
+        { 
+          task: this.state.newToDo,
+          id: Date.now(),
+          completed: false
+        }
       ],
       newToDo: ''
     });
@@ -32,9 +37,17 @@ class App extends React.Component {
     this.setState({ newToDo: event.target.value })
     };
 
+
+  complete = (selectedId) => {
+    let selected = this.state.todos.find(
+       x => { return x.id === selectedId }
+       );
+      selected.completed = !selected.completed;
+      this.setState({ todos: this.state.todos });
+    }
   
   clearIt = event => {
-    event.preventDefault();
+    // event.preventDefault();
     this.setState({
       todos: this.state.todos.filter(x => x.completed === false)
     })
@@ -53,6 +66,7 @@ class App extends React.Component {
         addNewTodo={this.addNewToDo} 
         updateInput={this.updateInput}
         newToDo = {this.state.newToDo}
+        complete = {this.complete}
         clearIt={this.clearIt}
         />
      </div>
