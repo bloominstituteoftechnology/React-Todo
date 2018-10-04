@@ -1,7 +1,12 @@
 import React from "react";
 
 const Todo = props => {
-  return <h3>{props.task}</h3>;
+  return (
+    <p onClick={() => props.toggleTodo(props.taskIndex)} className={props.task.completed ? "line-through" : null}>
+      {props.task.task}
+    </p>
+  );
 };
 
 export default Todo;
+// condition ? value if true : value if false

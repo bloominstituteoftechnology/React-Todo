@@ -7,7 +7,7 @@ const Form = props => {
       <button type="submit" onClick={props.addNewTodo}>
         Add Todo
       </button>
-      <button>Clear Completed</button>
+      <button onClick={props.clearCompleted}>Clear Completed</button>
     </form>
   );
 };
