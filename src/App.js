@@ -41,7 +41,7 @@ class App extends React.Component {
     })
   }
 
-  changeCompleted = index => {
+  changeCompletedHandler = index => {
     this.setState({
       todos: this.state.todos.map((todo, idx) =>{
         if(index !== idx) {
@@ -66,7 +66,7 @@ class App extends React.Component {
         <h1>Todo List:</h1>
         <TodoList 
           todos={this.state.todos} 
-          changeCompleted={this.changeCompleted}
+          changeCompleted={this.changeCompletedHandler}
         />
         <TodoForm 
           changeHandler={this.changeHandler} 
