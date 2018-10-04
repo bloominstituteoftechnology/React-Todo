@@ -12,7 +12,7 @@ const TodoList = props => {
             key={todo.id}
             task={todo.task}
             id={todo.id}
-            style={todo.completed === true ? 'Cleared' : props.style}
+            style={props.style}
           />
         );
       })}

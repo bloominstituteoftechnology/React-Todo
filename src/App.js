@@ -37,21 +37,24 @@ class App extends React.Component {
   handleInputChange = e => {
     this.setState({ input: e.target.value });
   };
-
+  // map over existing array with conditional
   toggleCompleteTask = e => {
-    this.state.todos.forEach(todo => {
+    const newTodos = this.state.todos.map(todo => {
       if (String(todo.task) === e.target.textContent) {
         todo.completed = !todo.completed;
         e.target.classList.toggle('Complete');
+        return todo;
+      } else {
+        return todo;
       }
     });
+    this.setState({ todos: newTodos });
   };
 
   handleCompletedTasks = e => {
     e.preventDefault();
-    // const completed = this.state.todos.filter(todo => todo.completed);
-    this.setState({ todos: this.state.todos });
-    // console.log(completed);
+    const removeCompleted = this.state.todos.filter(todo => !todo.completed);
+    this.setState({ todos: removeCompleted });
   };
 
   render() {
