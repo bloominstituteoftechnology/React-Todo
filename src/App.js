@@ -30,11 +30,11 @@ class App extends React.Component {
   addNewItem = event => {
     event.preventDefault();
     const todoList = [...this.state.todoList];
-    todoList.push({ task: this.state.newItem});
+    todoList.push({ task: this.state.newItem, id: Date.now()});
     this.setState({todoList,  newItem: ''});
   
   };
-  
+
   changeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
