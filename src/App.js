@@ -50,6 +50,19 @@ class App extends React.Component {
     })
   }
 
+  filterCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => {
+        if (todo.completed !== true) {
+          return todo;
+        }
+        else {
+          return null;
+        }
+      })
+    })
+  }
+
   render() {
     return (
       <div>
@@ -63,6 +76,7 @@ class App extends React.Component {
         addNewTodo={this.addNewTodo}
         newTodo={this.state.newTodo}
         textInputHandler={this.textInputHandler}
+        filterCompleted={this.filterCompleted}
         />
       </div>
     );
