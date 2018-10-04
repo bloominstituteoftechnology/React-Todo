@@ -51,8 +51,7 @@ class App extends React.Component {
             completed: false
           }
         ],
-        newTodo: "",
-        emptyList: ""
+        newTodo: ""
       });
     }
   };
@@ -108,6 +107,7 @@ class App extends React.Component {
           newTodo={this.state.newTodo}
           todoList={this.state.todoList}
         />
+        <h2 className="list-header">What I need to do:</h2>
         <TodoList
           todoList={this.state.todoList}
           toggleComplete={this.toggleComplete}

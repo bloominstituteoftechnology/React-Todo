@@ -14,7 +14,8 @@
   margin: 0 auto;
   background: #0a0e27;
   text-align: center;
-  padding: 0 0 50px;
+  padding: 0 0 100px;
+  border-radius: 10px;
 }
 .title {
   font-weight: bold;
@@ -24,6 +25,14 @@
   color: paleturquoise;
 }
 
+.list-header {
+  font-weight: bold;
+  font-size: 30px;
+  font-family: "Oswald", sans-serif;
+  text-align: center;
+  margin: 0 auto;
+  color: paleturquoise;
+}
 /* todoForm styles */
 .todo-form {
   width: 50%;
@@ -41,7 +50,8 @@
   margin: 0 auto;
   height: 25px;
   padding: 15px 0 0;
-  font-size: 25px;
+  font-size: 14px;
+  font-weight: bold;
 }
 .buttons {
   width: 81%;
