@@ -13,7 +13,7 @@ class App extends React.Component {
       todoArr: [
         {
           task: "build todo app",
-          id: "4",
+          id: 4,
           completed: false
         },
         {
@@ -34,15 +34,12 @@ class App extends React.Component {
   //handler functions
 
   toggleCompleted = e => {
-    console.log(e.target.id);
-    console.log(e.target);
-    console.log(e.currentTarget);
-    this.state.todoArr.forEach(function(task) {
-      if (task.id === e.target.id) {
-        setState(task)
-      }
-    }
-  };
+    let id = parseInt(e.currentTarget.id, 10);
+    let newArr = this.state.todoArr;
+    newArr.forEach(item => item.completed = (item.id === id) ? !item.completed : item.completed);
+    this.setState(
+      {todoArr: newArr})
+  }
 
   changeHandler = e => {
     this.setState({inputText: e.target.value});
