@@ -30,7 +30,7 @@ class App extends React.Component {
     this.setState({
       taskList: [
         ...this.state.taskList, 
-        {id: this.randomIdGenerator(), task: this.state.inputText, complete: false}
+        {id: this.randomIdGenerator(), task: this.state.inputText, complete: true}
       ],
      inputText : ""
     });
@@ -40,13 +40,14 @@ class App extends React.Component {
 
   taskCompleted = event => {
     event.preventDefault();
-    
+    console.log(event);
   }
 
-  clearTasks = () =>{
-    this.setState({
-      taskList: []
-    });
+  clearCompletedTasks = event =>{
+    console.log(event.target);
+    // if(this.state.taskList.completed === true){
+    //   this.setState({taskList: []});
+    // }
   }
 
   render() {
@@ -58,7 +59,7 @@ class App extends React.Component {
           inputText={this.state.inputText}
           addTask= {this.addTask}
           taskComplete = {this.taskCompleted}
-          clearTasks = {this.clearTasks}
+          clearTasks = {this.clearCompletedTasks}
         />
       </div>
     );
