@@ -4,9 +4,8 @@ import './Todo.css'
 class Todo extends React.Component {
   render() {
     return (
-        <div className="Todo" onClick={(event) => this.props.completeTask(event, this.props.id)}>
+        <div className={"Todo " + (this.props.completed ? 'line-through' : '')} onClick={(event) => this.props.completeTask(event, this.props.id)}>
           <span>{this.props.task} </span>
-          <span>{this.props.completed ? 'Done' : 'Not done'}</span>
         </div>
       )
     }
