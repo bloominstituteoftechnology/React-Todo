@@ -17,6 +17,7 @@ class App extends React.Component {
 
   changeHandler = event => {
     this.setState({ inputText: event.target.value });
+    console.log(event.currentTarget);
   };
 
   addNewItem = event => {
@@ -38,7 +39,7 @@ class App extends React.Component {
       backgroundColor: this.state.todoList.backgroundColor
     };
   };
-
+  
   clearCompleted = event => {
     event.preventDefault();
     this.setState({
@@ -117,5 +118,6 @@ class App extends React.Component {
     );
   }
 }
+
 
 export default App;
