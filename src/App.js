@@ -1,6 +1,7 @@
 import React from 'react';
 import Todo from './components/TodoComponents/Todo';
 
+import "./components/TodoComponents/Todo.css"
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -8,20 +9,9 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      taskList : [
-          {
-            id: this.randomIdGenerator(),
-            task: "test",
-            complete: false
-          },
-          {
-            id: this.randomIdGenerator(),
-            task: "test2",
-            complete: false
-          }
-      ],
+      randomId : this.randomIdGenerator(),
+      taskList : [],
       inputText : "",
-      newTask: ""
     };
   }
 
@@ -36,6 +26,18 @@ class App extends React.Component {
   
   addTask = event =>{
     event.preventDefault();
+ 
+    this.setState({
+      taskList: [
+        ...this.state.taskList, 
+        {id: this.randomIdGenerator(), task: this.state.inputText, complete: false}
+      ]
+    })
+  }
+
+  taskCompleted = event => {
+    event.preventDefault();
+    
   }
 
   render() {
@@ -45,6 +47,8 @@ class App extends React.Component {
           taskData={this.state.taskList} 
           changeHandler={this.changeHandler} 
           inputText={this.state.inputText}
+          addTask= {this.addTask}
+          taskComplete = {this.taskCompleted}
         />
       </div>
     );

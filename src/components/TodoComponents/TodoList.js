@@ -7,7 +7,13 @@ const TodoList = props => {
        <div>
            <h1>Task Entry: {props.inputText}</h1>
            {props.taskData.map(item => {
-               return <p key={item.id}>{item.task}</p>
+               return (
+               
+               <div className="task" key={item.id} onClick={props.taskCompleted}>
+               <p>TaskId: {item.id}</p>
+                <p>Task: {item.task}</p>
+               </div>
+            );
            })}
        </div>
     );

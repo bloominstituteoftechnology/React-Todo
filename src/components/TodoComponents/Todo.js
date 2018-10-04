@@ -6,8 +6,8 @@ import TodoForm from './TodoForm';
 const Todo = props => {
     return(
         <div>
-            <TodoList taskData={props.taskData} inputText={props.inputText}/>
-            <TodoForm changeHandler={props.changeHandler}  inputText={props.inputText}/>
+            <TodoList taskData={props.taskData} inputText={props.inputText} taskComplete = {props.taskCompleted}/>
+            <TodoForm changeHandler={props.changeHandler}  inputText={props.inputText} addTask={props.addTask}/>
         </div>
     )
 }
