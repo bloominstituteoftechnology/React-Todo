@@ -9,7 +9,9 @@ import Todo from './Todo.js';
 const TodoList = props => {
 	return (
 		<div>
-			<Todo proppy={props.myProp} />
+			{props.todos.map(x => {
+				return <Todo task={x.task} id={x.id} completed={x.completed} />;
+			})}
 		</div>
 	);
 };
