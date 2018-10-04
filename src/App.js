@@ -10,12 +10,14 @@ class App extends React.Component {
         {
           task: 'Organize Garage',
           id: 1528817077286,
-          completed: false
+          completed: false,
+          textDecoration: 'none'
         },
         {
           task: 'Bake Cookies',
           id: 1528817084358,
-          completed: false
+          completed: false,
+          textDecoration: 'none'
         }
       ],
       newTask: '',
@@ -26,13 +28,40 @@ changeHandler = event => {
   this.setState({ [event.target.name]: event.target.value });
 };
 
+strikeThrough = index => {
+  this.setState({
+    todoData: this.state.todoData.map((item, indx) =>{
+      if(index !== indx) {
+        return item;
+      } else {
+        return {
+          ...item,
+          textDecoration: item.textDecoration === 'none' ? 'strike-through' : 'none'
+        };
+      }
+    })
+  })
+}
+
+clearCompleted = index => {
+  this.setState({
+    todoData: this.state.todoData.filter((item, indx) => {
+      if (index !== indx) {
+        return item;
+      } else {
+        return null;
+      }
+    })
+  })
+}
+
 
 addNewTodo = event => {
   event.preventDefault();
   this.setState({
     todoData :[
       ...this.state.todoData,
-      { task : this.state.newTask, id: Math.floor(Math.random()*1000000), completed: false }
+      { task : this.state.newTask, id: Math.floor(Math.random()*1000000), completed: false, textDecoration: 'none' }
     ],
     newTask: ''
   });
