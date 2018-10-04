@@ -51,6 +51,15 @@ class App extends React.Component {
     });
   }
 
+  clearCompletedTodo = (event) => {
+    event.preventDefault();
+    this.setState({
+      todos: [...this.state.todos].filter(todo => {
+        return !todo.completed;
+      })
+    });
+  }
+
   render() {
     return (
       <div>
@@ -63,6 +72,7 @@ class App extends React.Component {
           addTodo={this.addTodo}
           changeHandler={this.changeHandler}
           newTodo={this.state.newTodo}
+          clearCompletedTodo={this.clearCompletedTodo}
         />
 
       </div>
