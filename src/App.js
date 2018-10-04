@@ -29,21 +29,55 @@ class App extends React.Component {
   addNewTodo = event => {
     event.preventDefault();
 
+    const todoData = this.state.todoData.slice();
+    todoData.push(
+      {
+        task: this.state.newTodo,
+        id: Date.now(),
+        completed: false
+      }
+    );
+
     this.setState({
-      todoData: [
-        ...this.state.todoData,
-        { task: this.state.newTodo }
-      ],
+      todoData: todoData,
       newTodo: ''
+    })
+  };
+
+  toggleComplete = event => {
+    event.preventDefault();
+
+    const todoData = this.state.todoData;
+    let targetId = Number(event.target.attributes.id.value);
+
+    for (let i in todoData){
+      if (todoData[i].id === targetId) {
+        todoData[i].completed = !todoData[i].completed;
+      }
+    }
+
+    this.setState({
+      todoData: todoData
     });
   };
 
+  clearCompleted = event => {
+    event.preventDefault();
+
+    let todoData = this.state.todoData;
+    todoData = todoData.filter(todo => !todo.completed);
+    console.log(todoData);
+
+    this.setState({
+      todoData: todoData
+    });
+  }
+
   render() {
-    console.log(this.state.todoData)
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        <TodoList todoData={this.state.todoData} />
+        <TodoList toggleComplete={this.toggleComplete} todoData={this.state.todoData} />
         <TodoForm
           // input field
           inputTodo={this.state.newTodo}
@@ -52,6 +86,9 @@ class App extends React.Component {
 
           // Add Todo button
           addNewTodo={this.addNewTodo}
+
+          // Clear Completed button
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );
