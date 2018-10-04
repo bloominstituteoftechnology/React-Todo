@@ -3,3 +3,11 @@ button {
   border-radius: 6px;
   font-size: 15px;
 }
+
+.noLine {
+  text-decoration: none;
+}
+
+.lineMe {
+  text-decoration: line-through;
+}

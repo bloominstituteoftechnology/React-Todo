@@ -14,12 +14,14 @@ class App extends React.Component {
         {
           task: "Organize Garage",
           id: 1528817077286,
-          completed: false
+          completed: false,
+          style: "noLine"
         },
         {
           task: "Bake Cookies",
           id: 1528817084358,
-          completed: false
+          completed: false,
+          style: "noLine"
         }
       ],
       newTask: ""
@@ -33,8 +35,26 @@ class App extends React.Component {
   addNewTask = event => {
     event.preventDefault();
     this.setState({
-      listArray: [...this.state.listArray, { task: this.state.newTask }],
+      listArray: [
+        ...this.state.listArray,
+        { task: this.state.newTask, style: "noLine" }
+      ],
       newTask: ""
+    });
+  };
+
+  finishMe = index => {
+    this.setState({
+      listArray: this.state.listArray.map((task, idx) => {
+        if (index !== idx) {
+          return task;
+        } else {
+          return {
+            ...task,
+            style: task.style === "noLine" ? "lineMe" : "noLine"
+          };
+        }
+      })
     });
   };
 
@@ -45,8 +65,9 @@ class App extends React.Component {
         <TodoForm
           changeHandler={this.changeHandler}
           addNewTask={this.addNewTask}
-          newTask={this.state.newTask}
+          newTask={this.newTask}
           listArray={this.state.listArray}
+          finishMe={this.finishMe}
         />
       </div>
     );

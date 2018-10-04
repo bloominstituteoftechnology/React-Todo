@@ -7,8 +7,12 @@ const TodoForm = props => {
   return (
     <div>
       <div>
-        {props.listArray.map(item => {
-          return <h4>{item.task}</h4>;
+        {props.listArray.map((item, index) => {
+          return (
+            <h4 className={item.style} onClick={() => props.finishMe(index)}>
+              {item.task}
+            </h4>
+          );
         })}
       </div>
       <div>
@@ -22,6 +26,7 @@ const TodoForm = props => {
           <button type="submit" onClick={props.addNewTask}>
             Add Todo
           </button>
+          <button onClick={props.deleteMe}>Clear Completed</button>
         </form>
       </div>
     </div>
