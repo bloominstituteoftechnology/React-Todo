@@ -1,5 +1,6 @@
 import React from 'react';
 
+//import Todo from './components/TodoComponents/Todo'
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -22,7 +23,7 @@ class App extends React.Component {
           completed: false
         }
       ],
-      newTodo: {task: ''},
+      newTodo: '',
     }
   }
 
@@ -41,17 +42,34 @@ class App extends React.Component {
           completed: false
         }
       ],
-      newTodo: { task: ''}
+      newTodo: '',
     })
   }
 
+  markCompleted = event => {
+
+
+    this.setState({
+      todoArray: this.state.todoArray.map( todoObj => {
+        if (todoObj.completed === false) {
+          return {
+            ...todoObj,
+            completed: todoObj.completed === false ? true : false
+          }
+        }
+      })
+    })
+    //console.log(todoObj)
+  };
+  
+
   render() {
-    console.log(this.state);
     
     return (
       <div className="App">
       <TodoList 
         todoArray={this.state.todoArray}
+        markCompleted={this.markCompleted}
         />
       <TodoForm 
         changeHandler={this.changeHandler}

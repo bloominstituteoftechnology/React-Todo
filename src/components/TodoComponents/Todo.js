@@ -3,7 +3,7 @@ import React from 'react';
 
 const Todo = (props) => {
 
-  return <p>{props.todo.task}</p>;
+  return <div onClick={() => props.markCompleted()}>{props.todo.task}</div>;
   
 }
 export default Todo
