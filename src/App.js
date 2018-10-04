@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import { EventEmitter } from './utils.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +21,9 @@ class App extends React.Component {
       ],
       inputText: '',
     }
+    EventEmitter.subscribe('toggleTodo', (text) => this.toggleTodo(text))
+	EventEmitter.subscribe('addTodo', (event) => this.addTodo(event))
+	EventEmitter.subscribe('clear', () => this.clear())
   }
 
   changeHandler = event => {
@@ -40,16 +44,20 @@ class App extends React.Component {
         }
       ]
     })
-
   }
-
 
   toggleTodo = task => {
     this.setState({
-      todo: this.state.todo.map (
-        item => (item.task === task ? { ...item, completed: !item.completed} : item)
+      todo: this.state.todo.map(
+        item => item.task === task ? Object.assign(item, { completed: !item.completed }) : item
       )
     })
+  }
+
+  clear = () => {
+	this.setState({
+	  todo: this.state.todo.filter(item => !item.completed)
+	})
   }
 
   render() {
@@ -57,12 +65,10 @@ class App extends React.Component {
       <div>
         <TodoList 
           todo={this.state.todo}
-          toggleTodo={this.toggleTodo}
         />
         <TodoForm
           inputText={this.state.inputText}
           changeHandler={this.changeHandler}
-          addTodo={this.addTodo}
         />
       </div>
     );

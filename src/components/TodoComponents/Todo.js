@@ -1,9 +1,12 @@
 import React from 'react';
-import { toggleTodo } from '../../utils.js'
+import { EventEmitter } from '../../utils.js'
 
-const Todo = props => (
-    // <h3 onClick={() => props.toggleTodo(props.text)}>{props.text}</h3>
-    <h3 onClick={() => toggleTodo(props.text)}>{props.text}</h3>
+
+const Todo = ({item}) => (
+    <h3 
+        className={item.completed ? 'complete' : 'incomplete'} 
+        onClick={() => EventEmitter.dispatch('toggleTodo', item.task)}
+    >{item.task}</h3>
 );
 
 export default Todo;
