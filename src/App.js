@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -21,11 +22,44 @@ class App extends React.Component {
           completed: false
         }
       ],
+      newTodo: '',
     }
   }
 
+  changeHandler = event => {
+    console.log(event.target.name)
+    this.setState({ [event.target.name]: event.target.value})
+  }
+
+  addNewTodo = event => {
+    event.preventDefault();
+    this.setState({
+      todoArray: [
+        ...this.state.todoArray, //spread operator
+        { task: this.state.newTodo,
+          id: Date.now(),
+          completed: false
+        }
+      ],
+      newToDo: ''
+    })
+  }
+
   render() {
-    return <div><TodoList todoArray={this.state.todoArray}/></div>
+    console.log(this.state);
+    
+    return (
+      <div className="App">
+      <TodoList 
+        todoArray={this.state.todoArray}
+        />
+      <TodoForm 
+        changeHandler={this.changeHandler}
+        newTodo={this.state.newTodo}
+        addNewTodo={this.addNewTodo} //forgot to add ALL the handlers from form
+      />
+      </div>
+    )
   }
 
 }
