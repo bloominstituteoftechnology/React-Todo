@@ -75,6 +75,7 @@
     /* border: solid 1px red; */
     outline: none;
     background: rgb(247, 150, 64);
+    visibility: hidden;
 }
 
 .search-input::placeholder {
@@ -87,6 +88,7 @@
     padding: 0px 20px;
     color: rgb(247, 150, 64);
     background: white;
+    visibility: visible;
 }
 
 .search-input::placeholder {
