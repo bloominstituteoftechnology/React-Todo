@@ -14,8 +14,15 @@ const ToDoList = props => {
             {
                 props.data.map(element=>{
                     if(element.completed ===false){
-                        return <p onClick={props.completeTaskHandler} className='list-item finger' id={element.id} key={element.id}>{element.task}</p>
+                        return (
+                                <div>
+                                    <p onClick={props.completeTaskHandler} className='slide-image-right list-item finger' id={element.id} key={element.id}>{element.task}</p>
+                                </div>
+                               )
                     }
+
+                    return (<div></div>)
+                    
                 })
             }
             </div>

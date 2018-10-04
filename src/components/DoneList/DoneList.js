@@ -14,7 +14,16 @@ const DoneList = props =>{
                 {
                     props.data.map(element=>{
                         if(element.completed ===true){
-                            return <p className='list-item completed-item' key={element.id}>{element.task}</p>
+
+                            return(
+                                    <div>
+                                        <div className='completed-container'>
+                                            <img className='checkmark slide-image-right' src={require('../../img/a.jpeg')} alt='checkmark'></img>
+                                            <p className='slide-image-left list-item completed-item finger' id={element.id} key={element.id} onClick={props.ReOpenTask}>{element.task}</p>
+                                        </div>
+
+                                    </div>
+                                )
                         }
                     })
                 }

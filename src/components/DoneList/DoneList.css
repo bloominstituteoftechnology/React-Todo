@@ -5,3 +5,10 @@
     display:flex;
     justify-content: space-between;
 }
+.completed-container{
+    display: flex;
+}
+.checkmark{
+    height: 24px;
+    width: 24px;
+}

@@ -9,7 +9,7 @@ const AppContainer = props => {
     return (
         <div className='app-container'>
             <InputContainer onKeyPress={props.onKeyPress} changeHandler={props.changeHandler} addItemHandler={props.addItemHandler} />
-            <ListContainer clearDoneItems={props.clearDoneItems} clearToDoItem={props.clearToDoItem} completeTaskHandler={props.completeTaskHandler} data={props.data}/>
+            <ListContainer clearDoneItems={props.clearDoneItems} clearToDoItem={props.clearToDoItem} completeTaskHandler={props.completeTaskHandler} data={props.data} ReOpenTask={props.ReOpenTask} />
         </div>
     )
 }

@@ -11,7 +11,7 @@ const ListContainer = props =>{
                 <ToDoList clearToDoItem={props.clearToDoItem} completeTaskHandler={props.completeTaskHandler} data={props.data}/>
             </div>
             <div className='list-done-list'>
-                <DoneList clearDoneItems={props.clearDoneItems}data={props.data}/>
+                <DoneList clearDoneItems={props.clearDoneItems} data={props.data} ReOpenTask={props.ReOpenTask}/>
             </div>
         </div>
     )
