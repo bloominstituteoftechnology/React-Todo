@@ -12,7 +12,9 @@ class App extends React.Component {
     this.state = {
       todos: [],
 
-      todo: ""
+      todo: "",
+
+      search: ''
     };
 
   }
@@ -61,14 +63,22 @@ class App extends React.Component {
     this.setState({ todos });
   };
 
-
+updateSearch(event) {
+  this.setState({search: event.target.value.substr(0,20)});
+}
   render() {
-
+    
     return (
+      
       <div className = "content">
+        <nav className = "nav">
+        <input type='text' className = "search" 
+        value = {this.state.search}
+        onChange = {this.updateSearch.bind(this)}/>
+        </nav>
+      
 
-
-<TodoForm
+        <TodoForm
           handleAddTodo={this.addTodo}
           value={this.state.todo}
           handleInputChange={this.handleInput}
