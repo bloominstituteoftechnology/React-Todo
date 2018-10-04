@@ -5,8 +5,7 @@
     flex-direction: column; 
     width: 100%;
     
-    background: url('../../beverage-blank-blank-space-414691.jpg');
-    color: white;
+  
 }
 
 li {
@@ -19,5 +18,7 @@ li {
 
 
 .strike-th {
+    text-decoration-style: double;
+    text-decoration: black;
     text-decoration-line: line-through;
 }

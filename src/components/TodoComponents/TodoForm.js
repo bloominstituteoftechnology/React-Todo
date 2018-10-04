@@ -6,7 +6,7 @@ const TodoForm = props => {
       <div>
         <input value={props.value} onChange={props.update} />
         <button onClick={props.submit}>Add Item</button>
-        <button onClick={props.filter} onKeyUp={props.enter}>Clear Completed</button>
+        <button onClick={props.clear}>Clear Completed</button>
       </div>
     );
   }

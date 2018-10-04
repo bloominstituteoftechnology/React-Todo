@@ -1,24 +1,30 @@
 import React from "react"
-import TodoList from "../src/components/TodoComponents/TodoList"
 import TodoForm from "../src/components/TodoComponents/TodoForm"
+import './app.css'
+import TodoList from "./components/TodoComponents/TodoList";
 
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       task:"",
       id:Date.now(),
-      completed:false,
-      todos: []
+      todos: [],
+      completed: false
     }
+  
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearCompleted = this.clearCompleted.bind(this);
+    
   }
 
   handleChange = event => {
     this.setState({
         task: event.target.value,
         id: Date.now(),
-        completed:false
+      
     });
   };
 
@@ -34,44 +40,24 @@ class App extends React.Component {
     })
   };
 
-  handleSelected = (id)=> {
-    this.setState({
-      todos: this.state.todos.map(todo => {
-        if (todo.id === id) {
-          return {
-            task: todo.task,
-            id: todo.id,
-            completed: !todo.completed
-          }
-        } else {
-          return todo
-        }
-      })
-    })
-  };
+  clearCompleted() {
+    const li = document.querySelectorAll('.strike-th');
+    li.forEach( item => item.style.display = "none");
+  }
 
-  handleFilter= () =>{
-    this.setState({
-      todos:this.state.todos.filter(todo => {
-        if(todo.completed === true){
-          this.state.todos.splice(todo);
-        }
-        return todo;
-      }),
-    })
-   }
+
 
   render() {
-    console.log(this.state.todos)
+
     return (
       <div className="container">
-        <TodoList taskLists={this.state.todos} selected={this.handleSelected}/>
+        <TodoList taskLists={this.state.todos} />
         <TodoForm
           value={this.state.task}
           submit={this.handleSubmit}
           update={this.handleChange}
-          filter={this.handleFilter}
-          enter ={this.handleEnter}
+          clear={this.clearCompleted}
+        
         />
       </div>
     );
