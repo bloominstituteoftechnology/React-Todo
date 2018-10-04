@@ -57,6 +57,12 @@ class App extends React.Component {
 
   clearCompleted = event => {
     event.preventDefault();
+    let complete = this.state.todos.filter( todo => {
+      return todo.completed != true
+    });
+    this.setState({
+      todos: complete
+    })
   }
 
   render() {
