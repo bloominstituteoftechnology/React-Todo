@@ -31,6 +31,27 @@ class App extends React.Component {
       value: '',
     }
   }
+
+
+  completeTask = (index) => {
+    // let id = this.state.id;
+    this.setState({
+      list: this.state.list.map((task, idx) => {
+
+        if (index !== task.id) {
+          return task;
+        } else {
+          return {
+            ...task,
+            completed: task.completed === 'Complete' ? 'Incomplete' : 'Complete',
+            icon: task.icon === 'fas fa-check-circle green' ? 'fas fa-check-circle red' : 'fas fa-check-circle green'
+          };
+        }
+      })
+    });
+  };
+
+
   changeHandler = event => {
     event.preventDefault();
     this.setState({ newTask: event.target.value })
@@ -73,8 +94,10 @@ class App extends React.Component {
         <h1>Things to do when you're bored</h1>
         <div className="todolist">
           <ToDoList
+            completeTask={this.completeTask}
             list={this.state.list}
-            onClick={this.handleDelete}
+            key={this.state.id}
+          // onClick={this.handleDelete}
           />
         </div>
 

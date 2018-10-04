@@ -10,8 +10,8 @@ const ToDoList = (props) => {
           return (<div key={item.id} className={`todoComponent ${item.completed}`}>
             <p>{item.task}</p>
             <div className="icons">
-              <i className={item.icon}></i>
-              <i onClick={props.handleDelete} className="fas fa-times" ></i>
+              <i className={item.icon} onClick={() => props.completeTask(item.id)}></i>
+              <i className="fas fa-times" ></i>
             </div>
           </div>
           )
@@ -22,3 +22,5 @@ const ToDoList = (props) => {
 }
 
 export default ToDoList;
+
+// onClick = { props.handleDelete }
