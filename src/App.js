@@ -15,16 +15,6 @@ class App extends React.Component {
       // ala Math.random * a gazillion 
       list: [
         {
-          task: 'Organize Garage',
-          id: (Math.floor(Math.random())*1000000),
-          completed: 'Complete'
-        },
-        {
-          task: 'Bake Cookies',
-          id: (Math.floor(Math.random())*1000000),
-          completed: 'Incomplete'
-        },
-        {
           task: 'Fix 808',
           id: 1528814674367,
           completed: false
@@ -80,7 +70,7 @@ class App extends React.Component {
           />
         </div>
 
-        
+
         <div className="toDoForm">
           <Form
             type="text"
