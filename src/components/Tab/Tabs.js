@@ -1,12 +1,14 @@
 import React from 'react';
 import './Tabs.css';
-//import Tab from './Tab.js';
+
+const Tab = props => (
+    <div className="tab">{props.children}</div>
+);
 
 class Tabs extends React.Component {
     constructor(props) {
         super(...arguments);
         const titles = props.children.map(tab => tab.props.title);
-        console.log(titles)
         this.state = {
             tabs: titles,
             currentTabTitle: titles[0]
@@ -19,13 +21,19 @@ class Tabs extends React.Component {
         return (
             <div className="tabs">
                 <div className="tabs-selector">
-                    {this.state.tabs.map(tab => (
-                        <a className="tabs-title"
-                            key={tab}
-                            onClick={this.select}
-                            data-tab={tab}
-                        >{tab}</a>
-                    ))}
+                    {this.state.tabs.map(tab => {
+                        let classText = "tabs-title";
+                        if(tab === this.state.currentTabTitle){
+                            classText += " tabs-title--selected";
+                        }
+                        return (
+                            <a className={classText}
+                                key={tab}
+                                onClick={this.select}
+                                data-tab={tab}
+                            >{tab}</a>
+                        )
+                    })}
                 </div>
                 <div className="tabs-display">
                     {currentTab}
@@ -35,11 +43,10 @@ class Tabs extends React.Component {
     }
     select = eventClick => {
         const tabTitle = eventClick.target.dataset.tab;
-        console.log(tabTitle)
         this.setState({
             currentTabTitle: tabTitle
         });
     }
 }
 
-export default Tabs;
+export {Tab, Tabs};

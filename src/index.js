@@ -2,13 +2,12 @@ import React from 'react';
 import { render } from 'react-dom';
 import ProgressTracker from './ProgressTracker.js';
 import './test.css';
-import Tabs from './components/Tab/Tabs.js';
-import Tab from './components/Tab/Tab.js';
+import {Tab, Tabs} from './components/Tab/Tabs.js';
 
 render((
     <div className="test-container">
-        <ProgressTracker />
-        <Tabs>
+        <ProgressTracker title="Stretch" />
+        {/*<Tabs>
             <Tab title="a">
                 <h1>1</h1>
             </Tab>
@@ -18,6 +17,6 @@ render((
             <Tab title="c">
                 <h1>3</h1>
             </Tab>
-        </Tabs>
+        </Tabs>*/}
     </div>
 ), document.getElementById('root'));

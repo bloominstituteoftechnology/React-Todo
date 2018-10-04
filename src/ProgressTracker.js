@@ -1,10 +1,9 @@
 import React from 'react';
 import ToDoList from './components/ToDoComponents/ToDoList.js';
 import ToDoForm from './components/ToDoComponents/ToDoForm.js';
-import Tabs from './components/Tab/Tabs.js';
-import Tab from './components/Tab/Tab.js';
+import {Tab, Tabs} from './components/Tab/Tabs.js';
 
-class App extends React.Component {
+class ProgressTracker extends React.Component {
 
 //-- Setup and State -----------------------------
   constructor(init) {
@@ -25,8 +24,8 @@ class App extends React.Component {
 //-- Rendering -----------------------------------
   render = () => {
     return (
-      <div>
-        <h2>To Do List: MVP!</h2>
+      <div className="progress-tracker">
+        <h2>To Do List: {this.props.title}!</h2>
         <Tabs>
           <Tab title="To Do">
             <ToDoList
@@ -102,4 +101,4 @@ class App extends React.Component {
 }
 
 //------------------------------------------------
-export default App;
+export default ProgressTracker;

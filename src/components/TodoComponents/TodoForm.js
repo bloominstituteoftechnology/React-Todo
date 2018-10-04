@@ -3,7 +3,7 @@ import React from 'react';
 const ToDoForm = props => {
     console.log(props.inputValue)
     return (
-    <form onSubmit={props.handleAdd}>
+    <form className="to-do-form" onSubmit={props.handleAdd}>
         <input
             type="text"
             onChange={props.handleChange}

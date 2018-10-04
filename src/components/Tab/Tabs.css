@@ -1,9 +1,35 @@
-.tab {
-    border: 1px solid black;
-    margin: 10px;
+.tabs, .tabs-selector, .tabs-display, .tabs-title, .tab {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.tabs {
+    display: flex;
+    flex-direction: column;
+}
+.tabs-selector {
+    padding-left: 20px;
+    display: flex;
+    border-bottom: 1px solid black;
+}
+.tabs-display {
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
 }
 .tabs-title {
-    margin: 2px;
+    position: relative;
+    top: 1px;
+    margin-left: 5px;
     padding: 10px 20px;
     border: solid 1px black;
+    background: lightgrey;
 }
+.tabs-title--selected{
+    background: white;
+    border-bottom-color: white;
+}
+.tab {
+    flex: 1 1 auto;
+}
+
