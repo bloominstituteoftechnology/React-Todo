@@ -21,7 +21,6 @@ class App extends React.Component {
       ],
       inputText: '',
       newTodo: '',
-      newId: Date.now(),
       completed: false,
     }
   }
@@ -31,20 +30,39 @@ class App extends React.Component {
     this.setState({
       TodoData: [
         ...this.state.TodoData,
-        { task: this.state.newTodo, id: this.state.newId , completed: this.state.completed }
+        { task: this.state.newTodo, id: Date.now(), completed: this.state.completed }
       ],
       newTodo: ''
     });
   };
 
   changeHandler = event => {
-    console.log(event.target.name);
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  onClickToggle = event => {
-    this.setState({ completed: !event.state.TodoData.completed })
+  toggleCompleted = index => {
+    this.setState({
+      TodoData: this.state.TodoData.map((task) => {
+        if (index !== task.id) {
+          return task;
+        } else {
+          return {
+            ...task,
+            completed: task.completed === false ? true : false
+          }
+        }
+      })
+    })
   }
+
+  clearTodo = event => {
+    event.preventDefault();
+    let todos = this.state.TodoData
+    console.log(todos)
+    todos = todos.filter(todo => !todo.completed);
+    console.log(todos)
+    this.setState({ TodoData: todos });
+  };
 
 
   render() {
@@ -53,6 +71,7 @@ class App extends React.Component {
         <h2>Todo List: MVP</h2>
         <TodoList 
           todoData={this.state.TodoData}
+          toggleCompleted={this.toggleCompleted}
         />
         <TodoForm 
           addNewTodo={this.addNewTodo}
@@ -60,7 +79,7 @@ class App extends React.Component {
           inputText={this.state.inputText}
           todoData={this.state.TodoData}
           newTodo={this.state.newTodo}
-          onClickToggle={this.onClickToggle}
+          clear={this.clearTodo}
         />
       </div>
     );
