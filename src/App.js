@@ -25,7 +25,6 @@ class App extends React.Component {
     let toDo = Object.assign([], this.state.toDo);
     toDo[index].done = !toDo[index].done;
     this.setState({ toDo: toDo });
-    console.log(this.state);
   };
 
   addItem = e => {
@@ -45,7 +44,6 @@ class App extends React.Component {
   removeChecked = e => {
     let toDo = Object.assign([], this.state.toDo);
     toDo = toDo.filter(x => !x.done);
-    console.log(toDo);
     this.setState({ toDo: toDo });
   };
 
