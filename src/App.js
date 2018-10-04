@@ -36,7 +36,6 @@ class App extends React.Component {
     this.setState({
       todos: this.state.todos.map((item, idx) => {
         // console.log(item);
-
         if (index !== idx) {
           return item;
         } else {
@@ -50,8 +49,15 @@ class App extends React.Component {
   };
 
   clearCompleted = e => {
+    // console.log(index.target);
+    e.preventDefault();
     this.setState({
-      todos: []
+      todos: this.state.todos.filter(item => {
+        console.log(item);
+        if (item.completed === false) {
+          return item;
+        }
+      })
     });
   };
 
