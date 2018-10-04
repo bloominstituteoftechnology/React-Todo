@@ -51,7 +51,8 @@ class App extends React.Component {
     })
   }
 
-  filterCompleted = () => {
+  filterCompleted = event => {
+    event.preventDefault();
     this.setState({
       todos: this.state.todos.filter(todo => {
         if (todo.completed !== true) {
