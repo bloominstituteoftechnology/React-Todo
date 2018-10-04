@@ -4,12 +4,12 @@ import TodoList from './TodoList';
 function TodoForm(props) {
     return (
         <div>
-        <form onSubmit={props.addNewTodo}>
+        <form >
           <input
             type="text"
+            onChange={props.addTodo}
+            value={props.newTodo}
             name="newTodo"
-            onChange={props.changeHandler}
-            value={props.newTask}
           />
           <button type="submit" onClick={props.addNewTodo}>
             Add Todo

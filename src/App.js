@@ -11,28 +11,34 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      myTask: [
-        { Todo: 'empty' },
+       stateTodos: [
+        {
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
       ],
-      inputText: '',
       newTodo: ''
     };
   }
 
+
   changeHandler = event => {
-    console.log(event.target.name);
-    this.setState({ [event.target.name]: event.target.value });
-  };
+    console.log(event.target.value)
+    this.setState({
+        [event.target.name]: event.target.value
+    })
+  }
 
-
-  addNewTodo = (event) => {
+  addNewTodo = event => {
     event.preventDefault();
     this.setState({
-      myTask: [
-        ...this.state.myTask,
-        { task: this.state.newTask }
-      ],
-      newTask: ''
+      stateTodos: [...this.state.stateTodos, {task: this.state.newTodo}], newTodo: ''
     })
   }
   
@@ -41,14 +47,11 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todoArr={this.state.myTask}/>
-        <TodoForm
-          addNewTodo={this.addNewTodo}
-          changeHandler={this.changeHandler}
-          todoData={this.state.myTask}
-          inputText={this.state.inputText}
-          newTask={this.state.newTask}
-        />
+        <TodoList todosProps={this.state.stateTodos} />
+        <TodoForm addTodo={this.changeHandler} 
+                  newTodo={this.state.newTodo}
+                  addNewTodo={this.addNewTodo}
+                  />
       </div>
     );
   }
