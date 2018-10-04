@@ -10,7 +10,7 @@ let TodoList = props => {
         <div>
             <nav>
                 <a href="index.html">ToDo App</a>
-                <input type="text" placeholder="Search (not functional)" value={props.value} name='searchText' onChange={props.searchHandler} />
+                <input type="text" placeholder="Search for a task..." value={props.value} name='searchText' onChange={props.searchHandler} />
             </nav>
             <h1>What do you need to do today?</h1>
             <Form changeHandler={props.changeHandler} addTodo={props.addTodo} clearTodos={props.clearTodos}/>
