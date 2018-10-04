@@ -6,6 +6,7 @@ const Todo = props => (
     id={props.id}
     onClick={() => props.handleCompleted(props.id)}
     className={props.style}
+    style={props.strikethrough}
   >
     {props.task}
   </li>

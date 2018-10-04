@@ -110,7 +110,12 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1>Todo List</h1>
-        <List toDo={this.state.toDo} handleCompleted={this.handleCompleted} />
+        <List
+          toDo={this.state.toDo}
+          handleCompleted={this.handleCompleted}
+          style={this.state.toDoStyle}
+          strikethrough={this.state.strikethrough}
+        />
         <TodoForm
           handleNewToDo={this.handleNewToDo}
           handleInputChange={this.handleInputChange}
