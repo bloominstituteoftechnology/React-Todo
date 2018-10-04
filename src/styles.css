@@ -217,7 +217,8 @@ li {
 }
 
 .input {
-    height: 3rem;
+    height: 45px;
+    text-align: center;
     font-size: 2rem;
     padding: 5px;
     border: 1px solid #7389AE;

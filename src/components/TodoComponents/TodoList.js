@@ -7,9 +7,8 @@ const TodoList = props => {
         <div>
         {props.todoData.map((item, index) => {
     return(
-        <ul className="listItems">
+        <ul key={index}>
         <li
-        key={index}
         onClick={() => props.strikeThrough(index)}
         className={item.textDecoration}
         >
