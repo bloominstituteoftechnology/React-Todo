@@ -4,43 +4,7 @@ import TodoList from "./components/TodoComponents/TodoList.js";
 import Eraser from './components/TodoComponents/Eraser.js';
 import "./components/TodoComponents/Todo.css";
 
-<<<<<<< HEAD
-let initialList = [  {
-      task: 'enter a new task in the upper left',
-    },
-      {
-        task: 'mark it complete (or not) by clicking it',
-      },
-      {
-        task: 'use the eraser to clear finished tasks',
-      },
-      {
-        task: 'search the list in the upper right',
-      },];
-=======
-let initialList = [
-  {
-      task: 'enter a new task in the upper left',
-      id: Date.now().toString(),
-      complete: false
-    },
-      {
-        task: 'mark it complete (or not) by clicking it',
-        id: Date.now().toString(),
-        complete: false
-      },
-      {
-        task: 'use the eraser to clear finished tasks',
-        id: Date.now().toString(),
-        complete: false
-      },
-      {
-        task: 'search the list in the upper right',
-        id: Date.now().toString(),
-        complete: false
-      },
-];
->>>>>>> 7d45da0c7b31ae64546a5f9918bef39b72f94059
+let initialList = [];
 let storedList = localStorage.getItem('todoList');
 if (storedList !== null) {
   initialList = JSON.parse(storedList);
@@ -51,7 +15,18 @@ class App extends React.Component {
     super()
     this.state = {
       todoList: initialList,
-      makeTodo: '',
+      makeTodo: [ {
+            task: 'enter a new task in the upper left',
+          },
+            {
+              task: 'mark it complete (or not) by clicking it',
+            },
+            {
+              task: 'use the eraser to clear finished tasks',
+            },
+            {
+              task: 'search the list in the upper right',
+            },],
       searchTerm: ''
     };
 
