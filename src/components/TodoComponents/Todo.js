@@ -1,5 +1,18 @@
 import React from 'react';
+import { EventEmitter } from '../../utils.js';
 
-const Todo = ({ todo }) => <ul>{todo.task}</ul>;
+import './Todo.css';
+
+const Todo = ({ todo }) => {
+  const handleClick = () => {
+    EventEmitter.dispatch('toggleTodo', todo.id);
+  };
+
+  return (
+    <li onClick={handleClick} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+      {todo.task}
+    </li>
+  );
+};
 
 export default Todo;

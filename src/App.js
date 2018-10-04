@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { EventEmitter } from './utils';
+
 import TodoList from './components/TodoComponents/todoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -6,28 +8,41 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { todoList: [] };
-    this.addTodo = this.addTodo.bind(this);
+    EventEmitter.subscribe('toggleTodo', id => this.toggleTodo(id));
   }
 
-  addTodo(input) {
-    const { todoList } = this.state;
-    let todo = {
-      task: input,
-      id: Date.now().toString(),
-      completed: false
-    }
-    console.log(todo);
-    this.setState({ todoList: [...todoList, todo] })
+  addTodo = input => {
+    this.setState({
+      todoList: [
+        ...this.state.todoList,
+        {
+          task: input,
+          id: Date.now().toString(),
+          completed: false
+        }
+      ]
+    });
+  }
+
+  toggleTodo = id => {
+    this.setState({
+      todoList: this.state.todoList.map(
+        todo =>
+          todo.id === id ? Object.assign(todo, { completed: !todo.completed }) : todo
+      )
+    });
+  }
+
+  clear = () => {
+    this.setState({ todoList: this.state.todoList.filter(todo => !todo.completed) });
   }
 
   render() {
-    const { todoList } = this.state;
-
     return (
       <div className="App">
         <h1>Todo List: MVP</h1>
-        <TodoList todoList={todoList} />
-        <TodoForm onSubmit={this.addTodo} />
+        <TodoList todoList={this.state.todoList} />
+        <TodoForm handleSubmit={this.addTodo} clear={this.clear} />
       </div>
     );
   }
