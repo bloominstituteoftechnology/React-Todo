@@ -43,21 +43,28 @@ class App extends React.Component {
     event.preventDefault();
     //added this if statement to alert the user if they try to add too many
     //todos, keeps the list from going over 10. also does a setState call to reset newTodo (clear the input field)
+    let newList = [
+      ...this.state.todoList,
+      {
+        task: this.state.newTodo,
+        id: Date.now(),
+        completed: false
+      }
+    ];
+
     if (this.state.todoList.length >= 10) {
       alert("Slow your roll and knock these items out first!");
       this.setState({ newTodo: "" });
     } else {
       this.setState({
-        todoList: [
-          ...this.state.todoList,
-          {
-            task: this.state.newTodo,
-            id: Date.now(),
-            completed: false
-          }
-        ],
+        todoList: newList,
         newTodo: ""
       });
+      //updating new todoList to local storage
+      //but no longer needed thanks to updating all keys and values
+      //with componentDidMount/WillUnmount methods
+      // localStorage.setItem("todoList", JSON.stringify(newList));
+      // localStorage.setItem("newTodo", "");
     }
   };
 
@@ -79,6 +86,10 @@ class App extends React.Component {
     this.setState({
       todoList: newArray
     });
+    //updating new copy of todoList to local storage
+    //but no longer needed thanks to updating all keys and values
+    //with componentDidMount/WillUnmount methods
+    // localStorage.setItem("todoList", JSON.stringify(newArray));
   };
 
   //filterComplete first makes copy of the current todoList array and filters through it,
@@ -92,6 +103,55 @@ class App extends React.Component {
       todoList: filteredArray
     });
   };
+
+  //this method 'hydrates' the app's state with data pulled from local storage that we stored with
+  //localStorage methods. this is so freaking awesome
+  hydrateStateFromStorage() {
+    // for all items that currently exist in state
+    for (let key in this.state) {
+      //if key exists in local storage
+      if (localStorage.hasOwnProperty(key)) {
+        //then get key's value from storage
+        let value = localStorage.getItem(key);
+
+        //parse localStorage string and setState
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (error) {
+          // handles if error (empty string)
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  }
+
+  //this built-in method will fire when the page loads and call hydrateState
+  componentDidMount() {
+    this.hydrateStateFromStorage();
+
+    //add listener to save state to storage when user leaves or refreshes
+    window.addEventListener("beforeunload", this.saveStateToStorage.bind(this));
+  }
+
+  saveStateToStorage() {
+    //for every item in current state
+    for (let key in this.state) {
+      //save to local storage
+      localStorage.setItem(key, JSON.stringify(this.state[key]));
+    }
+  }
+
+  //this built-in method will fire if the component has a chance to unmount (leave page/refresh)
+  //will remove the previously attached listener and update storage again
+  componentWillUnmount() {
+    window.removeEventListener(
+      "beforeunload",
+      this.saveStateToStorage.bind(this)
+    );
+
+    this.saveStateToStorage();
+  }
 
   render() {
     return (
