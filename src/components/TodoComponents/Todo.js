@@ -3,7 +3,7 @@ import './Todo.css'
 
 function Todo(props) {
     return (
-        <div onClick={(event) => props.changeText(event, props.index)} className={`pointer`}>
+        <div onClick={(event) => props.changeText(event, props.index)} className={`pointer ${props.todo.name}`}>
             {props.todo.task}
         </div>
     )

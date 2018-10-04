@@ -14,15 +14,18 @@ class App extends React.Component {
         {
           task: 'Organize Garage',
           id: 1528817077286,
-          completed: false
+          completed: false,
+          name: 'normal'
         },
         {
           task: 'Bake Cookies',
           id: 1528817084358,
-          completed: false
+          completed: false,
+          name: 'normal'
         }
       ],
-      todo: ''
+      todo: '',
+      
     };
   }
 
@@ -38,12 +41,14 @@ class App extends React.Component {
         } else {
           return {
           ...todo,
-          completed: todo.completed === "false" ? "true" : "false"
+          completed: todo.completed === 'false' ? 'true' : 'false',
+          name: todo.name === 'normal' ? 'lineThrough' : 'normal'
           }
         }
       },
       
       )
+    
     })
   }
 
@@ -77,6 +82,7 @@ class App extends React.Component {
         <TodoList 
         todoArray={this.state.todoArray}
         changeText={this.changeText} 
+        name={this.state.name}
         />
         <TodoForm  
         addNewTodo={this.addNewTodo} 

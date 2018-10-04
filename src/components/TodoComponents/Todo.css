@@ -2,6 +2,10 @@
     text-decoration: line-through;
 }
 
+.normal {
+    text-decoration: none;
+}
+
 div.pointer {
     cursor: pointer;
 }
