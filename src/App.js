@@ -18,21 +18,28 @@ class App extends React.Component {
           completed: false
         }
       ],
+      input: {}
     };
   }
-
-
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
+
+  //Handlers
+
+  changeInputHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <div>
         <input
-          type="text"
-          onChange=
-          placeholder="....todo"
+          name="input"
+          onChange={this.changeInputHandler}
+          placeholder= "....todo"
           value={this.state.input}
         />
         <button onClick={this.addTodo}>Add</button>
