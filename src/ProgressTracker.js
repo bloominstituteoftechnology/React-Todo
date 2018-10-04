@@ -1,6 +1,8 @@
 import React from 'react';
 import ToDoList from './components/ToDoComponents/ToDoList.js';
 import ToDoForm from './components/ToDoComponents/ToDoForm.js';
+import Tabs from './components/Tab/Tabs.js';
+import Tab from './components/Tab/Tab.js';
 
 class App extends React.Component {
 
@@ -9,25 +11,43 @@ class App extends React.Component {
     super(...arguments);
     this.state = {
       inputText: '',
-      toDoList: []
+      toDoList: [
+        {
+          task: 'whatever',
+          id: 1234,
+          completd: false
+        }
+      ],
+      doneList: []
     };
   }
 
 //-- Rendering -----------------------------------
-  render() {
+  render = () => {
     return (
       <div>
         <h2>To Do List: MVP!</h2>
-        <ToDoList
-          toDoList={this.state.toDoList}
-          handleToggle={this.toggleToDo}
-        />
-        <ToDoForm
-          inputValue={this.state.inputText}
-          handleChange={this.changeInput}
-          handleAdd={this.add}
-          handleClear={this.clear}
-        />
+        <Tabs>
+          <Tab title="To Do">
+            <ToDoList
+              toDoList={this.state.toDoList}
+              handleToggle={this.toggleToDo}
+            />
+            <ToDoForm
+              inputValue={this.state.inputText}
+              handleChange={this.changeInput}
+              handleAdd={this.add}
+              handleClear={this.clear}
+            />
+          </Tab>
+          <Tab title="Done">
+            <ul>
+              {this.state.doneList.map(toDo => (
+                <li key={toDo.id}>{toDo.task}</li>
+              ))}
+            </ul>
+          </Tab>
+        </Tabs>
       </div>
     );
   }
@@ -48,10 +68,15 @@ class App extends React.Component {
 
   clear = eventClick => {
     eventClick.preventDefault();
+    let finishedTasks = [...this.state.doneList];
+    finishedTasks.unshift(...this.state.toDoList.filter(toDo => {
+      return toDo.completed;
+    }));
     let remainingTasks = this.state.toDoList.filter(toDo => {
-      return !toDo.completed
+      return !toDo.completed;
     });
     this.setState({
+      doneList: finishedTasks,
       toDoList: remainingTasks
     });
   }

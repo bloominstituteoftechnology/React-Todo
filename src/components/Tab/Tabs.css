@@ -1,0 +1,9 @@
+.tab {
+    border: 1px solid black;
+    margin: 10px;
+}
+.tabs-title {
+    margin: 2px;
+    padding: 10px 20px;
+    border: solid 1px black;
+}
