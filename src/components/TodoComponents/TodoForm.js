@@ -4,8 +4,8 @@ const TodoForm = () => {
   return (
     <form>
       <input />
-      <button />
-      <button />
+      <button>Add Todo</button>
+      <button>Clear Completed</button>
     </form>
   );
 };
