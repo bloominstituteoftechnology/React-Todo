@@ -10,6 +10,7 @@ const TodoList = ({todos}) => {
             {todos.map(todo => {
                 return (
                 <Todo
+                    handleToggleCompleted={todos.toggleCompleted}
                     key={todo.id}
                     todo={todo}
                 />

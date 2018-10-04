@@ -2,7 +2,10 @@ import React from 'react';
 
 const Todo = ({todo}) => {
     return (
-        <div >
+        <div  style={todo.completed ? { textDecoration: 'line-through' } : null}
+        onClick={() => todo.handleToggleComplete(todo.id)}
+      >
+        
             {todo.task}
         </div>
     );
