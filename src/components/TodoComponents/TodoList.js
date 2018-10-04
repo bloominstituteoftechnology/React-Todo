@@ -10,6 +10,7 @@ function TodoList(props) {
             <ul>{props.todos.map(todo => <Todo key= {todo.id} todo={todo} handleToggle= {props.handleToggle}/>)}</ul>
             </div>
     );
+    
 };
 
 export default TodoList;

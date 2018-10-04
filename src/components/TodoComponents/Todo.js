@@ -9,10 +9,15 @@ function Todo(props) {
              <h1>{props.todo.task}</h1> 
               
         </li>
+        
         </div>
   );
 }
 
-
+// .filter(
+//       (todo) => {
+//           return todo.task.indexOf(this.state.search) !== -1;
+//       }
+//   )
 
 export default Todo;

@@ -44,10 +44,14 @@ nav{
     padding: 0 10px;
 }
 
+.nav h1{
+    font-family: Helvetica;
+}
+
 
 /*form*/
 .form-holder{
-    background: #60c0e0;
+    background: linear-gradient(21deg, #10abff, #1beabd);
     position: fixed;
     bottom:0;
     width: 100%;
@@ -58,14 +62,21 @@ nav{
     z-index:3;
 
 }
-
-input{
+.search{
+    width: 40%;
+    display:flex;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 1%;
+    
+}
+.input-box{
     width: 80%;
     display:flex;
     justify-content: center;
     border-radius: 10px;
     padding: 1%;
-    border: #60c0e0;
+    border: 1px solid #60c0e0;
 }
 form{
    height: 90vh;

@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import '../src/components/TodoComponents/Todo.css';
+import Search from './search';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -22,6 +23,8 @@ class App extends React.Component {
 
   addTodo = event => {
     event.preventDefault();
+    
+
     if (this.state.todo === "") {
       return;
     }
@@ -33,9 +36,12 @@ class App extends React.Component {
 
     this.setState({
       todos,
-      todo: ""
+      todo: "",
+      task: ''
+      
     });
-
+    
+    
   };//end addTodo
 
 
@@ -72,6 +78,7 @@ updateSearch(event) {
       
       <div className = "content">
         <nav className = "nav">
+        <h1>The Poor Man's Trello</h1>
         <input type='text' className = "search" 
         value = {this.state.search}
         onChange = {this.updateSearch.bind(this)}/>
@@ -84,11 +91,14 @@ updateSearch(event) {
           handleInputChange={this.handleInput}
           handleClearCompleted={this.clearCompleted}
         />
+
+
         <TodoList
+        
           todos={this.state.todos}
           handleToggle={this.toggle}
-        />
-
+        /> 
+       
         
 
       </div>

@@ -5,7 +5,7 @@ function TodoForm(props) {
     return (
       <form>
         <div className = 'form-holder'>
-        <input  classname = 'input-box'
+        <input  className = 'input-box'
         value={props.task} 
         onChange={props.handleInputChange} 
         placeholder="...todo"
