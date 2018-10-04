@@ -8,7 +8,7 @@ const InputContainer = props =>{
     return (
         <div className='input-container'>
             <Header headerText='Add New Item' />
-            <NewItemField changeHandler={props.changeHandler} addItemHandler={props.addItemHandler} />
+            <NewItemField onKeyPress={props.onKeyPress} changeHandler={props.changeHandler} addItemHandler={props.addItemHandler} />
         </div>
     )
 }

@@ -12,7 +12,24 @@ class App extends React.Component {
     }
   }
 
+  onKeyPress = event =>{
+    if(event.which === 13)
+    {
+      this.AddItemToArray();
+    }
+  }
 
+  AddItemToArray(){
+    let extraRandom = Date.now();
+    this.setState({data: [...this.state.data,{
+      task: this.newItemInput,     
+      id:(Math.floor(Math.random() * 20)+extraRandom),
+      completed: false
+    }]})
+
+    document.querySelector('.input-field').value = '';
+
+  }
   RemoveToDoItems(status)
   {
     this.setState({data: [...this.state.data.map(element => {
@@ -24,12 +41,10 @@ class App extends React.Component {
     })]})
 
   }
-
   clearDoneItems = event =>{
     event.preventDefault();
     this.RemoveToDoItems(true);
   }
-
   clearToDoItem = event =>{
     event.preventDefault();
     this.RemoveToDoItems(false);
@@ -48,15 +63,8 @@ class App extends React.Component {
   }
   addItemHandler = event => {
     event.preventDefault();
-    let extraRandom = Date.now();
+    this.AddItemToArray();
 
-    this.setState({data: [...this.state.data,{
-      task: this.newItemInput,     
-      id:(Math.floor(Math.random() * 20)+extraRandom),
-      completed: false
-    }]})
-
-    document.querySelector('.input-field').value = '';
   }
   render() {
     return (
@@ -68,6 +76,7 @@ class App extends React.Component {
           completeTaskHandler = {this.completeTaskHandler}
           clearToDoItem = {this.clearToDoItem}
           clearDoneItems = {this.clearDoneItems}
+          onKeyPress = {this.onKeyPress}
         />
       </div>
     );
