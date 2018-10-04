@@ -10,29 +10,29 @@ class App extends React.Component {
       toDoList: [
         {taskToDo: 'Component Code Fu',
         id: 1323817077286,
-        completed: false
+        completed: "false"
       },
         {taskToDo: 'Sand The Floor',
         id: 1528817687286,
-        completed: false
+        completed: "false"
       },
         {taskToDo: 'Paint The Fence',
         id: 1428817077286,
-        completed: false
+        completed: "false"
       },  
         {taskToDo: 'Wax On',
         id: 1522818057286,
-        completed: false
+        completed: "false"
       },
         {taskToDo: 'Wax Off',
         id: 1598817077186,
-        completed: false
+        completed: "false"
       },
       ],
       newTask: '',
       newId: Math.floor((Math.random() * 1000000000000) + 1000000000000),
-      newCompleted: false,
-      newDeleted: true,
+      newCompleted: "false",
+      newDeleted: "true",
       textDecoration: 'line-through',
     }
   }
@@ -44,10 +44,23 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  changeStyle = event => {
-    console.log(event.target);
-    event.target.classList.toggle("toggle-decoration");
-    this.setState({ completed: !this.state.completed });
+  changeStyle = id => {
+    
+    // event.target.classList.toggle("toggle-decoration");
+    // this.setState({ completed: !this.state.completed });
+
+    this.setState({ 
+      toDoList: this.state.toDoList.map((item, idx)=>{
+        if (id !== idx){
+          return item;
+        } else {
+          return {
+            ...item,
+            completed: item.completed === "false" ? "true" : "false"
+          };
+        }
+      })
+     });
   };
 
   clearTask = event => {
@@ -65,6 +78,19 @@ class App extends React.Component {
   // })
   };
 
+  filterCharacter = () => {
+   
+        this.setState({
+          toDoList: this.state.toDoList.filter((item) => {
+            if (item.completed === "false") {
+              return item;
+            } else {
+              return null;
+            }
+          })
+        });
+      };
+
   addNewTask = event => {
     event.preventDefault();
     this.setState({
@@ -77,7 +103,7 @@ class App extends React.Component {
       ],
       newTask: '',
       newId: Math.floor((Math.random() * 1000000000000) + 1000000000000),
-      newCompleted: false,
+      newCompleted: "false",
     })
   }
 
@@ -96,6 +122,7 @@ class App extends React.Component {
         newId={this.newId}
         newCompleted={this.newCompleted}
         newDeleted={this.newDeleted}
+        filterCharacter={this.filterCharacter}
         />
       </div>
     );

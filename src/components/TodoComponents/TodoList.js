@@ -2,10 +2,16 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 const ToDoNow = props => {
+   
     return (
+
         <div>
-        <h4>{props.ToDoing.map(todo => 
-        {return <div onClick={props.changeStyle}>{todo.taskToDo}</div>
+        <h4>{props.ToDoing.map((todo, id) => 
+        {return <div 
+            key={id}
+            className={todo.completed}
+            onClick={() => props.changeStyle(id)}>{todo.taskToDo}</div>
+            
         })}</h4>
 
             <form onSubmit={props.addNewTask}>
@@ -23,7 +29,7 @@ const ToDoNow = props => {
                     <button type="submit" onClick={props.addNewTask}>
                     Add Todo
                     </button>
-                    <button type="submit" onClick={props.clearTask}>
+                    <button type="submit" onClick={props.filterCharacter}>
                     Clear Completed
                     </button>
             </form>
