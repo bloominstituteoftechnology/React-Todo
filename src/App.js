@@ -21,11 +21,18 @@ class App extends Component {
           if (id !== item.id) {
             return item;
           } else {
-
-            return {
-              ...item,
-              completed: true
-            };
+            if(item.completed===false){
+              return {
+                ...item,
+                completed:true
+              };
+            }
+            else if(item.completed===true){
+              return{
+                ...item,
+                completed:false
+              }
+            }
           }
         })
       });
