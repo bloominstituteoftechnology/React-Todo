@@ -32,7 +32,7 @@ class App extends React.Component {
     this.setState({
       todos: [
         ...this.state.todos,
-        {task: this.state.newTodo}
+        { task: this.state.newTodo, completed: false, id: Date.now()}
       ],
       newTodo: ""
     });
