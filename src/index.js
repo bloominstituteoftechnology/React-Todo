@@ -7,7 +7,8 @@ import {Tab, Tabs} from './components/Tab/Tabs.js';
 render((
     <div className="test-container">
         <ProgressTracker title="Stretch" />
-        {/*<Tabs>
+        {/*<ProgressTracker title="Stretch" />
+        <Tabs>
             <Tab title="a">
                 <h1>1</h1>
             </Tab>
@@ -20,3 +21,11 @@ render((
         </Tabs>*/}
     </div>
 ), document.getElementById('root'));
+
+
+
+
+
+
+
+

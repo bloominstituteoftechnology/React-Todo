@@ -1,11 +1,19 @@
 import React from 'react';
 import './Tabs.css';
 
+
+//== Tabs Component ============================================================
+
 const Tab = props => (
     <div className="tab">{props.children}</div>
 );
 
+
+//== Tabs Component ============================================================
+
 class Tabs extends React.Component {
+
+    //-- Basic Setup ---------------------------------
     constructor(props) {
         super(...arguments);
         const titles = props.children.map(tab => tab.props.title);
@@ -14,10 +22,14 @@ class Tabs extends React.Component {
             currentTabTitle: titles[0]
         }
     }
+
+    //-- Rendering - only render current tab ---------
     render = () => {
+        // Determine Current Tab
         const currentTab = this.props.children.find(tab => (
             tab.props.title === this.state.currentTabTitle
         ));
+        // Display
         return (
             <div className="tabs">
                 <div className="tabs-selector">
@@ -41,6 +53,8 @@ class Tabs extends React.Component {
             </div>
         )
     }
+
+    //-- Switch Current Tab --------------------------
     select = eventClick => {
         const tabTitle = eventClick.target.dataset.tab;
         this.setState({
