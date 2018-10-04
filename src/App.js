@@ -65,8 +65,6 @@ class App extends React.Component {
       todoData: this.state.todoData.filter(task => {
         if(task.completed === false) {
           return task;
-        } else {
-          return null;
         }
       })
     })
