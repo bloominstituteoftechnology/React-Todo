@@ -10,8 +10,8 @@ class App extends React.Component {
  constructor() {
    super();
    this.state = {
-     thingsThatNeedDoin: [
-       {task: 'run with dog',
+     thingsThatNeedDoin: [  
+       {task: 'run with dog',   //shouldnt these be showing up already? 
         id: 1234,
         completed: false,
       },
@@ -27,21 +27,24 @@ class App extends React.Component {
         id: 0,
         completed: false,
       }
-     ]
+     ],
+     todo: ""
      }
     };
 
     addTodo = event => {  //anonymous or event? 
+      event.preventDefault();
       const thingsThatNeedDoin = this.state.thingsThatNeedDoin.slice();
       thingsThatNeedDoin.push({
         task: this.state.todo, 
-        id: Math.floor(Math.random()*1000000), 
+        id: Date.now(),  //Math.floor(Math.random()*1000000)
         completed: false
       });
+      this.setState({ thingsThatNeedDoin: thingsThatNeedDoin });
     };
 
     handleInputChange = event => {
-      this.setState({ thingsThatNeedDoin: event.target.value });
+      this.setState({ todo: event.target.value }); // target value wha?
       //update state. only way to update state object. new copy of state. original replaced by new version we push inside of it. shallow merging.
     }
 
@@ -49,8 +52,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList TodoList={this.state.thingsThatNeedDoin}/>
-        <TodoForm TodoForm={this.state.thingsThatNeedDoin}/>
+        <TodoList todoList={this.state.thingsThatNeedDoin} />
+        <TodoForm addTodo={this.addTodo} inputChange={this.handleInputChange} value={this.state.todo} />
       </div>
     );
     };

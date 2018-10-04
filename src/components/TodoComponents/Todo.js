@@ -1,9 +1,11 @@
 import React from 'react';
 
 const Todo = (props) => {
-    <li>
-        {props.todo}
-    </li>
+    return (
+    <p>
+        {props.todo.task}
+    </p> 
+    )
 }
 
 export default Todo;

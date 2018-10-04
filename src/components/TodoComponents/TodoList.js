@@ -7,11 +7,9 @@ const TodoList = (props) => {
     console.log('todo list props', props);
     return (
         <div>
-            <ul>
-                {props.TodoList.map(item => {  //todoList here being passed from render?
-                    <Todo todo={item} />
+                {props.todoList.map((item, index) => { 
+                    return <Todo todo={item} key={index} />       
                 })}
-            </ul>
         </div>
     )
 }

@@ -2,16 +2,16 @@ import React from 'react';
 
 const TodoForm = (props) => {
     return (
-        <form>
+        <form onSubmit={props.addTodo}>
             <input 
                 type="text"
                 name="todo"
                 placeholder="...todo"
-                onChange={props.addTodo}  //addTodo? ooorr?
-            
+                onChange={props.inputChange}
+                value={props.value}
             />
-            <button onClick={props.addTodo}>Add Todo</button>  {/*caps? no this? addTodo? not TodoForm from render.*/}
-            <button onClick={props.addTodo}>Clear Completed</button>
+            <button type="submit">Add Todo</button>
+            <button>Clear Completed</button>
         </form> 
     );
 };
