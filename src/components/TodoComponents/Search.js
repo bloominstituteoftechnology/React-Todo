@@ -1,15 +1,20 @@
 import React from 'react';
+import './Todo.css';
 
-const Search = ({value, onChange, clearSearch}) => {
+const Search = ({value, onChange, showSearch, searchClicked}) => {
     return (
         <div className="search-container">
+            <i 
+                className={`fa fa-search search-btn ${showSearch ? 'color-orange' : ''}`}
+                onClick={searchClicked}
+            ></i>
             <input 
                 type="text"
                 name="search"
                 value={value}
                 onChange={onChange}
-                placeholder=" &#xF002;"
-                onBlur={clearSearch}
+                placeholder="search..."
+                className={`search-input ${showSearch ? 'show-input' : ''}`}
             />
         </div>
     );

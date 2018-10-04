@@ -25,6 +25,7 @@ class App extends React.Component {
       ],
       task: '',
       search: '',
+      showSearch: false,
     }
   }
 
@@ -79,7 +80,13 @@ class App extends React.Component {
   }
 
   clearSearch = () => {
-    this.setState({search: ''});
+    this.setState({search: '', showSearch: false});
+  }
+
+  searchClicked = () => {
+    let showSearch = !this.state.showSearch;
+    if (!showSearch) this.clearSearch();
+    this.setState({showSearch});
   }
 
   filteredList = () => {
@@ -91,7 +98,7 @@ class App extends React.Component {
 
   changeHandler = event => {
     this.setState({[event.target.name]: event.target.value});
-    if (event.target.name === 'search') this.search(event.target.value);
+    if (event.target.name === 'search') this.setState({search: event.target.value});
   }
   
   render() {
@@ -100,7 +107,8 @@ class App extends React.Component {
         <Search 
           value={this.state.search}
           onChange={this.changeHandler}
-          clearSearch={this.clearSearch}
+          showSearch={this.state.showSearch}
+          searchClicked={this.searchClicked}
         />
         <div className="container">
           <TodoForm 
