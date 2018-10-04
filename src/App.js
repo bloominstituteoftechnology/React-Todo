@@ -1,50 +1,76 @@
 import React from 'react';
 import ToDoForm from "./components/TodoComponents/TodoForm.js";
-import ToDoList from "./components/TodoComponents/TodoList.js";
+import ToDoList from './components/TodoComponents/TodoList.js';
 
   class App extends React.Component {
     constructor(props) {
       super(props);
-      this.state =  {
+      this.state = {
         todoData:[
-        {
-          task: 'Organize Garage',
+        { task: 'Organize Garage',
           id: 1528817077286,
+          completed: false}
+          ,
+        { task: 'Bake Cookies',
+          id: 1528817084358,
           completed: false
-        },
+        }
       ],
-      inputText: '',
+      //inputText: '',
       newToDo: ''
+    };
+    this.changeHandler = this.changeHandler.bind(this);
+    this.addNewToDo = this.addNewToDo.bind(this);
+  }
+    changeHandler(event) {
+      this.setState({
+       // inputText: event.target.value,
+        newToDo:event.target.value
+      });
     }
 
-    changeHandler = event => {
-      this.setState({ [event.target.name]: event.target.value });
-    };
-
-    addNewToDo = event => {
+    addNewToDo(event) {
       event.preventDefault();
       this.setState({
         todoData: [
           ...this.state.todoData,
           { task: this.state.newToDo,
-            id: Date.now(),
+            id: Date.now().toString(),
             completed: false
            }
         ],
+        //inputText: '',
         newToDo: ''
-      });
-    };
-    
-    
-  
-    render() {
-      return (
-        <ToDoList></ToDoList>
-        <ToDotForm></ToDoForm>
-      );
-    }
+    });
+  } 
+   // changeHandler = event => {
+    //  this.setState({ [event.target.name]: event.target.value });
+   // };
+
+   // addNewToDo = event => {
+    //  event.preventDefault();
+    //  this.setState({
+    //    todoData: [
+     //     ...this.state.todoData,
+     //     { task: this.state.newToDo,
+     //       id: Date.now(),
+     //       completed: false
+     //      }
+     //   ],
+     //   newToDo: ''
+     // });
+   // };
+ 
+  render() {
+    return (
+      <div className="App">
+        <ToDoList todoData={this.state.todoData}></ToDoList>
+        <ToDoForm></ToDoForm>
+      </div>
+    );
   }
 }
+     
   
 
   // you will need a place to store your state in this component.
