@@ -60,10 +60,11 @@ class App extends React.Component {
     })
   }
 
-  filterCompleted = id => {
+  filterCompleted = event => {
+    event.preventDefault();
     this.setState({
-      todos: this.state.todos.filter((todo, id) => {
-        if(todo.id !== id){
+      todos: this.state.todos.filter(todo => {
+        if(todo.completed !== 'true'){
           return todo;
         } else {
           return null;
@@ -85,6 +86,7 @@ class App extends React.Component {
           addNewTodo={this.addNewTodo} 
           newTodo={this.state.newTodo} 
           todos={this.state.todos} 
+          filterCompleted={this.filterCompleted}
         />
       </div>
     );
