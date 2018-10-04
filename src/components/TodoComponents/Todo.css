@@ -1,3 +1,96 @@
+/* body {
+    background: #2BC0E4;
+    /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to left, #2BC0E4, #EAECC6); */
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to left, #2BC0E4, #EAECC6); */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* } */
+/* 
+.App {
+    /* border: 8px solid #b9e6e0; */
+    /* width: 100%;
+    height: 100vh; */
+    /* background: #fef48a; */
+    
+/* } */
+
+/* .App h2 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 80px;
+    letter-spacing: 8px;
+    color: #FAF32D;
+} */ 
+
+/* .todoform {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 20%;
+    margin: 50px auto 200px auto;
+}
+
+.todoform input{
+    color: #ff0000;
+}
+.todoform .submit{
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    color: black;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size: 15px;
+  }
+  
+
+
+
+.todoform .clear {
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    color: black;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size: 15px; */
+  /* }
+  
+
+.list {
+    display: block;
+    text-align: center; */
+    /* background: orange; */
+/* } */
+
+
+/* 
+
+input[type="text"] {
+    border: 0;
+    background: #fef48a;;
+    border-bottom: solid 1px gray;
+    width: 99%;
+    padding-bottom: 4px;
+    color: black !important;
+    letter-spacing: 2px;
+    font-size: 20px;
+    text-align: center;
+  } */
+/* 
+
+  .task-box {
+      font-size: 1.5rem;
+      border-bottom: solid 2px #40A8E0;
+      padding: 20px 0 20px 0;
+      font-weight: 400;
+      font-family: 'Montserrat', sans-serif;
+  }
+
+  span {
+      padding: 0px 0px 0px 20px;
+  }  */
 
 body {
 	/* overflow-x: hidden; */
@@ -26,10 +119,10 @@ body {
 
 .todoform {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
     width: 20%;
-    margin: 50px auto 200px auto;
+    margin: 50px auto 0px auto;
 }
 
 button {
@@ -74,14 +167,52 @@ button {
 
 input[type="text"] {
     border: 0;
-    background: #fef48a;;
-    border-bottom: solid 1px gray;
+    background: #f2eefd;
+    /* border-bottom: solid 1px gray; */
     width: 99%;
-    padding-bottom: 4px;
-    color: black !important;
+    padding: 15px 0px 15px 0px;
+    /* color: black !important; */
     letter-spacing: 2px;
-    font-size: 20px;
+    font-size: 12px;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
   } 
 
+
+  .todoform .submit{
+    padding: 15px 0px 15px 0px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    color: black;
+    font-weight: 100;
+    letter-spacing: 2px;
+    font-size: 12px;
+  }
+  
+
+.todoform .clear {
+    padding: 15px 0px 15px 0px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    color: black;
+    font-weight: 100;
+    letter-spacing: 2px;
+    font-size: 12px;
+ }
+
+ .list {
+     color: white;
+     text-align: center;
+     margin-bottom: 60px;
+     font-family: 'Montserrat', sans-serif;
+
+ }
+
+ .task-box {
+    font-size: 1rem;
+    border-bottom: solid 2px #40A8E0;
+    padding: 10px 0 10px 0;
+    font-weight: 200;
+    font-family: 'Montserrat', sans-serif;
+}
 

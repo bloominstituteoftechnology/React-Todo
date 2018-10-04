@@ -23,7 +23,7 @@ const TodoForm = props => {
         <button
         className="clear"
         onClick={props.complete}>
-        Clear Completed</button>
+        Clear</button>
         </form>
       );
     };
