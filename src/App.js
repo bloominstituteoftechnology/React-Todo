@@ -54,24 +54,18 @@ class App extends React.Component {
     })
   }
 
-  clearCompletedTasks = event => {
-
-  }
-
-  // toggleCompletion
-
-  // to make competed value opposite of true/false
-  // textChangeCompletedValue = event => {
-  //   event.preventDefault();
-  //   this.setState({
-  //     todoListArray: [...this.state.todoListArray.completed: !this.state.todoListArray.completed]
-  //   })
-  // }
-
   handleChangeEvent = event => {
     this.setState({
       [event.target.name]: event.target.value
     })
+  }
+
+  clearCompletedTasks = event => {
+    console.log("clear tasks running")
+    event.preventDefault();
+    let remainingTodos = [...this.state.todoListArray]
+    remainingTodos = remainingTodos.filter(item => !item.completed)
+    this.setState({todoListArray: remainingTodos})
   }
 
   render() {
@@ -87,7 +81,7 @@ class App extends React.Component {
           handleChangeEvent={this.handleChangeEvent}
           addTask={this.addTask}
           newTasks={this.state.newTasks}
-          clearCompletedTasks={this.state.clearCompletedTasks}
+          clearCompletedTasks={this.clearCompletedTasks}
         />
 
       </div>
