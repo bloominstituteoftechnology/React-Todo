@@ -6,20 +6,15 @@ const TodoList = (props) => {
 
   return (
     <div>
-    {props.todoArray.map(todoObj => {
-      return (
-        <div>
-          <Todo 
-            todo={todoObj}
-          />
-        </div>
-        );
-    })
-    }
+      <h1>Todo List: MVP</h1>
+
+      {props.todoArray.map(todoObj => {
+        return (
+          <div><Todo todo={todoObj}/></div>
+          );
+        })}
     </div>
-   
   )
 }
 
 export default TodoList;
-
