@@ -31,6 +31,25 @@ class App extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  isCompleted = index => {
+    // console.log(index);
+    this.setState({
+      todos: this.state.todos.map((item, idx) => {
+        console.log(item);
+
+        if (index !== idx) {
+          return item;
+        } else {
+          return {
+            ...item,
+            completed: item.completed === false ? true : false
+          };
+        }
+        console.log(item);
+      })
+    });
+  };
+
   clearCompleted = e => {
     this.setState({
       todos: []
@@ -48,7 +67,7 @@ class App extends React.Component {
           newTodo={this.state.newTodo}
           clear={this.clearCompleted}
         />
-        <TodoList taskList={this.state.todos} />
+        <TodoList taskList={this.state.todos} isCompleted={this.isCompleted} />
       </div>
     );
   }
