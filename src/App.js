@@ -14,15 +14,17 @@ class App extends React.Component {
         {
           task: 'Organize Garage',
           id: 1528817077286,
-          completed: false
+          completed: false,
+          decorate: 'no-decoration'
         },
         {
           task: 'Bake Cookies',
           id: 1528817084358,
-          completed: false
+          completed: false,
+          decorate: 'no-decoration'
         }
       ],
-      newTask: ''
+      newTask: '',
     };
   };
 
@@ -31,19 +33,44 @@ class App extends React.Component {
     this.setState({
       todoData: [...this.state.todoData, {task: this.state.newTask,
                                           id: Date.now(),
-                                          completed: false}],
+                                          completed: false,
+                                          decorate: 'no-decoration'}],
      newTask: ''
     });
   };
 
   inputChange = event => {
+    
     this.setState({[event.target.name]: event.target.value});
   };
 
+  completeTaskSelect = index => {
+    this.setState({
+      todoData: this.state.todoData.map((task, idx) => {
+        if(index != idx) {
+          return task;
+        } else {
+          return {
+            ...task,
+            completed: task.completed === false ? true : false,
+            decorate: task.decorate === 'no-decoration' ? 'slash' : 'no-decoration'
+          }
+        }
+      })
+    })
+  };
+
   completeTaskWipe = event => {
-    console.log(event.target.id);
-    this.setState({[event.target.id]: true});
-  }
+    this.setState({
+      todoData: this.state.todoData.filter(task => {
+        if(task.completed === false) {
+          return task;
+        } else {
+          return null;
+        }
+      })
+    })
+  };
 
   render() {
     return (
@@ -53,6 +80,8 @@ class App extends React.Component {
         newTask={this.state.newTask}
         addTodoInput={this.addTodoInput}
         inputChange={this.inputChange}
+        completeTaskSelect={this.completeTaskSelect}
+        decorate={this.state.decorate}
         completeTaskWipe={this.completeTaskWipe}
           />
       </div>

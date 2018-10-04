@@ -10,10 +10,12 @@ const Todo = props => {
             newTask = {props.newTask}
             inputChange = {props.inputChange}
             addTodoInput = {props.addTodoInput}
+            completeTaskWipe={props.completeTaskWipe}
             />    
             <TodoList 
             todoData = {props.todoData}
-            completeTaskWipe = {props.completeTaskWipe}
+            completeTaskSelect = {props.completeTaskSelect}
+            decorate ={props.decorate}
             />
         </div>
     );

@@ -1,3 +1,9 @@
-.complete {
+
+.slash {
     text-decoration: line-through;
+
+}
+
+.no-decoration {
+    text-decoration: none;
 }

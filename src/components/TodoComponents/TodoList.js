@@ -3,11 +3,13 @@
 import React from 'react';
 import './Todo.css';
 
-const TodoList = props => { 
+const TodoList = props => {
     return (
         <div className = 'todolist'>
-            {props.todoData.map(item => {
-                return <p id="comepleted" onClick={props.completeTaskWipe}>{item.task}</p>;
+            
+            {props.todoData.map((item, index) => {
+                
+                return <p className ={item.decorate} value ={item.completed} onClick={() => props.completeTaskSelect(index)} key={item.id}>{item.task}</p>;
             })}
         </div>
     );
