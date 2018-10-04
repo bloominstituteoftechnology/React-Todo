@@ -3,16 +3,16 @@ import React from 'react';
 
 const TodoForm = (props) => {
     return (
-        <div>            
+        <div className='form-div'>            
             <form onSubmit = {props.AddTodoHandler}>
-                <input onChange={props.handleTodoChange}
+                <input className='input' onChange={props.handleTodoChange}
                     type="text"
                     name="todo"
                     value={props.value}
                     placeholder="...todo"/>
             </form>    
-                <button onClick={props.AddTodoHandler}>Add Todo</button>
-                <button onClick={props.removeCompleted} >Clear Completed</button>              
+                <button className='button add-button' onClick={props.AddTodoHandler}>Add Todo</button>
+                <button className='button remove-button' onClick={props.removeCompleted} >Clear Completed</button>              
         </div>
     );
 }

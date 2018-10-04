@@ -7,7 +7,7 @@ import Todo from './Todo';
 
 const TodoList = (props) => {
     return (
-        <ul>            
+        <ul className='unordered-list'>            
             {props.data.map((item) =>  (
                 <Todo
                     strikeThru = {props.strikeThru}

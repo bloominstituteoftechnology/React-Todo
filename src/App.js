@@ -47,7 +47,7 @@ class App extends React.Component {
   };
   addTodo = event => {
       event.preventDefault();
-      if (this.state.todo === '') {
+      if (!this.state.todo) {
         return;
       } else {
       this.setState({

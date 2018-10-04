@@ -7,13 +7,73 @@ html {
     linear-gradient(to top left, brown, transparent),
     linear-gradient(to top right, hotpink, transparent);
     background-blend-mode: screen;
-    color: white    
+    color: white; 
+    font-size: 62.5;   
 }
 
 
-
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
 
 .main-header {
-    text-decoration: lightcoral dashed underline;
     padding-left: 5%;
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 0;
+}
+
+.unordered-list {
+    text-align: left;
+    font-size: 1.2rem;
+    width: 30%;
+    list-style-position: inside;
+}
+
+.list-item {
+    margin-bottom: 20px; 
+    transition: .5s font-size;  
+    cursor: pointer;  
+}
+
+.list-item:hover {
+    font-size: 1.4rem;
+}
+
+.form-div {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.input {
+    height: 50px;
+    width: 400px;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.button {
+    height: 100px;
+    width: 40%;
+    margin: 30px 30%;
+    font-size: 2rem;
+    background:
+    linear-gradient(to left, rgba(0, 4, 255, 0.555), transparent),
+    linear-gradient(to right, palegreen, transparent); 
+    transition: .5s box-shadow;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: linear-gradient(to left, palegreen, transparent),
+    linear-gradient(to right, rgba(0, 4, 255, 0.555), transparent); 
+    color: whitesmoke;
+    box-shadow: 2px 2px 2px black inset;
 }
