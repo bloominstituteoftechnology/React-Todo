@@ -1,6 +1,6 @@
 import React from 'react';
 import Todo from "./components/TodoComponents/Todo.js"
-
+import "./components/TodoComponents/Todo.css"
 
 class App extends React.Component {
   constructor(props) {
@@ -8,24 +8,43 @@ class App extends React.Component {
     this.state = {
       message: "Its working",
       TodoList: [
-        { entry: "0" },
-        { entry: "1" },
-        { entry: "2" },
-        { entry: "3" },
-        { entry: "4" },
-        { entry: "5" },
-        { entry: "6" }
-      ]
+        { entry: "Example" }
+      ],
+      color: "red",
+      inputText: ''
     }
   }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
+
+  changeColor = (event) => {
+    event.preventDefault()
+    this.setState({color: 'blue' })
+  }
+ changeHandler = event => {
+   console.log(event.target.value)
+   this.setState({ inputText: event.target.value})
+ }
+
+ addNewCharacter = (event) => {
+   event.preventDefault()
+   this.setState({TodoList: [...this.state.TodoList, {entry: this.state.inputText}]})
+
+ }
+
   render() {
     return (
         <div>
-          <input type='text' name='name' />   
-          <Todo list={this.state.TodoList} />
+             
+          <Todo
+             changeColor={this.changeColor}
+             changeHandler={this.changeHandler}
+             list={this.state.TodoList} 
+             style ={this.state.color}
+             inputText= {this.state.inputText}
+             addNewCharacter= {this.addNewCharacter}
+          />
         </div>
 
     );
