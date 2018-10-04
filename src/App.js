@@ -81,15 +81,13 @@ class App extends React.Component {
   clear = (event) => {
     event.preventDefault();
     let Todolist = this.state.Todo.slice();
-    Todolist.filter ( item => {
-      if (item.completed === false){
-        return item
-      } else {
-        return null
-      }
-    })
-    console.log(Todolist)
-    this.setState ( {Todo: Todolist})
+    Todolist = Todolist.filter( item => {if(item.completed === false){
+      return item
+    } else {
+      return null
+    }})
+    console.log(Todolist);
+    this.setState({Todo: Todolist})
   }
 
   
