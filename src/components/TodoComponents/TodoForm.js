@@ -11,8 +11,12 @@ const TodoForm = props => {
           onChange={props.changeHandler}
           value={props.newTodo}
         />
-        <button onClick={props.addNewTodo}>Add Todo</button>
-        <button onClick={props.filterComplete}>Clear Completed</button>
+        <button onClick={props.addNewTodo} className="add-todo">
+          Add Todo
+        </button>
+        <button onClick={props.filterComplete} className="clear-completed">
+          Clear Completed
+        </button>
       </form>
     </div>
   );
