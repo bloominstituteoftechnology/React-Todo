@@ -22,6 +22,11 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <div>
+        <input/>
+        <button>Add Todo</button>
+        <button>Clear Completed</button>
+        </div>
       </div>
     );
   }
