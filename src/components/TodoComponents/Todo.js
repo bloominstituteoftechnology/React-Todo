@@ -4,7 +4,10 @@ import TodoList from './TodoList';
 const Todo = props => {
     return(
         <div>
-            <TodoList todoData={props.todoData}/>
+            <TodoList
+                todoData={props.todoData}
+                strikeThrough={props.strikeThrough}
+                />
         </div>
     )
 }

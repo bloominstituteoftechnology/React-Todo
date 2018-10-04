@@ -8,7 +8,10 @@ import Todo from './Todo'
 const TodoForm = props => {
     return (
         <div>
-            <Todo todoData={props.todoData}/>
+            <Todo
+            todoData={props.todoData}
+            strikeThrough={props.strikeThrough}
+            />
             <form onSubmit={props.addNewTodo}>
 
             <input 
@@ -25,7 +28,7 @@ const TodoForm = props => {
 
             </form>
 
-            <button>Clear Completed</button>
+            <button onClick={props.clearCompleted}>Clear Completed</button>
         </div>
     )
 }

@@ -1,3 +1,7 @@
-.strike-through {
+.strikeThrough {
     text-decoration: line-through;
+}
+
+.none {
+    text-decoration: none;
 }

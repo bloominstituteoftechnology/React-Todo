@@ -30,30 +30,30 @@ changeHandler = event => {
 
 strikeThrough = index => {
   this.setState({
-    todoData: this.state.todoData.map((item, indx) =>{
+    todoData: this.state.todoData.map((item, indx) => {
       if(index !== indx) {
         return item;
       } else {
         return {
           ...item,
-          textDecoration: item.textDecoration === 'none' ? 'strike-through' : 'none'
+          textDecoration: item.textDecoration === 'none' ? 'strikeThrough' : 'none'
         };
       }
     })
   })
 }
 
-clearCompleted = index => {
-  this.setState({
-    todoData: this.state.todoData.filter((item, indx) => {
-      if (index !== indx) {
-        return item;
-      } else {
-        return null;
-      }
-    })
-  })
-}
+// clearCompleted = index => {
+//   this.setState({
+//     todoData: this.state.todoData.filter((item, indx) => {
+//       if (index !== indx) {
+//         return item;
+//       } else {
+//         return null;
+//       }
+//     })
+//   })
+// }
 
 
 addNewTodo = event => {
@@ -79,6 +79,8 @@ addNewTodo = event => {
           addNewTodo={this.addNewTodo}
           changeHandler={this.changeHandler}
           newTask={this.state.newTask}
+          clearCompleted={this.clearCompleted}
+          strikeThrough={this.strikeThrough}
           />
       </div>
     );
