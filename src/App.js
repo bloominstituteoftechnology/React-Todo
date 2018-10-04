@@ -1,9 +1,9 @@
 import React from 'react';
 
-import TodoForm from './components/TodoComponents/TodoForm';
-import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoFormComponent/TodoForm';
+import TodoList from './components/TodoComponents/TodoListComponent/TodoList';
 
-import "./components/TodoComponents/Todo.css"
+import "./css/index.css"
 
 
 class App extends React.Component {
@@ -13,9 +13,9 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      randomId : this.randomIdGenerator(),
       taskList : [],
       inputText : "",
+      descriptionText : ""
     };
   }
 
@@ -33,13 +33,14 @@ class App extends React.Component {
   //submits newly entered task
   addTask = event =>{
     event.preventDefault();
-
+    console.log(event.target.name);
     this.setState({
       taskList: [
         ...this.state.taskList, 
-        {id: this.randomIdGenerator(), task: this.state.inputText, complete: true}
+        {id: this.randomIdGenerator(), task: this.state.inputText, descriptionText: this.state.descriptionText, complete: false}
       ],
-     inputText : ""
+      inputText: "",
+      descriptionText: ""
     });
   }
   
@@ -47,13 +48,17 @@ class App extends React.Component {
   //enters newly entered tasks if enter pressed on form input
   enterTask = event => {
 
+    let inputName = event.target.name;
+    console.log(inputName);
+
     if(event.key === "Enter"){
       this.setState({
         taskList: [
           ...this.state.taskList, 
-          {id: this.randomIdGenerator(), task: this.state.inputText, complete: true}
+          {id: this.randomIdGenerator(), task: this.state.inputText, descriptionText: this.state.descriptionText, complete: false}
         ],
-       inputText : ""
+       inputText : "",
+       descriptionText: ""
       });
     }
   }
@@ -72,12 +77,16 @@ class App extends React.Component {
       <div>
 
         <TodoList taskData={this.state.taskList}   
-        inputText={this.state.inputText}/>
+        inputText={this.state.inputText}
+        descriptionText={this.state.descriptionText}
+        />
 
         <TodoForm changeHandler={this.changeHandler} 
           inputText={this.state.inputText}
+          descriptionText={this.state.descriptionText}
           addTask= {this.addTask}
-          enterTask = {this.enterTask} />
+          enterTask = {this.enterTask}
+        />
       </div>
     );
   }

@@ -6,7 +6,7 @@ import Todo from './Todo';
 const TodoList = props => {
     return(
     <div>
-        <Todo taskData={props.taskData}  inputText={props.inputText}/>
+        <Todo taskData={props.taskData}  inputText={props.inputText}  descriptionText={props.descriptionText}/>
     </div>
     );
 }
