@@ -37,9 +37,10 @@ class App extends React.Component {
     //preventDefault prevents page from refreshing upon the form entry
     event.preventDefault();
     //added this if statement to alert the user if they try to add too many
-    //todos, keeps the list from going over 10
+    //todos, keeps the list from going over 10. also does a setState call to reset newTodo (clear the input field)
     if (this.state.todoList.length >= 10) {
       alert("Slow your roll and knock these items out first!");
+      this.setState({ newTodo: "" });
     } else {
       this.setState({
         todoList: [
