@@ -1,6 +1,9 @@
 import React from 'react';
+
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+
+import './App.css';
 
 class App extends React.Component {
   constructor() {
@@ -75,21 +78,25 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Todo List: MVP</h2>
-        <TodoList toggleComplete={this.toggleComplete} todoData={this.state.todoData} />
-        <TodoForm
-          // input field
-          inputTodo={this.state.newTodo}
-          changeInput={this.changeInput}
-          newTodo={this.state.newTodo}
+      <div className="container">
+        <h2>Todo List</h2>
 
-          // Add Todo button
-          addNewTodo={this.addNewTodo}
+        <div className="todo-container">
+          <TodoForm
+            // input field
+            inputTodo={this.state.newTodo}
+            changeInput={this.changeInput}
+            newTodo={this.state.newTodo}
 
-          // Clear Completed button
-          clearCompleted={this.clearCompleted}
-        />
+            // Add Todo button
+            addNewTodo={this.addNewTodo}
+
+            // Clear Completed button
+            clearCompleted={this.clearCompleted}
+          />
+          <TodoList toggleComplete={this.toggleComplete} todoData={this.state.todoData} />
+        </div>
+
       </div>
     );
   }
