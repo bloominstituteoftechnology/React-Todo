@@ -3,8 +3,8 @@ import './Todo.css';
 
 const TodoForm = (props) => {
     return (
-        <div>
-            <form onSubmit={props.addTodo}>
+        <div className='divform'>
+            <form className='form' onSubmit={props.addTodo}>
                  <input 
                  type="text" 
                  placeholder="Enter Task Here" 
@@ -12,8 +12,8 @@ const TodoForm = (props) => {
                  onChange={props.changeHandler}
                  name="newTodo"
                  />
-                 <button type="submit" onClick={props.addTodo}>Add Todo</button>
-                 <button onClick={props.filterTask}>Clear Completed</button>
+                 <button className='btnTodo' type="submit" onClick={props.addTodo}>Add Todo</button>
+                 <button className='btnClear' onClick={props.filterTask}>Clear Completed</button>
             </form>
         </div>
     );

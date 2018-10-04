@@ -1,0 +1,48 @@
+body {
+    background-color: black;
+}
+
+#root {
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 80px;
+    height: auto;
+    background-color: aqua;
+    text-align: center;
+}
+
+#root h1{
+    padding-top: 10px;
+    font-size: 50px;
+}
+
+#root h3 {
+    font-size: 25px;
+    color: red;
+}
+
+.divform {
+    margin-top: 40px;
+    padding-bottom: 100px;
+}
+
+.divform .form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 25%;
+}
+
+.divform .form .btnTodo {
+    background-color: green;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.divform .form .btnClear {
+    background-color: red;
+    color: black;
+    font-weight: bold;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './App.css';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -10,16 +11,16 @@ class App extends React.Component {
     super(props)
     this.state = {
       todoData: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false,
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false,
-        }
+        // {
+        //   task: 'Organize Garage',
+        //   id: 1528817077286,
+        //   completed: false,
+        // },
+        // {
+        //   task: 'Bake Cookies',
+        //   id: 1528817084358,
+        //   completed: false,
+        // }
       ],
       newTodo: '',
     }
@@ -75,13 +76,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='container'>
         <h1>Todo List:</h1>
         <TodoList 
           todoData={this.state.todoData}
           changeCompleted={this.changeCompleted}
           />
-        <TodoForm 
+        <TodoForm
           changeHandler={this.changeHandler}
           addTodo={this.addTodo}
           newTodo={this.state.newTodo}
