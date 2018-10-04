@@ -36,7 +36,7 @@ class App extends Component {
     this.setState({
       todoData: [
         ...this.state.todoData,
-        {task: this.state.newTask, id: Math.ceil(Math.random() * 10000), completed: false}
+        {task: this.state.newTask, id: Date.now(), completed: false}
       ],
       newTask: ''
     })
