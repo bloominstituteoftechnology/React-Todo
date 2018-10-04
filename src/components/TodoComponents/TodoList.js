@@ -11,7 +11,7 @@ const ToDoList = (props) => {
             <p>{item.task}</p>
             <div className="icons">
               <i className={item.icon} onClick={() => props.completeTask(item.id)}></i>
-              <i className="fas fa-times" ></i>
+              <i className="fas fa-times" onClick={() => props.closeTask(item.id)}></i>
             </div>
           </div>
           )

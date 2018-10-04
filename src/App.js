@@ -36,7 +36,7 @@ class App extends React.Component {
   completeTask = (index) => {
     // let id = this.state.id;
     this.setState({
-      list: this.state.list.map((task, idx) => {
+      list: this.state.list.map((task) => {
 
         if (index !== task.id) {
           return task;
@@ -51,6 +51,23 @@ class App extends React.Component {
     });
   };
 
+  closeTask = (index) => {
+    this.setState({
+      list: this.state.list.filter((task) => {
+
+        if (index !== task.id) {
+          return task;
+        } else {
+          if (task.completed === 'Complete') {
+            return null;
+          } else {
+            alert('please complete task');
+            return task;
+          }
+        }
+      })
+    });
+  }
 
   changeHandler = event => {
     event.preventDefault();
@@ -97,6 +114,7 @@ class App extends React.Component {
             completeTask={this.completeTask}
             list={this.state.list}
             key={this.state.id}
+            closeTask={this.closeTask}
           // onClick={this.handleDelete}
           />
         </div>
