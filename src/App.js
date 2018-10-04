@@ -8,22 +8,22 @@ let initialList = [
   {
     task: 'enter a new task in the upper left',
     id: Date.now().toString(),
-    // complete: false
+
 
   }, {
     task: 'mark it complete (or not) by clicking it',
     id: Date.now().toString()+1,
-    // complete: false
+
 
   }, {
     task: 'use the eraser to clear finished tasks',
     id: Date.now().toString()+2,
-    // complete: false
+
 
   }, {
     task: 'search the list in the upper right',
     id: Date.now().toString()+3,
-    // complete: false
+
   }
 ];
 
@@ -52,7 +52,7 @@ class App extends React.Component {
       let newTodo = {
         task: newTask,
         id: Date.now().toString(),
-        // complete: false
+
       }
       this.setState({
         todoList: [
