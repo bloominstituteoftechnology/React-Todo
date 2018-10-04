@@ -1,6 +1,5 @@
 import React from 'react';
-import TodoList from './components/TodoComponents/TodoList';
-import TodoForm from './components/TodoComponents/TodoForm';
+import Todo from './components/TodoComponents/Todo';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -9,16 +8,40 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      todoData : [],
-      todoItem : "",
-      newTodoItem: ""
+      taskList : [
+          {
+            id: this.randomIdGenerator(),
+            task: "test",
+            complete: false
+          },
+          {
+            id: this.randomIdGenerator(),
+            task: "test2",
+            complete: false
+          }
+      ],
+      inputText : ""
     };
   }
+
+  randomIdGenerator = () => {
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  }
+
+  changeHandler = event => {
+    event.preventDefault();
+    this.setState({ inputText: event.target.value});
+  }
+  
+
   render() {
     return (
       <div>
-        <TodoList todoData={this.state.todoData} />
-        <TodoForm />
+        <Todo 
+          taskData={this.state.taskList} 
+          changeHandler={this.changeHandler} 
+          inputText={this.state.inputText}
+        />
       </div>
     );
   }

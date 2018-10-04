@@ -4,11 +4,11 @@ import React from 'react';
 // feel free to change this component.js into TodoList.js
 const TodoList = props => {
     return(
-        <div>
-           {props.todoData.map(todo =>{
-               return <h1>{todo.message}</h1>
+       <div>
+           {props.taskData.map(item => {
+               return <p key={item.id}>{item.task}</p>
            })}
-        </div>
+       </div>
     );
 }
 
