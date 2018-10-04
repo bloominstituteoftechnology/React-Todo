@@ -1,34 +1,60 @@
 .todoListContainer {
-  width: 500px;
+  width: 1000px;
   margin: 0 auto;
-  border: 2px solid blue;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .todoListContainer h1 {
-    color: green;
-    position: relative;
-    margin: 50px;   
+    color: blue;
+    position: absolute;
+    margin: 50px;
+    top: -100px;   
     width: 496px; 
+}
+.todoListContainer h2 {
+    color: red;
+    top: -100px;
+    position: absolute;
+    margin: 50px;
+    font-size: 2em;
+    right: 100px;
+
+}
+.lists {
+    background-color: green;
+    width: 900px;
+    position: absolute;
+    top: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+.TodoList {
+    width: 400px;
+    background-color: blue;
+}
+.FinTodoList {
+    width: 400px;
+    background-color: red;
+    border: 2px dotted blue;
+}
+.FinTodoItem {
+    font-size: 60px;
+    margin: -60px;
+    width: 496px;
+    text-align: center;
 }
 
 .todoItem {
-    font-size: 48px;
+    font-size: 60px;
+    margin: -60px;
     width: 496px;
-    height: 60px;
     text-align: center;
     /* animation-name: fade;
     animation-duration: 5s; */
 }
-.todoItem:nth-child(even) {
-    background: gray;
-}
 
-.todoItem:nth-child(odd) {
-    background: blue;
-}
 /* @keyframes fade {
     10% {font-size: 10px}
     50% {font-size: 50px}
@@ -36,7 +62,10 @@
 } */
 
 .todoForm {
+    margin: 20px;
     width: 500px;
+    height: 50px;
+    position: absolute;
     display: flex;
     justify-content: space-evenly;
 }

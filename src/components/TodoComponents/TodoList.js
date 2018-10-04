@@ -9,8 +9,10 @@ const TodoList = props => {
     <div className="TodoList">
       {props.todoList.map(item => {
           return <Todo 
+          key={item.id}
           item={item} 
           completeTask={props.completeTask}
+          itemStyle={props.itemStyle}
           />
       })}
     </div>
