@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
-// import TodoList from './components/TodoComponents/TodoList';
+import TodoList from './components/TodoComponents/TodoList';
 // import Todo from './components/TodoComponents/Todo';
 
 class App extends React.Component {
@@ -45,10 +45,16 @@ class App extends React.Component {
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        {/* <TodoList 
+        <TodoList 
           todoData={this.state.TodoData}
+        />
+        {/* <Todo 
+        addNewTodo={this.addNewTodo}
+        changeHandler={this.changeHandler}
+        inputText={this.state.inputText}
+        todoData={this.state.TodoData}
+        newTodo={this.state.newTodo}
         /> */}
-        {/* <Todo /> */}
         <TodoForm 
           addNewTodo={this.addNewTodo}
           changeHandler={this.changeHandler}
