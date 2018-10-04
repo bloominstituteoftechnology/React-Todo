@@ -41,7 +41,7 @@ class App extends React.Component {
         } else {
           return {
           ...todo,
-          completed: todo.completed === 'false' ? 'true' : 'false',
+          completed: todo.completed === false ? true : false,
           name: todo.name === 'normal' ? 'lineThrough' : 'normal'
           }
         }
@@ -55,7 +55,7 @@ class App extends React.Component {
   filterTasks = event => {
     event.preventDefault();
     this.setState({
-      todoArray: this.state.todoArray.filter(todo => !todo.completed)
+      todoArray: this.state.todoArray.filter(todo => todo.completed === false)
     })
   }
 
@@ -82,6 +82,7 @@ class App extends React.Component {
   // }
   
   render() {
+    console.log(this.state.todoArray[0]);
     return (
       <div>
         <TodoList 
