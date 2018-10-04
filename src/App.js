@@ -20,7 +20,7 @@ class App extends React.Component {
           id: 1528817084358,
           completed: false
         }
-      ],
+      ]
     };
   }
 
@@ -42,6 +42,45 @@ class App extends React.Component {
     });
   };
 
+  handleCompleted = id => {
+    this.setState({
+      toDo: this.state.toDo.map(item => {
+        if (item.id === id) {
+          item.completed = !item.completed;
+          return item;
+        } else {
+          return item;
+        }
+      })
+    });
+  };
+
+  // changeColor = index => {
+  //   this.setState({
+  //     disneyData: this.state.disneyData.map((character, idx) => {
+  //       if (index !== idx) {
+  //         return character;
+  //       } else {
+  //         return {
+  //           ...character,
+  //           color: character.color === 'red' ? 'green' : 'red'
+  //         };
+  //       }
+  //     })
+  //   });
+  // };
+
+  //   filterCharacter = index => {
+  //     this.setState({
+  //       disneyData: this.state.disneyData.filter((character, idx) => {
+  //         if (index !== idx) {
+  //           return character;
+  //         } else {
+  //           return null;
+  //         }
+  //       })
+  //     });
+  //   };
   // changeHandler = event => {
   //   console.log(event.target.name);
   //   this.setState({ [event.target.name]: event.target.value });
@@ -62,7 +101,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1>Todo List</h1>
-        <List toDo={this.state.toDo} />
+        <List toDo={this.state.toDo} handleCompleted={this.handleCompleted} />
         <TodoForm
           handleNewToDo={this.handleNewToDo}
           handleInputChange={this.handleInputChange}

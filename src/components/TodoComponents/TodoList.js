@@ -4,7 +4,12 @@ import Todo from "./Todo";
 const List = props => (
   <ul>
     {props.toDo.map(item => (
-      <Todo task={item.task} />
+      <Todo
+        key={item.id}
+        id={item.id}
+        task={item.task}
+        handleCompleted={props.handleCompleted}
+      />
     ))}
   </ul>
 );

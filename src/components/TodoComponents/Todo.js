@@ -1,5 +1,13 @@
 import React from "react";
 
-const Todo = props => <li key={props.task}>{props.task}</li>;
+const Todo = props => (
+  <li
+    key={props.id}
+    id={props.id}
+    onClick={() => props.handleCompleted(props.id)}
+  >
+    {props.task}
+  </li>
+);
 
 export default Todo;
