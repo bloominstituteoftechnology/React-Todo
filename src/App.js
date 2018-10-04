@@ -4,31 +4,29 @@ import TodoList from "./components/TodoComponents/TodoList.js";
 import Eraser from './components/TodoComponents/Eraser.js';
 import "./components/TodoComponents/Todo.css";
 
-let initialList = [];
-let startUpOptions = [
+let initialList = [
   {
     task: 'enter a new task in the upper left',
     id: Date.now().toString(),
-    complete: false
+    // complete: false
 
   }, {
     task: 'mark it complete (or not) by clicking it',
-    id: Date.now().toString(),
-    complete: false
+    id: Date.now().toString()+1,
+    // complete: false
 
   }, {
     task: 'use the eraser to clear finished tasks',
-    id: Date.now().toString(),
-    complete: false
+    id: Date.now().toString()+2,
+    // complete: false
 
   }, {
     task: 'search the list in the upper right',
-    id: Date.now().toString(),
-    complete: false
+    id: Date.now().toString()+3,
+    // complete: false
   }
 ];
-startUpOptions = JSON.stringify(startUpOptions);
-localStorage.setItem('todoList', startUpOptions); 
+
 let storedList = localStorage.getItem('todoList');
 if (storedList !== null) {
   initialList = JSON.parse(storedList);
@@ -38,13 +36,7 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      todoList: [
-        ...initialList,
-        startOption1,
-        startOption2,
-        startOption3,
-        startOption4
-      ],
+      todoList: initialList,
       makeTodo: '',
       searchTerm: ''
     };
@@ -60,7 +52,7 @@ class App extends React.Component {
       let newTodo = {
         task: newTask,
         id: Date.now().toString(),
-        complete: false
+        // complete: false
       }
       this.setState({
         todoList: [
