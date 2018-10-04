@@ -81,6 +81,7 @@ document {
   text-align: center;
   color: #197278;
   padding-top: 1%;
+  cursor: pointer; 
 }
 
 .form-container {
