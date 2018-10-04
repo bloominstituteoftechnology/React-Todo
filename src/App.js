@@ -17,14 +17,18 @@ import ToDoList from './components/TodoComponents/TodoList.js';
         }
       ],
      // inputText: '',
-      newToDo: ''
+      newToDo: '',
+      done: "done"
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.addNewToDo = this.addNewToDo.bind(this);
+    this.clearCompleted = this.clearCompleted.bind(this);
+    this.clearCrossThrough = this.clearCrossThrough.bind(this);
   }
     changeHandler(event) {
-      console.log(event.target.name)
-      this.setState ({[event.target.name]: event.target.value});
+      console.log("hello")
+     // this.setState ({[event.target.name]: event.target.value});
+     this.setState ({newToDo: event.target.value});
     }
    
 
@@ -36,13 +40,51 @@ import ToDoList from './components/TodoComponents/TodoList.js';
           ...this.state.todoData,
           { task: task,
             id: Date.now().toString(),
-            completed: false
+           // completed: false
            }
         ],
         //inputText: '',
         newToDo: ''
     });
   } 
+
+  clearCompleted(event) {
+    //
+    event.preventDefault();
+    const task = this.state.newToDo;
+    this.setState({
+      todoData: [
+        ...this.state.todoData,
+        { task: task,
+          id: Date.now().toString(),
+          completed: false
+         }
+      ],
+      //inputText: '',
+      newToDo: ''
+  });
+} 
+
+clearCrossThrough(event) {
+  //use id 
+  event.preventDefault();
+  const target= event.currentTarget;
+  const id = target.attributes.id.value;
+  let updatedToDoData = this.state.todoData;
+
+  for (let i in updatedToDoData) {
+    let newList = updatedToDoData[i] 
+    console.log(newList)
+    if (newList.id === id) {
+      console.log(id)
+     newList.completed = true;
+    }
+  }
+  this.setState({
+    todoData: updatedToDoData
+});
+} 
+/*
   /*
  
   */
@@ -67,9 +109,9 @@ import ToDoList from './components/TodoComponents/TodoList.js';
   render() {
     return (
       <div className="App">
-        <ToDoList todoData={this.state.todoData}></ToDoList>
-        <ToDoForm addNewToDo={this.state.addNewToDo} 
-        changeHandler={this.state.changeHandler}
+        <ToDoList todoData={this.state.todoData} clearCrossThrough={this.clearCrossThrough}></ToDoList>
+        <ToDoForm addNewToDo={this.addNewToDo} 
+        changeHandler={this.changeHandler}
         newToDo={this.state.newToDo}
         ></ToDoForm>
       </div>

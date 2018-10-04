@@ -4,7 +4,7 @@ import Todo from "./Todo.js";
 
 const ToDoList = props => {
  let todoArray = props.todoData.map(item => {
-    return <Todo key={item.id} id={item.id} task={item.task}/>; 
+    return <Todo completed = {item.completed} clearCrossThrough = {props.clearCrossThrough} key={item.id} id={item.id} task={item.task}/>; 
    }   
 );
 
