@@ -3,7 +3,7 @@ import React from 'react';
 
 const Todo = (props) => {
 
-  return <h1>{props.todo.task}</h1>;
+  return <h3>{props.todo.task}</h3>;
   
 }
 export default Todo
