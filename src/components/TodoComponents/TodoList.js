@@ -4,9 +4,9 @@ import React from "react";
 import Todo from "./Todo";
 
 const TodoList = props => {
-  console.log(props.formData);
   return (
     <div>
+      <h1>My Todo List</h1>
       {props.formData.map((item, index) => {
         return (
           <ul key={index}>
