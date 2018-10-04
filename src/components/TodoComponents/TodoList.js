@@ -6,10 +6,11 @@ const TodoList = props => {
   return (
       <div>
         {props.list.map((item, index) => {return <p
+          className={item.complete ? 'done' : 'notDone'}
           key={index}
-          className={props.style}
           onClick={ () => {props.crossOut(index)}
-         }>{item.item}</p>})}
+         }>{item.item}
+        </p>})}
       </div>
       );
 };

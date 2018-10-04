@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todo.css'
 const TodoForm = props => {
   return (
       <div>
@@ -11,8 +12,13 @@ const TodoForm = props => {
           />
           <button onClick={props.addItem}>Add Task</button>
         </form>
+        <button
+          onClick={props.removeComplete}
+        
+        >Remove Completed</button>
       </div>
       );
 };
+
 
 export default TodoForm;

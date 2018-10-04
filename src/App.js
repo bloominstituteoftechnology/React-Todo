@@ -18,30 +18,21 @@ class App extends React.Component {
       ],
       newItem: '',
       newThing: 1, 
-      style: 'none'
 
       }
-    console.log(typeof this.state.list)
-
   }
 
   crossOut = (index) => {
-    console.log(index)
     this.setState({list: this.state.list.map((item, idx) => {
       if(index === idx) {
         return {
           ...item,
-          complete: item.complete === false ? true : false 
+          complete: item.complete === false ? true : false, 
         }
       } else {
           return item;
         }
     })})
-    //this.state.list.map((item, idx) => {
-    //  if(index === idx) {
-    //    //put the change of status here
-    //  }
-    //})
   }
 
   changeHandler = event => {
@@ -54,6 +45,14 @@ class App extends React.Component {
     event.preventDefault();
     this.setState({list: [...this.state.list, {item: this.state.newItem, id: Date.now(), complete: false}]});
     this.setState({newItem: ''});
+  }
+
+  removeComplete = (event) => {
+    event.preventDefault();
+    this.setState({
+      list: this.state.list.filter(item => !item.complete )
+    })
+    console.log(this.state.list.length);
   }
 
   // addItem = (event) => {
@@ -73,12 +72,12 @@ class App extends React.Component {
         <TodoList 
           list={this.state.list}
           crossOut={this.crossOut}
-          style={this.style}
           />
         <TodoForm
           newItem={this.state.newItem}
           changeHandler={this.changeHandler}
           addItem={this.addItem}
+          removeComplete={this.removeComplete}
         />
       </div>
     )
