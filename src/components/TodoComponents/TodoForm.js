@@ -8,19 +8,21 @@ const TodoForm = props => {
     <div>
       <div>
         {props.listArray.map(item => {
-          return <h4>{item.toDo}</h4>;
+          return <h4>{item.task}</h4>;
         })}
       </div>
       <div>
-        <input
-          type="text"
-          name="newTask"
-          onChange={props.changeHandler}
-          value={props.newTask}
-        />
-        <button type="submit" onClick={props.addNewTask}>
-          Add Todo
-        </button>
+        <form onSubmit={props.addNewTask}>
+          <input
+            type="text"
+            name="newTask"
+            onChange={props.changeHandler}
+            value={props.newTask}
+          />
+          <button type="submit" onClick={props.addNewTask}>
+            Add Todo
+          </button>
+        </form>
       </div>
     </div>
   );
