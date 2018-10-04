@@ -2,24 +2,14 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList.js'
 import TodoForm from './components/TodoComponents/TodoForm.js'
 import './components/TodoComponents/Todo.css'
+import './App.css'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       todoData: [
-        {
-          id: 1,
-          task: 'Get data to render to screen',
-          completed: false,
-          decoration: 'taskFontNone'
-        },
-        {
-          id: 2,
-          task: 'map over data so all items in the array render',
-          completed: false,
-          decoration: 'taskFontNone'
-        },
+
       ],
 
       inputTask: '',
@@ -32,6 +22,10 @@ class App extends React.Component {
 
 addNewTask = (event) => {
   event.preventDefault();
+  if (this.state.inputTask === '') {
+    return null
+  }
+  
   this.setState({ 
     todoData: [
       ...this.state.todoData, 
@@ -48,7 +42,6 @@ addNewTask = (event) => {
 changeBool = (index) => {
   this.setState({
     todoData: this.state.todoData.map((task, idx) => {
-      console.log(idx)
       if (index !== idx) {
         return task;
       } else {
@@ -57,6 +50,19 @@ changeBool = (index) => {
           completed: task.completed === false ? true : false,
           decoration: task.decoration === 'taskFontNone' ? 'taskFont' : 'taskFontNone'
         }
+      }
+    })
+  })
+}
+
+clearTask = (event) => {
+  event.preventDefault();
+  this.setState({
+    todoData: this.state.todoData.filter((task) => {
+      if (task.completed === false) {
+        return task;
+      } else {
+        return null;
       }
     })
   })
@@ -72,11 +78,13 @@ changeBool = (index) => {
         changeHandler={this.changeHandler}
         addNewTask={this.addNewTask}
         inputTask={this.state.inputTask}
+        clearTask={this.clearTask}
         />
         
         <TodoList 
         taskData={this.state.todoData}
         changeBool={this.changeBool}
+        
         />
       
       </div>
