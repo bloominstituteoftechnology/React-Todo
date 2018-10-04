@@ -43,7 +43,7 @@ class App extends React.Component {
         return todo;
       }
     });
-    this.setState({ newTodo });
+    this.setState({ todoData: newTodo });
   };
   addTodo = event => {
       event.preventDefault();
@@ -64,10 +64,9 @@ class App extends React.Component {
 
   removeCompleteTodo = event => {
     event.preventDefault();
-    let newTodo = this.state.todoData.slice();
-    newTodo = newTodo.filter(todo => !todo.completed);
-    this.setState({ newTodo });
-    console.log(newTodo)
+    let todos = this.state.todoData.slice();
+    todos = todos.filter(todo => !todo.completed);
+    this.setState({ todoData: todos });
   };
 
     render() {
