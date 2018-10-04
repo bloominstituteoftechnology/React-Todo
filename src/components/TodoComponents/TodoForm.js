@@ -4,7 +4,7 @@ import './Todo.css'
 const Form = props => {
     return (
         <div>
-            <form onSubmit={props.handleClickEvent}>
+            <form onSubmit={props.addTask}>
                 <input 
                     onChange={props.handleChangeEvent}
                     placeholder="...todo"
@@ -13,19 +13,15 @@ const Form = props => {
                     name="newTasks"/>
                 
                 <button 
-                    onClick={props.handleClickEvent}
+                    onClick={props.addTask}
                     value="submit"
                     type="submit"
                     name="buttonOne"
                 >Add Todo</button>
-
-                <button 
-                    onClick={props.testChangeCompletedValue}
-                    value="submit"
-                    name="buttonTwo"
-                >Add Todo</button>
                 
-                <button>Clear Completed</button>
+                <button
+                    onClick={props.clearCompletedTasks}
+                >Clear Completed</button>
             </form>
         </div>
     )

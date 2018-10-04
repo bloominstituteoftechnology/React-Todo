@@ -11,17 +11,17 @@ class App extends React.Component {
       todoListArray: [
         {
           task: 'Organize Garage',
-          id: 1,
+          id: 1528817077286,
           completed: false
         },
         {
           task: 'Bake Cookies',
-          id: 2,
+          id: 1528817084358,
           completed: false
         },
         {
           task: 'Eat Food',
-          id: 3,
+          id: 1528817084927,
           completed: false
         }
       ],
@@ -29,8 +29,22 @@ class App extends React.Component {
     }
   }
 
+  toggleCompletion = index => {
+    this.setState({
+      todoListArray: this.state.todoListArray.map((item, idx) => {
+        if (index !== idx) {
+          return item
+        } else {
+          return {
+            ...item,
+            completed: !item.completed
+          }
+        }
+      })
+    })
+  }
 
-  handleClickEvent = event => {
+  addTask = event => {
     event.preventDefault();
     this.setState({
       todoListArray: [
@@ -39,6 +53,12 @@ class App extends React.Component {
       newTasks: ""
     })
   }
+
+  clearCompletedTasks = event => {
+
+  }
+
+  // toggleCompletion
 
   // to make competed value opposite of true/false
   // textChangeCompletedValue = event => {
@@ -49,7 +69,6 @@ class App extends React.Component {
   // }
 
   handleChangeEvent = event => {
-    console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -59,12 +78,16 @@ class App extends React.Component {
     return (
       <div>
         
-        <TodoList todoListArray={this.state.todoListArray} />
+        <TodoList 
+          todoListArray={this.state.todoListArray} 
+          toggleCompletion={this.toggleCompletion}
+        />
 
         <Form 
           handleChangeEvent={this.handleChangeEvent}
-          handleClickEvent={this.handleClickEvent}
+          addTask={this.addTask}
           newTasks={this.state.newTasks}
+          clearCompletedTasks={this.state.clearCompletedTasks}
         />
 
       </div>

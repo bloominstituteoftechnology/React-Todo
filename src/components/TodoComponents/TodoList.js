@@ -4,7 +4,8 @@ import './Todo.css'
 const TodoList = props => {
     return (
         <div>
-            {props.todoListArray.map(eachTodoObj => <div> Task: {eachTodoObj.task}</div>)}
+            <h1>Todo List: MVP</h1>
+            {props.todoListArray.map((eachTodoObj, index) => <h3 onClick={() => props.toggleCompletion(index) }> {eachTodoObj.task} {console.log(eachTodoObj)}</h3>)}
         </div>
     )
 }
