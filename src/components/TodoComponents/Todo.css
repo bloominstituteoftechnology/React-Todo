@@ -182,9 +182,7 @@ input:focus {
   .app {
     width: 90%;
     border-radius: 5px;
-
   }
-
 
   .header h2{
     font-size: 2rem;
@@ -239,7 +237,7 @@ input:focus {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 
   }
 
@@ -251,7 +249,7 @@ input:focus {
 }
 
 .done {
-  font-color: #C44536;
+  text-decoration-color: #C44536;
   text-decoration-line: line-through;
 }
 
