@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import './App.css';
+import Search from './components/TodoComponents/Search';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -23,20 +24,21 @@ class App extends React.Component {
         }
       ],
       task: '',
+      search: '',
     }
   }
 
   componentWillMount() {
     // localStorage.removeItem('myToDoList');
-    let myTodoList = JSON.parse(localStorage.getItem('myToDoList'));
+    let myTodoList = JSON.parse(sessionStorage.getItem('myToDoList'));
     
     (myTodoList !== null)
       ? this.setState({todoList: myTodoList}) 
-        : this.updateLocalStorage(this.state.todoList);
+        : this.updateSession(this.state.todoList);
   }
 
-  updateLocalStorage(state) {
-    localStorage.setItem('myToDoList', JSON.stringify(state));
+  updateSession(state) {
+    sessionStorage.setItem('myToDoList', JSON.stringify(state));
   }
 
   clearCompleted = event => {
@@ -46,7 +48,7 @@ class App extends React.Component {
     let todoList = tdl.filter(item => item.completed !== true);
 
     this.setState({todoList});
-    this.updateLocalStorage(todoList);
+    this.updateSession(todoList);
   }
 
   toggleComplete = id => {
@@ -59,7 +61,7 @@ class App extends React.Component {
       }
     });
     this.setState({todoList})
-    this.updateLocalStorage(todoList);
+    this.updateSession(todoList);
   }
 
   addTask = event => {
@@ -73,7 +75,7 @@ class App extends React.Component {
     let todoList = this.state.todoList;
     todoList.push(taskObj)
     this.setState({todoList, task: ''});
-    this.updateLocalStorage(todoList);
+    this.updateSession(todoList);
   }
 
   changeHandler = event => {
@@ -82,18 +84,24 @@ class App extends React.Component {
   
   render() {
     return (
-      <div className="container">
-        <TodoForm 
-          task={this.state.task}
-          addTask={this.addTask}
+      <div className="app-container">
+        <Search 
+          value={this.state.search}
           onChange={this.changeHandler}
-          clear={this.clearCompleted}
         />
-        <TodoList
-          list={this.state.todoList} 
-          toggle={this.toggleComplete}
-        />
-        <button onClick={this.clearCompleted} className="clear-btn">Clear Completed</button>
+        <div className="container">
+          <TodoForm 
+            task={this.state.task}
+            addTask={this.addTask}
+            onChange={this.changeHandler}
+            clear={this.clearCompleted}
+            />
+          <TodoList
+            list={this.state.todoList} 
+            toggle={this.toggleComplete}
+            />
+          <button onClick={this.clearCompleted} className="clear-btn">Clear Completed</button>
+        </div>
       </div>
     );
   }
