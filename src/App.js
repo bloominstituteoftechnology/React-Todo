@@ -1,20 +1,19 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import Todo from './components/TodoComponents/Todo';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
       this.state = { list: [
         {item: 'walk dog',
-         id: Date.now(),
+         id: 1,
          complete: false},
         {item: 'dishes',
-         id: Date.now(),
+         id: 2,
          complete: false},
         {item: 'laundry',
-         id: Date.now(),
+         id: 3,
          complete: false}
       ],
       newItem: '',
@@ -22,12 +21,24 @@ class App extends React.Component {
       style: 'none'
 
       }
+    console.log(typeof this.state.list)
 
   }
 
-  crossOut = event => {
-    console.log(event.target);
-    this.setState({style: 'strikeout'});
+  crossOut = (index) => {
+    this.setState({list: this.state.list.map((item, idx) => {
+      if(index !== idx) {
+        return {
+          ...item,
+          complete: true
+        }
+      }
+    }) })
+    //this.state.list.map((item, idx) => {
+    //  if(index === idx) {
+    //    //put the change of status here
+    //  }
+    //})
   }
 
   changeHandler = event => {
