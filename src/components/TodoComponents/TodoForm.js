@@ -2,14 +2,15 @@ import React from 'react';
 
 const TodoForm = ( props ) => {
     return (
-        <form>
+        <form className='todoForm'>
             <input type='text' 
             placeholder='Add a task' 
             onChange={props.changeHandler} 
             value={props.newTask}
-            name='newTask'/>
-            <button type='submit' onClick={props.addTask}>Add Task</button>
-            <button>Remove Task</button>
+            name='newTask'
+            className='addTaskInput'/> <br/ >
+            <button type='submit' onClick={props.addTask} className='addButton'>Add</button>
+            <button type='submit' onClick={props.removeTask} className='removeButton'>Remove</button>
         </form>
     );
 }

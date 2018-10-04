@@ -2,7 +2,7 @@ import React from 'react';
 
 const Todo = props => {
     return (
-        <p>{props.task}</p>
+        <p onClick={() => props.selectedTask(props.taskIndex)} className={props.task.completed ? 'selectedTodoItem' : ''}>{props.task.task}</p>
     );
 }
 

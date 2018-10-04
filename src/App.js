@@ -13,16 +13,15 @@ class App extends Component {
         {
           task: 'Organize Garage',
           id: 1528817077286,
-          completed: false
+          completed: false,
         },
         {
           task: 'Bake Cookies',
           id: 1528817084358,
-          completed: false
+          completed: false,
         }
       ],
       newTask: '',
-      todoItemStyle: '',
     }
   }
 
@@ -32,7 +31,7 @@ class App extends Component {
 
   addTask = event => {
     event.preventDefault();
-    if(!this.state.newTask) return
+    if(!this.state.newTask) return 
     this.setState({
       todoData: [
         ...this.state.todoData,
@@ -42,19 +41,44 @@ class App extends Component {
     })
   }
 
+  selectedTask = index => {
+    this.setState({
+      todoData: this.state.todoData.map((item, index2) => {
+        if(index !== index2) {
+          return item
+        } else {
+        return {
+          ...item,
+          completed: !item.completed,
+        }
+      }
+      })
+    })
+  }
+
+  removeTask = event => {
+    event.preventDefault();
+    this.setState({
+      todoData: this.state.todoData.filter(item => {
+        return !item.completed;
+      })
+    })
+  }
+
   render() {
-    // console.log(this.state.todoData)
     return (
-      <div>
-        <h1>Good Morning What Will You Get Done Today?</h1>
+      <div className='todoListContainer'>
+        <h1>Todo List</h1>
         <TodoForm 
         addTask={this.addTask}
         changeHandler={this.changeHandler}
         newTask={this.state.newTask}
+        removeTask={this.removeTask}
         />
         <h2>Task for the Day</h2>
         <TodoList 
-        todoData={this.state.todoData} />
+        todoData={this.state.todoData} 
+        selectedTask={this.selectedTask}/>
       </div>
     );
   }

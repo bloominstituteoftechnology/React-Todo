@@ -1,3 +1,102 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: url('https://images.unsplash.com/photo-1538617648085-8cd6adae0835?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d079ea4a9ecc9bd19ecced59bc0ce005&auto=format&fit=crop&w=1534&q=80')
+}
 .selectedTodoItem {
     text-decoration: line-through;
+}
+
+.todoListContainer {
+    max-width: 500px;
+    border: 1px solid black;
+    margin: 150px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .4);
+    color: white;
+    font-family: Helvetica;
+    font-weight: 100;
+}
+
+.addTaskInput {
+    border: none;
+    border-bottom: 2px solid #45ceb8;
+    width: 225px;
+    /* height: 40px; */
+    background: none;
+    color: white;
+    font-size: 30px;
+}
+
+.addTaskInput::placeholder {
+    color: white;
+}
+
+.addTaskInput:focus{
+    outline: none;
+}
+
+h1 {
+    background: #45ceb8;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: 100;
+    padding: 20px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-weight: 100;
+}
+
+.todoForm {
+    padding: 30px 0;
+}
+
+button {
+    margin-top: 20px;
+    font-size: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    /* border: none; */
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    background: #45ceb8;
+}
+
+p {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 16px;
+    background: #45ceb8;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: all .3s ease-out;
+}
+
+p:hover {
+    color: #45ceb8;
+    background: white;
+}
+
+.addButton {
+    margin-right: 25px;
+    margin-left: 20px;
 }
