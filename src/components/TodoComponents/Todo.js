@@ -1,11 +1,14 @@
 import React from 'react';
+import './Todo.css';
 
 const Todo = (props) => {
     return (
         <div>
-            <h3 onClick={props.changeCompleted}>{props.task}</h3>
+            <h3 className={ props.completed ? 'line' : 'noLine' }
+             onClick={() => props.changeCompleted(props.index)}>
+             {props.task}</h3>
         </div>
     );
 }
 
-export default Todo;
+export default Todo; 

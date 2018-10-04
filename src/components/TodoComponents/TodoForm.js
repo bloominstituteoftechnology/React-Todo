@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todo.css';
 
 const TodoForm = (props) => {
     return (
@@ -12,7 +13,7 @@ const TodoForm = (props) => {
                  name="newTodo"
                  />
                  <button type="submit" onClick={props.addTodo}>Add Todo</button>
-                 <button>Clear Completed</button>
+                 <button onClick={props.filterTask}>Clear Completed</button>
             </form>
         </div>
     );

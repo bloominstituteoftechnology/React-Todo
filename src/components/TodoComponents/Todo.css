@@ -1,0 +1,16 @@
+
+.noLine {
+    text-decoration-line: none
+}
+
+.line {
+    text-decoration-line: line-through;
+}
+
+.completed {
+    display: none;
+}
+
+.notDone {
+    display: block;
+}

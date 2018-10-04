@@ -13,24 +13,31 @@ class App extends React.Component {
         {
           task: 'Organize Garage',
           id: 1528817077286,
-          completed: false
+          completed: false,
         },
         {
           task: 'Bake Cookies',
           id: 1528817084358,
-          completed: false
+          completed: false,
         }
       ],
       newTodo: '',
     }
   }
 
-  changeCompleted = () => {
-    if (this.state.completed === false) {
-      this.setState({ completed: true });
-    } else {
-      this.setState({ completed: false });
-    }
+  changeCompleted = index => {
+    this.setState({
+      todoData: this.state.todoData.map((task, idx) => {
+        if (index !== idx) {
+          return task;
+        } else {
+          return {
+            ...task,
+            completed: task.completed === false ? true : false
+          };
+        }
+      })
+    });
   };
 
   changeHandler = event => {
@@ -43,9 +50,26 @@ class App extends React.Component {
     this.setState({
       todoData: [
         ...this.state.todoData,
-        { task: this.state.newTodo }
+        { task: this.state.newTodo,
+          id: Date.now(),
+          completed: false,
+          line: false
+        }
       ],
       newTodo: ''
+    });
+  };
+
+  filterTask = (event) => {
+    event.preventDefault();
+    this.setState({
+      todoData: this.state.todoData.filter((task, idx) => {
+        if (task !== idx) {
+          return !task.completed;
+        } else {
+          return null;
+        }
+      })
     });
   };
 
@@ -55,12 +79,14 @@ class App extends React.Component {
         <h1>Todo List:</h1>
         <TodoList 
           todoData={this.state.todoData}
-          changeCompleted={this.state.changeCompleted}
+          changeCompleted={this.changeCompleted}
           />
         <TodoForm 
           changeHandler={this.changeHandler}
           addTodo={this.addTodo}
           newTodo={this.state.newTodo}
+          completed={this.state.completed}
+          filterTask={this.filterTask}
           />
       </div>
     );
