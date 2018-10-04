@@ -8,15 +8,17 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor(props) {
     super(props);
-    this.state = {
+    this.history = [];
 
+    this.state = {
       toDo: [
-        
         { listItem: "Learn React", done: false },
         { listItem: "Write code", done: false },
         { listItem: "Sleep for an hour", done: false }
       ],
-      inputText: ""
+      inputText: "",
+      inputSearch: "",
+      count: 0
     };
   }
 
@@ -27,14 +29,21 @@ class App extends React.Component {
     this.setState({ toDo: toDo });
   };
 
+  updateHistory = () => {
+    this.history.push(JSON.stringify(this.state));
+  };
+
   addItem = e => {
     e.preventDefault();
     let input = this.state.inputText;
 
     this.setState({
       toDo: [...this.state.toDo, { listItem: input, done: false }],
-      inputText: ""
+      inputText: "",
+      inputSearch: "",
+      count: 0
     });
+    this.updateHistory();
   };
 
   fillIn = e => {
@@ -45,6 +54,41 @@ class App extends React.Component {
     let toDo = Object.assign([], this.state.toDo);
     toDo = toDo.filter(x => !x.done);
     this.setState({ toDo: toDo });
+    this.updateHistory();
+  };
+
+  undo = (count = 1) => {
+    if (!this.history[0]) {
+      return;
+    }
+    let backLength = this.history.length - count;
+    let lastState;
+    if (backLength <= 1) {
+      lastState = this.history[0];
+    } else {
+      this.history = this.history.slice(0, backLength);
+      lastState = this.history[this.history.length - 1];
+    }
+    console.log(this.history, lastState);
+    this.setState(JSON.parse(lastState));
+  };
+
+  search = e => {
+    let input = e.target.value;
+    let count = this.state.count + 1;
+    this.updateHistory();
+    this.undo(this.state.count);
+    if (input) {
+      this.updateHistory();
+      let filtered = this.state.toDo.filter(
+        item =>
+          item.listItem.slice(0, input.length).toLowerCase() ===
+          input.toLowerCase()
+      );
+      this.setState({ inputSearch: input, count: count, toDo: filtered });
+
+      console.log(this.history, filtered);
+    }
   };
 
   render() {
@@ -60,6 +104,9 @@ class App extends React.Component {
           addItem={this.addItem}
           fillIn={this.fillIn}
           inputText={this.state.inputText}
+          inputSearch={this.state.inputSearch}
+          search={this.search}
+      
         />
       </div>
     );

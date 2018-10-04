@@ -1,19 +1,26 @@
 import React from "react";
-import './Todo.css';
+import "./Todo.css";
 
 const Form = props => {
   return (
-    <form onSubmit={props.addItem}>
+    <div>
+      <form onSubmit={props.addItem}>
+        <input
+          type="text"
+          placeholder="Now what?"
+          onChange={props.fillIn}
+          value={props.inputText}
+        />
+        <button type="submit">Add</button>
+      </form>
       <input
         type="text"
-        placeholder="Now what?"
-        onChange={props.fillIn}
-        value={props.inputText}
-        
+        placeholder="Find task"
+        onChange={props.search}
+        value={props.inputSearch}
       />
-      <button type="submit">Add</button>
-    </form>
-    
+      
+    </div>
   );
 };
 
