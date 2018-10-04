@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import './styles.css';
+import SimpleStorage from "react-simple-storage";
 
 class App extends React.Component {
   constructor(props) {
@@ -38,16 +39,20 @@ clearCompleted = event => {
   })
 }
 
-
 addNewTodo = event => {
   event.preventDefault();
-  this.setState({
-    todoData: [
-      ...this.state.todoData,
-      { task : this.state.newTask, id: Date.now(), completed: false, textDecoration: 'none'}
-    ],
-    newTask: ''
-  });
+  if (this.state.newTask) {
+    this.setState({
+      todoData: [
+        ...this.state.todoData,
+        { task : this.state.newTask, id: Date.now(), completed: false, textDecoration: 'none'}
+      ],
+      newTask: ''
+    });
+  }
+  else {
+    alert('Please enter task');
+  }  
 };
 //id: Math.floor(Math.random()*1000000)
 
@@ -55,6 +60,7 @@ addNewTodo = event => {
   render() {
     return (
       <div className="container">
+        <SimpleStorage parent={this} />
         <h2>To Do List:</h2>
         <TodoForm
           todoData={this.state.todoData}
