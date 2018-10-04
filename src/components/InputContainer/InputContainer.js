@@ -5,7 +5,6 @@ import NewItemField from '../NewItemField/NewItemField';
 
 
 const InputContainer = props =>{
-    console.log('props container - ', props)
     return (
         <div className='input-container'>
             <Header headerText='Add New Item' />

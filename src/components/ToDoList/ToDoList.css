@@ -5,3 +5,7 @@
 .finger{
     cursor: pointer;
 }
+.todo-header{
+    display:flex;
+    justify-content: space-between;
+}

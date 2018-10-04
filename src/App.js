@@ -12,6 +12,28 @@ class App extends React.Component {
     }
   }
 
+
+  RemoveToDoItems(status)
+  {
+    this.setState({data: [...this.state.data.map(element => {
+      if(element.completed !== status){
+        return element;
+      }
+      return '';
+
+    })]})
+
+  }
+
+  clearDoneItems = event =>{
+    event.preventDefault();
+    this.RemoveToDoItems(true);
+  }
+
+  clearToDoItem = event =>{
+    event.preventDefault();
+    this.RemoveToDoItems(false);
+  }
   changeHandler = event =>{
     this.newItemInput = event.target.value;
   }
@@ -26,18 +48,16 @@ class App extends React.Component {
   }
   addItemHandler = event => {
     event.preventDefault();
-    
+    let extraRandom = Date.now();
+
     this.setState({data: [...this.state.data,{
-      task: this.newItemInput,
-      id:Math.floor(Math.random() * 20),
+      task: this.newItemInput,     
+      id:(Math.floor(Math.random() * 20)+extraRandom),
       completed: false
     }]})
 
     document.querySelector('.input-field').value = '';
-    
   }
-
-
   render() {
     return (
       <div>
@@ -46,6 +66,8 @@ class App extends React.Component {
           addItemHandler={this.addItemHandler}
           changeHandler = {this.changeHandler}
           completeTaskHandler = {this.completeTaskHandler}
+          clearToDoItem = {this.clearToDoItem}
+          clearDoneItems = {this.clearDoneItems}
         />
       </div>
     );

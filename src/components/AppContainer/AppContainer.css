@@ -11,9 +11,15 @@ body{
 .app-container{
     max-width: 1000px;
     margin:0 auto;
-    border:1px solid black;
     min-height: 500px;
     display:flex;
 
 }
 
+.smallbtn{
+    width: 100px;
+    height:25px;
+    border-radius: 3px;
+    background-color: #6B818C;
+    color:white;
+}

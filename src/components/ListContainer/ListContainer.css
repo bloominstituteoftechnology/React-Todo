@@ -1,16 +1,13 @@
 
 
 .list-container{
-    border:1px solid blue;
     width: 50%;
 }
 .list-todo-list{
     height: 50%;
     width: 100%;
-    border:1px solid yellow;
 }
 .list-done-list{
     height: 50%;
     width: 100%;
-    border:1px solid green;
 }

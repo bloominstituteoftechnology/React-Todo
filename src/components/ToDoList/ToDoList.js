@@ -6,7 +6,11 @@ import Header from '../Header/Header'
 const ToDoList = props => {
     return (
         <div>   
-            <Header headerText='To Do Items:'/>
+            <div className='todo-header'>
+                <Header headerText='To Do Items:'/>
+                <button className='smallbtn' onClick={props.clearToDoItem}>Clear</button>
+            </div>
+            <div>
             {
                 props.data.map(element=>{
                     if(element.completed ===false){
@@ -14,6 +18,7 @@ const ToDoList = props => {
                     }
                 })
             }
+            </div>
         </div>
     )
 }

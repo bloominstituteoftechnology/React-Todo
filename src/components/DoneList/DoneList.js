@@ -6,14 +6,19 @@ import Header from '../Header/Header';
 const DoneList = props =>{
     return (
         <div>
-            <Header headerText='Finished Items:' />
-            {
-                props.data.map(element=>{
-                    if(element.completed ===true){
-                        return <p className='list-item completed-item' key={element.id}>{element.task}</p>
-                    }
-                })
-            }
+            <div className='done-list-header'>
+                <Header headerText='Finished Items:' />
+                <button onClick={props.clearDoneItems} className='smallbtn'>Clear</button>
+            </div>
+            <div>
+                {
+                    props.data.map(element=>{
+                        if(element.completed ===true){
+                            return <p className='list-item completed-item' key={element.id}>{element.task}</p>
+                        }
+                    })
+                }
+            </div>
         </div>
     )
 }

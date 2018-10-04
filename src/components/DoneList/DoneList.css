@@ -1,3 +1,7 @@
 .completed-item{
     text-decoration: line-through;
 }
+.done-list-header{
+    display:flex;
+    justify-content: space-between;
+}
