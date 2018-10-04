@@ -30,8 +30,9 @@ class App extends React.Component {
       },
       ],
       newTask: '',
-      newId: `${(Math.random() * 1000000000000) + 1000000000000}`,
+      newId: Math.floor((Math.random() * 1000000000000) + 1000000000000),
       newCompleted: false,
+      newDeleted: true,
       textDecoration: 'line-through',
     }
   }
@@ -46,6 +47,7 @@ class App extends React.Component {
   changeStyle = event => {
     console.log(event.target);
     event.target.classList.toggle("toggle-decoration");
+    this.setState({ completed: !this.state.completed });
   };
 
   clearTask = event => {
@@ -54,7 +56,13 @@ class App extends React.Component {
     console.log(targeted);
     while(targeted.length > 0){
       targeted[0].parentNode.removeChild(targeted[0]);
+
   }
+  // this.setState({ [event.target.completed]: event.target.value });
+  // event.preventDefault();
+  // this.setState({
+   
+  // })
   };
 
   addNewTask = event => {
@@ -68,7 +76,7 @@ class App extends React.Component {
 
       ],
       newTask: '',
-      newId: `${(Math.random() * 1000000000000) + 1000000000000}`,
+      newId: Math.floor((Math.random() * 1000000000000) + 1000000000000),
       newCompleted: false,
     })
   }
@@ -87,6 +95,7 @@ class App extends React.Component {
         clearTask={this.clearTask}
         newId={this.newId}
         newCompleted={this.newCompleted}
+        newDeleted={this.newDeleted}
         />
       </div>
     );
