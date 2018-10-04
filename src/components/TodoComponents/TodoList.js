@@ -6,7 +6,8 @@ import Todo from "./Todo";
 
 function TodoList(props) {
   return (
-    <div className="todoList">
+    <div>
+      <ul className="todoList">
       {props.todoArr.map(t => (
         <Todo 
         key={t.id} 
@@ -14,6 +15,7 @@ function TodoList(props) {
         toggleCompleted={props.toggleCompleted} 
         />
       ))}
+      </ul>
     </div>
   );
 }
