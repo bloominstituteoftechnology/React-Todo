@@ -44,8 +44,15 @@ class App extends React.Component {
     });
   };
 
-  changeHandler = (event) => {
-    this.setState({ newTodoItem: event.target.value });
+  markComplete = (id) => {
+    this.setState({
+      todos: this.state.todos.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      }),
+    });
   };
 
   markComplete = (id) => {
