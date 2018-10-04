@@ -1,17 +1,19 @@
 import React from 'react';
+import './Todo.css';
 
 const TodoForm = props => {
     return (
-        <form >
+        <form className="form-container">
         <input
+          className="input-container"
           onChange={props.handleTodoChange}
           type="text"
           name="inputTodo"
           value={props.value}
-          placeholder="...todo"
+          placeholder="Type a todo item here"
         />
-        <button onClick={props.handleAddTodo}>Add Todo</button>
-        <button onClick={props.clearCompleted}>Clear Completed</button>
+        <button className="button" onClick={props.handleAddTodo}>Add Todo</button>
+        <button className="button clear-button" onClick={props.clearCompleted}>Clear Completed</button>
       </form>
     );
 }

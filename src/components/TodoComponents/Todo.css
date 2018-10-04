@@ -1,0 +1,33 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container {
+    height: 40px;
+    font-size: 18px;
+    padding: 0;
+    text-align: center;
+}
+
+.button {
+    width: 75%;
+    height: 50px;
+    background: #c0c0c0;
+    color: #222222;
+    font-size: 18px;
+    margin-top: 17px;
+    margin-left: 13%;
+}
+
+.clear-button {
+    background: #A0001E;
+    color: white;
+}
+
+.display {
+    font-size: 25px;
+    line-height: 2;
+    text-align: center;
+    cursor: pointer;
+}

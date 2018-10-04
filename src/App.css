@@ -1,0 +1,11 @@
+.App {
+    min-height: 200px;
+    width: 400px;
+    margin: 0 auto;
+    background: #17A2B8;
+    font-family: sans-serif;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
