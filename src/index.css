@@ -1,0 +1,229 @@
+/* 
+  Write your styles/CSS for App.js here and import into the component that you need 
+  IF you'd like to attempt to use less you'll have to research how to do this with Create React App
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/* reset */
+@import url('https://fonts.googleapis.com/css?family=Cinzel|Roboto');
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* end reset */
+
+/* global styles */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+html,
+body {
+    font-family: Roboto, Arial, sans-serif;
+    background: #FFFFFF;
+    color: #222222;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #222222;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.container {
+    max-width: 480px;
+    width: 100%;
+    margin: 2rem auto;
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(rgba(216, 184, 231, 0.726), transparent), linear-gradient(to top left, rgba(197, 226, 67, 0.829), transparent), linear-gradient(to top right, rgb(228, 131, 62), transparent);
+    background-blend-mode: screen;
+    color: #ffffff
+}
+
+h1 {
+    font-family: Cinzel, serif;
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin: 2rem;
+    text-decoration: underline;
+    text-align: center;
+}
+
+li {
+    margin: 2rem;
+    text-align: center;
+    font-size: 1.8rem;
+}
+form {
+    display: flex;
+    justify-content: space-evenly;
+}
+button {
+    font-family: Cinzel, serif;
+    font-weight: bold;
+    background: #FFFFFF;
+    color: #222222;
+    border: 1px solid gray;
+    padding: 1rem;
+    width: 150px;
+    border-radius: 10px;
+}
+
+button:hover {
+    color: #ffffff;
+    background: #222222;
+    cursor: pointer;
+}
+
+input {
+    padding: 1rem;
+    width: 150px;
+    border-radius: 10px;
+}

@@ -8,10 +8,10 @@ const TodoForm = props => (
       onChange={props.handleInputChange}
     />
     <button className="add" type="submit" onClick={props.handleNewToDo}>
-      Add Todo
+      Add
     </button>
     <button className="clear" onClick={props.removeCompleted}>
-      Clear Completed
+      Clear
     </button>
   </form>
 );
