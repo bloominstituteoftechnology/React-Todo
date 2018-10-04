@@ -24,8 +24,7 @@ class App extends React.Component {
           completed: false
         }
       ],
-      inputText: '',
-      newTodo: {}
+      inputText: ''
     };
   }
 
@@ -37,18 +36,25 @@ class App extends React.Component {
 
   addNewTodo = event => {
     event.preventDefault();
-    this.setState({
-      tasks: [
-        ...this.state.tasks,
-        { task: this.state.inputText,
-          id: Date.now(),
-          completed: false
-        }
-      ]
-    });
-    this.setState({inputText: ''});
+    if(this.state.inputText) {
+      this.setState({
+        tasks: [
+          ...this.state.tasks,
+          { task: this.state.inputText,
+            id: Date.now(),
+            completed: false
+          }
+        ], inputText: ''
+      });
+    }
   };
 
+  // todoClickHandler = event => {
+  //   event.preventDefault();
+  //   this.setState(
+  //     this.completed: !this.completed;
+  //   );
+  // }
 
   render() {
     return (
