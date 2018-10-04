@@ -33,7 +33,7 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      todoList: initialList,
+      todoList: ...initialList,
       makeTodo: '',
       searchTerm: ''
     };
