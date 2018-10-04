@@ -14,17 +14,21 @@ class App extends React.Component {
         {
           task: 'Organize Garage',
           id: 1528817077286,
-          completed: 'Complete'
+          done: true,
+          completed: 'Complete',
+          icon: "fas fa-check-circle green",
         },
         {
           task: 'Bake Cookies',
           id: 1528817084358,
-          completed: 'Incomplete'
+          done: false,
+          completed: 'Incomplete',
+          icon: "fas fa-check-circle red"
         }
       ],
       inputText: '',
       newTask: '',
-      color: 'angry'
+      value: '',
     }
   }
   changeHandler = event => {
@@ -35,31 +39,42 @@ class App extends React.Component {
   addNewTask = event => {
     event.preventDefault();
     if (this.state.newTask === '') {
-      alert('Please add a new task')
+      alert('Please add a new task');
+      this.setState({ newTask: '' });
     } else {
-
       this.setState({
         list: [
           ...this.state.list,
           {
             task: this.state.newTask,
             id: Date.now(),
-            completed: 'Incomplete'
+            done: false,
+            completed: 'Incomplete',
+            icon: "fas fa-check-circle red",
           }
         ],
         newTask: ''
-      })
-    }
+      });
+    };
   }
 
+  handleDelete = event => {
+    console.log(event.target);
+    event.preventDefault();
+    event.stopPropagation();
+
+  }
 
   render() {
+
     return (
       <div className="App">
         {/* list of tasks */}
+        <h1>Things to do when you're bored</h1>
         <div className="todolist">
           <ToDoList
             list={this.state.list}
+            onClick={this.handleDelete}
           />
         </div>
 
@@ -72,7 +87,7 @@ class App extends React.Component {
             addNewTask={this.addNewTask}
             onClick={this.changeHandler}
             changeHandler={this.changeHandler}
-            value={this.state.inputText}
+            value={this.state.newTask}
           />
         </div>
       </div>

@@ -9,7 +9,7 @@ const Form = (props) => {
         type="text"
         name="newTask"
         onChange={props.changeHandler}
-        value={props.newTask}
+        value={props.value}
       />
       <button type="submit" onClick={props.addNewTask}>
         Add New Task

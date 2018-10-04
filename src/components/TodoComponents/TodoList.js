@@ -4,14 +4,20 @@ import React from 'react';
 import './Todo.css';
 const ToDoList = (props) => {
   return (
-    <div>
-
+    <React.Fragment>
       {
         props.list.map(item => {
-          return <p key={item.id} className={item.completed}>{item.task}</p>
+          return (<div key={item.id} className={`todoComponent ${item.completed}`}>
+            <p>{item.task}</p>
+            <div className="icons">
+              <i className={item.icon}></i>
+              <i onClick={props.handleDelete} className="fas fa-times" ></i>
+            </div>
+          </div>
+          )
         })
       }
-    </div>
+    </React.Fragment>
   )
 }
 

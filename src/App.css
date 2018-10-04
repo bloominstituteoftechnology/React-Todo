@@ -1,3 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'K2D', sans-serif;
+}
 .App {
   width: 500px;
   padding: 25px;
@@ -8,25 +15,59 @@
 
 .App .todolist {
   padding: 10px;
+  width: 100%;
 }
 
-.App .todolist p {
+.App .todolist .todoComponent {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 24px;
   border: 1px solid slategray;
-  margin: 0;
-  padding: 10px;
   border-radius: 5px;
 }
 
-.App .todolist .Complete {
-  color: white;
+.App .todolist .todoComponent p{
+  padding: 10px;
+  display: flex;
+  width: 80%;
+  align-items: center;
   font-size: 24px;
-  background-color: rgba(91, 107, 255, 0.555);
 }
 
-.App .todolist .Incomplete {
+.App .todolist .todoComponent .icons {
+  display:flex;
+  width: 20%;
+  justify-content: space-around;
+}
+
+
+.green {
+  color: rgb(0, 255, 0);
+  background: rgb(0, 0, 0);
+  border:2px solid rgba(32, 134, 32, 0.425);
+  border-radius: 50%;
+}
+
+.close {
+  color: black;
+}
+
+.App .todolist .todoComponent.Incomplete {
   color: white;
-  font-size: 24px;
   background-color: rgba(255, 144, 153, 0.712);
+}
+
+.App .todolist .todoComponent.Complete {
+  color: white;
+  background-color: rgba(144, 183, 255, 0.712);
+}
+
+.red {
+  background: rgba(0, 0, 0, 0.904);
+  color: rgb(255, 0, 0);
+  border-radius: 50%;
 }
 
 .App .todoform {
@@ -37,7 +78,7 @@
 }
 
 .App .todoform form input{
-  width: 472px;
+  width: 446px;
   height: 30px;
   border: 1px solid slategray;
   border-radius: 5px;
@@ -46,7 +87,7 @@
 }
 
 .App .todoform form button {
-  width: 479px;
+  width: 450px;
   height: 40px;
   border-radius: 5px;
   border: 1px solid slategray;
@@ -61,3 +102,4 @@
 .angry {
   border: 1px solid red;
 }
+
