@@ -25,7 +25,7 @@ class App extends React.Component {
 
   changeTodo = event => {
     this.setState({
-      [event.target.name]: event.target.alue
+      [event.target.name]: event.target.value
     });
   };
 
@@ -52,15 +52,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList
-          todos={this.state.todos}
-          handleToggleComplete={this.toggleTodoComplete}
-        />
         <TodoForm
           value={this.state.todo}
           handleTodoChange={this.changeTodo}
           handleAddTodo={this.addTodo}
           handleClearTodos={this.clearCompletedTodos}
+        />
+        <TodoList
+          todos={this.state.todos}
+          handleToggleComplete={this.toggleTodoComplete}
         />
       </div>
     );
