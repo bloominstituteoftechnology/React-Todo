@@ -19,15 +19,18 @@ class App extends React.Component {
     };
   }
 
+  //generates random id for task
   randomIdGenerator = () => {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
   }
 
+  //event handler for when text is entered on form
   changeHandler = event => {
     event.preventDefault();
     this.setState({ [event.target.name] : event.target.value});
   }
   
+  //submits newly entered task
   addTask = event =>{
     event.preventDefault();
 
@@ -39,7 +42,9 @@ class App extends React.Component {
      inputText : ""
     });
   }
+  
 
+  //enters newly entered tasks if enter pressed on form input
   enterTask = event => {
 
     if(event.key === "Enter"){
@@ -53,18 +58,19 @@ class App extends React.Component {
     }
   }
 
-  taskCompleted = event => {
-    event.preventDefault();
-    console.log(event);
-  }
+  // taskCompleted = event => {
+  //   event.preventDefault();
+  //   console.log(event);
+  // }
 
-  clearCompletedTasks = event =>{
-    console.log(event.target);
-  }
+  // clearCompletedTasks = event =>{
+  //   console.log(event.target);
+  // }
 
   render() {
     return (
       <div>
+
         <TodoList taskData={this.state.taskList}   
         inputText={this.state.inputText}/>
 
