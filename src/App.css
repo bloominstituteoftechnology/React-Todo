@@ -1,0 +1,40 @@
+
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(210deg, rgba(24, 25, 28, 0.8), #18191C);
+    height: 100vh;
+    color: #18191C;
+}
+
+.container {
+    width: 350px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 50px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(25,25,25,.25);
+    padding: 10px;
+    position: relative;
+}
+
+
+.clear-btn { 
+    width:95%;
+    height: 35px;
+    font-size: 14px;
+    border: solid 1px #18191C;
+    border-radius: 10px;
+    padding: 0px 10px;
+    outline: none;
+    position: absolute;
+    bottom: 10px;
+}

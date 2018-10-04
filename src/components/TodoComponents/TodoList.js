@@ -3,14 +3,16 @@
 
 import React from 'react';
 import Todo from './Todo';
+import './Todo.css';
 
 const TodoList = ({list, toggle}) => {
+
     return (
-        <div>
+        <div className='list-container'>
             {
                 list.map(todo => {
                     return <Todo todo={todo} key={todo.id} toggle={toggle}/>
-                })
+                }).reverse()
             }
         </div>
     );

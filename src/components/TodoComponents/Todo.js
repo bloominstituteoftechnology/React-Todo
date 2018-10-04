@@ -6,14 +6,11 @@ const Todo = ({todo, toggle}) => {
     return (
         <div 
             className='todo' 
-            onClick={toggle.bind(this, todo.id)}
+            onClick={() => toggle(todo.id)}
         >
-            <div 
-                style={completed ? { textDecorationLine: 'line-through'} : {}}
+            <div style={completed ? { textDecorationLine: 'line-through'} : {}}
             >{task}</div>
-            <i 
-                className="far fa-check-square"
-                style={completed ? {color: 'green'} : {color:'red'}}
+            <i className="far fa-check-square"style={completed ? {color: 'green'} : {color:'#18191C'}}
             ></i>
         </div>
     );

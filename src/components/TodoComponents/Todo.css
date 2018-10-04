@@ -1,5 +1,53 @@
 .todo {
-    width: 200px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+    padding: 0px 10px;
+    height: 40px;
+    user-select: none;
+}
+
+/* .todo:hover {
+    cursor: pointer;
+} */
+
+.list-container {
+    width: 100%;
+    max-height: 230px;
+    overflow: scroll;
+    padding: 0 10px;
+}
+
+.form-container {
+    width: 100%;
+}
+
+.add-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.add-form input {
+    width: 220px;
+    height: 35px;
+    font-size: 18px;
+    border: solid 1px #18191C;
+    border-radius: 10px;
+    padding: 0px 10px;
+    outline: none;
+}
+
+.add-form button {
+    width: 100px;
+    height: 35px;
+    font-size: 14px;
+    border: solid 1px #18191C;
+    border-radius: 10px;
+    padding: 0px 10px;
+    outline: none;
 }

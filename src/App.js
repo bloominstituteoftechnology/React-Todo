@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './App.css';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -64,17 +65,18 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
-        <TodoList 
-          list={this.state.todoList} 
-          toggle={this.toggleComplete}
-        />
+      <div className="container">
         <TodoForm 
           task={this.state.task}
           addTask={this.addTask}
           onChange={this.changeHandler}
           clear={this.clearCompleted}
         />
+        <TodoList
+          list={this.state.todoList} 
+          toggle={this.toggleComplete}
+        />
+        <button onClick={this.clearCompleted} className="clear-btn">Clear Completed</button>
       </div>
     );
   }

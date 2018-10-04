@@ -1,21 +1,19 @@
 import React from 'react';
 
-const TodoForm = ({task, addTask, onChange, clear}) => {
+const TodoForm = ({task, addTask, onChange}) => {
     return (
-        <div>
-            <form onSubmit={addTask.bind(this)}>
+        <div className="form-container">
+            <form onSubmit={addTask} className="add-form">
                 <input 
                     type="text"
                     name="task"
                     placeholder="todo..."
                     value={task}
-                    onChange={onChange.bind(this)}
+                    onChange={onChange}
+                    autocomplete="off"
                 />
                 <button>Submit</button>
             </form>
-            <button
-                onClick={clear.bind(this)}
-            >Clear Completed</button>
         </div>
     );
 }
