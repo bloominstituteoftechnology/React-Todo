@@ -131,6 +131,17 @@ ul {
 
 ul li {
     font-size: 3rem;
-    padding-top: 10px;
+    padding: 10px 0 0 10px;
     color: white;
+    list-style-type: disc;
 }
+
+.notComplete {
+    text-decoration: none;
+    list-style-image: url('./unchecked.png');
+} 
+
+.complete {
+    text-decoration: line-through;
+    list-style-image: url('./checked.png');
+} 

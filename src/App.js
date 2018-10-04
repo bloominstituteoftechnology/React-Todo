@@ -1,10 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 
-// you will need a place to store your state in this component.
-// design `App` to be the parent component of your application.
-// this component is going to take care of state, and any change handlers you need to work with your state
-
 class App extends React.Component {
   constructor() {
     super();
@@ -39,7 +35,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log('component did mount')
     if (localStorage.getItem('todos') !== null) {
       let stateData = (JSON.parse(localStorage.getItem('todos')));
       this.setState({
@@ -59,12 +54,10 @@ class App extends React.Component {
       this.saveStateToLocalStorage.bind(this)
     );
 
-    // saves if component has a chance to unmount
     this.saveStateToLocalStorage();
   }
 
   saveStateToLocalStorage() {
-      console.log('saving to storage');
       localStorage.setItem('todos', JSON.stringify(this.state.todos));
   }
 

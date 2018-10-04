@@ -5,7 +5,7 @@ let Todo = (props) => {
     return (
         <li onClick={props.completeTask} 
             id={props.todo.id}
-            style={props.todo.completed ? {textDecoration: 'line-through', listStyleType: 'disc'} : {textDecoration: 'none', listStyleType: 'circle'}}>
+            className={props.todo.completed ? "complete" : "notComplete"}>
             {props.todo.task}
         </li>
     )
