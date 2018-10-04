@@ -4,7 +4,8 @@ import TodoList from "./components/TodoComponents/TodoList.js";
 import Eraser from './components/TodoComponents/Eraser.js';
 import "./components/TodoComponents/Todo.css";
 
-let initialList = [
+let initialList = [];
+localStorage.setItem('todoList', JSON.stringify([
   {
     task: 'enter a new task in the upper left',
     id: Date.now().toString(),
@@ -24,8 +25,7 @@ let initialList = [
       task: 'search the list in the upper right',
       id: Date.now().toString(),
       complete: false
-    },
-];
+    },]));
 let storedList = localStorage.getItem('todoList');
 if (storedList !== null) {
   initialList = JSON.parse(storedList);
