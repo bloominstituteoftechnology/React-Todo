@@ -2,6 +2,7 @@ import React from 'react';
 import todolist from './components/TodoComponents/Todo';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './App.css';
 
 
 class App extends React.Component {
@@ -93,7 +94,7 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className="App">
         <h2>Welcome to your Todo App!</h2>
       <TodoList list={this.state.Todo} clickComplete={this.clickComplete}/>
       <TodoForm  clear ={this.clear} func={this.handleUpdateStateEnter} buttonfunc={this.handleUpdateStateButton} value={this.state.Todos}/>

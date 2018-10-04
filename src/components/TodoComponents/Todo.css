@@ -1,0 +1,36 @@
+.Todos {
+    width:400px;
+    height: 60px;
+    margin:20px 0px;
+}
+
+.Todos p {
+    text-align:center;
+    font-size:30px;
+    padding:10px 0px;
+}
+
+Form {
+    display:flex;
+    flex-direction: column;
+    margin:20px 0px;
+}
+Form input {
+    width:90%;
+    margin:0 auto;
+    text-align:right;
+    font-size:50px;
+}
+
+Form button {
+    width: 90%;
+    padding:20px;
+    margin:10px auto;
+    font-size:20px;
+    border-radius:2px;
+    background-color:whitesmoke;
+}
+Form button:hover {
+    background-color: black;
+    color:white;
+}
