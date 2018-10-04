@@ -13,6 +13,7 @@ const TodoList = props => {
             task={todo.task}
             id={todo.id}
             style={props.style}
+            inlineStyle={todo.completed ? props.inlineStyle : null}
           />
         );
       })}

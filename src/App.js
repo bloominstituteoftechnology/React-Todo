@@ -20,9 +20,11 @@ class App extends React.Component {
           completed: false
         }
       ],
-      todoStyle: 'Todo'
+      todoStyle: 'Todo',
+      toDoCompleteStyle: { textDecoration: 'line-through' }
     };
   }
+
   handleNewToDo = e => {
     e.preventDefault();
     const task = {
@@ -37,12 +39,12 @@ class App extends React.Component {
   handleInputChange = e => {
     this.setState({ input: e.target.value });
   };
+
   // map over existing array with conditional
   toggleCompleteTask = e => {
     const newTodos = this.state.todos.map(todo => {
-      if (String(todo.task) === e.target.textContent) {
+      if (String(todo.id) === e.target.id) {
         todo.completed = !todo.completed;
-        e.target.classList.toggle('Complete');
         return todo;
       } else {
         return todo;
@@ -70,6 +72,7 @@ class App extends React.Component {
           todos={this.state.todos}
           toggleCompleteTask={this.toggleCompleteTask}
           style={this.state.todoStyle}
+          inlineStyle={this.state.toDoCompleteStyle}
         />
       </div>
     );
