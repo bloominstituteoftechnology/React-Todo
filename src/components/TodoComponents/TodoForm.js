@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TodoItems = props => {
+const TodoForm = props => {
     return (
         <div>
             <form onSubmit={props.addNewListItem}>
@@ -14,9 +14,9 @@ const TodoItems = props => {
                 Add Todo
                 </button>
             </form>
-            <button>Clear Completed</button>
+            <button onClick={props.clearCompleted}>Clear Completed</button>
         </div>
     );
     };
 
-export default TodoItems;
+export default TodoForm;

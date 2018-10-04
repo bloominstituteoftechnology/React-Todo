@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoItems from './components/TodoComponents/TodoForm';
+import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -8,16 +8,37 @@ import TodoList from './components/TodoComponents/TodoList';
     constructor(props) {
         super(props);
         this.state = {
-        listData: [{ },],
+        listData: [{ 
+            listItem: "Drew",
+            isCompleted:false,
+            id:Date.now(),
+        },],
         inputText: '',
         newTodo: '',
-        setToFalse:false
         };
     }
 
     changeHandler = event => {
-    console.log(event.target.name);
     this.setState({ [event.target.name]: event.target.value });
+    };
+
+    clearCompleted = event =>{
+        console.log("working");
+    }
+    changeColor = event =>{
+        this.setState({
+            listData: this.state.listData.map((listItem, index)=>{
+                if(index !== index){
+                    return listItem;
+                }else{
+                    return{
+                        ...listItem,
+                        color: listItem.color === 'black'? 'green' : 'green',
+                    };
+                }
+            })
+
+        });
     };
 
     addNewListItem = event => {
@@ -25,9 +46,12 @@ import TodoList from './components/TodoComponents/TodoList';
         this.setState({
         listData: [
             ...this.state.listData,
-            { listItem: this.state.newTodo,
-                completed:this.state.setToFalse
-            }
+            { 
+                listItem: this.state.newTodo,
+                isCompleted:false,
+                id:Date.now(),
+                color: 'black',
+            },
         ],
         newTodo: ''
         });
@@ -37,7 +61,8 @@ import TodoList from './components/TodoComponents/TodoList';
         return (
         <div className="App">
         <TodoList listData={this.state.listData}/>
-        <TodoItems
+
+        <TodoForm
             addNewListItem={this.addNewListItem}
             changeHandler={this.changeHandler}
             listData={this.state.listData}

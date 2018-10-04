@@ -8,8 +8,13 @@ import Todo from './Todo';
 const TodoList = props =>{
     return(
         <div>
-            {props.listData.map(item => {
-            return <Todo item={item.listItem} />;
+            {props.listData.map((item,index) => {
+            return( 
+            <Todo 
+            className={item.color}
+            item={item.listItem}
+            
+            onClick={()=> props.changeColor(index)}/>)
         })}
         </div>
     )
