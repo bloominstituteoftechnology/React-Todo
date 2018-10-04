@@ -51,18 +51,34 @@ class App extends React.Component {
             ...task,
             completed: task.completed === true ? false : true
           };
-        }
-      })
-    })
-  }
+        } // else
+      }) // .map
+    }) // this.state
+  } // handler
+
+
+  clearCompletedHandler = () => {
+    console.log('clear completed');
+    let filterCompleted = function(task) {
+      if (task.completed === true) {
+        return null;
+      } else {
+        return task;
+      }
+    }
+    this.setState({
+      tasks: this.state.tasks.filter(filterCompleted) // filter
+    }) // setState
+  } // clearCompletedHandler
+
 
   render() {
-    console.log(this.state.tasks)
     return (
       <div>
         <h1>Things To Do</h1>
         <TodoForm
           addNewTodo={this.addNewTodo}
+          clearCompletedHandler={this.clearCompletedHandler}
           changeText={this.changeText}
           inputText={this.state.inputText}
           tasks={this.tasks}
