@@ -89,7 +89,6 @@ bod {
 
 .form-container {
   width: 100%;
-  /* background-color: #fdf0d5; */
   background-color: #c44536;
   padding:  0 2% 2%;
   display: flex;
@@ -127,20 +126,21 @@ bod {
   outline: none;
 }
 
-.form-new input {
+input {
   font-family: 'Special Elite', cursive;
   font-size: 1rem;
   margin: 0 2%;
   padding: 0 5%;
   border: none;
   background: transparent;
-  border-bottom: 1px dashed #197278;
+  border-bottom: 1px dashed #114B5F;
   width: 150px;
   height: 30px;
+  color: #114B5F;
 }
 
 input::placeholder {
-  color: #666666;
+  color: #595959;
 }
 input:focus {
   outline: none;
@@ -156,13 +156,13 @@ input:focus {
 }
 
 .form-clear button {
-  border-radius: 5px;
+  border-radius: 5px 7px;
   font-family: 'Archivo', sans-serif;
   font-size: 1rem;
   cursor: pointer;
   background: pink;
-  border: 2px solid lightgray;
-  box-shadow: 2px 2px gray;
+  border: 2px solid #ffb3bf;
+  box-shadow: 2px 2px #ffb3bf;
 
 }
 
@@ -185,17 +185,10 @@ input:focus {
 }
 
 .form-search input {
-  font-family: 'Special Elite', cursive;
-  font-size: 1rem;
-  margin:0 2%;
-  padding: 0 3%;
-  border: none;
-  background: transparent;
-  border-bottom: 1px dashed #114B5F;
-  width: 150px;
-  height: 30px;
-}
 
+  padding: 0 3%;
+
+}
 
 
 
