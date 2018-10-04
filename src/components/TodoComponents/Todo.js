@@ -2,11 +2,12 @@
 import React from 'react';
 const Todo = props => {
   return (
-    <div 
+    <p 
+      style={(props.todo.completed === 'true') ? {textDecoration: 'line-through'} : null}
       onClick={() => props.changeCompletedHandler(props.todo.id)}
     >
       {props.todo.task}
-    </div>
+    </p>
     );
 };
 export default Todo;

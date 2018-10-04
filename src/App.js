@@ -49,8 +49,8 @@ class App extends React.Component {
         } else {
           return {
             ...todo,
-            completed: todo.completed === 'false'
-? 'true' : 'false'          }
+            completed: todo.completed === 'false' ? 'true' : 'false'
+          }
         }
       })
     })
