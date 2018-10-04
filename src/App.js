@@ -4,7 +4,20 @@ import TodoList from "./components/TodoComponents/TodoList.js";
 import Eraser from './components/TodoComponents/Eraser.js';
 import "./components/TodoComponents/Todo.css";
 
-let initialList = [];
+let initialList = [
+{
+        task: 'enter a new task in the upper left',
+      },
+        {
+          task: 'mark it complete (or not) by clicking it',
+        },
+        {
+          task: 'use the eraser to clear finished tasks',
+        },
+        {
+          task: 'search the list in the upper right',
+        },
+];
 let storedList = localStorage.getItem('todoList');
 if (storedList !== null) {
   initialList = JSON.parse(storedList);
@@ -14,19 +27,8 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      todoList: initialList,
-      makeTodo: [ {
-            task: 'enter a new task in the upper left',
-          },
-            {
-              task: 'mark it complete (or not) by clicking it',
-            },
-            {
-              task: 'use the eraser to clear finished tasks',
-            },
-            {
-              task: 'search the list in the upper right',
-            },],
+      todoList: [...initialList],
+      makeTodo: '',
       searchTerm: ''
     };
 
