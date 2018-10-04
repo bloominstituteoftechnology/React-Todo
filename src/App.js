@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-
+import './components/TodoComponents/Todo.css';
 class App extends Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -21,13 +21,13 @@ class App extends Component {
           completed: false
         }
       ],
-      newTask: ''
+      newTask: '',
+      todoItemStyle: '',
     }
   }
 
   changeHandler = event => {
-    // console.log(event.target.value);
-    this.setState({newTask: event.target.value});
+    this.setState({[event.target.name]: event.target.value});
   }
 
   addTask = event => {
@@ -53,7 +53,8 @@ class App extends Component {
         newTask={this.state.newTask}
         />
         <h2>Task for the Day</h2>
-        <TodoList todoData={this.state.todoData}/>
+        <TodoList 
+        todoData={this.state.todoData} />
       </div>
     );
   }
