@@ -9,6 +9,11 @@ class App extends React.Component {
       todoItem: ''
     }
   }
+
+  changeHandler = event => {
+    console.log(this.state.todoItem);
+    this.setState({ todoItem: event.target.value });
+  }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -16,7 +21,11 @@ class App extends React.Component {
     return (
       <div>
         <h1>This is the stuff you need to do!</h1>
-        <TodoForm todoList={this.state.todoList} todoItem={this.state.todoItem}/>
+        <TodoForm 
+          changeHandler={this.changeHandler}
+          todoItem={this.state.todoItem}
+          todoList={this.state.todoList}
+        />
       </div>
     );
   }

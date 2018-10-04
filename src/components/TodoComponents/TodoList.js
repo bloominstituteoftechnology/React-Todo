@@ -2,7 +2,7 @@ import React from 'react';
 
 const TodoList = (props) => {
     return (
-        <div class="todolist">
+        <div className="todolist">
             <p>I am the todo list</p>
             <p>I am the todo list</p>
             <p>I am the todo list</p>

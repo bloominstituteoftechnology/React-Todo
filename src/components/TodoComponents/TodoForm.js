@@ -3,12 +3,11 @@ import TodoList from './TodoList';
 import Todo from './Todo';
 
 const TodoForm = (props) => {
-    return (
-        <div>
-            <TodoList />
-            <Todo />
-        </div>
-    )
+    console.log(props);
+    return <div>
+        <TodoList />
+        <Todo changeHandler={props.changeHandler} value={props.todoItem} />
+      </div>;
 }
 
 export default TodoForm;
