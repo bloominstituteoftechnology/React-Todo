@@ -1,0 +1,14 @@
+.app {
+	width : 1000px;
+	height : 900px;
+	margin : 40px auto;
+	background-image : url("http://pic.qiantucdn.com/58pic/14/89/76/52858PICgsQ_1024.jpg");
+
+}
+
+.list-heading {
+	color : red;
+	text-align: center;
+	padding-top: 55px;
+	font-size: 63px;
+}

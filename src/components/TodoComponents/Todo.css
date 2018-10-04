@@ -1,0 +1,42 @@
+ul {
+ 	
+ 	margin-left: 320px;
+ 	font-size: 35px;
+ 	line-height: 1.5;
+
+}
+
+.form-display {
+	display: flex;
+	flex-direction: column;
+}
+
+input {
+    width: 42%;
+    margin-left: 300px;
+    padding: 10px;
+    font-size : 25px;
+}
+
+.button-display{
+	margin-left: 200px;
+}
+
+button {
+	background-color: #D84949;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    margin: 20px;
+    font-size: 25px;
+    font-weight : bold;
+    letter-spacing: 5px;
+}
+
+button:hover {
+	font-size: 140%;
+	border : 2px solid black;
+}
+
