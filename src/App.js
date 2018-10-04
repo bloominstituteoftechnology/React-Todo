@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ToDoList from './components/TodoComponents/TodoList'
+import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
 
 
@@ -24,23 +24,40 @@ class App extends React.Component {
           completed: false
         }
       ],
-      inputTask: '',
-      newTask: ''
+      newTodo: ''
     };
   }
 
-  changeHandler = event => {
+  AddTodoHandler = event => {
     console.log(event.target.name);
+    console.log('hello');
   };
 
-  newTask = event => {
+  addNewTodo = event => {
     event.preventDefault();
     console.log(event.target.name);
+    console.log('hello');
   };
 
-  ClearCompleted = event => {
+  // addNewTodo = event => {
+  //   event.preventDefault();
+
+  //   const todoData = this.state.todoData.slice();
+  //   if (this.state.newTodo !== '' && this.state.todoData.length < 6) {
+  //     todoData.push(
+  //       {
+  //         task: this.state.newTodo,
+  //         id: Date.now(),
+  //         completed: false
+  //       }
+  //     );
+  //   }
+
+
+  toggleComplete = event => {
     event.preventDefault();
     console.log(event.target.name);
+    console.log('hello');
   };
 
 
@@ -49,8 +66,16 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <ToDoList taskData={this.state.taskData}/>
-        <TodoForm/>
+        <TodoList taskData={this.state.taskData}/>
+        <TodoForm
+          // input field
+          inputTodo={this.state.newTodo}
+          changeInput={this.changeHandler}
+          newTodo={this.state.newTodo}
+
+          // Add Todo button
+          addNewTodo={this.addNewTodo}
+        />
       </div>
     );
   }

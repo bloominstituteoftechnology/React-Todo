@@ -1,9 +1,13 @@
 import React from "react";
 
-const ToDoItem = props => {
+//Displays a Todo item and calls ToggleComplete parent method
+const Todo = props => {
   return (
-    <h1>{props.task}</h1>
-  )
-};
+    <p id={props.id} 
+      onClick={props.toggleComplete}>
+      {props.task}
+    </p>
+  );
+}
 
-export default ToDoItem;
+export default Todo;
