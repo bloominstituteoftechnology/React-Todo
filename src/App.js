@@ -30,33 +30,56 @@ class App extends React.Component {
     };
   };
 
-  addTodoInput = event => {
-    event.preventDefault();
-    this.setState({
-      filter: [...this.state.filter, {task: this.state.newTask,
-                                          id: Date.now(),
-                                          completed: false,
-                                          decorate: 'no-decoration'}],
-      todoData: [...this.state.todoData, {task: this.state.newTask,
-                                          id: Date.now(),
-                                          completed: false,
-                                          decorate: 'no-decoration'}],
-     newTask: ''
-    });
-   
-  };
 
-  ///////////////////////////////////////////////////////////////
-  inputChange = event => {
-    
-    this.setState({[event.target.name]: event.target.value});
-    
-  };
+    addTodoInput = event => {
+      event.preventDefault();
+      this.setState({
+        filter: [...this.state.filter, {task: this.state.newTask,
+                                            id: Date.now(),
+                                            completed: false,
+                                            decorate: 'no-decoration'}],
+        todoData: [...this.state.todoData, {task: this.state.newTask,
+                                            id: Date.now(),
+                                            completed: false,
+                                            decorate: 'no-decoration'}],
+       newTask: ''
+      });
 
-//////////////////////////////////////////////////////////////////
-  completeTaskSelect = index => {
-    this.setState({
-      filter: this.state.filter.map((task, idx) => {
+      localStorage.setItem(this.state.todoData, JSON.stringify([...this.state.todoData, {task: this.state.newTask,
+        id: Date.now(),
+        completed: false,
+        decorate: 'no-decoration'}]));
+      localStorage.setItem(this.todoData, JSON.stringify([[...this.state.todoData, {task: this.state.newTask,
+        id: Date.now(),
+        completed: false,
+        decorate: 'no-decoration'}]]));
+      localStorage.setItem(this.state.newTask, '');
+    };
+  
+    ///////////////////////////////////////////////////////////////
+    inputChange = event => {
+      
+      this.setState({[event.target.name]: event.target.value});
+      localStorage.setItem(event.target.name, event.target.value);
+    };
+  
+  //////////////////////////////////////////////////////////////////
+    completeTaskSelect = index => {
+      this.setState({
+        filter: this.state.filter.map((task, idx) => {
+          if(index != idx) {
+            return task;
+          } else {
+            return {
+              ...task,
+              completed: task.completed === false ? true : false,
+              decorate: task.decorate === 'no-decoration' ? 'slash' : 'no-decoration'
+            }
+          }
+        })
+      })
+
+      localStorage.setItem(this.filter.todoData, JSON.stringify(this.state.filter.map((task, idx) => {
         if(index != idx) {
           return task;
         } else {
@@ -66,38 +89,42 @@ class App extends React.Component {
             decorate: task.decorate === 'no-decoration' ? 'slash' : 'no-decoration'
           }
         }
-      })
-    })
-
-    
-  };
-/////////////////////////////////////////////////////////
-  componentWillMount = () => {
-    this.setState({filter: this.state.todoData});
-   
-  };
-
+      })));
+      
+    };
+  /////////////////////////////////////////////////////////
+    componentWillMount = () => {
+      this.setState({filter: this.state.todoData});
+      localStorage.setItem(this.state.filter, this.state.todoData);
+    };
   
-  completeTaskWipe = event => {
-    this.setState({
-      filter: this.state.filter.filter(task => {
+    
+    completeTaskWipe = event => {
+      this.setState({
+        filter: this.state.filter.filter(task => {
+          if(task.completed === false) {
+            return task;
+          }
+        })
+      })
+
+      localStorage.setItem(this.state.filter, this.state.filter.filter(task => {
         if(task.completed === false) {
           return task;
         }
-      })
-    })
-  };
-///////////////////////////////////////////////////////////
-  inputChangeFilter = event => {
-    let filterTasks = this.state.todoData;
-    filterTasks = this.state.todoData.filter(tasks => {
-      let upperCase = tasks.task.toUpperCase();
-      if(upperCase.includes(event.target.value.toUpperCase())) {
-        return tasks;
-      }})
-      this.setState({filter: filterTasks});
-      
+      }));
     };
+  ///////////////////////////////////////////////////////////
+    inputChangeFilter = event => {
+      let filterTasks = this.state.todoData;
+      filterTasks = this.state.todoData.filter(tasks => {
+        let upperCase = tasks.task.toUpperCase();
+        if(upperCase.includes(event.target.value.toUpperCase())) {
+          return tasks;
+        }})
+        this.setState({filter: filterTasks});
+        localStorage.setItem(this.state.filter, filterTasks);
+      };
 
   render() {
     return (
