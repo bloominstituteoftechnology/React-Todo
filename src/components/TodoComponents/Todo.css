@@ -24,7 +24,7 @@
 
 .form-group input:focus {
   outline: none;
-  border-bottom: 2px solid #f06292;
+  border-bottom: 2px solid #7f39fb;
 }
 
 .form-group button {
@@ -33,10 +33,11 @@
   margin-right: 16px;
   margin-bottom: 20px;
   border-radius: 4px;
-  border: 1px solid #e91e63;
+  /* border: 1px solid #e91e63; */
   font-size: 1.5rem;
-  background-color: #e91e63;
-  color: #fafafa;
+  /* background-color: #e91e63; */
+  /* color: #fafafa; */
+  color: #212121;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 1px 0 rgba(0, 0, 0, 0.1);
   transition: all 0.3s linear;
 }
@@ -47,8 +48,8 @@
 
 .form-group button:hover {
   box-shadow: none;
-  border-color: #c2185b;
-  background-color: #c2185b;
+  border-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .list-container {
@@ -58,7 +59,7 @@
 }
 
 .list-container p {
-  border-bottom: 2px solid #F06292;
+  border-bottom: 2px solid #7f39fb;
   padding: 10px 0;
   margin: 10px 0;
   cursor: pointer;
