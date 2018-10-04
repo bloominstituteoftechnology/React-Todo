@@ -8,19 +8,24 @@ import './app.css'
 class App extends Component {
   constructor() {
     super()
+
+    const localTodos = localStorage.getItem('todos')
+
     this.state = {
-      todos: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ],
+      todos: localTodos
+        ? JSON.parse(localTodos)
+        : [
+            {
+              task: 'Organize Garage',
+              id: 1528817077286,
+              completed: false
+            },
+            {
+              task: 'Bake Cookies',
+              id: 1528817084358,
+              completed: false
+            }
+          ],
       value: '',
       filterParam: ''
     }
@@ -32,37 +37,50 @@ class App extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    this.setState({
-      todos: [
-        ...this.state.todos,
-        {
-          task: this.state.value,
-          id: Date.now(),
-          completed: false
-        }
-      ],
-      value: ''
-    })
+    this.setState(
+      {
+        todos: [
+          ...this.state.todos,
+          {
+            task: this.state.value,
+            id: Date.now(),
+            completed: false
+          }
+        ],
+        value: ''
+      },
+      () => this.setLocalStorage()
+    )
   }
 
   completeTodo = id => {
-    this.setState({
-      todos: [
-        ...this.state.todos.map(
-          todo =>
-            todo.id === id
-              ? { ...todo, completed: todo.completed === true ? false : true }
-              : todo
-        )
-      ]
-    })
+    this.setState(
+      {
+        todos: [
+          ...this.state.todos.map(
+            todo =>
+              todo.id === id
+                ? { ...todo, completed: todo.completed === true ? false : true }
+                : todo
+          )
+        ]
+      },
+      () => this.setLocalStorage()
+    )
   }
 
   removeCompletedTodos = event => {
     event.preventDefault()
-    this.setState({
-      todos: [...this.state.todos.filter(todo => todo.completed === false)]
-    })
+    this.setState(
+      {
+        todos: [...this.state.todos.filter(todo => todo.completed === false)]
+      },
+      () => this.setLocalStorage()
+    )
+  }
+
+  setLocalStorage = () => {
+    localStorage.setItem('todos', JSON.stringify(this.state.todos))
   }
 
   render() {
