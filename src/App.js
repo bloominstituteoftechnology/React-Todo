@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
+import "./app.css";
 
 class App extends React.Component {
   constructor(props){
@@ -33,11 +34,29 @@ class App extends React.Component {
 
   textInputHandler = event => this.setState({ [event.target.name]: event.target.value });
 
+  completedHandler = id => {
+    this.setState({ 
+      todos: this.state.todos.map(todo => {
+        if (todo.id !== id) {
+          return todo;
+        } 
+        else {
+          return {
+          ...todo,
+          completed: todo.completed === true ? false : true
+          };
+        }
+      }) 
+    })
+  }
+
   render() {
     return (
       <div>
         <TodoList 
-        todos={this.state.todos}/>
+        todos={this.state.todos}
+        completedHandler={this.completedHandler}
+        />
 
         <TodoForm 
         todos={this.state.todos}
