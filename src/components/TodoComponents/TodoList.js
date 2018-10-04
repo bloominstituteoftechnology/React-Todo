@@ -4,12 +4,14 @@ const TodoList = props => {
     return(
         <div>
         {props.todoData.map((item, index) => {
-    return (<p
+    return(
+        <p
         onClick={() => props.strikeThrough(index)}
         className={item.textDecoration}
         >
     {item.task}
-    </p>);
+    </p>
+    );
     })}
         </div>
     )

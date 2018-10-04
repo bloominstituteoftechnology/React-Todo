@@ -6,20 +6,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      todoData: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false,
-          textDecoration: 'none'
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false,
-          textDecoration: 'none'
-        }
-      ],
+      todoData: [],
       newTask: '',
     }
   }
@@ -36,30 +23,26 @@ strikeThrough = index => {
       } else {
         return {
           ...item,
-          textDecoration: item.textDecoration === 'none' ? 'strikeThrough' : 'none'
+          textDecoration: item.textDecoration === 'none' ? 'strikeThrough' : 'none',
+          completed: item.completed === false ? true : false
         };
       }
     })
   })
 }
 
-// clearCompleted = index => {
-//   this.setState({
-//     todoData: this.state.todoData.filter((item, indx) => {
-//       if (index !== indx) {
-//         return item;
-//       } else {
-//         return null;
-//       }
-//     })
-//   })
-// }
+clearCompleted = event => {
+  event.preventDefault();
+  this.setState({
+    todoData: this.state.todoData.filter(item => item.completed === false)
+  })
+}
 
 
 addNewTodo = event => {
   event.preventDefault();
   this.setState({
-    todoData :[
+    todoData: [
       ...this.state.todoData,
       { task : this.state.newTask, id: Math.floor(Math.random()*1000000), completed: false, textDecoration: 'none' }
     ],
@@ -67,9 +50,7 @@ addNewTodo = event => {
   });
 };
 
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+
   render() {
     return (
       <div>
