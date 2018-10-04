@@ -7,7 +7,14 @@ import './Todo.css';
 
 const TodoList = props => {
     return (
-        <div>
+        <div className="todoList">
+            <TodoForm
+                listContent={props.listContent}
+                newListItem={props.newListItem}
+                changeHandler={props.changeHandler}
+                addNewListItem={props.addNewListItem}
+                clearCompleted={props.clearCompleted}
+            /> {/* todo list form (text input, submit button, and clear button */}
             {props.listContent.map((listItem) => {
                 return (
                     <Todo
@@ -16,14 +23,7 @@ const TodoList = props => {
                         key={listItem.id}
                     />
                 )
-            })}
-            <TodoForm
-                listContent={props.listContent}
-                newListItem={props.newListItem}
-                changeHandler={props.changeHandler}
-                addNewListItem={props.addNewListItem}
-                clearCompleted={props.clearCompleted}
-            />
+            })} {/* creates Todo object for each task */}
         </div>
     );
 }

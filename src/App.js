@@ -1,6 +1,8 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 
+import './components/TodoComponents/Todo.css';
+
 class App extends React.Component {
   constructor(props) {
     super(props);

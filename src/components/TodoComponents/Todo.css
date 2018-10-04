@@ -49,9 +49,70 @@ table {
 
 * {
     user-select: none;
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-.strikethrough {
-    text-decoration: line-through;
+.App {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	font-family: 'Roboto', sans-serif;
+}
+
+.App .todoList {
+	/* border: 1px solid black; */
+}
+
+.App .todoList .listItem {
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	margin: 5px 0;
+	background: #ffbfbf;
+	border: 1px solid #ff0000;
+	font-size: 24px;
+	color: #ff0000;
+	border-radius: 10px;
+}
+
+.App .todoList .strikethrough {
+	text-decoration: line-through;
+	background: #90ee90;
+	border: 1px solid #006400;
+	color: #006400;
+	position: relative;
+}
+
+.App .todoList .strikethrough::after {
+	content: '✔';
+	position: absolute;
+	right: 10px;
+}
+
+.App .todoList .todoForm {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.App .todoList .todoForm .textInputLabel {
+	margin: 5px 0;
+	font-size: 48px;
+	width: 100%;
+	text-align: center;
+}
+
+.App .todoList .todoForm input[type="text"] {
+	width: 100%;
+	font-size: 16px;
+	padding: 10px;
+	margin: 5px 0;
+}
+
+.App .todoList .todoForm button {
+	width: 49%;
+	font-size: 16px;
+	margin: 5px 0;
+	padding: 10px;
 }
