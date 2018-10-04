@@ -44,7 +44,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>Welcome to The World's Best Most In Depth Coolest To-Do List!</h2>
         <TodoList key={this.state.id}  items={this.state.items} completedItem={this.completedItem} />
         <TodoForm addTodo={this.addTodo} deleteItem={this.deleteItem}/> 
       </div>
