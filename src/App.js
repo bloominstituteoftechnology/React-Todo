@@ -47,7 +47,7 @@ class App extends React.Component {
   }
 
   addTodo = event => {
-    let newTask = this.state.makeTodo;
+    let newTask = this.state.makeTodo.toLowerCase();
     if (newTask.length > 0) {
       let newTodo = {
         task: newTask,
@@ -100,7 +100,7 @@ class App extends React.Component {
 
     let searchingList = this.state.todoList.map(todo => {
       let noMatch = false;
-      if (todo.task.indexOf(searchString) === -1) {
+      if (todo.task.indexOf(searchString.toLowerCase()) === -1) {
         noMatch = true;
       }
       return {id: todo.id, task: todo.task, complete: todo.complete, hidden: noMatch}
