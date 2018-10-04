@@ -1,7 +1,68 @@
-
+.todo {
+    width: 100%;
+    background: rgba(117, 194, 184, 0.562);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 .slash {
     text-decoration: line-through;
 
+}
+
+.todo h1 {
+    font-size: 10rem;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    color: bisque;
+}
+
+.todo input {
+    width: 20rem;
+    height: 3rem;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    width: 100%;
+    margin: 2rem 20rem 2rem 20rem;
+    font-size: 2rem;
+    background: bisque;
+}
+
+.todo button {
+    border-radius: 2rem;
+    background: bisque;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: gray;
+}
+
+.todolist {
+    width: 75%;
+    text-align: center;
+    font-size: 3rem;
+    line-height: 6rem;
+    color: gray;
+    font-weight: bold;
+    border: .5rem solid bisque;
+    margin-bottom: 2rem;
+}
+
+.todoButton1 {
+   margin: 2rem 5% 2rem 30%;
+   width: 15%;
+}
+
+.todoButton2 {
+    margin: 2rem 30% 2rem  5%;
+    width: 15%;
+    padding: 2rem 2rem;
+ }
+
+.todo form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .no-decoration {

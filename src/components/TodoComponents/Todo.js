@@ -6,12 +6,15 @@ import TodoList from './TodoList';
 const Todo = props => { 
     return (
         <div className = 'todo'>
-            <TodoForm 
-            newTask = {props.newTask}
-            inputChange = {props.inputChange}
-            addTodoInput = {props.addTodoInput}
-            completeTaskWipe={props.completeTaskWipe}
-            />    
+            <h1>TO-DO</h1>
+            <div className = "todoform">
+                <TodoForm 
+                newTask = {props.newTask}
+                inputChange = {props.inputChange}
+                addTodoInput = {props.addTodoInput}
+                completeTaskWipe={props.completeTaskWipe}
+                />   
+            </div> 
             <TodoList 
             todoData = {props.todoData}
             completeTaskSelect = {props.completeTaskSelect}
