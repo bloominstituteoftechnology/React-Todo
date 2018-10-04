@@ -28,7 +28,8 @@ class App extends React.Component {
     });
   };
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    event.preventDefault();
     const task = {
       task: this.state.task,
       id: this.state.id,
@@ -40,10 +41,16 @@ class App extends React.Component {
     })
   };
 
-  clearCompleted() {
+  clearCompleted(event) {
+    event.preventDefault();
     const li = document.querySelectorAll('.strike-th');
-    li.forEach( item => item.style.display = "none");
-  }
+    li.forEach( item => {
+      item.classList.add('animated');
+      item.classList.add('bounce');
+      setTimeout( () => item.style.display = "none", 650);
+      
+  });
+}
 
 
 
@@ -51,6 +58,7 @@ class App extends React.Component {
 
     return (
       <div className="container">
+        <h1>2Day's 2Dos</h1>
         <TodoList taskLists={this.state.todos} />
         <TodoForm
           value={this.state.task}

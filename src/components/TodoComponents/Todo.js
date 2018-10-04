@@ -20,16 +20,19 @@ class Todo extends React.Component {
 
       toggleStrike(event) {
           event.target.classList.add('strike-th');
+          event.target.style.color = "lightblue";
     
       }
      
       render() {
         return (
-            <ul>
-                <li onClick={this.handleClick && this.toggleStrike} >
+            <div className="todo">
+                <ul>
+                    <li onClick={this.handleClick && this.toggleStrike} >
                     {this.props.value}
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
     );
 }
 }
