@@ -64,7 +64,7 @@ class App extends React.Component {
     this.setState({
       todoArray: [...this.state.todoArray, 
         {
-          task: this.state.todo,
+          task: this.state.todo === '' ? '<empty item>' : this.state.todo,
           completed: false,
           name: 'normal'
         }
