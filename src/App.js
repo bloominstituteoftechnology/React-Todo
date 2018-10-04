@@ -34,21 +34,13 @@ class App extends React.Component {
     this.setState({ todos: filteredTodos });
     localStorage.setItem('todos', JSON.stringify(filteredTodos));
   }
-  handleSearch = e => {
-    this.setState({ search: e.target.value, storedTodos: this.state.todos })
-    if (e.target.value) {
-      let filteredTodos = this.state.todos.filter(todo => todo.task.indexOf(e.target.value) !== -1);
-      this.setState({ todos: filteredTodos });
-    } else {
-      this.setState({ todos: this.state.storedTodos });
-    }
-  }
   render() {
+    let filteredTodos = this.state.todos.filter(todo => todo.task.indexOf(this.state.search) !== -1)
     return (
       <div className="app-container">
         <h1>Todo List</h1>
-        <TodoSearch search={this.state.search} handleSearch={this.handleSearch} />
-        <TodoList todos={this.state.todos}/>
+        <TodoSearch search={this.state.search} handleSearch={this.inputChange} />
+        <TodoList todos={filteredTodos}/>
         <TodoForm 
           inputChange={this.inputChange} 
           addTodo={this.addTodo} 
