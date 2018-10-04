@@ -4,15 +4,18 @@ import { EventEmitter } from '../../utils.js'
 const TodoForm = ({changeHandler, inputText}) => (
     <form className='form' onSubmit={event => EventEmitter.dispatch('addTodo', event)}>
         <input 
+            className='input'
             type='text'
             name='input' 
-            placeholder='todo...' 
+            placeholder='enter task' 
             onChange={changeHandler}
             value={inputText}
             required
         />
-        <button className='add-btn' onClick={event => EventEmitter.dispatch('addTodo', event)}>Add Todo</button>
-        <button className='clear-btn' onClick={() => EventEmitter.dispatch('clear')}>Clear Completed</button>
+        <div className='btn-container'>
+            <button className='btn' onClick={event => EventEmitter.dispatch('addTodo', event)}>add todo</button>
+            <button className='btn' onClick={event => EventEmitter.dispatch('clear', event)}>clear completed</button>
+        </div>
     </form>
 );
 

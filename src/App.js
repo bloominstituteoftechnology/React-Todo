@@ -2,28 +2,18 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import { EventEmitter } from './utils.js'
+import styles from './components/TodoComponents/Todo.css'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ],
-      inputText: '',
+      todo: [],
+      inputText: ''
     }
-    EventEmitter.subscribe('toggleTodo', (text) => this.toggleTodo(text))
+  EventEmitter.subscribe('toggleTodo', (id) => this.toggleTodo(id))
 	EventEmitter.subscribe('addTodo', (event) => this.addTodo(event))
-	EventEmitter.subscribe('clear', () => this.clear())
+	EventEmitter.subscribe('clear', (event) => this.clear(event))
   }
 
   changeHandler = event => {
@@ -42,33 +32,36 @@ class App extends React.Component {
           id: Date.now(),
           completed: false
         }
-      ]
+      ],
+      inputText: ''
     })
   }
 
-  toggleTodo = task => {
+  toggleTodo = id => {
     this.setState({
       todo: this.state.todo.map(
-        item => item.task === task ? Object.assign(item, { completed: !item.completed }) : item
+        item => item.id === id ? Object.assign(item, { completed: !item.completed }) : item
       )
     })
   }
 
-  clear = () => {
-	this.setState({
-	  todo: this.state.todo.filter(item => !item.completed)
-	})
+  clear = (event) => {
+    event.preventDefault()
+    this.setState({
+      todo: this.state.todo.filter(item => !item.completed)
+    })
   }
 
   render() {
     return (
-      <div>
-        <TodoList 
-          todo={this.state.todo}
-        />
+      <div className='app'>
+        <h1>TODO</h1>
         <TodoForm
           inputText={this.state.inputText}
           changeHandler={this.changeHandler}
+        />
+        <TodoList 
+          todo={this.state.todo}
         />
       </div>
     );

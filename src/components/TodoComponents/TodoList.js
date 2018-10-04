@@ -1,12 +1,10 @@
 import React from 'react';
 import Todo from './Todo';
 
-const TodoList = ({todo, toggleTodo}) => (
+const TodoList = ({todo}) => (
     <div>
-        <h1>Todo List: MVP</h1>
         {todo.map(item => {
             return <Todo 
-                toggleTodo={toggleTodo} 
                 item={item} 
                 className={item.completed ? 'completed' : 'incomplete'} 
             />
