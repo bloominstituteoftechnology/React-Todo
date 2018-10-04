@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
+import './components/css/App.css'
 
 
 class App extends React.Component {
@@ -61,8 +62,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Todo List</h1>
+      <div className = 'pageContainer'>
+      <div className = 'card'>
+        <h1 className = 'title'>YOUR TO-DO LIST</h1>
         
         <TodoList
          tasks={this.state.todolist} 
@@ -73,7 +75,7 @@ class App extends React.Component {
         handleChange={this.handleTaskChange}
         value={this.state.task}
         handleClearTodos={this.clearComplete}/>
-
+      </div>
       </div>
     )
   }

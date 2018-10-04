@@ -1,0 +1,66 @@
+.pageContainer {
+    width: 100%;
+    height: 410px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-image: url('https://images.pexels.com/photos/1092364/pexels-photo-1092364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}
+
+.card {
+    width: 600px;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color:#ffffffa8;
+}
+
+.title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 8px;
+    font-size: 44px;
+    padding: 0px;
+    margin: 0px 0px 20px 0px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-between;
+    width: 75%;
+    
+}
+
+.input {
+    padding: 10px 5px;
+    background-color:#ffd5cb;
+    color: rgb(47, 47, 47);
+    font-size: 16px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+.buttons button {
+    padding: 10px 5px; 
+    width: 200px;
+    background-color:#fffffe;
+    color: rgb(47, 47, 47);
+    font-size: 16px;
+
+}
+
+button:hover {
+    cursor: pointer;
+
+}
+
+.todo {
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
