@@ -29,12 +29,24 @@ class App extends React.Component {
     }
   }
 
+
   handleClickEvent = event => {
+    event.preventDefault();
     this.setState({
-      todoListArray: [this.state.todoListArray, {task: this.state.newTasks}], 
+      todoListArray: [
+        ...this.state.todoListArray, 
+        {task: this.state.newTasks, id: Math.floor(Math.random()*1000000), completed: false}], 
       newTasks: ""
     })
   }
+
+  // to make competed value opposite of true/false
+  // textChangeCompletedValue = event => {
+  //   event.preventDefault();
+  //   this.setState({
+  //     todoListArray: [...this.state.todoListArray.completed: !this.state.todoListArray.completed]
+  //   })
+  // }
 
   handleChangeEvent = event => {
     console.log(event.target.value);
@@ -49,7 +61,11 @@ class App extends React.Component {
         
         <TodoList todoListArray={this.state.todoListArray} />
 
-        <Form handleChangeEvent={this.handleChangeEvent} handleClickEvent={this.handleClickEvent} newTasks={this.state.newTasks} />
+        <Form 
+          handleChangeEvent={this.handleChangeEvent}
+          handleClickEvent={this.handleClickEvent}
+          newTasks={this.state.newTasks}
+        />
 
       </div>
     );
