@@ -3,11 +3,17 @@ import Todo from './Todo.js'
 
 const TodoList = props => {
     return (
-      <div>
-       {props.todos.map(todo => {
-          return <Todo todo={todo} />;
-        })}
-      </div>
-    );
-  };
-   export default TodoList;
+        <div className='list'>
+        {props.todos.map(x => 
+        <Todo 
+            key={x.id} 
+            todo={x}
+            complete={props.complete}
+        />
+        )
+        }
+        </div>
+    )
+} 
+
+export default TodoList; 

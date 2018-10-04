@@ -1,0 +1,87 @@
+
+body {
+	/* overflow-x: hidden; */
+}
+
+.checklist-head {
+    background-color: #3d8ff7;
+    height: 100vh
+}
+
+.checklist-head h2 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    letter-spacing: 8px;
+    color: white;
+}
+
+.task {
+    top: 50px;
+	width: 230px;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%); 
+}
+
+.todoform {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 20%;
+    margin: 50px auto 200px auto;
+}
+
+button {
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    color: black;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size: 15px;
+}
+
+.hamburger {
+    margin: 5px 10px 0px 1050px;
+    background: transparent;
+    border: gray;
+    padding: 15px 15px 15px 15px;
+    color: white;
+}
+
+.header2 {
+    color: green;
+    background: #91BFFA;
+    height: 60px;
+    margin-bottom: 10px;
+    
+}
+
+.avatar {
+    background-image: url('https://image.ibb.co/kYPgRz/avat.png');
+    padding: 40px;
+    margin-top: 100px;
+    height: 150px;
+    margin:0 auto;
+    padding:0;
+    width:200px; 
+    border-radius: 50%;
+    height:200px; 
+    /* display: flex;
+    align-self: center; */
+}
+
+input[type="text"] {
+    border: 0;
+    background: #fef48a;;
+    border-bottom: solid 1px gray;
+    width: 99%;
+    padding-bottom: 4px;
+    color: black !important;
+    letter-spacing: 2px;
+    font-size: 20px;
+    text-align: center;
+  } 
+
+
