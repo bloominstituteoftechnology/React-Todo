@@ -2,12 +2,13 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 
+import Todo from './Todo';
+
 const TodoList = props => {
     return(
         <div>
-            <h1>Todo List: MVP</h1>
-            {props.todoArray.map(item => {
-                return <h3 key={item.id}>{item.task}</h3>
+            {props.todoArray.map((todo, index) => {
+                return <Todo index={index} key={index} todo={todo} changeText={props.changeText} />
             })}
            
         </div>

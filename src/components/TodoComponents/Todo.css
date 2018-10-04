@@ -1,0 +1,7 @@
+.lineThrough {
+    text-decoration: line-through;
+}
+
+div.pointer {
+    cursor: pointer;
+}

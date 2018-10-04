@@ -30,6 +30,23 @@ class App extends React.Component {
     this.setState({  todo: event.target.value  })
   }
 
+  changeText = (event, index) => {
+    this.setState({
+      todoArray: this.state.todoArray.map((todo, idx) => {
+        if (index !== idx) {
+          return todo;
+        } else {
+          return {
+          ...todo,
+          completed: todo.completed === "false" ? "true" : "false"
+          }
+        }
+      },
+      
+      )
+    })
+  }
+
   addNewTodo = event => {
     event.preventDefault();
     this.setState({
@@ -43,11 +60,23 @@ class App extends React.Component {
     })
   }
 
+  // strikeThrough = (event) => {
+  //   if (event.target.classList.includes('lineThrough')) {
+  //     return event.target.classList.remove('lineThrough');
+  //   } else {
+  //     return event.target.classList.add('lineThrough');
+  //   }
+  // }
+  
   render() {
+    console.log(this.state.todoArray[0]);
+    console.log(this.state.todoArray[1]);
+    console.log(this.state.todoArray[2]);
     return (
       <div>
         <TodoList 
-        todoArray={this.state.todoArray} 
+        todoArray={this.state.todoArray}
+        changeText={this.changeText} 
         />
         <TodoForm  
         addNewTodo={this.addNewTodo} 
