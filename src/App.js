@@ -38,6 +38,36 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+    console.log('component did mount')
+    if (localStorage.getItem('todos') !== null) {
+      let stateData = (JSON.parse(localStorage.getItem('todos')));
+      this.setState({
+        todos: stateData,
+      })
+    }
+
+    window.addEventListener(
+      "beforeunload",
+      this.saveStateToLocalStorage.bind(this)
+    );
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener(
+      "beforeunload",
+      this.saveStateToLocalStorage.bind(this)
+    );
+
+    // saves if component has a chance to unmount
+    this.saveStateToLocalStorage();
+  }
+
+  saveStateToLocalStorage() {
+      console.log('saving to storage');
+      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+  }
+
   changeHandler = (event) => {
     event.preventDefault();
     this.setState({[event.target.name]: event.target.value})
