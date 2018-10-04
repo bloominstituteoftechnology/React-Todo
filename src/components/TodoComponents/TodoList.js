@@ -10,6 +10,7 @@ class TodoList extends React.Component {
     // if (window.localStorage.getItem('todos') === null || window.localStorage.getItem('todos') === undefined) {
       // example tasks
       this.state = {
+        searchQuery: '',
         todos: [
           {
             task: 'Organize Garage',
@@ -35,6 +36,7 @@ class TodoList extends React.Component {
     this.addTask = this.addTask.bind(this)
     this.clearCompleted = this.clearCompleted.bind(this)
     this.completeTask = this.completeTask.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   addTask(event, taskName) {
@@ -67,19 +69,29 @@ class TodoList extends React.Component {
       })
     })
   }
-  
+
+  handleSearch(event) {
+    this.setState({searchQuery: event.target.value});
+  }
 
   render() {
     window.localStorage.setItem('todos', JSON.stringify(this.state.todos))
     return (
       <div className="TodoList">
+        <input 
+          type="text" 
+          value={this.state.searchQuery} 
+          placeholder="search" 
+          onChange={this.handleSearch} />
         {this.state.todos.map((todo, i) => {
-          return <Todo
-                  key={i} 
-                  task={todo.task} 
-                  completed={todo.completed} 
-                  id={todo.id} 
-                  completeTask={this.completeTask}/>
+          if (todo.task.includes(this.state.searchQuery) ) {
+            return <Todo
+            key={i} 
+            task={todo.task} 
+            completed={todo.completed} 
+            id={todo.id} 
+            completeTask={this.completeTask}/>
+          }
         })}
         <TodoForm addTask={this.addTask} clearCompleted={this.clearCompleted}/>
       </div>
