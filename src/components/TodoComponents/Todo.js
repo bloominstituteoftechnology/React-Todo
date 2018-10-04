@@ -3,7 +3,7 @@ import { EventEmitter } from '../../utils.js'
 
 
 const Todo = ({item}) => (
-    <div>
+    <div className='todo'>
         <h3 
         className={item.completed ? 'complete' : 'incomplete'} 
         onClick={() => EventEmitter.dispatch('toggleTodo', item.id)}

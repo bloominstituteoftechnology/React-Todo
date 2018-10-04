@@ -46,6 +46,10 @@
     margin: 2px 2%;
 }
 
+.todo {
+    cursor: pointer;
+}
+
 .complete {
     text-decoration: line-through;
     word-wrap: break-word;
