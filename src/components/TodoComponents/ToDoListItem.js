@@ -15,6 +15,7 @@ class TodoListItem extends React.Component {
 
     render() { 
         let nameClass = this.props.item.completed? "completed" : "incompleted";
+        // forgot about these ternarys 
         console.log(this.props.item);
         return(
             <li className={nameClass} onClick={this.completedItem}> 

@@ -8,13 +8,11 @@ class TodoForm extends React.Component {
     onSubmit(e){
         e.preventDefault();
         let newItem = this.refs.item.value;
-// console.log(newItem);
+// console.log(this.refs);
         if(newItem){
             this.props.addTodo(newItem);
             this.refs.form.reset();
         }
-
-        
     }
         render(){
         return (
