@@ -9,7 +9,9 @@ const TodoForm = props => {
           type="text"
           name="newTodo"
           placeholder="What great deeds will you accomplish today?"
-          onChange={props.changeHandler}
+          //original version--keep in case localstorage screws things up
+          //onChange={props.changeHandler}
+          onChange={event => props.changeHandler("newTodo", event.target.value)}
           value={props.newTodo}
         />
         <div className="buttons">

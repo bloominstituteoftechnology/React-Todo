@@ -27,10 +27,15 @@ class App extends React.Component {
     };
   }
 
-  changeHandler = event => {
+  //this used to take in only event and set newTodo to event.target.string in setState
+  //changed params for function in TodoForm.js to take in key and value
+  // ("newTodo", event.target.value) for same effect, now persists in window memory
+  changeHandler = (key, value) => {
     this.setState({
-      newTodo: event.target.value
+      [key]: value
     });
+    //updating localStorage
+    localStorage.setItem(key, value);
   };
 
   addNewTodo = event => {
@@ -57,16 +62,8 @@ class App extends React.Component {
   };
 
   toggleComplete = event => {
-    //this works but changes the class of the individual button. I want to write it
-    //so the `completed` status for the particular task in todoList gets changed
-    // if (event.target.className === "incomplete") {
-    //   event.target.className = "complete";
-    // } else {
-    //   event.target.className = "incomplete";
-    // }
-
-    //instead, write this new version: create a copy of the todoList array,
-    //where the only modification is that the clicked item's `completed`
+    //create a copy of the todoList array
+    //the only modification is that the clicked item's `completed`
     //value changes. then use setState({todoList: newArray})
 
     let newArray = this.state.todoList;
