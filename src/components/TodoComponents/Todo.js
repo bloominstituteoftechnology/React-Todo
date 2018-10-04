@@ -1,7 +1,8 @@
 import React from 'react';
 import './Todo.css';
 
-
+/* I realize it was unnecessary to convert this into a class component but
+it was a rabbit hole I went down early on ['-_-] */
 
 class Todo extends React.Component { 
 constructor(props) {
@@ -23,24 +24,7 @@ toggleDone(){
     }
 }
 
-/* Parent callback
-when the todo is clicked, it will run this props method.
-The method will change the todos complete status in the parent state to true, 
-which will change the classlist of the todo. 
 
-outerToggle(todoState){
-    let list = this.state.toDoList.splice();
-    for (todo in list){
-        if(todo.id === todoState.id){
-            todo.complete = true;
-        }
-    }
-    this.setState({toDoList: list});
-dfd
-}
-} 
-
-*/
 
     render(){
     return (
@@ -58,14 +42,5 @@ dfd
     )
 }
 }
-/* 
-clear(state){
-    if()
-}
 
-onClick={this.props.onClick()}
-
-
-< TodoForm clear={this.clear}
-*/
 export default Todo;
