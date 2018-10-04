@@ -19,6 +19,8 @@
     background-color:lightseagreen;
     border-left:1px solid lightgreen;
     border-radius: 5px;
+    font-size:20px;
+    color:white;
     margin-top:5px;
 }
 input[type=text]:focus {
