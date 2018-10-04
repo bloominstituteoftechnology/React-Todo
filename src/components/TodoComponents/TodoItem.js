@@ -3,7 +3,7 @@ import React from 'react';
 const TodoItem = (props) => {
   return (
     <li
-      className={props.class}
+      className={props.class.toString()}
       onClick={() => props.markComplete(props.todo.id)}
     >
       {props.todo.item}
