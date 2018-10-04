@@ -21,6 +21,10 @@ class App extends React.Component {
       todoItem: ''
     });
   }
+
+  itemStrike = event => {
+    event.target.className = 'complete';
+  }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -30,6 +34,7 @@ class App extends React.Component {
         <h1>This is the stuff you need to do!</h1>
         <TodoForm 
           changeHandler={this.changeHandler}
+          itemStrike={this.itemStrike}
           todoItem={this.state.todoItem}
           todoList={this.state.todoList}
           addToList={this.addToList}

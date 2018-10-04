@@ -1,11 +1,12 @@
 import React from 'react';
+import './Todo.css';
 
 const TodoList = (props) => {
     return (
         <div className="todolist">
             {props.todoList.map(item => {
                 return (
-                    <p>{item}</p>
+                    <p onClick={props.itemStrike}>{item}</p>
                 );
             })}
         </div>
