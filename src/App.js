@@ -26,6 +26,19 @@ class App extends React.Component {
     }
   }
 
+  componentWillMount() {
+    // localStorage.removeItem('myToDoList');
+    let myTodoList = JSON.parse(localStorage.getItem('myToDoList'));
+    
+    (myTodoList !== null)
+      ? this.setState({todoList: myTodoList}) 
+        : this.updateLocalStorage(this.state.todoList);
+  }
+
+  updateLocalStorage(state) {
+    localStorage.setItem('myToDoList', JSON.stringify(state));
+  }
+
   clearCompleted = event => {
     event.preventDefault();
 
@@ -33,6 +46,7 @@ class App extends React.Component {
     let todoList = tdl.filter(item => item.completed !== true);
 
     this.setState({todoList});
+    this.updateLocalStorage(todoList);
   }
 
   toggleComplete = id => {
@@ -45,6 +59,7 @@ class App extends React.Component {
       }
     });
     this.setState({todoList})
+    this.updateLocalStorage(todoList);
   }
 
   addTask = event => {
@@ -58,6 +73,7 @@ class App extends React.Component {
     let todoList = this.state.todoList;
     todoList.push(taskObj)
     this.setState({todoList, task: ''});
+    this.updateLocalStorage(todoList);
   }
 
   changeHandler = event => {

@@ -10,8 +10,8 @@ const TodoForm = ({task, addTask, onChange}) => {
                     placeholder="todo..."
                     value={task}
                     onChange={onChange}
-                    autocomplete="off"
-                    maxlength="20"
+                    autoComplete="off"
+                    maxLength="20"
                 />
                 <button>Add</button>
             </form>
