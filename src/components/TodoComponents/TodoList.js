@@ -8,8 +8,8 @@ const TodoList = (props) => {
     return (
         <div>
             <ul>
-                {props.TodoList.map(item => {
-                    <Todo todo={item}/>
+                {props.TodoList.map(item => {  //todoList here being passed from render?
+                    <Todo todo={item} />
                 })}
             </ul>
         </div>
