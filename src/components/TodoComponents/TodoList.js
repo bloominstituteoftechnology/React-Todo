@@ -3,12 +3,13 @@
 // takes in todo data and displays to screen
 import React from 'react';
 //import './styles.css';
+import Todo from './Todo';
 
 const TodoList = props =>{
     return(
         <div>
             {props.listData.map(item => {
-            return <h1>{item.listItem}</h1>;
+            return <Todo item={item.listItem} />;
         })}
         </div>
     )

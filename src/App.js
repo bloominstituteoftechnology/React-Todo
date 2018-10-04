@@ -8,13 +8,10 @@ import TodoList from './components/TodoComponents/TodoList';
     constructor(props) {
         super(props);
         this.state = {
-          listData: [
-              { 
-              },
-          ],
-          inputText: '',
-          newTodo: '',
-          setToFalse:false
+        listData: [{ },],
+        inputText: '',
+        newTodo: '',
+        setToFalse:false
         };
     }
 
@@ -29,7 +26,7 @@ import TodoList from './components/TodoComponents/TodoList';
         listData: [
             ...this.state.listData,
             { listItem: this.state.newTodo,
-              completed:this.state.setToFalse
+                completed:this.state.setToFalse
             }
         ],
         newTodo: ''
@@ -39,11 +36,7 @@ import TodoList from './components/TodoComponents/TodoList';
     render() {
         return (
         <div className="App">
-        <div>
-            {this.state.listData.map(item => {
-            return <h1>{item.listItem}</h1>;
-        })}
-        </div>
+        <TodoList listData={this.state.listData}/>
         <TodoItems
             addNewListItem={this.addNewListItem}
             changeHandler={this.changeHandler}
