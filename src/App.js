@@ -51,7 +51,8 @@ class App extends React.Component {
             completed: false
           }
         ],
-        newTodo: ""
+        newTodo: "",
+        emptyList: ""
       });
     }
   };
