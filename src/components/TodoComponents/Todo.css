@@ -2,12 +2,8 @@
   box-sizing: border-box;
 }
 
-document{
+document {
   font-size: 62.5%;
-}
-
-bod {
-  font-size: 1.6rem;
 }
 
 .app {
@@ -57,14 +53,14 @@ bod {
 }
 
 .wire {
-   width: 40px;
-    height: 5px;
-    background-color: black;
-    border-radius: 10px;
-    position: relative;
-    left: -20px;
-    top: 20px;
-    box-shadow: inset 1px 2px gray;
+  width: 40px;
+  height: 5px;
+  background-color: black;
+  border-radius: 10px;
+  position: relative;
+  left: -20px;
+  top: 20px;
+  box-shadow: inset 1px 2px gray;
 }
 
 .two {
@@ -90,21 +86,18 @@ bod {
 .form-container {
   width: 100%;
   background-color: #c44536;
-  padding:  0 2% 2%;
+  padding: 0 2% 2%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   border-bottom: 1px solid #114B5F;
 }
 
-
 .form-new {
   width: 45%;
   display: flex;
   justify-content: center;
   align-items: center;
-
-
 }
 
 .form-new label {
@@ -122,7 +115,7 @@ bod {
   color: #114B5F;
 }
 
-.form-new button:focus{
+.form-new button:focus {
   outline: none;
 }
 
@@ -142,12 +135,12 @@ input {
 input::placeholder {
   color: #595959;
 }
+
 input:focus {
   outline: none;
-
 }
 
-.form-clear{
+.form-clear {
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -163,20 +156,17 @@ input:focus {
   background: pink;
   border: 2px solid #ffb3bf;
   box-shadow: 2px 2px #ffb3bf;
-
 }
 
-.form-clear button:focus{
+.form-clear button:focus {
   outline: none;
 }
-
 
 .form-search {
   width: 40%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
 }
 
 .form-search label {
@@ -185,18 +175,86 @@ input:focus {
 }
 
 .form-search input {
-
   padding: 0 3%;
+}
+
+@media (max-width:500px) {
+  .app {
+    width: 90%;
+    border-radius: 5px;
+
+  }
+
+
+  .header h2{
+    font-size: 2rem;
+  }
+
+  .todo-list {
+    width: 90%;
+  }
+
+  .line h3 {
+    width: 90%;
+    font-size: .9rem;
+  }
+
+  .form-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form-new {
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 10px;
+  }
+
+  .form-new label {
+    font-size: .9rem;
+  }
+
+  .form-new button {
+    font-size: 1rem;
+  }
+
+  input {
+    width: 200px;
+
+  }
+
+
+  .form-clear {
+    padding: 4%;
+  }
+
+  .form-clear button {
+    padding: 10px 20px;
+  }
+
+
+  .form-search {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px; 
+
+  }
+
+  .form-search label {
+    font-size: .9rem;
+    margin-right: 14px;
+  }
 
 }
 
+.done {
+  font-color: #C44536;
+  text-decoration-line: line-through;
+}
 
-
-   .done {
-    font-color: #C44536;
-    text-decoration-line: line-through;
-  }
-
-  .hidden {
-    visibility: hidden;
-  }
+.hidden {
+  visibility: hidden;
+}
