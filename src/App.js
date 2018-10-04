@@ -7,15 +7,23 @@ import "./components/TodoComponents/Todo.css";
 let initialList = [
 {
         task: 'enter a new task in the upper left',
+        id: Date.now().toString(),
+        complete: false
       },
         {
           task: 'mark it complete (or not) by clicking it',
+          id: Date.now().toString(),
+          complete: false
         },
         {
           task: 'use the eraser to clear finished tasks',
+          id: Date.now().toString(),
+          complete: false
         },
         {
           task: 'search the list in the upper right',
+          id: Date.now().toString(),
+          complete: false
         },
 ];
 let storedList = localStorage.getItem('todoList');
