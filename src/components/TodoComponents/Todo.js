@@ -1,11 +1,7 @@
-// import React from 'react';
+import React from "react";
 
-// const Todo = props => {
-//     return (
-//         <div>
-//             {props.newTodo.task}
-//         </div>
-//     );
-// };
+const Todo = props => {
+    return <div>{props.newTodo.task}</div>;
+};
 
-// export default Todo;
+export default Todo;

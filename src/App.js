@@ -24,7 +24,6 @@ class App extends React.Component {
   }
 
   changeHandler = event => {
-    console.log(event.target.name);
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -44,8 +43,6 @@ class App extends React.Component {
         <TodoForm 
           addTodo={this.addTodo}
           changeHandler={this.changeHandler}
-          todos={this.state.todos}
-          inputText={this.state.inputText}
           newTodo={this.state.newTodo}
         />
         
