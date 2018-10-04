@@ -43,28 +43,30 @@ class App extends React.Component {
     event.preventDefault();
     //added this if statement to alert the user if they try to add too many
     //todos, keeps the list from going over 10. also does a setState call to reset newTodo (clear the input field)
-    let newList = [
-      ...this.state.todoList,
-      {
-        task: this.state.newTodo,
-        id: Date.now(),
-        completed: false
-      }
-    ];
+    if (this.state.newTodo !== "") {
+      let newList = [
+        ...this.state.todoList,
+        {
+          task: this.state.newTodo,
+          id: Date.now(),
+          completed: false
+        }
+      ];
 
-    if (this.state.todoList.length >= 10) {
-      alert("Slow your roll and knock these items out first!");
-      this.setState({ newTodo: "" });
-    } else {
-      this.setState({
-        todoList: newList,
-        newTodo: ""
-      });
-      //updating new todoList to local storage
-      //but no longer needed thanks to updating all keys and values
-      //with componentDidMount/WillUnmount methods
-      // localStorage.setItem("todoList", JSON.stringify(newList));
-      // localStorage.setItem("newTodo", "");
+      if (this.state.todoList.length >= 10) {
+        alert("Slow your roll and knock these items out first!");
+        this.setState({ newTodo: "" });
+      } else {
+        this.setState({
+          todoList: newList,
+          newTodo: ""
+        });
+        //updating new todoList to local storage
+        //but no longer needed thanks to updating all keys and values
+        //with componentDidMount/WillUnmount methods
+        // localStorage.setItem("todoList", JSON.stringify(newList));
+        // localStorage.setItem("newTodo", "");
+      }
     }
   };
 
@@ -99,6 +101,7 @@ class App extends React.Component {
     let filteredArray = this.state.todoList.filter(
       item => item.completed === false && item.task !== ""
     );
+    console.log(filteredArray);
     this.setState({
       todoList: filteredArray
     });
