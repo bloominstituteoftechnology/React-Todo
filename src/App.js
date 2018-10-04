@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
+import TodoFilter from './components/TodoComponents/TodoFilter'
 import './reset.css'
 import './app.css'
 
@@ -20,12 +21,13 @@ class App extends Component {
           completed: false
         }
       ],
-      value: ''
+      value: '',
+      filterParam: ''
     }
   }
 
   handleChange = event => {
-    this.setState({ value: event.target.value })
+    this.setState({ [event.target.name]: event.target.value })
   }
 
   handleSubmit = event => {
@@ -64,13 +66,17 @@ class App extends Component {
   }
 
   render() {
-    const { todos, value } = this.state
+    const { todos, value, filterParam } = this.state
     const {
       handleChange,
       handleSubmit,
       completeTodo,
       removeCompletedTodos
     } = this
+
+    const filteredTodos = todos.filter(({ task }) =>
+      task.match(new RegExp(filterParam, 'i'))
+    )
 
     return (
       <div className="container">
@@ -80,7 +86,8 @@ class App extends Component {
           removeCompletedTodos={removeCompletedTodos}
           value={value}
         />
-        <TodoList todos={todos} completeTodo={completeTodo} />
+        <TodoFilter handleChange={handleChange} filterParam={filterParam} />
+        <TodoList todos={filteredTodos} completeTodo={completeTodo} />
       </div>
     )
   }

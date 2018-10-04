@@ -13,6 +13,7 @@ const TodoForm = ({
       <input
         type="text"
         value={value}
+        name="value"
         onChange={handleChange}
         placeholder="enter todo here"
       />

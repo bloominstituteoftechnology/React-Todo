@@ -10,6 +10,7 @@ form {
 
 input {
   font-size: 2.0rem;
+  padding: 0 2px;
 }
 
 button {
