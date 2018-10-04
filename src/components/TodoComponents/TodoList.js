@@ -10,9 +10,9 @@ const TodoList = (props) => {
         <ul>            
             {props.data.map((item) =>  (
                 <Todo
-                    key={item.id}
-                    todo={item}
                     strikeThru = {props.strikeThru}
+                    key={item.id}
+                    todo={item}                    
                 />                    
             ))}
         </ul>

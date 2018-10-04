@@ -44,25 +44,33 @@ class App extends React.Component {
       }
     });
     this.setState({ newTodo });
-    console.log(newTodo);
   };
   addTodo = event => {
+      event.preventDefault();
+      if (this.state.todo === '') {
+        return;
+      } else {
+      this.setState({
+          todoData: [
+            ...this.state.todoData,
+            { task: this.state.todo, completed: false, id: Date.now() }
+          ],
+          todo: ''
+        })}
+    };
+
+    changeTodo = event => this.setState({ [event.target.name]: event.target.value });
+
+
+  removeCompleteTodo = event => {
     event.preventDefault();
-    if (this.state.todo === '') {
-      return;
-    } else {
-    this.setState({
-        todoData: [
-          ...this.state.todoData,
-          { task: this.state.todo, completed: false, id: Date.now() }
-        ],
-        todo: ''
-      })}
+    let newTodo = this.state.todoData.slice();
+    newTodo = newTodo.filter(todo => !todo.completed);
+    this.setState({ newTodo });
+    console.log(newTodo)
   };
 
-  changeTodo = event => this.setState({ [event.target.name]: event.target.value });
-
-  render() {
+    render() {
     return (
       <div className='container'>
         <h1 className='main-header'>TODO LIST</h1>
@@ -74,6 +82,7 @@ class App extends React.Component {
           value={this.state.todo}
           handleTodoChange={this.changeTodo}
           AddTodoHandler={this.addTodo}
+          removeCompleted={this.removeCompleteTodo}
           />
       </div>
     );
