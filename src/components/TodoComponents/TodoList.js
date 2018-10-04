@@ -41,7 +41,7 @@ class TodoList extends React.Component {
     event.preventDefault()
     let newTodo = {
       task: taskName,
-      id: this.idCounter++,
+      id: ++this.idCounter,
       completed: false
     }
     this.setState({
