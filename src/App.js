@@ -41,11 +41,15 @@ class App extends React.Component {
     })
   }
 
+  changeHandler = event => {
+    this.setState({ newTodo: event.target.value })
+  }
+
   changeCompletedHandler = id => {
     this.setState({
       todos: this.state.todos.map(todo =>{
         if(todo.id !== id) {
-          return todo
+          return todo;
         } else {
           return {
             ...todo,
@@ -56,8 +60,16 @@ class App extends React.Component {
     })
   }
 
-  changeHandler = event => {
-    this.setState({newTodo: event.target.value})
+  filterCompleted = id => {
+    this.setState({
+      todos: this.state.todos.filter((todo, id) => {
+        if(todo.id !== id){
+          return todo;
+        } else {
+          return null;
+        }
+      })
+    })
   }
 
   render() {
