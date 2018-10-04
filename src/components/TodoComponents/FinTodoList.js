@@ -9,6 +9,7 @@ const FinTodoList = props => {
           return <FinTodo 
           key={item.id}
           item={item} 
+          itemStyle={props.itemStyle}
           unCompleteTask={props.unCompleteTask}
           />
       })}

@@ -49,11 +49,12 @@ class App extends React.Component {
     })
   };
 
-  completeTask = id => {
+  completeTask = (event, id) => {
     let thisTask = this.state.todoList.filter(item => item.id === id);
     thisTask[0].completed = !thisTask[0].completed;
     let otherTasks = this.state.todoList.filter(item => item.id !== id);
     let completedTasks = this.state.completedTodoList;
+    console.log(event.target.style.color)
     this.setState({
       todoList: [...otherTasks],
       completedTodoList: [...completedTasks, thisTask[0]],
@@ -62,11 +63,13 @@ class App extends React.Component {
     });
   };
 
-  unCompleteTask = id => {
+  unCompleteTask = (event, id) => {
     let thisTask = this.state.completedTodoList.filter(item => item.id === id);
     thisTask[0].completed = !thisTask[0].completed;
     let otherTasks = this.state.completedTodoList.filter(item => item.id !== id);
     let uncompletedTasks = this.state.todoList;
+    console.log(event.target.style.color)
+
     this.setState({
       todoList: [...uncompletedTasks, thisTask[0]],
       completedTodoList: [...otherTasks],
@@ -74,6 +77,7 @@ class App extends React.Component {
       newTask: ""
     });
   };
+
 
   getRandomColor() {
     const numbers = "0123456789ABCDEF";
@@ -92,6 +96,7 @@ class App extends React.Component {
           <FinTodoList
             finTodoList={this.state.completedTodoList}
             unCompleteTask={this.unCompleteTask}
+            itemStyle={this.itemStyle}
           />
           <h2>Todo</h2>
           <TodoList
