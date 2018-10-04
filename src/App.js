@@ -34,18 +34,25 @@ class App extends React.Component {
   };
 
   addNewTodo = event => {
+    //preventDefault prevents page from refreshing upon the form entry
     event.preventDefault();
-    this.setState({
-      todoList: [
-        ...this.state.todoList,
-        {
-          task: this.state.newTodo,
-          id: Date.now(),
-          completed: false
-        }
-      ],
-      newTodo: ""
-    });
+    //added this if statement to alert the user if they try to add too many
+    //todos, keeps the list from going over 10
+    if (this.state.todoList.length >= 10) {
+      alert("Slow your roll and knock these items out first!");
+    } else {
+      this.setState({
+        todoList: [
+          ...this.state.todoList,
+          {
+            task: this.state.newTodo,
+            id: Date.now(),
+            completed: false
+          }
+        ],
+        newTodo: ""
+      });
+    }
   };
 
   toggleComplete = event => {
@@ -60,6 +67,7 @@ class App extends React.Component {
     //instead, write this new version: create a copy of the todoList array,
     //where the only modification is that the clicked item's `completed`
     //value changes. then use setState({todoList: newArray})
+
     let newArray = this.state.todoList;
     newArray.forEach(function(item) {
       if (item.id == event.target.id) {
