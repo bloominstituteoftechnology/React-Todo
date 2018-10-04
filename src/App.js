@@ -26,14 +26,17 @@ class App extends React.Component {
   }
 
   crossOut = (index) => {
+    console.log(index)
     this.setState({list: this.state.list.map((item, idx) => {
-      if(index !== idx) {
+      if(index === idx) {
         return {
           ...item,
-          complete: true
+          complete: item.complete === false ? true : false 
         }
-      }
-    }) })
+      } else {
+          return item;
+        }
+    })})
     //this.state.list.map((item, idx) => {
     //  if(index === idx) {
     //    //put the change of status here
