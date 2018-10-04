@@ -35,7 +35,7 @@ class App extends React.Component {
     // console.log(index);
     this.setState({
       todos: this.state.todos.map((item, idx) => {
-        console.log(item);
+        // console.log(item);
 
         if (index !== idx) {
           return item;
@@ -45,7 +45,6 @@ class App extends React.Component {
             completed: item.completed === false ? true : false
           };
         }
-        console.log(item);
       })
     });
   };
