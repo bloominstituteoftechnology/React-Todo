@@ -48,18 +48,16 @@ class App extends React.Component {
 
   markCompleted = event => {
 
-
     this.setState({
       todoArray: this.state.todoArray.map( todoObj => {
         if (todoObj.completed === false) {
           return {
             ...todoObj,
             completed: todoObj.completed === false ? true : false
-          }
+          } 
         }
       })
     })
-    //console.log(todoObj)
   };
   
 
