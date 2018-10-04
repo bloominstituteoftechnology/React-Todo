@@ -1,7 +1,37 @@
+h1 {
+  font-size: 3.5rem;
+  margin: 20 auto;
+  text-align: center;
+}
+
 .completed {
   text-decoration: line-through;
 }
 
 .task {
-  font-size: 3rem;
+  font-size: 2rem;
+  background: black;
+  color: bisque;
+  margin: 3px;
+  padding: 10px;
+}
+
+.todo-form {
+  display: grid;
+  grid-template-columns: 11fr 1fr;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 10fr 1fr;
+  height: 80px;
+}
+
+input {
+  font-size: 2rem;
+  padding-left: 15px;
+}
+
+.btn {
+  font-size: 2.5rem;
 }

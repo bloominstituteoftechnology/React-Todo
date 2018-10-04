@@ -40,7 +40,6 @@ class App extends React.Component {
   };
 
   completedHandler = id => {
-    console.log(this);
     this.setState({
       tasks: this.state.tasks.map((task) => {
 
@@ -58,7 +57,6 @@ class App extends React.Component {
 
 
   clearCompletedHandler = () => {
-    console.log('clear completed');
     let filterCompleted = function(task) {
       if (task.completed === true) {
         return null;

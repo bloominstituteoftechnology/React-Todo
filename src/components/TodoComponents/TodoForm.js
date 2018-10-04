@@ -3,7 +3,7 @@ import React from 'react';
 function TodoForm(props) {
   return (
     <div className='todo-form'>
-      <form onSubmit={props.addNewTodo}>
+      <form className='form' onSubmit={props.addNewTodo}>
         <input 
           type='text'
           name='inputText'
@@ -11,10 +11,10 @@ function TodoForm(props) {
           onChange={props.changeText}
           value={props.inputText}
         />
-        <button type='submit'>Add Todo</button>
+        <button className='btn' type='submit'>+</button>
       </form>
 
-      <button onClick={props.clearCompletedHandler}>Clear Completed</button>
+      <button className='btn' onClick={props.clearCompletedHandler}>C</button>
     </div>
   );
 }
