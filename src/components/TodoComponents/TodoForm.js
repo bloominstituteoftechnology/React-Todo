@@ -10,9 +10,9 @@ const TodoForm = (props) => {
                     name="todo"
                     value={props.value}
                     placeholder="...todo"/>
+            </form>    
                 <button onClick={props.AddTodoHandler}>Add Todo</button>
-                <button>Clear Completed</button>    
-            </form>
+                <button>Clear Completed</button>              
         </div>
     );
 }

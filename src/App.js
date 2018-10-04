@@ -35,13 +35,16 @@ class App extends React.Component {
   }
   addTodo = event => {
     event.preventDefault();
+    if (this.state.todo === '') {
+      return;
+    } else {
     this.setState({
-      todoData: [
-        ...this.state.todoData,
-        { task: this.state.todo, completed: false, id: Date.now() }
-      ],
-      todo: ''
-    });
+        todoData: [
+          ...this.state.todoData,
+          { task: this.state.todo, completed: false, id: Date.now() }
+        ],
+        todo: ''
+      })}
   };
 
   changeTodo = event => this.setState({ [event.target.name]: event.target.value });

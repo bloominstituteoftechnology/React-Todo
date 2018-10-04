@@ -7,13 +7,10 @@ html {
     linear-gradient(to top left, brown, transparent),
     linear-gradient(to top right, hotpink, transparent);
     background-blend-mode: screen;
-    color: white
-    
+    color: white    
 }
 
-.container {    
-    
-}
+
 
 
 .main-header {
