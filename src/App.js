@@ -25,6 +25,7 @@ class App extends React.Component {
           decorate: 'no-decoration'
         }
       ],
+      filter: [],
       newTask: '',
     };
   };
@@ -61,6 +62,10 @@ class App extends React.Component {
     })
   };
 
+  componentWillMount() {
+    this.setState({filter: this.state.todoData})
+  };
+
   completeTaskWipe = event => {
     this.setState({
       todoData: this.state.todoData.filter(task => {
@@ -72,21 +77,20 @@ class App extends React.Component {
   };
 
   inputChangeFilter = event => {
-    this.setState({
-      todoData: this.state.todoData.filter(tasks => {
-        let upperCase = tasks.task.toUpperCase();
-        if(upperCase.includes(event.target.value.toUpperCase())) {
-          return tasks;
-        }
-      })
-    })
-  };
+    let filterTasks = this.state.todoData;
+    filterTasks =this.state.todoData.filter(tasks => {
+      let upperCase = tasks.task.toUpperCase();
+      if(upperCase.includes(event.target.value.toUpperCase())) {
+        return tasks;
+      }})
+      this.setState({filter: filterTasks});
+    };
 
   render() {
     return (
       <div className = 'app'>
         <Todo 
-        todoData={this.state.todoData} 
+        filter={this.state.filter} 
         newTask={this.state.newTask}
         addTodoInput={this.addTodoInput}
         inputChange={this.inputChange}

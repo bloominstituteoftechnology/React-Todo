@@ -11,7 +11,6 @@ const TodoForm = props => {
             </form>
             <form>
                 <input type="text" placeholder="...filter this!" onChange ={props.inputChangeFilter}></input>
-                <button className= "filterButton" type="submit" onClick={props.addTodoInput}>Add Todo</button>
             </form>
         </div>
     );

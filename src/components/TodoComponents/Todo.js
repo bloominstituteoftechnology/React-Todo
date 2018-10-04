@@ -17,7 +17,7 @@ const Todo = props => {
                 />   
             </div> 
             <TodoList 
-            todoData = {props.todoData}
+            filter = {props.filter}
             completeTaskSelect = {props.completeTaskSelect}
             decorate ={props.decorate}
             />

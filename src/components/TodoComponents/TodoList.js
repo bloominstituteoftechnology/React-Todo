@@ -7,7 +7,7 @@ const TodoList = props => {
     return (
         <div className = 'todolist'>
             
-            {props.todoData.map((item, index) => {
+            {props.filter.map((item, index) => {
                 
                 return <p className ={item.decorate} value ={item.completed} onClick={() => props.completeTaskSelect(index)} key={item.id}>{item.task}</p>;
             })}
