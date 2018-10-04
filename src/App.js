@@ -26,15 +26,37 @@ class App extends React.Component {
 
     };
   };
-
-  changeHandler = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
+  
   addNewItem = event => {
     event.preventDefault();
     const todoList = [...this.state.todoList];
     todoList.push({ task: this.state.newItem});
+    this.setState({todoList,  newItem: ''});
+  
+  };
+  
+  changeHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+
+  toggleComplete = id => {
+    let todoList = [...this.state.todoList];
+    todoList = todoList.map(newItem => {
+      if (newItem.id === id) {
+        newItem.completed = !newItem.completed;
+        return newItem;
+      } else {
+        return newItem;
+      }
+    });
+    this.setState({ todoList });
+  };
+
+  clearComplete = event => {
+    event.preventDefault();
+    let todoList = [...this.state.todoList];
+    todoList = todoList.filter(newItem => !newItem.completed);
     this.setState({ todoList });
   };
 
@@ -42,12 +64,14 @@ class App extends React.Component {
     return (
       <div>
         <TodoList
+          toggleComplete={this.toggleComplete}
           todoList={this.state.todoList}
         />
         <TodoForm
-          value={this.state.task}
+          newItem={this.state.newItem}
           changeHandler={this.changeHandler}
           addNewItem={this.addNewItem}
+          clearComplete={this.clearComplete}
         />
       </div>
     );
