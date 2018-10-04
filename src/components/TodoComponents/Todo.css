@@ -1,0 +1,35 @@
+.num-todos {
+	font-size: 1rem;
+	color: gray;
+	margin: 20px auto;
+	width: fit-content;
+	border: 1px dotted gray;
+	padding: 0.2rem;
+}
+
+.todo-item {
+	margin-bottom: 20px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.completed {
+	text-decoration: line-through;
+}
+
+.todo-form * {
+	margin-right: 10px;
+	border: 2px solid black;
+	font-family: monospace;
+	padding: 0.3rem;
+}
+
+.todo-form button {
+	color: #fff;
+	background-color: #333;
+	cursor: pointer;
+}
+
+.todo-form button:hover {
+	background-color: #000;
+}
