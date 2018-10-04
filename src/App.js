@@ -31,6 +31,10 @@ class App extends React.Component {
     }
   };
 
+  changeHandler = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
   clearAll = (event) => {
     event.preventDefault();
     const todosCopy = this.state.todos.slice();
