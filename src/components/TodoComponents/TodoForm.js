@@ -1,9 +1,18 @@
-// `<TodoForm>` will hold your input field and your `Add Todo` and `Clear Completed` buttons.
+// `<TodoForm>` will hold your input field and your `Add Todo` and 
+// `Clear Completed` buttons.
 import React from 'react';
 
-function TodoForm() {
+function TodoForm(props) {
     return (
-        <div>test TodoForm</div>
+        <div>
+            <input
+             type="text"
+             onChange={props.changeHandler}
+             value={props.newTodo}
+            />
+            <button onClick={props.addTodo}>Add Todo</button>
+            <button onClick={props.clearItems}>Clear Completed</button>
+        </div>
     );
 }
 

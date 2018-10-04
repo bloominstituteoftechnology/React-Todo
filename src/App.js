@@ -7,7 +7,19 @@ import Todo from './components/TodoComponents/Todo';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
-const todoArr = [ 'start late', 'go slow', 'taper off'];
+// const todoArr = [ 'start late', 'take slow', 'taper off'];
+const todoArr = [
+  {
+    task: 'Solve riddles',
+    id: 1528817077286,
+    completed: false
+  },
+  {
+    task: 'Potato the couch',
+    id: 1528817084358,
+    completed: false
+  }
+];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -15,16 +27,61 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor(props) {
     super(props);
-    this.state = {todoArr: todoArr};
+    this.state = {
+      todoArr: todoArr,
+      newTodo: '',
+    };
+
   }
+
+  addTodo = event => {
+    event.preventDefault();
+    this.setState({
+      todoArr: [
+        ...this.state.todoArr,
+        {
+          task: this.state.newTodo,
+          id: Date.now(),
+          completed: false
+        }
+      ],
+      newTodo: '',
+    });
+  }
+
+  changeHandler = event => {
+    this.setState({ newTodo: event.target.value });
+  };
+
+  mark = (todoArr, itemID) => {
+    this.setState({todoArr: todoArr.map((item) => {
+        if (item.id === itemID) {
+            return {...item, completed: !item.completed}
+          } else {
+            return item;
+          }
+        }
+      )}
+    )  
+  }
+
+  clearItems = event => {
+    let results = this.state.todoArr.filter(item => item.completed === false);
+    this.setState({todoArr: results});
+  }
+
   render() {
-    console.log('state', this.state);
     return (
       <div>
-        <h2>Take heart!</h2>
+        <h2>Todos!</h2>
         <Todo passedData={this.state.test}/>
-        <TodoList todoArr={this.state.todoArr}/>
-        <TodoForm/>
+        <TodoList todoArr={this.state.todoArr} mark={this.mark}/>
+        <TodoForm 
+          addTodo={this.addTodo} 
+          newTodo={this.state.newTodo}
+          changeHandler={this.changeHandler}
+          clearItems={this.clearItems}
+        />
       </div>
     );
   }
