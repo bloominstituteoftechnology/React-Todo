@@ -2,12 +2,13 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+import './components/TodoComponents/Todo.css';
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   state = {
-    todo: [],
+    todos: [],
     newTodoItem: '',
     id: 0,
   };
@@ -16,9 +17,13 @@ class App extends React.Component {
     event.preventDefault();
     if (this.state.newTodoItem.length > 0) {
       this.setState({
-        todo: [
-          ...this.state.todo,
-          { item: this.state.newTodoItem, id: this.state.id, completed: false },
+        todos: [
+          ...this.state.todos,
+          {
+            item: this.state.newTodoItem,
+            id: this.state.id,
+            completed: false,
+          },
         ],
         newTodoItem: '',
         id: this.state.id + 1,
@@ -28,10 +33,10 @@ class App extends React.Component {
 
   clearAll = (event) => {
     event.preventDefault();
-    const todoCopy = this.state.todo.slice();
-    todoCopy.splice(0, this.state.todo.length);
+    const todosCopy = this.state.todos.slice();
+    todosCopy.splice(0, this.state.todos.length);
     this.setState({
-      todo: todoCopy,
+      todos: todosCopy,
     });
   };
 
@@ -39,10 +44,24 @@ class App extends React.Component {
     this.setState({ newTodoItem: event.target.value });
   };
 
+  markComplete = (id) => {
+    console.log(id);
+    // const newArray = this.state.todo.map((todo) => {
+    //   if (todo.id === ) {
+
+    //   }
+    //   return todo;
+    // });
+  };
+
   render() {
     return (
       <div>
-        <TodoList todo={this.state.todo} newTodoItem={this.state.newTodoItem} />
+        <TodoList
+          todos={this.state.todos}
+          newTodoItem={this.state.newTodoItem}
+          markComplete={this.markComplete}
+        />
         <TodoForm
           text={this.state.newTodoItem}
           changeHandler={this.changeHandler}
