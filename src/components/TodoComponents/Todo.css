@@ -8,6 +8,11 @@
   border-radius: 5px;
 }
 
+.todoSearch {
+  margin-bottom: 10px;
+}
+
 .completedTodo {
   text-decoration: line-through;
+  color: red;
 }

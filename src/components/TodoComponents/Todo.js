@@ -6,8 +6,7 @@ const Todo = props =>
       props.todo.completed = !props.todo.completed;
       e.target.classList.toggle("completedTodo");
     }}
-    className="todo"
-    key={props.todo.id}>
+    className="todo">
       {props.todo.task}
   </div>;
 
