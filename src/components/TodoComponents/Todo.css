@@ -11,3 +11,7 @@ button {
 .lineMe {
   text-decoration: line-through;
 }
+
+.removeMe {
+  display: none;
+}

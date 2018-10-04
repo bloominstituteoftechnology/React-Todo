@@ -58,6 +58,20 @@ class App extends React.Component {
     });
   };
 
+  deleteMe = index => {
+    index.preventDefault();
+    this.setState({
+      listArray: this.state.listArray.filter(task => {
+        if (task.style === "noLine") {
+          return {
+            ...task,
+            style: "removeMe"
+          };
+        }
+      })
+    });
+  };
+
   render() {
     return (
       <div className="to-do-list">
@@ -65,9 +79,10 @@ class App extends React.Component {
         <TodoForm
           changeHandler={this.changeHandler}
           addNewTask={this.addNewTask}
-          newTask={this.newTask}
+          newTask={this.state.newTask}
           listArray={this.state.listArray}
           finishMe={this.finishMe}
+          deleteMe={this.deleteMe}
         />
       </div>
     );
