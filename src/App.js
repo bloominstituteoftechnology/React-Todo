@@ -58,7 +58,7 @@ class App extends React.Component {
 
     return (
       <div className="container">
-        <h1>2Day's 2Dos</h1>
+
         <TodoList taskLists={this.state.todos} />
         <TodoForm
           value={this.state.task}
