@@ -55,14 +55,13 @@ class App extends React.Component {
     });
   };
 
-  markComplete = (id) => {
-    console.log(id);
-    // const newArray = this.state.todo.map((todo) => {
-    //   if (todo.id === ) {
-
-    //   }
-    //   return todo;
-    // });
+  clearCompleted = (event) => {
+    event.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter((todo) => {
+        return todo.completed === false;
+      }),
+    });
   };
 
   render() {
@@ -79,6 +78,7 @@ class App extends React.Component {
           onSubmit={this.addTodoItem}
           addTodoItem={this.addTodoItem}
           clearAll={this.clearAll}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );

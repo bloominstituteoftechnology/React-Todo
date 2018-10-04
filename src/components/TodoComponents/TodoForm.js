@@ -12,6 +12,7 @@ const TodoForm = (props) => {
       <button type="submit" onClick={props.addTodoItem}>
         Add Todo!
       </button>
+      <button onClick={props.clearCompleted}>Clear Completed!</button>
       <button onClick={props.clearAll}>Clear All!</button>
     </form>
   );
