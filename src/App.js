@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
-// import Todo from './components/TodoComponents/Todo';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -9,18 +9,20 @@ class App extends React.Component {
     this.state = {
       TodoData: [
         {
-          task: '',
+          task: 'Learn React',
           id: 1528817077286,
           completed: false
         },
         {
-          task: '',
+          task: 'Practice JS',
           id: 1528817084358,
           completed: false
         }
       ],
       inputText: '',
       newTodo: '',
+      newId: Date.now(),
+      completed: false,
     }
   }
 
@@ -29,7 +31,7 @@ class App extends React.Component {
     this.setState({
       TodoData: [
         ...this.state.TodoData,
-        { task: this.state.newTodo }
+        { task: this.state.newTodo, id: this.state.newId , completed: this.state.completed }
       ],
       newTodo: ''
     });
