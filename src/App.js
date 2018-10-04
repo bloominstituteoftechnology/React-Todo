@@ -59,6 +59,8 @@ class App extends React.Component {
 
   clearAllCompleted = e => {
     // pass
+    const newArr = this.state.todoArr.filter(todo => todo.completed === false);
+    this.setState({todoArr: newArr});
   }
 
 
@@ -78,6 +80,7 @@ class App extends React.Component {
         addNewTask={this.addNewTask}
         inputText={this.state.inputText} 
         changeHandler={this.changeHandler}
+        clearCompleted={this.clearAllCompleted}
         />
       </div>
     );

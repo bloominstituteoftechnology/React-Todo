@@ -1,4 +1,5 @@
 import React from "react";
+import { POINT_CONVERSION_COMPRESSED } from "constants";
 
 const TodoForm = props => {
   return (
@@ -15,7 +16,9 @@ const TodoForm = props => {
       type="submit"
       onClick={props.addNewTask} 
       >Add New Task</button>
-      <button>Clear Completed</button>
+      <button
+      onClick={props.clearCompleted}
+      >Clear Completed</button>
       </form>
     </div>
   );

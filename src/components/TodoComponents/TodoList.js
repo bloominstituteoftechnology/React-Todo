@@ -7,7 +7,6 @@ import Todo from "./Todo";
 function TodoList(props) {
   return (
     <div className="todoList">
-      <h1>TodoList Component</h1>
       {props.todoArr.map(t => (
         <Todo 
         key={t.id} 
