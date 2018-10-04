@@ -42,7 +42,11 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm />
+        <TodoForm 
+          changeInputHandler={this.changeInputHandler}
+          input={this.state.input}
+          addTodoHandler={this.addTodoHandler}
+        />
         <Todo dailyTodos={this.state.todos} />
       </div>
     );

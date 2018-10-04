@@ -5,7 +5,7 @@ const Todo = props => {
 	return (
 		<ul>
 			{props.dailyTodos.map(input => {
-				return <li key={Math.random()}>{input}</li>;
+				return <li key={Math.random()}>{input.task}</li>;
 				})
 			}
 		</ul>
