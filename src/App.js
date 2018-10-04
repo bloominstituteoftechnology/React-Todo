@@ -28,19 +28,21 @@ class App extends React.Component {
   addItem = event => {
     event.preventDefault();
     if (this.state.newItem !== "") {
-      this.setState({ 
-        list: [
-          ...this.state.list,
-          {
-            task: this.state.newItem,
-            id: Date.now(),
-            completed: false
-          }
-        ]
-      });
-      this.setState({ newItem: "" });
+      this.setState(
+        { 
+          list: [
+            ...this.state.list,
+            {
+              task: this.state.newItem,
+              id: Date.now(),
+              completed: false
+            }
+          ],
+          newItem: ""
+        },
+        () => window.localStorage.setItem("todoList", JSON.stringify(this.state.list))
+      );
       console.log(this.state.list);
-      window.localStorage.setItem("todoList", JSON.stringify(this.state.list));
     }
   };
 
