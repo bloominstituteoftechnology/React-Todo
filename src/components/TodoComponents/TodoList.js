@@ -8,7 +8,7 @@ const TodoList = props => {
     return(
         <div className="taskList">
             {props.todoArray.map((todo, index) => {
-                return <Todo name={props.name} index={index} key={index} todo={todo} changeText={props.changeText} />
+                return <Todo name={props.name} index={index} key={index} todo={todo} changeText={props.changeText} changeLine={props.changeLine} />
             })}
            
         </div>

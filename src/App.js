@@ -52,6 +52,8 @@ class App extends React.Component {
     })
   }
 
+  
+  
   filterTasks = event => {
     event.preventDefault();
     this.setState({
@@ -59,12 +61,16 @@ class App extends React.Component {
     })
   }
 
+
+ 
+
   addNewTodo = event => {
     event.preventDefault();
     this.setState({
       todoArray: [...this.state.todoArray, 
         {
           task: this.state.todo === '' ? '<empty item>' : this.state.todo,
+          id: Math.random(),
           completed: false,
           name: 'normal'
         }
@@ -73,21 +79,15 @@ class App extends React.Component {
     })
   }
 
-  // strikeThrough = (event) => {
-  //   if (event.target.classList.includes('lineThrough')) {
-  //     return event.target.classList.remove('lineThrough');
-  //   } else {
-  //     return event.target.classList.add('lineThrough');
-  //   }
-  // }
+
   
   render() {
     return (
       <div className="app">
         <TodoList 
         todoArray={this.state.todoArray}
-        changeText={this.changeText} 
-        name={this.state.name}
+        changeText={this.changeText}
+        changeLine={this.changeLine}
         />
         <TodoForm  
         addNewTodo={this.addNewTodo} 
