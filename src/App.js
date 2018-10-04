@@ -3,6 +3,7 @@ import { EventEmitter } from './utils';
 
 import TodoList from './components/TodoComponents/todoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Todo List: MVP</h1>
+        <h1>Todo List</h1>
         <TodoList todoList={this.state.todoList} />
         <TodoForm handleSubmit={this.addTodo} clear={this.clear} />
       </div>

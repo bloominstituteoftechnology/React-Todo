@@ -9,7 +9,7 @@ const Todo = ({ todo }) => {
   };
 
   return (
-    <li onClick={handleClick} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+    <li className="todo-item" onClick={handleClick} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
       {todo.task}
     </li>
   );

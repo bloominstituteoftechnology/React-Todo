@@ -1,0 +1,14 @@
+.App {
+	margin: 0 auto;
+	text-align: center;
+	width: 600px;
+}
+
+.App h1 {
+	font-size: 3.2rem;
+	font-weight: bold;
+}
+
+svg {
+	cursor: pointer;
+}
