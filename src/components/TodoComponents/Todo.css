@@ -30,6 +30,16 @@
   transition: all 200ms;
 }
 
+.TodoButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px -5px #333;
+}
+
+.TodoButton:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
 .add {
   border: 2px solid #10ac84;
   background: #1dd1a1;
@@ -37,12 +47,16 @@
 }
 
 .add:hover {
-  transform: scale(1.1);
+  background: #5adbb9;
 }
 
 .clear {
   background: #ff6b6b;
   border: 1px solid #ee5253;
+}
+
+.clear:hover {
+  background: #ee5253;
 }
 
 .TodoList {

@@ -26,22 +26,52 @@ class App extends React.Component {
     };
   }
 
+  // retrive todos from local storage
+  hydrateStateWithLocalStorage() {
+    // for all items in state
+    for (let key in this.state) {
+      // if the key exists in localStorage
+      if (localStorage.hasOwnProperty(key)) {
+        // get the key's value from localStorage
+        let value = localStorage.getItem(key);
+
+        // parse the localStorage string and setState
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          // handle empty string
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  }
+
   handleNewToDo = e => {
     e.preventDefault();
     const task = {
-      task: this.state.input,
+      // slice creates a copy of this.state.input
+      task: this.state.input.slice(),
       id: Date.now(),
       completed: false
     };
 
-    this.setState({ todos: [...this.state.todos, task], input: '' });
+    // copy todos
+    const todos = [...this.state.todos];
+
+    // add task to todo list
+    todos.push(task);
+
+    this.setState({ todos: todos, input: '' });
 
     // Local Storage
-    localStorage.setItem('task', JSON.stringify(task));
+    localStorage.setItem('todos', JSON.stringify(todos));
+    localStorage.setItem('input', '');
   };
 
   handleInputChange = e => {
     this.setState({ input: e.target.value });
+    localStorage.setItem('input', e.target.value);
   };
 
   // map over existing array with conditional
@@ -61,7 +91,14 @@ class App extends React.Component {
     e.preventDefault();
     const removeCompleted = this.state.todos.filter(todo => !todo.completed);
     this.setState({ todos: removeCompleted });
+
+    // Local Storage
+    localStorage.setItem('todos', JSON.stringify(removeCompleted));
   };
+
+  componentDidMount() {
+    this.hydrateStateWithLocalStorage();
+  }
 
   render() {
     return (
