@@ -3,21 +3,25 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
+import './TodoList.css';
+
 const TodoList = (props) => {
   return (
-    <div>
+    <div className="todo-list">
       <h1>Todo List!</h1>
-      {props.todos.map((todo) => {
-        return (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            completed={todo.completed}
-            class={todo.completed && 'completed'}
-            markComplete={props.markComplete}
-          />
-        );
-      })}
+      <div className="list-space">
+        {props.todos.map((todo) => {
+          return (
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              completed={todo.completed}
+              class={todo.completed && 'completed'}
+              markComplete={props.markComplete}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
