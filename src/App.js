@@ -41,6 +41,20 @@ class App extends React.Component {
     })
   }
 
+  changeCompleted = index => {
+    this.setState({
+      todos: this.state.todos.map((todo, idx) =>{
+        if(index !== idx) {
+          return todo
+        } else {
+          return {
+            ...todo,
+            completed: todo.completed === 'false'
+? 'true' : 'false'          }
+        }
+      })
+    })
+  }
 
   changeHandler = event => {
     this.setState({newTodo: event.target.value})
@@ -50,7 +64,10 @@ class App extends React.Component {
     return (
     <div className="container">
         <h1>Todo List:</h1>
-        <TodoList todos={this.state.todos} />
+        <TodoList 
+          todos={this.state.todos} 
+          changeCompleted={this.changeCompleted}
+        />
         <TodoForm 
           changeHandler={this.changeHandler} 
           addNewTodo={this.addNewTodo} 
