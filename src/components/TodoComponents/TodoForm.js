@@ -4,15 +4,19 @@ import React from 'react';
 function TodoForm(props) {
     return (
       <form>
-        <input 
+        <div className = 'form-holder'>
+        <input  classname = 'input-box'
         value={props.task} 
         onChange={props.handleInputChange} 
         placeholder="...todo"
         type="text"
         name="todo"
         />
-        <button onClick={props.handleAddTodo}>Add Todo</button>
-        <button onClick={props.handleClearCompleted}>Clear Completed</button>
+        </div>
+        <div className = "buttons">
+        <button className = "btn-hover color-1" onClick={props.handleAddTodo}>Add Todo</button>
+        <button className = "btn-hover color-4" onClick={props.handleClearCompleted}>Clear Completed</button>
+        </div>
       </form>
     );
   };
