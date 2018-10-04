@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList.js'
 import TodoForm from './components/TodoComponents/TodoForm.js'
+import './components/TodoComponents/Todo.css'
 
 class App extends React.Component {
   constructor(props) {
@@ -8,18 +9,20 @@ class App extends React.Component {
     this.state = {
       todoData: [
         {
-          id: '1',
+          id: 1,
           task: 'Get data to render to screen',
-          completed: false
+          completed: false,
+          decoration: 'taskFontNone'
         },
         {
-          id: '2',
+          id: 2,
           task: 'map over data so all items in the array render',
-          completed: false
+          completed: false,
+          decoration: 'taskFontNone'
         },
       ],
 
-      inputTask: ''
+      inputTask: '',
     }
   }
 
@@ -27,29 +30,55 @@ class App extends React.Component {
     this.setState({[event.target.name]: event.target.value });
   }
 
-addNewTask = event => {
+addNewTask = (event) => {
   event.preventDefault();
   this.setState({ 
     todoData: [
       ...this.state.todoData, 
-      {task: this.state.inputTask}
+      {
+      id: Date.now(),
+      task: this.state.inputTask,
+      completed: false,
+      decoration: 'taskFontNone'}
     ],
     inputTask: ''
   })
 }
 
+changeBool = (index) => {
+  this.setState({
+    todoData: this.state.todoData.map((task, idx) => {
+      console.log(idx)
+      if (index !== idx) {
+        return task;
+      } else {
+        return {
+          ...task,
+          completed: task.completed === false ? true : false,
+          decoration: task.decoration === 'taskFontNone' ? 'taskFont' : 'taskFontNone'
+        }
+      }
+    })
+  })
+}
+
+
 
   render() {
+  
     return (
       <div>
-        <TodoList 
-        taskData={this.state.todoData}
-        />
-        <TodoForm 
+          <TodoForm 
         changeHandler={this.changeHandler}
         addNewTask={this.addNewTask}
         inputTask={this.state.inputTask}
         />
+        
+        <TodoList 
+        taskData={this.state.todoData}
+        changeBool={this.changeBool}
+        />
+      
       </div>
     );
   }

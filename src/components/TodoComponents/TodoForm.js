@@ -9,11 +9,13 @@ const TodoForm = props => {
             value={props.inputTask}
             name="inputTask"
             onChange={props.changeHandler}
+            placeholder="Enter new task here"
             />
             <button type="submit" onClick={props.addNewTask}>Add Task</button>
-            <br/>
-            <button>Clear</button>
             </form>
+
+            <button>Clear Completed Tasks</button>
+            
         </div>
     )
 }

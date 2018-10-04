@@ -5,13 +5,22 @@ import React from 'react';
 import Todo from './Todo'
 
 const TodoList = props => {
+    
     return (
         <ul>
-            {props.taskData.map(item => {
+            {props.taskData.map((item, index) => {
+              
                 return (
-                    <Todo key={item.id} taskItem={item}/>
+                    <Todo 
+                    key={item.id} 
+                    taskItem={item} 
+                    taskIndex={index}
+                    changeBool={props.changeBool}
+                        />
+                   
                 )
             })}
+             
         </ul>
     )
 }

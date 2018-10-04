@@ -3,7 +3,12 @@ import React from 'react';
 
 const Todo = props => {
     return (
-           <li>{props.taskItem.task}</li>
+           <li 
+           onClick={() => props.changeBool(props.taskIndex)}
+           className={props.taskItem.decoration}
+           >
+                {props.taskItem.task}
+           </li>
     )
 }
 
