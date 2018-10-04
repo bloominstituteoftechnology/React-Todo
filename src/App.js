@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
+import '../node_modules/font-awesome/css/font-awesome.min.css'
 import "./app.css";
 
 class App extends React.Component {
@@ -65,7 +66,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
+        <h2>Write your plans, erase what's done!</h2>
         <TodoList 
         todos={this.state.todos}
         completedHandler={this.completedHandler}
