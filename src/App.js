@@ -9,12 +9,12 @@ class App extends React.Component {
     this.state = {
       TodoData: [
         {
-          task: 'sdf',
+          task: '',
           id: 1528817077286,
           completed: false
         },
         {
-          task: 'dsfs',
+          task: '',
           id: 1528817084358,
           completed: false
         }
@@ -40,6 +40,10 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  onClickToggle = event => {
+    this.setState({ completed: !event.state.TodoData.completed })
+  }
+
 
   render() {
     return (
@@ -48,19 +52,13 @@ class App extends React.Component {
         <TodoList 
           todoData={this.state.TodoData}
         />
-        {/* <Todo 
-        addNewTodo={this.addNewTodo}
-        changeHandler={this.changeHandler}
-        inputText={this.state.inputText}
-        todoData={this.state.TodoData}
-        newTodo={this.state.newTodo}
-        /> */}
         <TodoForm 
           addNewTodo={this.addNewTodo}
           changeHandler={this.changeHandler}
           inputText={this.state.inputText}
           todoData={this.state.TodoData}
           newTodo={this.state.newTodo}
+          onClickToggle={this.onClickToggle}
         />
       </div>
     );
