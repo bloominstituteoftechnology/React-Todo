@@ -25,12 +25,13 @@ class App extends React.Component {
   }
 
   SetStatus(event,status){
-    this.setState({data:[...this.state.data.map(element =>{
+    let data = this.state.data.map(element =>{
       if(element.id===Number(event.currentTarget.id)){
         element.completed = status;
       }
       return element; 
-    })]},this.SaveData)
+    })
+    this.setState({data:data},this.SaveData)
   }
 
   ReOpenTask = event =>{
