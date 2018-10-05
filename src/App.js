@@ -57,20 +57,14 @@ taskCompleted = index=> {
 
 
 removeTask = event =>{
-  // index.preventDefault();
-  this.setState({
-    toDolists: this.state.toDolists.filter((task, idx) =>
-    {(event !==idx)}
+  event.preventDefault();
+      this.setState({
+        toDolists: this.state.toDolists.filter(item => {
+          return !item.completed;
+        })
+      })
+    }
 
-    
-//       return task;
-//     }else{
-//       return null;
-//     }
-// })
-    )}
-  )
-  ;};
 
 
 
