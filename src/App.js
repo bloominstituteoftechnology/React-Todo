@@ -15,7 +15,7 @@ class App extends React.Component {
 
       todo: "",
 
-      search: ''
+      task: ''
     };
 
   }
@@ -37,7 +37,8 @@ class App extends React.Component {
     this.setState({
       todos,
       todo: "",
-      task: ''
+      task: '',
+      value: this.state.task
       
     });
     
@@ -80,7 +81,7 @@ updateSearch(event) {
         <nav className = "nav">
         <h1>The Poor Man's Trello</h1>
         <input type='text' className = "search" 
-        value = {this.state.search}
+        // value = {this.state.search}
         onChange = {this.updateSearch.bind(this)}/>
         </nav>
       

@@ -90,7 +90,7 @@ form{
     background: #F0F0F0;
     position: absolute;
     right: 0;
-    margin-top: 50px;
+    margin: 50px 0;
 }
 
 ul{
@@ -107,6 +107,7 @@ li{
     overflow: auto;
     max-height: 200px;
     word-break: break-all;
+    position: absolute;
 }
 
 .list-card{
@@ -123,8 +124,24 @@ li{
     padding: 5%;
     cursor: pointer;
     
+    
 
 }
+/*cross mark*/
+.cross{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    font-size: 130px;
+    color: #cecece;
+}
+
+
+
+
+
+
+/*scroll bars invisible*/
 ::-webkit-scrollbar
 {
     width: 0px;
