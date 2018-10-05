@@ -9,18 +9,24 @@ h4{
 }
 
 h2{
+    border: 2px solid lightblue;
+    margin: 0;
+    padding: 20px 0;
     text-shadow: 1px 1px 6px white;
     text-decoration-line: underline;
+    width: 100%;
+    text-align: center;
+    background-image: url(" http://informationcommunicationtechnology.com/wp-content/uploads/2018/06/Background-Images.jpg ");
 }
 
 .master-div{
     margin: 0 auto;
     margin-top: 50px;
-    width: 250px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #0d4056;
+    background-color: #ff3f05;
     padding-bottom: 20px;
     border: 2px solid lightblue;
     box-shadow: 0px 2px 6px red;
@@ -29,12 +35,13 @@ h2{
 form{
     display: flex;
     flex-direction: column;
+    width: 95%;
 }
 
 button{
     width: 200px;
     height: 50px;
-    margin: 15px 0 0 0;
+    margin: 40px 0 0 0;
     border-radius: 40px;
 }
 
@@ -42,4 +49,16 @@ button:hover{
     background-color: black;
     color: white;
     transition: 0.4s;
+}
+
+.list-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

@@ -10,29 +10,29 @@ class App extends React.Component {
       toDoList: [
         {taskToDo: 'Component Code Fu',
         id: 1323817077286,
-        completed: "false"
+        completed: false
       },
         {taskToDo: 'Sand The Floor',
         id: 1528817687286,
-        completed: "false"
+        completed: false
       },
         {taskToDo: 'Paint The Fence',
         id: 1428817077286,
-        completed: "false"
+        completed: false
       },  
-        {taskToDo: 'Wax On',
+        {taskToDo: 'Type In The Form To Add New Task',
         id: 1522818057286,
-        completed: "false"
+        completed: false
       },
-        {taskToDo: 'Wax Off',
+        {taskToDo: 'Click One Of Me To Complete Task',
         id: 1598817077186,
-        completed: "false"
+        completed: false
       },
       ],
       newTask: '',
       newId: Math.floor((Math.random() * 1000000000000) + 1000000000000),
-      newCompleted: "false",
-      newDeleted: "true",
+      newCompleted: false,
+      newDeleted: true,
       textDecoration: 'line-through',
     }
   }
@@ -56,7 +56,7 @@ class App extends React.Component {
         } else {
           return {
             ...item,
-            completed: item.completed === "false" ? "true" : "false"
+            completed: !item.completed
           };
         }
       })
@@ -81,15 +81,16 @@ class App extends React.Component {
   filterCharacter = () => {
    
         this.setState({
-          toDoList: this.state.toDoList.filter((item) => {
-            if (item.completed === "false") {
-              return item;
-            } else {
-              return null;
-            }
-          })
-        });
-      };
+          toDoList: this.state.toDoList.filter((item) => !item.completed )
+        })
+      }
+
+
+           
+            
+          
+        
+      
 
   addNewTask = event => {
     event.preventDefault();
@@ -103,8 +104,9 @@ class App extends React.Component {
       ],
       newTask: '',
       newId: Math.floor((Math.random() * 1000000000000) + 1000000000000),
-      newCompleted: "false",
+      newCompleted: false,
     })
+    
   }
 
   render() {

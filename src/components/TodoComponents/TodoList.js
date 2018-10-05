@@ -5,16 +5,25 @@ const ToDoNow = props => {
    
     return (
 
-        <div>
-        <h4>{props.ToDoing.map((todo, id) => 
+        <div className = "main-container">
+                    <button type="submit" onClick={props.addNewTask}>
+                    Add Todo
+                    </button>
+                    <button type="submit" onClick={props.filterCharacter}>
+                    Clear Completed
+                    </button>
+
+
+
+        <h4 className = "list-text">{props.ToDoing.map((todo, id) => 
         {return <div 
             key={id}
-            className={todo.completed}
+            className={todo.completed ? "true" : null}
             onClick={() => props.changeStyle(id)}>{todo.taskToDo}</div>
             
         })}</h4>
+           <form onSubmit={props.addNewTask}>
 
-            <form onSubmit={props.addNewTask}>
                     <input 
                     type = "text"
                     name = "newTask"
@@ -26,14 +35,11 @@ const ToDoNow = props => {
                     value={props.newCompleted}
                     value={props.newDeleted}
                     />
-                    <button type="submit" onClick={props.addNewTask}>
-                    Add Todo
-                    </button>
-                    <button type="submit" onClick={props.filterCharacter}>
-                    Clear Completed
-                    </button>
+
             </form>
+ 
         </div>
+        
     )
 }
 
