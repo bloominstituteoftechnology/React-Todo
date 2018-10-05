@@ -46,15 +46,19 @@ class App extends React.Component {
     })
   }
 
-  markCompleted = event => {
-
-    this.setState({
-      todoArray: this.state.todoArray.map( todoObj => {
-        if (todoObj.completed === false) {
+  markCompleted = id  => {
+    console.log(id)
+    this.setState({     
+      todoArray: this.state.todoArray.map(todoObj => {
+        if (todoObj.id === id) {
           return {
             ...todoObj,
-            completed: todoObj.completed === false ? true : false
-          } 
+          }
+        }else{
+          return {
+            ...todoObj,
+            completed: todoObj.completed === false ? true : false,
+          }
         }
       })
     })
