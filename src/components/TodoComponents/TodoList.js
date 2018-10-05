@@ -20,16 +20,4 @@ const TodoList = props => {
 
 };
 
-
-///const TodoList = props => {
-///	return (
-///		<ul>
-///			{props.dailyTodos.map(input => {
-///				return <li key={Math.random()}>{input.task}</li>;
-///				})
-///			}
-///		</ul>
-///	);
-///};
-
 export default TodoList;

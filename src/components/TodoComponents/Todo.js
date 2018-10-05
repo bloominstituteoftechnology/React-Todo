@@ -9,10 +9,5 @@ const Todo = props => {
 	)	
 }
 
-
 export default Todo;
 
-///{props.dailyTodos.map(input => {
-			//	return <li key={Math.random()}>{input.task}</li>;
-			//	})			
-			//}
