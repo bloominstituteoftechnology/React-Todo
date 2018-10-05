@@ -4,12 +4,8 @@ import Todo from './Todo';
 
 const TodoForm = (props) => {
     return <div>
-        <TodoList itemStrike={props.itemStrike} todoList={props.todoList} addToList={props.addToList} />
-        <Todo todoItem={props.todoItem} changeHandler={props.changeHandler} value={props.todoItem} />
-
-        <button type="submit" onClick={props.addToList}>
-          ADD
-        </button>
+        <TodoList itemStrike={props.itemStrike} todoList={props.todoList} addToList={props.addToList} clearList={props.clearList} clearDone={props.clearDone} />
+        <Todo addToList={props.addToList} clearList={props.clearList} todoItem={props.todoItem} changeHandler={props.changeHandler} value={props.todoItem} clearDone={props.clearDone} />
       </div>;
 }
 

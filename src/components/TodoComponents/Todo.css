@@ -2,3 +2,47 @@
     text-decoration: line-through;
     color: lightgray;
 }
+
+.listItem {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.listItem p {
+    font-size: 1.8rem;
+    padding: 0.5rem 0;
+}
+
+input {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+}
+
+input::placeholder {
+    color: grey;
+}
+
+button {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    padding: 0 1rem;
+}
+
+.clrbutton {
+    margin: 1rem 0;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.clrdone {
+    margin: 1rem 0 1rem 2.5rem;
+    color: white;
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
