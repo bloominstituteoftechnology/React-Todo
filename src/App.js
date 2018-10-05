@@ -24,12 +24,13 @@ class App extends React.Component {
     this.setState({Todo: event.target.value})
   }
 
-  addTask = (event) => {
-    event.preventDefault();
-    if (this.Todo !== ' ') {
-      const tempTodos = this.state.Todos.slice();
-        tempTodos.push({ task: this.state.Todo, id: Date.now(), completed: false, });
-        this.setState({Todos: tempTodos, Todo: ''});
+  addTask = (e) => {
+    e.preventDefault();
+      if (this.state.Todo !== ' ' ){
+    const tempTodos = this.state.Todos.slice();
+
+      tempTodos.push({ task: this.state.Todo, id: Date.now(), completed: false, });
+      this.setState({Todos: tempTodos, Todo: ' '});
       }
   }
 

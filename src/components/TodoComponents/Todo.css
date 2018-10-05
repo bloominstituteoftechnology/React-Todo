@@ -1,9 +1,11 @@
 .formContainer {
     display: flex;
+    flex-direction: column;
     width: 600px;
     justify-content: space-around; 
     align-items: baseline;
     font-size: 1.2rem;
+    margin-top: 16px;
 }
 
 input {
@@ -13,6 +15,8 @@ input {
 .button {
     padding: 5px 10px 5px 10px;
     border: 1px solid darkgray;
+    width: 182px;
+    margin-top: 6px;
 }
 
 body {
@@ -37,15 +41,20 @@ h1 {
     box-shadow: 10px 10px 5px #888888;
     border: 1px solid darkgray;
     margin: 10px;
+    margin-left: 0px;
     width: 200px;
 }
 
-todoContainer {
+.todoContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 5px;
+}
+
+.todoInput {
+    background-color: lightgray;
 }
 
 .appCont {
