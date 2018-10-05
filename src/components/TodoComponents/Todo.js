@@ -12,7 +12,7 @@ function Todo(props) {
 
 
   <div className = 'mark'> </div>
-        <li onClick={() => props.handleToggle(props.todo.id)}
+        <li 
               style={props.todo.completed ? {  opacity: .5 } : null}>
               
              <h1>{props.todo.task}</h1> 
