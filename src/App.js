@@ -8,13 +8,14 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      todoData: [
-
-      ],
-
+      todoData: [],
       inputTask: '',
     }
   }
+
+// ^^^^ state storage ^^^^^ //
+
+
 
   changeHandler = event => {
     this.setState({[event.target.name]: event.target.value });
@@ -58,15 +59,7 @@ changeBool = (index) => {
 clearTask = (event) => {
   event.preventDefault();
   this.setState({
-    todoData: this.state.todoData.filter((task) => {
-      if (task.completed === false) {
-        return task;
-      } else {
-        return null;
-      }
-    })
-  })
-}
+    todoData: this.state.todoData.filter((task) => !task.completed)})}
 
 
 

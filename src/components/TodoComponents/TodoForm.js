@@ -3,21 +3,34 @@ import React from 'react';
 const TodoForm = props => {
     return (
         <div>
-            <form onSubmit={props.addNewTask}>
-            <input 
-            type="text" 
-            value={props.inputTask}
-            name="inputTask"
-            onChange={props.changeHandler}
-            placeholder="Enter new task here"
-            />
-            <button type="submit" onClick={props.addNewTask}>Add Task</button>
-            </form>
+        <div className="introBox">
+                    <p>Hello and welcome to your new Task Management System</p>
+                </div>
 
-            <button onClick={props.clearTask}>Clear Completed Tasks</button>
+        <div className="formContainer">
             
+            <div className="formDiv">
+        
+                <form onSubmit={props.addNewTask}>
+                <input 
+                type="text" 
+                value={props.inputTask}
+                name="inputTask"
+                onChange={props.changeHandler}
+                placeholder="Enter new task here"
+                />
+                <button type="submit" onClick={props.addNewTask}>Add Task</button>
+                </form>
+
+                <button onClick={props.clearTask}>Clear Completed Tasks</button>
+
+            </div>
+
+        </div>
+        
         </div>
     )
 }
 
 export default TodoForm;
+

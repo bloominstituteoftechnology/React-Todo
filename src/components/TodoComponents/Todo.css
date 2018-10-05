@@ -5,3 +5,46 @@
 .taskFontNone {
     text-decoration: none;
 }
+
+.formContainer {
+    border-radius: 5px;
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+    max-width: 600px;
+    background: white;
+}
+
+.introBox {
+    text-align: center;
+    
+}
+
+.introBox p {
+    color: white;
+    font-size: 35px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    max-width: 910px;
+    text-shadow: 1px 1px 16px grey;
+    
+}
+
+.formDiv {
+    border-radius: 5px;
+    box-shadow: 0px 0px 32px white;
+}
+
+.listContainer {
+    max-width: 332px;
+    margin: 25px 0 0 27.5%;
+    min-height: 800px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px white;
+}
+
+.bulletContainer {
+    margin-top: 20px;
+
+}

@@ -7,7 +7,7 @@ import Todo from './Todo'
 const TodoList = props => {
     
     return (
-        <ul>
+        <ul className="listContainer">
             {props.taskData.map((item, index) => {
               
                 return (
