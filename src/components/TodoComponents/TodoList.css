@@ -1,13 +1,16 @@
 .todo-list {
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .todo-list .list-space {
   min-height: 40px;
+  max-height: 200px;
   background: white;
   border-radius: 10px;
   line-height: 2rem;
   padding: 10px 5px;
+  overflow-y: scroll;
 }
 
 .todo-list h1 {
