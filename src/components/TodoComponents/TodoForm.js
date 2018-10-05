@@ -5,7 +5,7 @@ const TodoForm = props => {
         <div className = "todo-form-wrapper">
           <input name="item" type="text" onChange={props.onChange} value={props.item} placeholder= "...todo" />
           <button onClick={props.onSubmit}>Add Todo</button>
-          <button>Clear Completed</button>
+          <button onClick={props.clearCompleted}>Clear Completed</button>
         </div>
     );
 }

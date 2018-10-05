@@ -10,11 +10,11 @@ class App extends React.Component {
     this.state = {
         item: '',
         todos:[
-          {
-            task: 'test',
-            id: Date.now(),
-            completed: false
-          }
+          // {
+          //   task: 'test',
+          //   id: Date.now(),
+          //   completed: false
+          // }
         ], 
     };
   }
@@ -25,8 +25,18 @@ class App extends React.Component {
      [event.target.name]: event.target.value});
   }
 
+//add handler
+  onSubmit = (event) => {
+    event.preventDefault();
+    const todos = this.state.todos.slice()
+    todos.push(
+      {task:this.state.item, completed: false, id: Date.now()});
+      this.setState(
+        {todos: todos, item: ''});
+  }  
+
   //toggle 
-  toggleCompleted = id => {
+  toggleCompleted = id  => {
     let todos = this.state.todos.slice();
     todos = todos.map(item => {
       if(item.id === id) {
@@ -41,17 +51,12 @@ class App extends React.Component {
     });
   }
 
- 
-
-//add handler
-  onSubmit = (event) => {
+  clearCompleted = (event) => {
     event.preventDefault();
-    const todos = this.state.todos.slice()
-    todos.push(
-      {task:this.state.item, completed: false, id: Date.now()});
-      this.setState(
-        {todos: todos, item: ''});
-  }  
+    let todos = this.state.todos.slice();
+    todos=todos.filter(item => !item.completed)
+    this.setState({todos});
+  }
   
   // deleteItem = (item) => { //NOT WORKING
   //   this.setState(({todos}) => ({
@@ -72,6 +77,7 @@ class App extends React.Component {
           onChange={this.onChange}
           onSubmit={this.onSubmit} 
           item={this.state.item}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );
