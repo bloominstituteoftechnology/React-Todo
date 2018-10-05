@@ -1,6 +1,6 @@
 import React from 'react';
+import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
-import Todo from './components/TodoComponents/Todo'
 
 class App extends React.Component {
   constructor () {
@@ -28,11 +28,16 @@ class App extends React.Component {
 
   //Handlers
 
+
+  //Allows for text to be added to input
   changeInputHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  addTodoHandler = () => {
+
+  //Adds text to todo list displayed onscreen
+  addTodoHandler = event => {
+    event.preventDefault();
     const todos = this.state.todos.slice();
     todos.push({task: this.state.input, completed: false, id: Date.now()});
     this.setState({ todos: todos, input: " " });
@@ -42,15 +47,17 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <TodoList dailyTodos={this.state.todos}/>
         <TodoForm 
           changeInputHandler={this.changeInputHandler}
           input={this.state.input}
           addTodoHandler={this.addTodoHandler}
         />
-        <Todo dailyTodos={this.state.todos} />
       </div>
     );
   }
 }
 
 export default App;
+
+///
