@@ -7,10 +7,20 @@ const TodoList = props => {
   return (
     <div>
       <h1>My Todo List</h1>
-      {props.formData.map((item, index) => {
+      {props.formData.map((todo, index) => {
+        // console.log(todo);
         return (
-          <ul key={index}>
-            <Todo todo={item.todo} key={index} />
+          <ul
+            className={todo.line}
+            style={
+              todo.completed
+                ? { textDecoration: "line-through" }
+                : { textDecoration: "none" }
+            }
+            onClick={() => props.liClick(todo.id)}
+            key={todo.id}
+          >
+            <Todo todo={todo.todo} keys={todo.id} />
           </ul>
         );
       })}
