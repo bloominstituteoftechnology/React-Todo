@@ -1,6 +1,6 @@
 .true{
     text-decoration: line-through;
-    color: red;
+    color: rgb(0, 255, 217);
     transition: 1s;
 }
 
