@@ -1,7 +1,13 @@
 import React from 'react';
+import styles from './Todo.css';
 
 const Todo = props => {
-	return <div>{props.task}</div>;
+	const status = props.completed ? 'done' : 'none';
+	return (
+		<div className={status} onClick={props.handleClick}>
+			{props.task}
+		</div>
+	);
 	// return <div>{props.todo.task}</div>;
 };
 

@@ -16,7 +16,7 @@ class App extends React.Component {
 				{
 					task: 'Bake Cookies',
 					id: 1528817084358,
-					completed: false
+					completed: true
 				}
 			]
 		};
@@ -42,6 +42,10 @@ class App extends React.Component {
 		});
 	};
 
+	handleClick = event => {
+		console.log('hello');
+	};
+
 	// you will need a place to store your state in this component.
 	// design `App` to be the parent component of your application.
 	// this component is going to take care of state, and any change handlers you need to work with your state
@@ -50,7 +54,7 @@ class App extends React.Component {
 			<div>
 				<h2>Welcome to your Todo App!</h2>
 				<div>
-					<TodoList todos={this.state.todos} />
+					<TodoList todos={this.state.todos} handleClick={this.handleClick} />
 				</div>
 				<TodoForm
 					handleChange={this.handleChange}
