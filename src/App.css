@@ -6,10 +6,6 @@
   text-decoration: none;
 }
 
-.li-container {
-  /* border: 1px solid black; */
-}
-
 .app-wrapper {
   /* margin: 20vh auto; */
   background: linear-gradient(
@@ -37,15 +33,16 @@ body {
   margin: auto;
   padding: 20vh 0;
 }
-.form-container {
-  /* border: 1px solid yellow; */
-}
 .form-container input {
   width: 75%;
   padding: 10px;
   font-size: 1.2rem;
   border-radius: 5px;
   border: none;
+}
+.form-container input::placeholder {
+  color: #333;
+  opacity: 0.5;
 }
 .form-container form button {
   background: #333;
