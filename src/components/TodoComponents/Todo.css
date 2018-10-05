@@ -15,8 +15,6 @@
 
 .list-container {
     width: 100%;
-    max-height: 230px;
-    overflow: scroll;
     padding: 0 10px;
 }
 
