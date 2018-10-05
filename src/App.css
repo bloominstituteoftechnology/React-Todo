@@ -46,6 +46,7 @@ body {
     position: absolute;
     bottom: 10px;
     color: rgb(247, 150, 64);
+    background: white;
 }
 
 .clear-btn:active {

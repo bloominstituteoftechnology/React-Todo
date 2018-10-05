@@ -50,6 +50,7 @@
     padding: 0px 10px;
     outline: none;
     color: rgb(247, 150, 64);
+    background: white;
 }
 
 .add-form button:active {
