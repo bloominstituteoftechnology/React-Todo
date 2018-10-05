@@ -3,12 +3,12 @@ import './Todo.css';
 
 const Todo = props => (
   <div
-    style={props.inlineStyle}
+    style={props.todo.completed ? props.inlineStyle : null}
     className={props.style}
-    id={props.id}
+    id={props.todo.id}
     onClick={props.toggleCompleteTask}
   >
-    {props.task}
+    {props.todo.task}
   </div>
 );
 

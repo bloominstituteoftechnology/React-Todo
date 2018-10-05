@@ -10,18 +10,7 @@ class App extends React.Component {
     super();
     this.state = {
       input: '',
-      todos: [
-        // {
-        //   task: 'Organize Garage',
-        //   id: 1528817077286,
-        //   completed: false
-        // },
-        // {
-        //   task: 'Bake Cookies',
-        //   id: 1528817084358,
-        //   completed: false
-        // }
-      ],
+      todos: [],
       todoStyle: 'Todo',
       toDoCompleteStyle: { textDecoration: 'line-through' },
       showMessage: { display: 'block' }
@@ -30,7 +19,8 @@ class App extends React.Component {
 
   handleNewToDo = e => {
     e.preventDefault();
-    if (this.state.input === '') {
+    // !this.state.input is equivalent to this.state.input === '' (falsey)
+    if (!this.state.input) {
       this.setState({ invalidInput: true });
     } else {
       const task = {
@@ -40,11 +30,11 @@ class App extends React.Component {
         completed: false
       };
 
-      // copy todos
-      const todos = [...this.state.todos];
+      // copy todos and add task to todos
+      const todos = [...this.state.todos, task];
 
       // add task to todo list
-      todos.push(task);
+      // todos.push(task);
 
       this.setState({ todos: todos, input: '' });
 
@@ -56,6 +46,7 @@ class App extends React.Component {
 
   handleInputChange = e => {
     // if warning message is showing - hide it!
+    // eslint-disable-next-line
     this.state.invalidInput ? this.setState({ invalidInput: false }) : null;
     this.setState({ input: e.target.value });
     localStorage.setItem('input', e.target.value);
@@ -65,8 +56,10 @@ class App extends React.Component {
   toggleCompleteTask = e => {
     const newTodos = this.state.todos.map(todo => {
       if (String(todo.id) === e.target.id) {
-        todo.completed = !todo.completed;
-        return todo;
+        return {
+          ...todo,
+          completed: !todo.completed
+        };
       } else {
         return todo;
       }
@@ -83,9 +76,6 @@ class App extends React.Component {
     // Local Storage
     localStorage.setItem('todos', JSON.stringify(removeCompleted));
   };
-
-  // Handle no input
-  handleNoInput = () => {};
 
   // retrive todos from local storage
   hydrateStateWithLocalStorage() {

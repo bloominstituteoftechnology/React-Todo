@@ -10,10 +10,9 @@ const TodoList = props => {
           <Todo
             toggleCompleteTask={props.toggleCompleteTask}
             key={todo.id}
-            task={todo.task}
-            id={todo.id}
+            todo={todo}
+            inlineStyle={props.inlineStyle}
             style={props.style}
-            inlineStyle={todo.completed ? props.inlineStyle : null}
           />
         );
       })}
