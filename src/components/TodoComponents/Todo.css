@@ -108,6 +108,7 @@ li{
     max-height: 200px;
     word-break: break-all;
     position: absolute;
+    padding: 2%;
 }
 
 .list-card{
