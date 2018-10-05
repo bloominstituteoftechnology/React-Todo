@@ -38,49 +38,47 @@ class App extends React.Component {
         : this.updateSession(this.state.todoList);
   }
 
-  updateSession(state) {
-    sessionStorage.setItem('myToDoList', JSON.stringify(state));
+  changeHandler = event => {
+    this.setState({[event.target.name]: event.target.value});
   }
 
-  clearCompleted = event => {
-    event.preventDefault();
-
-    let tdl = this.state.todoList;
-    let todoList = tdl.filter(item => item.completed !== true);
-
-    this.setState({todoList});
-    this.updateSession(todoList);
-  }
-
-  toggleComplete = id => {
-    let todoList = this.state.todoList;
-
-    todoList.forEach(obj => {
-      if (obj.id === id) {
-        let completed = !obj.completed
-        obj.completed = completed;
-      }
-    });
-    this.setState({todoList})
-    this.updateSession(todoList);
+  updateSession() {
+    sessionStorage.setItem('myToDoList', JSON.stringify(this.state.todoList));
   }
 
   addTask = event => {
     event.preventDefault();
     if (this.state.task === '') return;
-    let taskObj = {
-      task: this.state.task,
-      id: Date.now(),
-      completed: false
-    }
-    let todoList = this.state.todoList;
-    todoList.push(taskObj)
-    this.setState({todoList, task: ''});
-    this.updateSession(todoList);
+    this.setState((prevState) => {
+      const todoList = [
+        ...prevState.todoList,
+        {
+          task: prevState.task,
+          id: Date.now(),
+          completed: false
+        }
+      ];
+      return {todoList, task: ''};
+    }, () => this.updateSession());
   }
 
-  clearSearch = () => {
-    this.setState({search: '', showSearch: false});
+  toggleComplete = id => {
+    this.setState({
+      todoList: this.state.todoList.map(item => {
+        if (item.id === id) {
+          return {...item, completed: !item.completed};
+        }
+        return item;
+      })
+    }, () => this.updateSession())
+  }
+
+  clearCompleted = event => {
+    event.preventDefault();
+
+    this.setState({
+      todoList: this.state.todoList.filter(item => item.completed !== true)
+    }, () => this.updateSession());
   }
 
   searchClicked = () => {
@@ -88,7 +86,7 @@ class App extends React.Component {
     if (!showSearch) this.clearSearch();
     this.setState({showSearch});
   }
-
+  
   filteredList = () => {
     let todoList = this.state.todoList.filter(todo => 
       todo.task.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
@@ -96,9 +94,8 @@ class App extends React.Component {
     return todoList;
   }
 
-  changeHandler = event => {
-    this.setState({[event.target.name]: event.target.value});
-    if (event.target.name === 'search') this.setState({search: event.target.value});
+  clearSearch = () => {
+    this.setState({search: '', showSearch: false});
   }
   
   render() {
