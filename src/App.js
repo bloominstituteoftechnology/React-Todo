@@ -39,8 +39,7 @@ class App extends React.Component {
         ...this.state.todoArray, //spread operator
         { task: this.state.newTodo,
           id: Date.now(),
-          completed: false
-        }
+          completed: false }
       ],
       newTodo: '',
     })
@@ -50,7 +49,7 @@ class App extends React.Component {
     console.log(id)
     this.setState({     
       todoArray: this.state.todoArray.map(todoObj => {
-        if (todoObj.id === id) {
+        if (todoObj.id !== id) {
           return {
             ...todoObj,
           }
@@ -66,7 +65,6 @@ class App extends React.Component {
   
 
   render() {
-    
     return (
       <div className="App">
       <TodoList 
@@ -76,7 +74,7 @@ class App extends React.Component {
       <TodoForm 
         changeHandler={this.changeHandler}
         addNewTodo={this.addNewTodo} //forgot to add ALL the handlers from form
-        newTodo={this.newTodo}
+        newTodo={this.state.newTodo} 
       />
       </div>
     )
@@ -85,3 +83,6 @@ class App extends React.Component {
 }
 
 export default App;
+
+//input wasn't clearing because you ref the 
+//correct {this.newTodo} vs. {this.state.newTodo}
