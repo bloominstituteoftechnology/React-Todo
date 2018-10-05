@@ -23,6 +23,11 @@
   width: 100%;
 }
 
+.todo-form .submit-form input::placeholder {
+  opacity: 1;
+  color: rgb(221, 220, 220);
+}
+
 .todo-form .submit-form button {
   margin-top: 10px;
 }
@@ -50,5 +55,5 @@
 
 .todo-form button:active {
   background: rgb(187, 58, 58);
-  color: rgb(233, 188, 188);        
+  color: rgb(233, 188, 188);
 }
