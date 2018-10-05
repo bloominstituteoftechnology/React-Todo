@@ -23,9 +23,6 @@ const todoArr = [
 ];
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   constructor(props) {
     super(props);
     this.state = {
@@ -54,8 +51,8 @@ class App extends React.Component {
     this.setState({ newTodo: event.target.value });
   };
 
-  mark = (todoArr, itemID) => {
-    this.setState({todoArr: todoArr.map((item) => {
+  mark = (itemID) => {
+    this.setState({todoArr: this.state.todoArr.map((item) => {
         if (item.id === itemID) {
             return {...item, completed: !item.completed}
           } else {
@@ -66,7 +63,7 @@ class App extends React.Component {
     )  
   }
 
-  clearItems = event => {
+  clearItems = () => {
     let results = this.state.todoArr.filter(item => item.completed === false);
     this.setState({todoArr: results});
   }

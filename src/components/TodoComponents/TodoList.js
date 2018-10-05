@@ -6,8 +6,8 @@ function TodoList(props) {
 
     return (
         <div>
-            {props.todoArr.map((item, index) => {
-            return <div className={item.completed ? 'struckThru' : 'undone' } onClick={() => props.mark(props.todoArr, item.id)}>{item.task}</div>;    
+            {props.todoArr.map(item => {
+            return <div className={item.completed ? 'struckThru' : 'undone' } onClick={() => props.mark(item.id)}>{item.task}</div>;    
             })}
         </div>
     );
@@ -15,4 +15,5 @@ function TodoList(props) {
 
 export default TodoList;
 
+// () => props.mark(props.todoArr, item.id)
 
