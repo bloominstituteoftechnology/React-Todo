@@ -22,12 +22,23 @@ class App extends React.Component {
 		};
 	}
 
-	//handleclick
-
-	//handleChange
 	handleChange = event => {
 		this.setState({
 			controlledText: event.target.value
+		});
+	};
+
+	handleNew = event => {
+		event.preventDefault();
+		let newtodos = this.state.todos.slice();
+		newtodos.push({
+			task: this.state.controlledText,
+			id: Date.now(),
+			completed: false
+		});
+		this.setState({
+			todos: newtodos,
+			controlledText: ''
 		});
 	};
 
@@ -44,6 +55,7 @@ class App extends React.Component {
 				<TodoForm
 					handleChange={this.handleChange}
 					val={this.state.controlledText}
+					handleNew={this.handleNew}
 				/>
 			</div>
 		);
