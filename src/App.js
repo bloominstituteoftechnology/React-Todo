@@ -3,70 +3,75 @@ import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
 
 
+
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-        item: '', //stores values passed into input
+        item: '',
         todos:[
           {
-            task: 'Eat Food',
-            id: 1528817077286,
-            completed: false
-          },
-          {
-            task: 'Drink Coffee',
-            id: 1528817084358,
+            task: 'test',
+            id: Date.now(),
             completed: false
           }
-        ], //stores values added to todo list
+        ], 
     };
   }
 
-  //HANDLERS
-
-  //input handler
+  //input handlers
   onChange = (event) => {
-    this.setState({[event.target.name]: event.target.value});
+    this.setState({
+     [event.target.name]: event.target.value});
   }
 
-  //add handler
+  //toggle 
+  toggleCompleted = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(item => {
+      if(item.id === id) {
+        item.completed = !item.completed;
+      return item;
+      } else {
+        return item;
+      }
+    });
+    this.setState({
+      todos:todos
+    });
+  }
+
+ 
+
+//add handler
   onSubmit = (event) => {
     event.preventDefault();
     const todos = this.state.todos.slice()
     todos.push(
       {task:this.state.item, completed: false, id: Date.now()});
-      this.setState({todos, item: ""});
-  }    
-
-  toggleComplete = id => {
-    // id.preventDefault();
-    let todoItems = this.state.todos.slice();
-    todoItems = todoItems.map(item => {
-      if(item.id === id) {
-        item.completed = !item.completed;
-        return item;
-      }else {
-        return item;
-      }
-    });
-    this.setState({ todoItems});
-  }
+      this.setState(
+        {todos: todos, item: ''});
+  }  
   
+  // deleteItem = (item) => { //NOT WORKING
+  //   this.setState(({todos}) => ({
+  //     todos: todos.filter((task, index) => index !== item)
+  //   }));
+  // }
 
- 
-
-
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
       <div>
-        <TodoList item={this.state.todos}/>
+        <TodoList 
+        todos={this.state.todos}
+        toggleCompleted={this.toggleCompleted}
+        // deleteItem={this.deleteItem}
+        />
         <TodoForm
           value={this.state.item}
           onChange={this.onChange}
           onSubmit={this.onSubmit} 
+          item={this.state.item}
         />
       </div>
     );
