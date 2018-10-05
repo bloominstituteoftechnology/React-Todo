@@ -48,7 +48,15 @@
 .list_items {
     display:flex;
     justify-content:center;
-    border:2px solid blue;
+    min-height:50px;
+    margin-bottom:50px;
+}
+
+.list_items li {
+    font-size:2rem;
 
 }
 
+.visible {
+        text-decoration: line-through;
+    }
