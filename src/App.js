@@ -63,16 +63,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList 
-          todos={this.state.todos}
-          todoComplete = {this.todoComplete}
-        />
-
         <TodoForm
           addTodo={this.addTodo}
           changeHandler={this.changeHandler}
           newTodo={this.state.newTodo}
           clearCompletedTodo={this.clearCompletedTodo}
+        />
+        <TodoList
+          todos={this.state.todos}
+          todoComplete={this.todoComplete}
         />
 
       </div>

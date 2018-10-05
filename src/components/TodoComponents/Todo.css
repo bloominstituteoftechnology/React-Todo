@@ -22,6 +22,8 @@
     font-size:20px;
     color:white;
     margin-top:5px;
+    outline: none;
+    cursor: pointer;
 }
 input[type=text]:focus {
     border: 3px solid #555;
