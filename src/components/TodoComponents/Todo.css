@@ -1,0 +1,53 @@
+.formContainer {
+    display: flex;
+    width: 600px;
+    justify-content: space-around; 
+    align-items: baseline;
+    font-size: 1.2rem;
+}
+
+input {
+    width: 200px;
+}
+
+.button {
+    padding: 5px 10px 5px 10px;
+    border: 1px solid darkgray;
+}
+
+body {
+    font-family: Helvetica;
+    width: 80%;
+    margin: auto;
+    }
+
+.completed {
+    text-decoration: line-through;
+}
+
+.not-completed {
+    text-decoration: none;
+}
+
+h1 {
+    text-shadow: 7px 7px 5px #888888;
+}
+
+.singleTodo {
+    box-shadow: 10px 10px 5px #888888;
+    border: 1px solid darkgray;
+    margin: 10px;
+    width: 200px;
+}
+
+todoContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.appCont {
+    margin: auto;
+}
