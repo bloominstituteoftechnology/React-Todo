@@ -6,8 +6,12 @@
   max-height: 650px;
   overflow: hidden;
 }
+.completed {
+  text-decoration: line-through;
+}
+/* When event is added. */
 
-.TheList p {
+.TheList p {    
   font-family: cursive;
   background-image: url(./blackPin.png), url(./blackPin.png);
   background-position: left, right;
@@ -49,7 +53,7 @@ p.none {
   text-decoration: none;
 }
 
-p.line-through {
+.TheList p div .completed {
   font-family: cursive;
   background-image: url(./blackPin.png), url(./blackPin.png);
   background-position: left, right;
@@ -70,7 +74,7 @@ p.line-through {
   text-decoration: line-through;
 }
 
-.TheList p:first-child {
+.TheList p div:first-child {
   margin: 0;
   padding: 0;
   width: 0;

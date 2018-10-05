@@ -3,7 +3,6 @@ import './App.css';
 import './components/TodoComponents/Todo.css';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import Todo from './components/TodoComponents/TodoForm';
 
 const allToDos = [
   {task: '', id: 123, completed: false},
@@ -19,8 +18,11 @@ class App extends React.Component {
     }
   } //constructor
 
+  updateInput = event => {
+    this.setState({ [event.target.name]: event.target.value})
+  }
+
   changeHandler = event => {
-    console.log(event.target);
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -35,20 +37,26 @@ class App extends React.Component {
     });
   };
 
-  lineThrough = index => {
+  toggleCompleted = targetId => {
     this.setState({
       allToDos: this.state.allToDos.map((task, idx) => {
-        if (index !== idx) {
-          return task;
-        } else {
+        if (targetId === idx) {
           return {
             ...task,
-            textDecoration: task.textDecoration === 'line-through' ? 'none': 'line-through'
-          };
-        }
+            completed: !task.completed
+          }
+        } // if
+        return task;
       })
     });
   };
+
+  clearCompleted = event => {
+    event.preventDefault();
+    this.setState({
+      allToDos: this.state.allToDos.filter(task => !task.completed)
+    })
+  }
 
   render() {
     return (
@@ -57,19 +65,19 @@ class App extends React.Component {
           <div className="ListAndForm">
             <TodoList 
             allToDos={this.state.allToDos}
-            newTask = {this.state.newTask}
-            lineThrough = {this.lineThrough}
+            toggleCompleted = {this.toggleCompleted}
             />
             <TodoForm 
             changeHandler={this.changeHandler}
             addNewTask = {this.addNewTask}
             newTask = {this.state.newTask}
+            updateInput={this.updateInput}
+            clearCompleted={this.clearCompleted}
             />
           </div>
       </div>
     ) // return
   } // render
 } // class
-
 export default App;
 
