@@ -42,8 +42,19 @@ class App extends React.Component {
 		});
 	};
 
-	handleClick = event => {
-		console.log('hello');
+	handleClick = id => {
+		let newtodos = this.state.todos.slice();
+		newtodos = newtodos.map(x => {
+			if (id === x.id) {
+				x.completed = !x.completed;
+				return x;
+			} else {
+				return x;
+			}
+		});
+		this.setState({
+			todos: newtodos
+		});
 	};
 
 	// you will need a place to store your state in this component.
