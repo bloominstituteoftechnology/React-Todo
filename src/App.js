@@ -55,7 +55,7 @@ class App extends React.Component {
     event.preventDefault();
     this.setState({
       todoList: this.state.todoList.filter(task => {
-        return task.completed === true;
+        return task.completed === false;
       })
     });
   };
