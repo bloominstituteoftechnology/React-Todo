@@ -47,8 +47,8 @@ class App extends React.Component {
       }
       return li;
     });
-    console.log(filteredTodos === this.state.formData);
-    console.log(filteredTodos, this.state.formData);
+    // console.log(filteredTodos === this.state.formData);
+    // console.log(filteredTodos, this.state.formData);
     // console.log(filteredTodos);
     // console.log(this.state.formData);
 
