@@ -5,7 +5,7 @@ import Todo from "./Todo";
 
 const TodoList = props => {
   return (
-    <div>
+    <div className="li-container">
       <h1>My Todo List</h1>
       {props.formData.map((todo, index) => {
         // console.log(todo);
@@ -14,7 +14,7 @@ const TodoList = props => {
             className={todo.line}
             style={
               todo.completed
-                ? { textDecoration: "line-through" }
+                ? { textDecoration: "line-through", textDecorationColor: "red" }
                 : { textDecoration: "none" }
             }
             onClick={() => props.liClick(todo.id)}

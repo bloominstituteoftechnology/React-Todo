@@ -79,19 +79,21 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div>
-        <TodoList
-          // addNewTodo={this.addNewTodo}
-          formData={this.state.formData}
-          newTodo={this.state.newTodo}
-          liClick={this.liClick}
-        />
-        <TodoForm
-          formChange={this.formChange}
-          formText={this.state.formText}
-          addNewTodo={this.addNewTodo}
-          clearCompleted={this.clearCompleted}
-        />
+      <div className="app-wrapper">
+        <div className="todo-container">
+          <TodoList
+            // addNewTodo={this.addNewTodo}
+            formData={this.state.formData}
+            newTodo={this.state.newTodo}
+            liClick={this.liClick}
+          />
+          <TodoForm
+            formChange={this.formChange}
+            formText={this.state.formText}
+            addNewTodo={this.addNewTodo}
+            clearCompleted={this.clearCompleted}
+          />
+        </div>
       </div>
     );
   }

@@ -5,3 +5,75 @@
 .no-list-line {
   text-decoration: none;
 }
+
+.li-container {
+  /* border: 1px solid black; */
+}
+
+.app-wrapper {
+  /* margin: 20vh auto; */
+  background: linear-gradient(
+    135deg,
+    #006b62 0%,
+    #00877c 42%,
+    #008478 61%,
+    #35746c 100%
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+.todo-container {
+  /* border: 1px solid red; */
+  max-width: 500px;
+  margin: auto;
+  padding: 20vh 0;
+}
+.form-container {
+  /* border: 1px solid yellow; */
+}
+.form-container input {
+  width: 75%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+}
+.form-container form button {
+  background: #333;
+  padding: 15px;
+  width: 20%;
+  margin-left: 20px;
+}
+.form-container button {
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+.form-container .clear-btn {
+  width: 100%;
+  background: red;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  border: none;
+}
+.li-container h1 {
+  text-align: center;
+  color: white;
+}
+.li-container li {
+  color: white;
+  font-size: 1.2rem;
+  width: 100%;
+  cursor: pointer;
+}
