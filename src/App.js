@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Task from './components/TodoComponents/Todo';
-import ToDo from './components/TodoComponents/TodoList';
+import './app.css';
+import Task from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
@@ -21,7 +21,7 @@ class App extends React.Component {
         }
       ],
 
-    newTask:''
+    newTask:'',
     }
   }
 changeHandler = event =>{
@@ -40,20 +40,38 @@ addNewTask = event =>{
   });
 };
 
-removeTask = event =>{
-  event.preventDefault();
+taskCompleted = index=> {
   this.setState({
-
-  })
-}
-
-taskCompleted =event=>{
-  if (this.state.completed === false){
-    this.setState({completed: true});
-  }else{
-    this.setState({completed: false});
-  }
+    toDolists: this.state.toDolists.map((task, idx) => {
+      if (index !== idx){
+        return task;
+      }else {
+        return {
+          ...task,
+          completed: task.completed === false ? true : false
+        };
+      }
+    })
+  });
 };
+
+
+removeTask = event =>{
+  // index.preventDefault();
+  this.setState({
+    toDolists: this.state.toDolists.filter((task, idx) =>
+    {(event !==idx)}
+
+    
+//       return task;
+//     }else{
+//       return null;
+//     }
+// })
+    )}
+  )
+  ;};
+
 
 
 
@@ -65,17 +83,17 @@ taskCompleted =event=>{
     return (
       <div className='App'>
 
-      {/* <ToDo 
-      toDolists= {this.state.toDolists} 
-      /> */}
+      
       <Task
       toDolists= {this.state.toDolists}
-      taskCompleted= {this.state.taskCompleted}
+      taskCompleted= {this.taskCompleted}
+
       />
       <TodoForm
       changeHandler={this.changeHandler}
       addNewTask={this.addNewTask}
       newTask={this.state.newTask}
+      removeTask={this.removeTask}
       />
       </div>
     );

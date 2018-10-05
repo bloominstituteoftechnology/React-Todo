@@ -1,15 +1,16 @@
-import React from 'react';
+// import React from 'react';
 
 
-const Task = props => {
-    return(
-        <div>
-            <h1>To Do List</h1>
-            {props.toDolists.map(item =>{
-            return  <h1 onClick = {props.taskcompleted}> {item.task} {item.completed}</h1>;
-            })}
-        </div>
-    );
-};
 
-export default Task;
+// const ToDo = props => {
+//     return(
+//         <div class ={props.newTask.completed ? {textDecoration: 'line-through'} :null}
+            
+//         </div>
+//     );
+// };
+
+// export default ToDo;
+
+
+// props.task.completed ? 'crossOut' : null}

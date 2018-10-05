@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    max-width: 500px;
+    margin: 0 auto;
+    background-image: url('http://getwallpapers.com/wallpaper/full/b/1/9/96118.jpg');
+}
+
+.complete{
+    text-decoration: line-through lightblue;
+}
+
+.incomplete{
+    text-decoration: none;
+}
+
+.App{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+    
+
+
+}
+
+.App h1{
+    margin-bottom: 100px;
+    text-decoration: underline;
+    font-size: 50px;
+}
+.App h2{
+    display: flex;
+    font-size: 30px;
+    
+
+}
+form button{
+    margin: 20px 0 0 0;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form input{
+    margin-top: 50px;
+}
