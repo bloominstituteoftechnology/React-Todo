@@ -8,7 +8,7 @@ import ListContainer from '../ListContainer/ListContainer';
 const AppContainer = props => {
     return (
         <div className='app-container'>
-            <InputContainer onKeyPress={props.onKeyPress} changeHandler={props.changeHandler} addItemHandler={props.addItemHandler} />
+            <InputContainer onKeyPress={props.onKeyPress} changeHandler={props.changeHandler} addItemHandler={props.addItemHandler} newItemInput={props.newItemInput} />
             <ListContainer clearDoneItems={props.clearDoneItems} clearToDoItem={props.clearToDoItem} completeTaskHandler={props.completeTaskHandler} data={props.data} ReOpenTask={props.ReOpenTask} />
         </div>
     )

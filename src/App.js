@@ -20,13 +20,11 @@ class App extends React.Component {
 
 
   SaveData = ()=>{
-    let x = JSON.stringify(this.state.data);
-    console.log('about to save the array - ',x)
-    localStorage.setItem('data',x)
+    let data = JSON.stringify(this.state.data);
+    localStorage.setItem('data',data)
   }
 
   SetStatus(event,status){
-    console.log('event.current id ', event.currentTarget.id)
     this.setState({data:[...this.state.data.map(element =>{
       if(element.id===Number(event.currentTarget.id)){
         element.completed = status;
@@ -36,7 +34,6 @@ class App extends React.Component {
   }
 
   ReOpenTask = event =>{
-    console.log('calling?')
     this.SetStatus(event,false)
   }
   onKeyPress = event =>{
@@ -54,22 +51,15 @@ class App extends React.Component {
       completed: false
     }]},this.SaveData)
 
+    this.setState({newItemInput: ''});
     let element = document.querySelector('.input-field')
-    element.value = '';
     element.focus();
 
   }
   RemoveToDoItems(status)
   {
-    //console.log('x before - ', x)
-
-    let x = [...this.state.data.filter(element =>{
-      console.log('comparing ', element.completed, ' to ', status)
-      return element.completed !==  status})]
-
-    console.log('x after - ', x)
-    
-     this.setState({data: x},this.SaveData)
+    let data = this.state.data.filter(element =>{return element.completed !==  status})
+    this.setState({data: data},this.SaveData)
 
   }
   clearDoneItems = event =>{
@@ -94,10 +84,10 @@ class App extends React.Component {
 
   }
   render() {
-    console.log('state.data = ', this.state.data)
     return (
       <div>
         <AppContainer 
+          newItemInput={this.state.newItemInput}
           data={this.state.data} 
           addItemHandler={this.addItemHandler}
           changeHandler = {this.changeHandler}
