@@ -47,6 +47,21 @@ class App extends React.Component {
     })
   }
 
+  clearCompleted = index => {
+    this.setState({
+      listData : this.state.listData.filter((item, idx) => {
+        if (index !== idx) {
+          return item;
+        } else {
+          return {
+            ...item,
+            item: item.completed === 'todo';
+          }
+        }
+      })
+    })
+  }
+
   render() {
     return (
       <div>
@@ -59,6 +74,7 @@ class App extends React.Component {
         addNewListItem={this.addNewListItem}
         crossOut={this.crossOut}
         completed={this.completed}
+        clearCompleted={this.clearCompleted}
         />
       </div>
     );
