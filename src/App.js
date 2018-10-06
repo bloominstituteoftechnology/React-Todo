@@ -11,6 +11,7 @@ class App extends React.Component {
       ],
       inputText: '',
       newListItem: '',
+      completed: 'todo'
     }
   }
   changeHandler = event => {
@@ -24,7 +25,7 @@ class App extends React.Component {
       ...this.state.listData,
         { listItem: this.state.newListItem }
       ],
-      newListItem: ''
+      newListItem: '',
     })
   }
   
@@ -36,6 +37,7 @@ class App extends React.Component {
         } else {
           return {
             ...item,
+            completed: item.completed === 'todo' ? 'done' : 'todo'
           }
         }
       }
