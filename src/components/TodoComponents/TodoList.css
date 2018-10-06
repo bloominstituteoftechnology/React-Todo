@@ -4,7 +4,7 @@
 }
 
 .todo-list .list-space {
-  min-height: 40px;
+  min-height: 80px;
   max-height: 200px;
   background: white;
   border-radius: 10px;
@@ -37,5 +37,5 @@
 
 .todo-list .completed:hover {
   background: rgb(255, 211, 211); 
-  color: rgb(187, 58, 58);
+  color: rgb(168, 51, 51);
 }
