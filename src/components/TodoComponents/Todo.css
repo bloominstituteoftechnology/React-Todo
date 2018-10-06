@@ -1,0 +1,27 @@
+.app{
+	width: 600px;
+	height: 300px;
+	background-color: forestgreen;
+	margin: 50px;
+	padding: 50px;
+	border-bottom-right-radius: 75px;
+	border-top-left-radius: 75px;
+}
+
+.title{
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+.list-container{
+	height: 200px;
+}
+
+h1{
+	font-size: 36px;
+}
+
+li{
+	font-size: 24px;
+}
+

@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
+import './components/TodoComponents/Todo.css'
 
 class App extends React.Component {
   constructor () {
@@ -46,39 +47,46 @@ class App extends React.Component {
   //Indicates completed task
   toggleTodoCompleted = id => {
     let todos= this.state.todos.slice();
-    todos = todos.map(todo => {
-      if (todo.id === id) {
-        todo.completed = !todo.completed;
-        return todo;
-      } else {
-        return todo
+    todos = todos.map(input => {
+      if (input.id === id) {
+        input.completed = !input.completed;
+        return input;
+     } else {
+        return input;
       }
     }); 
-    this.setState({ todos });
-  };
+    this.setState({ todos: todos });
+ };
 
   //Removes text from todo list displayed onscreen
   clearCompletedHandler = event => {
     event.preventDefault();
     let todos = this.state.todos.slice();
-    todos = todos.filter(todo => !todo.completed);
-    this.setState({ todos});
+    todos = todos.filter(input => !input.completed);
+    this.setState({ todos });
   };
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoList 
-          dailyTodos={this.state.todos}
-          completedTodos={this.toggleTodoCompleted}
-        />
-        <TodoForm 
-          changeInputHandler={this.changeInputHandler}
-          input={this.state.input}
-          addTodoHandler={this.addTodoHandler}
-          clearCompletedHandler={this.clearCompletedHandler}
-        />
+      <div className="app">
+        <h1 className="title">Git-R-Done!</h1>
+        <div className="list-container">
+          <TodoList 
+            todos={this.state.todos}
+            completedTodos={this.toggleTodoCompleted}
+          />
+        </div>
+
+        <div className="form-container">
+          <TodoForm 
+            value={this.state.input}
+            changeInputHandler={this.changeInputHandler}
+            input={this.state.input}
+            addTodoHandler={this.addTodoHandler}
+            clearCompletedHandler={this.clearCompletedHandler}
+          />
+        </div>
+
       </div>
     );
   }

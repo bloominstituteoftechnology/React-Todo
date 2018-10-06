@@ -6,13 +6,12 @@ import Todo from './Todo';
 const TodoList = props => {
 	return (
 		<div>
-			{props.dailyTodos.map(todo => {
+			{props.todos.map(input => {
 				return (
 					<Todo 
-						key={todo.id}
-						id={todo.id}
-						task={todo.task}
-						completedTodos={props.toggleTodoCompleted}
+						key={input.id}
+						input={input}
+						completedTodos={props.completedTodos}
 					/>
 					);
 			})}	
@@ -23,3 +22,4 @@ const TodoList = props => {
 };
 
 export default TodoList;
+
