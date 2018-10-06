@@ -27,8 +27,8 @@
 }
 
 .todo-list li:hover {
-  background: rgb(188, 220, 233);
-  color: rgb(58, 150, 187);
+  background: rgb(205, 240, 253);
+  color: rgb(7, 124, 170);
 }
 
 .todo-list .completed {
@@ -36,6 +36,6 @@
 }
 
 .todo-list .completed:hover {
-  background: rgb(187, 58, 58);
-  color: rgb(233, 188, 188); 
+  background: rgb(255, 211, 211); 
+  color: rgb(187, 58, 58);
 }
