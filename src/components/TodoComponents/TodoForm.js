@@ -3,9 +3,17 @@ import React from 'react';
 const TodoForm = props => {
     return(
         <div>
-            {props.listData.map(item => {
-            return <h2>{item.listItem}</h2>
-        })}
+            {props.listData.map((item, index) => {
+                return (
+                    <h1
+                    key={index}
+                    onClick={() => props.crossOut(index)} 
+                    className={item.completed}                   
+                    >
+                    {item.listItem}
+                    </h1>
+                )
+            })}
             <form onSubmit={props.addnewListItem}>
                 <input 
                     type="text"
@@ -15,6 +23,7 @@ const TodoForm = props => {
                     placeholder="todo..."
                 />
                 <button type="submit" onClick={props.addNewListItem}>Add To Do</button>
+                <button type="submit">Clear Completed</button>
             </form>
         </div>
     );

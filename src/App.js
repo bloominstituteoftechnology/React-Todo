@@ -2,6 +2,8 @@ import React from 'react';
 
 import TodoForm from "./components/TodoComponents/TodoForm"
 
+import './components/TodoComponents/Todo.css';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -56,6 +58,7 @@ class App extends React.Component {
         changeHandler={this.changeHandler}
         addNewListItem={this.addNewListItem}
         crossOut={this.crossOut}
+        completed={this.completed}
         />
       </div>
     );
