@@ -43,15 +43,41 @@ class App extends React.Component {
     this.setState({ todos: todos, input: " " });
   };
 
+  //Indicates completed task
+  toggleTodoCompleted = id => {
+    let todos= this.state.todos.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo
+      }
+    }); 
+    this.setState({ todos });
+  };
+
+  //Removes text from todo list displayed onscreen
+  clearCompletedHandler = event => {
+    event.preventDefault();
+    let todos = this.state.todos.slice();
+    todos = todos.filter(todo => !todo.completed);
+    this.setState({ todos});
+  };
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList dailyTodos={this.state.todos}/>
+        <TodoList 
+          dailyTodos={this.state.todos}
+          completedTodos={this.toggleTodoCompleted}
+        />
         <TodoForm 
           changeInputHandler={this.changeInputHandler}
           input={this.state.input}
           addTodoHandler={this.addTodoHandler}
+          clearCompletedHandler={this.clearCompletedHandler}
         />
       </div>
     );

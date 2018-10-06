@@ -8,12 +8,12 @@ const TodoForm = (props) => {
                                 type="text"
                                 name="input"
                                 onChange={props.changeInputHandler}
-                                placeholder= "....todo"
                                 value={props.input}
+                                placeholder= "....todo"
         	       />
 
         	       <button onClick={props.addTodoHandler}>Add Todo</button>
-        	       <button>Clear Completed</button>
+        	       <button onClick={props.clearCompletedHandler}>Clear Completed</button>
                 </form>
 	);
 };
