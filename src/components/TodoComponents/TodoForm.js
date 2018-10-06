@@ -13,7 +13,7 @@ const TodoForm = (props) => {
           value={props.text}
           onChange={props.changeHandler}
         />
-        <button type="submit" onClick={props.addTodoItem}>
+        <button type="submit">
           Add Todo!
         </button>
       </div>
