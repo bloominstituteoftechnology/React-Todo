@@ -27,6 +27,21 @@ class App extends React.Component {
       newListItem: ''
     })
   }
+  
+  crossOut = index => {
+    this.setState({
+      listData : this.state.listData.map((item, idx) => {
+        if (index !== idx) {
+          return item;
+        } else {
+          return {
+            ...item,
+          }
+        }
+      }
+      )
+    })
+  }
 
   render() {
     return (
@@ -38,6 +53,7 @@ class App extends React.Component {
         newListItem={this.state.newListItem}
         changeHandler={this.changeHandler}
         addNewListItem={this.addNewListItem}
+        crossOut={this.crossOut}
         />
       </div>
     );
