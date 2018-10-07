@@ -48,15 +48,13 @@ class App extends React.Component {
   }
 
   clearCompleted = index => {
+    index.preventDefault();
     this.setState({
-      listData : this.state.listData.filter((item, idx) => {
-        if (index !== idx) {
+      listData : this.state.listData.filter((item) => {
+        if (item.completed === 'todo') {
           return item;
         } else {
-          return {
-            ...item,
-            item: item.completed === 'todo';
-          }
+          return null;
         }
       })
     })

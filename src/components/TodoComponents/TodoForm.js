@@ -23,7 +23,7 @@ const TodoForm = props => {
                     placeholder="todo..."
                 />
                 <button type="submit" onClick={props.addNewListItem}>Add To Do</button>
-                <button type="submit">Clear Completed</button>
+                <button type="submit" onClick={props.clearCompleted}>Clear Completed</button>
             </form>
         </div>
     );
