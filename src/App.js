@@ -57,7 +57,7 @@ class App extends React.Component {
 
 
   clearCompletedHandler = () => {
-    let filterCompleted = function(task) {
+    let filterCompleted = function (task) {
       if (task.completed === true) {
         return null;
       } else {

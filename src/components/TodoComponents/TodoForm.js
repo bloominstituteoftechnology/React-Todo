@@ -4,7 +4,7 @@ function TodoForm(props) {
   return (
     <div className='todo-form'>
       <form className='form' onSubmit={props.addNewTodo}>
-        <input 
+        <input
           type='text'
           name='inputText'
           placeholder='New To Do'
