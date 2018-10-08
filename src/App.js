@@ -8,7 +8,7 @@ class App extends React.Component {
     this.state = {
       todoList: [{
         id: Date.now(),
-        task: 'clean something',
+        task: '',
         completed: false
       }],
       todoItem: ''
