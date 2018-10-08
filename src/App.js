@@ -6,7 +6,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todoList: [],
+      todoList: [{
+        id: Date.now(),
+        task: 'clean something',
+        completed: false
+      }],
       todoItem: ''
     }
   }
@@ -18,14 +22,29 @@ class App extends React.Component {
   addToList = event => {
     event.preventDefault();
     if (this.state.todoItem !== '') {
+      const todolist = this.state.todoList.slice()
+      todolist.push({ id: Date.now(), task: this.state.todoItem, completed: false})
       this.setState({
-        todoList: [...this.state.todoList, this.state.todoItem],
+        todoList: todolist,
         todoItem: ''
       });
     }
   }
 
   itemStrike = event => {
+    let list = this.state.todoList.slice();
+    list.forEach(listItem => {
+      if (listItem.task === event.target.innerHTML) {
+        if (listItem.completed) {
+          listItem.completed = false;
+        } else {
+          listItem.completed = true;
+        }
+      }
+    })
+    this.setState({
+      todoList: list
+    })
     event.target.classList.toggle('complete');
   }
 
@@ -38,8 +57,8 @@ class App extends React.Component {
 
   clearDone = event => {
     event.preventDefault();
-    // console.log()
-    
+    // let todolist = this.state.todoList.s
+    console.log(this.state.todoList);
   }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.

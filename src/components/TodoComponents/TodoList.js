@@ -6,10 +6,13 @@ const TodoList = (props) => {
         <div className="todolist">
             {props.todoList.map(item => {
                 return (
-                    <div className='listItem'>
-                        <p onClick={props.itemStrike}>{item}</p>
+                    <div key={item.id} className="listItem">
+                        <p onClick={props.itemStrike}>
+                            {item.task}
+                        </p>
                     </div>
-                );
+
+                ); 
             })}
         </div>
     )
