@@ -57,8 +57,11 @@ class App extends React.Component {
 
   clearDone = event => {
     event.preventDefault();
-    // let todolist = this.state.todoList.s
-    console.log(this.state.todoList);
+    let current = this.state.todoList
+    let newCurrent = current.filter(item => item.completed === false)
+    this.setState({
+      todoList: newCurrent
+    })
   }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
