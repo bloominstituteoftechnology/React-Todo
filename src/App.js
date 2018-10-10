@@ -13,9 +13,12 @@ class App extends React.Component {
     super();
 
     this.state = {
-      tasks: ["item 1", "item 2", "item3", "item4"],
-
+      tasks: []
     };
+  }
+
+  addTodo(){
+    this.setState(this.state.tasks);
   }
   render() {
     return (
