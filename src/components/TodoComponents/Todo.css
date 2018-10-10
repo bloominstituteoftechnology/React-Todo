@@ -17,3 +17,6 @@
   text-decoration: line-through;
   color: red;
 }
+form {
+  display: flex;
+}
