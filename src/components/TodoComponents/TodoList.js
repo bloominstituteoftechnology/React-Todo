@@ -5,7 +5,9 @@ import React from 'react';
 
 const TodoList = props => {
     return(
-        <div>Test Elements</div>
+        <div className="todo-list-container">
+            <h1>test element</h1>
+        </div>
     );
 }
 
