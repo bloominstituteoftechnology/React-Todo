@@ -9,14 +9,15 @@ class App extends React.Component {
 
     this.state = {
       taskList: [],
-      inputText: ''
+      inputText: '',
+      completed: false
     };
   }
 
-    //generates random id for task
-    randomIdGenerator = () => {
-      return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    }
+  //generates random id for task
+  randomIdGenerator = () => {
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  }
 
   changeHandler = event => {
     event.preventDefault();
@@ -29,7 +30,7 @@ class App extends React.Component {
     this.setState({
       taskList: [
         ...this.state.taskList,
-        {id: this.randomIdGenerator(), task: this.state.inputText, completed: false}
+        {id: this.randomIdGenerator(), task: this.state.inputText, completed: this.state.completed}
       ],
       inputText: ''
     });
@@ -41,17 +42,21 @@ class App extends React.Component {
       this.setState({
         taskList: [
           ...this.state.taskList,
-          {id: this.randomIdGenerator(), task: this.state.inputText, completed: false}
+          {id: this.randomIdGenerator(), task: this.state.inputText, completed: this.state.completed}
         ],
         inputText: ''
       }); 
     }
   }
 
-  completeTask = event => {
-   
-    console.log(event.target.key);
-   
+  ///adds true to completed task on click.
+  completeTask = () => {
+    this.setState(prevState => {
+      console.log(prevState.completed)
+      return {completed: !prevState.completed}
+
+    })
+    console.log(this.state.completed)
   }
   
   render() {
@@ -67,7 +72,8 @@ class App extends React.Component {
         <TodoList 
           todoList={this.state.taskList} 
           inputText={this.state.inputText}
-          completeTask={this.completeTask}
+          completedTask = {this.completeTask}
+          completed={this.state.completed}
         />
       </div>
     );

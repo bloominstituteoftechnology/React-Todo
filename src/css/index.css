@@ -141,11 +141,18 @@ table {
 .main-container .todo-form {
   width: 100%;
 }
+.main-container .todo-form h1 {
+  margin: 20px 0;
+}
 .main-container .todo-list-container .task-item {
   margin: 60px 0;
 }
-.main-container .todo-list-container .task-item h1 {
+.main-container .todo-list-container .task-item .not-complete {
   margin: 0;
   font-weight: bold;
   cursor: pointer;
+}
+.main-container .todo-list-container .task-item .completed {
+  text-decoration: line-through;
+  color: red;
 }
