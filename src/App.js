@@ -50,15 +50,13 @@ class App extends React.Component {
   }
 
   ///adds true to completed task on click.
-  completeTask = () => {
+  completeTask = event => {
     this.setState(prevState => {
-      console.log(prevState.completed)
       return {completed: !prevState.completed}
-
     })
-    console.log(this.state.completed)
   }
-  
+
+
   render() {
     return (
       <div className="main-container">

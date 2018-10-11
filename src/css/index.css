@@ -156,3 +156,6 @@ table {
   text-decoration: line-through;
   color: red;
 }
+.main-container .todo-list-container .task-item .clearCompleted {
+  display: none;
+}
