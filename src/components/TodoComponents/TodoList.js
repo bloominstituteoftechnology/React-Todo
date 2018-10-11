@@ -3,23 +3,6 @@
 import React from "react";
 import ToDo from './Todo';
 
-// const ToDoList = props => {
-//     return (
-//         <div>
-//            {props.toDoList.map(item => {
-//         return <h1 className={props.item.newTask}> </h1>;
-//       })}
-//       <button onClick={event => props.changeColor(event)}>Change color</button>
-
-//         </div>
-//     )
-// }
-
-
-
-
-
-
 
 const ToDoList = (props) => {
     return (

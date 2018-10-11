@@ -33,19 +33,37 @@ class App extends React.Component {
           completed: false
         }
       ],
-    }
+      newTask: ''
+    };
   }
   
+  changeHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
+  // markDone = index => {
+  //   this.setState({
+  //     toDoTasks: this.state.toDoTasks.map((task, idx => {
+  //       if (index !== idx){
+  //         return task;
+  //       } else {
+  //           return {
+  //             ...task,
+  //             complete: task.strike()
+  //           }
+  //       }
+  //     }))
+  //   })
+  // }
 
+           
 
   render() {
     return (
       <div className = 'App'>
       <h1>To Do's</h1>
-      <ToDoForm/>
       <ToDoList toDos = {this.state.toDoTasks}/>
-      
+      <ToDoForm/>
       </div>
     );
   }

@@ -4,7 +4,13 @@ import React from 'react';
 const ToDo = (props) => {
     return (
         <div>
-        A single ToDo
+            {props.toDoTasks.map((item, index) => {
+                return (
+                    <h1
+                        key={index}
+                        onClick={() => props.markDone(index)}
+            )
+            })}
         </div>
     )
 }
