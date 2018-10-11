@@ -9,9 +9,8 @@ const TodoList = props => {
     return(
         <div className="todo-list-container">
         <h1>{props.inputText}</h1>
-        {props.todoList.map(todo => <Todo key={todo.id.toString()} todoList={todo} />)}
-        </div>
-        
+        {props.todoList.map(todo => <Todo key={todo.id.toString()} completeTask={props.completeTask} todoList={todo} />)}
+        </div>    
     );
 }
 

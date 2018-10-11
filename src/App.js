@@ -4,11 +4,6 @@ import TodoForm from './components/TodoComponents/TodoForm';
 
 
 class App extends React.Component {
-  //stateful component
-
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   constructor(){
     super();
 
@@ -37,7 +32,7 @@ class App extends React.Component {
         {id: this.randomIdGenerator(), task: this.state.inputText, completed: false}
       ],
       inputText: ''
-    })
+    });
   }
 
   //adds form input to task list array
@@ -49,8 +44,14 @@ class App extends React.Component {
           {id: this.randomIdGenerator(), task: this.state.inputText, completed: false}
         ],
         inputText: ''
-      })
+      }); 
     }
+  }
+
+  completeTask = event => {
+   
+    console.log(event.target.key);
+   
   }
   
   render() {
@@ -63,7 +64,11 @@ class App extends React.Component {
           addTodo={this.addTodo} 
           pressEnter={this.pressEnter}
         />
-        <TodoList todoList={this.state.taskList} inputText={this.state.inputText}/>
+        <TodoList 
+          todoList={this.state.taskList} 
+          inputText={this.state.inputText}
+          completeTask={this.completeTask}
+        />
       </div>
     );
   }

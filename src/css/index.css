@@ -147,4 +147,5 @@ table {
 .main-container .todo-list-container .task-item h1 {
   margin: 0;
   font-weight: bold;
+  cursor: pointer;
 }
