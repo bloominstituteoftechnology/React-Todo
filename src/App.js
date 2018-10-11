@@ -14,13 +14,14 @@ class App extends React.Component {
 
     this.state = {
       tasks: [],
-      input: ""
+      inputText: ''
     };
   }
 
   changeHandler = event => {
-    event.preventDefault();
-    console.log(event.target.value);
+    //event.preventDefault();
+    console.log(event.target.name);
+    this.setState({[event.target.name] : event.target.value});
   }
 
   // addTodo = event => {
@@ -34,8 +35,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="main-container">
-        <TodoForm />
-        <TodoList todoList={this.state.tasks} formInput={this.state.input}/>
+        <TodoForm formInput={this.state.formInput} inputText={this.state.inputText} changeHandler={this.changeHandler} />
+        <TodoList todoList={this.state.tasks} inputText={this.state.inputText}/>
       </div>
     );
   }
