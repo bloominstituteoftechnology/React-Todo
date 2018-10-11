@@ -13,18 +13,29 @@ class App extends React.Component {
     super();
 
     this.state = {
-      tasks: []
+      tasks: [],
+      input: ""
     };
   }
 
-  addTodo(){
-    this.setState(this.state.tasks);
+  changeHandler = event => {
+    event.preventDefault();
+    console.log(event.target.value);
   }
+
+  // addTodo = event => {
+  //   // this.setState({
+  //   //   tasks: [
+  //   //     ...this.state.tasks, {id: "", task: "", completed: false}
+  //   //   ]
+  //   // })
+  // }
+  
   render() {
     return (
       <div className="main-container">
         <TodoForm />
-        <TodoList todoList={this.state.tasks}/>
+        <TodoList todoList={this.state.tasks} formInput={this.state.input}/>
       </div>
     );
   }
