@@ -141,6 +141,6 @@ table {
 .main-container .todo-form {
   width: 100%;
 }
-.main-container .todo-list-container {
-  border: 1px solid blue;
+.main-container .todo-list-container h1 {
+  margin: 100px;
 }

@@ -13,30 +13,36 @@ class App extends React.Component {
     super();
 
     this.state = {
-      tasks: [],
+      taskList: [{id: 1, task: "this so a test", completed: false}],
       inputText: ''
     };
   }
 
+    //generates random id for task
+    randomIdGenerator = () => {
+      return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    }
+
   changeHandler = event => {
-    //event.preventDefault();
-    console.log(event.target.name);
+    event.preventDefault();
     this.setState({[event.target.name] : event.target.value});
   }
 
-  // addTodo = event => {
-  //   // this.setState({
-  //   //   tasks: [
-  //   //     ...this.state.tasks, {id: "", task: "", completed: false}
-  //   //   ]
-  //   // })
-  // }
+  addTodo = event => {
+    event.preventDefault();
+    this.setState({
+      taskList: [
+        ...this.state.taskList,
+        {id: this.randomIdGenerator(), task: this.state.inputText, completed: false}
+      ]
+    })
+  }
   
   render() {
     return (
       <div className="main-container">
-        <TodoForm formInput={this.state.formInput} inputText={this.state.inputText} changeHandler={this.changeHandler} />
-        <TodoList todoList={this.state.tasks} inputText={this.state.inputText}/>
+        <TodoForm formInput={this.state.formInput} inputText={this.state.inputText} changeHandler={this.changeHandler} addTodo={this.addTodo} />
+        <TodoList todoList={this.state.taskList} inputText={this.state.inputText}/>
       </div>
     );
   }

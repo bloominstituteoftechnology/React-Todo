@@ -2,8 +2,9 @@ import React from 'react';
 
 const Todo = props => {
     return(
-        <div>
-            <h1 key={"name"}>{props.todoList}</h1>
+        <div key={props.todoList.id}>
+            <p>{props.todoList.id}</p>
+            <p>{props.todoList.task}</p>
         </div>
     );
 }
