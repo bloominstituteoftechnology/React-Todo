@@ -141,6 +141,10 @@ table {
 .main-container .todo-form {
   width: 100%;
 }
-.main-container .todo-list-container h1 {
-  margin: 100px;
+.main-container .todo-list-container .task-item {
+  margin: 60px 0;
+}
+.main-container .todo-list-container .task-item h1 {
+  margin: 0;
+  font-weight: bold;
 }

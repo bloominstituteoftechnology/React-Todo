@@ -13,7 +13,7 @@ class App extends React.Component {
     super();
 
     this.state = {
-      taskList: [{id: 1, task: "this so a test", completed: false}],
+      taskList: [],
       inputText: ''
     };
   }
@@ -28,20 +28,41 @@ class App extends React.Component {
     this.setState({[event.target.name] : event.target.value});
   }
 
+  ///adds form input to  taskList array
   addTodo = event => {
     event.preventDefault();
     this.setState({
       taskList: [
         ...this.state.taskList,
         {id: this.randomIdGenerator(), task: this.state.inputText, completed: false}
-      ]
+      ],
+      inputText: ''
     })
+  }
+
+  //adds form input to task list array
+  pressEnter = event => {
+    if(event.key === 'Enter'){
+      this.setState({
+        taskList: [
+          ...this.state.taskList,
+          {id: this.randomIdGenerator(), task: this.state.inputText, completed: false}
+        ],
+        inputText: ''
+      })
+    }
   }
   
   render() {
     return (
       <div className="main-container">
-        <TodoForm formInput={this.state.formInput} inputText={this.state.inputText} changeHandler={this.changeHandler} addTodo={this.addTodo} />
+        <TodoForm 
+          formInput={this.state.formInput} 
+          inputText={this.state.inputText} 
+          changeHandler={this.changeHandler} 
+          addTodo={this.addTodo} 
+          pressEnter={this.pressEnter}
+        />
         <TodoList todoList={this.state.taskList} inputText={this.state.inputText}/>
       </div>
     );
