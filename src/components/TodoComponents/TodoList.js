@@ -6,10 +6,10 @@ const TodoList = props => {
     const {list} = props;
 
     return (
-        <FlexColumn>
+        <FlexColumn style={{margin: '20px', height: '200px', overflow: 'auto'}}>
             {list.map(todo => {
                 return (
-                    <Todo key={todo.id} style={{cursor: "pointer",  textDecoration: todo.completed ? "line-through" : "none"}} onClick={() => props.handleCompleted(todo.id)}>{todo.task}</Todo>
+                    <Todo key={todo.id} style={{textDecoration: todo.completed ? "line-through" : "none"}} onClick={() => props.handleCompleted(todo.id)}>{todo.task}</Todo>
                 )
             })}
         </FlexColumn>

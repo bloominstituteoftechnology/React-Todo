@@ -1,6 +1,12 @@
 import React, {PureComponent} from 'react';
+import styled from 'styled-components'
 import {FlexColumn, FlexRow} from "../Elements/Flex";
+import Input from '../Elements/Input';
+import Button from '../Elements/Button';
 
+const Form = styled.form`
+    
+`;
 
 const TodoForm = props => {
 
@@ -10,13 +16,13 @@ const TodoForm = props => {
     };
 
     return (
-        <form onSubmit={e => this.handleAdd(e)}>
-            <FlexRow>
-                <input placeholder="Enter task name" />
-                <button type="submit">ADD</button>
-                <button onClick={() => props.handleClear()}>CLEAR COMPLETED</button>
+        <Form onSubmit={e => this.handleAdd(e)}>
+            <FlexRow alignCenter>
+                <Input placeholder="Enter task name" />
+                <Button primary type="submit">ADD</Button>
+                <Button onClick={() => props.handleClear()}>CLEAR COMPLETED</Button>
             </FlexRow>
-        </form>
+        </Form>
     );
 };
 
