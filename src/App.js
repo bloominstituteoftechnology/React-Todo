@@ -65,6 +65,15 @@ class App extends React.Component {
     });
   }
 
+  clearCompleted = event =>{
+    event.preventDefault();
+    this.setState({
+      taskList: this.state.taskList.filter(item => {
+        return !item.completed
+      })
+    })
+  }
+
 
   render() {
     console.log(this.state.taskList)
@@ -76,6 +85,7 @@ class App extends React.Component {
           changeHandler={this.changeHandler} 
           addTodo={this.addTodo} 
           pressEnter={this.pressEnter}
+          clearCompleted={this.clearCompleted}
         />
         <TodoList 
           todoList={this.state.taskList} 

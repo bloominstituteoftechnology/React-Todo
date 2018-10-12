@@ -7,7 +7,7 @@ const TodoForm =  props => {
             <h1>Enter ToDo</h1>
             <input type="text" name="inputText" onKeyDown={props.pressEnter} onChange={props.changeHandler} value={props.inputText} placeholder="Enter ToDo"/>
             <button type="submit" value="submit" onClick={props.addTodo}>Submit</button>
-            <button type="reset" value="clear">Clear</button>
+            <button type="reset" onClick={props.clearCompleted} value="clear">Clear</button>
         </div>
     );
 }
