@@ -26,6 +26,7 @@ class App extends React.Component {
       ], 
 
       inputText: '',
+      newTask: '',
       
     }
   }
@@ -34,6 +35,15 @@ class App extends React.Component {
   inputTextHandler = event => {
     console.log(event.target.value);
     this.setState({ [event.target.name]: event.target.value });
+  }
+
+  addNewTask = event => {
+    event.preventDefault();
+    this.setState({ 
+      tasks: [
+        ...this.state.tasks, { task: this.state.inputText } 
+      ]
+    })
   }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -47,6 +57,7 @@ class App extends React.Component {
         <TodoForm
          inputText = {this.state.inputText}
          inputTextHandler = {this.inputTextHandler}
+         addNewTask = {this.addNewTask}
          />
       </div>
     );

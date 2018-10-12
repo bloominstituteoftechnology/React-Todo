@@ -12,7 +12,9 @@ const TodoForm = props => {
                 >
             </input>
             <br></br>
-            <button> 
+            <button
+            onClick={props.addNewTask}
+            > 
                 Add New Task
             </button>
 
