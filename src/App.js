@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import TaskContainer from './components/TodoComponents/Todo';
-
+import TaskContainer from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm'
 
 class App extends React.Component {
   constructor(props) {
@@ -35,6 +35,7 @@ class App extends React.Component {
 
       <div>
         <TaskContainer  tasksProp = {this.state} />
+        <TodoForm />
       </div>
     );
 

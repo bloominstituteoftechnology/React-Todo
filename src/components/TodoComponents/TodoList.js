@@ -1,2 +1,28 @@
-// your components will all go in this `component` directory.
-// feel free to change this component.js into TodoList.js
+import React from 'react';
+
+const TaskContainer =  props => {
+    return (
+        <div>
+        
+            <div>
+                <h1>Lambda-Lambda-Lambda Todo App!</h1>
+            
+            </div>
+            
+            <div>
+                <ul>
+                    {props.tasksProp.tasks.map((singleTask, i) => {
+                        return (
+                            <li key= { i++ }>{singleTask.task}</li>
+                        )
+                    })
+                    }
+                </ul>
+            </div>
+
+        </div>
+        )
+
+}
+
+export default TaskContainer; 
