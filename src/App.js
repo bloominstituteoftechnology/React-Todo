@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import TaskContainer from './components/TodoComponents/Todo';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -17,7 +19,7 @@ class App extends React.Component {
           completed: false
         },
         {
-          task: 'Walk Sandy',
+          task: 'Bird ride',
           id: Date.now(),
           completed: false
         },
@@ -28,11 +30,14 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
+
     return (
+
       <div>
-        <h2>Lambda-Lambda-Lambda Todo App!</h2>
+        <TaskContainer  tasksProp = {this.state} />
       </div>
     );
+
   }
 }
 
