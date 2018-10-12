@@ -1,32 +1,154 @@
     .main-container{
 
         .todo-form{
+            max-width: @maxWidth;
             width: @width;
+            margin: 50px auto 0 auto;
+            display: @displayFlex;
+            flex-flow: @flexFlowRow;
+            padding: 25px;
+            border: 2px solid #ccc;
+            border-radius: 20px;
+            background-color: #fff;
+        
 
-            h1{
+            .form-heading{
+                width: @width;
+                margin: 10px 0;
+                font-size: 3rem;
+            }
+
+            .todo-input{
+                width: @width;
                 margin: 20px 0;
+                padding: 10px;
+                font-size: 2rem;
+                border: 2px solid #ccc;
+                border-radius: 20px;
+            }
+
+
+            .todo-input::placeholder{
+                color: #bbb;
+            }
+
+            .todo-input:focus{
+                outline: none;
+            }
+
+            .formBtn{
+               padding: 10px 50px;
+               margin-right: 20px;
+               color: #fff;
+               font-size: 1rem;
+               font-weight: bold;
+               border: 0px solid #ccc;
+               border-radius: 10px;
+            }
+
+
+            .formBtn[type="submit"]{
+                background-color:#1e824c;
+                outline: none;
+            }
+            .formBtn[type="submit"]:hover{
+                background-color: #00b16a;
+            }
+
+            .formBtn[type="reset"]{
+                background-color:#96281b;
+                outline: none;
+            }
+            .formBtn[type="reset"]:hover{
+                background-color: #cf000f;
             }
         }
         
         .todo-list-container{
+            max-width: @maxWidth;
+            width: @width;
+            margin: 10px auto;
+            display: @displayFlex;
+            flex-flow: @flexFlowRow;
+
+            .title{
+                max-width: @maxWidth;
+                width: @width;
+                margin: 10px auto;
+                padding: 25px;
+                margin: 0 0 20px 0;
+                border: 2px solid #ccc;
+                border-radius: 20px;
+                background-color: #fff;
+
+                .title-header{
+                    font-size: 2rem;
+                    margin: 20px 0;
+                    font-weight: bold;
+                }
+
+                .title-txt{
+                    font-size: 1.5rem;
+                    line-height: 2.5rem;
+                }
+            }
 
             .task-item{
-                margin: 60px 0;
+                max-width: @maxWidth;
+                width: @width;
+                margin: 10px auto;
+                padding: 25px;
+                margin: 0 0 20px 0;
+                border: 2px solid #ccc;
+                border-radius: 20px;
+                background-color: #fff;
+                display: flex;
+                flex-flow: row wrap;
 
-                .not-complete{
-                    margin:0;
-                    font-weight: bold;
+                .task-header{
+                    width: @width;
+                    font-size: 3rem;
+                    display: flex;
+                    align-items: center;
                     cursor: pointer;
+
+                    .task-stamp{
+                        width: @width;
+                        font-size: 1.3rem;
+                        text-align: right;
+                        color: #ccc;
+                    }
                 }
 
-                .completed{
-                    margin:0;
-                    font-weight: bold;
+                .task-header-completed{
+                    width: @width;
+                    font-size: 3rem;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
                     text-decoration: line-through;
-                    cursor: pointer;
                     color: red;
+                     
+                    .task-stamp{
+                        width: @width;
+                        font-size: 1.3rem;
+                        text-align: right;
+                        color: #ccc;
+                    }
                 }
 
+                .task-txt{
+                    margin: 30px 0;
+                    padding: 10px 50px;
+                    font-size: 1.6rem;
+                    line-height: 2.5rem;
+                }
+
+                .line{
+                    width: @width;
+                }
+
+            
                 .clearCompleted{
                     display: none;
                 }

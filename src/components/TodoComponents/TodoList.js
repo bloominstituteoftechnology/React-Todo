@@ -8,7 +8,11 @@ import Todo from './Todo';
 const TodoList = props => {
     return(
         <div className="todo-list-container">
-        <h1 className="title">{props.inputText}</h1>
+        <div className="title">
+            <h1 className="title-header">Task Review:</h1>
+            <p className="title-txt">{props.inputText}</p>
+        </div>
+        
         {props.todoList.map((todo, index) => <Todo key={todo.id.toString()} completedTask = {props.completedTask} todoList={todo} index={index} />)}
         </div>    
     );

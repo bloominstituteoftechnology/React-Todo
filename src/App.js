@@ -29,7 +29,7 @@ class App extends React.Component {
     this.setState({
       taskList: [
         ...this.state.taskList,
-        {id: this.randomIdGenerator(), task: this.state.inputText, completed: false, style: "not-complete"}
+        {id: this.randomIdGenerator(), task: this.state.inputText, completed: false, style: "task-item not-complete"}
       ],
       inputText: ''
     });
@@ -41,7 +41,7 @@ class App extends React.Component {
       this.setState({
         taskList: [
           ...this.state.taskList,
-          {id: this.randomIdGenerator(), task: this.state.inputText, completed: false, style: "not-complete"}
+          {id: this.randomIdGenerator(), task: this.state.inputText, completed: false, style: " task-header"}
         ],
         inputText: ''
       }); 
@@ -58,7 +58,7 @@ class App extends React.Component {
           return{
             ...item,
             completed: item.completed === false ? true : false,
-            style: item.style === 'not-complete' ? 'completed' : 'not-complete'
+            style: item.style === ' task-header' ? 'task-header-completed' : ' task-header'
           }
         }
       })
