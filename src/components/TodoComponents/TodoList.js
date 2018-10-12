@@ -6,14 +6,16 @@ const TaskContainer =  props => {
         
             <div>
                 <h1>Lambda-Lambda-Lambda Todo App!</h1>
+                <p>Click on todo to mark as completed.</p>
             
             </div>
             
             <div>
                 <ul>
-                    {props.tasksProp.tasks.map((singleTask, i) => {
+                    {props.todos.tasks.map((singleTask, i) => {
                         return (
-                            <li key= { i++ }>{singleTask.task}</li>
+                            <li onClick={props.completedTask} key= { i+1 }>{singleTask.task}</li>
+                            // <li onClick={props.completedTask} key= { i+1 }>{singleTask.task}</li>
                         )
                     })
                     }

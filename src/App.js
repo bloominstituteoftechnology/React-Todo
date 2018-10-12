@@ -26,8 +26,9 @@ class App extends React.Component {
       ], 
 
       inputText: '',
-      newTask: '',
-      
+
+      todoList: [],
+  
     }
   }
 
@@ -41,9 +42,24 @@ class App extends React.Component {
     event.preventDefault();
     this.setState({ 
       tasks: [
-        ...this.state.tasks, { task: this.state.inputText } 
+        ...this.state.tasks, { task: this.state.inputText, completed: false } 
       ]
     })
+  }
+
+  strikeOutTask = event => {
+    event.target.style.textDecoration = "line-through";
+    event.target.completed = true;
+  }
+
+  completedTask = event => {
+    // console.log(event.target.value)
+    event.preventDefault();
+    let currentTasks = this.state.tasks.slice();
+    currentTasks = currentTasks.filter(task => !task.completed);
+    this.setState({ tasks: {currentTasks} });
+
+  
   }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -53,12 +69,12 @@ class App extends React.Component {
     return (
 
       <div>
-        <TaskContainer  tasksProp = {this.state} />
+        <TaskContainer  todos = {this.state} completedTask={this.strikeOutTask}/>
         <TodoForm
          inputText = {this.state.inputText}
          inputTextHandler = {this.inputTextHandler}
          addNewTask = {this.addNewTask}
-         />
+         completedTask = {this.completedTask}/>
       </div>
     );
 
