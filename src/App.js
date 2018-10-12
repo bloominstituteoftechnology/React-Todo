@@ -10,7 +10,6 @@ class App extends React.Component {
     this.state = {
       taskList: [],
       inputText: '',
-      completed: false
     };
   }
 
@@ -30,7 +29,7 @@ class App extends React.Component {
     this.setState({
       taskList: [
         ...this.state.taskList,
-        {id: this.randomIdGenerator(), task: this.state.inputText, completed: this.state.completed}
+        {id: this.randomIdGenerator(), task: this.state.inputText, completed: false, style: "not-complete"}
       ],
       inputText: ''
     });
@@ -42,7 +41,7 @@ class App extends React.Component {
       this.setState({
         taskList: [
           ...this.state.taskList,
-          {id: this.randomIdGenerator(), task: this.state.inputText, completed: this.state.completed}
+          {id: this.randomIdGenerator(), task: this.state.inputText, completed: false, style: "not-complete"}
         ],
         inputText: ''
       }); 
@@ -50,14 +49,25 @@ class App extends React.Component {
   }
 
   ///adds true to completed task on click.
-  completeTask = event => {
-    this.setState(prevState => {
-      return {completed: !prevState.completed}
-    })
+  completeTask = index => {
+    this.setState({
+      taskList: this.state.taskList.map((item, idx) => {
+        if(index !== idx){
+          return item
+        }else{
+          return{
+            ...item,
+            completed: item.completed === false ? true : false,
+            style: item.style === 'not-complete' ? 'completed' : 'not-complete'
+          }
+        }
+      })
+    });
   }
 
 
   render() {
+    console.log(this.state.taskList)
     return (
       <div className="main-container">
         <TodoForm 
@@ -71,7 +81,6 @@ class App extends React.Component {
           todoList={this.state.taskList} 
           inputText={this.state.inputText}
           completedTask = {this.completeTask}
-          completed={this.state.completed}
         />
       </div>
     );
