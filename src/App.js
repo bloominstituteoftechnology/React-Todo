@@ -11,20 +11,29 @@ class App extends React.Component {
         {
           task: 'Kundalini',
           id: Date.now(),
-          completed: false
+          completed: false,
         },
         {
           task: 'QiGong',
           id: Date.now(),
-          completed: false
+          completed: false,
         },
         {
           task: 'Bird ride',
           id: Date.now(),
-          completed: false
-        },
-      ]
+          completed: false,
+        }
+      ], 
+
+      inputText: '',
+      
     }
+  }
+
+
+  inputTextHandler = event => {
+    console.log(event.target.value);
+    this.setState({ [event.target.name]: event.target.value });
   }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -35,7 +44,10 @@ class App extends React.Component {
 
       <div>
         <TaskContainer  tasksProp = {this.state} />
-        <TodoForm />
+        <TodoForm
+         inputText = {this.state.inputText}
+         inputTextHandler = {this.inputTextHandler}
+         />
       </div>
     );
 
