@@ -38,7 +38,7 @@
 - The `id` field is a unique `Time Stamp` that will be assigned by `Date.now()`.
 
 #### Day 1 Challenges
-
+1
 - **Don't focus on styling yet**. We want you to worry about function over form today.
 - Your todo list should display a list of todos, an input field, a submit button, and a clear all button.
 - Be sure to use the given files for building out these components.
