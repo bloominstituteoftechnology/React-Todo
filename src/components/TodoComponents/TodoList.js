@@ -7,7 +7,7 @@ function TodoList(props) {
         <div>
         {props.tasks.map((item, index) => {
             // TODO - Todo item should have a completed flag that is also set.
-            return <Todo key={index} item={item} idx={index} markTodoComplete={props.markTodoComplete}/>
+            return <Todo key={index} item={item} idx={index} markTodoComplete={props.markTodoComplete} completed={item.completed}/>
         })}
         </div>
     );
