@@ -48,6 +48,15 @@ class App extends React.Component {
     // prevent the default action of a button
     event.preventDefault();
     console.log("clear completed todos.")
+    this.setState({
+      tasks: this.state.tasks.filter(task => {
+        if (task.completed !== true) {
+          return task;
+        } else {
+          return null;
+        }
+      })
+    })
   }
 
   // This is tied to the input field and each keystroke of that field
