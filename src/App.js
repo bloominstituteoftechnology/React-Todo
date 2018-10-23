@@ -2,20 +2,7 @@ import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm'
 import TodoList from './components/TodoComponents/TodoList'
 
-
-/* Build instructions 
-<App /> will hold all the data needed for this project. It will also be the container for your Todo Components.
-All of your application data will be stored here on <App />.
-All of your handler functions should live here on <App />.
-*/
-
-
-
-
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   constructor(props) {
     super(props);
 
@@ -25,12 +12,7 @@ class App extends React.Component {
         task: 'sample name',
         id: 2342342342,
         completed: false
-        },
-        {
-          task: 'sample name',
-          id: 2342342342,
-          completed: false
-          }
+        }
       ],
       taskText: ''
     }
@@ -39,18 +21,27 @@ class App extends React.Component {
   addTodo = event => {
     // prevent the default action of a button
     event.preventDefault();
-    console.log(event.target.value)
+
+    // set the tasks array by inserting the previous array items
+    // then essentially appending the new task that was entered 
+
+    // TODO - Make the Date() input a raw number instead of a date.
     this.setState({
       tasks: [
         ...this.state.tasks,
-        {task: this.state.taskText, id: 123123123, completed: false}
+        {task: this.state.taskText, id: Date(), completed: false}
       ],
       taskText: " "
-    });
+    }, () => { console.log(this.state.tasks)});
+    // TODO - Remove that call back to log the tasks, this was purely to check to see if it was getting added correctly.
   }
 
+  // This is tied to the input field and each keystroke of that field
+  // will invoke this function and set state on the taskText with the
+  // value of the field.
   changeHandler = event => {
     this.setState({ taskText: event.target.value }, () => {
+      // TODO - At some point remove the console log here too, it's not needed anymore.
       console.log("This is an async call with a callback", 
       this.state.taskText
       );
