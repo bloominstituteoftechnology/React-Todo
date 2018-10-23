@@ -11,8 +11,14 @@ Once a todo is submitted, the Todo List should re-render and show the added todo
 function TodoForm(props) {
     return (
         <div>
-            <form>
-                <input placeholder="...todo"></input>
+            <form onSubmit={props.addTodo}>
+                <input
+                  type="text"
+                  name="taskText"
+                  value={props.taskText}
+                  placeholder="...todo"
+                  onChange={props.changeHandler}
+                />
                 <button onClick={props.addTodo}>Add Todo</button>
                 <button>Clear Completed</button>
             </form> 

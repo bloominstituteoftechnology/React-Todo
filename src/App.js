@@ -36,18 +36,33 @@ class App extends React.Component {
     }
   }
 
-  // addTodo = event => {
-  //   // prevent the default action of a button
-  //   event.preventDefault();
-  //   console.log(event.taget)
-  // }
+  addTodo = event => {
+    // prevent the default action of a button
+    event.preventDefault();
+    console.log(event.target.value)
+    this.setState({
+      tasks: [
+        ...this.state.tasks,
+        {task: this.state.taskText, id: 123123123, completed: false}
+      ],
+      taskText: " "
+    });
+  }
+
+  changeHandler = event => {
+    this.setState({ taskText: event.target.value }, () => {
+      console.log("This is an async call with a callback", 
+      this.state.taskText
+      );
+    });
+  }
   
   render() {
     return (
       <div>
         <h2>Todo List: MVP</h2>
         <TodoList tasks={this.state.tasks}/>
-        <TodoForm taskText={this.state.taskText} addTodo={this.addTodo}/>
+        <TodoForm taskText={this.state.taskText} addTodo={this.addTodo} changeHandler={this.changeHandler}/>
       </div>
     );
   }
