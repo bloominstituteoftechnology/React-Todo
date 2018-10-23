@@ -7,13 +7,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      tasks: [
-        {
-        task: 'sample name',
-        id: 2342342342,
-        completed: false
-        }
-      ],
+      tasks: [],
       taskText: ''
     }
   }
@@ -24,12 +18,10 @@ class App extends React.Component {
 
     // set the tasks array by inserting the previous array items
     // then essentially appending the new task that was entered 
-
-    // TODO - Make the Date() input a raw number instead of a date.
     this.setState({
       tasks: [
         ...this.state.tasks,
-        {task: this.state.taskText, id: Date(), completed: false}
+        {task: this.state.taskText, id: new Date().getTime(), completed: false}
       ],
       taskText: " "
     }, () => { console.log(this.state.tasks)});
