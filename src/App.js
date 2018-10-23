@@ -29,10 +29,20 @@ class App extends React.Component {
   }
 
   // TODO - Build out the ability to mark a task as complete when it's clicked on.
-  markTodoComplete = idx => {
-    
-    console.log('hello from todo complete', idx);
-
+  markTodoComplete = index => {
+    console.log("test");
+    this.setState({
+      tasks: this.state.tasks.map((task, idx) => {
+        if (index !== idx) {
+          return task;
+        } else {
+          return {
+            ...task,
+            completed: task.completed === true ? false : true
+          }
+        };
+      })
+    });
   }
 
   // This is tied to the input field and each keystroke of that field
