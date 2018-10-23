@@ -28,7 +28,6 @@ class App extends React.Component {
     // TODO - Remove that call back to log the tasks, this was purely to check to see if it was getting added correctly.
   }
 
-  // TODO - Build out the ability to mark a task as complete when it's clicked on.
   markTodoComplete = index => {
     console.log("test");
     this.setState({
@@ -43,6 +42,12 @@ class App extends React.Component {
         };
       })
     });
+  }
+
+  clearCompletedTodos = event => {
+    // prevent the default action of a button
+    event.preventDefault();
+    console.log("clear completed todos.")
   }
 
   // This is tied to the input field and each keystroke of that field
@@ -62,7 +67,7 @@ class App extends React.Component {
       <div>
         <h2>Todo List: MVP</h2>
         <TodoList tasks={this.state.tasks} markTodoComplete={this.markTodoComplete}/>
-        <TodoForm taskText={this.state.taskText} addTodo={this.addTodo} changeHandler={this.changeHandler}/>
+        <TodoForm taskText={this.state.taskText} addTodo={this.addTodo} changeHandler={this.changeHandler} clearCompletedTodos={this.clearCompletedTodos}/>
       </div>
     );
   }
