@@ -13,10 +13,9 @@ function TodoForm(props) {
         <div>
             <form>
                 <input placeholder="...todo"></input>
-                <button>Add Todo</button>
+                <button onClick={props.addTodo}>Add Todo</button>
                 <button>Clear Completed</button>
-            </form>
-            
+            </form> 
         </div>
     );
 }

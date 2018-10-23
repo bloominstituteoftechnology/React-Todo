@@ -1,5 +1,5 @@
 import React from 'react';
-import ToDoForm from './components/TodoComponents/TodoForm'
+import TodoForm from './components/TodoComponents/TodoForm'
 import TodoList from './components/TodoComponents/TodoList'
 
 
@@ -20,17 +20,34 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      tasks: [],
+      tasks: [
+        {
+        task: 'sample name',
+        id: 2342342342,
+        completed: false
+        },
+        {
+          task: 'sample name',
+          id: 2342342342,
+          completed: false
+          }
+      ],
       taskText: ''
     }
   }
+
+  // addTodo = event => {
+  //   // prevent the default action of a button
+  //   event.preventDefault();
+  //   console.log(event.taget)
+  // }
   
   render() {
     return (
       <div>
         <h2>Todo List: MVP</h2>
         <TodoList tasks={this.state.tasks}/>
-        <ToDoForm taskText={this.state.taskText}/>
+        <TodoForm taskText={this.state.taskText} addTodo={this.addTodo}/>
       </div>
     );
   }
