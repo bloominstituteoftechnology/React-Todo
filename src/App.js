@@ -75,8 +75,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        <TodoList tasks={this.state.tasks} markTodoComplete={this.markTodoComplete}/>
         <TodoForm taskText={this.state.taskText} addTodo={this.addTodo} changeHandler={this.changeHandler} clearCompletedTodos={this.clearCompletedTodos}/>
+        <TodoList tasks={this.state.tasks} markTodoComplete={this.markTodoComplete}/>
       </div>
     );
   }
