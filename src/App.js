@@ -10,10 +10,19 @@ class App extends Component {
     super();
     this.state = {
       currentList: [
-        { todo: 'Make todo list' },
-        { todo: 'add items' }
+        {
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
       ],
-      inputValue: ''
+      inputValue: '',
+      currentId: 0
     }
   }
 
@@ -27,8 +36,9 @@ class App extends Component {
   addItem = e => {
     e.preventDefault();
     this.setState({
-      currentList: [...this.state.currentList, { todo: this.state.inputValue }],
-      inputValue: ''
+      currentList: [...this.state.currentList, { task: this.state.inputValue, id: this.state.currentId, completed: false }],
+      inputValue: '',
+      currentId: this.state.currentId + 1
     });
   }
 
