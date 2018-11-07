@@ -2,7 +2,7 @@ import React from 'react';
 
 import TodoList from './components/TodoComponents/TodoList';
 
-const todoData = [
+const itemsData = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -26,7 +26,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoItems: todoData,
+      items: itemsData,
     };
   }
 
@@ -34,7 +34,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList todoItems={this.state.todoItems}/>
+        <TodoList itemsList={this.state.items}/>
       </div>
     );
   }
