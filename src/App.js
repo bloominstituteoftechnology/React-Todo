@@ -7,81 +7,25 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
-  constructor(props) {
+  constructor(props){
     super(props);
+
     this.state = {
-      tasks: [],
-      inputText: ''
-    };
-  }
-
-  changeText = event => {
-    event.preventDefault();
-    this.setState({inputText: event.target.value});
-  }
-
-  addNewTodo = event => {
-    event.preventDefault();
-    if (this.state.inputText) {
-      this.setState({
-        tasks: [
-          this.state.tasks,
-          {
-            task: this.state.inputText,
-            id: Date.now(),
-            completed: false
-          }
-        ], inputText: ''
-      });
+      todo: [
+        {
+          task: '',
+          id: 0,
+          completed: false
+        }
+      ]
     }
-  };
-
-  completedHandler = id => {
-    this.setState({
-      tasks: this.state.tasks.map((task) => {
-
-        if (task.id !== id) {
-          return task;
-        } else {
-          return {
-            task,
-            completed: task.completed === true ? false : true
-          };
-        } // else
-      }) // .map
-    }) // this.state
-  } // handler
-
-
-  clearCompletedHandler = () => {
-    let filterCompleted = function (task) {
-      if (task.completed === true) {
-        return null;
-      } else {
-        return task;
-      }
-    }
-    this.setState({
-      tasks: this.state.tasks.filter(filterCompleted) // filter
-    }) // setState
-} // clearCompletedHandler
-  render() {
-    return (
-      <div>
+    render() {
+      return (
         <div>
-        <h1>Things To Do</h1>
-        <TodoForm
-          addNewTodo={this.addNewTodo}
-          clearCompletedHandler={this.clearCompletedHandler}
-          changeText={this.changeText}
-          inputText={this.state.inputText}
-          tasks={this.tasks}
-        />
-        <TodoList tasks={this.state.tasks} completedHandler={this.completedHandler} />
-</div>
-      </div>
-    );
+  
+        </div>
+      );
+    }
   }
-}
 
-export default App;
+ 
