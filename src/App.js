@@ -8,8 +8,16 @@ class App extends React.Component {
     super();
     this.state = {
       list: [
-        {listItem: 'learn setState()'},
-        {listItem: 'Style my ToDo List'}
+        {
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
       ],
       inputText: ''
     }
@@ -22,12 +30,16 @@ class App extends React.Component {
     });
   }
 
-  addListItem = e => {
+  addTask = e => {
     e.preventDefault();
     this.setState({
       list: [
           ...this.state.list,
-          {listItem: this.state.inputText}
+          {
+            task: this.state.inputText,
+            id: Date.now(),
+            completed: false
+          }
       ],
       inputText: ''
     });
@@ -41,7 +53,7 @@ class App extends React.Component {
         <TodoForm 
           inputText={this.state.inputText}
           handleChange={this.handleChange}
-          addListItem={this.addListItem}
+          addTask={this.addTask}
         />
       </div>
     );
