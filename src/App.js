@@ -35,14 +35,15 @@ class App extends React.Component {
 
   addTodo = ev =>{
     ev.preventDefault();
-
-    this.setState({
-      itemList:[
-        ...this.state.itemList,
-        {task: this.state.inputText, id:Date.now(), completed:false,}
-      ],
-      inputText: '',
-    });
+    if(!(this.state.inputText === '')){
+      this.setState({
+        itemList:[
+          ...this.state.itemList,
+          {task: this.state.inputText, id:Date.now(), completed:false,}
+        ],
+        inputText: '',
+      });
+    }
   };
 
   todoCompleted = ev =>{
@@ -64,11 +65,29 @@ class App extends React.Component {
     }
     
     tempList[currentIndex] = currentObj;
-    console.log(currentObj);
     this.setState({
         itemList: tempList
     })
-    console.log(this.state.itemList);
+  }
+
+  clearCompleted = ev =>{
+    let indexArr = [];
+    let tempList = this.state.itemList.slice();
+    for(let i = 0; i<tempList.length;){
+      if(tempList[i].completed){
+         
+          indexArr.push(i);
+          tempList.splice(i, 1); 
+          i=0;
+          console.log(i);
+          console.log(tempList);  
+      }else{
+        i++;
+      }
+    }
+    this.setState({
+      itemList: tempList
+  });
   }
 
 
@@ -81,6 +100,7 @@ class App extends React.Component {
           addTodo={this.addTodo}
           inputText={this.state.inputText}
           handleChange={this.handleChange}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );
