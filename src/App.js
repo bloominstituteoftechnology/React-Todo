@@ -25,9 +25,30 @@ class App extends React.Component {
     super();
     this.state = {
       todoItemList: todoItems,
-
+      inputText: ""
     };
+  }
 
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+    console.log(e.target.name);
+  }
+
+  addTask = e => {
+    e.preventDefault();
+    this.setState({
+      todoItemList: [
+        ...this.state.todoItemList,
+        {task: this.state.inputText, 
+          id: Date.now(),
+          completed: false
+        },
+      ],
+      inputText: ''
+    });
+    console.log(this.todoItemList);
   }
 
 
@@ -36,7 +57,11 @@ class App extends React.Component {
       <div>
         {/* <h2>Welcome to your Todo App!</h2> */}
         <TodoList todos={this.state.todoItemList} />
-        <TodoForm />
+        <TodoForm 
+          addTask={this.addTask}
+          inputText={this.state.inputText}
+          handleChange={this.handleChange}
+        />
       </div>
     );
   }
