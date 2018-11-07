@@ -2,34 +2,26 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-
 }
 
 *::before,
 *::after {
 
-    box-sizing: inherit;
+   box-sizing: inherit;
 }
 
 
-
-
 .container{
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: flex-end;
     flex-direction: column; 
-    width: calc(100% - 20px);
+    width: calc(100% - 20px); */
+    text-align: center;
     margin: 0 auto;
     height: 100vh;
-    /* background: url('beverage-blank-blank-space-414691.jpg'); */
     background-blend-mode: lighten;
     background-repeat: repeat-y;
-    
-
-    
-    
   
 }
 
@@ -91,5 +83,5 @@ input {
     width: 450px;
     height: 70px;
     text-align: center;
-    border: 3px solid blue;
+    border: 3px solid pink;
 }

@@ -19,7 +19,7 @@ class Todo extends React.Component {
 
       toggleStrike(event) {
           event.target.classList.add('strike-th');
-          event.target.style.color = "lightblue";
+          event.target.style.color = "purple";
     
       }
      

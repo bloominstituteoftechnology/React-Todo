@@ -45,8 +45,8 @@ class App extends React.Component {
     event.preventDefault();
     const li = document.querySelectorAll('.strike-th');
     li.forEach( item => {
-      item.classList.add('animated');
-      item.classList.add('bounce');
+      // item.classList.add('animated');
+      // item.classList.add('bounce');
       setTimeout( () => item.style.display = "none", 650);
       
   });
@@ -58,6 +58,7 @@ class App extends React.Component {
 
     return (
       <div className="container">
+      <h1>Welcome to my Todo List App. Start adding items to your list!</h1>
 
         <TodoList taskLists={this.state.todos} />
         <TodoForm
