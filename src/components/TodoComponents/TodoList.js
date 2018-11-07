@@ -12,7 +12,7 @@ const TodoList = props => {
       {props.todoList.map(todo => (
         <Todo
           todoList={todo.todoList}
-          key={todo.id}
+          key={todo.id = Math.random().toString()}
           todoListItem={todo.task}
           completed={todo.completed}
         />

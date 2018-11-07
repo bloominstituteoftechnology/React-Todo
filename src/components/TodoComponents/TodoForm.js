@@ -5,16 +5,16 @@ const TodoForm = props => {
     <div className="todoFormContainer">
       {/* {console.log(props.inputText, "Inside FORM")} */}
       <form onSubmit={props.addTodo}>
-      {console.log(props)}
+      {/* {console.log(props)} */}
         <input 
           type="text"
           name="inputText"
-          placeholder="Add a Todo Item"
+          placeholder="...todo"
           value={props.inputText}
           onChange={props.handleChange}
           />
-        <button type="submit">Add Todo</button>
-        <button type="submit">Clear Completed</button>
+        <button name="addIt" type="submit">Add Todo</button>
+        <button name="clearIt" type="submit">Clear Completed</button>
       </form>
     </div>
   )
