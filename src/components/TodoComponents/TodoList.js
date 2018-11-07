@@ -1,2 +1,10 @@
 import React from "react";
-import import './Todo.css';
+import './Todo.css';
+
+const TodoList = props => {
+    return (
+        <ul></ul>
+    );
+}
+
+export default TodoList;
