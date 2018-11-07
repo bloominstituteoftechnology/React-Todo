@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 const todoListSeed = [
   {
@@ -45,12 +46,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/* {console.log(this.state)} */}
         <TodoList 
           addTodo={this.addTodo}
           inputText={this.state.inputText}
           handleChange={this.handleChange}
           todoList={this.state.todoList}
+        />
+        <TodoForm 
+        todos={this.todoList}
+          addTodo={this.addTodo}
+          inputText={this.state.inputText}
+          handleChange={this.handleChange}
         />
       </div>
     );

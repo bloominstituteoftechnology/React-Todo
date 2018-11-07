@@ -3,9 +3,19 @@ import React from 'react'
 const TodoForm = props => {
   return (
     <div className="todoFormContainer">
-      <input type="text" name="todo"  placeholder="yoyoyoyo" />
-      <button type="submit">Add Todo</button>
-      <button type="submit">Clear Completed</button>
+      {/* {console.log(props.inputText, "Inside FORM")} */}
+      <form onSubmit={props.addTodo}>
+      {console.log(props)}
+        <input 
+          type="text"
+          name="inputText"
+          placeholder="Add a Todo Item"
+          value={props.inputText}
+          onChange={props.handleChange}
+          />
+        <button type="submit">Add Todo</button>
+        <button type="submit">Clear Completed</button>
+      </form>
     </div>
   )
 }
