@@ -45,12 +45,38 @@ class App extends React.Component {
     });
   };
 
+  todoCompleted = ev =>{
+    let currentObj = {};
+    let currentIndex = 0;
+    this.state.itemList.forEach( (item,index) =>{
+      if(+ev.target.id === item.id){
+        currentObj =item;
+        currentIndex = index;
+      }
+    });
+    let tempList = this.state.itemList.slice();
+    if(currentObj.completed){
+      currentObj.completed = false;
+      ev.target.className = "";
+    }else{
+      currentObj.completed = true;
+      ev.target.className = "completed";
+    }
+    
+    tempList[currentIndex] = currentObj;
+    console.log(currentObj);
+    this.setState({
+        itemList: tempList
+    })
+    console.log(this.state.itemList);
+  }
+
 
   render() {
     return (
       <div className="App">
       <h1>Todo List</h1>
-        <TodoList itemList={this.state.itemList} />
+        <TodoList itemList={this.state.itemList} todoCompleted={this.todoCompleted}/>
         <TodoForm
           addTodo={this.addTodo}
           inputText={this.state.inputText}

@@ -11,6 +11,8 @@ const TodoList = props => {
                 <Todo
                     key={todo.id}
                     currentTodo={todo}
+                    todoCompleted={props.todoCompleted}
+                    
                 />
             ))}
         </div>
