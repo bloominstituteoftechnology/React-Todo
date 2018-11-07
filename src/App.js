@@ -11,24 +11,47 @@ class App extends React.Component {
     this.state = {
 
       todoItems: [],
-      inputText: ''
+      formInput: ''
+
+    }
+
+    this.btnClick = this.btnClick.bind(this);
+    this.formEntry = this.formEntry.bind(this);
+
+  }
+
+  btnClick(e) {
+
+    e.preventDefault();
+
+    if (e.target.name == 'submit') {
+
+      console.log("button 1 clicked");
+
+    }
+
+    else {
+
+      console.log('button 2 clicked');
 
     }
 
   }
 
-  formSubmit(e) {
+  formEntry(e) {
 
-    e.preventDefault();
+    this.setState({
 
-    console.log("SUBMITTED FORM");
+      [e.target.name]: e.target.value
+
+    });
 
   }
 
   render() {
     return (
       <div>
-        <TodoForm submitHandler={this.formSubmit} inputText={this.state.inputText}/>
+        <TodoForm entryHandler={this.formEntry} btnHandler={this.btnClick} inputText={this.state.inputText}/>
       </div>
     );
   }

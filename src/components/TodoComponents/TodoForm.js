@@ -1,14 +1,14 @@
 import React from 'react';
 
-const TodoForm = ({submitHandler, inputText}) => {
+const TodoForm = ({btnHandler, entryHandler, formInput}) => {
 
   return (
 
-    <form onSubmit={submitHandler}>
+    <form>
 
-      <input type="text" name="formInput" value={inputText} />
-      <button type="submit" name="submit">Add Todo</button>
-      <button name="clear">Clear Todos</button>
+      <input type="text" name="formInput" onChange={entryHandler} value={formInput} />
+      <button name="submit" onClick={btnHandler}>Add Todo</button>
+      <button name="clear" onClick={btnHandler}>Clear Todos</button>
 
     </form>
 
