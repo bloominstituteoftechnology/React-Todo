@@ -26,13 +26,23 @@ class App extends React.Component {
 
     if (e.target.name == 'submit') {
 
-      console.log("button 1 clicked");
+      console.log(this.state.formInput);
+
+      this.setState({
+        todoItems: [...this.state.todoItems, this.state.formInput],
+        formInput: ''
+      });
 
     }
 
-    else {
+    else if (e.target.name == "clear"){
 
-      console.log('button 2 clicked');
+      this.setState({
+
+        todoItems: [],
+        formInput: ''
+
+      });
 
     }
 
@@ -51,7 +61,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoForm entryHandler={this.formEntry} btnHandler={this.btnClick} inputText={this.state.inputText}/>
+        <TodoForm entryHandler={this.formEntry} btnHandler={this.btnClick} formInput={this.state.formInput}/>
       </div>
     );
   }
