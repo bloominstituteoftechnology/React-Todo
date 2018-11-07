@@ -2,21 +2,30 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
-
-
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       todos: [],
-      todoText: '',
+      todoTask: '',
     }
   }
 
+
   addToTodos = event => {
     event.preventDefault();
+
+    let getDate = Date.now();
+
     this.setState({
-      todos: [...this.state.todos, {todoInfo: this.state.todoText}],
+      todos: [
+        ...this.state.todos, 
+        {
+          task: this.state.todoText,
+          id: getDate,
+          completed: false
+        }
+      ],
       todoText: '',
     });
   }
