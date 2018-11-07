@@ -2,7 +2,7 @@ import React from 'react';
 
 const Todo = props => {
   return (
-    <li>{props.todo.todo}</li>
+    <li className={props.todo.completed ? 'complete' : 'notComplete'}>{props.todo.task}</li>
   );
 };
 

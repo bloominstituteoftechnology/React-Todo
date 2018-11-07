@@ -2,12 +2,20 @@ import React from 'react';
 
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoSearchBox from './components/TodoComponents/TodoSearchBox';
 
-const dummyData = [
-  {todo: 'Learn React'},
-  {todo: 'Make Cool Websites'},
-  {todo: 'Watch Cartoon'},
-];
+// const dummyData = [
+//   {
+//     task: 'Organize Garage',
+//     id: 1528817077286,
+//     completed: false
+//   },
+//   {
+//     task: 'Bake Cookies',
+//     id: 1528817084358,
+//     completed: false
+//   }
+// ];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -16,8 +24,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todoList: dummyData,
+      todoList: JSON.parse(localStorage.getItem('todoApp')) || [],
       inputText: '',
+      filterText: '',
     }
   }
 
@@ -31,16 +40,33 @@ class App extends React.Component {
     e.preventDefault();
 
     this.setState({
-      todoList: [...this.state.todoList, {'todo': this.state.inputText}],
+      todoList: [
+        ...this.state.todoList,
+        {
+          'task': this.state.inputText,
+          id: this.state.inputText,
+          completed: false
+        }
+      ],
       inputText: '',
     });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (JSON.stringify(prevState.todoList) !== JSON.stringify(this.state.todoList)) {
+      localStorage.setItem('todoApp', JSON.stringify(this.state.todoList));
+    }
   }
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todoList={this.state.todoList}/>
+        <TodoSearchBox
+          filterText={this.state.filterText}
+          handleChange={ e => this.handleChange(e) }
+        />
+        <TodoList todoList={this.state.todoList} filterText={this.state.filterText}/>
         <TodoForm
           inputText= {this.state.inputText}
           handleChange={ e => this.handleChange(e) }
