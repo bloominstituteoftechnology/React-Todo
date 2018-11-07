@@ -24,7 +24,9 @@ class App extends React.Component {
     this.state = {
 
       todoItems: todoList,
-      formInput: ''
+      formInput: '',
+      searchInput: '',
+      filteredItems: todoList
 
     }
 
@@ -49,14 +51,14 @@ class App extends React.Component {
 
     e.preventDefault();
 
-    if (e.target.name == 'submit') {
+    if (e.target.name == 'submitButton') {
 
       const newItems = [...this.state.todoItems, this.createTodoItem(this.state.formInput)];
 
       this.setState({
         todoItems: newItems,
         formInput: ''
-      });
+      }, this.filterItems);
 
       localStorage.todoCount = newItems.length;
 
@@ -68,12 +70,13 @@ class App extends React.Component {
 
     }
 
-    else if (e.target.name == "clear"){
+    else if (e.target.name == "clearButton"){
 
       this.setState({
 
         todoItems: [],
-        formInput: ''
+        formInput: '',
+        filteredItems: []
 
       });
 
@@ -85,10 +88,28 @@ class App extends React.Component {
 
   formEntry(e) {
 
+    const name = e.target.name;
+
     this.setState({
 
       [e.target.name]: e.target.value
 
+    }, () => {
+
+      if (name == "searchInput") {
+
+        this.filterItems();
+
+      }
+
+    });
+
+  }
+
+  filterItems() {
+
+    this.setState({
+      filteredItems: this.state.todoItems.filter(item => item.task.includes(this.state.searchInput))
     });
 
   }
@@ -96,8 +117,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoForm entryHandler={this.formEntry} btnHandler={this.btnClick} formInput={this.state.formInput}/>
-        <TodoList list={this.state.todoItems} />
+        <TodoForm entryHandler={this.formEntry} btnHandler={this.btnClick} formInput={this.state.formInput} searchInput={this.state.searchInput}/>
+        <TodoList list={this.state.filteredItems} />
       </div>
     );
   }
