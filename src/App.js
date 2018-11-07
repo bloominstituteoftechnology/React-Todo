@@ -1,10 +1,17 @@
 import React from 'react';
+import TodoList from './components/TodoComponents/TodoList';
+
+const testTodos = [
+  {todoInfo: 'make this work'},
+  {todoInfo: 'drink some water'},
+  {todoInfo: 'go to sleep'}
+];
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: '',
+      todos: testTodos,
     }
   }
   // you will need a place to store your state in this component.
@@ -14,6 +21,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <TodoList todos={this.state.todos}/>
       </div>
     );
   }
