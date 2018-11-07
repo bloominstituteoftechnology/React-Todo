@@ -2,7 +2,11 @@ import React from 'react';
 
 const TodoForm = props => {
     return (
-        <h1>Hello from forms</h1>
+        <form>
+            <input/>
+            <button>Submit</button>
+            <button>Clear All</button>
+        </form>
     );
 }
 

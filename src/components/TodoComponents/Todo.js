@@ -2,8 +2,8 @@ import React from 'react';
 
 const Todo = props => {
     return (
-        <h1> Hello from Todo item</h1>
+        <h1> {props.todo.task}</h1>
     );
 }
 
-export default Todo;
+export default Todo
