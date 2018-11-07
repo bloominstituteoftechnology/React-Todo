@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+.container {
+    border: 1px solid red;
+    font-size: 3rem;
+    line-height: 3.5rem;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.list{
+    border: 1px solid red;
+    width: 100%;
+}
+
+.form {
+    border: 1px solid red;
+    display: flex;
+  
+    justify-content: space-around;
+    align-items: center;
+}
+
+.todo-form {
+    font-size: 2rem;
+    border: 1px solid red;
+    height: 100%;
+}
+
+.todo-list {
+    width: 100%;
+    border: 1px solid red;
+}

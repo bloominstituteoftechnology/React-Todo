@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './components/TodoComponents/Todo.css';
 
 let todoData = [
   {
@@ -11,7 +12,7 @@ let todoData = [
   {
     task: 'Bake Cookies',
     id: 1528817084358,
-    completed: false
+    completed: true
   },
   {
     task: 'Eat salad',
@@ -60,14 +61,55 @@ class App extends React.Component {
     });
   };
 
+  removeTodo = ev => {
+    ev.preventDefault();
+    this.setState({
+      todos: [
+        ...this.state.todos.filter(item =>
+          item.completed === false
+        )       
+      ],
+      inputText: ''
+    });
+  };
+
+  toggleCompleted = event => {
+    event.preventDefault();
+
+    let currentID = event.target.attributes[0].value;
+    
+    let taskToChange = this.state.todos.findIndex(item => {
+      return item.id.toString() === currentID;
+    })
+
+    let newTodosList = this.state.todos;
+
+    if (newTodosList[taskToChange].completed){
+      newTodosList[taskToChange].completed = false;
+    } else {
+      newTodosList[taskToChange].completed = true;
+    }
+
+    this.setState({
+      todos: newTodosList
+    });
+  };
+
   render() {
     return (
-      <div>
-        <TodoList todos={this.state.todos} />
+      <div className='container'>
         <TodoForm 
           addTodo={this.addTodo}
           inputText={this.state.inputText}
           handleChange={this.handleChange}
+          removeTodo={this.removeTodo}
+          className="todo-form"
+        />
+        <TodoList 
+          handleClick={this.handleClick}
+          toggleCompleted={this.toggleCompleted}
+          todos={this.state.todos} 
+          className="todo-list"
         />
       </div>
     );
