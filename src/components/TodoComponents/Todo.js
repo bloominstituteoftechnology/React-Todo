@@ -5,7 +5,7 @@ const Todo = props => {
   return (
     <div className="toDoContainer">
       {props.list.map(todo => (
-        <h1>{todo}</h1>
+        <h1>{todo.task}</h1>
       ))}
     </div>
   );

@@ -8,7 +8,7 @@ import TodoForm from "./TodoForm";
 const TodoList = props => {
   return (
     <div className="toDoList-container">
-      <TodoForm />
+      <TodoForm onChange={props.onChange} onSubmit={props.onSubmit} />
       <Todo list={props.list} />
     </div>
   );
