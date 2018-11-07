@@ -6,9 +6,9 @@ const Todo = props => {
         <div className="task-container">
             <h3 className="task-name">
                 {props.task.taskName}
-                <span className="task-timestamp">
-                    {props.task.timeStamp}
-                </span>
+            <span className="task-timestamp">
+                {props.task.timeStamp}
+            </span>
             </h3>
         </div>
     )

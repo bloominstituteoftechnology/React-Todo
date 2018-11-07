@@ -7,7 +7,8 @@ import TodoForm from './components/TodoComponents/TodoForm';
 
 
 const taskData = [];
-const taskTimeStamp = Date.now();
+let date = new Date();
+const taskTimeStamp = date.toString();
 // let completedTask = false;
 
 class App extends React.Component {

@@ -58,14 +58,19 @@ table {
 .todo-list-container {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 80%;
+    min-height: 200px;
+    justify-content: center;
+    border: 1px solid orange;
 }
 
 .task-container {
     display: flex;
+    flex-wrap: wrap;
     font-size: 1rem;
     width: 80%;
     margin-bottom: 5px;
+    border: 1px solid lightgray;
 }
 
 .task-container .task-name {
@@ -76,9 +81,9 @@ table {
     cursor: pointer;
 }
 
-.task-container .task-name .task-timestamp {
-    color: red;
-    font-size: 1.2rem;
+.task-container .task-timestamp {
+    color: dodgerblue;
+    font-size: 0.8rem;
 }
 
 .form-container {
