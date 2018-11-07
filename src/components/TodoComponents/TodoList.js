@@ -3,15 +3,14 @@ import Todo from './Todo'
 
 const TodoList = props => {
     return (
-        <div>
-            {props.tasks.map( task => {
-                return (
+        <div className="todo-list-container">
+            {props.tasks.map( task => (
                 <Todo
-                    key={task.taskName}
                     task={task}
+                    key={task.taskName}
                 />
                 )
-            })}
+            )}
         </div>
     );
 };

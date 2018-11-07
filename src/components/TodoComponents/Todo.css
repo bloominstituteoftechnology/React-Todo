@@ -1,0 +1,94 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* ==== End Reset */
+
+* {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+.todo-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.task-container {
+    display: flex;
+    font-size: 1rem;
+    width: 80%;
+    margin-bottom: 5px;
+}
+
+.task-container .task-name {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    /* width: 80%; */
+    margin: 0;
+    cursor: pointer;
+}
+
+.task-container .task-name .task-timestamp {
+    color: red;
+    font-size: 1.2rem;
+}
+
+.form-container {
+    margin: 100px auto;
+}
+
+.form-container input, button {
+    font-size: 1rem;
+}
+
+.completed {
+    text-decoration: line-through;
+}
