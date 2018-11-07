@@ -30,6 +30,10 @@ class App extends React.Component {
     });
   }
 
+  toggleTaskComplete = e => {
+    this.state.list[0].completed = !this.state.list[0].completed;
+  }
+
   addTask = e => {
     e.preventDefault();
     this.setState({
@@ -49,7 +53,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList list={this.state.list} />
+        <TodoList list={this.state.list} toggleTaskComplete={this.toggleTaskComplete} />
         <TodoForm 
           inputText={this.state.inputText}
           handleChange={this.handleChange}

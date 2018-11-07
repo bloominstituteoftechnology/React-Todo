@@ -5,13 +5,15 @@ import Todo from "./Todo";
 // feel free to change this component.js into TodoList.js
 const TodoList = props => {
   return (
-    <div>
+    <div style={{margin: '0 0 50px 0'}}>
       <h1>Todo List: MVP</h1>
       {props.list.map(taskObj => (
         <Todo
           newList={taskObj}
+          toggleTaskComplete={props.toggleTaskComplete}
         />
       ))}
+      
     </div>
   );
 };
