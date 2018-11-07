@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "node-sass": "^4.10.0",
     "react": "*",
     "react-dom": "*",
     "react-scripts": "*"

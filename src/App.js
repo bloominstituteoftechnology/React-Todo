@@ -3,6 +3,8 @@ import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
+import './App.sass';
+
 class App extends React.Component {
 
   constructor() {
@@ -116,7 +118,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='todo-container'>
+        <h1>React Todo App</h1>
         <TodoForm entryHandler={this.formEntry} btnHandler={this.btnClick} formInput={this.state.formInput} searchInput={this.state.searchInput}/>
         <TodoList list={this.state.filteredItems} />
       </div>
