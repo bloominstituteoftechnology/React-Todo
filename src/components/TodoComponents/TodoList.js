@@ -7,11 +7,11 @@ import TodoForm from "./TodoForm";
 
 const TodoList = props => {
   return (
-    <div className="toDoList-container">
-      <TodoForm onChange={props.onChange} onSubmit={props.onSubmit} />
-      <Todo list={props.list} />
+    <div class="todo-list">
+      {props.todoList.map(task => {
+        return <Todo task={task.task} />;
+      })}
     </div>
   );
 };
-
 export default TodoList;
