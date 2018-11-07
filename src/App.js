@@ -9,9 +9,21 @@ class App extends React.Component {
 
     super();
 
+    let todoList = [];
+
+    if (localStorage.todoCount) {
+
+      for (let i = 0; i < localStorage.todoCount; i++) {
+
+        todoList.push(JSON.parse(localStorage[`todo${i}`]));
+
+      }
+
+    }
+
     this.state = {
 
-      todoItems: [],
+      todoItems: todoList,
       formInput: ''
 
     }
@@ -39,12 +51,20 @@ class App extends React.Component {
 
     if (e.target.name == 'submit') {
 
-      console.log(this.state.formInput);
+      const newItems = [...this.state.todoItems, this.createTodoItem(this.state.formInput)];
 
       this.setState({
-        todoItems: [...this.state.todoItems, this.createTodoItem(this.state.formInput)],
+        todoItems: newItems,
         formInput: ''
       });
+
+      localStorage.todoCount = newItems.length;
+
+      for (let i = 0; i < newItems.length; i++) {
+
+        localStorage[`todo${i}`] = JSON.stringify(newItems[i]);
+
+      }
 
     }
 
@@ -56,6 +76,8 @@ class App extends React.Component {
         formInput: ''
 
       });
+
+      localStorage.clear();
 
     }
 
