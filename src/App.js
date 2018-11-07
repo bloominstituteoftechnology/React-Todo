@@ -40,12 +40,20 @@ class App extends Component {
     });
   }
 
+  markComplete = e => {
+    e.target.classList.toggle('complete');
+    console.log(e.target);
+  }
+
   // Render
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList list={this.state.currentList} />
+        <TodoList
+          list={this.state.currentList}
+          markComplete={this.markComplete}
+        />
         <TodoForm
           handleChange={this.handleChange}
           inputValue={this.state.inputValue}

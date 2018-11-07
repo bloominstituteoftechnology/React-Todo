@@ -6,7 +6,10 @@ import ToDo from './Todo'
 const TodoList = props => {
     return (
         <ul>
-            {props.list.map(i => <ToDo item={i} />)}
+            {props.list.map(i => <ToDo
+                item={i}
+                markComplete={props.markComplete}
+            />)}
         </ul>
     );
 }
