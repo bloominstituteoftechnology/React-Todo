@@ -5,8 +5,8 @@ import './components/TodoComponents/Todo.css';
 
 
 const taskListArray = [
-  { taskName: 'Clean the bathroom', id: 1528817077286, completed: false },
-  { taskName: 'Practice coding', id: 1528817084358, completed: false}
+  // { taskName: 'Clean the bathroom', id: 1528817077286, completed: false },
+  // { taskName: 'Practice coding', id: 1528817084358, completed: false}
 ];
 
 
@@ -16,14 +16,26 @@ class App extends React.Component {
     this.state = {
       tasks: taskListArray,
       inputText: '',
+      id: ''
     };
   }
 
   handleChange = event => {
     this.setState({
-      inputText: event.target.value
+      [event.target.name]: event.target.value
     });
-    console.log(event.target.name);
+  };
+
+  addTask = ev => {
+    ev.preventDefault();
+    // create a new array with:
+    // 1 - all the old data in the old array (Hint: use the spread operator)
+    // 2 - all the new tasks from this.state.inputText
+    this.setState({
+      tasks: [...this.state.tasks, {taskName: this.state.inputText}],
+      inputText: '',
+      id: Date.now()
+    })
   };
 
   render() {
@@ -31,6 +43,7 @@ class App extends React.Component {
       <div className="App">
         <TodoList tasksList={this.state.tasks} />
         <TodoForm 
+          addTask={this.addTask} 
           inputText={this.state.inputText} 
           handleChange={this.handleChange} 
         />
