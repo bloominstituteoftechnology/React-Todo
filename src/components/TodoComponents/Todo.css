@@ -1,0 +1,14 @@
+.App {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    margin: 100px;
+}
