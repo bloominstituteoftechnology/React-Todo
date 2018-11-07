@@ -8,7 +8,7 @@ const TodoList = ({list}) => {
 
     <ul>
 
-      {list.map(item => <Todo item={item} />)}
+      {list.map(item => <Todo key={item.id} item={item} />)}
 
     </ul>
 

@@ -21,6 +21,18 @@ class App extends React.Component {
 
   }
 
+  createTodoItem(task) {
+
+    return {
+
+      task: task,
+      id: Date.now(),
+      completed: false
+
+    }
+
+  }
+
   btnClick(e) {
 
     e.preventDefault();
@@ -30,7 +42,7 @@ class App extends React.Component {
       console.log(this.state.formInput);
 
       this.setState({
-        todoItems: [...this.state.todoItems, this.state.formInput],
+        todoItems: [...this.state.todoItems, this.createTodoItem(this.state.formInput)],
         formInput: ''
       });
 

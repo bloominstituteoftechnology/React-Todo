@@ -4,7 +4,7 @@ const Todo = ({item}) => {
 
   return (
 
-    <li>{item}</li>
+    <li>{item.task}</li>
 
   );
 
