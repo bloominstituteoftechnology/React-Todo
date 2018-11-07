@@ -12,3 +12,7 @@
 .form {
     margin: 100px;
 }
+
+.completed {
+    text-decoration: line-through;
+}

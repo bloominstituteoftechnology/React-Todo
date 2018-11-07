@@ -6,23 +6,13 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      tasks: [{
-            task: 'Walk the Pup',
-            id: '',
-            completed: false,
-          },
-          {
-            task: 'Walk the Pup',
-            id: '',
-            completed: false,
-          },],
+      tasks: [],
       inputText: '',
       };
   }
 
   addTask = (event) => {
     event.preventDefault();
-    console.log('button working');
     this.setState({
       tasks: [
         ...this.state.tasks, 
@@ -40,16 +30,45 @@ class App extends React.Component {
 
   clearTasks = (event) => {
     this.setState({
-      tasks: []
+      tasks: this.state.tasks.filter(x => Object.values(x).includes(false))
     })
   }
 
   changeHandler = (event) => {
-    console.log(event.target.value);
     this.setState({
       inputText: event.target.value
     })
   }
+
+  completedToggle = (event) => {
+    event.target.classList.toggle('completed');
+    let newTasks = this.state.tasks;
+    for (let i = 0; i < newTasks.length; i++) {
+      if (event.target.classList.contains('completed')) {
+        if (!Object.values(newTasks[i]).includes(event.target.key)) {
+          newTasks[i] = {
+            task: newTasks[i].task,
+            id: newTasks[i].id,
+            completed: true
+          }
+        }
+      }
+      else {
+        if (!Object.values(newTasks[i]).includes(event.target.key)) {
+          newTasks[i] = {
+            task: newTasks[i].task,
+            id: newTasks[i].id,
+            completed: false
+          }
+        }
+      }
+      
+    }
+    this.setState({
+      tasks: newTasks
+    })
+  }
+  
 
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -57,7 +76,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <TodoList todoArray={this.state.tasks} />
+        <TodoList completedToggle={this.completedToggle} todoArray={this.state.tasks} />
         <TodoForm addTask={this.addTask} clearTasks={this.clearTasks} inputText={this.state.inputText} changeHandler={this.changeHandler} />
       </div>
     );
