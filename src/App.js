@@ -32,9 +32,8 @@ class App extends React.Component {
     // 1 - all the old data in the old array (Hint: use the spread operator)
     // 2 - all the new tasks from this.state.inputText
     this.setState({
-      tasks: [...this.state.tasks, {taskName: this.state.inputText}],
+      tasks: [...this.state.tasks, {taskName: this.state.inputText, id: Date.now()}],
       inputText: '',
-      id: Date.now()
     })
   };
 

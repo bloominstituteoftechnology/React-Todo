@@ -12,5 +12,3 @@ const TodoList = props => {
 };
 
 export default TodoList;
-
-{/* <Todo key={taskFromMap.id} taskOnProps={taskFromMap}  /> */}
