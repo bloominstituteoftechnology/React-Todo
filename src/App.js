@@ -21,8 +21,7 @@ class App extends Component {
           completed: false
         }
       ],
-      inputValue: '',
-      currentId: 0
+      inputValue: ''
     }
   }
 
@@ -36,9 +35,8 @@ class App extends Component {
   addItem = e => {
     e.preventDefault();
     this.setState({
-      currentList: [...this.state.currentList, { task: this.state.inputValue, id: this.state.currentId, completed: false }],
-      inputValue: '',
-      currentId: this.state.currentId + 1
+      currentList: [...this.state.currentList, { task: this.state.inputValue, id: Date.now(), completed: false }],
+      inputValue: ''
     });
   }
 
