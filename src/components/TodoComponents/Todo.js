@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Todo.scss';
+
 const Todo = ({item}) => {
 
   return (

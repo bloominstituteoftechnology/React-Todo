@@ -1,10 +1,12 @@
 import React from 'react';
 
+import './Todo.scss';
+
 const TodoForm = ({btnHandler, entryHandler, formInput, searchInput}) => {
 
   return (
 
-    <>
+    <div className='form'>
 
       <form>
 
@@ -20,7 +22,7 @@ const TodoForm = ({btnHandler, entryHandler, formInput, searchInput}) => {
 
       </form>
 
-    </>
+    </div>
 
   );
 

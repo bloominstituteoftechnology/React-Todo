@@ -1,0 +1,42 @@
+.form {
+
+  display: flex;
+  margin-bottom: 20px;
+
+  button {
+
+    cursor: pointer;
+
+  }
+
+}
+
+ul {
+
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+
+  li {
+
+    font-size: 1.6rem;
+    border: 1px solid grey;
+    width: 50%;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #ccc;
+
+    &:hover {
+
+      background-color: #ddd;
+      cursor: pointer;
+
+    }
+
+  }
+
+}

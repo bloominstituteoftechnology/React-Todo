@@ -3,7 +3,7 @@ import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
-import './App.sass';
+import './App.scss';
 
 class App extends React.Component {
 
