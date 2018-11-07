@@ -38,11 +38,37 @@ class App extends React.Component {
     };
   }
   
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
+  addTodo = ev => {
+    ev.preventDefault();
+    // create a new array with:
+    // 1 - all the old data in the old array (Hint: use the spread operator)
+    // 2 - the new character from this.state.inputText
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        { task: this.state.inputText, 
+          id: Date.now(), 
+          completed: false }
+      ],
+      inputText: ''
+    });
+  };
+
   render() {
     return (
       <div>
         <TodoList todos={this.state.todos} />
-        <TodoForm />
+        <TodoForm 
+          addTodo={this.addTodo}
+          inputText={this.state.inputText}
+          handleChange={this.handleChange}
+        />
       </div>
     );
   }
