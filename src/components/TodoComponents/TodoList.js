@@ -9,11 +9,12 @@ const TodoList = props => {
       <h1>Todo List: MVP</h1>
       {props.list.map(taskObj => (
         <Todo
+          key={taskObj.id}
+          objectnumber={taskObj.id}
           newList={taskObj}
           toggleTaskComplete={props.toggleTaskComplete}
         />
       ))}
-      
     </div>
   );
 };

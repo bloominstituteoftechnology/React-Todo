@@ -12,9 +12,9 @@ const Todo = props => {
       fontSize: '24px',
       padding: '10px 0'
     }}
-    onClick={props.toggleTaskComplete}
+    onClick={() => props.toggleTaskComplete(props.objectnumber)}
     
-    >{props.newList.task}</p>;
+    >{props.newList.task}</p>
 };
 
 export default Todo;

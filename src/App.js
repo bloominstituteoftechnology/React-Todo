@@ -10,12 +10,12 @@ class App extends React.Component {
       list: [
         {
           task: 'Organize Garage',
-          id: 1528817077286,
+          id: 0,
           completed: false
         },
         {
           task: 'Bake Cookies',
-          id: 1528817084358,
+          id: 1,
           completed: false
         }
       ],
@@ -30,8 +30,12 @@ class App extends React.Component {
     });
   }
 
-  toggleTaskComplete = e => {
-    this.state.list[0].completed = !this.state.list[0].completed;
+  toggleTaskComplete = (num) => {
+    let newArr = this.state.list.slice()
+    newArr[num].completed = !newArr[num].completed;
+    this.setState({
+      list: newArr
+    })
   }
 
   addTask = e => {
@@ -41,7 +45,7 @@ class App extends React.Component {
           ...this.state.list,
           {
             task: this.state.inputText,
-            id: Date.now(),
+            id: this.state.list[this.state.list.length - 1].id + 1,
             completed: false
           }
       ],
