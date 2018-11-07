@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   handleChange = (event) => {
-    this.setState({inputText: event.target.value})
+    this.setState({[event.target.name]: event.target.value})
   }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -30,6 +30,7 @@ class App extends React.Component {
         <TodoList todoList={this.state.todoList} />
         <TodoForm 
           handleChange={this.handleChange}
+          name={'inputText'}
           inputText={this.state.inputText}/>
       </div>
     );
