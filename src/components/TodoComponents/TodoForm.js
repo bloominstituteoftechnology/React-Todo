@@ -5,6 +5,7 @@ function TodoForm(props) {
     <form>
       <input name={props.name} onChange={props.handleChange} value={props.inputText}></input>
       <button>press enter</button>
+      <button>Clear All</button>
     </form>
     
   );

@@ -10,7 +10,7 @@ class App extends React.Component {
       todoList: [
         {
           task: 'name of task',
-          id: 'will use new Date();',
+          id: 1,
           completed: false,
         }
       ],
