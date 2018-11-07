@@ -7,7 +7,7 @@ const TodoList = props => {
     return(
         <div>
             {props.todos.map(currentTodo => {
-                return <Todo key={'blank'} item={currentTodo} />;
+                return <Todo key={currentTodo.task} item={currentTodo} />;
             })}
         </div>
     );
