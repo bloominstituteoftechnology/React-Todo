@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
 
@@ -62,6 +63,7 @@ class App extends React.Component {
     return (
       <div>
         <TodoForm entryHandler={this.formEntry} btnHandler={this.btnClick} formInput={this.state.formInput}/>
+        <TodoList list={this.state.todoItems} />
       </div>
     );
   }
