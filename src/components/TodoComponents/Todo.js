@@ -4,7 +4,11 @@ import "./Todo.css";
 const Todo = props => {
   return (
     <Fragment>
-      <p id={props.list.id} completed={props.list.completed}>
+      <p
+        className="todo"
+        completed={props.list.completed}
+        onClick={props.onClick}
+      >
         {props.list.task}
       </p>
     </Fragment>

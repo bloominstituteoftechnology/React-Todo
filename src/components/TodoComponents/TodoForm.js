@@ -1,15 +1,21 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./Todo.css";
 
 const TodoForm = props => {
   return (
-    <div className="form-component">
-      <input type="text" placeholder="...todo" onChange={props.onChange} />
-      <button type="submit" onClick={props.onClick}>
-        Add Todo
+    <form onSubmit={props.addItem}>
+      <input
+        name="inputText"
+        type="text"
+        placeholder="...todo"
+        value={props.inputText}
+        onChange={props.handleChange}
+      />
+      <button type="submit">Add Todo</button>
+      <button name="clear" type="submit" onClick={props.clearHandler}>
+        Clear Completed
       </button>
-      <button type="submit">Clear Completed</button>
-    </div>
+    </form>
   );
 };
 
