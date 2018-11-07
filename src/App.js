@@ -1,5 +1,7 @@
 import React from 'react';
+
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 const dummyData = [
   {todo: 'Learn React'},
@@ -15,7 +17,23 @@ class App extends React.Component {
     super(props);
     this.state = {
       todoList: dummyData,
+      inputText: '',
     }
+  }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
+  addTodo(e) {
+    e.preventDefault();
+
+    this.setState({
+      todoList: [...this.state.todoList, {'todo': this.state.inputText}],
+      inputText: '',
+    });
   }
 
   render() {
@@ -23,6 +41,11 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todoList={this.state.todoList}/>
+        <TodoForm
+          inputText= {this.state.inputText}
+          handleChange={ e => this.handleChange(e) }
+          addTodo={ e => this.addTodo(e) }
+        />
       </div>
     );
   }
