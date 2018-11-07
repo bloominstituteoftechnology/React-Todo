@@ -36,11 +36,22 @@ class App extends React.Component {
     });
   };
 
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
   render() {
     return (
       <div>
-        {console.log(this.state)}
-        <TodoList />
+        {/* {console.log(this.state)} */}
+        <TodoList 
+          addTodo={this.addTodo}
+          inputText={this.state.inputText}
+          handleChange={this.handleChange}
+          todoList={this.state.todoList}
+        />
       </div>
     );
   }
