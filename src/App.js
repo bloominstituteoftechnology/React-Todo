@@ -21,12 +21,12 @@ const todoItems = [
   {
     task: "eat tendies",
     id: 4,
-    completed: ""
+    completed: false
   },
   {
     task: "redeem GBPs",
     id: 5,
-    completed: ""
+    completed: false
   }
 ];
 
@@ -35,8 +35,7 @@ class App extends React.Component {
     super();
     this.state = {
       todo: todoItems,
-      inputText: ""
-      // strikeThrough: false
+      inputText: false
     };
   }
 
@@ -71,10 +70,6 @@ class App extends React.Component {
     if (!ev.target.completed) {
       ev.target.classList.toggle("completed");
       ev.target.completed = "";
-      // ev.target.strikeThrough = "true";
-      // ev.target.completed = 1;
-      // ev.target.completed = undefined;
-      // ev.target.style.textDecoration = "line-through";
       // console.log(ev.target.completed);
     }
   };
