@@ -17,7 +17,7 @@ class App extends React.Component {
 
   changeText = event => {
     event.preventDefault();
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({inputText: event.target.value});
   }
 
   addNewTodo = event => {
@@ -68,7 +68,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <div>
+        <h1>Things To Do</h1>
+        <TodoForm
+          addNewTodo={this.addNewTodo}
+          clearCompletedHandler={this.clearCompletedHandler}
+          changeText={this.changeText}
+          inputText={this.state.inputText}
+          tasks={this.tasks}
+        />
+        <TodoList tasks={this.state.tasks} completedHandler={this.completedHandler} />
+</div>
       </div>
     );
   }

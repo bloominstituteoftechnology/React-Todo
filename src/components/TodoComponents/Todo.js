@@ -14,7 +14,7 @@ function Todo(props) {
         <div className='task' onClick={() => props.completedHandler(props.id)} >
           {props.task}
         </div>
-      )
+      );
     }
   }
   
