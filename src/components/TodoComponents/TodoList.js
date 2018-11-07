@@ -6,8 +6,6 @@ import Todo from './Todo.js';
 
 
 function TodoList(props) {
-  const list = props.todoList;
-  console.log(list)
    return (
     <div>
       {props.todoList.map( todoItem => <Todo todoItem={todoItem} />)}

@@ -1,9 +1,9 @@
 import React from 'react';
 
-function TodoForm() {
+function TodoForm(props) {
   return (
     <form>
-      <input></input>
+      <input onChange={props.handleChange} value={props.inputText}></input>
       <button>press enter</button>
     </form>
     
