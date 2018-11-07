@@ -1,8 +1,39 @@
-import React from 'react';
-import './Todo.css';
+import React from 'react'
 
-const Todo = props => {
-    return (<li>{props.value}</li>);
+
+class Todo extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isToggleOn: false,
+        };
+
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        this.setState({
+            isToggleOn: !this.state.isToggleOn
+        });
+      }
+
+      toggleStrike(event) {
+          event.target.classList.add('strike-th');
+          event.target.style.color = "lightblue";
+    
+      }
+     
+      render() {
+        return (
+            <div className="todo">
+                <ul>
+                    <li onClick={this.handleClick && this.toggleStrike} >
+                    {this.props.value}
+                    </li>
+                </ul>
+            </div>
+    );
 }
-  
-  export default Todo;
+}
+
+export default Todo
