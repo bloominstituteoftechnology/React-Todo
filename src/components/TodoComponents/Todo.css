@@ -21,9 +21,18 @@ main {
 }
 .form {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
 }
 button{
     background: white;
     border-radius: 5px;
+}
+
+.off{
+    text-decoration: none;
+
+}
+
+.strikethrough{
+    text-decoration: line-through;
 }

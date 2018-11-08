@@ -4,24 +4,23 @@ import TodoForm from './components/TodoComponents/TodoForm';
 import './components/TodoComponents/Todo.css';
 
 const listItems = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
+  
 ]
+
+let nextId = 2
+const getNewId = () => {
+  nextId += 1;
+  return nextId
+}
+
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       list: listItems,
-      inputText: '',   
+      inputText: '', 
+      clicks: 0, 
     }
   }
   handleChange = event => {
@@ -35,12 +34,44 @@ class App extends React.Component {
     this.setState({
       list: [
         ...this.state.list,
-        { task: this.state.inputText }
+        { task: this.state.inputText, id: getNewId(), completed: false}
       ],
       inputText: ''
     });
   };
   
+handleClick  = id => {
+  this.setState({
+    list: this.state.list.map(item => {
+      if (item.id === id){
+        return {
+          ...item,
+          completed: item.completed === true ? false : true
+        };
+      
+      } else {
+        return item;
+      }
+    })
+  });
+  }
+
+strikeThrough = event => {
+  if (event.target.className === 'strikethrough') {
+    event.target.className = 'off'
+  } else {
+    event.target.className = 'strikethrough'
+  }
+} 
+
+clearCompleted = (event) => {
+  event.preventDefault();
+  this.setState({
+    list: this.state.list.filter(item => {
+      return item.completed === false
+    })
+  })
+}
 
   render() {
     return (
@@ -49,8 +80,13 @@ class App extends React.Component {
         addItem={this.addItem}
         inputText={this.state.inputText}
         handleChange={this.handleChange}
+        clear={this.clearCompleted}
         />
-        <TodoList list={this.state.list}/>
+        <TodoList 
+        list={this.state.list}
+        handleClick={this.handleClick}
+        strikeThrough={this.strikeThrough}
+        />
       </main>
     );
   }

@@ -13,7 +13,7 @@ const TodoForm = props => {
         />
       
         <button type="submit">Add Item</button>
-        <button type="clear">Clear Completed</button>
+        <button type="clear" onClick={props.clear}>Clear Completed</button>
       </form>
     </section>
   );
