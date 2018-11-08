@@ -137,7 +137,7 @@ class App extends React.Component {
           handleChange={this.handleChange}
         />
         <TodoList 
-          handleClick={this.handleClick}
+          // handleClick={this.handleClick}
           toggleCompleted={this.toggleCompleted}
           todos={this.state.todos} 
         />

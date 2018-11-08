@@ -10,8 +10,7 @@ const TodoList = props => {
             {props.todos.map(todo => (
                 <Todo 
                     key={todo.id} 
-                    todo={todo} 
-                    handleClick={props.handleClick}
+                    todo={todo}
                     toggleCompleted={props.toggleCompleted}
                 />
             ))}
