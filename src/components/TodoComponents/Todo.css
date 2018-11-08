@@ -80,6 +80,7 @@ table {
     margin: 0;
     cursor: pointer;
     border: 1px solid lightgray;
+    text-decoration: none;
 }
 
 .task-container .task-timestamp {
@@ -95,6 +96,13 @@ table {
     font-size: 1rem;
 }
 
-.completed {
-    text-decoration: line-through;
+.task-container.red {
+    background-color: #ed6363;
+    border: 1px solid red;
+    color: white;
+}
+
+.task-container.white {
+    background-color: #ffffff;
+    border: 1px solid blue;;
 }

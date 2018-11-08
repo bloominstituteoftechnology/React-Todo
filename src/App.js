@@ -6,12 +6,13 @@ import TodoForm from './components/TodoComponents/TodoForm';
 
 
 let date = new Date();
-const taskTimeStamp = date.toString();
+const taskTimeStamp = date.toLocaleDateString('en-US');
 const taskData = [
   {
     taskName: 'Add your first task', 
     timeStamp: taskTimeStamp, 
-    completed:false, 
+    completed: false, 
+    color: 'white',
     id:0
   }
 ];
@@ -23,6 +24,7 @@ const getNewId = () => {
   return nextId;
 }
 
+
 class App extends React.Component {
   constructor(){
     super();
@@ -30,6 +32,7 @@ class App extends React.Component {
       tasks: taskData,
       timeStamp: taskTimeStamp,
       completed: false,
+      color: 'white',
       inputText: '',
     };
     this.baseState = this.state
@@ -46,9 +49,12 @@ class App extends React.Component {
     this.setState({
       tasks: [
         ...this.state.tasks,
-        {taskName: this.state.inputText, timeStamp: taskTimeStamp, completed: false, id: getNewId()},
-        // {timeStamp: taskTimeStamp},
-        // {completed: this.state.completed}
+        {taskName: 
+          this.state.inputText, 
+          timeStamp: taskTimeStamp, 
+          completed: false,
+          color: 'white',
+          id: getNewId()}
       ],
       inputText: ''
     })
@@ -62,7 +68,6 @@ class App extends React.Component {
 
   completeTask = id => {
     // console.log(`task ${this.task.id} marked as complete`);
-    // this.style.textDecoration = 'line-through';
     // this.classList.toggle('completed');
     this.setState({
       tasks: this.state.tasks.map(
@@ -71,6 +76,7 @@ class App extends React.Component {
             return{
               ...task,
               completed: task.completed === false ? true : false,
+              color: task.color === 'white' ? 'red' : 'white'
             };
           } else {
             return task;
