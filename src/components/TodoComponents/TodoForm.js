@@ -1,5 +1,5 @@
 import React from "react";
-import "../TodoComponents/Todo.css"
+import "../TodoComponents/Todo.css";
 
 const TodoForm = props => {
   return (
@@ -13,9 +13,9 @@ const TodoForm = props => {
           onChange={props.handleChange}
         />
         <button type="submit">New Todo Task!</button>
-        <h1>starting a new chapter.</h1>
+        <button onClick={props.clearCompleted}>Clear Button!</button>
+        
       </form>
-      <button>Clear Button!</button>
     </div>
   );
 };

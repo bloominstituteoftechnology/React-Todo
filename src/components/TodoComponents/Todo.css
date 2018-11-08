@@ -3,6 +3,7 @@
 }
  html, body {
     width: 800px;
+    margin: 0px auto;
     border: 1px solid blue;
 }
  html {
@@ -10,9 +11,21 @@
 }
 
 
+.App {
+    display:flex;
+    flex-direction: column;
+    background-color: yellow;
+}
 
+.task-header.true {
+    color:green;
+    text-decoration: line-through;
+}
 
-
+.task-header.false {
+    color:red;
+    text-decoration: none;
+}
 
 
 

@@ -9,10 +9,10 @@ const TodoList = props => {
       <div>
         
         {props.todo.map(todoInMap => (
-            <Todo key={todoInMap.task}
-
-            
-            todoOnProps={todoInMap} />
+            <Todo 
+            key={todoInMap.id}
+            todoOnProps={todoInMap}
+            changeTaskStatus={props.changeTaskStatus} />
         ))}
       </div>
     );
