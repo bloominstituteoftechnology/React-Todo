@@ -40,20 +40,20 @@ class App extends React.Component {
       todos: [
         ...this.state.todos,
         { task: this.state.todoText, id: Date.now(), completed: false }
-      ]
+      ],
+      todoText: ""
     });
-    todoText: "";
   };
 
   render() {
     return (
       <div className="ToDo">
-        <ToDoList todos={this.state.todos} />
+        <ToDoList todos={this.state.todos} />{" "}
         <ToDoForm
           addToDo={this.addToDo}
           todoText={this.state.todoText}
           handleChange={this.handleChange}
-        />
+        />{" "}
       </div>
     );
   }
