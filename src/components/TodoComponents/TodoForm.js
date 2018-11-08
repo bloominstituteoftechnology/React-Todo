@@ -10,13 +10,13 @@ const ToDoForm = props => {
         placeholder="add new todo"
         value={props.todoText}
         onChange={props.handleChange}
-      />{" "}
+      />
       <button className="submit" type="submit">
-        Add ToDo{" "}
-      </button>{" "}
-      <button onClick={props.clearField} className="completed" type="submit">
-        Completed{" "}
-      </button>{" "}
+        Add ToDo
+      </button>
+      <button onClick={props.clearField} className="completed">
+        Completed
+      </button>
     </form>
   );
 };

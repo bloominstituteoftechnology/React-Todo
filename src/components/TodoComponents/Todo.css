@@ -6,22 +6,31 @@
     background-image: url(https://cdn.hipwallpaper.com/i/22/98/i40JrY.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-position: center; */
-    /* background-position: top; */
     box-shadow: 5px 10px #A99A91;
 }
 
 .heading {
     color: green;
-    padding: 0 20px;
+    padding: 0 10px;
     color: #FFF;
 }
 
 .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
-    margin-left: 20px;
+    margin-left: 10px;
+    height: 20px;
+    border-radius: 3px;
 }
 
 .submit {
     margin: 10px;
+    border-radius: 4px;
+}
+
+.completed {
+    margin: 10px;
+    border-radius: 4px;
 }
