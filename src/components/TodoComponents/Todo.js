@@ -1,7 +1,13 @@
 import React from 'react';
 
 const Todo = props => {
-    return <p>{props.item.task}</p>
+    return (
+        <p 
+        onClick={ () => {} }
+        >
+        {props.item.task}
+        </p>
+    )
 };
 
 export default Todo

@@ -53,8 +53,19 @@ addItem = event => {
   });
 };
 
-completedItems = event => {
-
+completedItems = id => {
+  this.setState({
+    items: this.state.items.map( item => {
+      if(item.id === id) {
+        return {
+          ...item,
+          
+        }
+      } else {
+        return item;
+      }
+    })
+  });
 };
 
 
@@ -62,7 +73,10 @@ completedItems = event => {
     return (
       <div>
         <h1>The Greatest Todo List</h1>
-        <TodoList itemsList={this.state.items}/>
+        <TodoList 
+        itemsList={this.state.items}
+        completedItems={this.completedItems}
+        />
         <TodoForm 
         inputItem={this.state.inputItem} 
         handleChange={this.handleChange}
