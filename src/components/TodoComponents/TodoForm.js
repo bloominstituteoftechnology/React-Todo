@@ -14,7 +14,7 @@ const ToDoForm = props => {
       <button className="submit" type="submit">
         Add ToDo{" "}
       </button>{" "}
-      <button className="completed" type="submit">
+      <button onClick={props.clearField} className="completed" type="submit">
         Completed{" "}
       </button>{" "}
     </form>
