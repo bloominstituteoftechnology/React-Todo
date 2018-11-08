@@ -37,11 +37,17 @@ class App extends React.Component {
     });
   }
 
-  handleClick(e, el, i) {
-    const newTodos = [...this.state.todoList];
-    newTodos[i].completed = !newTodos[i].completed;
-
-    this.setState(newTodos);
+  handleClick(e, id) {
+    this.setState(
+      this.state.todoList.map(
+        todo => {
+          if (todo.id === id) {
+            todo.completed = !todo.completed;
+          }
+          return todo;
+        }
+      )
+    );
   }
 
   addTodo(e) {
@@ -53,7 +59,7 @@ class App extends React.Component {
           ...this.state.todoList,
           {
             'task': this.state.inputText,
-            id: this.state.inputText,
+            id: Date.now(),
             completed: false
           }
         ],
@@ -88,7 +94,7 @@ class App extends React.Component {
           />
           <TodoList
             todoList={this.state.todoList}
-            handleClick={ (e, el, i) => this.handleClick(e, el, i)  }
+            handleClick={ (e, id) => this.handleClick(e, id)  }
             filterText={this.state.filterText}/>
           <TodoForm
             inputText= {this.state.inputText}

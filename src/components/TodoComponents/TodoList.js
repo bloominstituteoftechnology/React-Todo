@@ -15,7 +15,7 @@ class TodoList extends React.Component{
               (todo, i) => <Todo
                 key={todo.id + i}
                 todo={todo}
-                handleClick={ (e, el) => this.props.handleClick(e, el, i) }
+                handleClick={ (e, id) => this.props.handleClick(e, id) }
               />
             )
           }
