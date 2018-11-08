@@ -1,8 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import SearchForm from './components/TodoComponents/SearchForm';
 
+const StyledApp = styled.div`
+    width: 500px;
+    max-width: 100%;
+    border: 2px solid red;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px 10px pink;
+`
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -59,9 +68,6 @@ class App extends React.Component {
   searchItems = ev => {
     ev.preventDefault();
     this.setState({
-      // listItems: this.state.listItems.filter(
-      //   item => item.listItem.includes(`${this.state.searchText}`)
-      // )
       listItems: this.state.listItems.map(item => {
         if(!item.listItem.toUpperCase().includes(`${this.state.searchText.toUpperCase()}`)){
           return{...item, display: false}
@@ -86,9 +92,13 @@ class App extends React.Component {
     localStorage.setItem('savedState', JSON.stringify(this.state.listItems));
   }
 
+  // componentDidMount() {
+  //   this.state.listItems = JSON.parse(localStorage.getItem('savedState'));
+  // }
+
   render() {
     return (
-      <div>
+      <StyledApp>
         <SearchForm searchText={this.state.searchText}
         handleChange={this.handleChange}
         searchItems={this.searchItems}
@@ -104,7 +114,7 @@ class App extends React.Component {
         handleChange={this.handleChange} />
 
 
-      </div>
+      </StyledApp>
     );
   }
 }

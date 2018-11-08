@@ -1,16 +1,40 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const StyledForm = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    font-size: 30px;
+    font-weight: bold;
+`
+
+const StyledInput = styled.input`
+    width: 100%;
+    padding: 5px;
+    font-size: 20px;
+    box-sizing: border-box;
+`
+
+const Button = styled.button`
+    font-size: 20px;
+    padding: 5px 20px;
+    background: transparent;
+    cursor: pointer;
+`
 
 const TodoForm = props => {
     return (
-        <div>
+        <StyledForm>
+            Add Items:
             <form onSubmit={props.addListItem}>
-                <input type="text" name="inputText" 
+                <StyledInput type="text" name="inputText" 
                 placeholder="add new list item" value={props.inputText}
                 onChange={props.handleChange} />
-                <button type="submit">Add Item</button>
-                <button onClick={props.clearCompleted}>Clear Completed Items</button>
+                <Button type="submit">Add Item</Button>
+                <Button onClick={props.clearCompleted}>Clear Completed Items</Button>
             </form>
-        </div>
+        </StyledForm>
     );
 }
 
