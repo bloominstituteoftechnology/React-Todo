@@ -2,3 +2,19 @@
   text-decoration: line-through;
   list-style-position: inside;
 }
+
+.search {
+  width: 100%;
+}
+
+.add--todo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+.add--todo input {
+  flex-grow: 1;
+  margin: 0;
+}
