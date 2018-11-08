@@ -6,15 +6,23 @@ import TodoForm from './components/TodoComponents/TodoForm';
 const todoListSeed = [
   {
     task: 'Learn setState()',
-    id: Date.now(),
+    id: "982347597",
     completed: false
   },
   {
     task: 'Style my Todo List',
-    id: Date.now() + 1,
+    id: "0897979876",
     completed: false
   }
 ];
+
+let nextId = 125;
+
+const getNewId = () => {
+  nextId += 1;
+  return nextId;
+}
+
 
 class App extends React.Component {
   constructor() {
@@ -22,8 +30,8 @@ class App extends React.Component {
     this.state = {
       todoList: todoListSeed,
       inputText: '',
-      id: Date.now(),
-      completed: false
+      completed: false,
+      textDecoration: 'none',
     }
   }
 
@@ -34,22 +42,23 @@ class App extends React.Component {
     }
   }
 
-
   addTodo = event => {
     event.preventDefault();
 
     let newTodos = [...this.state.todoList,
-      { task: this.state.inputText, id: Date.now(), completed: false}];
+      { task: this.state.inputText, id: this.state.id, completed: false, textDecoration: this.state.textDecoration}];
       localStorage.setItem('todo', JSON.stringify(newTodos));
 
       this.setState({
         todoList: [
           ...this.state.todoList,
-          {task: this.state.inputText},
+          {task: this.state.inputText,
+            textDecoration: "none", id: getNewId() }
         ],
           inputText: '',
       })
   };
+
 
   handleChange = event => {
     this.setState({
@@ -57,24 +66,39 @@ class App extends React.Component {
     });
   };
 
-  toggleCompleted = (event, todo) => {
-    // let selectedTodo = this.state.todoList.filter(todo => todo.task === event.target.innerText)
-    // console.log(selectedTodo, "SELECTED");
-    event.target.classList.toggle('completed')
-    // todo.completed === false ? 
-    // todo.setState({completed: true}) : 
-    // todo.setState({completed: false })
-    this.setState(todo => {
-      return { completed: (todo.completed: true)}
+  toggleCompleted = (id) => {
+    // this.state.todoList.filter(todo => todo.task === event.target.innerText )
+    // event.target.classList.toggle('completed')
+    // this.setState({
+    //   completed: true
+    // })
+    this.setState({
+      todoList: this.state.todoList.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            textDecoration: todo.textDecoration === "none" || todo.textDecoration === undefined ? "line-through" : "none"
+          };
+        } else {
+          return todo;
+        }
+      })
     })
-    console.log(todo)
+  }
+
+  removeCompleted = e => {
+    e.preventDefault();
+    this.setState({
+      todoList: this.state.todoList.filter(
+        todo => todo.textDecoration === "none"
+      )
+    });
   }
 
   render() {
     return (
       <div>
         <TodoList 
-          addTodo={this.addTodo}
           todoList={this.state.todoList}
           toggleCompleted={this.toggleCompleted}
         />
@@ -83,6 +107,7 @@ class App extends React.Component {
           addTodo={this.addTodo}
           inputText={this.state.inputText}
           handleChange={this.handleChange}
+          removeCompleted={this.removeCompleted}
         />
       </div>
     );

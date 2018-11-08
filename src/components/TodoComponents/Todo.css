@@ -1,3 +1,12 @@
-.completed {
+.todo-item {
+  cursor: pointer;
+}
+
+.todo-item.none {
+  text-decoration: none;
+}
+
+.todo-item.line-through {
   text-decoration: line-through;
 }
+

@@ -13,11 +13,11 @@ const TodoList = props => {
       {props.todoList.map(todo => (
         
         <Todo
-        // todoList={props.todoList}
         key={todo.id}
+        todoOnProps={todo}
         todoListItem={todo.task}
-        completed= "false"
         toggleCompleted={props.toggleCompleted}
+        completed="false"
         />
         ))
       }

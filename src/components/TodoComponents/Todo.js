@@ -7,10 +7,10 @@ const Todo = props => {
   return (
     <div>
       
-      <p onClick={(e) => {
-        // {console.log(props)}
-        props.toggleCompleted(e, props)
-        }}>
+      <p  onClick={() => props.toggleCompleted(props.todoOnProps.id)}
+          className={`todo-item ${props.todoOnProps.textDecoration}`}
+          todoList={props.todoOnProps.todoList}
+      >
           {props.todoListItem}
       </p>
     </div>
