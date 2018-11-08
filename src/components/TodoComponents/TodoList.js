@@ -3,24 +3,29 @@ import './Todo.css';
 
 import Todo from './Todo';
 
-const TodoList = props => {
-
-  if (props.todoList) {
-    return (
-      <ul className="todo-list">
-        {
-          props.todoList.filter(
-            todo => todo.task.toLowerCase().includes(props.filterText.toLowerCase())
-          ).map(
-            todo => <Todo key={todo.id} todo={todo}/>
-          )
-        }
-      </ul>
-    );
-  } else {
-    return (
-      <ul className="todo-list">Empty</ul>
-    )
+class TodoList extends React.Component{
+  render() {
+    if (this.props.todoList) {
+      return (
+        <ul className="todo-list">
+          {
+            this.props.todoList.filter(
+              todo => todo.task.toLowerCase().includes(this.props.filterText.toLowerCase())
+            ).map(
+              (todo, i) => <Todo
+                key={todo.id + i}
+                todo={todo}
+                handleClick={ (e, el) => this.props.handleClick(e, el, i) }
+              />
+            )
+          }
+        </ul>
+      );
+    } else {
+      return (
+        <ul className="todo-list">Empty</ul>
+      )
+    }
   }
 };
 

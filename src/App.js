@@ -24,7 +24,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todoList: JSON.parse(localStorage.getItem('todoApp')) || [],
+      todoList: JSON.parse(localStorage.getItem('yk-todoApp')) || [],
       inputText: '',
       filterText: '',
     }
@@ -34,6 +34,13 @@ class App extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     });
+  }
+
+  handleClick(e, el, i) {
+    const newTodos = [...this.state.todoList];
+    newTodos[i].completed = !newTodos[i].completed;
+
+    this.setState(newTodos);
   }
 
   addTodo(e) {
@@ -52,9 +59,17 @@ class App extends React.Component {
     });
   }
 
+  removeCompleted(e) {
+    e.preventDefault();
+
+    const newTodos = [...this.state.todoList].filter(todo => !todo.completed);
+
+    this.setState({todoList: newTodos});
+  }
+
   componentDidUpdate(prevProps, prevState) {
-    if (JSON.stringify(prevState.todoList) !== JSON.stringify(this.state.todoList)) {
-      localStorage.setItem('todoApp', JSON.stringify(this.state.todoList));
+    if (localStorage.getItem('yk-todoApp') !== JSON.stringify(this.state.todoList)) {
+      localStorage.setItem('yk-todoApp', JSON.stringify(this.state.todoList))
     }
   }
 
@@ -66,10 +81,14 @@ class App extends React.Component {
           filterText={this.state.filterText}
           handleChange={ e => this.handleChange(e) }
         />
-        <TodoList todoList={this.state.todoList} filterText={this.state.filterText}/>
+        <TodoList
+          todoList={this.state.todoList}
+          handleClick={ (e, el, i) => this.handleClick(e, el, i)  }
+          filterText={this.state.filterText}/>
         <TodoForm
           inputText= {this.state.inputText}
           handleChange={ e => this.handleChange(e) }
+          removeCompleted={ e => this.removeCompleted(e) }
           addTodo={ e => this.addTodo(e) }
         />
       </div>
