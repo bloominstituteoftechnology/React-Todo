@@ -1,7 +1,10 @@
 import React from 'react';
+import './Todo.css';
 
 const Todo = props => {
-    return <p>{props.todoData.task}</p>;
+    return (
+    <p className="todo-item" onClick={() => props.changeStyle(props.todoData.id)} className={`todo-item ${props.todoData.completed}`}>
+    {props.todoData.task}</p>);
   };
   
   export default Todo;
