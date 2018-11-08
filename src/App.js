@@ -84,13 +84,15 @@ class App extends React.Component {
 
       this.setState({
 
-        todoItems: [],
+        todoItems: this.state.todoItems.filter(item => !item.completed),
         formInput: '',
         filteredItems: []
 
+      }, () => {
+        localStorage.clear();
+        this.saveToStorage();
+        this.filterItems();
       });
-
-      localStorage.clear();
 
     }
 
