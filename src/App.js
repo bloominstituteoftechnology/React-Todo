@@ -5,7 +5,7 @@ import './components/TodoComponents/Todo.css';
 
 let todoData = [
   {
-    task: 'Organize Garage',
+    task: 'Organize Crime',
     id: 1528817077286,
     completed: false
   },
@@ -23,6 +23,11 @@ let todoData = [
     task: 'Throw up (a little)',
     id: 1528817484358,
     completed: true
+  },
+  {
+    task: 'Fluff Pillows',
+    id: 1528817224358,
+    completed: false
   }
 ];
 
@@ -75,13 +80,10 @@ class App extends React.Component {
 
   toggleCompleted = event => {
     event.preventDefault();
-
-    let currentID = event.target.attributes[0].value;
-    
+       
     let taskToChange = this.state.todos.findIndex(item => {
-      return item.id.toString() === currentID;
+      return item.id.toString() === event.target.attributes[0].value;
     })
-
     let newTodosList = this.state.todos;
 
     if (newTodosList[taskToChange].completed){
@@ -98,6 +100,7 @@ class App extends React.Component {
   render() {
     return (
       <div className='container'>
+        <h1> To Do </h1>
         <TodoForm 
           addTodo={this.addTodo}
           inputText={this.state.inputText}

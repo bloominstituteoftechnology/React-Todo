@@ -20,36 +20,40 @@ html {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    margin-top: 50px;
+    border-radius: 10px;
 }
 
 .completed {
     text-decoration: line-through;
+    color: grey;
 }
 
 .list{
-    /* border: 1px solid red; */
     width: 100%;
 }
 
 .form {
-    /* border: 1px solid red; */
     display: flex;
-  
     justify-content: space-around;
     align-items: center;
 }
 
 .todo-form {
-    font-size: 2rem;
-    /* border: 1px solid red; */
+    font-size: 2.5rem;
     height: 100%;
-    
+    font-family: 'Times New Roman', Times, serif;
+    padding: 5px;
+    border: 1px solid lightgrey;
+}
+.todo-form:hover{
+    cursor: pointer;
+    background-color: whitesmoke;
 }
 
 .todo-list {
-    width: 100%;
+    width: 95%;
     margin: 15px;
-    /* border: 1px solid red; */
 }
 
 .todo-list:hover{
