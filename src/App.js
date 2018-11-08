@@ -50,6 +50,12 @@ class App extends Component {
     })
   }
 
+  removeCompleted = () => {
+    this.setState({
+      currentList: this.state.currentList.filter(i => i.completed === false)
+    })
+  }
+
   // Render
   render() {
     return (
@@ -63,6 +69,7 @@ class App extends Component {
           handleChange={this.handleChange}
           inputValue={this.state.inputValue}
           addItem={this.addItem}
+          removeCompleted={this.removeCompleted}
         />
       </div>
     );

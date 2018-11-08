@@ -12,6 +12,7 @@ const TodoForm = props => {
                 onChange={props.handleChange}
             />
             <button type='submit'>Add to List</button>
+            <button onClick={props.removeCompleted}>Remove Completed Tasks</button>
         </form>
     )
 }
