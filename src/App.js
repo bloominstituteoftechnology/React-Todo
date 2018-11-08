@@ -45,7 +45,7 @@ class App extends React.Component {
     this.setState({
       tasks: this.state.tasks.map(taskItem => {
         if(taskItem.id === id) {
-          return {...taskItem, completed: true};
+          return {...taskItem, completed: taskItem.completed === true ? false : true };
         } else {
           return taskItem;
         }
