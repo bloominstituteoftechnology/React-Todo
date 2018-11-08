@@ -11,7 +11,7 @@ html {
 }
 
 .container {
-    border: 1px solid red;
+    border: 1px solid grey;
     font-size: 3rem;
     line-height: 3.5rem;
     max-width: 400px;
@@ -27,12 +27,12 @@ html {
 }
 
 .list{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100%;
 }
 
 .form {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
   
     justify-content: space-around;
@@ -41,11 +41,17 @@ html {
 
 .todo-form {
     font-size: 2rem;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: 100%;
+    
 }
 
 .todo-list {
     width: 100%;
-    border: 1px solid red;
+    margin: 15px;
+    /* border: 1px solid red; */
+}
+
+.todo-list:hover{
+    cursor: pointer;
 }

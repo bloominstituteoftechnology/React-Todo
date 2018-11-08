@@ -103,13 +103,13 @@ class App extends React.Component {
           inputText={this.state.inputText}
           handleChange={this.handleChange}
           removeTodo={this.removeTodo}
-          className="todo-form"
+          
         />
         <TodoList 
           handleClick={this.handleClick}
           toggleCompleted={this.toggleCompleted}
           todos={this.state.todos} 
-          className="todo-list"
+          
         />
       </div>
     );
