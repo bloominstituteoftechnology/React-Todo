@@ -8,7 +8,8 @@ const Todo = props => {
     <div>
       
       <p onClick={(e) => {
-        props.toggleCompleted(e, props.completed)
+        // {console.log(props)}
+        props.toggleCompleted(e, props)
         }}>
           {props.todoListItem}
       </p>

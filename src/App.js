@@ -57,12 +57,17 @@ class App extends React.Component {
     });
   };
 
-  toggleCompleted = (event, boolean) => {
-    console.log(this.state.todoList)
+  toggleCompleted = (event, todo) => {
+    // let selectedTodo = this.state.todoList.filter(todo => todo.task === event.target.innerText)
+    // console.log(selectedTodo, "SELECTED");
     event.target.classList.toggle('completed')
-    this.todoList.setState(prevState => {
-      return { completed: !prevState.completed}
+    // todo.completed === false ? 
+    // todo.setState({completed: true}) : 
+    // todo.setState({completed: false })
+    this.setState(todo => {
+      return { completed: (todo.completed: true)}
     })
+    console.log(todo)
   }
 
   render() {
