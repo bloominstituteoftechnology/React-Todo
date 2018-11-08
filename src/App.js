@@ -8,10 +8,15 @@ import TodoForm from './components/TodoComponents/TodoForm';
 let date = new Date();
 const taskTimeStamp = date.toString();
 const taskData = [
-  {taskName: 'Add your first task', timeStamp: taskTimeStamp, completed:false, id:0}
+  {
+    taskName: 'Add your first task', 
+    timeStamp: taskTimeStamp, 
+    completed:false, 
+    id:0
+  }
 ];
 
-let nextId = 1;
+let nextId = 0;
 
 const getNewId = () => {
   nextId += 1;
@@ -56,8 +61,8 @@ class App extends React.Component {
   }
 
   completeTask = id => {
-    console.log('task clicked');
-    this.style.textDecoration = 'line-through';
+    // console.log(`task ${this.task.id} marked as complete`);
+    // this.style.textDecoration = 'line-through';
     // this.classList.toggle('completed');
     this.setState({
       tasks: this.state.tasks.map(
@@ -65,15 +70,15 @@ class App extends React.Component {
           if (task.id === id) {
             return{
               ...task,
-              completed: task.completed === false ? true : false
+              completed: task.completed === false ? true : false,
             };
           } else {
             return task;
           }
         }
       )
-    })
-  }
+    });
+  };
 
   clearCompletedTasks = event => {
     event.preventDefault();
@@ -93,13 +98,13 @@ class App extends React.Component {
         <TodoList 
           tasks={this.state.tasks}
           timeStamp={this.state.timeStamp}
+          completeTask={this.completeTask}
         />
         <TodoForm 
           inputText={this.state.inputText}
           addTask={this.addTask}          
           handleChange={this.handleChange}
           clearAllTasks={this.clearAllTasks}
-          completeTask={this.completeTask}
           clearCompletedTasks={this.clearCompletedTasks}
         />
       </div>

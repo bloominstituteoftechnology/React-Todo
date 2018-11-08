@@ -4,8 +4,12 @@ import './Todo.css';
 const Todo = props => {
     return (
         <div
-        onClick={() => props.completeTask(props.task.id)}
-        className={`task-container ${props.task.completed}`}
+            onClick={ () => {
+                console.log(`div ${props.task.id} clicked`)
+                props.completeTask(props.task.id)
+                }
+            }
+            className={`task-container ${props.task.completed}`}
         >
             <h3 className="task-name">
                 {props.task.taskName}

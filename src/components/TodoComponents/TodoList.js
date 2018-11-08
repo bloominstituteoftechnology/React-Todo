@@ -6,8 +6,9 @@ const TodoList = props => {
         <div className="todo-list-container">
             {props.tasks.map( task => (
                 <Todo
+                    key={task.id}
                     task={task}
-                    key={task.taskName}
+                    completeTask={props.completeTask}
                 />
                 )
             )}
