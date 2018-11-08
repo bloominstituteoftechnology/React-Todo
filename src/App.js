@@ -116,7 +116,7 @@ class App extends React.Component {
     }, 
     //set the state of the displayed list AFTER the change input is adjusted
     ()=> {this.setState({
-      //change the display property only if the search string is included in the task name
+      //change the display property according to the search string
       todos: this.state.todos.map(item => {
         if(!item.task.toLowerCase().includes(this.state.searchText.toLowerCase())){
           return {...item, display: false};
