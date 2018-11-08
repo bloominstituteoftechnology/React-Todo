@@ -3,7 +3,7 @@ import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 const myList = [
   { listItem: "Do Stuff", id: 1, completed: false },
-  { listItem: "Do More Stuff", id: 2, completed: false }
+  { listItem: "more Stuff", id: 2, completed: false }
 ];
 class App extends React.Component {
   constructor() {
