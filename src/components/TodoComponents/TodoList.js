@@ -6,9 +6,14 @@ import ToDo from "./Todo";
 const ToDoList = props => {
   return (
     <div>
+      {" "}
       {props.todos.map(todoInMap => (
-        <ToDo key={todoInMap.id} todo={todoInMap} />
-      ))}
+        <ToDo
+          key={todoInMap.id}
+          todo={todoInMap}
+          strikeThru={props.strikeThru}
+        />
+      ))}{" "}
     </div>
   );
 };

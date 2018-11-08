@@ -4,16 +4,16 @@ import ToDoForm from "./components/TodoComponents/TodoForm";
 import "./components/TodoComponents/Todo.css";
 
 const todoData = [
-  {
-    task: "Organize Garage",
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: "Bake Cookies",
-    id: 1528817084358,
-    completed: false
-  }
+  // {
+  //   task: "Organize Garage",
+  //   id: 1528817077286,
+  //   completed: false
+  // },
+  // {
+  //   task: "Bake Cookies",
+  //   id: 1528817084358,
+  //   completed: false
+  // }
 ];
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -39,25 +39,46 @@ class App extends React.Component {
     this.setState({
       todos: [
         ...this.state.todos,
-        { task: this.state.todoText, id: Date.now(), completed: false }
+        {
+          task: this.state.todoText,
+          id: Date.now(),
+          completed: false,
+          strike: "none"
+        }
       ],
       todoText: ""
     });
   };
 
-  // clearField = event => {
-  //   event.preventDefault();
-  //   this.setState({
-  //     todos: this.state.todos.filter(todo => todos.completed === completed)
-  //   });
-  // };
+  strikeThru = id => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            strike: todo.strike === "none" ? "line-through" : "none",
+            completed: !todo.completed
+          };
+        } else {
+          return todo;
+        }
+      })
+    });
+  };
+
+  clearField = event => {
+    event.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(todo => todo.completed === false)
+    });
+  };
 
   render() {
     return (
       <div className="ToDo">
-        <ToDoList todos={this.state.todos} />
+        <ToDoList todos={this.state.todos} strikeThru={this.strikeThru} />
         <ToDoForm
-          // clearField={this.clearField}
+          clearField={this.clearField}
           addToDo={this.addToDo}
           todoText={this.state.todoText}
           handleChange={this.handleChange}
