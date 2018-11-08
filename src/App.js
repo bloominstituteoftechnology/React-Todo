@@ -39,10 +39,10 @@ class App extends React.Component {
     this.setState({
       todos: [
         ...this.state.todos,
-        { task: this.state.todoText, id: Date.now(), complete: false }
-      ],
-      todoText: ""
+        { task: this.state.todoText, id: Date.now(), completed: false }
+      ]
     });
+    todoText: "";
   };
 
   render() {
