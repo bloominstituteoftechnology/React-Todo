@@ -21,9 +21,16 @@ class App extends React.Component {
       list: listItems,
       inputText: '', 
       clicks: 0, 
+      searchText: 'Yellow',
     }
   }
   handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
+  handleSearch = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -39,7 +46,13 @@ class App extends React.Component {
       inputText: ''
     });
   };
-  
+  searchItem = () => {
+    this.setState({
+      list: this.state.list.filter(item => {
+        return item.task === this.searchText
+      })
+    })
+  }
 handleClick  = id => {
   this.setState({
     list: this.state.list.map(item => {
@@ -82,6 +95,9 @@ clearCompleted = (event) => {
         inputText={this.state.inputText}
         handleChange={this.handleChange}
         clear={this.clearCompleted}
+        searchText={this.state.searchText}
+        handleSearch={this.handleSearch}
+        searchItem={this.searchItem}
         />
         <TodoList 
         list={this.state.list}
