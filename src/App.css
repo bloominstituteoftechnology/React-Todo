@@ -8,7 +8,7 @@
 .App {
   margin: 0 auto;
   width: 800px;
-  height: 800px;
+  /* height: 800px; */
   display: flex;
   flex-direction: column;
   background: #F0F2F0;  /* fallback for old browsers */

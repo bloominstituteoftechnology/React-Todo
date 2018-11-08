@@ -63,25 +63,16 @@ class App extends React.Component {
     });
   };
 
-  markCompleted = ev => {
-    console.log(ev.target.id);
-    ev.target.classList.toggle("completed");
-    let value = ev.target.id;
-    let objIndex = this.state.todo.findIndex(obj => obj.id == value);
-    let object = this.state.todo[objIndex];
-    let newArr = this.state.todo;
-    object["completed"] = false;
-    if (ev.target.classList.contains("completed")) {
-      console.log("truth");
-      object["completed"] = true;
-    }
-    console.log(object["completed"]);
-    newArr.splice(objIndex, 1, object);
+  markCompleted = id => {
     this.setState({
-      todo: [...newArr],
-      completed: true
+      todo: this.state.todo.map(item => {
+        if (item.id === id) {
+          return { ...item, completed: item.completed ? false : true };
+        } else {
+          return item;
+        }
+      })
     });
-    console.log(this.state.todo);
   };
 
   clearHandler = ev => {
@@ -89,7 +80,6 @@ class App extends React.Component {
     this.setState({
       todo: [...this.state.todo.filter(item => !item.completed)]
     });
-    console.log(this.state);
   };
 
   render() {

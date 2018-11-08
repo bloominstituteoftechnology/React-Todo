@@ -4,6 +4,7 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 200px;
 }
 
 form button {
@@ -13,14 +14,13 @@ form button {
 
 .list {
   margin: 0 auto;
-  height: 200px;
   width: 60%;
   padding: 5%;
   padding-bottom: 1%;
+  margin-bottom: 5%;
   
 }
 li {
-  /* color: darkslategrey; */
   font-size: 1.3rem;
 }
 
@@ -32,6 +32,6 @@ input {
 }
 
 
-.completed {
+.true {
   text-decoration: line-through;
 }

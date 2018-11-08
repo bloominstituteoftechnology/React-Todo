@@ -5,9 +5,8 @@ const Todo = props => {
   return (
     <Fragment>
       <li
-        className="todo"
-        completed={props.list.completed}
-        onClick={props.onClick}
+        className={`todo ${props.list.completed}`}
+        onClick={() => props.onClick(props.list.id)}
         id={props.list.id}
       >
         {props.list.task}
