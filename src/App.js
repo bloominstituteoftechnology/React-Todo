@@ -59,7 +59,7 @@ completedItems = id => {
       if(item.id === id) {
         return {
           ...item,
-          
+          completed: item.completed === true ? false : true 
         }
       } else {
         return item;
