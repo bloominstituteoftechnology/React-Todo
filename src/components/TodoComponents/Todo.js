@@ -5,7 +5,7 @@ const Todo = props => {
     console.log(props);
 
     return (
-        <li onClick={props.markComplete}>{props.item.task}</li>
+        <li onClick={() => props.markComplete(props.item)} key={props.item.id} className={props.item.class}>{props.item.task}</li>
     )
 }
 

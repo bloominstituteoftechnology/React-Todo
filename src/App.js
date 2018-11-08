@@ -13,12 +13,14 @@ class App extends Component {
         {
           task: 'Organize Garage',
           id: 1528817077286,
-          completed: false
+          completed: false,
+          class: ''
         },
         {
           task: 'Bake Cookies',
           id: 1528817084358,
-          completed: false
+          completed: false,
+          class: ''
         }
       ],
       inputValue: ''
@@ -35,16 +37,17 @@ class App extends Component {
   addItem = e => {
     e.preventDefault();
     this.setState({
-      currentList: [...this.state.currentList, { task: this.state.inputValue, id: Date.now(), completed: false }],
+      currentList: [...this.state.currentList, { task: this.state.inputValue, id: Date.now(), completed: false, class: '' }],
       inputValue: ''
     });
   }
 
-  markComplete = e => {
-    e.target.classList.toggle('complete');
-    let currentItem = this.state.currentList.find(i => i.task === e.target.innerText);
-    currentItem.completed === false ? (currentItem.completed : true) : (currentItem.completed: false);
-    console.log(currentItem)
+  markComplete = item => {
+    this.setState({
+      currentList: this.state.currentList.map(i => {
+        return i.id === item.id ? (i.completed === true ? { ...i, completed: false, class: '' } : { ...i, completed: true, class: 'complete' }) : i
+      })
+    })
   }
 
   // Render

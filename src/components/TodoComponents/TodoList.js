@@ -6,9 +6,10 @@ import ToDo from './Todo'
 const TodoList = props => {
     return (
         <ul>
-            {props.list.map(i => <ToDo
+            {props.list.map((i, index) => <ToDo
                 item={i}
                 markComplete={props.markComplete}
+                key={index}
             />)}
         </ul>
     );
