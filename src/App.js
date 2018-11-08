@@ -2,39 +2,12 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
-// let TodoData =[
-//   {
-//     task:'Organize Garage',
-//     id:Date.now(),
-//     completed:false
-//   },
-//   {
-//     task: 'Bake Cookies',
-//     id: Date.now(),
-//     completed: false
-//   }
-// ];
-
-
-console.log(localStorage.getItem('myData')===null)
 
 if(localStorage.getItem('myData')===null){
-  var TodoData =[
-    // {
-    //   task:'Organize Garage',
-    //   id:Date.now(),
-    //   completed:false
-    // },
-    // {
-    //   task: 'Bake Cookies',
-    //   id: Date.now(),
-    //   completed: false
-    // }
-  ];
+  var TodoData =[];
 } else {
   TodoData = JSON.parse(localStorage.getItem('myData'));
 }
-
 
 
 class App extends React.Component {
@@ -110,3 +83,16 @@ class App extends React.Component {
 }
 
 export default App;
+
+// let TodoData =[
+//   {
+//     task:'Organize Garage',
+//     id:Date.now(),
+//     completed:false
+//   },
+//   {
+//     task: 'Bake Cookies',
+//     id: Date.now(),
+//     completed: false
+//   }
+// ];

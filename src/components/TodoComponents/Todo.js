@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Todo = props => {
-    // console.log(props)
     return(
         <React.Fragment>
             <p className="para" onClick={props.strike}>{props.task}</p>
