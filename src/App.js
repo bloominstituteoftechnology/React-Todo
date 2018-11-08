@@ -21,9 +21,9 @@ class App extends React.Component {
 
   constructor () {
     super();
-    this.state = {
+    this.state = { //STEP 1. set the state to hold the data
       toDoItems: toDo,  //holds the toDo array
-      inputText: '',
+      inputText: '', // FORM-STEP 1. empy string to be updated when someone enters something in the form's input field
     }
   }
 
@@ -46,13 +46,13 @@ class App extends React.Component {
     return (
       <div className='App'>
         <h2>Today's Todo's!</h2>
-        <TodoList toDoItems={this.state.toDoItems}/>     {/*adds toDo array to the TodoList component. toDoItems becomes prop of TodoList */}
+    <TodoList toDoItems={this.state.toDoItems}/>    { /*STEP 2. GIVE ACCESS TO THE TODOLIST --adds toDo array to the TodoList component. toDoItems becomes prop of TodoList (GOT TO TODOLIST FOR NEXT STEP)*/}
          
          <Form 
-         inputText={this.state.inputText} /*this is where the form gets access to whatever we put in the input field */
-          addItem={this.addItem}
-          handleChange={this.handleChange} 
-        />
+            inputText={this.state.inputText} /*this is where the form gets access to whatever we put in the input field */
+            addItem={this.addItem} 
+            handleChange={this.handleChange} 
+          />
       </div>
    );
       }

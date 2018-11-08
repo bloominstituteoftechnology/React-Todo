@@ -7,11 +7,11 @@ import Todo from './Todo';
 const TodoList = (props) => {
     return (
         <div className='todo-card'>
-             {props.toDoItems.map(item =>  /*toDoItems is holding in all the data from our array toDo  */
+             {props.toDoItems.map(item =>  /* STEP 3. MAP OVER THE ARRAY TO GET EACH INDIVIDUAL ITEM --toDoItems is holding in all the data from our array toDo  */
                 (
-                <Todo  /*we map over  and send   the results to Todo.js component */
-                key={item.toDoItems} 
-                item={item} 
+                <Todo  /* STEP 4. SEND RESULTS OF MAP TO THE TODO COMPONENT --ITEM IS NOW A PROP OF TODO (remember {item} is just the results from map being held in the variable item) */
+                    key={item.toDoItems} 
+                    item={item}                                     /*NEXT STEPS IN TODO */
                 />
                 ))} 
 

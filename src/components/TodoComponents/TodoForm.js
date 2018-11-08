@@ -2,7 +2,7 @@ import React from 'react';
 
 const Form = (props) => {
     return (
-        <div className='input'>
+        <div className='input-style'>
             <form >
                 <input
                     type='text'
@@ -13,7 +13,7 @@ const Form = (props) => {
                 />   
                 <div className='btns'>
                     <button onClick={props.addItem} className='add-btn'>Add Todo</button>   
-                    <button onClick={props.addItem}>Clear Completed</button> 
+                    <button>Clear Completed</button> 
                 </div>    
             </form> 
              
