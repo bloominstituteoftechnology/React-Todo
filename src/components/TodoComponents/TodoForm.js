@@ -13,7 +13,8 @@ const Form = (props) => {
                 />   
                 <div className='btns'>
                     <button onClick={props.addItem} className='add-btn'>Add Todo</button>   
-                    <button>Clear Completed</button> 
+    
+                    <button onClick= {props.clearCompleted}>Clear Completed</button>
                 </div>    
             </form> 
              

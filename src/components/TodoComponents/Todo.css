@@ -14,9 +14,13 @@
     /* background-color: rgba(248, 135, 7, 0.705); */
 }
 
-.App h2 {
+.title {
     text-align: center;
     padding-top: 50px;
+}
+
+.searchbar {
+    width: 45%;
 }
 
 .todo-card {
@@ -45,6 +49,10 @@
     padding-top: 15px;
     margin-bottom: 20px;
     background-color: rgba(250, 250, 250, 0.767);
+}
+
+.task-item {
+    text-decoration: line-through;
 }
 
 .input-style {
