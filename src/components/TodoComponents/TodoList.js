@@ -7,7 +7,7 @@ const TodoList = props => {
     console.log(props.TodoData);
     return (
       <div>
-        <h1>yo yo yo</h1>
+        
         {props.todo.map(todoInMap => (
             <Todo key={todoInMap.task}
 

@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+ html, body {
+    width: 800px;
+    border: 1px solid blue;
+}
+ html {
+	font-size: 62.5%;
+}
+
+
+
+
+
+
+
+
+.formContainer {
+    border: 1px solid red;
+}
