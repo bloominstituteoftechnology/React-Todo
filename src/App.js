@@ -111,7 +111,7 @@ class App extends React.Component {
   filterItems() {
 
     this.setState({
-      filteredItems: this.state.todoItems.filter(item => item.task.includes(this.state.searchInput))
+      filteredItems: this.state.todoItems.filter(item => item.task.toUpperCase().includes(this.state.searchInput.toUpperCase()))
     });
 
   }
