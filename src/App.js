@@ -24,16 +24,18 @@ class App extends React.Component {
     event.preventDefault();
 
     let getDate = Date.now();
+    let newTodos = [...this.state.todos, 
+      {
+        task: this.state.todoText,
+        id: getDate,
+        completed: false,
+      }
+    ];
+
+    localStorage.setItem('todo', JSON.stringify(newTodos));
 
     this.setState({
-      todos: [
-        ...this.state.todos, 
-        {
-          task: this.state.todoText,
-          id: getDate,
-          completed: false,
-        }
-      ],
+      todos: newTodos,
       todoText: '',
     });
   }
@@ -55,11 +57,22 @@ class App extends React.Component {
 
   clearComplete = event => {
     event.preventDefault();
+
+    let clearedTodos =  this.state.todos.filter(
+      todo =>  !todo.completed
+    );
+
+    localStorage.setItem('todo', JSON.stringify(clearedTodos));
     this.setState({
-      todos: this.state.todos.filter(
-        todo =>  !todo.completed
-      )
+      todos: clearedTodos,
     });
+  }
+
+  componentDidMount(){
+    const storedTodo = JSON.parse(localStorage.getItem('todo'));
+    if (storedTodo){
+      this.setState({todos: storedTodo})
+    }
   }
 
 
