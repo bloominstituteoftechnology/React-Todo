@@ -19,7 +19,6 @@ const TodoForm = props => {
       <input
         placeholder="search here"
         className="search"
-        // name="search"
         onChange={props.onChange}
       />
     </form>
