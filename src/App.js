@@ -1,10 +1,11 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import SearchForm from './components/TodoComponents/SearchForm';
 
 const myList = [
-  { listItem: 'Do Stuff', id: 1, completed: false},
-  { listItem: 'Do More Stuff', id: 2, completed: false}
+  { listItem: 'Do Stuff', id: 1, completed: false, display: true},
+  { listItem: 'Do More Stuff', id: 2, completed: false, display: true}
 ];
 
 class App extends React.Component {
@@ -15,7 +16,8 @@ class App extends React.Component {
     super();
     this.state = {
       listItems: myList,
-      inputText: ''
+      inputText: '',
+      searchText: ''
     };
   }
 
@@ -28,7 +30,7 @@ class App extends React.Component {
   addItem = event => {
     event.preventDefault();
     this.setState({
-      listItems: [...this.state.listItems, {listItem: this.state.inputText, id: Date.now(), completed: false}
+      listItems: [...this.state.listItems, {listItem: this.state.inputText, id: Date.now(), completed: false, display: true}
       ],
       inputText: ''
     });
@@ -58,15 +60,51 @@ class App extends React.Component {
     });
   };
 
+  searchItems = ev => {
+    ev.preventDefault();
+    this.setState({
+      // listItems: this.state.listItems.filter(
+      //   item => item.listItem.includes(`${this.state.searchText}`)
+      // )
+      listItems: this.state.listItems.map(item => {
+        if(!item.listItem.includes(`${this.state.searchText}`)){
+          return{...item, display: false}
+        }
+        else{
+          return {...item, display: true};
+        }
+      })
+    });
+  };
+
+  clearSearch = ev => {
+    ev.preventDefault();
+    this.setState({
+      listItems: this.state.listItems.map(item=> {
+        return {...item, display: true};
+      })
+    })
+  }
+
+
   render() {
     return (
       <div>
+        <SearchForm searchText={this.state.searchText}
+        handleChange={this.handleChange}
+        searchItems={this.searchItems}
+        clearSearch={this.clearSearch}
+        />
+
         <TodoList todoItems={this.state.listItems} 
         markComplete={this.markComplete}/>
+
         <TodoForm addListItem={this.addItem} 
         inputText={this.state.inputText}
         clearCompleted={this.clearCompleted}
         handleChange={this.handleChange} />
+
+
       </div>
     );
   }
