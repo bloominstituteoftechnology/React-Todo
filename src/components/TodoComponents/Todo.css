@@ -1,12 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
 .ToDo {
     width: 500px;
-    height: 250px;
+    height: auto;
     margin: 70px auto;
     border: 1px solid #777;
     border-radius: 5px;
     background-image: url(https://cdn.hipwallpaper.com/i/22/98/i40JrY.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     box-shadow: 5px 10px #A99A91;
 }
 
@@ -23,9 +28,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: auto;
     margin-bottom: 20px;
     margin-left: 10px;
-    height: 20px;
+    /* height: 20px; */
     border-radius: 3px;
     margin-top: 20px;
     background-color: #E5BAC7;
@@ -34,6 +40,7 @@
 .submit {
     margin: 10px;
     border-radius: 4px;
+    /* height: auto; */
     color: #D96E38;
     font-weight: bold;
     background-color: #E5BAC7;
@@ -42,6 +49,7 @@
 .completed {
     margin: 10px;
     border-radius: 4px;
+    /* height: auto; */
     color: #D96E38;
     font-weight: bold;
     background-color: #E5BAC7;
