@@ -1,5 +1,6 @@
 .ToDo {
     width: 500px;
+    height: 250px;
     margin: 70px auto;
     border: 1px solid #777;
     border-radius: 5px;
@@ -7,6 +8,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 5px 10px #A99A91;
+}
+
+.outer-form {
+    margin: 90px 130px;
 }
 
 .heading {
