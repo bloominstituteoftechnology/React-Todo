@@ -1,6 +1,15 @@
-.list-text{
+.list-text.true{
     width: 350px;
+    cursor: pointer;
+    text-decoration: line-through;
 }
+
+.list-text.false{
+    width: 350px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 form{
     margin-top: 20px;
 }

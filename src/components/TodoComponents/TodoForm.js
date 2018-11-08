@@ -12,7 +12,7 @@ const TodoForm = props => {
           onChange={props.handleChange}
         />
         <button type="submit">Add Todo</button>
-        <button>Clear Completed</button>
+        <button onClick={props.clear}>Clear Completed</button>
       </form>
     </React.Fragment>
   );

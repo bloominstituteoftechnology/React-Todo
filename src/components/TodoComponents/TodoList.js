@@ -7,9 +7,13 @@ const TodoList = props => {
   return (
     <React.Fragment>
       <h1>Todo List: MVP</h1>
-      {props.toDoItems.map(itemInMap => (
-        <Todo key={itemInMap.task} toDoItem={itemInMap} />
-      ))}
+      {props.toDoItems.map((itemInMap) => {
+        return <Todo 
+        key={itemInMap.id} 
+        toDoItem={itemInMap} 
+        changeStyle={props.changeStyle} 
+        />;
+      })}
     </React.Fragment>
   );
 };
