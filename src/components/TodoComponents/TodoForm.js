@@ -6,12 +6,12 @@ const TodoForm = props => {
             <form>
             <input
                 type="text"
-                name="inputText"
+                name="inputItem"
                 placeholder="Add New Item"
-                value={props.inputText} // {props.inputText} is coming from state object. It is going to pass via CharacterForm in the render();
+                value={props.inputItem} 
                 onChange={props.handleChange}
             />
-            <button type="submit">Add Item</button>
+            <button type="submit" onClick={props.addItem}>Add Item</button>
             </form>
         </div>
     );

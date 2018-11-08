@@ -22,22 +22,44 @@ const itemsData = [
 ]
 
 
-
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       items: itemsData,
+      inputItem: '',
     };
   }
 
+
+handleChange = event => {
+  this.setState({
+    [event.target.name]: event.target.value
+  })
+}
+
+addItem = event => {
+  event.preventDefault();
+  console.log(this.state.inputItem);
+  this.setState({
+    items: [
+      ...this.state.items,
+      { task: this.state.inputItem }
+    ],
+    inputItem: ''
+  });
+};
 
   render() {
     return (
       <div>
         <h1>The Greatest Todo List</h1>
         <TodoList itemsList={this.state.items}/>
-        <TodoForm />
+        <TodoForm inputItem=
+        {this.state.inputItem} 
+        handleChange={this.handleChange}
+        addItem={this.addItem}
+        />
       </div>
     );
   }
