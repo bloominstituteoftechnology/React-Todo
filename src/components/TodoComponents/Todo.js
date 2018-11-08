@@ -4,13 +4,14 @@ import "./Todo.css";
 const Todo = props => {
   return (
     <Fragment>
-      <p
+      <li
         className="todo"
         completed={props.list.completed}
         onClick={props.onClick}
+        id={props.list.id}
       >
         {props.list.task}
-      </p>
+      </li>
     </Fragment>
   );
 };

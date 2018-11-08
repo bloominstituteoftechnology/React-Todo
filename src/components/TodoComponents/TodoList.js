@@ -8,7 +8,12 @@ const TodoList = props => {
   return (
     <div>
       {props.todo.map(item => (
-        <Todo onClick={props.markCompleted} list={item} key={item.id} />
+        <Todo
+          onClick={props.markCompleted}
+          list={item}
+          key={item.id}
+          complete={props.complete}
+        />
       ))}
     </div>
   );

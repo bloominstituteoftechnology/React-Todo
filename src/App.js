@@ -16,12 +16,12 @@ const todoItems = [
   {
     task: "defenestrate my enemies",
     id: 3,
-    completed: false
+    completed: true
   },
   {
     task: "eat tendies",
     id: 4,
-    completed: false
+    completed: true
   },
   {
     task: "redeem GBPs",
@@ -35,7 +35,8 @@ class App extends React.Component {
     super();
     this.state = {
       todo: todoItems,
-      inputText: false
+      inputText: ""
+      // isCompleted: true
     };
   }
 
@@ -54,7 +55,7 @@ class App extends React.Component {
         {
           task: this.state.inputText,
           id: Date.now(),
-          completed: ""
+          completed: false
         }
       ],
       inputText: ""
@@ -62,24 +63,22 @@ class App extends React.Component {
   };
 
   markCompleted = ev => {
-    console.log(ev.target);
+    console.log(ev.target.completed);
     // if (ev.target.completed) {
     //   ev.target.style.textDecoration = "none";
     //   ev.target.completed = false;
     // }
     if (!ev.target.completed) {
       ev.target.classList.toggle("completed");
-      ev.target.completed = "";
-      // console.log(ev.target.completed);
+      ev.target.completed = this.state.isCompleted;
+      console.log(this.state.todo);
     }
   };
 
   clearHandler = ev => {
     ev.preventDefault();
     this.setState({
-      todo: [
-        ...this.state.todo.filter(item => Object.values(item).includes(false))
-      ]
+      todo: [...this.state.todo.filter(item => item.completed)]
     });
     console.log(this.state);
   };
@@ -87,7 +86,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <TodoList todo={this.state.todo} markCompleted={this.markCompleted} />
+        <TodoList
+          todo={this.state.todo}
+          markCompleted={this.markCompleted}
+          done={this.state.isCompleted}
+        />
         <TodoForm
           addItem={this.addTodo}
           clearHandler={this.clearHandler}
@@ -100,3 +103,13 @@ class App extends React.Component {
 }
 
 export default App;
+
+// Ideas for Later
+// deleteItem = key => {
+//   const filteredItems = this.state.items.filter(item => {
+//     return item.key !== key
+//   })
+//   this.setState({
+//     items: filteredItems,
+//   })
+// }
