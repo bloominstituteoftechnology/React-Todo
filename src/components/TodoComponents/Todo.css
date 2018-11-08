@@ -1,11 +1,12 @@
 .item-text {
     font-size: 1.2rem;
+    cursor: pointer;
 }
 
-.false {
+.item-text.false {
     text-decoration: none;
 }
 
-.true {
+.item-text.true {
     text-decoration: line-through;
 }

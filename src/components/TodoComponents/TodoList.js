@@ -11,7 +11,7 @@ const TodoList = props => {
             <Todo 
             key={item.id}
             item={item}
-            completedItems={props.completedItems}
+            strikeThrough={props.strikeThrough}
             />
         ))}
     </div>

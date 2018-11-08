@@ -46,26 +46,35 @@ addItem = event => {
       ...this.state.items,
       { task: this.state.inputItem,
         id: Date.now(),
-        complete: false
+        completed: false
       }
     ],
     inputItem: ''
   });
 };
 
-completedItems = id => {
+strikeThrough = id => {
   this.setState({
     items: this.state.items.map( item => {
       if(item.id === id) {
         return {
           ...item,
-          completed: item.completed === true ? false : true 
+          completed: item.completed === false ? true : false 
         }
       } else {
         return item;
       }
     })
   });
+};
+
+clearStrikes = event => {
+  event.preventDefault();
+  this.setState({
+    items: this.state.items.filter(
+      item => item.completed === false
+    )
+    });
 };
 
 
@@ -75,9 +84,10 @@ completedItems = id => {
         <h1>The Greatest Todo List</h1>
         <TodoList 
         itemsList={this.state.items}
-        completedItems={this.completedItems}
+        strikeThrough={this.strikeThrough}
         />
         <TodoForm 
+        clearStrikes={this.clearStrikes}
         inputItem={this.state.inputItem} 
         handleChange={this.handleChange}
         addItem={this.addItem}
