@@ -1,0 +1,36 @@
+.app-container {
+  font-family: sans-serif;
+  text-align: center;
+  max-width: 362px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.todo {
+  cursor: pointer;
+  margin: 0;
+  border: 1px solid black;
+  max-width: 100%;
+  text-align: center;
+  font-size: 24px;
+  padding: 10px 0;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.todo.false {
+  background-color: green;
+  text-decoration: none;
+}
+
+.todo.true {
+  background-color: red;
+  text-decoration: line-through;
+}
+
+.todo-list {
+  margin: 0 0 50px 0;
+  text-align: center;
+}
