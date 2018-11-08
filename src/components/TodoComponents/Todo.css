@@ -1,3 +1,12 @@
+form {
+  margin: 0 auto;
+}
+
+div {
+  margin: auto;
+}
+
+
 .completed {
   text-decoration: line-through;
 }
