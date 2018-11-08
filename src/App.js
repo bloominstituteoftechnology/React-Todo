@@ -4,6 +4,7 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 import './components/TodoComponents/Todo.css'
+import './App.css';
 
 
 const todoData = [
@@ -86,7 +87,7 @@ clearCompleted = ev => {
 
   render() {
     return (
-      <div>
+      <div class="todo">
         
         <TodoList 
         item={this.state.item}

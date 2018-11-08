@@ -1,0 +1,46 @@
+.todo {
+    font-family: sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    /* border: 2px solid red; */
+  }
+
+  .form {
+    /* border: 2px solid red; */
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+  }
+
+
+
+  button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4% 0;
+}
+
+input {
+    border: 2px solid black;
+    height: 50px;
+    font-size: 30px;
+}
+
+.list {
+    color: rgb(72, 59, 255);
+}
+
+.clear-btn {
+    font-color: black;
+    background-color: #4CAF50;
+}
+
+
+
