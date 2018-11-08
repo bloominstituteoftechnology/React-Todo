@@ -11,8 +11,8 @@ const TodoForm = props => {
           value={props.newTodo}
           onChange={props.textInputHandler}
         />
-        <button>Add Todo</button>
-        <button>Clear Completed</button>
+        <button className="fa fa-pencil">Add Todo</button>
+        <button onClick={props.filterCompleted} className="fa fa-eraser">Clear Completed</button>
       </form>
     </div>
   )

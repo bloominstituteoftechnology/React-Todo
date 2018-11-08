@@ -1,0 +1,31 @@
+#root {
+    height: 500px;
+    background-color: #fff;
+ }
+.container {
+    width: 450px;
+    height: 100%;
+    margin: auto;
+    padding-top: .5%;
+    padding-left: 90px;
+    background-image:
+    linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+    linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 1.2em;
+}
+ h2{
+    margin: 0;
+    margin-bottom: 15px;
+    padding-top: 1.75%;
+}
+ p {
+    font-family: 'Charmonman', cursive;
+    margin: 0;
+    margin-bottom: 8px;
+}
+.false {
+    text-decoration: none;
+}
+.true {
+    text-decoration: line-through;
+}
