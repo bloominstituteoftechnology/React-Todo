@@ -16,6 +16,7 @@ form button {
 .list {
   margin: 0 auto;
   width: 60%;
+  min-height: 100px;
   padding: 5%;
   padding-bottom: 1%;
   margin-bottom: 5%;

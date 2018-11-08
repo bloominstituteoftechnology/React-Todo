@@ -47,6 +47,7 @@ class App extends React.Component {
       this.saveStateToLocalStorage.bind(this)
     );
   }
+
   componentWillUnmount() {
     window.removeEventListener(
       "beforeunload",
@@ -107,6 +108,13 @@ class App extends React.Component {
         } else {
           return item;
         }
+      }),
+      filter: this.state.filter.map(item => {
+        if (item.id === id) {
+          return { ...item, completed: item.completed ? false : true };
+        } else {
+          return item;
+        }
       })
     });
   };
@@ -114,22 +122,35 @@ class App extends React.Component {
   clearHandler = ev => {
     ev.preventDefault();
     this.setState({
-      todo: [...this.state.todo.filter(item => !item.completed)]
+      todo: [...this.state.todo.filter(item => !item.completed)],
+      filter: [...this.state.filter.filter(item => !item.completed)]
     });
+  };
+
+  filterList = ev => {
+    var updatedList = this.state.todo;
+    updatedList = updatedList.filter(item => {
+      return (
+        item.task.toLowerCase().search(ev.target.value.toLowerCase()) !== -1
+      );
+    });
+    this.setState({ filter: updatedList });
   };
 
   render() {
     return (
       <div className="App">
         <h1>Holden's Ugly To-Do List</h1>
-        <TodoList todo={this.state.todo} markCompleted={this.markCompleted} />
+        <TodoList
+          todo={this.state.filter ? this.state.filter : this.state.todo}
+          markCompleted={this.markCompleted}
+        />
         <TodoForm
           addItem={this.addTodo}
           clearHandler={this.clearHandler}
           handleChange={this.handleChange}
           inputText={this.state.inputText}
-          search={this.state.search}
-          onChange={this.searchHandler}
+          onChange={this.filterList}
         />
       </div>
     );

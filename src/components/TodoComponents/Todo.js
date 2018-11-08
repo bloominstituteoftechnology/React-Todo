@@ -5,7 +5,7 @@ const Todo = props => {
   return (
     <Fragment>
       <li
-        className={`todo ${props.list.completed}`}
+        className={`todo ${props.list.completed} ${props.list.search}`}
         onClick={() => props.onClick(props.list.id)}
         id={props.list.id}
       >

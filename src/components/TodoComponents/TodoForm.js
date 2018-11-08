@@ -16,7 +16,12 @@ const TodoForm = props => {
       <button name="clear" type="submit" onClick={props.clearHandler}>
         Clear Completed
       </button>
-      <input placeholder="search here" className="search" name="search" />
+      <input
+        placeholder="search here"
+        className="search"
+        // name="search"
+        onChange={props.onChange}
+      />
     </form>
   );
 };
