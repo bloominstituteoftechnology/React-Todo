@@ -1,0 +1,6 @@
+.TaskList-container {
+  background: red;
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto;
+}
