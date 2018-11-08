@@ -55,54 +55,233 @@ table {
     font-size: 62.5%;
 }
 
+body {
+    
+    background-color: #222;
+}
+
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 3%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #222;
+}
+
+.topbar nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    width: 80%;
+}
+
+.topbar a {
+    text-decoration: none;
+    margin: 20px 5%;
+    padding: 10px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.topbar nav a:hover {
+    color: #FE7D24;
+    text-decoration: underline;
+}
+
+.topbar .login {
+    font-size: 1.2rem;
+    border: 1px solid #FE7D24;
+    border-radius: 5px;
+}
+
+.topbar .login:hover {
+    background-color: #FE7D24;
+    color: #222;
+    text-decoration: none;
+}
+
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+#root {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center; 
+    padding: 60px 0;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
 .todo-list-container {
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
-    min-height: 200px;
+    width: 100%;
     justify-content: center;
-    border: 1px solid orange;
+    overflow-y: scroll;
+    height: 400px;
+    max-height: 400px;
 }
 
 .task-container {
     display: flex;
     flex-wrap: wrap;
     font-size: 1rem;
-    width: 80%;
-    margin-bottom: 5px;
-    /* border: 1px solid lightgray; */
+    width: 90%;
+    margin: 5px 0;
+    border: 1px solid #222;
+    border-radius: 5px;
+}
+
+.task-container:hover {
+    height: 30%;
 }
 
 .task-container .task-name {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2rem;
-    /* width: 80%; */
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+    max-height: 100px;
+    max-width: 800px;
     margin: 0;
+    padding: 10px;
     cursor: pointer;
-    border: 1px solid lightgray;
     text-decoration: none;
 }
 
+
+
 .task-container .task-timestamp {
-    color: dodgerblue;
+    justify-self: flex-end;
     font-size: 0.8rem;
+    margin: 0 20px;
 }
 
 .form-container {
-    margin: 100px auto;
+    display: flex;
+    /* position: fixed; */
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 50px 0;
+    /* border: 1px solid #222; */
+    border-radius: 5px;
 }
 
-.form-container input, button {
+.form-container form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 5px;
+    
+}
+
+.form-container form input, button {
     font-size: 1rem;
+}
+
+.form-container form input {
+    width: 90%;
+    padding: 15px 5px;
+    border: 1px solid #222;
+    border-radius: 5px;
+    letter-spacing: 0.1rem;
+}
+
+.form-container form input:focus {
+    background-color: #222;
+    color: white; 
+}
+
+.form-container form .btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0 10px;
+}
+
+.form-container form .btn-container button {
+    width: 39%;
+    margin: 10px 5px;
+    border: 1px solid #222;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 15px 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.form-container form .btn-container .add-task-btn {
+    width: 80%;
+    font-size: 1.2rem;
+}
+
+.form-container form .btn-container .add-task-btn:hover {
+    border: 1px solid green;
+    background-color: #69ad72;
+}
+
+.form-container form .btn-container .clear-completed-btn:hover {
+    border: 1px solid red;
+    background-color: #ed6363;
+}
+
+.form-container form .btn-container .clear-all-btn {
+    border: 1px solid red;
+}
+
+.form-container form .btn-container .clear-all-btn:hover {
+    background: yellow;
+    border: 3px dashed black;
+    object-fit: cover;
+    color: black;
+    padding: 13px 3px;
+
 }
 
 .task-container.red {
     background-color: #ed6363;
-    border: 1px solid red;
     color: white;
 }
 
 .task-container.white {
     background-color: #ffffff;
-    border: 1px solid blue;;
+}
+
+footer {
+
+    width: 100%;
+    padding-top: 100px;
+    background-color: #222;
+    text-align: center;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    
 }

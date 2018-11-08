@@ -11,13 +11,15 @@ const Todo = props => {
             }
             className={`task-container ${props.task.color} ${props.task.completed}` }
         >
-            <h3 className="task-name">
-                {props.task.taskName}
-            <span className="task-timestamp">
-                {props.task.timeStamp}
-            </span>
-            <span>{props.task.completed}</span>
-            </h3>
+            <div className="task-name">
+                <h3>{props.task.taskName}</h3>
+                <h6 className="task-timestamp">
+                    {props.task.timeStamp}
+                </h6>
+            </div>
+            
+            {/* <span>{props.task.completed}</span> */}
+            
         </div>
     )
 }
