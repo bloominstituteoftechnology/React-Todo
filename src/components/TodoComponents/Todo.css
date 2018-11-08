@@ -1,42 +1,87 @@
 
-.root {
+#root {
     width: 800px;
-    background-color: whitesmoke;
-    /* display: flex;
+    background-color: lightgray;
+    display: flex;
     justify-content: center;
-    flex-wrap: wrap; */
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 10px;
 }
 
 .task-content {
-    width: 200px;
-    min-width: 200px;
-    height: 200px;
-    overflow-y: scroll;
-    background-color: rgb(204, 233, 241);
-    margin: 20px 20px;
-    font-size: 24px;
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
+    /* max-width: 300px; */
+    overflow-x: hidden;
+    background-color: #ffffff;
+    margin-left: 10px;
+    font-size: 18px;
     text-align: center;
-    padding: 20px 10px;
+    padding: 10px 10px;
+    box-shadow: 5px 5px 5px rgb(172, 169, 169);
+    border: 1px solid rgb(184, 182, 182);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    width: 800px;
+    text-align: center;
+    background-color: whitesmoke;
 }
 
 .task-container {
+    width: 800px;
+    min-height: 100px;
+    height: 220px;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     overflow-x: scroll;
+    /* border: 1px solid red; */
 }
 
 .form-container {
-    margin-left: 20px;
-    margin-top: 50px;
+    /* margin-left: 20px; */
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+
+.input-container {
+    margin-bottom: 15px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    /* width: 100%; */
+    /* margin: 0 auto; */
 }
 
 .button-content {
     margin: 0 15px;
     width: 100px;
+    margin-bottom: 20px;
+}
+
+.addBtn {
+    background-color: rgb(192, 218, 182);
+}
+
+.clearBtn {
+    background-color: rgb(253, 221, 221);
+}
+
+.filterBtn {
+    background-color: rgb(157, 189, 202);
 }
 
 .form-input-content {
-    margin-right: 20px;
+    /* margin-right: 20px; */
 }
 
 .toggleTextDecor.active {
@@ -50,4 +95,10 @@
 .date-container {
     font-size: 12px;
     font-weight: bold;
+}
+
+.toggleTextDecor {
+    width: 100px;
+    max-width: 100px;
+    height: auto;
 }

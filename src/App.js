@@ -26,7 +26,7 @@ class App extends React.Component {
     this.state = {
       todoItemList: todoItems,
       inputText: "",
-      
+      inputFilterText: "",
     };
   }
 
@@ -35,6 +35,7 @@ class App extends React.Component {
       [e.target.name]: e.target.value
     });
     console.log(e.target.name);
+    console.log(e.target.value);
   }
 
   addTask = e => {
@@ -78,9 +79,19 @@ class App extends React.Component {
     });
   }
 
+  filterTasks = e => {
+    e.preventDefault();
+    if(this.state.inputFilterText !== ""){
+      console.log(this.inputFilterText);
+      this.setState({
+        todoItemList: this.state.todoItemList.filter(filtered => filtered.task === this.inputFilterText),
+        // inputFilterText: ''
+      });
+    }
+  }
 
   render() {
-    return (
+    return (      
       <div>
         {/* <h2>Welcome to your Todo App!</h2> */}
         <TodoList 
@@ -89,8 +100,10 @@ class App extends React.Component {
         />
         <TodoForm 
           addTask={this.addTask} 
+          filterTasks={this.filterTasks}
           clearCompleted={this.clearCompleted}         
           inputText={this.state.inputText}
+          inputFilterText={this.state.inputFilterText}
           handleChange={this.handleChange}
         />
       </div>

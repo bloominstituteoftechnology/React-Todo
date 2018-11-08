@@ -2,9 +2,8 @@ import React from 'react';
 
 function Todo(props){
     return (
-        <div className='task-content' >                       
+        <div className='task-content' onClick={() => props.taskComplete(props.todoTask.id)} >                       
             <h2 
-            onClick={() => props.taskComplete(props.todoTask.id)}
             className={`toggleTextDecor ${props.todoTask.taskDone}`}
             >
             {props.todoTask.task}
