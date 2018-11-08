@@ -1,9 +1,15 @@
 *{
     box-sizing: border-box;
 }
+body{
+    background: #C4AF9A;
+}
 div {
+    box-sizing: content-box;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 25% 0;
 }
 
 main {
@@ -12,20 +18,39 @@ main {
     border: 5px black solid;
     width: 50%;
     padding: 5%;
-    background: teal;
+    background: #81C1C1;
+}
+.heading{
+    color:white;
+    margin: 0;
 }
 
 .list {
-
+    border: 1px black solid;
+    padding: 10% 5%;
     color: white;
+    margin: 5% 0 10%;
+    background: #333232;
 }
 .form {
     display: flex;
     flex-flow: column nowrap;
 }
-button{
-    background: white;
+input {
+    width: 100%;
+    margin: 2.5% 0;
     border-radius: 5px;
+    text-align: center;
+    padding: 1%;
+}
+button{
+    background: #F7B2AD;
+    border: 1px #F7B2AD solid;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100%;
+    margin: 2.5% 0;
 }
 
 .off{

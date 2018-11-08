@@ -76,6 +76,7 @@ clearCompleted = (event) => {
   render() {
     return (
       <main>
+       
         <TodoForm 
         addItem={this.addItem}
         inputText={this.state.inputText}
@@ -87,6 +88,7 @@ clearCompleted = (event) => {
         handleClick={this.handleClick}
         strikeThrough={this.strikeThrough}
         />
+         <h1 className="heading">To Do List:</h1>
       </main>
     );
   }
