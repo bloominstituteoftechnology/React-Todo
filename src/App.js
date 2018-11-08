@@ -1,13 +1,14 @@
 import React from 'react';
+import './components/TodoComponents/Todo.css'
+
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 const todoList = [
   {
-    task: 'Create todo list',
-    id: null,
+    task: 'Complete the stretch goals',
+    id: Date.now(),
     completed: false,
-    className: false
   },
 ];
 
@@ -17,9 +18,6 @@ class App extends React.Component {
     this.state = {
       toDoList: todoList,
       inputText: '',
-      id: '',
-      completed: false,
-      className: false
     };
   }
 
@@ -37,25 +35,29 @@ class App extends React.Component {
           task: this.state.inputText,
           id: Date.now(),
           completed: false,
-          className: this.state.completed
         }],
         inputText: ''
     })
   }
 
-  clearComplete = ev => {
-    ev.preventDefault();
-    this.setState({
-      completedTasks: this.state.toDoList.filter( task => task.completed === true )
-    })
-    console.log(completedTasks);
+  toggleComplete = id => {
+    this.setState({ 
+      toDoList: this.state.toDoList.map( task => {
+        if (task.id === id) {
+          return {
+            ...task,
+            completed: task.completed === false ? true : false
+          }; 
+        } else {
+          return task;
+        }
+      }) 
+    });
   }
 
-  toggleComplete = ev => {
+  clearComplete = ev => {
     ev.preventDefault();
-    this.setState( prevState => ({
-      completed: !prevState.completed
-    }));
+    console.log(this.state.toDoList.filter( task => task.completed.length))
   }
 
   render() {
@@ -64,7 +66,6 @@ class App extends React.Component {
         <TodoList 
           taskList={this.state.toDoList} 
           toggleComplete={this.toggleComplete} 
-          className={this.state.completed}
         />
         <TodoForm 
           inputText={this.state.inputText}

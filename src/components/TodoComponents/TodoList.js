@@ -3,12 +3,14 @@ import Todo from './Todo';
 
 const TodoList = props => {
     return (
-        <div onClick={props.toggleComplete} className='todo-container'>
+        <div>
             {props.taskList.map( task => (
-                <div className={props.className.toString()}>
-                    <Todo key={task.id} todo={task} />
-                </div>
-            ))}
+                <Todo 
+                    key={task.id} 
+                    todo={task}
+                    toggleComplete={props.toggleComplete} 
+                />) 
+            )}
         </div>
     )
 } 
