@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+}
+div {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    border: 5px black solid;
+    width: 50%;
+    padding: 5%;
+    background: teal;
+}
+
+.list {
+
+    color: white;
+}
+.form {
+    display: flex;
+    flex-flow: row nowrap;
+}
+button{
+    background: white;
+    border-radius: 5px;
+}
