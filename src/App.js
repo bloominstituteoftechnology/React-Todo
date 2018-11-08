@@ -16,12 +16,12 @@ const todoItems = [
   {
     task: "defenestrate my enemies",
     id: 3,
-    completed: true
+    completed: false
   },
   {
     task: "eat tendies",
     id: 4,
-    completed: true
+    completed: false
   },
   {
     task: "redeem GBPs",
@@ -35,7 +35,8 @@ class App extends React.Component {
     super();
     this.state = {
       todo: todoItems,
-      inputText: ""
+      inputText: "",
+      isCompleted: false
     };
   }
 
@@ -63,18 +64,29 @@ class App extends React.Component {
 
   markCompleted = ev => {
     console.log(ev.target.id);
-
     ev.target.classList.toggle("completed");
-    let wow = ev.target.id;
-    let newArr = this.state.todo.filter(item => item.id === { wow });
-    console.log(newArr);
+    let value = ev.target.id;
+    let objIndex = this.state.todo.findIndex(obj => obj.id == value);
+    let object = this.state.todo[objIndex];
+    let newArr = this.state.todo;
+    object["completed"] = false;
+    if (ev.target.classList.contains("completed")) {
+      console.log("truth");
+      object["completed"] = true;
+    }
+    console.log(object["completed"]);
+    newArr.splice(objIndex, 1, object);
+    this.setState({
+      todo: [...newArr],
+      completed: true
+    });
     console.log(this.state.todo);
   };
 
   clearHandler = ev => {
     ev.preventDefault();
     this.setState({
-      todo: [...this.state.todo.filter(item => item.completed)]
+      todo: [...this.state.todo.filter(item => !item.completed)]
     });
     console.log(this.state);
   };
@@ -95,13 +107,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// Ideas for Later
-// deleteItem = key => {
-//   const filteredItems = this.state.items.filter(item => {
-//     return item.key !== key
-//   })
-//   this.setState({
-//     items: filteredItems,
-//   })
-// }
