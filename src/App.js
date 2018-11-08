@@ -10,17 +10,17 @@ const todoItems = [
     completed: false
   },
   {
-    task: "punch a baby",
+    task: "do a thing",
     id: 2,
     completed: false
   },
   {
-    task: "defenestrate my enemies",
+    task: "be fancy",
     id: 3,
     completed: false
   },
   {
-    task: "eat tendies",
+    task: "smash computer in frustration",
     id: 4,
     completed: false
   },
@@ -120,15 +120,19 @@ class App extends React.Component {
         } else {
           return item;
         }
-      }),
-      filter: this.state.filter.map(item => {
-        if (item.id === id) {
-          return { ...item, completed: item.completed ? false : true };
-        } else {
-          return item;
-        }
       })
     });
+    if (this.state.filter) {
+      this.setState({
+        filter: this.state.filter.map(item => {
+          if (item.id === id) {
+            return { ...item, completed: item.completed ? false : true };
+          } else {
+            return item;
+          }
+        })
+      });
+    }
   };
 
   clearHandler = ev => {
@@ -153,17 +157,19 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Holden's Ugly To-Do List</h1>
-        <TodoList
-          todo={this.state.filter ? this.state.filter : this.state.todo}
-          markCompleted={this.markCompleted}
-        />
-        <TodoForm
-          addItem={this.addTodo}
-          clearHandler={this.clearHandler}
-          handleChange={this.handleChange}
-          inputText={this.state.inputText}
-          onChange={this.filterList}
-        />
+        <div className="container">
+          <TodoList
+            todo={this.state.filter ? this.state.filter : this.state.todo}
+            markCompleted={this.markCompleted}
+          />
+          <TodoForm
+            addItem={this.addTodo}
+            clearHandler={this.clearHandler}
+            handleChange={this.handleChange}
+            inputText={this.state.inputText}
+            onChange={this.filterList}
+          />
+        </div>
       </div>
     );
   }

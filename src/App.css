@@ -5,21 +5,32 @@
 
 #root{
   background: linear-gradient(to top, #fdcb6e, #00b894);
+  height: 100vh;
 }
 .App {
   margin: 0 auto;
   width: 800px;
-  /* height: 800px; */
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
-  background: #F0F2F0;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #000C40, #F0F2F0);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #00b894, #F0F2F0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #F0F2F0;  
+  background: -webkit-linear-gradient(to top, #000C40, #F0F2F0);  
+  background: linear-gradient(to top, #00b894, #F0F2F0); 
+}
+
+.container {
+  border: 2px solid teal;
+  width: 80%;
+  box-shadow: 30px -10px teal;
+  margin: 5% auto;
 }
 
 h1 {
   text-align: center;
-  width: 20%;
+  width: 50%;
   margin: 0 auto;
-  padding-top: 5%;
+  margin-top: 5%;
+  padding: 2%;
+  border: 1px solid teal;
+  box-shadow: -20px -10px #00b894
 }

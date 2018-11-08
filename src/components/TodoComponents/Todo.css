@@ -4,19 +4,21 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
+
 }
 
 form button {
   width: 30%;
   margin: 0 auto;
   margin-bottom: 1%;
+  border-radius: 10px;
 }
 
 .list {
   margin: 0 auto;
   width: 60%;
-  min-height: 100px;
+  min-height: 50px;
   padding: 5%;
   padding-bottom: 1%;
   margin-bottom: 5%;
@@ -24,6 +26,7 @@ form button {
 }
 li {
   font-size: 1.3rem;
+  cursor: pointer;
 }
 
 .addTodo {
@@ -37,8 +40,14 @@ li {
 .true {
   text-decoration: line-through;
   margin-left: 5%;
+  color: white;
 }
 
 .search {
+  margin: 0 auto;
   margin-top: 5%;
+  box-shadow: -3px 3px #fdcb6e;
+  border: none;
+  line-height: 1.5rem;
+  width: 60%;
 }
