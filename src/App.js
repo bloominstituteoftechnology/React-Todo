@@ -98,6 +98,18 @@ class App extends React.Component {
       ],
       inputText: ""
     });
+    if (this.state.filter) {
+      this.setState({
+        filter: [
+          ...this.state.filter,
+          {
+            task: this.state.inputText,
+            id: Date.now(),
+            completed: false
+          }
+        ]
+      });
+    }
   };
 
   markCompleted = id => {
