@@ -3,10 +3,6 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 
-const toDoListArray = [
-  
-];
-
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -15,7 +11,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      task: toDoListArray,
+      // task: toDoListArray,
+      task: JSON.parse(localStorage.getItem('todoApp')),
       inputText: ""
     };
   }
@@ -59,6 +56,12 @@ class App extends React.Component {
       )
     });
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (JSON.stringify(prevState.task) !== JSON.stringify(this.state.task)) {
+      localStorage.setItem('todoApp', JSON.stringify(this.state.task));
+    }
+  }
 
   render() {
     return (

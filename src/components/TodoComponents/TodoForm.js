@@ -6,6 +6,7 @@ const TodoForm = props => {
         <div>
             <form onSubmit={props.addTodo} className="todo-list">
                 <input
+                    autocomplete="off"
                     className="input-section"
                     type="text"
                     name="inputText"
