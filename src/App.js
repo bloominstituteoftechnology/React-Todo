@@ -107,7 +107,8 @@ class App extends React.Component {
             id: Date.now(),
             completed: false
           }
-        ]
+        ],
+        inputText: ""
       });
     }
   };
