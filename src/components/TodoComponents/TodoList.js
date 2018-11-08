@@ -8,8 +8,10 @@ const TodoList = props => {
     return(
         <div>
             {props.tasks.map(eachOneInMap => (
-            <Todo key={Date.now()} todoOnProp={eachOneInMap} />
-            ))};
+                <Todo key={eachOneInMap.task} todoOnProp={eachOneInMap} />
+
+            ))}
+            
 
         </div>
     );

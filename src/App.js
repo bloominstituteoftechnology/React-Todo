@@ -4,17 +4,18 @@ import TodoForm from './components/TodoComponents/TodoForm';
 import './appStyles.css';
 
 
-const stuffToDo = [{
-        task: 'Organize Garage',
-        id: 1528817077286,
-        completed: false,
-    },
-    {
-        task: 'Bake Cookies',
-        id: 1528817084358,
-        completed: false,
-    }
-];
+// const stuffToDo = [{
+//         task: 'Organize Garage',
+//         id: 1528817077286,
+//         completed: false,
+//     },
+//     {
+//         task: 'Bake Cookies',
+//         id: 1528817084358,
+//         completed: false,
+//     }
+// ];
+const stuffToDo = [];
 
 
 
@@ -32,7 +33,7 @@ class App extends React.Component {
         [event.target.name]: event.target.value
       });
       
-      console.log(event.target.name);
+      // console.log(event.target.name);
     };
     
     addTask = ev => {
@@ -40,30 +41,31 @@ class App extends React.Component {
       ev.preventDefault();
       this.setState(
             {
-            allStuffToDo: [...this.state.allStuffToDo, {
+            allStuffToDo:[...this.state.allStuffToDo, {
               task: this.state.inputText,
               id: Date.now(),
-              completed: false,
-            }], inputText:'',
-
-            }
+              completed: false,}
+            ], 
+            inputText:''
+          }
           );
         
         };
+
+    
+    change
 
 
     render() {
         return (
           <div className="App" >
             <h2> Welcome to your Todo App! </h2> 
-            <TodoList tasks= {this.state.allStuffToDo} />
+            <TodoList tasks= {this.state.allStuffToDo}  />
 
             <TodoForm
-            addTask={this.addTask} 
-            inputText={this.state.inputText}
-            // inputTextTwo={this.state.inputTextTwo}
-            // inputTextThree={this.state.inputTextThree}
-            handleChange={this.handleChange}
+              addTask={this.addTask} 
+              inputText={this.state.inputText}
+              handleChange={this.handleChange}
             />
           </div>
         );

@@ -4,11 +4,12 @@ const TodoForm = props => {
   return (
       <div>
           <form>
-              <input type="text" 
-              name="inputText"
-              placeholder="What Do you Need to Do Today?"
-              value={props.inputText} 
-              onChange={props.handleChange}
+              <input 
+                type="text" 
+                name="inputText"
+                placeholder="What Do you Need to Do Today?"
+                value={props.inputText} 
+                onChange={props.handleChange}
               />
 
 
