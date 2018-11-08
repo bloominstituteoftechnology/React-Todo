@@ -50,6 +50,11 @@ addItem = event => {
   });
 };
 
+completedItems = event => {
+
+};
+
+
   render() {
     return (
       <div>
