@@ -40,8 +40,6 @@ class App extends React.Component {
         };
     
     changeFinished = id => {
-      console.log('function invoked');
-
       this.setState({
         allStuffToDo: this.state.allStuffToDo.map(each =>{
           if (each.id === id) {
