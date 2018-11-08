@@ -1,0 +1,61 @@
+.todo-item {
+    cursor: pointer;
+    font-size: 4rem;
+  }
+  
+  .todo-item.false {
+    text-decoration: none;
+  }
+  
+  .todo-item.true {
+    text-decoration: line-through;
+  }
+
+  /* Form */
+  .btn-container {
+      display: flex;
+      max-width: 420px;
+      margin: 30px auto 0 auto;
+      justify-content: space-between;
+  }
+
+  .btn {
+        width: 204px;
+        border: none;
+        color: white;
+        padding-top: 7px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 3rem;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 10px;
+        font-family: 'Indie Flower', cursive;
+  }
+
+  .btn-success {
+    background-color: #4CAF50;
+    
+  }
+
+.btn-success:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+  
+  .btn-danger {
+    background-color: #f44336;
+  }
+
+  .btn-danger:hover {
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.input-text {
+    width: 400px;
+    height: 35px;
+    font-size: 2.2rem;
+    font-family: 'Indie Flower', cursive;
+    
+}
+  
