@@ -1,0 +1,16 @@
+ 
+ .App{
+     position: absolute;
+     left: 50%;
+     bottom: 50%;
+     transform: translate(-50%,50%)
+ }
+ .text-decoration{
+     font-size: 24px;
+ }
+ .active{
+    text-decoration: line-through;
+}
+ .inactive{
+    text-decoration: none;
+}

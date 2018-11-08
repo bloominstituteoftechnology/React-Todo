@@ -1,5 +1,6 @@
 import React from 'react';
 import Todo from './Todo';
+import './Todo.css';
 
 const TodoList = props => {
     return (
@@ -8,6 +9,7 @@ const TodoList = props => {
                 <Todo
                     key={item.id}
                     todoItem={item}
+                    completedTask = {props.completedTask}
                 />
             ))}
         </div>
