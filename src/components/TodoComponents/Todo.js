@@ -5,7 +5,6 @@ const Todo = props =>{
         <div>
         <p>{ props.todo.task }</p>
         <p>{ props.todo.id }</p>
-        <p>{ props.todo.completed }</p>
         </div>
     );
 };
