@@ -1,6 +1,58 @@
+body {
+  background: linear-gradient(blue, transparent),
+    linear-gradient(to top left, lime, transparent),
+    linear-gradient(to top right, yellow, transparent);
+  background-repeat: no-repeat;
+  height: 70rem;
+}
 .TaskList-container {
-  background: red;
   text-align: center;
+}
+
+.TaskList {
   display: inline-block;
   margin: 0 auto;
+  width: 50%;
+}
+
+h1 {
+  color: white;
+  font-size: 72px;
+}
+
+ul {
+  color: white;
+  font-size: 60px;
+  list-style: none;
+}
+.button {
+  font-size: 15px;
+  padding: 7px 20px;
+  margin: 10px;
+  border-radius: 10px;
+  color: white;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.8);
+  border: 5px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.35);
+  background: rgb(0, 102, 255);
+  cursor: pointer;
+  animation: pulse 5s infinite alternate;
+}
+.button:hover {
+  background: hsla(220, 100%, 60%, 1);
+  margin-top: -1px;
+}
+.button:active {
+  border-bottom-width: 0;
+  margin-top: 5px;
+  border-radius: 10%;
+  background: lime;
+}
+@keyframes pulse {
+  0% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: 6px;
+  }
 }

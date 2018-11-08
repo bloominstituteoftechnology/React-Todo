@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      inputField: "Add a Task",
+      inputField: " ",
 
       todoList: [
         {
@@ -26,17 +26,19 @@ class App extends React.Component {
   render() {
     return (
       <div className="TaskList-container">
-        <h1>Task List!</h1>
-        <TodoForm
-          inputField={this.state.inputField}
-          clickHandler={this.clickHandler}
-          clearClickHandler={this.clearClickHandler}
-          messageChangeHandler={this.messageChangeHandler}
-        />
-        <TodoList
-          todoList={this.state.todoList}
-          itemCompleted={this.itemCompleted}
-        />
+        <div className="Tasklist">
+          <h1>Task List!</h1>
+          <TodoForm
+            inputField={this.state.inputField}
+            clickHandler={this.clickHandler}
+            clearClickHandler={this.clearClickHandler}
+            messageChangeHandler={this.messageChangeHandler}
+          />
+          <TodoList
+            todoList={this.state.todoList}
+            itemCompleted={this.itemCompleted}
+          />
+        </div>
       </div>
     );
   }
