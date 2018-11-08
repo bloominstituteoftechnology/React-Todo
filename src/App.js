@@ -58,10 +58,10 @@ class App extends React.Component {
   };
 
   toggleCompleted = (event, boolean) => {
-    console.log(event.target)
+    console.log(this)
     event.target.classList.toggle('completed')
-    this.setState({
-      boolean: true  
+    this.setState(prevState => {
+      return { completed: !prevState.completed}
     })
   }
 
