@@ -3,7 +3,10 @@ import './Todo.css';
 
 const Todo = props => {
     return (
-        <div className="task-container">
+        <div
+        onClick={() => props.completeTask(props.task.id)}
+        className={`task-container ${props.task.completed}`}
+        >
             <h3 className="task-name">
                 {props.task.taskName}
             <span className="task-timestamp">

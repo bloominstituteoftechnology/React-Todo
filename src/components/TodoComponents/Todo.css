@@ -70,7 +70,7 @@ table {
     font-size: 1rem;
     width: 80%;
     margin-bottom: 5px;
-    border: 1px solid lightgray;
+    /* border: 1px solid lightgray; */
 }
 
 .task-container .task-name {
@@ -79,6 +79,7 @@ table {
     /* width: 80%; */
     margin: 0;
     cursor: pointer;
+    border: 1px solid lightgray;
 }
 
 .task-container .task-timestamp {

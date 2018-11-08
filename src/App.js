@@ -5,11 +5,18 @@ import TodoForm from './components/TodoComponents/TodoForm';
 // import Confirm from './components/TodoComponents/Confirm';
 
 
-
-const taskData = [];
 let date = new Date();
 const taskTimeStamp = date.toString();
-// let completedTask = false;
+const taskData = [
+  {taskName: 'Add your first task', timeStamp: taskTimeStamp, completed:false, id:0}
+];
+
+let nextId = 1;
+
+const getNewId = () => {
+  nextId += 1;
+  return nextId;
+}
 
 class App extends React.Component {
   constructor(){
@@ -34,9 +41,9 @@ class App extends React.Component {
     this.setState({
       tasks: [
         ...this.state.tasks,
-        {taskName: this.state.inputText},
-        {timeStamp: this.state.timeStamp},
-        {completed: this.state.completed}
+        {taskName: this.state.inputText, timeStamp: taskTimeStamp, completed: false, id: getNewId()},
+        // {timeStamp: taskTimeStamp},
+        // {completed: this.state.completed}
       ],
       inputText: ''
     })
@@ -48,13 +55,33 @@ class App extends React.Component {
     this.setState(this.baseState)
   }
 
-  completedTask = () => {
+  completeTask = id => {
     console.log('task clicked');
     this.style.textDecoration = 'line-through';
-    this.classList.toggle('completed');
+    // this.classList.toggle('completed');
     this.setState({
-      completed: true
+      tasks: this.state.tasks.map(
+        task => {
+          if (task.id === id) {
+            return{
+              ...task,
+              completed: task.completed === false ? true : false
+            };
+          } else {
+            return task;
+          }
+        }
+      )
     })
+  }
+
+  clearCompletedTasks = event => {
+    event.preventDefault();
+    this.setState({
+      tasks: this.state.tasks.filter(
+        task => task.completed === false
+      )
+    });
   }
 
   // you will need a place to store your state in this component.
@@ -72,6 +99,8 @@ class App extends React.Component {
           addTask={this.addTask}          
           handleChange={this.handleChange}
           clearAllTasks={this.clearAllTasks}
+          completeTask={this.completeTask}
+          clearCompletedTasks={this.clearCompletedTasks}
         />
       </div>
     );
