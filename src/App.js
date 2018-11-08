@@ -82,7 +82,7 @@ class App extends React.Component {
           addToDo={this.addToDo}
           todoText={this.state.todoText}
           handleChange={this.handleChange}
-        />{" "}
+        />
       </div>
     );
   }
