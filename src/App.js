@@ -5,15 +5,22 @@ import TodoForm from './components/TodoComponents/TodoForm';
 const TodoData = [
   {
     task: 'Organize Garage',
-    id: 1528817077286,
+    id: 1,
     completed: false
   },
   {
     task: 'Bake Cookies',
-    id: 1528817084358,
+    id: 2,
     completed: false
   }
 ];
+
+let nextId = 2;
+
+const getNewId = () => {
+  nextId += 1;
+  return nextId;
+};
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -42,21 +49,50 @@ constructor(){
     todos: [
       ...this.state.todos, 
       { task: this.state.inputText,
-        completed: false
+        completed: false,
+        id: getNewId()
       }
     ],
     inputText: ''
    });
  }
+
+  markComplete = id =>
+    this.setState({
+      todos: this.state.todos.map(todo =>{
+        if(todo.id === id){
+          return{
+            ...todo,
+            completed: todo.completed === false ? true : false
+          };
+        }
+        else{
+            return todo;
+        }
+      })   
+    });
+
+  clearComplete = ev =>{
+    ev.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(
+        todo => todo.completed === true
+      )
+    });
+  };
   render() {
     return (
       <div className='app'>
-        <TodoList todos= {this.state.todos} />
+        <TodoList 
+          todos= {this.state.todos}
+          markComplete={this.markComplete}
+        />
         <TodoForm
-                addTodo={this.addTodo}
-                inputText={this.state.inputText}
-                handleChange={this.handleChange}
-            />
+          clearComplete={this.clearComplete}
+          addTodo={this.addTodo}
+          inputText={this.state.inputText}
+          handleChange={this.handleChange}
+         />
       </div>
     );
   }
