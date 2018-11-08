@@ -23,20 +23,34 @@ class App extends React.Component {
     super();
     this.state = {
       toDos: toDoData,
+      id:Date.now(),
       inputText:''
     };
   }
-  handler = event=>{
+  handler = event => {
     this.setState({
       inputText: event.target.value
     });
+    console.log(event.target);
   }
-
+  addTodo = event => {
+    event.preventDefault();
+    this.setState(
+          {
+           toDos:[...this.state.toDos, {task: this.state.inputText}],
+           inputText :''
+          }
+    );
+  }
   render() {
     return (
       <div>
         <TodoList toDoList={this.state.toDos}/>
-        <TodoForm inputText={this.state.inputText} handler = {this.handler}/>
+        <TodoForm 
+        inputText={this.state.inputText} 
+        handler = {this.handler}
+        addTodo = {this.addTodo}
+        />
       </div>
     );
   }
