@@ -28,6 +28,7 @@
     height: 20px;
     border-radius: 3px;
     margin-top: 20px;
+    background-color: #E5BAC7;
 }
 
 .submit {
@@ -35,6 +36,7 @@
     border-radius: 4px;
     color: #D96E38;
     font-weight: bold;
+    background-color: #E5BAC7;
 }
 
 .completed {
@@ -42,4 +44,5 @@
     border-radius: 4px;
     color: #D96E38;
     font-weight: bold;
+    background-color: #E5BAC7;
 }
