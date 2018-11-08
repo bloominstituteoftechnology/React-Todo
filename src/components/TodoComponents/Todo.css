@@ -1,0 +1,24 @@
+
+.App {
+    border: 2px solid black;
+    width: 400px;
+    background: lightgray;
+    padding: 5px;
+}
+
+.list-items.true {
+text-decoration-line: line-through;
+}
+
+.list-items {
+    cursor: pointer;
+}
+
+button {
+    background: lightblue;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px;
+}

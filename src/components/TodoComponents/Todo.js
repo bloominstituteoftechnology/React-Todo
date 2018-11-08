@@ -6,7 +6,8 @@ const Todo = props => {
     <div>
         {props.list.map(listsInMap => (
             <TodoList key = {listsInMap.task}
-             todoListProps = {listsInMap} />
+             todoListProps = {listsInMap}
+             changeStatus = {props.changeStatus} />
         ))}
     </div>
     );

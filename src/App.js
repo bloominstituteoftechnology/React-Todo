@@ -2,20 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Todo from './components/TodoComponents/Todo'
 import TodoForm from './components/TodoComponents/TodoForm'
+import './components/TodoComponents/Todo.css'
 
+const listData = []
 
-const listData = [
-  {
-    task: '',
-    id: Date.now(),
-    completed: false
-  },
-  {
-    task: 'Wash dishes',
-    id: Date.now(),
-    completed: false
-  }
-]
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -40,21 +30,50 @@ class App extends React.Component {
     this.setState ({
       list: [
         ...this.state.list,
-        {task: this.state.inputText}
+        {task: this.state.inputText, id: Date.now(),completed: 'false' }
       ],
      inputText: ''
     });
   };
   
+  changeStatus = id => {
+    this.setState({
+      list: this.state.list.map(lists => {
+        if (lists.id === id) {
+          return {
+            ...lists,
+            completed: lists.completed === 'false' ? 'true' : 'false'
+          };
+        } else {
+          return lists;
+        }
+      })
+    })
+  }
+
+  clearCompleted = ev => {
+    ev.preventDefault();
+    this.setState({
+      list: this.state.list.filter(lists => lists.completed === 'false') 
+      });
+  }
+
+
+
   render() {
     return (
       <div className="App">
        <h2> To-Do List</h2>
-        <Todo list = {this.state.list} />
+        <Todo 
+        list = {this.state.list}
+        changeStatus= {this.changeStatus} />
         <TodoForm 
+          clearCompleted = {this.clearCompleted}
           addItem = {this.addItem}
           inputText= {this.state.inputText}
-          handleChange= {this.handleChange} />
+          handleChange= {this.handleChange}
+          
+           />
 
       </div>
     );

@@ -5,7 +5,11 @@
 import React from 'react';
 
 const TodoList = props => {
-    return <h3>{props.todoListProps.task}</h3>
+    return <h3
+    onClick={() => props.changeStatus(props.todoListProps.id)}
+    className={`list-items ${props.todoListProps.completed}`}
+    >
+    {props.todoListProps.task}</h3>
 };
 
 export default TodoList;

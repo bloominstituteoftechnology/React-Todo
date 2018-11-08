@@ -10,8 +10,11 @@ const TodoForm = props => {
                placeholder = "Add New Item"
                value= {props.inputText}
                onChange={props.handleChange} />
+
              <button type = "submit">Add Item</button>
-             <button type = "submit">Clear Completed</button>
+             <button onClick = {props.clearCompleted}>Clear Completed</button>
+
+
             </form>
         </div>
     );
