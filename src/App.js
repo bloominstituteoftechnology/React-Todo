@@ -44,7 +44,10 @@ addItem = event => {
   this.setState({
     items: [
       ...this.state.items,
-      { task: this.state.inputItem }
+      { task: this.state.inputItem,
+        id: Date.now(),
+        complete: false
+      }
     ],
     inputItem: ''
   });
@@ -60,8 +63,8 @@ completedItems = event => {
       <div>
         <h1>The Greatest Todo List</h1>
         <TodoList itemsList={this.state.items}/>
-        <TodoForm inputItem=
-        {this.state.inputItem} 
+        <TodoForm 
+        inputItem={this.state.inputItem} 
         handleChange={this.handleChange}
         addItem={this.addItem}
         />
