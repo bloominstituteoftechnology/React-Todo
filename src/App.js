@@ -49,12 +49,23 @@ class App extends React.Component {
     });
   };
   
+  clearCompleted = ev => {
+    ev.preventDefault();
+    this.setState({
+      listItems: this.state.listItems.filter(
+        item => !item.completed
+      )
+    });
+  };
+
   render() {
     return (
       <div>
         <TodoList todoItems={this.state.listItems} 
         markComplete={this.markComplete}/>
-        <TodoForm addListItem={this.addItem} inputText={this.state.inputText}
+        <TodoForm addListItem={this.addItem} 
+        inputText={this.state.inputText}
+        clearCompleted={this.clearCompleted}
         handleChange={this.handleChange} />
       </div>
     );
