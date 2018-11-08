@@ -57,7 +57,9 @@ class App extends React.Component {
 
   clearComplete = ev => {
     ev.preventDefault();
-    console.log(this.state.toDoList.filter( task => task.completed.length))
+    this.setState({
+      toDoList: this.state.toDoList.filter( task => task.completed === false)
+    })
   }
 
   render() {
