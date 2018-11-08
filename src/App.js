@@ -50,6 +50,18 @@ class App extends React.Component {
 
   }
 
+  saveToStorage() {
+
+    localStorage.todoCount = this.state.todoItems.length;
+
+    for (let i = 0; i < this.state.todoItems.length; i++) {
+
+      localStorage[`todo${i}`] = JSON.stringify(this.state.todoItems[i]);
+
+    }
+
+  }
+
   btnClick(e) {
 
     e.preventDefault();
@@ -61,15 +73,10 @@ class App extends React.Component {
       this.setState({
         todoItems: newItems,
         formInput: ''
-      }, this.filterItems);
-
-      localStorage.todoCount = newItems.length;
-
-      for (let i = 0; i < newItems.length; i++) {
-
-        localStorage[`todo${i}`] = JSON.stringify(newItems[i]);
-
-      }
+      }, () => {
+        this.saveToStorage();
+        this.filterItems();
+      });
 
     }
 
@@ -127,7 +134,7 @@ class App extends React.Component {
         return item;
       })
 
-    });
+    }, this.saveToStorage);
 
   }
 
