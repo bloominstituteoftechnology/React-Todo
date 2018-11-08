@@ -20,7 +20,7 @@ let todoData = [
     completed: false
   },
   {
-    task: 'Throw up (a little)',
+    task: 'Throw up from stress (a little)',
     id: 1528817484358,
     completed: true
   },
