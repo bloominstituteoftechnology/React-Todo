@@ -7,7 +7,7 @@ import Todo from './Todo';
 const TodoList = props => {
     return(
         <div>
-            {props.allStuffToDo.map(eachOneInMap => (
+            {props.tasks.map(eachOneInMap => (
             <Todo key={Date.now()} todoOnProp={eachOneInMap} />
             ))};
 

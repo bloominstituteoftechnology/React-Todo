@@ -24,14 +24,15 @@ class App extends React.Component {
       this.state = {
         allStuffToDo: stuffToDo,
         inputText: '',
-        inputTextThree: '',
-        inputTextTwo: '',
+        
+        // inputTextThree: '',
+        // inputTextTwo: '',
       };
     }
     
     handlesChange = event => {
       this.setState({
-        [event.target.task]: event.target.value
+        inputText: event.target.value
       });
       
       console.log(event.target.task);
@@ -42,8 +43,11 @@ class App extends React.Component {
       ev.preventDefault();
       this.setState(
             {
-            updatedTasks: [...this.state.allStuffToDo, {task:this.state.inputText, id: this.state.inputTextTwo, completed: false, }],
-            inputText:''
+            allStuffToDo: [...this.state.allStuffToDo, {
+              task: this.state.inputText,
+              id: Date.now(),
+              completed: false,
+            }], inputText:'',
 
             }
           );
@@ -60,8 +64,8 @@ class App extends React.Component {
             <TodoForm
             addTask={this.addTask} 
             inputText={this.state.inputText}
-            inputTextTwo={this.state.inputTextTwo}
-            inputTextThree={this.state.inputTextThree}
+            // inputTextTwo={this.state.inputTextTwo}
+            // inputTextThree={this.state.inputTextThree}
             handlesChange={this.handlesChange}
             />
           </div>

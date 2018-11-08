@@ -5,25 +5,27 @@ const TodoForm = props => {
       <div>
           <form>
               <input type="text" 
-              task="inputText"
+              name="inputText"
               placeholder="What Do you Need to Do?"
               value={props.inputText} 
-              onChange= {props.handlechange}
+              onChange={props.handlesChange}
               />
-              <input type = 'text'
-              task = 'inputTextTwo'
+
+
+              {/* <input type = 'text'
+              name= 'inputTextTwo'
               placeholder='Stuff'
               value={props.inputTextTwo}
-              onchange={props.handleChange}
+              onchange={props.handlesChange}
                 />
 
               <input
-                type="text"
-                task="inputTextThree"
+                name="text"
+                type="inputTextThree"
                 placeholder="More Stuff"
                 value={props.inputTextTwo}
-                onchange={props.handleChange}
-                />;
+                onchange={props.handlesChange}
+                />; */}
 
 
 
