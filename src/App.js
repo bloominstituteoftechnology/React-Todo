@@ -2,18 +2,38 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
-const TodoData =[
-  {
-    task:'Organize Garage',
-    id:Date.now(),
-    completed:false
-  },
-  {
-    task: 'Bake Cookies',
-    id: Date.now(),
-    completed: false
-  }
-];
+// let TodoData =[
+//   {
+//     task:'Organize Garage',
+//     id:Date.now(),
+//     completed:false
+//   },
+//   {
+//     task: 'Bake Cookies',
+//     id: Date.now(),
+//     completed: false
+//   }
+// ];
+
+
+console.log(localStorage.getItem('myData')===null)
+
+if(localStorage.getItem('myData')===null){
+  var TodoData =[
+    // {
+    //   task:'Organize Garage',
+    //   id:Date.now(),
+    //   completed:false
+    // },
+    // {
+    //   task: 'Bake Cookies',
+    //   id: Date.now(),
+    //   completed: false
+    // }
+  ];
+} else {
+  TodoData = JSON.parse(localStorage.getItem('myData'));
+}
 
 
 
@@ -49,12 +69,9 @@ class App extends React.Component {
   clearTodo = () => {
     const todoItems = document.querySelectorAll("p")
     todoItems.forEach(ele => ele.classList.remove("strike-through"))
-    const newState = this.state.todos;
-    for(let i=newState.length-1;i>=0;i--){
-      if(newState[i].completed===true){
-        newState.splice(i,1)
-      }
-    }
+    const newState = this.state.todos.filter(
+      ele => ele.completed===false
+      );
     this.setState({ 
       todos: newState
     })
@@ -76,6 +93,7 @@ class App extends React.Component {
   
   
   render() {
+    localStorage.setItem('myData', JSON.stringify(this.state.todos));
     return (
       <section className="main">
         <h2>Todo List: MVP</h2>
