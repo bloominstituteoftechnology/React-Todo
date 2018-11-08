@@ -23,6 +23,7 @@ html {
     align-items: center;
     margin-top: 50px;
     border-radius: 10px;
+    transition: all .3s;
 }
 
 .completed {

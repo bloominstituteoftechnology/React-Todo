@@ -5,39 +5,52 @@ import TodoSearch from './components/TodoComponents/TodoSearch';
 
 import './components/TodoComponents/Todo.css';
 
-let todoData = [
-  {
-    task: 'Organize Crime',
-    id: 1528817077286,
-    completed: false,
-    display: true
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: true,
-    display: true
-  },
-  {
-    task: 'Eat salad',
-    id: 1528817084558,
-    completed: false,
-    display: true
-  },
-  {
-    task: 'Throw up from stress (a little)',
-    id: 1528817484358,
-    completed: true,
-    display: true
-  },
-  {
-    task: 'Fluff Pillows',
-    id: 1528817224358,
-    completed: false,
-    display: true
-  }
-];
+let todoData = {}
 
+const myLastStorage  = localStorage.getItem("lsTodoData");
+
+if (!myLastStorage){
+  todoData = {todos: [
+    {
+      task: 'Organize Crime',
+      id: 1528817077286,
+      completed: false,
+      display: true
+    },
+    {
+      task: 'Bake Cookies',
+      id: 1528817084358,
+      completed: true,
+      display: true
+    },
+    {
+      task: 'Eat salad',
+      id: 1528817084558,
+      completed: false,
+      display: true
+    },
+    {
+      task: 'Throw up from stress (a little)',
+      id: 1528817484358,
+      completed: true,
+      display: true
+    },
+    {
+      task: 'Fluff Pillows',
+      id: 1528817224358,
+      completed: false,
+      display: true
+    }
+  ], 
+  inputText: '',
+  searchText: '',
+  };
+
+  localStorage.setItem("lsTodoData", JSON.stringify(todoData));
+
+} else {
+  todoData = JSON.parse(localStorage.getItem("lsTodoData"));
+}
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -45,11 +58,7 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
-    this.state = {
-      todos: todoData,
-      inputText: '',
-      searchText: ''
-    };
+    this.state = todoData;
   }
   
   handleChange = event => {
@@ -72,7 +81,7 @@ class App extends React.Component {
           display: true }
       ],
       inputText: ''
-    });
+    }, ()=>{localStorage.setItem("lsTodoData", JSON.stringify(this.state))});
   };
 
   removeTodo = ev => {
@@ -84,7 +93,7 @@ class App extends React.Component {
         )       
       ],
       inputText: ''
-    });
+    }, ()=>{localStorage.setItem("lsTodoData", JSON.stringify(this.state))});
   };
 
   toggleCompleted = event => {
@@ -105,35 +114,34 @@ class App extends React.Component {
 
     this.setState({
       todos: newTodosList
-    });
+    }, ()=>{localStorage.setItem("lsTodoData", JSON.stringify(this.state))});
   };
 
   search = event => {
-    
-    
-    
     this.setState({
+      //change the input
       [event.target.name]: event.target.value,
-      
     }, ()=> {
+      //change the display property only is the search string is included in the task name
       let newTodosList = this.state.todos;
-    newTodosList.forEach(item => {
-      // item.display = true;
+      newTodosList.forEach(item => {
       if(!item.task.toLowerCase().includes(this.state.searchText.toLowerCase())){
         item.display = false;
       }
     })
 
+    //if the search string is empty, set display to true for all
     if(this.state.searchText === ""){
       newTodosList = newTodosList.map(item => {
         item.display = true;
-        console.log(item.display);
         return item;
       })
     }
+    localStorage.setItem("lsTodoData", JSON.stringify(this.state));
     this.setState({
+      //set the state of the displayed list AFTER the change input is adjusted
       todos: newTodosList
-    })
+    }, ()=>{localStorage.setItem("lsTodoData", JSON.stringify(this.state))})
     })
   }
 
@@ -156,7 +164,6 @@ class App extends React.Component {
           handleClick={this.handleClick}
           toggleCompleted={this.toggleCompleted}
           todos={this.state.todos} 
-          
         />
       </div>
     );
