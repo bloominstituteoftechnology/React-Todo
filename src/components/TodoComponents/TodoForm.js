@@ -16,7 +16,6 @@ const TodoForm = props => {
                 className="todo-form"
             >Add Task</button>
             <button 
-                type="clear" 
                 onClick={props.removeTodo} 
                 className="todo-form"
             >Clear Completed</button>
@@ -25,4 +24,3 @@ const TodoForm = props => {
 }
 
 export default TodoForm;
-

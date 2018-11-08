@@ -3,10 +3,7 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoSearch from './components/TodoComponents/TodoSearch';
 
-import './components/TodoComponents/Todo.css';
-
 let todoData = {}
-
 const myLastStorage  = localStorage.getItem("lsTodoData");
 
 if (!myLastStorage){
@@ -53,9 +50,6 @@ if (!myLastStorage){
 }
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
     this.state = todoData;
@@ -111,20 +105,20 @@ class App extends React.Component {
 
   search = event => {
     this.setState({
-      //change the input
       [event.target.name]: event.target.value,
-    }, 
-    //set the state of the displayed list AFTER the change input is adjusted
-    ()=> {this.setState({
-      //change the display property according to the search string
-      todos: this.state.todos.map(item => {
-        if(!item.task.toLowerCase().includes(this.state.searchText.toLowerCase())){
-          return {...item, display: false};
-        } else {
-          return {...item, display: true};
-        }
-      })
-    })})
+      }, 
+      //set the state of the displayed list AFTER the change input is adjusted
+      ()=> {this.setState({
+        //change the display property according to the search string
+        todos: this.state.todos.map(item => {
+          if(!item.task.toLowerCase().includes(this.state.searchText.toLowerCase())){
+            return {...item, display: false};
+          } else {
+            return {...item, display: true};
+          }
+        })
+      })}
+    )
   }
 
   render() {

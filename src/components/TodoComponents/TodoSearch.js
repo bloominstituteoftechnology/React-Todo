@@ -13,6 +13,6 @@ const TodoForm = props => {
             />
         </form>    
     );
-
 }
+
 export default TodoForm;
