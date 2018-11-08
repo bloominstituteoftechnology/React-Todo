@@ -1,0 +1,12 @@
+.list-item {
+    cursor: pointer;
+}
+.list-item:hover {
+    color: red;
+}
+ .complete {
+    text-decoration: line-through;
+}
+ .hidden {
+    display: none;
+} 
