@@ -7,9 +7,16 @@ import Todo from './Todo.js';
 
 function TodoList(props) {
    return (
-    <div>
-      {props.todoList.map( todoItem => <Todo key={todoItem.id} todoItem={todoItem} />)}
-    </div>
+    <ul>
+      {props.list.map(listItem => 
+        {return (
+          <Todo
+          key={listItem.id} 
+          todoItem={listItem} 
+          toggleItem={props.toggleItem} 
+        />)}
+      )}
+    </ul>
    );
  };
 

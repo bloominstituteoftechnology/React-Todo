@@ -2,7 +2,8 @@ import React from 'react';
 
 function Todo(props) {
   return (
-    <p >{props.todoItem.task}</p>
+    <li className={`checked-${props.todoItem.completed}`} 
+      onClick={() => props.toggleItem(props.todoItem)}>{props.todoItem.task}</li>
   );
 }
 

@@ -1,0 +1,63 @@
+body {
+  background: rgba(214, 214, 212, 0.685);
+}
+
+.container {
+  width: 300px;
+  margin: 100px auto;
+  background: #7AD1E4;
+  padding: 10px 5px;
+  font-family: arial;
+}
+
+h2 {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  /* background: green; */
+  padding-left: 20px;
+}
+
+li {
+  font-size: 20px;
+  line-height: 1.65;
+  cursor: pointer;
+}
+
+li:hover {
+  transform: scale(1.01);
+  color: hsl(0, 41%, 93%);
+}
+
+.checked-true {
+  text-decoration: line-through;
+  color: red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+}
+
+button {
+  margin: 5px 20px;
+  border: 1px solid black;
+  background: white;
+  padding: 10px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+button:hover {
+  border: 1px solid white;
+  background: darkslategrey;
+  color: white;
+  transition: .2s;
+}
