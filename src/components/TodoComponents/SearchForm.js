@@ -7,7 +7,7 @@ import React from 'react';
                 placeholder="add new list item" value={props.searchText}
                 onChange={props.handleChange} />
                 <button type="submit">Search</button>
-                <button onClick={props.clearSearch}>Clear Search</button>
+                <button onClick={props.clearSearch}>Clear</button>
             </form>
         </div>
     );
