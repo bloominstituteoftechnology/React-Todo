@@ -5,14 +5,29 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = props => {
+let todos = props.todoList; //.map(todo => {
+console.log(todos);
+// return <Todo key={todo.id} todoData={todo} />
+// });
+
+// const storedTodo = JSON.parse(localStorage.getItem('todos'));
+// if(storedTodo && storedTodo.length) {
+//     todos = storedTodo;
+// }else {
+//     localStorage.setItem('todos', JSON.stringify(props.todoList));
+// }
+
+
+
+
   return (
     <div>
-      {props.todoList.map(todo => (
-        <Todo
-          key={todo.id}
-          todoData={todo}
-        />
-      ))}
+        {
+            todos.map(todo => {
+
+                return <Todo key={todo.id} todoData={todo} />
+            })
+        }
     </div>
   );
 };

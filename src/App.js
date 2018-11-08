@@ -22,6 +22,13 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount(){
+    const storedTodo = JSON.parse(localStorage.getItem('todo'));
+    if (storedTodo){
+      this.setState({tasks: storedTodo})
+    } 
+  }
+
   handleChange = event => {
     this.setState({
       inputText: event.target.value
@@ -35,13 +42,15 @@ class App extends React.Component {
     // 1 - all the old data in the old array (Hint: use the spread operator)
     // 2 - the new character from this.state.inputText
     
+    let newTasks = [...this.state.tasks,
+      { task: this.state.inputText, id: Date.now(),  completed: false }];
+    localStorage.setItem('todo', JSON.stringify(newTasks));
+
     this.setState({
-      tasks: [
-        ...this.state.tasks,
-        { task: this.state.inputText, id: Date.now(),  completed: false }
-      ],
+      tasks: newTasks,
       inputText: ''
     });
+    
   };
 
 
