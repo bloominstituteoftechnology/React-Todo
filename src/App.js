@@ -33,11 +33,27 @@ class App extends React.Component {
       inputText: ''
     });
   };
+
+  markComplete = id => {
+    this.setState({
+      listItems: this.state.listItems.map(item => {
+        if (item.id === id) {
+          return {
+            ...item,
+            completed: item.completed === true ? false : true
+          };
+        } else {
+          return item;
+        }
+      })
+    });
+  };
   
   render() {
     return (
       <div>
-        <TodoList todoItems={this.state.listItems} />
+        <TodoList todoItems={this.state.listItems} 
+        markComplete={this.markComplete}/>
         <TodoForm addListItem={this.addItem} inputText={this.state.inputText}
         handleChange={this.handleChange} />
       </div>
