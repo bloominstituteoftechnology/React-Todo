@@ -48,14 +48,14 @@ class App extends React.Component {
   // clearField = event => {
   //   event.preventDefault();
   //   this.setState({
-  //     todos: this.state.todos.filter(todo => todos.color === "green")
+  //     todos: this.state.todos.filter(todo => todos.completed === completed)
   //   });
   // };
 
   render() {
     return (
       <div className="ToDo">
-        <ToDoList todos={this.state.todos} />{" "}
+        <ToDoList todos={this.state.todos} />
         <ToDoForm
           // clearField={this.clearField}
           addToDo={this.addToDo}
