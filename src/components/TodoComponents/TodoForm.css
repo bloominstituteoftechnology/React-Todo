@@ -1,13 +1,12 @@
 .form{
-    background: black;
+    background: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
-    border: 5px solid #0be7ff; 
-    border-radius: 50%; 
-    min-height: 115px;
-    max-height: 345px;
+    flex-direction: column;  
+    border-radius: 5px; 
+    max-height: 115px;
+    
     
 }
 .form input{
@@ -15,10 +14,10 @@
     border: 2px solid #0be7ff;
 }
 .form button{
-    background: black;
+    background: #57585e;
     color: whitesmoke;
     border: 2px solid #0be7ff;
-    border-radius: 5%;
+    
 }
 .form button:hover{
     background: whitesmoke;

@@ -4,12 +4,12 @@
 	align-items: center;
     position: relative;
 	background: #0be7ff;
-    border-radius: .4em;
-    height: 100px;
+	border-radius: .4em;
+    height:100px;
     margin-bottom: 15px;
     margin-left: 20px;
     color: whitesmoke;
-	text-shadow: -2px 1px gray;
+	text-shadow: -2px 1px #57585e;
 	font-size: 24px;
 }
 .todo::after{
@@ -27,8 +27,8 @@
 	margin-left: -24px;
 }
 .true{
-    color: cornsilk;
-    background: #1bef1b;
+    color: whitesmoke;
+    background: #57585e;
 }
 .true:after{
     content: '';
@@ -38,7 +38,7 @@
 	width: 0;
 	height: 0;
 	border: 36px solid transparent;
-	border-right-color: #1bef1b;
+	border-right-color: #57585e;
 	border-left: 0;
 	border-bottom: 0;
 	margin-top: -12px;
