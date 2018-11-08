@@ -1,0 +1,29 @@
+.todo-form {
+    display: flex;
+    justify-content: center;
+}
+
+.todo-form form{
+    width: 50%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-form form input {
+    background-color: rgb(255, 255, 255, 0.8);
+    border: 1px solid #5D484D;
+    padding: 5px 5px;
+    margin: 10px 0;
+}
+
+.todo-form .button-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.todo-form .button-container button{
+    margin: 0 10px;
+    background-color: rgb(104, 79, 85, 0.25);
+    border: 1px solid #5D484D;
+}

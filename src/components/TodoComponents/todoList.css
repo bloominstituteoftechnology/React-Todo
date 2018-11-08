@@ -1,0 +1,11 @@
+.todo-list {
+    width: 50%;
+    margin: 20px auto;
+}
+
+.todo-list p {
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 2px 1px #5D484D;
+}

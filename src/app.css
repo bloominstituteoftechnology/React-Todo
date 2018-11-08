@@ -1,0 +1,15 @@
+.todo-container {
+    max-width: 90%;
+    padding: 0 20px;
+    border: 1px solid #5D484D;
+    background-color: rgb(244, 211, 205, 0.5);
+    border-radius: 5px;
+}
+
+.todo-container h2 {
+    font-size: 4.5rem;
+    margin-top: 20px;
+    color: white;
+    text-shadow: 2px 1px #5D484D;
+    text-align: center;
+}

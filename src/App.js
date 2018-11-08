@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import SearchForm from './components/TodoComponents/SearchForm';
+import './app.css';
 
 class App extends React.Component {
   constructor() {
@@ -62,34 +63,35 @@ class App extends React.Component {
   }
 
 
-  searchTodos = event => {
-    event.preventDefault();
+  // searchTodos = event => {
+  //   event.preventDefault();
 
-    let filteredTodos = this.state.todos;
+  //   let filteredTodos = this.state.todos;
 
-    filteredTodos = filteredTodos.filter(todo => todo.task.includes(this.state.searchText));
+  //   filteredTodos = filteredTodos.filter(todo => todo.task.includes(this.state.searchText));
 
-    this.setState({
-      todos: filteredTodos,
-      searchText: '',
-    })
-  }
+  //   this.setState({
+  //     todos: filteredTodos,
+  //     searchText: '',
+  //   })
+  // }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div>
+      <div className='todo-container'>
         <h2>Welcome to your Todo App!</h2>
-        <SearchForm 
+        {/* <SearchForm 
           searchTodos={this.searchTodos} 
           searchText={this.searchText} 
           handleChange={this.handleChange} 
-        />
+        /> */}
         <TodoList 
           todos={this.state.todos}
           isComplete={this.isComplete}
         />
+
         <TodoForm 
           addToTodos={this.addToTodos} 
           todoText={this.state.todoText} 

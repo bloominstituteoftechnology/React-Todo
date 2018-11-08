@@ -4,7 +4,9 @@ const SearchForm = props => {
     return(
         <div>
             <form onInput={props.searchTodos}>
-                <input type="text" name='searchText' placeholder='filter through Todos' value={props.searchText} onChange={props.handleChange} />
+                <input 
+                    type="text" 
+                    name='searchText' placeholder='Search...' value={props.searchText} onChange={props.handleChange} />
             </form>
         </div>
     );

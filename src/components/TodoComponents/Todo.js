@@ -1,5 +1,5 @@
 import React from 'react';
-import './Todo.css';
+import './todo.css';
 
 const Todo = props => {
     return (
@@ -7,7 +7,7 @@ const Todo = props => {
             onClick={() =>  {props.isComplete(props.singleTodo.id)}}
             className={`todo-item ${props.singleTodo.completed ? 'strikethrough' : 'no-decoration' }`}
         >
-            {props.singleTodo.task}
+            &#10004; {props.singleTodo.task}
         </p>
     );
 }
