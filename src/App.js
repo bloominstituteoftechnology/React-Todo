@@ -76,7 +76,7 @@ constructor(){
     ev.preventDefault();
     this.setState({
       todos: this.state.todos.filter(
-        todo => todo.completed === true
+        todo => todo.completed === false
       )
     });
   };
