@@ -8,7 +8,7 @@ const TodoForm = props => {
                 <input 
                     type="text" 
                     name='todoText' 
-                    placeholder='add to your Todo list here!' 
+                    placeholder='Type some Todos!' 
                     value={props.todoText} 
                     onChange={props.handleChange}
                 />

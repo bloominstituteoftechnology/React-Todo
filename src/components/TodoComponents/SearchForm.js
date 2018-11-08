@@ -1,8 +1,9 @@
 import React from 'react';
+import './searchForm.css';
 
 const SearchForm = props => {
     return(
-        <div>
+        <div className='search-bar'>
             <form onInput={props.searchTodos}>
                 <input 
                     type="text" 
