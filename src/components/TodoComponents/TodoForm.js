@@ -11,8 +11,10 @@ const Form = (props) => {
                     value= {props.inputText}   //value attribute added so that the 'this.stae controls the data and not the input            
                     onChange={props.handleChange} 
                 />   
-                <button onClick={props.addItem} className='add-btn'>Add</button>   
-                <button onClick={props.addItem}>Clear</button>     
+                <div className='btns'>
+                    <button onClick={props.addItem} className='add-btn'>Add Todo</button>   
+                    <button onClick={props.addItem}>Clear Completed</button> 
+                </div>    
             </form> 
              
         </div>

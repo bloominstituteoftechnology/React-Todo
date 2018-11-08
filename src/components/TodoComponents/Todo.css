@@ -1,16 +1,22 @@
 .App{
-    border: 1px solid red;
-    width: 50%;
-    height: auto;
-    margin: auto;
+    /* border: 1px solid red; */
+    /* width: 100%; */
+    width: 100%;
+    max-width: 1054px;
+    padding: 0 15px;
+    margin: 0 auto;
+    
     font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
+    background-image: linear-gradient( rgb(181, 93, 240), rgb(68, 29, 131));
+    /* background-color: rgba(248, 135, 7, 0.705); */
 }
 
 .App h2 {
     text-align: center;
+    padding-top: 50px;
 }
 
 .todo-card {
@@ -19,13 +25,14 @@
     align-items: center;
     flex-direction: column;
     width: 50%;
-    height: 250px;
-    margin-left: 120px;
+    /* height: auto; */
+    margin: 0 auto;
+    /* margin-left: 120px; */
     padding-top: 50px;
     padding-bottom: 50px;
-    border-radius: 3px;
-    background-color: #DFE3E6;
-    border: 1px solid green;
+    border-radius: 10px;
+    background-color: rgba(223, 227, 230, 0.808);
+    /* border: 1px solid green; */
 }
 
 
@@ -36,31 +43,52 @@
     text-align: center;
     height: 40px;
     padding-top: 15px;
-    background-color: #FAFAFA;
+    margin-bottom: 20px;
+    background-color: rgba(250, 250, 250, 0.767);
 }
 
 .input {
     width: 50%;
-    margin-left: 120px;
+    margin: 0 auto;
+    /* margin-left: 120px; */
     /* border: 1px solid blue; */
 }
 
 form {
-    border: 2px solid lightpink;
+    /* border: 2px solid lightpink; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
 }
 input {
-    height: 30px;
-    width: 98%;
+    
+    height: 40px;
+    width: 88%;
     text-align: center;
-    color: black;
-    background-color: rgb(211, 211, 211);
-    /* border: 1px solid orange; */
+    border: 1px solid rgb(221, 132, 221);
+    border-radius: 5px;
+    
+    background-color: #EFEDF3;
 }
 
+::-webkit-input-placeholder {
+    color: black;
+}
+.btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 50px;
+    /* border: 1px solid orange;  */
+}
 button {
-    height: 35px;
-    border: 1px solid black;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: rgb(221, 132, 221);
+    color: white;
+    border: 1.5px solid white;
 }
