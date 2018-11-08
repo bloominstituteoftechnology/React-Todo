@@ -42,7 +42,9 @@ class App extends Component {
 
   markComplete = e => {
     e.target.classList.toggle('complete');
-    console.log(e.target);
+    let currentItem = this.state.currentList.find(i => i.task === e.target.innerText);
+    currentItem.completed === false ? (currentItem.completed : true) : (currentItem.completed: false);
+    console.log(currentItem)
   }
 
   // Render
