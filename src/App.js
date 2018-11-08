@@ -53,7 +53,7 @@ class App extends React.Component {
 
     e.preventDefault();
 
-    if (e.target.name == 'submitButton') {
+    if (e.target.name === 'submitButton') {
 
       const newItems = [...this.state.todoItems, this.createTodoItem(this.state.formInput)];
 
@@ -72,7 +72,7 @@ class App extends React.Component {
 
     }
 
-    else if (e.target.name == "clearButton"){
+    else if (e.target.name === "clearButton"){
 
       this.setState({
 
@@ -98,7 +98,7 @@ class App extends React.Component {
 
     }, () => {
 
-      if (name == "searchInput") {
+      if (name === "searchInput") {
 
         this.filterItems();
 
