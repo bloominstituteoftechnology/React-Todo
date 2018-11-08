@@ -12,8 +12,21 @@ const TodoForm = props => {
                 onChange={props.handleChange}
               />
 
+              <button onClick={props.addTask}>Add New Task</button>
+              <button onClick={props.clearXedOutTask}
+               > Clear Completed Tasks </button>
+          </form>
+      </div>
 
-              {/* <input type = 'text'
+
+
+  );
+};
+
+export default TodoForm;
+
+
+{/* <input type = 'text'
               name= 'inputTextTwo'
               placeholder='Stuff'
               value={props.inputTextTwo}
@@ -27,16 +40,3 @@ const TodoForm = props => {
                 value={props.inputTextTwo}
                 onchange={props.handleChange}
                 />; */}
-
-
-
-              <button onClick={props.addTask}>Add New Task</button>
-          </form>
-      </div>
-
-
-
-  );
-};
-
-export default TodoForm;

@@ -2,3 +2,17 @@
     font-family: sans-serif;
     text-align: center;
 }
+
+.eachListed {
+    cursor: pointer;
+}
+
+.eachListed.false {
+    color: darkblue;
+    text-decoration: none;
+}
+
+.eachListed.true {
+    color: gray;
+    text-decoration: line-through;
+}

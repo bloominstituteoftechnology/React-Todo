@@ -2,7 +2,13 @@ import React from 'react';
 
 
 const Todo = props => { 
-    return <h2>{props.todoOnProp.task}</h2>
+    return (
+        <h2
+        onClick={() => props.changeFinished(props.todoOnProp.id)}
+        className={`eachListed ${props.todoOnProp.completed}`}>
+        {props.todoOnProp.task}
+        </h2>
+    );
 };
 
 
