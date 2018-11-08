@@ -6,13 +6,13 @@ import TodoForm from './components/TodoComponents/TodoForm'
 
 const listData = [
   {
-    task: 'Clean bedroom',
-    id: 1234,
+    task: '',
+    id: Date.now(),
     completed: false
   },
   {
     task: 'Wash dishes',
-    id: 1235,
+    id: Date.now(),
     completed: false
   }
 ]
@@ -49,6 +49,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+       <h2> To-Do List</h2>
         <Todo list = {this.state.list} />
         <TodoForm 
           addItem = {this.addItem}
