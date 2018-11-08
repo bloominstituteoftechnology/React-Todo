@@ -36,15 +36,38 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+    const storedTodo = JSON.parse(localStorage.getItem('todo'));
+    if(storedTodo) {
+      this.setState({todoList: storedTodo})
+    }
+  }
+
+
   addTodo = event => {
     event.preventDefault();
-    this.setState({
-      todoList: [
-        ...this.state.todoList,
-        { task: this.state.inputText}
-      ],
-      inputText: ''
-    });
+
+    let newTodos = [...this.state.todoList,
+      { task: this.state.inputText, id: Date.now(), completed: false}];
+      localStorage.setItem('todo', JSON.stringify(newTodos));
+
+      this.setState({
+        todoList: [
+          ...this.state.todoList,
+          {task: this.state.inputText},
+        ],
+          inputText: '',
+      })
+
+
+
+    // this.setState({
+    //   todoList: [
+    //     ...this.state.todoList,
+    //     { task: this.state.inputText}
+    //   ],
+    //   inputText: ''
+    // });
   };
 
   handleChange = event => {
@@ -54,9 +77,8 @@ class App extends React.Component {
   };
 
   toggleCompleted = event => {
-    event.preventDefault();
+    event.target.classList.toggle('completed')
     this.setState({
-      
       completed: true
     })
     console.log(this.state)
@@ -70,6 +92,7 @@ class App extends React.Component {
           inputText={this.state.inputText}
           handleChange={this.handleChange}
           todoList={this.state.todoList}
+          toggleCompleted={this.toggleCompleted}
         />
         <TodoForm 
         todos={this.todoList}

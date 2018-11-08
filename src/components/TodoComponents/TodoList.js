@@ -15,6 +15,7 @@ const TodoList = props => {
           key={todo.id = Math.random().toString()}
           todoListItem={todo.task}
           completed={todo.completed}
+          toggleCompleted={todo.toggleCompleted}
         />
       ))
       }
