@@ -6,10 +6,10 @@ import TodoForm from './components/TodoComponents/TodoForm';
 
 const todoList = [
   {
-    task: 'Complete the stretch goals',
+    task: 'Style the Todo List',
     id: Date.now(),
     completed: false,
-  },
+  }
 ];
 
 class App extends React.Component {

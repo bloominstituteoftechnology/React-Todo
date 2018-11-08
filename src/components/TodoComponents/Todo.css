@@ -1,3 +1,57 @@
+.App {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 60px 30px;
+    border: 20px double white;
+    background:
+    radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+    background-color:#282828;
+    background-size:16px 16px;
+    color: white;
+    font-family: monospace;
+}
+
+h3 {
+    margin: 0;
+    opacity: 1;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 1.5;
+}
+
 .true {
     text-decoration: line-through;
+}
+
+.form-container {
+    width: 100%;
+}
+
+form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 30px;
+}
+
+input, button {
+    margin: 0 20px 0 0;
+    font-size: 16px;
+    font-family: monospace;
+}
+
+input {
+    padding: 10px 0 10px 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background: lightgray;
+    border: 2px solid white;
+    color: rgb(56, 46, 46);
+    border-radius: 5px;
+    font-weight: bold;
 }
