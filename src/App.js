@@ -1,21 +1,21 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './components/TodoComponents/Todo.css';
 
 
 const todoItems = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
+  // {
+  //   task: 'Organize Garage',
+  //   id: 1528817077286,
+  //   completed: false
+  // },
+  // {
+  //   task: 'Bake Cookies',
+  //   id: 1528817084358,
+  //   completed: false
+  // }
 ];
-
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -25,7 +25,8 @@ class App extends React.Component {
     super();
     this.state = {
       todoItemList: todoItems,
-      inputText: ""
+      inputText: "",
+      
     };
   }
 
@@ -38,17 +39,35 @@ class App extends React.Component {
 
   addTask = e => {
     e.preventDefault();
+    if(this.state.inputText !== ""){
     this.setState({
       todoItemList: [
         ...this.state.todoItemList,
         {task: this.state.inputText, 
           id: Date.now(),
-          completed: false
+          completed: false,
+          taskDone: 'inactive'
         },
       ],
       inputText: ''
     });
+  }
     console.log(this.todoItemList);
+  }
+
+  taskComplete = id => {
+    this.setState({
+      todoItemList: this.state.todoItemList.map(task => {
+        if(task.id === id) {
+          return {
+            ...task,
+            taskDone: task.taskDone === 'inactive' ? 'active' : 'inactive'
+          };
+        } else {
+          return task;
+        }
+      })
+    });
   }
 
 
@@ -56,9 +75,12 @@ class App extends React.Component {
     return (
       <div>
         {/* <h2>Welcome to your Todo App!</h2> */}
-        <TodoList todos={this.state.todoItemList} />
+        <TodoList 
+        todos={this.state.todoItemList} 
+        taskComplete={this.taskComplete}
+        />
         <TodoForm 
-          addTask={this.addTask}
+          addTask={this.addTask}          
           inputText={this.state.inputText}
           handleChange={this.handleChange}
         />

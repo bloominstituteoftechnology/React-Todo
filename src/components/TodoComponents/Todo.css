@@ -1,0 +1,53 @@
+
+.root {
+    width: 800px;
+    background-color: whitesmoke;
+    /* display: flex;
+    justify-content: center;
+    flex-wrap: wrap; */
+}
+
+.task-content {
+    width: 200px;
+    min-width: 200px;
+    height: 200px;
+    overflow-y: scroll;
+    background-color: rgb(204, 233, 241);
+    margin: 20px 20px;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.task-container {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: scroll;
+}
+
+.form-container {
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+.button-content {
+    margin: 0 15px;
+    width: 100px;
+}
+
+.form-input-content {
+    margin-right: 20px;
+}
+
+.toggleTextDecor.active {
+    text-decoration: line-through;
+}
+
+.toggleTextDecor.inactive {
+    text-decoration: none;
+}
+
+.date-container {
+    font-size: 12px;
+    font-weight: bold;
+}
