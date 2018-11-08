@@ -12,5 +12,3 @@ const Todo = props => {
 };
 
 export default Todo;
-
-// style={{ textDecoration: "line-through" }}

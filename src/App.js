@@ -36,11 +36,6 @@ class App extends React.Component {
     })
   };
 
-
-
-
-
-
   completeTask = id => {
     this.setState({
       tasks: this.state.tasks.map(taskItem => {
@@ -53,10 +48,12 @@ class App extends React.Component {
     })
   }
 
-
-
-
-
+  clearCompleted = ev => {
+    ev.preventDefault();
+    this.setState({
+      tasks: this.state.tasks.filter(taskItem => taskItem.completed == false)
+    })
+  }
 
   render() {
     return (
@@ -73,7 +70,8 @@ class App extends React.Component {
         <TodoForm 
           addTask={this.addTask} 
           inputText={this.state.inputText} 
-          handleChange={this.handleChange} 
+          handleChange={this.handleChange}
+          clearCompleted={this.clearCompleted} 
         />
 
       </div>
