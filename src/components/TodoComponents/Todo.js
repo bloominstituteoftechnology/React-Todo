@@ -4,7 +4,7 @@ const Todo = props => {
     return (
         <h3 
             onClick={() => props.completeTask(props.taskOnProps.id)} 
-            style={{ textDecoration: "line-through" }}
+            className={`todo-item ${props.taskOnProps.completed}`}
         >
             {props.taskOnProps.taskName}
         </h3> 
@@ -12,3 +12,5 @@ const Todo = props => {
 };
 
 export default Todo;
+
+// style={{ textDecoration: "line-through" }}

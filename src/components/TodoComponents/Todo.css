@@ -1,0 +1,7 @@
+.todo-item {
+    cursor: pointer;
+}
+
+.todo-item.true {
+    text-decoration: line-through;
+}
