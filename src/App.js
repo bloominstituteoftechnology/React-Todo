@@ -61,6 +61,10 @@ class App extends React.Component {
     this.state = todoData;
   }
   
+  componentDidUpdate() {
+    localStorage.setItem("lsTodoData", JSON.stringify(this.state));
+  }
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -69,9 +73,6 @@ class App extends React.Component {
 
   addTodo = ev => {
     ev.preventDefault();
-    // create a new array with:
-    // 1 - all the old data in the old array (Hint: use the spread operator)
-    // 2 - the new character from this.state.inputText
     this.setState({
       todos: [
         ...this.state.todos,
@@ -81,7 +82,7 @@ class App extends React.Component {
           display: true }
       ],
       inputText: ''
-    }, ()=>{localStorage.setItem("lsTodoData", JSON.stringify(this.state))});
+    });
   };
 
   removeTodo = ev => {
@@ -93,56 +94,37 @@ class App extends React.Component {
         )       
       ],
       inputText: ''
-    }, ()=>{localStorage.setItem("lsTodoData", JSON.stringify(this.state))});
+    });
   };
 
-  toggleCompleted = event => {
-    event.preventDefault();
-       
-    //Returns the outside Object of the ID of the item i click on 
-    let taskToChange = this.state.todos.findIndex(item => {
-      return item.id.toString() === event.target.attributes[0].value;
-    })
-    let newTodosList = this.state.todos;
-
-    //toggle the completedness
-    if (newTodosList[taskToChange].completed){
-      newTodosList[taskToChange].completed = false;
-    } else {
-      newTodosList[taskToChange].completed = true;
-    }
-
+  toggleCompleted = id => {
     this.setState({
-      todos: newTodosList
-    }, ()=>{localStorage.setItem("lsTodoData", JSON.stringify(this.state))});
-  };
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id){
+          return {...todo, completed: todo.completed ? false : true};
+        } else {
+          return todo;
+        }
+      })
+    });
+  }
 
   search = event => {
     this.setState({
       //change the input
       [event.target.name]: event.target.value,
-    }, ()=> {
-      //change the display property only is the search string is included in the task name
-      let newTodosList = this.state.todos;
-      newTodosList.forEach(item => {
-      if(!item.task.toLowerCase().includes(this.state.searchText.toLowerCase())){
-        item.display = false;
-      }
-    })
-
-    //if the search string is empty, set display to true for all
-    if(this.state.searchText === ""){
-      newTodosList = newTodosList.map(item => {
-        item.display = true;
-        return item;
+    }, 
+    //set the state of the displayed list AFTER the change input is adjusted
+    ()=> {this.setState({
+      //change the display property only if the search string is included in the task name
+      todos: this.state.todos.map(item => {
+        if(!item.task.toLowerCase().includes(this.state.searchText.toLowerCase())){
+          return {...item, display: false};
+        } else {
+          return {...item, display: true};
+        }
       })
-    }
-    localStorage.setItem("lsTodoData", JSON.stringify(this.state));
-    this.setState({
-      //set the state of the displayed list AFTER the change input is adjusted
-      todos: newTodosList
-    }, ()=>{localStorage.setItem("lsTodoData", JSON.stringify(this.state))})
-    })
+    })})
   }
 
   render() {
