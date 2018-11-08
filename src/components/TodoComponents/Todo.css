@@ -1,0 +1,7 @@
+.todo-thing.true {
+    text-decoration: line-through;
+}
+
+.todo-thing.false {
+    text-decoration: none;
+}

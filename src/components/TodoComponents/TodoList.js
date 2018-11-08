@@ -11,8 +11,9 @@ const TodoList = props => {
         <div>
             {props.task.map(todoInMap => (
                 <Todo
-                    key={todoInMap.task}
+                    key={todoInMap.id}
                     todoOnProps={todoInMap}
+                    changeComplete={props.changeComplete}
                     />
             ))}
         </div>

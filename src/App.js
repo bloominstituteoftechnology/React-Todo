@@ -16,8 +16,7 @@ class App extends React.Component {
     super();
     this.state = {
       task: toDoListArray,
-      id: Date.now(),
-      completed: false,
+      inputText: ""
     };
   }
 
@@ -32,23 +31,42 @@ class App extends React.Component {
     this.setState({
       task: [
         ...this.state.task,
-        {task: this.state.inputText, id: Date.now(), complete: false}
+        {task: this.state.inputText, id: Date.now(), completed: false}
       ],
       inputText: ''
     });
   }
 
-  // clearTodo = event => {
-  //   event.preventDefault();
-  //   document.getElementById('todo-list').reset();
-  // }
+  changeComplete = id => {
+    this.setState({
+      task: this.state.task.map(task => {
+      if (task.id === id) {
+        return {
+          ...task, completed: task.completed === false ? true : false
+        };
+      } else {
+        return task;
+      }
+    })
+    }, console.log('trigger'));
+  }
+
+  clearTodo = event => {
+    event.preventDefault();
+    this.setState({
+      task: this.state.task.filter(
+        task => task.completed === false
+      )
+    });
+  };
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <div className="todo-list">
-        <TodoList task={this.state.task} />
+        <TodoList task={this.state.task}
+                  changeComplete={this.changeComplete} />
         <TodoForm 
           addTodo={this.addTodo}
           inputText={this.state.inputText}
