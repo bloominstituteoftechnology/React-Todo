@@ -1,0 +1,11 @@
+.item-text {
+    font-size: 1.2rem;
+}
+
+.false {
+    text-decoration: none;
+}
+
+.true {
+    text-decoration: line-through;
+}
