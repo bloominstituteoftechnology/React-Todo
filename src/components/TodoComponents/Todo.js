@@ -5,13 +5,13 @@ const Todo = props => {
 
   
   return (
-    <div>
-      
+    <div className="todo">      
       <p  onClick={() => props.toggleCompleted(props.todoOnProps.id)}
           className={`todo-item ${props.todoOnProps.textDecoration}`}
           todoList={props.todoOnProps.todoList}
+          id={Date.now()}
       >
-          {props.todoListItem}
+        {props.todoListItem}
       </p>
     </div>
   )

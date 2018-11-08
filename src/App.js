@@ -7,16 +7,18 @@ const todoListSeed = [
   {
     task: 'Learn setState()',
     id: "982347597",
-    completed: false
+    completed: false,
+    textDecoration: "none"
   },
   {
     task: 'Style my Todo List',
     id: "0897979876",
-    completed: false
+    completed: false,
+    textDecoration: "none"
   }
 ];
 
-let nextId = 125;
+let nextId = Math.random() * 100;
 
 const getNewId = () => {
   nextId += 1;
@@ -46,16 +48,17 @@ class App extends React.Component {
     event.preventDefault();
 
     let newTodos = [...this.state.todoList,
-      { task: this.state.inputText, id: this.state.id, completed: false, textDecoration: this.state.textDecoration}];
+      { task: this.state.inputText, id: this.state.id , completed: false, textDecoration: this.state.textDecoration}];
       localStorage.setItem('todo', JSON.stringify(newTodos));
 
       this.setState({
         todoList: [
           ...this.state.todoList,
           {task: this.state.inputText,
-            textDecoration: "none", id: getNewId() }
+            textDecoration: "none",  key: this.state.id, id: getNewId()}
         ],
           inputText: '',
+          id: this.state.id
       })
   };
 
@@ -97,7 +100,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="main-container">
         <TodoList 
           todoList={this.state.todoList}
           toggleCompleted={this.toggleCompleted}

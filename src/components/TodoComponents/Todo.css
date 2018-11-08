@@ -1,5 +1,52 @@
+body {
+  background: darkred;
+}
+
+h1 {
+  font-size: 3rem;
+  text-shadow: 4px 4px 5px rgba(0,0,0,0.1),
+               3px 3px 5px rgba(0,0,0,0.2),
+               2px 2px 4px rgba(0,0,0,0.3),
+               1px 1px 4px rgba(0,0,0,0.4),
+               1px 1px 3px rgba(0,0,0,0.5),
+               0px 0px 2px rgba(0,0,0,0.6);
+               letter-spacing: 2px;
+}
+
+.main-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+.todo {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(218, 145, 10);
+  background-color: rgb(48, 1, 1);
+  margin-bottom: 15px;
+  padding: 2px;
+  border-radius: 10px;
+  transition: all .3s ease-in-out;
+  display: inline-block;
+  width: 70%;
+}
+
+.todo:hover {
+  background-color: rgb(104, 1, 1);
+  color: rgb(255, 166, 0)
+}
+
+.todoContainer {
+  color: wheat;
+  text-transform: uppercase;
+  font-family: sans-serif;
+}
+
 .todo-item {
   cursor: pointer;
+  margin: 10px;
 }
 
 .todo-item.none {
