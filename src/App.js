@@ -16,14 +16,13 @@ class App extends React.Component {
     this.state = {
       tasks: taskListArray,
       inputText: '',
-      id: ''
+      id: '',
+      completed: null
     };
   }
 
   handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   addTask = ev => {
@@ -32,20 +31,51 @@ class App extends React.Component {
     // 1 - all the old data in the old array (Hint: use the spread operator)
     // 2 - all the new tasks from this.state.inputText
     this.setState({
-      tasks: [...this.state.tasks, {taskName: this.state.inputText, id: Date.now()}],
+      tasks: [...this.state.tasks, {taskName: this.state.inputText, id: Date.now(), completed: false }],
       inputText: '',
     })
   };
 
+
+
+
+
+
+  completeTask = id => {
+    this.setState({
+      tasks: this.state.tasks.map(taskItem => {
+        if(taskItem.id === id) {
+          return {...taskItem, completed: true};
+        } else {
+          return taskItem;
+        }
+      })
+    })
+  }
+
+
+
+
+
+
   render() {
     return (
+
       <div className="App">
-        <TodoList tasksList={this.state.tasks} />
+
+        <h1>Today</h1>
+
+        <TodoList 
+          tasksList={this.state.tasks} 
+          completeTask={this.completeTask} 
+        />
+
         <TodoForm 
           addTask={this.addTask} 
           inputText={this.state.inputText} 
           handleChange={this.handleChange} 
         />
+
       </div>
     );
   }
