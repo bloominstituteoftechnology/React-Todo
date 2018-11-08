@@ -6,7 +6,7 @@ import "./Todo.css";
 
 const TodoList = props => {
   return (
-    <div>
+    <div className="list">
       {props.todo.map(item => (
         <Todo
           onClick={props.markCompleted}
