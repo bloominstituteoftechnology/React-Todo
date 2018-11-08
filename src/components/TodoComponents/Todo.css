@@ -1,0 +1,9 @@
+
+
+.item-header.none{
+    text-decoration: none;
+  }
+  
+  .item-header.line-through {
+    text-decoration: line-through;
+  }
