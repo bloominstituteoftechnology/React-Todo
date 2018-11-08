@@ -1,14 +1,12 @@
 import React from "react";
-import Todo from "./components/TodoComponents/Todo";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
   constructor() {
     super();
     this.state = {
-      inputField: "",
+      inputField: "Hello",
 
       todoList: [
         {
@@ -21,18 +19,24 @@ class App extends React.Component {
           id: 1528817084358,
           completed: false
         }
-      ]
+      ],
+      id: 1528817084358
     };
   }
   render() {
     return (
-      <div>
+      <div className="TaskList-container">
+        <h1>Task List!</h1>
         <TodoForm
           inputField={this.state.inputField}
           clickHandler={this.clickHandler}
+          clearClickHandler={this.clearClickHandler}
           messageChangeHandler={this.messageChangeHandler}
         />
-        <TodoList todoList={this.state.todoList} />
+        <TodoList
+          todoList={this.state.todoList}
+          itemCompleted={this.itemCompleted}
+        />
       </div>
     );
   }
@@ -43,17 +47,41 @@ class App extends React.Component {
         ...this.state.todoList,
         {
           task: this.state.inputField,
-          id: 1528817084359,
+          id: this.state.id + 1,
           completed: false
         }
       ],
       inputField: ""
     });
+    this.setState({ id: this.state.id + 1 });
+  };
+  itemCompleted = id => {
+    let copy = [...this.state.todoList];
+    copy = copy.map(task => {
+      if (task.id === id) {
+        task.completed = !task.completed;
+        return task;
+      } else {
+        return task;
+      }
+    });
+    this.setState({ todoList: copy });
+    console.log(id);
   };
   messageChangeHandler = event => {
     event.preventDefault();
     this.setState({ inputField: event.target.value });
-    console.log(this.state.inputField);
+  };
+
+  clearClickHandler = event => {
+    event.preventDefault();
+    let copy = [];
+    this.state.todoList.forEach(task => {
+      if (!task.completed) {
+        copy.push(task);
+      }
+    });
+    this.setState({ todoList: copy });
   };
 }
 

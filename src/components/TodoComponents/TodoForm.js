@@ -1,12 +1,11 @@
 import React from "react";
-// import '.Todo.css';
 
 const TodoForm = props => {
   return (
-    <form>
+    <form className="form">
       <input value={props.inputField} onChange={props.messageChangeHandler} />
       <button onClick={props.clickHandler}>Add Todo</button>
-      <button onClick={props.clickHandler}>Clear Completed</button>
+      <button onClick={props.clearClickHandler}>Clear Completed</button>
     </form>
   );
 };
