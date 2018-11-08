@@ -61,12 +61,20 @@ class App extends React.Component {
         if(task.id === id) {
           return {
             ...task,
-            taskDone: task.taskDone === 'inactive' ? 'active' : 'inactive'
+            taskDone: task.taskDone === 'inactive' ? 'active' : 'inactive',
+            completed: !task.completed
           };
         } else {
           return task;
         }
       })
+    });    
+  }
+
+  clearCompleted = e => {
+    e.preventDefault();
+    this.setState({
+      todoItemList: this.state.todoItemList.filter(task => task.completed === false)
     });
   }
 
@@ -80,7 +88,8 @@ class App extends React.Component {
         taskComplete={this.taskComplete}
         />
         <TodoForm 
-          addTask={this.addTask}          
+          addTask={this.addTask} 
+          clearCompleted={this.clearCompleted}         
           inputText={this.state.inputText}
           handleChange={this.handleChange}
         />
