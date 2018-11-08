@@ -3,12 +3,12 @@ import './Todo.css';
 
 function Todo(props){
     return(
-         <h3
+         <div
          onClick={() => props.markComplete(props.todo.id)}
-         className={`${props.todo.completed}`}
+         className={`todo ${props.todo.completed}`}
          >
          {props.todo.task}
-         </h3>
+         </div>
     );
 } 
 export default Todo

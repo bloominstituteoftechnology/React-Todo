@@ -1,6 +1,46 @@
-.false{
-    text-decoration: none;
+.todo{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    position: relative;
+	background: #0be7ff;
+    border-radius: .4em;
+    height: 100px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    color: whitesmoke;
+	text-shadow: -2px 1px gray;
+	font-size: 24px;
+}
+.todo::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 36px solid transparent;
+	border-right-color: #0be7ff;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -12px;
+	margin-left: -24px;
 }
 .true{
-    text-decoration: line-through;
+    color: cornsilk;
+    background: #1bef1b;
+}
+.true:after{
+    content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 36px solid transparent;
+	border-right-color: #1bef1b;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -12px;
+	margin-left: -24px;
 }
