@@ -55,6 +55,20 @@ class App extends React.Component {
     this.saveStateToLocalStorage();
   }
 
+  fillStateWithLocalStorage() {
+    for (let key in this.state) {
+      if (localStorage.hasOwnProperty(key)) {
+        let value = localStorage.getItem(key);
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  }
+
   saveStateToLocalStorage() {
     for (let key in this.state) {
       localStorage.setItem(key, JSON.stringify(this.state[key]));
@@ -104,20 +118,6 @@ class App extends React.Component {
     });
   };
 
-  fillStateWithLocalStorage() {
-    for (let key in this.state) {
-      if (localStorage.hasOwnProperty(key)) {
-        let value = localStorage.getItem(key);
-        try {
-          value = JSON.parse(value);
-          this.setState({ [key]: value });
-        } catch (e) {
-          this.setState({ [key]: value });
-        }
-      }
-    }
-  }
-
   render() {
     return (
       <div className="App">
@@ -128,6 +128,8 @@ class App extends React.Component {
           clearHandler={this.clearHandler}
           handleChange={this.handleChange}
           inputText={this.state.inputText}
+          search={this.state.search}
+          onChange={this.searchHandler}
         />
       </div>
     );

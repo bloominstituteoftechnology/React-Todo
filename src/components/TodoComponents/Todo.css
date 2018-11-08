@@ -10,6 +10,7 @@ form {
 form button {
   width: 30%;
   margin: 0 auto;
+  margin-bottom: 1%;
 }
 
 .list {
@@ -24,7 +25,7 @@ li {
   font-size: 1.3rem;
 }
 
-input {
+.addTodo {
   line-height: 1.5rem;
   width: 80%;
   margin: 0 auto;
@@ -35,4 +36,8 @@ input {
 .true {
   text-decoration: line-through;
   margin-left: 5%;
+}
+
+.search {
+  margin-top: 5%;
 }
