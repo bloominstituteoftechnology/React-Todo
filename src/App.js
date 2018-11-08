@@ -25,7 +25,7 @@ class App extends React.Component {
         {
           task: this.state.todoText,
           id: getDate,
-          completed: false
+          completed: false,
         }
       ],
       todoText: '',
@@ -38,9 +38,23 @@ class App extends React.Component {
     });
   }
 
+  isComplete = id => {
+    this.setState({
+      todos: this.state.todos.map(currentTodo => {
+        if (currentTodo.id === id) {
+          return {
+            ...currentTodo, 
+            completed: currentTodo.completed === 'false' ? 'true' : 'false'
+          };
+        } else {
+          return currentTodo;
+        };
+      })
+    });
+  }
+
   searchTodos = event => {
     event.preventDefault();
-    let currentTodos = this.state.todos;
 
     let filteredTodos = this.state.todos;
 
@@ -58,9 +72,20 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <SearchForm searchTodos={this.searchTodos} searchText={this.searchText} handleChange={this.handleChange} />
-        <TodoList todos={this.state.todos}/>
-        <TodoForm addToTodos={this.addToTodos} todoText={this.state.todoText} handleChange={this.handleChange}/>
+        <SearchForm 
+          searchTodos={this.searchTodos} 
+          searchText={this.searchText} 
+          handleChange={this.handleChange} 
+        />
+        <TodoList 
+          todos={this.state.todos}
+          isComplete={this.isComplete}
+        />
+        <TodoForm 
+          addToTodos={this.addToTodos} 
+          todoText={this.state.todoText} 
+          handleChange={this.handleChange}
+        />
       </div>
     );
   }
