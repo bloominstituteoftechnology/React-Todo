@@ -1,5 +1,7 @@
 .todo-item {
     cursor: pointer;
+    font-size: 16px;
+    font-weight: normal;
 }
 
 .todo-item.true {

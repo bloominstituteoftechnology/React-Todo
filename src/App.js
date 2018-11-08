@@ -1,12 +1,12 @@
 import React from 'react';
+import './App.css';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import './components/TodoComponents/Todo.css';
 
 
 const taskListArray = [
-  // { taskName: 'Clean the bathroom', id: 1528817077286, completed: false },
-  // { taskName: 'Practice coding', id: 1528817084358, completed: false}
+  { taskName: 'Clean the bathroom', id: 1528817077286, completed: false },
+  { taskName: 'Practice coding', id: 1528817084358, completed: false}
 ];
 
 
@@ -51,7 +51,7 @@ class App extends React.Component {
   clearCompleted = ev => {
     ev.preventDefault();
     this.setState({
-      tasks: this.state.tasks.filter(taskItem => taskItem.completed == false)
+      tasks: this.state.tasks.filter(taskItem => taskItem.completed === false)
     })
   }
 
@@ -59,8 +59,6 @@ class App extends React.Component {
     return (
 
       <div className="App">
-
-        <h1>Today</h1>
 
         <TodoList 
           tasksList={this.state.tasks} 

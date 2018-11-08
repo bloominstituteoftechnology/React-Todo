@@ -1,0 +1,10 @@
+.App {
+    width: 400px;
+    background: #26272B;
+    margin: 0 auto;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}

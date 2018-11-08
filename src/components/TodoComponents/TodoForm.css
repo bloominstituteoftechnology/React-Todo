@@ -1,0 +1,30 @@
+.todo-form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-form input {
+    width: 355px;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.todo-form .button-container {
+    padding-top: 15px;
+}
+
+.todo-form button {
+    background: #26272B;
+    border: 1px solid white;
+    color: white;
+    margin-right: 20px;
+    width: 150px;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.todo-form button:hover {
+    background: white;
+    color: #26272B;
+}

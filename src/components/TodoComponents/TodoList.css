@@ -1,0 +1,8 @@
+.todo-list {
+    color: white;
+    padding: 20px;
+}
+
+.todo-list h1 {
+    border-bottom: 1px dashed white;
+}
