@@ -4,13 +4,13 @@ import Todo from './Todo';
 
 import './Todo.scss';
 
-const TodoList = ({list}) => {
+const TodoList = ({list, clickHandler}) => {
 
   return (
 
     <ul>
 
-      {list.map(item => <Todo key={item.id} item={item} />)}
+      {list.map(item => <Todo key={item.id} item={item} clickHandler={clickHandler} />)}
 
     </ul>
 

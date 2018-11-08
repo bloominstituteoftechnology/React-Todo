@@ -34,6 +34,7 @@ class App extends React.Component {
 
     this.btnClick = this.btnClick.bind(this);
     this.formEntry = this.formEntry.bind(this);
+    this.toggleCompleted = this.toggleCompleted.bind(this);
 
   }
 
@@ -116,12 +117,26 @@ class App extends React.Component {
 
   }
 
+  toggleCompleted(id) {
+
+    this.setState({
+
+      todoItems: this.state.todoItems.map(item => {
+        if (item.id === id)
+          item.completed = !item.completed;
+        return item;
+      })
+
+    });
+
+  }
+
   render() {
     return (
       <div className='todo-container'>
         <h1>React Todo App</h1>
         <TodoForm entryHandler={this.formEntry} btnHandler={this.btnClick} formInput={this.state.formInput} searchInput={this.state.searchInput}/>
-        <TodoList list={this.state.filteredItems} />
+        <TodoList list={this.state.filteredItems} clickHandler={this.toggleCompleted}/>
       </div>
     );
   }
