@@ -5,16 +5,18 @@ const TodoForm = props => {
     return (
         <div>
             <form onSubmit={props.addTodo} className="todo-list">
-                <input 
+                <input
+                    className="input-section"
                     type="text"
                     name="inputText"
-                    placeholder="add to todo list"
+                    placeholder="Honey please do..."
                     value={props.inputText}
                     onChange={props.handleChange}
                     />
-                <button type="submit">Add Todo Item</button>
+                <button className="add-button button" type="submit">HoneyDo</button>
+                <button className="completed-button button" onClick={props.clearTodo}>Thanks</button>
             </form>
-            <button onClick={props.clearTodo}>Clear Complete</button>
+           
         </div>
     )
 }

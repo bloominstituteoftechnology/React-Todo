@@ -62,8 +62,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="todo-app-container">
+        <h2 className="app-header">HoneyDo list</h2>
         <div className="todo-list">
         <TodoList task={this.state.task}
                   changeComplete={this.changeComplete} />
