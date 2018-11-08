@@ -45,19 +45,16 @@ const CharacterForm = props => {
           <input
             type="text"
             name="inputText"
-            placeholder="add new character"
+            placeholder="what to do.."
             value={props.inputText}
             onChange={props.handleChange}
           />
-          {/* <input
-            type="text"
-            name="inputTextTwo"
-            placeholder="Just here for looks"
-            value={props.inputTextTwo}
-            onChange={props.handleChange}
-          /> */}
           <button type="submit">Add Character</button>
         </form>
+        <form onSubmit={props.clearCharacters}>
+            <button type="clear">Clear Completed</button>
+        </form>
+        
       </div>
     );
   };

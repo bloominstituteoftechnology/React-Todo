@@ -2,31 +2,6 @@ import React from 'react';
 import CharacterList from './components/TodoComponents/TodoList';
 import CharacterForm from './components/TodoComponents/TodoForm';
 
-// class App extends React.Component {
-//   // you will need a place to store your state in this component.
-//   // design `App` to be the parent component of your application.
-//   // this component is going to take care of state, and any change handlers you need to work with your state
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       myList: ' ',
-//       inputText: ''
-//     }
-//   }
-
-
-
-//   render() {
-//     console.log(this.state.myList)
-//     return (
-//       <div>
-//         <h2>Welcome to your Todo App!</h2>
-//         <TodoForm />
-//       </div>
-//     );
-//   }
-// }
-
 const myToDoListData = [
   { myToDo: 'Learn React' },
   { myToDo: 'Get job' }
@@ -63,6 +38,13 @@ class App extends React.Component {
     });
   };
 
+  clearCharacters = ev => {
+    ev.preventDefault();
+    this.setState({
+      characters: myToDoListData
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -71,6 +53,7 @@ class App extends React.Component {
           addCharacter={this.addCharacter}
           inputText={this.state.inputText}
           handleChange={this.handleChange}
+          clearCharacters={this.clearCharacters}
         />
       </div>
     );
