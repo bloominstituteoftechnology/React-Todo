@@ -36,9 +36,29 @@ class App extends React.Component {
     super();
     this.state = {
       todo: todoItems,
-      inputText: "",
-      isCompleted: false
+      inputText: ""
     };
+  }
+
+  componentDidMount() {
+    this.fillStateWithLocalStorage();
+    window.addEventListener(
+      "beforeunload",
+      this.saveStateToLocalStorage.bind(this)
+    );
+  }
+  componentWillUnmount() {
+    window.removeEventListener(
+      "beforeunload",
+      this.saveStateToLocalStorage.bind(this)
+    );
+    this.saveStateToLocalStorage();
+  }
+
+  saveStateToLocalStorage() {
+    for (let key in this.state) {
+      localStorage.setItem(key, JSON.stringify(this.state[key]));
+    }
   }
 
   handleChange = event => {
@@ -49,7 +69,9 @@ class App extends React.Component {
 
   addTodo = ev => {
     ev.preventDefault();
-
+    if (this.state.inputText === "") {
+      return alert("Please write your todo item!");
+    }
     this.setState({
       todo: [
         ...this.state.todo,
@@ -81,6 +103,20 @@ class App extends React.Component {
       todo: [...this.state.todo.filter(item => !item.completed)]
     });
   };
+
+  fillStateWithLocalStorage() {
+    for (let key in this.state) {
+      if (localStorage.hasOwnProperty(key)) {
+        let value = localStorage.getItem(key);
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  }
 
   render() {
     return (
