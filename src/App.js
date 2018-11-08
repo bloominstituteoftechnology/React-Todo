@@ -36,7 +36,6 @@ class App extends React.Component {
     this.state = {
       todo: todoItems,
       inputText: ""
-      // isCompleted: true
     };
   }
 
@@ -63,16 +62,13 @@ class App extends React.Component {
   };
 
   markCompleted = ev => {
-    console.log(ev.target.completed);
-    // if (ev.target.completed) {
-    //   ev.target.style.textDecoration = "none";
-    //   ev.target.completed = false;
-    // }
-    if (!ev.target.completed) {
-      ev.target.classList.toggle("completed");
-      ev.target.completed = this.state.isCompleted;
-      console.log(this.state.todo);
-    }
+    console.log(ev.target.id);
+
+    ev.target.classList.toggle("completed");
+    let wow = ev.target.id;
+    let newArr = this.state.todo.filter(item => item.id === { wow });
+    console.log(newArr);
+    console.log(this.state.todo);
   };
 
   clearHandler = ev => {
@@ -86,11 +82,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <TodoList
-          todo={this.state.todo}
-          markCompleted={this.markCompleted}
-          done={this.state.isCompleted}
-        />
+        <TodoList todo={this.state.todo} markCompleted={this.markCompleted} />
         <TodoForm
           addItem={this.addTodo}
           clearHandler={this.clearHandler}
