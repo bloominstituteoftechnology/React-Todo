@@ -41,6 +41,23 @@ html {
     margin-bottom: 20px;
 }
 
+.search {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    /* border: 1px solid red; */
+}
+
+.search-form {
+    font-size: 2.5rem;
+    height: 100%;
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 5px;
+    border: 1px solid lightgrey;
+}
+
 .todo-form {
     font-size: 2.5rem;
     height: 100%;
@@ -60,4 +77,8 @@ html {
 
 .todo-list:hover{
     cursor: pointer;
+}
+
+#display-none{
+    display: none;
 }
