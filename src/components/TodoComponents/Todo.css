@@ -1,0 +1,13 @@
+.main{
+    margin:0 auto;
+    max-width:500px;
+    background:lightgray;
+}
+
+.para {
+    cursor: pointer;
+}
+
+.strike-through{
+    text-decoration: line-through;
+}
