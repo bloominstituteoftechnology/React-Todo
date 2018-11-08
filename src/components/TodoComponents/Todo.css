@@ -8,3 +8,39 @@ p:hover{
 .completed{
     text-decoration: line-through;
 }
+.App{
+    margin: 0 auto;
+    width: 880px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    background: darkolivegreen;
+    color: white;
+}
+h1{
+    width: 100%;
+    display: block;
+    font-size: 40px;
+}
+.todoList{
+    width: 60%;
+    margin: 0 20%;
+    padding: 10% 0;
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    background: lightgray;
+}
+.addTodo{
+    width: 100%;
+    display: block;
+    margin: 30px 0;
+}
+button{
+    width: 200px;
+    margin: 0 15px 100px;
+    padding: 15px;
+}
