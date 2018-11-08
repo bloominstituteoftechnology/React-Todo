@@ -21,10 +21,28 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
+
     this.state = {
       todos: todoData,
       todoText: ""
     };
+  }
+
+  componentDidMount() {
+    const storedTodo = JSON.parse(localStorage.getItem("todos"));
+    if (storedTodo) {
+      this.setState({ task: storedTodo });
+    }
+  }
+
+  componentDidUpdate() {
+    this.storage = window.localStorage;
+    // if (this.state.todos === undefined) {
+    //   this.setState({ todos: todoData });
+    // }
+    // console.log(this.state.todos);
+
+    // this.storage.setItem("list", JSON.stringify(this.state.todo));
   }
 
   handleChange = event => {
@@ -35,19 +53,21 @@ class App extends React.Component {
 
   addToDo = event => {
     event.preventDefault();
+    const newList = [
+      ...this.state.todos,
+      {
+        task: this.state.todoText,
+        id: Date.now(),
+        completed: false,
+        strike: "none"
+      }
+    ];
 
     this.setState({
-      todos: [
-        ...this.state.todos,
-        {
-          task: this.state.todoText,
-          id: Date.now(),
-          completed: false,
-          strike: "none"
-        }
-      ],
+      todos: newList,
       todoText: ""
     });
+    this.storage.setItem("list", JSON.stringify(newList));
   };
 
   strikeThru = id => {
