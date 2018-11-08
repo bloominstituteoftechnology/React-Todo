@@ -1,18 +1,9 @@
 import React from 'react';
+import './components/TodoComponents/Todo.css'
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 const todoListSeed = [
-  // {
-  //   task: 'Organize Garage',
-  //   id: 1528817077286,
-  //   completed: false
-  // },
-  // {
-  //   task: 'Bake Cookies',
-  //   id: 1528817084358,
-  //   completed: false
-  // }
   {
     task: 'Learn setState()',
     id: Date.now(),
@@ -58,16 +49,6 @@ class App extends React.Component {
         ],
           inputText: '',
       })
-
-
-
-    // this.setState({
-    //   todoList: [
-    //     ...this.state.todoList,
-    //     { task: this.state.inputText}
-    //   ],
-    //   inputText: ''
-    // });
   };
 
   handleChange = event => {
@@ -76,12 +57,12 @@ class App extends React.Component {
     });
   };
 
-  toggleCompleted = event => {
+  toggleCompleted = (event, boolean) => {
+    console.log(event.target)
     event.target.classList.toggle('completed')
     this.setState({
-      completed: true
+      boolean: true  
     })
-    console.log(this.state)
   }
 
   render() {
@@ -89,13 +70,11 @@ class App extends React.Component {
       <div>
         <TodoList 
           addTodo={this.addTodo}
-          inputText={this.state.inputText}
-          handleChange={this.handleChange}
           todoList={this.state.todoList}
           toggleCompleted={this.toggleCompleted}
         />
         <TodoForm 
-        todos={this.todoList}
+          todos={this.todoList}
           addTodo={this.addTodo}
           inputText={this.state.inputText}
           handleChange={this.handleChange}

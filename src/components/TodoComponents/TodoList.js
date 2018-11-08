@@ -9,15 +9,17 @@ const TodoList = props => {
   return (
     <div className="todoContainer">
       <h1>Todo List: MVP</h1>
+      {/* {console.log(props, "LIST")} */}
       {props.todoList.map(todo => (
+        
         <Todo
-          todoList={todo.todoList}
-          key={todo.id = Math.random().toString()}
-          todoListItem={todo.task}
-          completed={todo.completed}
-          toggleCompleted={todo.toggleCompleted}
+        // todoList={props.todoList}
+        key={todo.id}
+        todoListItem={todo.task}
+        completed={todo.completed}
+        toggleCompleted={props.toggleCompleted}
         />
-      ))
+        ))
       }
     </div>
   )

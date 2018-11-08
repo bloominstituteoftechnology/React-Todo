@@ -2,10 +2,17 @@ import React from 'react'
 import './Todo.css'
 
 const Todo = props => {
-  {console.log(props, "TODO")}
+
+  
   return (
     <div>
-      <p onClick={props.toggleCompleted}>{props.todoListItem}</p>
+      
+      <p onClick={(e) => {
+        props.toggleCompleted(e, props.completed)
+        // {console.log(props, "TODO")}
+        }}>
+          {props.todoListItem}
+      </p>
     </div>
   )
 }
