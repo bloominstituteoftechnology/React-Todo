@@ -13,6 +13,11 @@ class App extends React.Component {
     }
   }
 
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
 
   addToTodos = event => {
     event.preventDefault();
@@ -32,26 +37,30 @@ class App extends React.Component {
     });
   }
 
-  handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  }
-
   isComplete = id => {
     this.setState({
-      todos: this.state.todos.map(currentTodo => {
-        if (currentTodo.id === id) {
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
           return {
-            ...currentTodo, 
-            completed: currentTodo.completed === 'false' ? 'true' : 'false'
+            ...todo, 
+            completed: todo.completed ? false : true,
           };
         } else {
-          return currentTodo;
+          return todo;
         };
       })
     });
   }
+
+  clearComplete = event => {
+    event.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(
+        todo =>  !todo.completed
+      )
+    });
+  }
+
 
   searchTodos = event => {
     event.preventDefault();
@@ -85,6 +94,7 @@ class App extends React.Component {
           addToTodos={this.addToTodos} 
           todoText={this.state.todoText} 
           handleChange={this.handleChange}
+          clearComplete={this.clearComplete}
         />
       </div>
     );
