@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.todoApp {
+  width: 40rem;
+  padding: 2rem;
+  margin: 3rem auto;
+}
+
+h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+input {
+  padding:.4rem;
+  font-size: 1.6rem;
+  border-radius: .5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+button {
+  padding: .4rem;
+  font-size: 1.6rem;
+  border-radius: .5rem;
+}
+
+.todo--card {
+  border: 1px solid cyan;
+  border-radius: 2rem;
+  background-color: lightcyan;
+  padding: 2rem;
+}

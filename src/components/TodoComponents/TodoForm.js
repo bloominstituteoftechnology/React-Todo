@@ -11,7 +11,9 @@ const TodoForm = props => {
           value={props.inputText}
           placeholder="Add todo"/>
         <button type="submit">Add Todo</button>
-        <button onClick={ e => props.removeCompleted(e) } >Clear Completed</button>
+        <div>
+          <button onClick={ e => props.removeCompleted(e) } >Clear Completed</button>
+        </div>
       </form>
     </div>
   );

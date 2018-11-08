@@ -1,7 +1,4 @@
-.todo-list {
-  list-style-type: none;
-}
-
 .completed--true {
   text-decoration: line-through;
+  list-style-position: inside;
 }

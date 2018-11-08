@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css'
 
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
@@ -46,17 +47,20 @@ class App extends React.Component {
   addTodo(e) {
     e.preventDefault();
 
-    this.setState({
-      todoList: [
-        ...this.state.todoList,
-        {
-          'task': this.state.inputText,
-          id: this.state.inputText,
-          completed: false
-        }
-      ],
-      inputText: '',
-    });
+    if (this.state.inputText !== '') {
+      this.setState({
+        todoList: [
+          ...this.state.todoList,
+          {
+            'task': this.state.inputText,
+            id: this.state.inputText,
+            completed: false
+          }
+        ],
+        inputText: '',
+      });
+    }
+
   }
 
   removeCompleted(e) {
@@ -75,22 +79,24 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="todoApp">
         <h2>Welcome to your Todo App!</h2>
-        <TodoSearchBox
-          filterText={this.state.filterText}
-          handleChange={ e => this.handleChange(e) }
-        />
-        <TodoList
-          todoList={this.state.todoList}
-          handleClick={ (e, el, i) => this.handleClick(e, el, i)  }
-          filterText={this.state.filterText}/>
-        <TodoForm
-          inputText= {this.state.inputText}
-          handleChange={ e => this.handleChange(e) }
-          removeCompleted={ e => this.removeCompleted(e) }
-          addTodo={ e => this.addTodo(e) }
-        />
+        <div className="todo--card">
+          <TodoSearchBox
+            filterText={this.state.filterText}
+            handleChange={ e => this.handleChange(e) }
+          />
+          <TodoList
+            todoList={this.state.todoList}
+            handleClick={ (e, el, i) => this.handleClick(e, el, i)  }
+            filterText={this.state.filterText}/>
+          <TodoForm
+            inputText= {this.state.inputText}
+            handleChange={ e => this.handleChange(e) }
+            removeCompleted={ e => this.removeCompleted(e) }
+            addTodo={ e => this.addTodo(e) }
+          />
+        </div>
       </div>
     );
   }
