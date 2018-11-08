@@ -13,7 +13,7 @@ const stuffToDo = [{
         task: 'Bake Cookies',
         id: 1528817084358,
         completed: false,
-    },
+    }
 ];
 
 
@@ -24,22 +24,19 @@ class App extends React.Component {
       this.state = {
         allStuffToDo: stuffToDo,
         inputText: '',
-        
-        // inputTextThree: '',
-        // inputTextTwo: '',
       };
     }
     
-    handlesChange = event => {
+    handleChange = event => {
       this.setState({
-        inputText: event.target.value
+        [event.target.name]: event.target.value
       });
       
-      console.log(event.target.task);
+      console.log(event.target.name);
     };
     
     addTask = ev => {
-      console.log ('button pushed',this.state);
+      // console.log ('button pushed',this.state);
       ev.preventDefault();
       this.setState(
             {
@@ -66,7 +63,7 @@ class App extends React.Component {
             inputText={this.state.inputText}
             // inputTextTwo={this.state.inputTextTwo}
             // inputTextThree={this.state.inputTextThree}
-            handlesChange={this.handlesChange}
+            handleChange={this.handleChange}
             />
           </div>
         );
