@@ -2,6 +2,8 @@ import React from 'react';
 
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+
+import './components/TodoComponents/Todo.css'
 // import ToDo from './components/TodoComponents/ToDo';
 // import ToDoForm from './components/TodoComponents/ToDoForm';
 // import ToDoList from './components/TodoComponents/ToDoList';
@@ -20,6 +22,7 @@ import TodoForm from './components/TodoComponents/TodoForm';
 // ];
 const newArray =[];
 
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -28,7 +31,7 @@ class App extends React.Component {
     super();
     this.state = {
       todos: newArray,
-      inputTask: ''
+      inputTask: '',
     };
   }
 
@@ -44,17 +47,47 @@ class App extends React.Component {
     this.setState({
       todos: [
         ...this.state.todos,
-        {task: this.state.inputTask}
+        {task: this.state.inputTask, id: Date.now(), completed: 'false'}
       ],
       inputTask:''
+    });
+    console.log({task: this.state.inputTask, id: Date.now(), completed: 'false'})
+  };
+
+  toggleComplete = id =>{
+    console.log('is my function working')
+     this.setState({
+       todos:
+           this.state.todos.map(todo => {
+           if(todo.id === id){
+             return {
+               ...todo,
+               completed: todo.completed === 'false' ? 'true' : 'false'};
+           }else{
+             return todo;
+           }
+         })
+     })
+  };
+
+  clearCompleted = ev => {
+    ev.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(
+        todo => todo.completed === 'false'
+      )
     });
   };
 
   render() {
     return (
       <div>
-        <TodoList todos={this.state.todos} />
+        <TodoList
+          todos={this.state.todos}
+          toggleComplete={this.toggleComplete}
+        />
         <TodoForm
+          clearCompleted={this.clearCompleted}
           addTask={this.addTask}
           inputTask={this.state.inputTask}
           handleChange={this.handleChange}

@@ -11,8 +11,8 @@ const TodoForm = props => {
           value={props.inputTask}
           onChange={props.handleChange}
         />
-        <button type='submit'>Add Task</button>
-
+        <button type='submit'>Add To-Do</button>
+        <button onClick={props.clearCompleted}>Clear Completed</button>
       </form>
     </div>
   )
