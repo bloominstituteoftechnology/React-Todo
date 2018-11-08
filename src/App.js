@@ -38,14 +38,15 @@ class App extends React.Component {
 
   addItem = event => {
     event.preventDefault();
-    this.setState({
-      toDoItems: [
-        ...this.state.toDoItems,
-        { task: this.state.inputText, id: Date.now(), completed: false }
-      ],
-      inputText: ""
-    });
-    console.log(this.state.toDoItems);
+    if(this.state.inputText !== ""){
+      this.setState({
+        toDoItems: [
+          ...this.state.toDoItems,
+          { task: this.state.inputText, id: Date.now(), completed: false }
+        ],
+        inputText: ""
+      });
+    }
   };
 
   changeStyle = id => {
