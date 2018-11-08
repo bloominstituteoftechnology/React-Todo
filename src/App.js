@@ -3,10 +3,6 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import SearchForm from './components/TodoComponents/SearchForm';
 
-const myList = [
-  { listItem: 'Do Stuff', id: 1, completed: false, display: true},
-  { listItem: 'Do More Stuff', id: 2, completed: false, display: true}
-];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -15,7 +11,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      listItems: myList,
+      listItems: JSON.parse(localStorage.getItem('savedState')),
       inputText: '',
       searchText: ''
     };
@@ -67,7 +63,7 @@ class App extends React.Component {
       //   item => item.listItem.includes(`${this.state.searchText}`)
       // )
       listItems: this.state.listItems.map(item => {
-        if(!item.listItem.includes(`${this.state.searchText}`)){
+        if(!item.listItem.toUpperCase().includes(`${this.state.searchText.toUpperCase()}`)){
           return{...item, display: false}
         }
         else{
@@ -86,6 +82,9 @@ class App extends React.Component {
     })
   }
 
+  componentDidUpdate() {
+    localStorage.setItem('savedState', JSON.stringify(this.state.listItems));
+  }
 
   render() {
     return (
