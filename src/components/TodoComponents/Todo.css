@@ -1,0 +1,66 @@
+.App{
+    border: 1px solid red;
+    width: 50%;
+    height: auto;
+    margin: auto;
+    font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.App h2 {
+    text-align: center;
+}
+
+.todo-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 250px;
+    margin-left: 120px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 3px;
+    background-color: #DFE3E6;
+    border: 1px solid green;
+}
+
+
+.todo-item {
+    border: 1px solid plum;
+    border-radius: 5px;
+    width: 90%;
+    text-align: center;
+    height: 40px;
+    padding-top: 15px;
+    background-color: #FAFAFA;
+}
+
+.input {
+    width: 50%;
+    margin-left: 120px;
+    /* border: 1px solid blue; */
+}
+
+form {
+    border: 2px solid lightpink;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+input {
+    height: 30px;
+    width: 98%;
+    text-align: center;
+    color: black;
+    background-color: rgb(211, 211, 211);
+    /* border: 1px solid orange; */
+}
+
+button {
+    height: 35px;
+    border: 1px solid black;
+}
