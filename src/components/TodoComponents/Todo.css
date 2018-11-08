@@ -15,6 +15,7 @@ html {
     font-size: 3rem;
     line-height: 3.5rem;
     width: 60%;
+    min-width: 500px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
