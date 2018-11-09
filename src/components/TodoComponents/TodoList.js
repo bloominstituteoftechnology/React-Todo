@@ -4,11 +4,13 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = props => {
+    // console.log(props)
     return(
-        <div>
+        <div className = "todolist-wrapper">
             {
-                props.toDoList.map( todo => 
-                        <Todo key={todo.id}todo={todo} complete ={todo.complete}/>
+                props.toDoList.map( todo => {
+                    
+                    return    <Todo key={todo.id}todo={todo} completeHandle ={props.completeHandle}/>}
                     )
             }
         </div>

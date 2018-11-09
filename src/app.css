@@ -1,0 +1,7 @@
+.todolist-wrapper
+{
+    border:1px solid black;
+}
+.todolist-item{
+    padding:2rem;
+}

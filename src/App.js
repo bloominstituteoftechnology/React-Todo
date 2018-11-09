@@ -1,5 +1,5 @@
 import React from "react";
-
+import './app.css';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 const toDoData = [
@@ -27,12 +27,28 @@ class App extends React.Component {
       inputText:''
     };
   }
-  complete = (event) =>{
+  clearHandle = e => {
+    e.preventDefault();
+    let toDos = this.state.toDos.slice();
+    toDos = toDos.filter(todo => !todo.completed);
+    this.setState({ toDos });
+  };
 
-  }
+  completeHandle = id => {
+    let toDos = this.state.toDos.slice();
+    toDos = toDos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ toDos });
+  };
   handler = event => {
     this.setState({
-      inputText: event.target.value0
+      inputText: event.target.value
     });
   }
   addTodo = event => {
@@ -50,12 +66,13 @@ class App extends React.Component {
       <div>
         <TodoList 
         toDoList = {this.state.toDos}
-        complete = {this.complete}
+        completeHandle = {this.completeHandle}
         />
         <TodoForm 
         inputText={this.state.inputText} 
         handler = {this.handler}
         addTodo = {this.addTodo}
+        onClear= {this.clearHandle}
         />
       </div>
     );
