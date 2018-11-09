@@ -34,6 +34,7 @@ li {
   width: 80%;
   margin: 0 auto;
   margin-bottom: 5%;
+  box-shadow: -5px 5px teal;
 }
 
 
@@ -50,4 +51,5 @@ li {
   border: none;
   line-height: 1.5rem;
   width: 60%;
+  box-shadow: -5px 5px teal;
 }
