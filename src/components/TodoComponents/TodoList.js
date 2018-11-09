@@ -8,7 +8,7 @@ import Todo from './Todo';
           <Todo
             key={todoItem.id}
             listItem={todoItem}
-            markComplete={props.markComplete}
+            itemComplete={props.itemComplete}
           />
         ))}
       </div>
