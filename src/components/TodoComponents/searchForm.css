@@ -14,6 +14,10 @@
     padding: 5px 100px 5px 5px;
 }
 
+.search-bar form input:focus {
+    outline: 0;
+}
+
 .search-bar form ::placeholder {
     color: #5D484D;
 }
