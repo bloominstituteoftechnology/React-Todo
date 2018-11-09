@@ -11,6 +11,8 @@ const StyledApp = styled.div`
     padding: 30px;
     border-radius: 20px;
     box-shadow: 10px 10px 10px 10px pink;
+    box-sizing: border-box;
+
 `
 
 class App extends React.Component {
@@ -92,11 +94,12 @@ class App extends React.Component {
     localStorage.setItem('savedState', JSON.stringify(this.state.listItems));
   }
 
-  // componentDidMount() {
-  //   this.state.listItems = JSON.parse(localStorage.getItem('savedState'));
-  // }
-  componentWillMount(){
-    this.state.listItems = JSON.parse(localStorage.getItem('savedState'));
+  componentDidMount() {
+    if(localStorage.getItem('savedState') != undefined){
+      this.setState({
+        listItems: JSON.parse(localStorage.getItem('savedState'))
+      })
+    }
   }
 
   render() {
@@ -115,8 +118,6 @@ class App extends React.Component {
         inputText={this.state.inputText}
         clearCompleted={this.clearCompleted}
         handleChange={this.handleChange} />
-
-
       </StyledApp>
     );
   }
