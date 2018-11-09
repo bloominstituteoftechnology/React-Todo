@@ -30,6 +30,15 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount(){
+    const storedTodo = JSON.parse(localStorage.getItem('todo'));
+    if(storedTodo){
+      this.setState({toDoItems: storedTodo});
+    }
+  }
+
+
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -39,11 +48,15 @@ class App extends React.Component {
   addItem = event => {
     event.preventDefault();
     if(this.state.inputText !== ""){
+      let newToDo = [
+        ...this.state.toDoItems,
+        { task: this.state.inputText, id: Date.now(), completed: false }
+      ];
+
+      localStorage.setItem("todo", JSON.stringify(newToDo));
+
       this.setState({
-        toDoItems: [
-          ...this.state.toDoItems,
-          { task: this.state.inputText, id: Date.now(), completed: false }
-        ],
+        toDoItems: newToDo,
         inputText: ""
       });
     }
@@ -67,8 +80,10 @@ class App extends React.Component {
 
   clear = event => {
     event.preventDefault();
+    let filtered = this.state.toDoItems.filter(item => item.completed === false);
+    localStorage.setItem("todo", JSON.stringify(filtered));
     this.setState({
-      toDoItems: this.state.toDoItems.filter(item => item.completed === false)
+      toDoItems: filtered
     });
   };
 
