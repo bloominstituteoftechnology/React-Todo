@@ -26,7 +26,7 @@ class App extends React.Component {
     let getDate = Date.now();
     let newTodos = [...this.state.todos, 
       {
-        task: this.state.todoText,
+        task: this.state.todoText != '' ? this.state.todoText : 'write some actual todos',
         id: getDate,
         completed: false,
         matchesSearch: true,
@@ -69,6 +69,10 @@ class App extends React.Component {
     });
   }
 
+  stopRefresh = event => {
+    event.preventDefault();
+  }
+
   componentDidMount(){
     const storedTodo = JSON.parse(localStorage.getItem('todo'));
     if (storedTodo){
@@ -76,18 +80,14 @@ class App extends React.Component {
     }
   }
 
-
-
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
       <div className='todo-container'>
         <h2>Welcome to your Todo App!</h2>
         <SearchForm 
           searchText={this.state.searchText} 
-          handleChange={this.handleChange} 
+          handleChange={this.handleChange}
+          stopRefresh={this.stopRefresh} 
         />
         <TodoList 
           todos={this.state.todos}

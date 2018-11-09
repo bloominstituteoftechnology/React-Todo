@@ -4,7 +4,7 @@ import './searchForm.css';
 const SearchForm = props => {
     return(
         <div className='search-bar'>
-            <form>
+            <form onSubmit={props.stopRefresh}>
                 <input 
                     type="text" 
                     name='searchText' 
