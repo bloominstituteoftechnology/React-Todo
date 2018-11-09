@@ -3,27 +3,25 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import './Styles.css'
 
-let todoList = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
-]
-
 class App extends Component {
   // you will need a place to store your state in this component.
   constructor(props){
     super(props);
+    let todoList = [
+      {
+        task: 'Organize Garage',
+        id: 1528817077286,
+        completed: false
+      },
+      {
+        task: 'Bake Cookies',
+        id: 1528817084358,
+        completed: false
+      }
+    ];
 
-    console.log(localStorage.getItem('data'));
-    if (localStorage.getItem('data')) {
-      todoList = JSON.parse(localStorage.getItem('data'));
+    if (localStorage.getItem('list')) {
+      todoList = JSON.parse(localStorage.getItem('list'));
     }
 
     this.state = {
@@ -38,7 +36,6 @@ class App extends Component {
     this.setState({
       [e.target.name]: newKeyValue
     });
-    localStorage.setItem('data', JSON.stringify(newKeyValue));
   }
 
   toggleTaskComplete = (idSelected) => {
@@ -56,7 +53,7 @@ class App extends Component {
     this.setState({
       list: newList
     });
-    localStorage.setItem('data', JSON.stringify(newList));
+    localStorage.setItem('list', JSON.stringify(newList));
   }
 
   addTask = e => {
@@ -76,7 +73,7 @@ class App extends Component {
       list: newList,
       inputText: newInputText
     });
-    localStorage.setItem('data', JSON.stringify(newList));
+    localStorage.setItem('list', JSON.stringify(newList));
   }
 
   clearCompletedTasks = e => {
@@ -87,7 +84,7 @@ class App extends Component {
     this.setState({
       list: newList
     });
-    localStorage.setItem('data', JSON.stringify(newList));
+    localStorage.setItem('list', JSON.stringify(newList));
   }
 
   // this component is going to take care of state, and any change handlers you need to work with your state
