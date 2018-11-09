@@ -1,21 +1,16 @@
 import React from 'react'
-import './Todo.css'
 
-const Todo = props => {
-
-  
+const Todo = (props) => {
+  // {console.log("TODO PROPS", props)}
   return (
-    <div className="todo">      
-      <p  onClick={() => props.toggleCompleted(props.todoOnProps.id)}
-          className={`todo-item ${props.todoOnProps.textDecoration}`}
-          todoList={props.todoOnProps.todoList}
-          id={Date.now()}
-          completed={props.completed}
-      >
-        {props.todoListItem}
-      </p>
+    <div className="todo">
+      <h2
+        style={props.props.completed ? {textDecoration: "line-through"} : {textDecoration: "none"} }
+        onClick={() => props.toggleComplete(props.props.id)}
+        className="todo-item"
+      >{props.props.task}</h2>
     </div>
   )
-}
+} 
 
 export default Todo;

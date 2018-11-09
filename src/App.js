@@ -1,125 +1,92 @@
 import React from 'react';
 import './components/TodoComponents/Todo.css'
-import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
 
-const todoListSeed = [
+const data = [
   {
-    task: 'Learn setState()',
-    id: "982347597",
-    completed: "false",
-    textDecoration: "none"
+    task: 'Organize Garage',
+    id: 1528817077286,
+    completed: false
   },
   {
-    task: 'Style my Todo List',
-    id: "0897979876",
-    completed: "false",
-    textDecoration: "none"
+    task: 'Bake Cookies',
+    id: 1528817084358,
+    completed: false
   }
 ];
-
-let nextId = Math.random() * 100;
-
-const getNewId = () => {
-  nextId += 1;
-  return nextId;
-}
-
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoList: todoListSeed,
-      inputText: '',
-      completed: "false",
-      textDecoration: 'none',
+      todos: data,
+      TodoForm: '',
     }
   }
 
-  componentDidMount() {
-    let storedTodo = JSON.parse(localStorage.getItem('todo'));
-    if(storedTodo) {
-      this.setState({todoList: storedTodo})
-    }
-  }
-
-  addTodo = event => {
-    event.preventDefault();
-
-    let newTodos = [...this.state.todoList,
-      { task: this.state.inputText, id: this.state.id , completed: "false", textDecoration: this.state.textDecoration}];
-      localStorage.setItem('todo', JSON.stringify(newTodos));
-
-      this.setState({
-        todoList: [
-          ...this.state.todoList,
-          {task: this.state.inputText,
-            textDecoration: "none",  key: this.state.id, id: getNewId()}
-        ],
-          inputText: '',
-          id: this.state.id
-      })
-  };
-
-
-  handleChange = event => {
+  toggleComplete = (id) => {
+    // console.log("ID", id);
+    // console.log("THISSTATE", this.state);
+    let todos = [...this.state.todos];
+    // console.log("TODOS", todos);
+    todos = todos.map(todo => {
+      if(todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    })
     this.setState({
-      inputText: event.target.value
+      todos,
     });
-  };
+  }
 
-  toggleCompleted = (id) => {
-    // this.state.todoList.filter(todo => todo.task === event.target.innerText )
-    // event.target.classList.toggle('completed')
-    // this.setState({
-    //   completed: true
-    // })
+  addTodo = (e) => {
+    e.preventDefault()
     this.setState({
-      todoList: this.state.todoList.map(todo => {
-        {console.log(todo)}
-        
-        
-        if (todo.id === id) {
-          return {
-            ...todo,
-            completed: todo.completed === "false" || todo.completed === undefined ? "true" : "false",
-            textDecoration: todo.textDecoration === "none" || todo.textDecoration === undefined ? "line-through"  : "none",
-          };
-        } else {
-          return todo;
-        }
-      })
+      todos: [...this.state.todos,
+      {task: this.state.todoForm, completed: false, id: Date.now()} 
+      ], 
+      todoForm: ''
     })
   }
 
-  
-
-  removeCompleted = e => {
-    e.preventDefault();
+  removeComplete = (e) => {
+    e.preventDefault()
+    
+    let todos = [...this.state.todos];
+    console.log(todos);
+    todos = todos.filter(todo => todo.completed === false)
     this.setState({
-      todoList: this.state.todoList.filter(
-        todo => todo.textDecoration === "none",
-      )
-    });
+      todos
+    })
+  }
+
+  handleInputChange = (e) => {
+    console.log("change: ", e.target.name);
+    
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
 
   render() {
     return (
       <div className="main-container">
         <TodoList 
-          todoList={this.state.todoList}
-          toggleCompleted={this.toggleCompleted}
+          todos={this.state.todos}
+          toggleComplete={this.toggleComplete}
         />
         <TodoForm 
-          todos={this.todoList}
+          value={this.state.todoForm}
+          handleInputChange={this.handleInputChange}
           addTodo={this.addTodo}
-          inputText={this.state.inputText}
-          handleChange={this.handleChange}
-          removeCompleted={this.removeCompleted}
+          removeComplete={this.removeComplete}
         />
       </div>
-    );
+    )
   }
 }
 
