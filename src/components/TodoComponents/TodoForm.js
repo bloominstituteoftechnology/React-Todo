@@ -49,11 +49,11 @@ const CharacterForm = props => {
             value={props.inputText}
             onChange={props.handleChange}
           />
-          <button type="submit">Add Character</button>
+          <button type="submit">Add Task</button>
         </form>
-        <form onSubmit={props.clearCharacters}>
-            <button type="clear">Clear Completed</button>
-        </form>
+        {/* <form > */}
+          <button onClick={props.clearCharacters} type="clear">Clear Completed</button>
+        {/* </form> */}
         
       </div>
     );

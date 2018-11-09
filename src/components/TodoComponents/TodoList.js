@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Todo.css';
 import Character from './Todo';
 
 // your components will all go in this `component` directory.
@@ -14,14 +14,24 @@ import Character from './Todo';
 //     { myList: 'Get job' }
 // )
 
+const turnRed = {
+  textDecoration: "line-through"
+}
 
 const CharacterList = props => {
+  console.log("this is props", props)
+  // let strikethrough = this.state.completed ? "iDone" : "iNotDone";
     return (
-      <div>
-        {props.characters.map(characterInMap => (
+      // <div style={`standard ${this.state.completed ? turnRed : null}`}>
+      // <div className={`regular ${props.strikethrough}`} >
+      /* // <div style={turnRed}>
+      // <div> */
+      <div className={'test'}>
+        {props.currentList.map(characterInMap => (
           <Character
-            key={characterInMap.myToDo}
+            key={characterInMap.task}
             characterOnProps={characterInMap}
+            makeChange={props.makeChange}
           />
         ))}
       </div>
