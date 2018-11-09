@@ -1,6 +1,30 @@
 .App {
+    border: 4px solid burlywood;
+    border-radius: 10px;
+    max-width: 750px;
+    padding: 3%;
+    height: auto;
     font-family: sans-serif;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 3%;
+    margin: 6%;
+}
+
+button:hover {
+    background-color: brown;
+    color: coral;
+}
+
+form input {
+    width: 65%;
+    margin: 6%;
 }
 
 .eachListed {
