@@ -5,15 +5,16 @@ import TodoForm from './components/TodoComponents/TodoForm';
 const toDoData = [
   {
     task: "Organize Garage",
-    id: 1528817077286,
+    id: 0,
     completed: false
   },
   {
     task: "Bake Cookies",
-    id: 1528817084358,
+    id: 1,
     completed: false
   }
 ];
+
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -23,29 +24,34 @@ class App extends React.Component {
     super();
     this.state = {
       toDos: toDoData,
-      id:Date.now(),
       inputText:''
     };
   }
+  complete = (event) =>{
+
+  }
   handler = event => {
     this.setState({
-      inputText: event.target.value
+      inputText: event.target.value0
     });
-    console.log(event.target);
   }
   addTodo = event => {
     event.preventDefault();
     this.setState(
           {
-           toDos:[...this.state.toDos, {task: this.state.inputText}],
-           inputText :''
+           toDos:[...this.state.toDos, {task: this.state.inputText, id: Date.now(), completed: false}],
+           inputText:''
           }
     );
   }
+
   render() {
     return (
       <div>
-        <TodoList toDoList={this.state.toDos}/>
+        <TodoList 
+        toDoList = {this.state.toDos}
+        complete = {this.complete}
+        />
         <TodoForm 
         inputText={this.state.inputText} 
         handler = {this.handler}
