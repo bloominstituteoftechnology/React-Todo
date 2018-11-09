@@ -1,7 +1,17 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import styled from 'styled-components';
 
+const StyledApp = styled.div`
+    margin: 0 auto;
+    width: 50vw;
+    height: 90vh;
+    height: calc(* 2);
+    padding: 50px;
+    box-shadow: 0 5px 10px 0 #757575, 0 4px 5px 0 #a8a8a8;
+    background-color: #251635;
+`;
 class App extends React.Component {
     constructor() {
         super();
@@ -69,7 +79,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <>
+            <StyledApp>
                 <TodoList todoList={this.state.tasks} completeTask={this.completeTask} />
                 <TodoForm
                     addTask={this.addTask}
@@ -77,7 +87,7 @@ class App extends React.Component {
                     handleChange={this.handleChange}
                     clearTasks={this.clearTasks}
                 />
-            </>
+            </StyledApp>
         );
     }
 }
