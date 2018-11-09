@@ -31,12 +31,11 @@ class App extends React.Component {
           },
           ...this.state.tasks
         ]
-      });
+      }, () => { return window.localStorage.setItem('tasks', JSON.stringify(this.state.tasks)) });
       this.setState({
         inputText: ''
       })
     }
-    window.localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
   }
 
   clearTasks = (event) => {
@@ -55,7 +54,7 @@ class App extends React.Component {
 
   completedToggle = (id) => {
     this.setState({
-      tasks: this.state.tasks.map(x => {
+      tasks: JSON.parse(window.localStorage.getItem('tasks')).map(x => {
         if (Object.values(x).includes(id)) {
           return {
           ...x,
@@ -65,7 +64,7 @@ class App extends React.Component {
           return x;
         }
       })
-    })
+    }, () => { window.localStorage.setItem('tasks', JSON.stringify(this.state.tasks)); return this.forceUpdate() })
   }
 
   pointer = (event) => {
@@ -80,7 +79,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <TodoForm addTask={this.addTask} pointer={this.pointer} clearTasks={this.clearTasks} inputText={this.state.inputText} changeHandler={this.changeHandler} />
-        <TodoList completedToggle={this.completedToggle} pointer={this.pointer} todoArray={this.state.tasks} />
+        <TodoList completedToggle={this.completedToggle} pointer={this.pointer} todoArray={JSON.parse(window.localStorage.getItem('tasks'))} />
       </div>
     );
   }
