@@ -24,6 +24,19 @@ class App extends React.Component {
       
     };
   }
+  retrieveMyData(){
+    const storedTodo = JSON.parse(localStorage.getItem('todo'));
+    if (storedTodo){
+      this.setState({todo: storedTodo})
+    } 
+  }
+
+  saveMyData(){
+    localStorage.setItem('todo', JSON.stringify(this.state.todo));
+  }
+
+
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
