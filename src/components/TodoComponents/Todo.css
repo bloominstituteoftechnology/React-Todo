@@ -199,7 +199,12 @@ p {
     justify-content: center;
     width: 100%;
     padding: 20px 5px;
-    
+    /* border-top: 2px solid #222; */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    -moz-box-shadow:    0px -10px 10px -5px #222;
+    -webkit-box-shadow: 0px -10px 10px -5px #222;
+    box-shadow:         0px -10px 10px -5px #222;
 }
 
 .form-container form input, button {
@@ -207,6 +212,7 @@ p {
 }
 
 .form-container form input {
+    height: 80px;
     width: 90%;
     padding: 15px 5px;
     border: 1px solid #222;
