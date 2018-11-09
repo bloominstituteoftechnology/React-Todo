@@ -25,6 +25,11 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+    const storedTodoList = JSON.parse(localStorage.getItem('todo'));
+    if(storedTodoList) { this.setState({ todos: storedTodoList }) }
+  }
+
   toggleComplete = (id) => {
     // console.log("ID", id);
     // console.log("THISSTATE", this.state);
@@ -45,6 +50,11 @@ class App extends React.Component {
 
   addTodo = (e) => {
     e.preventDefault()
+
+    let newTodos = [...this.state.todos,
+    {task: this.state.todoForm, completed: false, id: Date.now()}];
+    localStorage.setItem('todo', JSON.stringify(newTodos))
+
     this.setState({
       todos: [...this.state.todos,
       {task: this.state.todoForm, completed: false, id: Date.now()} 
