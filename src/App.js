@@ -24,9 +24,9 @@ class App extends React.Component {
       // console.log(event.target.name);
     };
     
-    addTask = ev => {
+    addTask = event => {
       // console.log ('button pushed',this.state);
-      ev.preventDefault();
+      event.preventDefault();
       this.setState({
         allStuffToDo:[...this.state.allStuffToDo, 
           { task: this.state.inputText,
@@ -61,14 +61,26 @@ class App extends React.Component {
       });
     };
 
+    increment = ev => {
+      ev.preventDefault();
+      this.setState(prevState => ({
+
+
+
+
+
+      }))
+    }
+
 
     render() {
         return (
           <div className="App" >
             <h2> Welcome to your Todo App! </h2> 
-            <TodoList tasks= {this.state.allStuffToDo} changeFinished={this.hangeFinished} />
+            <TodoList tasks= {this.state.allStuffToDo} changeFinished={this.changeFinished} />
 
             <TodoForm
+              clearXedOutTask={this.clearXedOutTask}
               addTask={this.addTask} 
               inputText={this.state.inputText}
               handleChange={this.handleChange}
