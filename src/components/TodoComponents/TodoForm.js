@@ -17,7 +17,7 @@ const TodoForm = props => {
           name="searchText"
           placeholder="search tasks"
           value={props.searchText}
-          onChange={event =>{props.handleSearch(event); props.searchItem(props.searchText)}}
+          onChange={event =>{props.handleSearch(event)}}
         />
       
         <button type="submit">Add Item</button>
