@@ -7,13 +7,13 @@ const todoListSeed = [
   {
     task: 'Learn setState()',
     id: "982347597",
-    completed: false,
+    completed: "false",
     textDecoration: "none"
   },
   {
     task: 'Style my Todo List',
     id: "0897979876",
-    completed: false,
+    completed: "false",
     textDecoration: "none"
   }
 ];
@@ -32,13 +32,13 @@ class App extends React.Component {
     this.state = {
       todoList: todoListSeed,
       inputText: '',
-      completed: false,
+      completed: "false",
       textDecoration: 'none',
     }
   }
 
   componentDidMount() {
-    const storedTodo = JSON.parse(localStorage.getItem('todo'));
+    let storedTodo = JSON.parse(localStorage.getItem('todo'));
     if(storedTodo) {
       this.setState({todoList: storedTodo})
     }
@@ -48,7 +48,7 @@ class App extends React.Component {
     event.preventDefault();
 
     let newTodos = [...this.state.todoList,
-      { task: this.state.inputText, id: this.state.id , completed: false, textDecoration: this.state.textDecoration}];
+      { task: this.state.inputText, id: this.state.id , completed: "false", textDecoration: this.state.textDecoration}];
       localStorage.setItem('todo', JSON.stringify(newTodos));
 
       this.setState({
@@ -65,7 +65,7 @@ class App extends React.Component {
 
   handleChange = event => {
     this.setState({
-      [event.target.name]: event.target.value
+      inputText: event.target.value
     });
   };
 
@@ -77,10 +77,14 @@ class App extends React.Component {
     // })
     this.setState({
       todoList: this.state.todoList.map(todo => {
+        {console.log(todo)}
+        
+        
         if (todo.id === id) {
           return {
             ...todo,
-            textDecoration: todo.textDecoration === "none" || todo.textDecoration === undefined ? "line-through" : "none"
+            completed: todo.completed === "false" || todo.completed === undefined ? "true" : "false",
+            textDecoration: todo.textDecoration === "none" || todo.textDecoration === undefined ? "line-through"  : "none",
           };
         } else {
           return todo;
@@ -89,11 +93,13 @@ class App extends React.Component {
     })
   }
 
+  
+
   removeCompleted = e => {
     e.preventDefault();
     this.setState({
       todoList: this.state.todoList.filter(
-        todo => todo.textDecoration === "none"
+        todo => todo.textDecoration === "none",
       )
     });
   }

@@ -18,7 +18,7 @@ const TodoList = props => {
         todoOnProps={todo}
         todoListItem={todo.task}
         toggleCompleted={props.toggleCompleted}
-        completed="false"
+        completed= "false"
         />
         ))
       }

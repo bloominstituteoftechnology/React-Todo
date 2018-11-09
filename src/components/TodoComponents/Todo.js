@@ -10,6 +10,7 @@ const Todo = props => {
           className={`todo-item ${props.todoOnProps.textDecoration}`}
           todoList={props.todoOnProps.todoList}
           id={Date.now()}
+          completed={props.completed}
       >
         {props.todoListItem}
       </p>
