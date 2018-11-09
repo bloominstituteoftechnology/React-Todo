@@ -13,3 +13,7 @@
     border-bottom: 1px solid #5D484D;
     padding: 5px 100px 5px 5px;
 }
+
+.search-bar form ::placeholder {
+    color: #5D484D;
+}

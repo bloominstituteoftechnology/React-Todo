@@ -4,10 +4,14 @@ import './searchForm.css';
 const SearchForm = props => {
     return(
         <div className='search-bar'>
-            <form onInput={props.searchTodos}>
+            <form>
                 <input 
                     type="text" 
-                    name='searchText' placeholder='Search...' value={props.searchText} onChange={props.handleChange} />
+                    name='searchText' 
+                    placeholder='Search...' 
+                    value={props.searchText} 
+                    onChange={props.handleChange} 
+                    />
             </form>
         </div>
     );

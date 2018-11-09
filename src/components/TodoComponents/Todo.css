@@ -5,3 +5,11 @@
 .no-decoration {
     text-decoration: none;
 }
+
+.todo-displayed {
+    display: block;
+}
+
+.todo-hidden {
+    display: none;
+}
