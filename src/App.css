@@ -4,7 +4,7 @@
 }
 
 #root{
-  background: linear-gradient(to top, #fdcb6e, #00b894);
+  background: linear-gradient(to top, #00b894, #fdcb6e, #00b894);
   height: 100vh;
 }
 .App {
@@ -15,7 +15,7 @@
   flex-direction: column;
   background: #F0F2F0;  
   background: -webkit-linear-gradient(to top, #000C40, #F0F2F0);  
-  background: linear-gradient(to top, #00b894, #F0F2F0); 
+  background-image: linear-gradient(to top, #00b894, #fdcb6e, #00b894, #fdcb6e ); 
 }
 
 .container {
@@ -32,5 +32,5 @@ h1 {
   margin-top: 5%;
   padding: 2%;
   border: 1px solid teal;
-  box-shadow: -20px -10px #00b894
+  box-shadow: -20px -10px teal
 }
