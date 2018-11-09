@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
-    font-family: 'Gloria Hallelujah', cursive;
+    /* font-family: 'Gloria Hallelujah', cursive; */
+    font-family: 'Francois One', sans-serif;
 }
 
 .ToDo {
