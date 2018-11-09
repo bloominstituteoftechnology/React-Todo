@@ -5,6 +5,11 @@
       |_|\___/|____/ \___/   \____|____/____/ 
                                                 */
 
+
+/* body {
+    background-color: #f8f2f2;
+} */
+
 h1 {
     font-family: sans-serif;
     font-weight: 700;
@@ -19,6 +24,10 @@ p {
     flex-direction: row;
 }
 
+@media (max-width: 1000px) {
+    
+}
+
 .buttons {
     display: flex;
     flex-direction: row;
@@ -29,7 +38,7 @@ p {
     margin: 250px 100px;
     padding: 2.5rem 1.5rem;
     border-radius: 10px;
-    background-color: #f3f4f3;
+    background-color: #e7f2e7;
 }
 
 form h1 {
@@ -52,7 +61,7 @@ form h1 {
 
 .form button {
     border: 1px solid gray;
-    background-color: #f3fcf0;
+    background-color: #c6d5ce;
     border-radius: 8px;
     margin: 15px 0;
     padding: .75rem;
@@ -63,7 +72,7 @@ form h1 {
 }
 
 .form button:hover {
-    background-color: lightgray;
+    background-color: #b1b4b3;
     color: white;
 }
 
@@ -107,16 +116,17 @@ form h1 {
     border-radius: 8px;
     font-family: sans-serif;
     font-size: 1.3rem;
-    color: #6d5c61;
+    color: #9c8786;
 }
 
 .card:hover {
-    background-color: #c9c8c9;
+    background-color: #A8A7A8;
+    color: white;
 }
 
 .true {
     text-decoration: line-through;
-    background-color: #a8a7a8;
+    background-color: #b7b7b7;
     color: white;
 }
 

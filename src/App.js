@@ -29,9 +29,9 @@ class App extends React.Component {
             id: Date.now(), 
             completed: false
           },
-          ...this.state.tasks
+          ...JSON.parse(window.localStorage.getItem('tasks'))
         ]
-      }, () => { return window.localStorage.setItem('tasks', JSON.stringify(this.state.tasks)) });
+      }, () => { window.localStorage.setItem('tasks', JSON.stringify(this.state.tasks)); return this.forceUpdate() });
       this.setState({
         inputText: ''
       })
@@ -42,8 +42,8 @@ class App extends React.Component {
     event.preventDefault();
     console.log('buttons working dude');
     this.setState({
-      tasks: this.state.tasks.filter(x => Object.values(x).includes(false))
-    })
+      tasks: JSON.parse(window.localStorage.getItem('tasks')).filter(x => Object.values(x).includes(false))
+    }, () => { window.localStorage.setItem('tasks', JSON.stringify(this.state.tasks)); return this.forceUpdate() })
   }
 
   changeHandler = (event) => {
