@@ -4,7 +4,7 @@ import './Todo.css';
 const Todo = props => {
 
     return (
-        <li onClick={() => props.markComplete(props.item)} key={props.item.id} className={props.item.class}>{props.item.task}</li>
+        <p onClick={() => props.markComplete(props.item)} key={props.item.id} className={props.item.class}>{props.item.task}</p>
     )
 }
 
