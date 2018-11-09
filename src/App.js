@@ -45,19 +45,23 @@ class App extends React.Component {
   }
 
   addTask = event => {
-    event.preventDefault();
-    this.setState({
-      tasks: [
-        ...this.state.tasks,
-        {taskName: 
-          this.state.inputText, 
-          timeStamp: taskTimeStamp, 
-          completed: false,
-          color: 'white',
-          id: getNewId()}
-      ],
-      inputText: ''
-    })
+    event.preventDefault(); 
+    if (this.state.inputText === '') {
+      () => {this.state.inputText = ''};
+    } else {
+      this.setState({
+        tasks: [
+          ...this.state.tasks,
+          {taskName: 
+            this.state.inputText, 
+            timeStamp: taskTimeStamp, 
+            completed: false,
+            color: 'white',
+            id: getNewId()}
+        ],
+        inputText: ''
+      })
+    }
   }
 
   clearAllTasks = event => {
