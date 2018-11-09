@@ -3,7 +3,7 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import './Styles.css'
 
-const todoList = [
+let todoList = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -18,8 +18,14 @@ const todoList = [
 
 class App extends Component {
   // you will need a place to store your state in this component.
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
+
+    console.log(localStorage.getItem('data'));
+    if (localStorage.getItem('data')) {
+      todoList = JSON.parse(localStorage.getItem('data'));
+    }
+
     this.state = {
       list: todoList,
       inputText: ''
@@ -28,46 +34,60 @@ class App extends Component {
 
   // design `App` to be the parent component of your application.
   handleChange = e => {
+    let newKeyValue = e.target.value;
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: newKeyValue
     });
+    localStorage.setItem('data', JSON.stringify(newKeyValue));
   }
 
   toggleTaskComplete = (idSelected) => {
+    let newList = this.state.list.map(task => {
+      if (task.id === idSelected){
+        return {
+          ...task,
+          completed: !task.completed
+        };
+      } else {
+        return task;
+      }
+    });
+
     this.setState({
-      list: this.state.list.map(task => {
-        if (task.id === idSelected){
-          return {
-            ...task,
-            completed: !task.completed
-          };
-        } else {
-          return task;
-        }
-      })
-    })
+      list: newList
+    });
+    localStorage.setItem('data', JSON.stringify(newList));
   }
 
   addTask = e => {
     e.preventDefault();
+
+    let newList = [
+      ...this.state.list,
+      {
+        task: this.state.inputText,
+        id: Date.now(),
+        completed: false
+      }
+    ];
+    let newInputText = '';
+
     this.setState({
-      list: [
-          ...this.state.list,
-          {
-            task: this.state.inputText,
-            id: Date.now(),
-            completed: false
-          }
-      ],
-      inputText: ''
+      list: newList,
+      inputText: newInputText
     });
+    localStorage.setItem('data', JSON.stringify(newList));
   }
 
   clearCompletedTasks = e => {
     e.preventDefault();
+
+    let newList = this.state.list.filter(task => !task.completed);
+
     this.setState({
-      list: this.state.list.filter(task => !task.completed)
+      list: newList
     });
+    localStorage.setItem('data', JSON.stringify(newList));
   }
 
   // this component is going to take care of state, and any change handlers you need to work with your state
