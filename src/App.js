@@ -20,7 +20,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      listItems: JSON.parse(localStorage.getItem('savedState')),
+      listItems: [],
       inputText: '',
       searchText: ''
     };
@@ -95,6 +95,9 @@ class App extends React.Component {
   // componentDidMount() {
   //   this.state.listItems = JSON.parse(localStorage.getItem('savedState'));
   // }
+  componentWillMount(){
+    this.state.listItems = JSON.parse(localStorage.getItem('savedState'));
+  }
 
   render() {
     return (
