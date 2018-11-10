@@ -27,7 +27,6 @@ class App extends React.Component {
       todoItemList: todoItems,
       inputText: "",
       inputFilterText: "",
-      filteredTodo: []
     };
   }
 
@@ -35,26 +34,23 @@ class App extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log(e.target.name);
-    console.log(e.target.value);
   }
 
   addTask = e => {
     e.preventDefault();
     if(this.state.inputText !== ""){
-    this.setState({
-      todoItemList: [
-        ...this.state.todoItemList,
-        {task: this.state.inputText, 
-          id: Date.now(),
-          completed: false,
-          taskDone: 'inactive'
-        },
-      ],
-      inputText: ''
-    });
-  }
-    console.log(this.todoItemList);
+      this.setState({
+        todoItemList: [
+          ...this.state.todoItemList,
+          {task: this.state.inputText, 
+            id: Date.now(),
+            completed: false,
+            taskDone: 'inactive'
+          },
+        ],
+        inputText: ''
+      });
+    }
   }
 
   taskComplete = id => {
@@ -80,16 +76,15 @@ class App extends React.Component {
     });
   }
 
-  filterTasks = e => {
-    e.preventDefault();
-    if(this.state.inputFilterText !== ""){
-      console.log(this.inputFilterText);
-      this.setState({
-        filteredTodo: this.state.todoItemList.filter(filtered => this.inputFilterText === filtered.task),
-        inputFilterText: ''
-      });
-      console.log(this.filteredTodo);
-    }
+  componentWillMount() {
+    localStorage.getItem('todoItemsList') && this.setState({
+      todoItemList: JSON.parse(localStorage.getItem('todoItemsList'))
+    })
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem('todoItemsList', JSON.stringify(nextState.todoItemList));
+    localStorage.setItem('todoItemsListDate', Date.now());
   }
   
 
@@ -104,7 +99,6 @@ class App extends React.Component {
         />
         <TodoForm 
           addTask={this.addTask} 
-          filterTasks={this.filterTasks}
           clearCompleted={this.clearCompleted}         
           inputText={this.state.inputText}
           inputFilterText={this.state.inputFilterText}
