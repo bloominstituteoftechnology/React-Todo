@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from "../src/components/TodoComponents/TodoList"
+import './App.css';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -10,13 +11,25 @@ class App extends React.Component {
     super(props);
     this.state= {
       todos: [
-        {todo: "Do today's Homework"},
-        {todo: "Learn more about React"},
-        {todo: "Start College work"}
+        {
+          todo: "Do today's Homework",
+          completed: false,
+          style: ""
+        },
+        {
+          todo: "Do React",
+          completed: false,
+          style: ""
+        },
+        {
+          todo: "Drink Water!",
+          completed: false,
+          style: ""
+        },
       ],
       task: "",
       id: "",
-      newTask:""
+      newTask:"" 
     }
   }
 
@@ -30,15 +43,68 @@ class App extends React.Component {
     this.setState({
       todos: [
         ...this.state.todos,
-        {todo: this.state.newTask}
+        {
+          todo: this.state.newTask,
+          completed: false,
+          style:""
+        }
       ],
       newTask: ""
     });
   }
 
+  taskCompleted = index => {
+    let newTodo = this.state.todos.map((note, idx) => {
+      if(idx === index && note.completed === false){
+        return {
+          todo: note.todo,
+          completed: true,
+          style: note.style === '' ? 'line' : ''
+        }
+      }
+      else if(idx === index && note.completed === true){
+        return {
+          todo: note.todo,
+          completed: false,
+          style: note.style = ''
+        }
+      }
+      else{
+        return {
+          todo: note.todo,
+          completed: false,
+          style: note.style = ''
+        }
+      }
+    })
+
+    console.log(newTodo)
+    this.setState({
+      todos: newTodo
+    })
+  };
+
+    filterCharacter = index => {
+      
+      let filteredTodo = this.state.todos.filter((note, idx) => {
+          if (idx === index && note.completed === true) {
+            return {todo:note.todo};
+          } else if (idx !== index && note.completed === false){
+            return {todo : note.todo};
+          } else {
+            
+          }
+
+        })
+      
+      this.setState({
+        todos: filteredTodo
+      });
+    };
 
   
   render() {
+    //console.log(this.state.completed)
     return (
       <div>
         <h1>Todo List:-</h1>
@@ -51,6 +117,11 @@ class App extends React.Component {
             class={this.state.class}
             changeHandler={this.changeHandler}
             addNewTask={this.addNewTask}
+            completed={this.state.completed}
+            taskCompleted={this.taskCompleted}
+            completed={this.state.completed}
+            filterCharacter={this.filterCharacter}
+            style={this.state.style}
           />
         </div>
       </div>
