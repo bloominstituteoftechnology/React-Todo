@@ -47,25 +47,42 @@
 
 .form-container {
     /* margin-left: 20px; */
-    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     display: flex;
     justify-content: center;
+    background-color: gray;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
     /* border: 1px solid red; */
 }
 
 .input-container {
     margin-bottom: 15px;
     /* border: 1px solid red; */
+    width: 800px;
     display: flex;
-    justify-content: space-between;
-    /* width: 100%; */
-    /* margin: 0 auto; */
+    justify-content: space-around;
+}
+
+input {
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.btn-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .button-content {
-    margin: 0 15px;
-    width: 100px;
-    margin-bottom: 20px;
+    width: 200px;
+    height: 50px;
+    margin: 10px 0;
 }
 
 .addBtn {
@@ -78,10 +95,6 @@
 
 .filterBtn {
     background-color: rgb(157, 189, 202);
-}
-
-.form-input-content {
-    /* margin-right: 20px; */
 }
 
 .toggleTextDecor.active {

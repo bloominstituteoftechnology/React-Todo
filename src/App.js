@@ -27,6 +27,7 @@ class App extends React.Component {
       todoItemList: todoItems,
       inputText: "",
       inputFilterText: "",
+      filteredTodo: []
     };
   }
 
@@ -75,7 +76,7 @@ class App extends React.Component {
   clearCompleted = e => {
     e.preventDefault();
     this.setState({
-      todoItemList: this.state.todoItemList.filter(task => task.completed === false)
+      todoItemList: this.state.todoItemList.filter(task => task.completed === false)      
     });
   }
 
@@ -84,19 +85,22 @@ class App extends React.Component {
     if(this.state.inputFilterText !== ""){
       console.log(this.inputFilterText);
       this.setState({
-        todoItemList: this.state.todoItemList.filter(filtered => filtered.task === this.inputFilterText),
-        // inputFilterText: ''
+        filteredTodo: this.state.todoItemList.filter(filtered => this.inputFilterText === filtered.task),
+        inputFilterText: ''
       });
+      console.log(this.filteredTodo);
     }
   }
+  
 
   render() {
     return (      
       <div>
         {/* <h2>Welcome to your Todo App!</h2> */}
         <TodoList 
-        todos={this.state.todoItemList} 
-        taskComplete={this.taskComplete}
+        inputTextSearch={this.state.inputFilterText}
+        todos={this.state.todoItemList}
+        taskComplete={this.taskComplete}        
         />
         <TodoForm 
           addTask={this.addTask} 

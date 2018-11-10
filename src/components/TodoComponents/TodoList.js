@@ -5,11 +5,19 @@ import React from 'react';
 import Todo from './Todo';
 
 function TodoList(props) {
-    return (
+
+        let filteredArray = props.todos.filter(
+            todo => {
+                return todo.task.toLowerCase().indexOf(props.inputTextSearch.toLowerCase()) !== -1;
+            }
+        );
+
+    return (        
         <div>
             <h1 className='title'>ToDo List</h1>
             <div className='task-container'>
-                {props.todos.map(todo => (
+
+                {filteredArray.map(todo => (
                     <Todo 
                     key={todo.id} 
                     todoTask={todo} 

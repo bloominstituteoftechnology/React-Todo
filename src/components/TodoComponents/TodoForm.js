@@ -9,7 +9,7 @@ function TodoForm(props){
                     className='form-input-content'
                     type="text"
                     name='inputText'
-                    placeholder='...todo'
+                    placeholder='...new todo'
                     value={props.inputText}
                     onChange={props.handleChange}
                 />
@@ -17,14 +17,15 @@ function TodoForm(props){
                     className='form-input-content'
                     type="text"
                     name='inputFilterText'
-                    placeholder='...filter'
+                    placeholder='...search'
                     value={props.inputFilterText}
                     onChange={props.handleChange}
                 />
-            </div>                
+            </div> 
+            <div className='btn-container'>
                 <button className='button-content addBtn' type='submit'>Add Todo</button>
                 <button className='button-content clearBtn' onClick={props.clearCompleted}>Clear Completed</button>
-                <button className='button-content filterBtn' onClick={props.filterTasks}>Filter</button>
+            </div>               
             </form>
         </div>
     );
