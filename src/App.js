@@ -2,6 +2,7 @@ import React from 'react';
 import './components/TodoComponents/Todo.css'
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import SearchBar from './components/TodoComponents/SearchBar';
 
 const data = [
   {
@@ -22,14 +23,14 @@ class App extends React.Component {
     this.state = {
       todos: data,
       TodoForm: '',
+      filter: '',
     }
   }
-
+  
   componentDidMount() {
     const storedTodoList = JSON.parse(localStorage.getItem('todo'));
     if(storedTodoList) { this.setState({ todos: storedTodoList }) }
   }
-
   toggleComplete = (id) => {
     // console.log("ID", id);
     // console.log("THISSTATE", this.state);
@@ -46,6 +47,19 @@ class App extends React.Component {
     this.setState({
       todos,
     });
+  }
+  
+  getTodos() {
+    // let todos = [...this.state.todos];
+    {console.log([...this.state.todos])}
+    if (this.state.filter === "") return this.state.todos;
+    
+    return this.state.todos.filter(todo => {
+      let task = todo.task
+        .toLowerCase()
+        .includes(this.state.filter.toLowerCase());
+        return task;
+      });
   }
 
   addTodo = (e) => {
@@ -86,8 +100,13 @@ class App extends React.Component {
     return (
       <div className="main-container">
         <TodoList 
-          todos={this.state.todos}
+          getTodos={this.getTodos()}
+          // todos={this.state.todos}
           toggleComplete={this.toggleComplete}
+        />
+        <SearchBar 
+          filter={this.state.filter}
+          handleInputChange={this.handleInputChange}
         />
         <TodoForm 
           value={this.state.todoForm}

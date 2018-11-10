@@ -1,0 +1,11 @@
+.searchBarContainer {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.searchBarContainer input {
+  width: 66%;
+  padding: 5px;
+  font-family: "Font Awesome 5 Free", "Open Sans", sans-serif;
+  transition: all .4s ease-in-out;
+}
