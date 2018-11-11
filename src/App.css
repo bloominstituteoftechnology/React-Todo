@@ -13,7 +13,7 @@ body {
 }
 
 .todoApp {
-  width: 40rem;
+  max-width: 90rem;
   padding: 2rem;
   margin: 3rem auto;
 }
@@ -37,9 +37,18 @@ button {
 }
 
 .todo--card {
+  width: 40rem;
   border: 1px solid cyan;
   border-radius: 2rem;
   background-color: lightcyan;
   padding: 2rem;
-  margin: 1rem 0;
+  margin: 1rem;
+}
+
+.todo--cards{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
