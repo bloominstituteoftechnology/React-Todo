@@ -5,3 +5,27 @@
 .strikethrough-style {
     text-decoration: line-through;
 }
+
+.character-header {
+    cursor: pointer;
+}
+
+.character-header.green {
+    color: green;
+}
+
+.character-header.red {
+    color: red;
+}
+
+.myTask {
+    color: green;
+}
+
+.myTask.true {
+    text-decoration: line-through;
+}
+
+.myTask.false {
+    text-decoration: none;
+}
