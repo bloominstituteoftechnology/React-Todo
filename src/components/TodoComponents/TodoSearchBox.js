@@ -7,7 +7,7 @@ const TodoSearchBox = props => {
       type="text" 
       name="filterText"
       onChange={ (e) => props.handleChange(e) }
-      value={props.inputText}
+      value={props.filterText}
       placeholder="Filter"
     />
   );

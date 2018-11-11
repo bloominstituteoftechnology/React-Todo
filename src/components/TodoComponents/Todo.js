@@ -1,8 +1,13 @@
 import React from 'react';
 
 const Todo = props => {
+  // console.log(props.category, props.todo.id);
   return (
-    <li onClick={ (e) => props.handleClick(e, props.todo.id) } className={'todo--item  completed--' + (props.todo.completed)}>{props.todo.task}</li>
+    <li
+      name={ props.category + ' ' + props.todo.id } 
+      onClick={ (e) => props.handleClick(e, props.category, props.todo.id) } 
+      className={'todo--item  completed--' + (props.todo.completed)}>{props.todo.task}
+    </li>
   );
 };
 
