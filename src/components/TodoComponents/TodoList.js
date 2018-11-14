@@ -9,7 +9,7 @@ const TodoList = props => {
     return (
         <div className='todo-container'>
             <h1>Neverending List of Things</h1>
-            <img src={require('./img/check-mark.jpeg')} alt={'check mark'}></img>
+            <img src={require('./img/blue-check.png')} alt={'check mark'}></img> 
             {props.todoList.map(todo => (
                 <div key={todo.id} className='todo' style={{backgroundColor: todo.backgroundColor}} onClick={() => props.strikeDone(todo.id)}>
                     <Todo completed={todo.completed} task={todo.task} /> 

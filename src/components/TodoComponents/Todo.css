@@ -14,6 +14,7 @@
 }
 
 .todo {
+    border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,6 +24,7 @@
 }
 
 .todo-form-container {
+    border-radius:25px;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -33,18 +35,22 @@ h1 {
 }
 
 img {
+    border-radius: 25px;
     width: 40%;
 }
 
 input {
+    background-color:#ececec;
     padding: 10px;
-    border: 2px solid #828588;
+    border:none;
+    border-radius: 25px;
     width: 50%;
 }
 
 button {
     background-color: #714a91; 
     border: none;
+    border-radius: 25px;
     color: white;
     padding: 15px 32px;
     text-align: center;
