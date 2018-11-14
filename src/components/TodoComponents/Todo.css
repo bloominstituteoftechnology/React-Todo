@@ -1,0 +1,56 @@
+.line-through {
+    text-decoration: line-through;
+}
+
+.todo-container {
+    background-color: #dd741f;
+    width: 50%;
+    margin: 0 auto;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F9F8F8;
+    margin: 20px;
+    width: 100%;
+}
+
+.todo-form-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+h1 {
+    color: #2659b7;
+}
+
+img {
+    width: 40%;
+}
+
+input {
+    padding: 10px;
+    border: 2px solid #bdc3c7;
+    width: 50%;
+}
+
+button {
+    background-color: #ffca05;
+    border: none;
+    color: #714a91;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.clear {
+    background-color: #dd741f;
+}
