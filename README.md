@@ -3,14 +3,11 @@
 - At this point you have become familiar with the DOM and have built out User Interfaces using HTML and CSS and some JavaScript using custom components. And you've even had some practice working with React at a basic level. Now we're going to start adding some functionality to that work-flow. It's one thing to be able to build UI components using react, but what about the interactivity of those components?
 
 ## Initializing the project.
-
 - `Fork and clone` this project and cd into your cloned version.
 - `yarn install` will pull in all the node_modules you need.
 - `yarn start` will start a development server on your `http://localhost:3000`.
   - If yarn asks you to select different port with some error message, just select `Y` and it will pull it up on port 3001. This simply means you have a development server up and running on that port already.
-
 ## Instructions
-
 - Your job is to write the components to complete the Todo List application.
 - Your todo list should be fully functional and you should design it however you'd like. Feel free to get creative here. I have supplied a gif for you to see what the MVP functionality is required to look like over the course of the two days.
 
