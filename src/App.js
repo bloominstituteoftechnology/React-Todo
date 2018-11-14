@@ -9,16 +9,19 @@ class App extends React.Component {
     super();
     this.state = {
       userInput: '',
+      backgroundColors: ['#2659b7', '#00a271', '#ffca05', '#714a91'],
       todoList: [
         {
-          task: 'Organize Garage',
+          task: 'Wake-Up',
           id: 1528817077286,
           completed: false,
+          backgroundColor: '#ffca05'
         },
         {
-          task: 'Bake Cookies',
+          task: 'Be Awesome',
           id: 1528817084358,
           completed: false,
+          backgroundColor: '#2659b7'
         }
       ]
     };
@@ -32,6 +35,7 @@ class App extends React.Component {
           task: event.target.value,
           id: Date.now(),
           completed: false,
+          backgroundColor: this.state.backgroundColors[Math.floor(Math.random()*this.state.backgroundColors.length)]
         }) 
       });
     }
@@ -44,6 +48,7 @@ class App extends React.Component {
         task: this.state.userInput,
         id: Date.now(),
         completed: false,
+        backgroundColor: this.state.backgroundColors[Math.floor(Math.random()*this.state.backgroundColors.length)]
       }) 
     });
   }
@@ -76,7 +81,7 @@ class App extends React.Component {
     })
   }
 
-  clearList = () => {
+  clearItem = () => {
     this.setState({
       todoList: this.state.todoList.filter(todo => todo.completed === false)
     })
@@ -85,7 +90,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList userInput={this.state.userInput} todoList={this.state.todoList} handleSubmit={this.handleSubmit} buttonPressed={this.buttonPressed} enterPressed={this.enterPressed} strikeDone={this.strikeDone} clearList={this.clearList} />
+        <TodoList userInput={this.state.userInput} todoList={this.state.todoList} handleSubmit={this.handleSubmit} buttonPressed={this.buttonPressed} enterPressed={this.enterPressed} strikeDone={this.strikeDone} clearItem={this.clearItem} />
       </div>
     );
   }

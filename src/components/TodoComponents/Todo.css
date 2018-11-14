@@ -17,7 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #F9F8F8;
+    color: #000;
     margin: 20px;
     width: 100%;
 }
@@ -29,7 +29,7 @@
 }
 
 h1 {
-    color: #2659b7;
+    color: #000;
 }
 
 img {
@@ -38,19 +38,19 @@ img {
 
 input {
     padding: 10px;
-    border: 2px solid #bdc3c7;
+    border: 2px solid #828588;
     width: 50%;
 }
 
 button {
-    background-color: #ffca05;
+    background-color: #714a91; 
     border: none;
-    color: #714a91;
+    color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
 }
 
 .clear {
-    background-color: #dd741f;
+    background-color: #00a271;
 }
