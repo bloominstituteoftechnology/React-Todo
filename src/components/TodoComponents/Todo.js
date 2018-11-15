@@ -1,11 +1,8 @@
 import React from 'react';
 
-const Todo = () => {
-    return(
-        <div className='todo'>
-        WHAT TO DO, I am the Todo
-        </div>
-    );
-}
+
+const Todo = props => {
+    return <h1>{props.taskOnProps.taskName}</h1>;    
+};
 
 export default Todo;
