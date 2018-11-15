@@ -37,7 +37,7 @@ class App extends React.Component {
         },
         {
           task: 'Bandage Resulting Burns',
-          id: 1528817077286,
+          id: 1528817077289,
           completed: false
         }
       ],
@@ -47,18 +47,32 @@ class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-  addTodo = e => {
-    e.preventDefault();
+
+  //User adds new tasks into field
+  addTodo = apple => {
+    apple.preventDefault();
     const todos = this.state.todos.slice();
+    //points at const todos(an array) inside this.state of class App (above)
+    //since slice() is empty, it begins at index 0 and ends the length of the array
     todos.push({ task: this.state.todo, completed: false, id: Date.now() });
+    //pushing new contents into the shallow copy created by this.state.todos.slice();
     this.setState({ todos, todo: '' });
   };
 
-  changeTodo = e => this.setState({ [e.target.name]: e.target.value });
+  changeTodo = banana=> this.setState({ [banana.target.name]: banana.target.value });
 
+
+//Disclaimer: I misunderstood that this was a two day project, thought it had to all be done and since I had no idea from day 1 lecture how to toggle in React, I did reference the solution code for the following. Will spend tomorrow finishing mvp and then "breaking" and fixing the code in order to actually understand what is happening.
+
+
+  //This method adds the mark through items that the user clicks
   toggleTodoComplete = id => {
     let todos = this.state.todos.slice();
+    //notice the use of let
+    //notice that todos is also the name of the array in this.state in App
+    //since slice() is empty, it begins at index 0 and ends the length of the array
     todos = todos.map(todo => {
+      //no let or const
       if (todo.id === id) {
         todo.completed = !todo.completed;
         return todo;
@@ -67,14 +81,55 @@ class App extends React.Component {
       }
     });
     this.setState({ todos });
+    //evaluating const todos
   };
 
-  clearCompletedTodos = e => {
-    e.preventDefault();
+  clearCompletedTodos = element => {
+    element.preventDefault();
     let todos = this.state.todos.slice();
+    //notice the use of let
+    //notice that todos is also the name of the array in this.state in App
+    //since slice() is empty, it begins at index 0 and ends the length of the array
     todos = todos.filter(todo => !todo.completed);
+    //no let or const
+    //The filter() method creates a new array with all elements that pass the test implemented by the provided function.
     this.setState({ todos });
   };
+
+
+
+
+//For reference on render() below--------
+ 
+//   const TodoList = props => {
+//     return (
+//         <div>
+//           {props.todos.map(todo => (
+//             <Todo handleToggleComplete={props.handleToggleComplete}
+//               key={todo.id}
+//               todo={todo}
+//             />
+//           ))}
+//         </div>
+//       );
+// }
+
+//const TodoForm = props => {
+//   return (
+//     <form>
+//         <input
+//             //basic structure of handlers is onChange = {props.handleCapitalVars}
+//             onChange = {props.handleTodoChange}
+//             type="text"
+//             name="todo"
+//             value={props.value}
+//             placeholder="...Add a task!" 
+//         />
+//         <button onClick = {props.handleAddTodo}>Add ToDo</button>
+//         <button onClick = {props.handleClearTodos}>Clear</button>
+//     </form>
+// )
+// }
 
   render() {
     return (
