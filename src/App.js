@@ -34,12 +34,12 @@ class App extends React.Component {
     });
   };
 
-  addCharacter = event => {
+  addItem = event => {
     event.preventDefault();
     this.setState({
       items: [
         ...this.state.items,
-        { task: this.state.inputText }
+        { task: this.state.inputText, id: Date.now(), completed: false }
       ],
       inputText: ""
     });
@@ -51,7 +51,7 @@ class App extends React.Component {
         <h1>My Tasks</h1>
         <TodoList items={this.state.items} />
         <TodoForm
-          addCharacter={this.addCharacter}
+          addItem={this.addItem}
           inputText={this.state.inputText}
           handleChange={this.handleChange}
         />
