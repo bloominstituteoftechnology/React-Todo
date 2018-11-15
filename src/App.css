@@ -1,0 +1,13 @@
+html{
+   font-size: 62.5%;
+}
+
+.App {
+    max-width: 450px;
+    background: #20436C;
+    font-size: 3rem;
+    color: #EEF0EE;
+    padding: 5%;
+    border-radius: 2%;
+    font-family: 'Indie Flower', cursive;
+}

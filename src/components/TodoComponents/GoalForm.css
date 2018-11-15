@@ -1,0 +1,18 @@
+.goal-form {
+    display: flex;
+    flex-direction: column-reverse;
+    border: 5px solid #54BCEF;
+    border-radius: 2%;
+    margin-top: 3%;
+}
+input {
+    padding: 1rem;
+    font-size: 2rem;
+    color: #20436C;
+}
+button {
+    padding: 1rem 0;
+    font-size: 2rem;
+    Background: #72A9CA;
+    cursor: pointer;
+}

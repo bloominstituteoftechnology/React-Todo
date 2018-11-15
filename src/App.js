@@ -1,6 +1,8 @@
 import React from 'react';
+import './App.css';
 import GoalList from "../src/components/TodoComponents/GoalList";
 import GoalForm from "../src/components/TodoComponents/GoalForm";
+import GoalFooter from '../src/components/TodoComponents/GoalFooter';
 
 
 class App extends React.Component {
@@ -9,12 +11,12 @@ class App extends React.Component {
     this.state = {
       goals: [
         {
-          task: 'Retire Financially Independent',
+          task: '',
           id: 1528817077286,
           completed: false
         },
         {
-          task: 'Travel the World',
+          task: '',
           id: 1528817084358,
           completed: false
         }
@@ -71,8 +73,9 @@ class App extends React.Component {
             handleGoalChange={this.changeGoal}
             handleAddGoal={this.addGoal}
             handleClearGoal={this.clearCompletedGoal}
-          />          
-        </div>        
+          />
+          <GoalFooter />          
+        </div>                
       );
     }
 }
