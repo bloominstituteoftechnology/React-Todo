@@ -3,15 +3,16 @@ import React from 'react';
 const TodoForm = props => {
     return(
         <div className='todo-form'>
-            <form onSubmit={props.addTask}>
+            <form>
                 <input
-                    type='text'
-                    name='inputText'
-                    placeholder='add new task'
-                    value={props.inputText}
-                    onChange={props.handleChange}
-                />
-                <button type='submit'>Add Task</button>    
+                onChange={props.handleTaskChange}
+                type='text'
+                name='todo'
+                value={props.value}
+                placeholder='add new goal'
+               />
+               <button onClick={props.handleAddTask}>Add Goal</button>
+               <button onClick={props.handleClearTask}>Remove Completed Goal</button>  
             </form>        
         </div>
     );
@@ -19,3 +20,14 @@ const TodoForm = props => {
 
 
 export default TodoForm;
+
+// <form onSubmit={props.addTask}>
+//     <input
+//         type='text'
+//         name='inputText'
+//         placeholder='add new task'
+//         value={props.inputText}
+//         onChange={props.handleChange}
+//     />
+//     <button type='submit'>Add Task</button>
+// </form>     

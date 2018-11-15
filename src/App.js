@@ -9,12 +9,12 @@ class App extends React.Component {
     this.state = {
       todos: [
         {
-          task: 'Organize Garage',
+          task: 'Retire Financially Independent',
           id: 1528817077286,
           completed: false
         },
         {
-          task: 'Bake Cookies',
+          task: 'Travel the World',
           id: 1528817084358,
           completed: false
         }
