@@ -1,0 +1,11 @@
+.item-header {
+    cursor: pointer;
+}
+
+.item-header.true {
+    text-decoration: line-through;
+}
+
+.item-header.false {
+    text-decoration: none;
+}
