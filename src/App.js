@@ -52,38 +52,35 @@ class App extends React.Component {
           return {
             ...item,
             completed: item.completed === false ? true : false
-          }
+          };
         } else {
-          return item
+          return item;
         }
       })
-    })
-  }
+    });
+  };
 
   clearFalse = event => {
     event.preventDefault();
     this.setState({
-      items: this.state.items.filter(
-        item => item.completed === false
-      )
-    })
-  }
-
+      items: this.state.items.filter(item => item.completed === false)
+    });
+  };
 
   render() {
     return (
       <div className="App">
         <h2>My Tasks</h2>
-          <TodoList 
+        <TodoList
           items={this.state.items}
           changeCompleted={this.changeCompleted}
-          />
-          <TodoForm
-            clearFalse={this.clearFalse}
-            addItem={this.addItem}
-            inputText={this.state.inputText}
-            handleChange={this.handleChange}
-          />
+        />
+        <TodoForm
+          clearFalse={this.clearFalse}
+          addItem={this.addItem}
+          inputText={this.state.inputText}
+          handleChange={this.handleChange}
+        />
       </div>
     );
   }

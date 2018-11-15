@@ -7,11 +7,11 @@ const TodoList = props => {
   return (
     <div>
       {props.items.map(itemInMap => (
-        <Todo 
-        key={itemInMap.id} 
-        itemOnProps={itemInMap}
-        changeCompleted={props.changeCompleted}
-         />
+        <Todo
+          key={itemInMap.id}
+          itemOnProps={itemInMap}
+          changeCompleted={props.changeCompleted}
+        />
       ))}
     </div>
   );

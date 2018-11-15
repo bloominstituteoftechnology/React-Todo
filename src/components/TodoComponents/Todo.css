@@ -1,48 +1,48 @@
 .App {
-    text-align: center;
-    margin: 0 auto;
-    /* border: 1px solid black; */
-    width: 20rem;
-    padding: 80px 100px;
-    background: beige;
+  text-align: center;
+  margin: 0 auto;
+  /* border: 1px solid black; */
+  width: 20rem;
+  padding: 80px 100px;
+  background: beige;
 }
 
 form {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 form input {
-    /* background-color: paleturquoise; */
+  /* background-color: paleturquoise; */
 }
 
 h2 {
-    font-size: 40px;
-    color: palevioletred;
-    margin-bottom: 60px;
+  font-size: 40px;
+  color: palevioletred;
+  margin-bottom: 60px;
 }
 
 h1 {
-    font-size: 20px;
-    color: darkcyan;
+  font-size: 20px;
+  color: darkcyan;
 }
 
 button {
-    background-color: peachpuff;
-    /* background-color: darkcyan; */
-    color: black;
-    /* border: 1px solid peachpuff; */
-    margin-left: 20px;
-    cursor: pointer;
+  background-color: peachpuff;
+  /* background-color: darkcyan; */
+  color: black;
+  /* border: 1px solid peachpuff; */
+  margin-left: 20px;
+  cursor: pointer;
 }
 
 .item-header {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .item-header.true {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .item-header.false {
-    text-decoration: none;
+  text-decoration: none;
 }
