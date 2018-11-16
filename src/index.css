@@ -6,7 +6,7 @@ body{
 
 .container{
     /* border: 3px dashed red; */
-    background-color: rgb(236, 108, 33);
+    /* background-color: rgb(236, 108, 33); */
     /* max-width: 800px; */
     display: flex;
     flex-wrap: wrap;
@@ -29,8 +29,9 @@ h1{
     margin-top: 60px;
     padding: 20px;
     justify-content: center;
-    border: 3px solid gold;
+    border: 5px solid rgb(225, 227, 99);
     border-style: outset;
+    border-radius: 8px;
     font-size: 24px;
     text-align: center;
     line-height: 1.5;
@@ -38,7 +39,7 @@ h1{
   }
 
   input{
-      border: 3px dashed black;
+      border: 5px ridge rgb(225, 227, 99);
       margin-top: 32px;
       margin-bottom: 32px;
       width: 75%;
@@ -57,7 +58,7 @@ h1{
       margin: 10px;
       border-radius: 8px;
       padding: 16px 16px;
-      background-color: yellow;
+      background-color: rgb(225, 227, 99);
   }
 
   button:hover {
