@@ -28,7 +28,7 @@ class App extends React.Component {
     this.state = {
       todos: [
         {
-          task: 'Watch Arrrested Development',
+          task: 'Watch Arrested Development',
           id: 1528817077286,
           completed: false
         },
