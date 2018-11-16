@@ -2,6 +2,8 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+import './index.css';
+
 // const ToDoTasks = [
 //   {
 //     task: 'Watch Arrrested Development',
@@ -61,8 +63,6 @@ class App extends React.Component {
 
   changeTodo = banana=> this.setState({ [banana.target.name]: banana.target.value });
 
-
-//Disclaimer: I misunderstood that this was a two day project, thought it had to all be done and since I had no idea from day 1 lecture how to toggle in React, I did reference the solution code for the following. Will spend tomorrow finishing mvp and then "breaking" and fixing the code in order to actually understand what is happening.
 
 
   //This method adds the mark through items that the user clicks

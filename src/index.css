@@ -1,0 +1,67 @@
+body{
+    font-family: sans-serif;
+    font-family: 'Rubik Mono One', sans-serif;
+    background-color: rgb(236, 108, 33)
+}
+
+.container{
+    border: 3px dashed red;
+    background-color: rgb(236, 108, 33);
+    /* max-width: 800px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.header{
+border: 3px solid green;
+margin-bottom: 1px;
+    
+}
+
+h1{
+    border: 3px dashed purple;
+    margin: 0;
+}
+
+#root {
+    /* margin: 65px 45px 10px 55px; */
+    margin-top: 60px;
+    padding: 20px;
+    justify-content: center;
+    border: 3px solid gold;
+    border-style: outset;
+    font-size: 24px;
+    text-align: center;
+    line-height: 1.5;
+    background-color: white;
+  }
+
+  input{
+      border: 3px dashed black;
+      margin-top: 32px;
+      margin-bottom: 32px;
+      width: 75%;
+      padding: 22px 20px;
+      border-radius: 8px;
+      
+  }
+
+  textarea:focus {
+    background: yellow;
+  }
+
+  button {
+      font-size: 100%;
+      font-family: inherit;
+      margin: 10px;
+      border-radius: 8px;
+      padding: 16px 16px;
+      background-color: yellow;
+  }
+
+  button:hover {
+    background-color: orange;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
