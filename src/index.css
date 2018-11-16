@@ -36,6 +36,8 @@ h1{
     text-align: center;
     line-height: 1.5;
     background-color: white;
+    background-image: url(http://www.bakinbit.com/wp-content/uploads/2013/05/cornballer.jpg);
+    background-size: cover;
   }
 
   input{
