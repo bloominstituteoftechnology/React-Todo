@@ -43,8 +43,8 @@ import './Todo.css';
 const Todo = props => {
   return(
     <h1 
-    onClick={() => props.changeComplete(props.propsItem.id)}
-    className={`myTask ${props.propsItem.completed}`}
+      onClick={() => props.changeComplete(props.propsItem.id)}
+      className={`myTask ${props.propsItem.completed}`}
     >
       {props.propsItem.task}
     </h1>
