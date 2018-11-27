@@ -1,10 +1,158 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* My styles */
+
+* {
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+    font-size: 62.5%;
+}
+body {
+    background: gray;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#app {
+    background: lightgray;
+    width: 50%;
+    height: 75%;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+form {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+form input {
+    width: 100%;
+    margin-bottom: 10px;
+    background: #eee;
+    color: #222;
+}
+form button {
+    background: transparent;
+    height: 50px;
+    color: #222;
+    font-weight: 300;
+    font-size: 2rem;
+    border: 1px solid #222;
+    flex-grow: 1;
+    cursor: pointer;
+}
+form button:hover {
+    background: gray;
+    color: #eee;
+}
+form button:active {
+    background: #666;
+}
+form button:last-child {
+    border-left: none;
+}
 ul {
-    list-style-type: none;
+    margin-top: 20px;
 }
 li {
+    border: 1px solid #222;
+    border-radius: 5px;
     cursor: pointer;
     user-select: none;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    padding: 7.5px 0;
+    text-align: center;
+    background: #F0E68C;
+    overflow: hidden;
+}
+li:last-of-type{
+    margin-bottom: 0;
 }
 .complete-true {
-    text-decoration: line-through;
+    background: #90EE90;
+}
+.key {
+    position: fixed;
+    top: 88%;
+    left: 75%;
+    transform: translateX(-100%);
+}
+.key div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.key div:last-child {
+    margin-bottom: 0;
+}
+.key div span {
+    margin-left: 5px;
+    color: #eee;
+    font-size: 1.6rem;
+    user-select: none;
+}
+.complete {
+    background: #90EE90;
+    border: 1px solid #222;
+    width: 2vw;
+    height: 2vw;
+}
+.incomplete {
+    background: #F0E68C;
+    border: 1px solid #222;
+    width: 2vw;
+    height: 2vw;
 }

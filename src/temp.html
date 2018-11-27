@@ -9,29 +9,35 @@
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js'></script>
     <link rel='stylesheet' href='.\components\TodoComponents\Todo.css' />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 </head>
 <body>
     <div id='app'></div>
 
     <script type='text/babel'>
 
-        const Form = props => (
+        const TodoForm = props => (
             <form>
                 <input type='text' 
                 value={props.input}
-                placeholder='...todo'
+                placeholder='Please Enter a Todo'
                 onChange={props.handleChange}
-                onKeyDown={(e) => e.keyCode === 13 ? e.preventDefault() : true}
+                onKeyDown={(e) => e.keyCode === 13 ? props.addTodo(e) : null}
                 />
                 <button type='button' onClick={props.addTodo}>Add Todo</button>
                 <button type='button' onClick={props.clearComplete}>Clear Completed</button>
             </form>
         );
 
-        const List = props => (
+        const Todo = props => (
+            <li onClick={() => props.markComplete(props.item)} className={`complete-${props.item.completed}`}>
+                {props.item.task}
+            </li>
+        );
+
+        const TodoList = props => (
             <ul>
-                {props.list.map(item => <li onClick={() => props.markComplete(item)}
-                    className={`complete-${item.completed}`}>{item.task}</li>)}
+                {props.list.map(item => <Todo markComplete={props.markComplete} item={item}/>)}
             </ul>
         );
 
@@ -54,7 +60,7 @@
                     ],
                 };
             }
-            
+
             markComplete = item => {
                 this.setState((prevState) => {
                     const newTodo = prevState.todo;
@@ -73,9 +79,10 @@
                 });
             }
 
-            addTodo = () => {
+            addTodo = (e) => {
+                if (e.keyCode === 13) e.preventDefault();
                 if (!this.state.input){
-                    alert('Please enter a todo');
+                    alert('Please Enter a Todo');
                     return;
                 }
                 this.setState((prevState) => ({
@@ -86,7 +93,8 @@
                             id: Date.now(), 
                             completed: false
                         }),
-                }), () => console.log(this.state));
+                    })
+                );
             }
 
             clearComplete = () => {
@@ -98,14 +106,24 @@
             render(){
                 return (
                     <div>
-                        <Form handleChange={this.handleChange}
+                        <TodoForm handleChange={this.handleChange}
                             addTodo={this.addTodo}
                             input={this.state.input}
                             clearComplete={this.clearComplete}
                         />
-                        <List list={this.state.todo} 
+                        <TodoList list={this.state.todo} 
                             markComplete={this.markComplete}
                         />
+                        <div className='key'>
+                            <div>
+                                <div className='complete'></div>
+                                <span>= Complete</span>
+                            </div>
+                            <div>
+                                <div className='incomplete'></div>
+                                <span>= Incomplete </span>
+                            </div>
+                        </div>
                     </div>
                 );
             }
