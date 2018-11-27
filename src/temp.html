@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Temp Todo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js'></script>
+    <link rel='stylesheet' href='.\components\TodoComponents\Todo.css' />
+</head>
+<body>
+    <div id='app'></div>
+
+    <script type='text/babel'>
+
+        const Form = props => (
+            <form>
+                <input type='text' 
+                value={props.input}
+                placeholder='...todo'
+                onChange={props.handleChange}
+                onKeyDown={(e) => e.keyCode === 13 ? e.preventDefault() : true}
+                />
+                <button type='button' onClick={props.addTodo}>Add Todo</button>
+                <button type='button' onClick={props.clearComplete}>Clear Completed</button>
+            </form>
+        );
+
+        const List = props => (
+            <ul>
+                {props.list.map(item => <li onClick={() => props.markComplete(item)}
+                    className={`complete-${item.completed}`}>{item.task}</li>)}
+            </ul>
+        );
+
+        class App extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {
+                    input: '',
+                    todo: [
+                    {
+                        task: 'Organize Garage',
+                        id: 1528817077286,
+                        completed: false
+                    },
+                    {
+                        task: 'Bake Cookies',
+                        id: 1528817084358,
+                        completed: false
+                    }
+                    ],
+                };
+            }
+            
+            markComplete = item => {
+                this.setState((prevState) => {
+                    const newTodo = prevState.todo;
+                    newTodo.forEach(x => {
+                        if(x.id === item.id) x.completed = !x.completed;
+                    });
+                    return {
+                        todo: newTodo,
+                    }
+                });
+            }
+
+            handleChange = e => {
+                this.setState({
+                    input: e.target.value,
+                });
+            }
+
+            addTodo = () => {
+                if (!this.state.input){
+                    alert('Please enter a todo');
+                    return;
+                }
+                this.setState((prevState) => ({
+                    input: '',
+                    todo: prevState.todo.concat(
+                        {
+                            task: prevState.input, 
+                            id: Date.now(), 
+                            completed: false
+                        }),
+                }), () => console.log(this.state));
+            }
+
+            clearComplete = () => {
+                this.setState((prevState) => ({
+                    todo: prevState.todo.filter(x => !x.completed),
+                }));
+            }
+
+            render(){
+                return (
+                    <div>
+                        <Form handleChange={this.handleChange}
+                            addTodo={this.addTodo}
+                            input={this.state.input}
+                            clearComplete={this.clearComplete}
+                        />
+                        <List list={this.state.todo} 
+                            markComplete={this.markComplete}
+                        />
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.querySelector('#app')
+        );
+    </script>
+</body>
+</html>
