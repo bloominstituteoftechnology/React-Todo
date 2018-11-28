@@ -64,6 +64,24 @@ class App extends React.Component{
           todo: prevState.todo.filter(x => !x.completed),
       }));
   }
+  componentDidMount(){
+    window.addEventListener('beforeunload', this.handleLocalStorage);
+    this.setState({
+      input: JSON.parse(localStorage.getItem('input')) || '',
+      todo: JSON.parse(localStorage.getItem('todo')) || [
+        {task: 'Start todo list', id: Date.now(), completed: false}
+      ],
+    });
+  }
+  
+  handleLocalStorage = () => {
+    for (let key in this.state){
+      localStorage.setItem(key, JSON.stringify(this.state[key]));
+    }
+  }
+  componentWillUnmount(){
+    window.removeEventListener('beforeunload', this.handleLocalStorage);
+  }
 
   render(){
       return (

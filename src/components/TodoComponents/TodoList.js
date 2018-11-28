@@ -5,7 +5,7 @@ import Todo from './Todo.js';
 
 const TodoList = props => (
     <ul>
-        {props.list.map(item => <Todo markComplete={props.markComplete} item={item}/>)}
+        {props.list.map(item => <Todo key={item.id} markComplete={props.markComplete} item={item}/>)}
     </ul>
 );
 
