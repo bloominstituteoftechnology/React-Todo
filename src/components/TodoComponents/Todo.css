@@ -63,7 +63,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-#app {
+#root {
     background: lightgray;
     width: 50%;
     height: 75%;
