@@ -51,10 +51,10 @@ class App extends React.Component {
   };
 
 
-  completed = event => {
+  completed = id => {
     const todosArray = [...this.state.todos];
     for (let i = 0; i < todosArray.length; i++){
-      if(event === todosArray[i].id) {
+      if(id === todosArray[i].id) {
         todosArray[i].completed = !todosArray[i].completed;
       }
     }
