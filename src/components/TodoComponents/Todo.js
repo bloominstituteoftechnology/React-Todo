@@ -7,7 +7,7 @@ class Todo extends React.Component {
 
   render() {
     return(
-      <p className={`task ${this.props.completed}`}>{this.props.name}</p>
+      <p className={`task ${this.props.completed}`} onClick={this.props.completedHandler}>{this.props.name}</p>
     );
   }
 }
