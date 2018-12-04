@@ -22,19 +22,23 @@ class App extends React.Component {
         completed: true
       }
     ],
+    currentInput: ""
+  }
+
+  saveInputHandler = event => {
+    const inputValue = event.target.value;
+    this.setState({currentInput: inputValue});
   }
 
   addTodoBtnHandler = event => {
     const todos = this.state.todos.slice();
-    const input = document.querySelector('input');
-    const text = input.value;
+    const text = this.state.currentInput;
     todos.push({
       task: text,
       id: Date.now(),
       completed: false
     });
-    this.setState({todos: todos});
-    input.value = "";
+    this.setState({todos: todos, currentInput: ""});
   }
 
   addTodoInputHandler = event => {
@@ -47,8 +51,7 @@ class App extends React.Component {
         id: Date.now(),
         completed: false
       });
-      this.setState({todos: todos});
-      event.target.value = "";
+      this.setState({todos: todos, currentInput: ""});
     }
   }
 
@@ -71,7 +74,12 @@ class App extends React.Component {
       <div className="container">
         <h1>TODO APP</h1>
         <TodoList todos={this.state.todos} todoClick={this.todoClickHandler}/>
-        <TodoForm addFromBtn={this.addTodoBtnHandler} addFromInput={this.addTodoInputHandler} removeCompleted={this.removeCompletedBtnHandler}/>
+        <TodoForm 
+          current={this.state.currentInput}
+          addFromBtn={this.addTodoBtnHandler} 
+          addFromInput={this.addTodoInputHandler} 
+          removeCompleted={this.removeCompletedBtnHandler} 
+          saveInput={this.saveInputHandler}/>
       </div>
     );
   }
