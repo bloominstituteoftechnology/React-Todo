@@ -1,7 +1,7 @@
 import React from "react";
 import "./Todo.css";
 
-const TodoForm = (props) => {
+const TodoForm = props => {
   return (
     <div className='inputField'>
       <input type='text' />
