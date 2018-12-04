@@ -49,8 +49,9 @@ class App extends React.Component {
 
     const tasksCurrent = this.state.tasks;
     const newList = tasksCurrent.slice();
-    let id = undefined;
     const task = document.querySelector('input').value;
+    let id = undefined;
+
 
     if(newList.length > 0) {
       id = tasksCurrent[tasksCurrent.length-1].id + 1;
