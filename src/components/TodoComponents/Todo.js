@@ -1,9 +1,12 @@
 import React from "react";
-import "./Todo.css";
 
 const Todo = props => {
   return (
-    <div className={props.completed ? "line-through" : ""}>{props.task}</div>
+    <div
+      className={`todo__item__text ${props.completed ? "line-through" : ""}`}
+    >
+      {props.task}
+    </div>
   );
 };
 

@@ -16,17 +16,38 @@ class App extends React.Component {
   handleInputChange = e => {
     e.preventDefault();
     console.log(this.state.stateList);
+
     list.push({
       task: e.target.parentNode.children[0].value,
       id: Date.now(),
       completed: false
     });
     e.target.parentNode.children[0].value = "";
-    this.setState({ stateList: list });
+    this.setState({
+      stateList: (list = list.filter(e => {
+        if (e.task !== "" && e.task !== undefined) {
+          return true;
+        } else {
+          return false;
+        }
+      }))
+    });
   };
-  handleClear = e => {
-    list = list.filter(e => !e.completed);
-    this.setState({ stateList: list });
+  handleClear = _ => {
+    if (list.length > 0) {
+      list = list.filter(e => {
+        if (e.task !== "" && e.task !== undefined) {
+          if (!e.completed) {
+            return true;
+          }
+        } else {
+          return false;
+        }
+      });
+      this.setState({
+        stateList: list
+      });
+    }
   };
   handleStrike = id => {
     list = list.map(e => {
@@ -49,12 +70,11 @@ class App extends React.Component {
     this.setState({
       stateList: list
     });
-    // e.target.style.textDecoration = "line-through";
   };
   render() {
     return (
       <div className="todo">
-        <h2>Todo list: MVP</h2>
+        <h2 className="todo__title">Todo list: MVP</h2>
         <TodoList list={this.state.stateList} strike={this.handleStrike} />
         <TodoForm
           change={this.handleInputChange}
