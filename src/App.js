@@ -58,12 +58,18 @@ class App extends React.Component {
     this.setState({todos: todoArr});
   }
 
+  removeCompletedBtnHandler = (event) => {
+    const todoArr = this.state.todos.slice();
+    const notCompleted = todoArr.filter(td => !td.completed);
+    this.setState({todos: notCompleted});
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todos} todoClick={this.todoClickHandler}/>
-        <TodoForm addFromBtn={this.addTodoBtnHandler} addFromInput={this.addTodoInputHandler} todoArr={this.state.todos}/>
+        <TodoForm addFromBtn={this.addTodoBtnHandler} addFromInput={this.addTodoInputHandler} removeCompleted={this.removeCompletedBtnHandler}/>
       </div>
     );
   }

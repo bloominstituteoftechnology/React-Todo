@@ -6,7 +6,7 @@ const TodoForm = props => {
     <div>
       <input type="text" placeholder="...todo" onKeyDown={props.addFromInput} />
       <button onClick={props.addFromBtn}>Add Todo</button>
-      <button>Clear Completed</button>
+      <button onClick={props.removeCompleted}>Clear Completed</button>
     </div>
   );
 };
