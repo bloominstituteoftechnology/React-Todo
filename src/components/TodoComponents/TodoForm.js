@@ -3,7 +3,7 @@ import './Todo.css';
 
 const TodoForm = props => {
   return (
-    <div>
+    <div className="form">
       <input type="text" placeholder="...todo" onKeyDown={props.addFromInput} />
       <button onClick={props.addFromBtn}>Add Todo</button>
       <button onClick={props.removeCompleted}>Clear Completed</button>

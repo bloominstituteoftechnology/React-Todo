@@ -9,7 +9,7 @@ const Todo = props => {
     }
   }
 
-  return <div style={style} onClick={(event) => props.todoClick(event, props.todo.id)}> {props.todo.task} </div>;
+  return <div className="todo" style={style} onClick={(event) => props.todoClick(event, props.todo.id)}> {props.todo.task} </div>;
 };
 
 export default Todo;
