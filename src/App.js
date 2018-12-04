@@ -17,7 +17,7 @@ class App extends React.Component {
       {
         task: 'Bake Cookies',
         id: 1528817084358,
-        completed: false
+        completed: true
       }
     ],
   }
@@ -50,12 +50,20 @@ class App extends React.Component {
     }
   }
 
+  todoClickHandler = (event, id) => {
+    const todoArr = this.state.todos.slice();
+    const todo = todoArr.filter(td => td.id === id);
+    
+    todo[0].completed = !todo[0].completed;
+    this.setState({todos: todoArr});
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos}/>
-        <TodoForm addTodo={this.addTodoBtnHandler} input={this.addTodoInputHandler}/>
+        <TodoList todos={this.state.todos} todoClick={this.todoClickHandler}/>
+        <TodoForm addFromBtn={this.addTodoBtnHandler} addFromInput={this.addTodoInputHandler} todoArr={this.state.todos}/>
       </div>
     );
   }
