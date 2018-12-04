@@ -90,7 +90,7 @@ form button {
     font-weight: 300;
     font-size: 2rem;
     border: 1px solid #222;
-    flex-grow: 1;
+    width: 50%;
     cursor: pointer;
 }
 form button:hover {
@@ -102,6 +102,10 @@ form button:active {
 }
 form button:last-child {
     border-left: none;
+}
+.add-btn {
+    width: 100%;
+    border-bottom: none;
 }
 ul {
     margin-top: 20px;

@@ -20,6 +20,8 @@ class App extends React.Component{
               completed: false
           }
           ],
+          searchInput: '',
+          searchStorage: [],
       };
   }
 
@@ -83,6 +85,48 @@ class App extends React.Component{
     window.removeEventListener('beforeunload', this.handleLocalStorage);
   }
 
+  handleSearch = () => {
+      this.setState((prevState) => {
+        if (!prevState.searchInput){
+            return {
+                todo: prevState.todo.concat(prevState.searchStorage).sort((a, b) => a.id - b.id),
+                searchStorage: [],
+            };
+        }
+          const matchingTodo = prevState.todo.filter(x => new RegExp(prevState.searchInput, 'gi')
+          .test(x.task));
+          const matchingStored = prevState.searchStorage.filter(x => new RegExp(prevState.searchInput, 'gi')
+          .test(x.task));
+          const matching = matchingTodo.concat(matchingStored).sort((a, b) => a.id - b.id);
+          const notMatchingTodo = prevState.todo.filter(x => !new RegExp(prevState.searchInput, 'gi')
+          .test(x.task));
+          const notMatchingStored = prevState.searchStorage.filter(x => !new RegExp(prevState.searchInput, 'gi')
+          .test(x.task));
+          const notMatching = notMatchingTodo.concat(notMatchingStored);
+      
+        return {
+            todo: matching,
+            searchStorage: notMatching,
+        };
+        });
+  }
+
+  handleSearchChange = e => {
+      this.setState({
+          searchInput: e.target.value,
+      }, this.handleSearch);
+  }
+
+  clearAllAndCache = () => {
+    let msg = window.confirm('This will clear all current and stored todos, as well as local storage of todos.  Do you want to proceed?');
+    if (msg) {
+        this.setState({
+            todo: [],
+            searchStorage: [],
+        }, () => localStorage.clear());
+    } else return;
+  }
+
   render(){
       return (
           <div>
@@ -90,6 +134,9 @@ class App extends React.Component{
                   addTodo={this.addTodo}
                   input={this.state.input}
                   clearComplete={this.clearComplete}
+                  searchInput={this.state.searchInput}
+                  onSearchChange={this.handleSearchChange}
+                  clearAll={this.clearAllAndCache}
               />
               <TodoList list={this.state.todo} 
                   markComplete={this.markComplete}
