@@ -11,7 +11,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       TodoData: [],
-      inputText: "",
+      inputText: "Input a Todo",
       newItem: "",
       completed: false
     };
