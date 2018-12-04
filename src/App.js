@@ -22,7 +22,7 @@ class App extends React.Component {
     ],
   }
 
-  addTodoHandler = (event) => {
+  addTodoBtnHandler = event => {
     const todos = this.state.todos.slice();
     const input = document.querySelector('input');
     const text = input.value;
@@ -35,12 +35,27 @@ class App extends React.Component {
     input.value = "";
   }
 
+  addTodoInputHandler = event => {
+    const todos = this.state.todos.slice();
+    const text = event.target.value;
+
+    if(event.keyCode === 13) {
+      todos.push({
+        task: text,
+        id: Date.now(),
+        completed: false
+      });
+      this.setState({todos: todos});
+      event.target.value = "";
+    }
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todos}/>
-        <TodoForm addTodo={this.addTodoHandler}/>
+        <TodoForm addTodo={this.addTodoBtnHandler} input={this.addTodoInputHandler}/>
       </div>
     );
   }
