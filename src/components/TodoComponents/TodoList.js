@@ -1,7 +1,7 @@
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
 import React, {Component} from 'react';
-import './Todo';
+import Todo from './Todo';
 
 const list = [
     {
@@ -27,13 +27,16 @@ class TodoList extends Component{
         super();
         this.state = {
             todoList: list,
-            message: 'jamar'
+            message: 'Todo List MVP'
         }
     }
     render (){
         return(
             <div>
                 <h1>Hello: {this.state.message}</h1>
+                {this.state.todoList.map(todo => (
+                    <Todo todoListProp={todo} />
+                ))}
             </div>
         )
     }
