@@ -15,8 +15,6 @@ class App extends React.Component {
 
   handleInputChange = e => {
     e.preventDefault();
-    console.log(this.state.stateList);
-
     list.push({
       task: e.target.parentNode.children[0].value,
       id: Date.now(),
@@ -39,6 +37,8 @@ class App extends React.Component {
         if (e.task !== "" && e.task !== undefined) {
           if (!e.completed) {
             return true;
+          } else {
+            return false;
           }
         } else {
           return false;

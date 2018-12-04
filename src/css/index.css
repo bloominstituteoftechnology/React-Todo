@@ -27,7 +27,7 @@ body {
   text-align: center;
 }
 .todo__list {
-  padding: 2rem;
+  padding: 1rem 2rem 2rem;
 }
 .todo__item {
   padding: 0.35rem 0;
@@ -36,10 +36,11 @@ body {
 }
 .todo__item:after {
   content: "";
-  width: 20px;
-  height: 2px;
+  width: 40%;
+  bottom: 0;
+  height: 1px;
   position: absolute;
-  background: black;
+  background: rgba(0, 0, 0, 0.4);
 }
 .todo__form {
   width: 85%;
