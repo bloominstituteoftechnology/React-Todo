@@ -13,14 +13,18 @@ class App extends React.Component {
   }
 
   updateState = () => {
+    const input = document.querySelector("input");
     let toDoList = this.state.list.slice();
     let currInput = this.state.currentInput;
-    toDoList.push({
-      task: currInput,
-      id: Date.now(),
-      completed: false
-    });
+    if (input.value !== "") {
+      toDoList.push({
+        task: currInput,
+        id: Date.now(),
+        completed: false
+      });
+    }
     this.setState({ list: toDoList });
+    input.value = "";
   };
 
   captureInput = () => {
@@ -35,7 +39,7 @@ class App extends React.Component {
       <div>
         <h2>To Do List</h2>
         <ToDoList state={this.state.list} />
-        <Input input={this.captureInput} />
+        <Input placeholder="Enter Your Task Here" input={this.captureInput} />
         <AddButton update={this.updateState} />
       </div>
     );

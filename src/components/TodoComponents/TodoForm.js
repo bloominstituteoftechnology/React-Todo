@@ -7,5 +7,5 @@ export const AddButton = props => {
 const ClearCompleted = () => {};
 
 export const Input = props => {
-  return <input placeholder="Enter Task here" onChange={props.input} />;
+  return <input placeholder={props.placeholder} onChange={props.input} />;
 };
