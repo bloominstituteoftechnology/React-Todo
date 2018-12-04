@@ -23,6 +23,9 @@ body {
   justify-content: center;
   padding: 1rem;
   background: slategrey;
+  @media (max-width: 950px) {
+    width: 95%;
+  }
   &__title {
     text-align: center;
   }
@@ -47,16 +50,28 @@ body {
     align-self: center;
     display: flex;
     justify-content: space-between;
+    @media (max-width: 950px) {
+      flex-direction: column;
+    }
     button {
       background: white;
       border: none;
       padding: 7px;
       border-radius: 5px;
+      @media (max-width: 950px) {
+        width: auto;
+        display: inline-block;
+        margin: 0.5rem 0;
+      }
     }
     input {
       border: none;
       padding: 7px;
       border-radius: 5px;
+      @media (max-width: 950px) {
+        padding: 10px;
+        margin: 0.5rem 0;
+      }
     }
   }
 }

@@ -23,6 +23,11 @@ body {
   padding: 1rem;
   background: slategrey;
 }
+@media (max-width: 950px) {
+  .todo {
+    width: 95%;
+  }
+}
 .todo__title {
   text-align: center;
 }
@@ -48,16 +53,34 @@ body {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 950px) {
+  .todo__form {
+    flex-direction: column;
+  }
+}
 .todo__form button {
   background: white;
   border: none;
   padding: 7px;
   border-radius: 5px;
 }
+@media (max-width: 950px) {
+  .todo__form button {
+    width: auto;
+    display: inline-block;
+    margin: 0.5rem 0;
+  }
+}
 .todo__form input {
   border: none;
   padding: 7px;
   border-radius: 5px;
+}
+@media (max-width: 950px) {
+  .todo__form input {
+    padding: 10px;
+    margin: 0.5rem 0;
+  }
 }
 .line-through {
   text-decoration: line-through;
