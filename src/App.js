@@ -16,9 +16,11 @@ class App extends React.Component {
 	addTodo = (event) => {
 		event.preventDefault();
 		if (this.state.message) {
-			this.setState({
-				todo: [ { todo: this.state.message } ],
-				message: ''
+			this.setState((mustafa) => {
+				return {
+					todo: mustafa.todo.concat([ { todo: this.state.message } ]),
+					message: ''
+				};
 			});
 		}
 	};
