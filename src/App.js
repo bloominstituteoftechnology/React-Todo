@@ -1,4 +1,5 @@
 import React from "react";
+import "./components/TodoComponents/Todo.css";
 import ToDoList from "./components/TodoComponents/TodoList.js";
 import { AddButton } from "./components/TodoComponents/TodoForm.js";
 import { Input } from "./components/TodoComponents/TodoForm.js";
@@ -37,8 +38,13 @@ class App extends React.Component {
       if (event.target.innerText === item.task) {
         if (item.completed === false) {
           item.completed = true;
+          console.log(event.target);
+          event.target.classList.add("completed");
+          console.log(event.target);
         } else {
           item.completed = false;
+          event.target.classList.remove("completed");
+          console.log(event.target);
         }
       }
     });
