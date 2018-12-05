@@ -3,6 +3,12 @@
   font-size: 35px;
 }
 
+.container h2 {
+  color: #A0001E;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
 .container .todo {
   font-size: 20px;
 }
@@ -24,7 +30,7 @@
 }
 
 .container .form button {
-  margin: 15px 20px;
+  margin: 0px 20px 20px 0px;
   padding: 10px;
   border: 1px solid #A0001E;
   font-size: 15px;
@@ -36,6 +42,44 @@
   color: white;
   border-radius: 10px;
 }
-.container .form button:focus {
+.container .form button:focus,.form input:focus {
   outline: none;
+}
+
+.container .search {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: auto;
+}
+
+.search input {
+  width: 70%;
+  padding: 15px;
+  font-size: 20px;
+  border: 1px solid #A0001E;
+  border-radius: 5px;
+}
+
+.search button {
+  margin: 5px 0px;
+  padding: 5px 10px;
+  border: 1px solid #A0001E;
+  font-size: 15px;
+  border-radius: 10px;
+  widtH: 17%;
+  text-align: center;
+}
+
+.container .search button:hover {
+  background-color: #A0001E;
+  color: white;
+  border-radius: 10px;
+}
+.container .search button:focus,.search input:focus  {
+  outline: none;
+}
+
+.container .result {
+  margin-bottom: 10px;
 }

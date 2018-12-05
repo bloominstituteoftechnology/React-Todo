@@ -1,6 +1,8 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoSearch from './components/TodoComponents/TodoSearch';
+import ToDoSearchResult from './components/TodoComponents/TodoSearchResult';
 
 import './App.css';
 
@@ -22,7 +24,9 @@ class App extends React.Component {
         completed: true
       }
     ],
-    currentInput: ""
+    todoSearch: [],
+    currentInput: "",
+    searchInput: ""
   }
 
   saveInputHandler = event => {
@@ -67,12 +71,40 @@ class App extends React.Component {
     this.setState({todos: todoArr});
   }
 
-  removeCompletedBtnHandler = (event) => {
+  removeCompletedBtnHandler = event => {
     const todoArr = this.state.todos.slice();
     const notCompleted = todoArr.filter(td => !td.completed);
     this.setState({todos: notCompleted});
   }
 
+  setSearchWordHandler = event => {
+    const word = event.target.value;
+    this.setState({searchInput:word});
+  }
+
+  searchFromBtnHandler = event => {
+    if(!this.state.searchInput) return;
+    const todos = this.state.todos.slice();
+    const result = todos.filter(todo => todo.task.toLowerCase().includes(this.state.searchInput.toLowerCase()));
+    this.setState({
+          todoSearch: result,
+        });
+  }
+
+  searchFromInputHandler = event => {
+    if(!event.target.value) return;
+
+    const todos = this.state.todos.slice();
+
+    if(event.keyCode === 13) {
+      const result = todos.filter(todo => todo.task.toLowerCase().includes(event.target.value.toLowerCase()));
+      this.setState({
+        todoSearch: result,
+      });
+    }
+  }
+
+//Local storage saving functions
   saveStateToLocalStorage() {
     // for every item in React state
     for (let key in this.state) {
@@ -126,6 +158,7 @@ componentWillUnmount() {
   render() {
     return (
       <div className="container">
+        <ToDoSearchResult todos={this.state.todoSearch} todoClick={this.todoClickHandler}/>
         <h1>TODO APP</h1>
         <TodoList todos={this.state.todos} todoClick={this.todoClickHandler}/>
         <TodoForm 
@@ -134,6 +167,12 @@ componentWillUnmount() {
           addFromInput={this.addTodoInputHandler} 
           removeCompleted={this.removeCompletedBtnHandler} 
           saveInput={this.saveInputHandler}/>
+        <TodoSearch 
+          searchWord={this.state.searchInput}
+          setSearchWord={this.setSearchWordHandler}
+          searchBtn={this.searchFromBtnHandler}
+          searchEnter={this.searchFromInputHandler}
+          />
       </div>
     );
   }
