@@ -19,7 +19,7 @@ const ToDoList = props => {
   return (
     <div>
       {props.state.map(item => (
-        <ToDo item={item} />
+        <ToDo clicked={props.checked} item={item} />
       ))}
     </div>
   );

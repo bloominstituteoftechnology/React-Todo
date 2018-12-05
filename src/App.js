@@ -31,14 +31,34 @@ class App extends React.Component {
     this.setState({ currentInput: event.target.value });
   };
 
+  completed = event => {
+    let theList = this.state.list.slice();
+    theList.map(item => {
+      if (event.target.innerText === item.task) {
+        if (item.completed === false) {
+          item.completed = true;
+        } else {
+          item.completed = false;
+        }
+      }
+    });
+    this.setState({ list: theList });
+    console.log(this.state);
+  };
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div>
+      <div
+        onKeyPress={event => {
+          if (event.key === "Enter") {
+            this.updateState();
+          }
+        }}>
         <h2>To Do List</h2>
-        <ToDoList state={this.state.list} />
+        <ToDoList checked={this.completed} state={this.state.list} />
         <Input placeholder="Enter Your Task Here" input={this.captureInput} />
         <AddButton update={this.updateState} />
       </div>
