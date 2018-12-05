@@ -7,10 +7,16 @@ class App extends React.Component {
   }
 
   state = {
-    todos: {
-      task: 'hi',
-      completed: false
-    }
+    todos: [
+      {
+        task: 'hi',
+        completed: false
+      },
+      {
+        task: 'hello',
+        completed: false
+      }
+    ]
   }
 
   render() {
