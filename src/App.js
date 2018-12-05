@@ -3,6 +3,7 @@ import "./components/TodoComponents/Todo.css";
 import ToDoList from "./components/TodoComponents/TodoList.js";
 import { AddButton } from "./components/TodoComponents/TodoForm.js";
 import { Input } from "./components/TodoComponents/TodoForm.js";
+import { ClearCompleted } from "./components/TodoComponents/TodoForm.js";
 
 class App extends React.Component {
   constructor() {
@@ -38,18 +39,23 @@ class App extends React.Component {
       if (event.target.innerText === item.task) {
         if (item.completed === false) {
           item.completed = true;
-          console.log(event.target);
           event.target.classList.add("completed");
-          console.log(event.target);
         } else {
           item.completed = false;
           event.target.classList.remove("completed");
-          console.log(event.target);
         }
       }
     });
     this.setState({ list: theList });
-    console.log(this.state);
+  };
+
+  clear = () => {
+    let newList = this.state.list.slice();
+    let finalList = newList.filter(item => {
+      return item.completed === false;
+    });
+    console.log(finalList);
+    this.setState({ list: finalList });
   };
 
   // you will need a place to store your state in this component.
@@ -67,6 +73,7 @@ class App extends React.Component {
         <ToDoList checked={this.completed} state={this.state.list} />
         <Input placeholder="Enter Your Task Here" input={this.captureInput} />
         <AddButton update={this.updateState} />
+        <ClearCompleted clear={this.clear} />
       </div>
     );
   }
