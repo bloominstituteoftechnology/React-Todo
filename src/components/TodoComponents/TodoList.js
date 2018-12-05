@@ -6,7 +6,9 @@ const TodoList = (props) => {
   return (
     <div>
       {props.todo.map(todo => <Todo tasks={todo.task} />)}
-      <TodoForm />
+      <TodoForm
+        clicked={props.clicked}
+        task={props.task} />
     </div>
   );
 };

@@ -15,10 +15,10 @@ class App extends React.Component {
     ]
   }
 
-  addTask = () => {
+  addTask = (event) => {
     const todos = this.state.todos.slice();
     todos.push({
-      task: 'hi',
+      task: this.state.task.concat([{ task: '' }]),
       completed: false
     });
 
@@ -28,7 +28,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <TodoList todo={this.state.todos} clicked={this.addTask} />
+      <TodoList
+        todo={this.state.todos}
+        clicked={this.addTask}
+        task={this.addTask} />
     );
   }
 }
