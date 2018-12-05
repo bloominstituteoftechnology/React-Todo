@@ -2,7 +2,7 @@ import React from 'react';
 
 const Todo = props => {
   return (
-    <h2>{props.tasks}</h2>
+    <p>{props.tasks}</p>
   );
 };
 

@@ -9,13 +9,9 @@ class App extends React.Component {
   state = {
     todos: [
       {
-        task: 'hi',
+        task: 'Tasks',
         completed: false
       },
-      {
-        task: 'hello',
-        completed: false
-      }
     ]
   }
 
