@@ -1,3 +1,26 @@
 .task-completed{
     text-decoration:line-through; 
 }
+
+.form-wrapper{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+}
+#todo-form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.list-item{
+    color:white;
+}
+.list-item:hover{
+    cursor: pointer;
+}
+
+.todo-button{
+    font-size:.9rem;
+}

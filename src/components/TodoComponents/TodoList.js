@@ -4,11 +4,11 @@ import React from 'react';
 import ToDo from './Todo'
 
 const ToDoList= props=>{
-    
     return(
         <ul>
             {props.list.map(item=>{
-                return <ToDo id={item.id} task={item.task} completed={item.completed} toggleCompleted={props.toggleCompleted} />
+                console.log(item)
+                return <ToDo key={item.id} task={item.task} completed={item.completed} toggleCompleted={props.toggleCompleted} />
             })}
         </ul>
     )

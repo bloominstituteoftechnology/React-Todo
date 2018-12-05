@@ -1,0 +1,9 @@
+body{
+    /* background-color: #212529; */
+    padding:50px;
+}
+.app-wrapper{
+    max-width: 600px;  
+    width: 100%;
+    margin: 0 auto; 
+}
