@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './App.css';
 
 class App extends React.Component {
   constructor(){
@@ -65,7 +66,7 @@ class App extends React.Component {
   render() {
     console.log(this.state.list)
     return (
-      <div>
+      <div class="todo-container">
         <TodoList todo={this.state.list} todoCompleted={this.completed}/>
         <TodoForm inputText={this.state.inputText} add={this.add} clear={this.clear} handleInput={this.handleInput} />
       </div>

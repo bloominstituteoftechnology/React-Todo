@@ -1,0 +1,104 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body{
+    height: 100vh;
+    background:#2196f3;
+    overflow-x: hidden;
+
+}
+
+#root{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background:#2196f3;
+    height: 50vh;
+    overflow-x: hidden;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1976D2;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+}
+.header h1{
+    font-size: 32px;
+}
+
+#root > div > form > input{
+    width:75%;
+    margin-bottom: 20px;
+}
+#root > div > ul{
+    width:75%;
+    background: #03A9F4;
+    border-radius: 2%;
+    margin-bottom:20px;
+}
+
+#root > div > ul > li{
+    color: #212121;
+    font-size: 20px;
+    font-family: 'Permanent Marker', cursive;
+}
+
+#root > div > form > button:nth-child(2){
+    margin-right:5px;
+    background: #1976D2;
+    border-radius: 10px;
+    width: 50%;
+}
+
+#root > div > form > button:nth-child(3){
+    background: #1976D2;
+    border-radius: 10px;
+}

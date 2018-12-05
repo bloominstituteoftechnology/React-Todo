@@ -1,0 +1,15 @@
+.todo-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center; /*centers items on the line (the x-axis by default)*/
+    align-items: center;
+    text-align: center;
+    height: 50%;
+    width: 50%;
+    background: #bbdefb;
+    border-radius: 2%;
+}
+.input{
+    width:100%;
+}
