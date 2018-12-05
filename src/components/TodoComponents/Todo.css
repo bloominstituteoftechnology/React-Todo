@@ -48,8 +48,8 @@
 
 .container .search {
   display: flex;
-  justify-content: space-around;
-  width: 80%;
+  justify-content: space-between;
+  width: 100%;
   margin: auto;
 }
 
@@ -62,12 +62,12 @@
 }
 
 .search button {
-  margin: 5px 0px;
+  margin: 5px;
   padding: 5px 10px;
   border: 1px solid #A0001E;
   font-size: 15px;
   border-radius: 10px;
-  widtH: 17%;
+  width: 15%;
   text-align: center;
 }
 
@@ -82,4 +82,11 @@
 
 .container .result {
   margin-bottom: 10px;
+}
+
+.container .list {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20%;
+  text-align: left;
 }

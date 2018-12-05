@@ -12,7 +12,7 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
 
   state = {
-    todos: [
+    todos: [ //list of all todos
       {
         task: 'Organize Garage',
         id: 1528817077286,
@@ -24,16 +24,18 @@ class App extends React.Component {
         completed: true
       }
     ],
-    todoSearch: [],
-    currentInput: "",
-    searchInput: ""
+    todoSearch: [], //list of search result todos
+    currentInput: "", //keeps track of what is in the todo input field
+    searchInput: "" //keeps track of what is in the search input field
   }
 
+  //function to keep track of the text in the todo input field
   saveInputHandler = event => {
     const inputValue = event.target.value;
     this.setState({currentInput: inputValue});
   }
 
+  //function to handle clicking the button add Todo
   addTodoBtnHandler = event => {
     const todos = this.state.todos.slice();
     const text = this.state.currentInput;
@@ -44,11 +46,9 @@ class App extends React.Component {
     });
     this.setState({todos: todos, currentInput: ""});
 
-    //save state to local storage
-    // localStorage.setItem("todos", JSON.stringify(todos));
-    // localStorage.setItem("currentInput", "");
   }
 
+  //function to handle pushing enter when done typing in add todo input field
   addTodoInputHandler = event => {
     const todos = this.state.todos.slice();
     const text = event.target.value;
@@ -63,6 +63,7 @@ class App extends React.Component {
     }
   }
 
+  //function to handle clicking on a todo
   todoClickHandler = (event, id) => {
     const todoArr = this.state.todos.slice();
     const todo = todoArr.filter(td => td.id === id);
@@ -71,26 +72,28 @@ class App extends React.Component {
     this.setState({todos: todoArr});
   }
 
+  //function to handle clicking on the button Clear Completed
   removeCompletedBtnHandler = event => {
     const todoArr = this.state.todos.slice();
     const notCompleted = todoArr.filter(td => !td.completed);
     this.setState({todos: notCompleted});
   }
 
+  //function to keep track of the text in the search input field
   setSearchWordHandler = event => {
     const word = event.target.value;
     this.setState({searchInput:word});
   }
 
+  //function to handle clicking on the button Search
   searchFromBtnHandler = event => {
     if(!this.state.searchInput) return;
     const todos = this.state.todos.slice();
     const result = todos.filter(todo => todo.task.toLowerCase().includes(this.state.searchInput.toLowerCase()));
-    this.setState({
-          todoSearch: result,
-        });
+    this.setState({todoSearch: result});
   }
 
+  //function to handle pushing enter when done typing in search input field
   searchFromInputHandler = event => {
     if(!event.target.value) return;
 
@@ -98,10 +101,16 @@ class App extends React.Component {
 
     if(event.keyCode === 13) {
       const result = todos.filter(todo => todo.task.toLowerCase().includes(event.target.value.toLowerCase()));
-      this.setState({
-        todoSearch: result,
-      });
+      this.setState({todoSearch: result});
     }
+  }
+
+  //function to handle clicking on Clear Search button
+  clearSearchHandler = () => {
+    this.setState({
+      todoSearch: [],
+      searchInput: ""
+    });
   }
 
 //Local storage saving functions
@@ -158,7 +167,6 @@ componentWillUnmount() {
   render() {
     return (
       <div className="container">
-        <ToDoSearchResult todos={this.state.todoSearch} todoClick={this.todoClickHandler}/>
         <h1>TODO APP</h1>
         <TodoList todos={this.state.todos} todoClick={this.todoClickHandler}/>
         <TodoForm 
@@ -167,11 +175,13 @@ componentWillUnmount() {
           addFromInput={this.addTodoInputHandler} 
           removeCompleted={this.removeCompletedBtnHandler} 
           saveInput={this.saveInputHandler}/>
+        <ToDoSearchResult todos={this.state.todoSearch} todoClick={this.todoClickHandler}/>
         <TodoSearch 
           searchWord={this.state.searchInput}
           setSearchWord={this.setSearchWordHandler}
           searchBtn={this.searchFromBtnHandler}
           searchEnter={this.searchFromInputHandler}
+          clearSearch={this.clearSearchHandler}
           />
       </div>
     );
