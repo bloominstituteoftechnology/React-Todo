@@ -1,0 +1,17 @@
+
+
+
+
+/* TodoForm */
+
+.inputForm{
+    width: 25%;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.addTodo, .clearCompleted{
+    width: 20%;
+    height: 30px;
+    margin-right: 10px;
+}

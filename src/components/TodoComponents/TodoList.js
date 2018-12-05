@@ -6,40 +6,27 @@ import Todo from './Todo';
 const list = [
     {
         task: 'study code',
+        key: Date.now(),
         id: 1,
         completed: false
       },
       {
         task: 'Bake Cookies',
+        key: Date.now(),
         id: 2,
         completed: false
       },
       {
           task: 'play smash bros',
+          key: Date.now(),
           id: 3,
           completed: false
       }
 ];
 
-
-class TodoList extends Component{
-    constructor(){
-        super();
-        this.state = {
-            todoList: list,
-            message: 'Todo List MVP'
-        }
-    }
-    render (){
-        return(
-            <div>
-                <h1>Hello: {this.state.message}</h1>
-                {this.state.todoList.map(todo => (
-                    <Todo todoListProp={todo} />
-                ))}
-            </div>
-        )
-    }
+const TodoList = props => {
+    return 
+        <h1>{props.todo.map(todo => (<Todo todoListProp={todo} />))}</h1>
 }
 
 export default TodoList;
