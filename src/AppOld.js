@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TodoList from "./components/TodoComponents/TodoList";
-import TodoForm from "./components/TodoComponents/TodoForm";
 //import "./styles.css";
 
 const todoArr = [
@@ -24,6 +22,20 @@ const Todo = props => {
   );
 };
 
+const TodoForm = props => {
+  return (
+    <form onSubmit={props.handleUpdateState}>
+      <input
+        name="task"
+        value={props.task}
+        placeholder="...todo"
+        onChange={props.handleInputChange}
+      />
+      <button>Add Todo</button>
+    </form>
+  );
+};
+
 class App extends React.Component {
   constructor() {
     super();
@@ -42,8 +54,8 @@ class App extends React.Component {
       task: this.state.task,
       completed: false
     });
-    // update/replace the state array with this new array with the added item
-    this.setState({ todos: todos, task: "" });
+    // push our new todo item into the todos array.
+    this.setState({ todos: todos });
   };
 
   handleInputChange = event => {
@@ -54,13 +66,19 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Todo List:</h1>
-        <TodoList todos={this.state.todos} />
-        <TodoForm
-          value={this.state.task}
-          handleAdds={this.handleUpdateState}
-          handleChange={this.handleInputChange}
-        />
+        {this.state.todos.map((todo, i) => (
+          <Todo todoProp={todo} />
+        ))}
+        <form onSubmit={this.handleUpdateState}>
+          <input
+            name="task"
+            value={this.state.task}
+            placeholder="...todo"
+            onChange={this.handleInputChange}
+          />
+          <button>Add Todo</button>
+        </form>
+        <button>Clear Completed</button>
       </div>
     );
   }
