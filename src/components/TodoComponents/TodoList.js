@@ -10,7 +10,6 @@ const TodoList = props => {
           <Todo
             todo={item.todo}
             id={item.id}
-            todoData={props.todoData}
             key={item.id}
           />
         );

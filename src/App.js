@@ -45,7 +45,6 @@ class App extends React.Component {
         <TodoForm
           addNewItem={this.addNewItem}
           inputText={this.state.inputText}
-          todoData={this.state.TodoData}
           newItem={this.state.newItem}
           formEventHandler={this.formEventHandler}
         />
