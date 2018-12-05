@@ -1,11 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+class App extends Component {
   state = {
     todos: [
       {
@@ -15,10 +11,10 @@ class App extends React.Component {
     ]
   }
 
-  addTask = (event) => {
-    const todos = this.state.todos.slice();
+  addTask = (todo) => {
+    const { todos } = this.state;
     todos.push({
-      task: this.state.task.concat([{ task: '' }]),
+      task: todo,
       completed: false
     });
 
@@ -30,8 +26,7 @@ class App extends React.Component {
     return (
       <TodoList
         todo={this.state.todos}
-        clicked={this.addTask}
-        task={this.addTask} />
+        clicked={this.addTask} />
     );
   }
 }

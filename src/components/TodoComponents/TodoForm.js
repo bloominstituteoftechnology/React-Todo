@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const TodoForm = props => {
-  return (
-    <div>
-      <input
-        placeholder="Task"
-        type="text"
-        value={props.task} />
+class TodoForm extends Component {
 
-      <button onClick={props.clicked}>Add Task</button>
-      <button>Delete Selected</button>
-    </div>
-  );
-};
+  state = {
+    todoTxt: 'Add a task'
+  }
+
+  render() {
+    return (
+      <div>
+        <input
+          placeholder="New Task"
+          type="text"
+          value={this.state.todoTxt}
+          onChange={(e) => this.setState({ todoTxt: e.target.value })} />
+
+        <button
+          onClick={() => {
+            this.props.clicked(this.state.todoTxt);
+            this.setState({ todoTxt: '' })
+          }}>Add Task
+        </button>
+
+        <button>Delete Selected</button>
+      </div>
+    );
+  }
+}
 
 export default TodoForm;
