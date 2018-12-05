@@ -17,6 +17,7 @@ input {
     border: 1px solid darkgray;
     width: 182px;
     margin-top: 6px;
+    text-shadow: 4px 4px 1px darkgray;
 }
 
 body {
@@ -34,7 +35,7 @@ body {
 }
 
 h1 {
-    text-shadow: 7px 7px 5px #FFFFFF;
+    text-shadow: 4px 4px 5px goldenrod;
 }
 
 .singleTodo {
@@ -59,4 +60,12 @@ h1 {
 
 .appCont {
     margin: auto;
+}
+
+.addTodo {
+    text-shadow: 2px 2px 2px green;
+}
+
+.clearCompleted {
+    text-shadow: 2px 2px 2px red;
 }

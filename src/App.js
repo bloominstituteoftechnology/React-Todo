@@ -17,7 +17,8 @@ class App extends React.Component {
       {task: 'watch Star Trek',
       id: 1528817084358,
       completed: false },
-    ]
+    ],
+    Todo: '',
   }
   }
 
@@ -27,7 +28,9 @@ class App extends React.Component {
 
   addTask = (e) => {
     e.preventDefault();
-    if (this.state.Todo !== ' '){
+    let tempStr = this.state.Todo
+    tempStr = tempStr.replace(/\s+/g, '');
+    if (tempStr.length !== 0){
       const tempTodos = this.state.Todos.slice();
       tempTodos.push({ task: this.state.Todo, id: Date.now(), completed: false, })
       this.setState({Todos: tempTodos, Todo: ' '});
