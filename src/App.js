@@ -29,6 +29,11 @@ class App extends React.Component {
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  finishSelected = () => {
+    console.log("finish!");
+  }
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -41,12 +46,14 @@ class App extends React.Component {
           <Task displayTask = {task} />
         ))}
 
+
         <form onSubmit={this.handleUpdateState}>
-          <button>Click to Add 2</button>
+          <button>Click to Add</button>
           <input name="task" 
           value={this.state.task} 
           onChange={this.handleInputChange} />
         </form>
+
       </div>
 
     )
