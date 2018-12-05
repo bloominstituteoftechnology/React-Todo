@@ -25,6 +25,46 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount(){
+    this.hydrateStateWithLocalStorage();
+
+    window.addEventListener(
+      "beforeunload",
+      this.saveStateToLocalStorage.bind(this)
+    );
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener(
+      "beforeunload",
+      this.saveStateToLocalStorage.bind(this)
+    );
+    // saves if component has a chance to unmount
+    this.saveStateToLocalStorage();
+  }
+
+  hydrateStateWithLocalStorage(){
+    for (let key in this.state){
+      if (localStorage.hasOwnProperty(key)){
+        let value = localStorage.getItem(key);
+
+        // parse the localStorage string and setState
+        try{
+          value = JSON.parse(value);
+          this.setState({ [key]: value});
+        } catch (e){
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  }
+
+  saveStateToLocalStorage(){
+    for (let key in this.state){
+      localStorage.setItem(key, JSON.stringify(this.state[key]));
+    }
+  }
+
   addTask = e => {
     e.preventDefault()
     const tasks = this.state.tasks.slice();
@@ -32,17 +72,37 @@ class App extends React.Component {
     this.setState({ tasks, todo: ''});
   };
 
+  toggleCompleteTask = id => {
+    let tasks = this.state.tasks.slice();
+    tasks = tasks.map(task =>{
+      if (task.id === id){
+        task.completed = !task.completed;
+        return task;
+      } else {
+        return task;
+      }
+    });
+    this.setState({tasks})
+  }
+
   changeTodo = e => this.setState({ [e.target.name]: e.target.value });
+
+  clearCompleted = e => {
+    e.preventDefault();
+    let tasks = this.state.tasks.slice();
+    tasks = tasks.filter(task => !task.completed);
+    this.setState({tasks})
+  };
 
   render() {
     return (
-      <div>
+      <div className="app-container">
         <h1> Todo List: MVP</h1>
-        <TodoList tasks={this.state.tasks}/>
+        <TodoList tasks={this.state.tasks} toggleCompleteTask={this.toggleCompleteTask}/>
         <TodoForm
           value={this.state.todo}
           handleTodoChange = {this.changeTodo}
-          addTask = {this.addTask}/>
+          addTask={this.addTask} clearCompleted = {this.clearCompleted}/>
       </div>
     );
   }

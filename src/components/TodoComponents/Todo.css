@@ -7,6 +7,14 @@
   border-radius: 10px;
 }
 
+.true{
+  text-decoration: line-through;
+}
+
+.todo-list{
+  padding: 15px 0px;
+}
+
 .btn{
   font-size: 1rem;
   border: 1px solid #E3E3E3;
