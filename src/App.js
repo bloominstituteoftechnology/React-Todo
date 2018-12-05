@@ -39,6 +39,8 @@ class App extends React.Component {
   addTodoBtnHandler = event => {
     const todos = this.state.todos.slice();
     const text = this.state.currentInput;
+    if(!text) return;
+    
     todos.push({
       task: text,
       id: Date.now(),
@@ -52,6 +54,7 @@ class App extends React.Component {
   addTodoInputHandler = event => {
     const todos = this.state.todos.slice();
     const text = event.target.value;
+    if(!text) return;
 
     if(event.keyCode === 13) {
       todos.push({
@@ -75,8 +78,13 @@ class App extends React.Component {
   //function to handle clicking on the button Clear Completed
   removeCompletedBtnHandler = event => {
     const todoArr = this.state.todos.slice();
+    const searchArr = this.state.todoSearch.slice();
     const notCompleted = todoArr.filter(td => !td.completed);
-    this.setState({todos: notCompleted});
+    const notCompletedSearch = searchArr.filter(td => !td.completed);
+    this.setState({
+      todos: notCompleted,
+      todoSearch: notCompletedSearch
+    });
   }
 
   //function to keep track of the text in the search input field
