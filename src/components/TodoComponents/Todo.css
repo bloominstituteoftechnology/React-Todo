@@ -26,6 +26,7 @@ body {
     width: 80%;
     margin: auto;
     background-color: blanchedalmond;
+    
     }
 
 .completed {
@@ -51,7 +52,7 @@ h1 {
 
 .todoContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 5px;
@@ -59,10 +60,6 @@ h1 {
 
 .todoInput {
     background-color: palegoldenrod;
-}
-
-.appCont {
-    margin: auto;
 }
 
 .addTodo {
