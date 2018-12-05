@@ -3,14 +3,14 @@ import React from 'react';
 const Input = props => {
     return (
         <form>
-            <input placeholder="" />
+            <input id="todo-input" placeholder="" />
         </form>
     )
 }
 
 const AddButton = props => {
     return (
-        <button>Add Todo</button>
+        <button onClick={props.addItem}>Add Todo</button>
     )
 }
 
@@ -20,11 +20,11 @@ const ClearButton = props => {
     )
 }
 
-const TodoForm = () => {
+const TodoForm = (props) => {
     return (
         <div>
             <Input />
-            <AddButton />
+            <AddButton addItem={props.addItem}/>
             <ClearButton />
         </div>
     )

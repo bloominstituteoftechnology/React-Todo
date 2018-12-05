@@ -3,34 +3,13 @@
 
 import React from 'react';
 
-const todos = [
-    {
-    task: 'Apples',
-    id: 1528817077286,
-    completed: false
-    },
-    {
-    task: 'Oranges',
-    id: 1528817084358,
-    completed: false
-    },
-    {
-    task: 'Milk',
-    id: 1528817084358,
-    completed: false
-    },
-    {
-    task: 'Toilet Paper',
-    id: 1528817084358,
-    completed: false
-    }
-]
+import todos from './Todo';
 
 const TodoList = () => {
     
     return (
         <div> 
-             {todos.map(todo => <div>{todo.task}</div>)}
+             {todos.map(todo => <div key={todo.completed}>{todo.task}</div>)}
         </div>
     )
 }
