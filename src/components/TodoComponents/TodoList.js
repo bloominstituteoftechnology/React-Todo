@@ -5,9 +5,8 @@ import './Todo.css';
 import Todo from './Todo';
 
 const TodoList = (props) => {
-    console.log(props.todo)
     return <ul>
-        {props.todo.map(todo => <Todo  key= {todo.id} todo={todo} completed={props.todoCompleted}/>)}
+        {props.todo.map((todo,i) => <Todo  key= {i} todo={todo} completed={props.todoCompleted}/>)}
         </ul>;
 }
 

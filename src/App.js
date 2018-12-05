@@ -29,11 +29,34 @@ class App extends React.Component {
     });
   };
 
-  completed = () => {
+  completed = id => {
+    let tasks = this.state.list.slice()
+    tasks = tasks.map(task => {
+      if(id === task.id){
+        task.completed = !task.completed;
+        return task
+      }else{
+        return task
+      }
+    })
+    console.log(tasks)
     this.setState({
-      completed: !this.state.completed
-    });
+      tasks
+    })
   };
+
+  clear = event => {
+    event.preventDefault();
+    console.log(this.state.completed)
+    if(!this.state.completed){
+      let newTodo = this.state.list.filter( props => {
+        return props.completed !== true
+      })
+      this.setState({
+        list: newTodo
+      })
+    }
+  }
 
 
   // you will need a place to store your state in this component.
@@ -44,7 +67,7 @@ class App extends React.Component {
     return (
       <div>
         <TodoList todo={this.state.list} todoCompleted={this.completed}/>
-        <TodoForm inputText={this.state.inputText} add={this.add} handleInput={this.handleInput} />
+        <TodoForm inputText={this.state.inputText} add={this.add} clear={this.clear} handleInput={this.handleInput} />
       </div>
     );
   }
