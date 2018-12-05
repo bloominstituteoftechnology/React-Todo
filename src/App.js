@@ -1,6 +1,5 @@
 import React from 'react';
-
-import TodoForm from './components/TodoComponents/TodoForm.js';
+// import TodoForm from './components/TodoComponents/TodoForm.js';
 import List from './components/TodoComponents/TodoList.js';
 import Task from './components/TodoComponents/Todo.js';
 
@@ -11,14 +10,19 @@ class App extends React.Component {
       task: List
 
     }
-    this.handleUpdateTasks = this.handleUpdateTasks.bind(this)
   }
 
   handleUpdateTasks = () => {
     // const currentTask = this.state.task.slice();
     // currentTask.push({
-    console.log('hi');
     // })
+    // console.log('hi')
+
+  }
+
+
+  handleInputChange = event => {
+    console.log(event.target.value)
   }
 
   // you will need a place to store your state in this component.
@@ -33,7 +37,10 @@ class App extends React.Component {
           <Task displayTask = {task} />
         ))}
 
-        <TodoForm />
+        <input value = { this.state.value } onChange = {this.handleInputChange}type="text"></input>
+
+        <button onClick={this.handleUpdateTasks}>Add To Do</button>
+        <button>Clear Finished</button>
       </div>
 
     )
