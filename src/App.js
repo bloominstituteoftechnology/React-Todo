@@ -1,27 +1,28 @@
-import React from 'react';
-import TodoList from './components/TodoComponents/TodoList';
+import React from "react";
+import TodoList from "./components/TodoComponents/TodoList";
 
 class App extends React.Component {
-
-  constructor () {
+  constructor() {
     super();
-    this.state = {todos: [
-      {
-        task: "Take the trash out",
-        id: 1,
-        completed: false
-      },
-      {
-        task: "Sing with the birds",
-        id: 2,
-        completed: false
-      },
-      {
-        task: "Change the baby's diapers",
-        id: 3,
-        completed: false
-      }
-    ]}
+    this.state = {
+      listArr: [
+        {
+          task: "Take the trash out",
+          id: 1,
+          completed: false
+        },
+        {
+          task: "Sing with the birds",
+          id: 2,
+          completed: false
+        },
+        {
+          task: "Change the baby's diapers",
+          id: 3,
+          completed: false
+        }
+      ]
+    };
   }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -31,9 +32,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        {this.state.todos.map( item => {
-          return (<TodoList listItem={item.task} />);
-        })}
+        <TodoList todoList={this.state.listArr} />
       </div>
     );
   }
