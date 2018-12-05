@@ -15,9 +15,20 @@ class App extends React.Component {
     ]
   }
 
+  addTask = () => {
+    const todos = this.state.todos.slice();
+    todos.push({
+      task: 'hi',
+      completed: false
+    });
+
+    this.setState({ todos: todos });
+    console.log(this.state);
+  };
+
   render() {
     return (
-      <TodoList todo={this.state.todos} />
+      <TodoList todo={this.state.todos} addTask={this.addTask} />
     );
   }
 }
