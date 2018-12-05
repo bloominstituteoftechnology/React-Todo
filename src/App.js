@@ -26,9 +26,7 @@ class App extends React.Component {
     };
   }
 
-  addTasl = event => {
-    event.preventDefault();
-  };
+  addTasks = event => {};
 
   render() {
     return (
