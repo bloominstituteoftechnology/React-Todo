@@ -25,7 +25,7 @@ class App extends React.Component {
     };
   }
 
-   addToDo = event =>{
+  addToDo = event =>{
     //prevent default
     event.preventDefault()
 
@@ -37,9 +37,9 @@ class App extends React.Component {
 
     //  make a new to do
     const newToDo = {
-       task: input.value,
-       id: Date.now(),
-       completed: false
+        task: input.value,
+        id: Date.now(),
+        completed: false
     }
 
     // add thee new to do
@@ -50,15 +50,39 @@ class App extends React.Component {
 
     //clear input
     input.value= ""
-   }
+  }
 
+  toggleCompleted = event=>{
+    console.log(event.target.innerText)
+    //copy state
+    const myTodoList= this.state.toDoList.slice()
+
+    // find the to do
+    let index = 0;
+    const todo = myTodoList.find((e,i)=>{
+      index = i;
+      return e.task === event.target.innerText
+    })
+
+    //toggle the completed
+    todo.completed === false? todo.completed = true: todo.completed=false;
+    
+    //update copied state
+    myTodoList[index] = todo;
+    console.log(todo)
+
+    // update actual state
+    this.setState({toDoList:myTodoList})
+
+  }
+   
 
   render() {
     console.log(this.state)
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <ToDoList list={this.state.toDoList} />
+        <ToDoList list={this.state.toDoList} toggleCompleted={this.toggleCompleted} />
         <ToDoForm clickHandler={this.addToDo}/>
       </div>
     );

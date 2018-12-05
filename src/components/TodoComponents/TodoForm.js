@@ -5,6 +5,7 @@ const ToDoForm = props=>{
         <form action="">
             <input type="text" name="to-do-input" id="todo-input"  placeholder="enter a todo"/>
             <button onClick={props.clickHandler}>Add To Do</button>
+            <button >Clear Completed</button>
         </form>
     )
 } 
