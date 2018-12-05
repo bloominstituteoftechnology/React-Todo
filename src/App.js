@@ -3,12 +3,32 @@ import './components/TodoComponents/Todo.css';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
+const list = [
+  {
+      todo: 'study code',
+      key: Date.now(),
+      id: 1,
+      completed: false
+    },
+    {
+      todo: 'Bake Cookies',
+      key: Date.now(),
+      id: 2,
+      completed: false
+    },
+    {
+        todo: 'play smash bros',
+        key: Date.now(),
+        id: 3,
+        completed: false
+    }
+];
 
 class App extends Component{
   constructor(){
       super();
       this.state = {
-          todo: [],
+          todo: list,
           message: '',
       }
   }
@@ -16,13 +36,17 @@ class App extends Component{
   addTodoHandle = (event) => {
     event.preventDefault();
     const messages = this.state.todo.slice();
-    messages.push(
-      {task: this.state.message, 
+    // const item = {
+    //   todo: this.state.message, 
+    //     completed: false,
+    //     id: new Date()
+    // }
+    messages.push({     
+       todo: this.state.message, 
       completed: false,
-      id: new Date()
-      }
+      id: new Date()}
     )
-    this.setState({messages, message: ''})
+    this.setState({todo: messages, message: ''})
   }
 
   handleInputChange = (event) => {
@@ -33,15 +57,17 @@ class App extends Component{
   render (){
       return(
           <div>
-              <h1>Hello: {this.state.message}</h1>
-            <TodoList messages={this.state.message} />
-            <TodoForm 
-           <input className="inputForm" onChange={this.handleInputChange} placeholder="add todo item!" onChange={this.handleInputChange} />
-           <button className="addTodo" onClick={this.addTodoHandle}>Add Todo</button>
-           <button className="clearCompleted">Clear Completed</button>
-          </div>
-      )
+              <h1>MVP TODO List:</h1>
+              <TodoList todo={this.state.todo} />
+              <TodoForm 
+                addTodoHandle={this.addTodoHandle} 
+                message={this.state.message} 
+                handleInputChange={this.handleInputChange} 
+              />
+            </div>
+      );
   }
 }
 
 export default App;
+

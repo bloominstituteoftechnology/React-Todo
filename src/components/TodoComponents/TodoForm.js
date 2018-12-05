@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './Todo.css';
 
 
@@ -6,9 +6,9 @@ const TodoForm = props => {
     // const ()
     return (
             <div>
-                <input>{props.message}</input>
-                <button name={props.className}>{props.addTodo}</button>
-                <button>{props.completeTodo}</button>
+                <input name="message" value={props.message} onChange={props.handleInputChange}></input>
+                <button onClick={props.addTodoHandle}>Add</button>
+                <button onClick={props.addTodoHandle}>Remove</button>
             </div>
     );
 }

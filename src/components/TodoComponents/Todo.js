@@ -3,10 +3,11 @@ import './Todo.css';
 
 
 const Todo = props => {
-    const { todo, completed } = props.todoListProp;
+    console.log(props.todo)
+    // const { todo, completed } = props.todoListProp;
     return (
     <div className="todo">
-            <h2>{todo}</h2>
+            <h2>{props.todo.todo}</h2>
     </div>
     );
 };
