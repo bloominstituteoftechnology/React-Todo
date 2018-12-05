@@ -44,10 +44,11 @@ class App extends React.Component {
         todo.completed = !todo.completed;
         return todo;
       } else {
-        this.setState({ todos })
+        return todo;
       }
     }
     )
+    this.setState({ todos })
   }
 
   clearCompleted = (e) => {
