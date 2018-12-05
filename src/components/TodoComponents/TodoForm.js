@@ -3,11 +3,11 @@ import React from 'react';
 class TodoForm extends React.Component {
   render() {
     return (
-      <div className="todoForm">
+      <form className="todoForm" onSubmit={this.props.onItemAdd}>
         <input placeholder="enter task" onChange={this.props.onItemText} value={this.props.newTask}/>
-        <button onClick={this.props.onItemAdd} onKeyPress={this.props.onItemAddKey}>Add todo</button>
+        <button type="submit" >Add todo</button>
         <button>Clear completed</button>
-      </div>
+      </form>
     );
   }
 }

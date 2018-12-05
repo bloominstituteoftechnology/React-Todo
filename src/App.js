@@ -28,16 +28,21 @@ class App extends React.Component {
   }
 
   handleAddTask = (event) => {
+    event.preventDefault();
     const taskItems = this.state.todo.slice();
-    console.log(taskItems);
-    taskItems.push({task: this.state.newTask, id: Date.now(), completed: false});
-    this.setState({todo: taskItems});
-    this.setState({newTask: ""});
+    if (this.state.newTask.length > 0) {
+      console.log(taskItems);
+      taskItems.push({task: this.state.newTask, id: Date.now(), completed: false});
+      this.setState({todo: taskItems});
+      this.setState({newTask: ""});
+    }
   }
 
   handleInputChange = (event) => {
-    console.log(event.target.value);
-    this.setState({newTask: event.target.value});
+    if (event.target.value.length > 0) {
+      console.log(event.target.value);
+      this.setState({newTask: event.target.value});
+    }
   }
   
   render() {
