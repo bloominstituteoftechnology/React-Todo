@@ -5,7 +5,7 @@ const TodoList = (props) => {
   return (
     <div>
       {
-        props.todo.forEach(todo => <Todo />)
+        props.todo.map(todo => <Todo />)
       }
     </div>
   );
