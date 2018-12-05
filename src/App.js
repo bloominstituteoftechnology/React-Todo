@@ -28,7 +28,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <TodoList todo={this.state.todos} addTask={this.addTask} />
+      <TodoList todo={this.state.todos} clicked={this.addTask} />
     );
   }
 }

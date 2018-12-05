@@ -4,8 +4,8 @@ const TodoForm = props => {
   return (
     <div>
       <input placeholder="Task" />
-      <button>Add Task</button>
-      <button onClick={props.addTask}>Delete Selected</button>
+      <button onClick={props.clicked}>Add Task</button>
+      <button>Delete Selected</button>
     </div>
   );
 };
