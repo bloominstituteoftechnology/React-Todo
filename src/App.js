@@ -22,16 +22,22 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo: taskItems
+      todo: taskItems,
+      newTask: ""
     }
   }
 
   handleAddTask = (event) => {
     const taskItems = this.state.todo.slice();
     console.log(taskItems);
-    taskItems.push({task: event.target.value, id: Date.now(), completed: false});
-    console.log(event.target.value)
+    taskItems.push({task: this.state.newTask, id: Date.now(), completed: false});
     this.setState({todo: taskItems});
+    this.setState({newTask: ""});
+  }
+
+  handleInputChange = (event) => {
+    console.log(event.target.value);
+    this.setState({newTask: event.target.value});
   }
   
   render() {
@@ -39,7 +45,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList items={this.state.todo}/>
-        <TodoForm onItemAdd={this.handleAddTask}/>
+        <TodoForm onItemAdd={this.handleAddTask} newTask={this.state.newTask} onItemText={this.handleInputChange} />
       </div>
     );
   }
