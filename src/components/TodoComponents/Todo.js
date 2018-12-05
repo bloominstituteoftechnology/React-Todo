@@ -3,9 +3,7 @@ import './Todo.css';
 
 const Todo = props =>{
   return (
-    <div>
-      <p>{props.todoItem}</p>
-    </div>
+    <div>{props.item}</div>
   );
 };
 
