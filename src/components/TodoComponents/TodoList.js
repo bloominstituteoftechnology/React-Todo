@@ -3,10 +3,17 @@
 import React from 'react';
 import Todo from './Todo';
 
-const TodoList = ()=>{
-    return(
+const TodoList = props => {
+    return (
         <div>
-            {this.state.}
+            {props.todos.map(todo => (
+                <Todo 
+                key = {todo.task}
+                todoProp = {todo}/>
+                ))}
+
         </div>
     );
 }
+
+export default TodoList;
