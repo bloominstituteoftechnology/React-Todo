@@ -91,14 +91,14 @@ body{
     font-family: 'Permanent Marker', cursive;
 }
 
-#root > div > form > button:nth-child(2){
+#root > div > form > button:nth-child(3){
     margin-right:5px;
     background: #1976D2;
     border-radius: 10px;
     width: 50%;
 }
 
-#root > div > form > button:nth-child(3){
+#root > div > form > button:nth-child(4){
     background: #1976D2;
     border-radius: 10px;
 }
