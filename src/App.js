@@ -76,6 +76,16 @@ class App extends React.Component {
 
   }
    
+  clearCompleted= event=>{
+    event.preventDefault();
+    console.log(event.target)
+    //copy state and filter out completed tasks
+    const myTodoList= this.state.toDoList.slice().filter(e=>e.completed !==true)
+
+    //update state
+    this.setState({toDoList: myTodoList})
+
+  }
 
   render() {
     console.log(this.state)
@@ -83,7 +93,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <ToDoList list={this.state.toDoList} toggleCompleted={this.toggleCompleted} />
-        <ToDoForm clickHandler={this.addToDo}/>
+        <ToDoForm clickHandler={this.addToDo} clearCompleted={this.clearCompleted}/>
       </div>
     );
   }
