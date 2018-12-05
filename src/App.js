@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import ToDoList from "./components/TodoComponents/TodoList";
-import "./components/TodoComponents/Todo.css"
+import Tasks from "./components/TodoComponents/TodoForm"
+import "./components/TodoComponents/Todo.css";
+// import tasks from "./components/TodoComponents/TodoForm";
 
 class App extends React.Component {
   constructor() {
@@ -20,19 +22,31 @@ class App extends React.Component {
     todos.push(this.state.todo);
     this.setState({todos: todos, todo: " "});
   }
+  clearTodo = () => {
+    this.setState({todos:[""]});
+  }
+
+  // strikeTodo = () => {
+  //   {todos.map(task => {
+  //     return <div onClick={task} key={Math.random()}>{task}</div>;
+  // }
+
+  
 
   render() {
     return (
       <div>
         <h2 key="item1">{this.state.name}</h2>
-        <input
-          type="text"
-          onChange={this.changeNameHandler}
-          placeholder="Add task"
-          value={this.state.todo}
-        />
+        <Tasks input = {this.state.todo}
+        changeNameHandler = {this.changeNameHandler}
+        value = {this.value}
+        />  
         <button onClick = {this.addTodo}>Submit</button>
-        <ToDoList currentToDo={this.state.todos} />
+        <button onClick = {this.clearTodo}>Clear</button>
+        <ToDoList currentToDo = {this.state.todos} 
+                  
+        />
+       
       </div>
     );
   }
@@ -42,3 +56,9 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
 
 export default App;
+/* <input
+type="text"
+onChange={this.changeNameHandler} 
+placeholder="Add task"
+value={this.state.todo}
+/> */

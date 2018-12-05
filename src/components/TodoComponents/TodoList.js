@@ -4,12 +4,12 @@ import React from "react";
 
 const ToDoList = props => {
   return (
-    <ul>
+    <div>
       {" "}
       {props.currentToDo.map(task => {
-        return <li key={Math.random()}>{task}</li>;
+        return <div onClick = {event => { event.target.classList.toggle('todoitem')}} key={Math.random()}>{task}</div>;
       })}
-    </ul>
+    </div>
   );
 };
 
