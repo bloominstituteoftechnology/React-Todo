@@ -24,12 +24,42 @@ class App extends React.Component {
       ]
     };
   }
+
+   addToDo = event =>{
+    //prevent default
+    event.preventDefault()
+
+    // get the input box
+    const input=document.querySelector('#todo-input')
+
+    // make a copy of state
+    const myTodoList= this.state.toDoList.slice()
+
+    //  make a new to do
+    const newToDo = {
+       task: input.value,
+       id: Date.now(),
+       completed: false
+    }
+
+    // add thee new to do
+    myTodoList.push(newToDo)
+
+    //update state
+    this.setState({toDoList: myTodoList})
+
+    //clear input
+    input.value= ""
+   }
+
+
   render() {
+    console.log(this.state)
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <ToDoList list={this.state.toDoList} />
-        <ToDoForm />
+        <ToDoForm clickHandler={this.addToDo}/>
       </div>
     );
   }
