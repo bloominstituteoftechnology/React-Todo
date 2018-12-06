@@ -17,10 +17,23 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     }
-    
+
     const changeList = this.state.listArr;
     changeList.push(newTodo);
     this.setState({listArr: changeList});
+  }
+
+  entryClick = event => {
+    event.target.classList.toggle('complete');
+
+  }
+
+  clearCompleted = event => {
+    event.preventDefault();
+    const mutator = this.state.listArr;
+    this.setState({listArr: mutator.filter(item => {
+      return item.completed === false;
+    })})
   }
 
   // you will need a place to store your state in this component.
@@ -30,8 +43,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todoList={this.state.listArr} />
-        <TodoForm addEntry={this.addItem}/>
+        <TodoList clickHandler={this.entryClick} todoList={this.state.listArr} />
+        <TodoForm addEntry={this.addItem} clearCompleted={this.clearCompleted}/>
       </div>
     );
   }
