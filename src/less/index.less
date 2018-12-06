@@ -122,6 +122,7 @@ html {
     width: 60%;
     display: flex;
     justify-content: space-around;
+		align-items: center;
 
     input {
       font-size: 1.8rem;
@@ -155,9 +156,9 @@ html {
 
   .list-container {
     width: 75%;
-    margin: 40px 20px 25px 0;
+    margin: 25px 20px 25px 0;
     height: 100%;
-		max-height: 450px;
+		max-height: 430px;
 
 
     overflow-x: hidden;
@@ -179,4 +180,26 @@ html {
       color: white;
     }
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 7px black;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: OrangeRed;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ff7300;
 }
