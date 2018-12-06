@@ -14,6 +14,9 @@ class App extends React.Component {
     };
   }
 
+  lineThrough = (e) =>{
+    e.target.style.textDecoration = "line-through"
+  }
   add = event => {
     event.preventDefault();
     if(this.state.inputText){
@@ -30,7 +33,7 @@ class App extends React.Component {
     });
   };
 
-  completed = id => {
+  completed = (id) => {
     let tasks = this.state.list.slice()
     tasks = tasks.map(task => {
       if(id === task.id){
@@ -66,8 +69,8 @@ class App extends React.Component {
   render() {
     console.log(this.state.list)
     return (
-      <div class="todo-container">
-        <TodoList todo={this.state.list} todoCompleted={this.completed}/>
+      <div className="todo-container">
+        <TodoList  todo={this.state.list} todoCompleted={this.completed}line={this.lineThrough}/>
         <TodoForm inputText={this.state.inputText} add={this.add} clear={this.clear} handleInput={this.handleInput} />
       </div>
     );

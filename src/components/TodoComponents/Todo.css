@@ -1,3 +1,45 @@
-form input{
+form{
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+.add{
+    width:40%;
+}
+.clear{
+    width:%;
+}
+.type-space{
     width:100%;
+    margin-bottom:25px;
+}
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+ul{
+    width:50%;
+    background: #03a9f4;
+    margin-bottom:10px;
+    border-radius: 10px;
+}
+li{
+    margin-bottom:5px;
+    margin-top:5px;
+    font-family: 'Permanent Marker',cursive;
+}
+
+.buttons .add{
+    border:none;
+    background:#03a9f4;
+    border-radius: 5px;
+    height: 30px;
+}
+.buttons .clear{
+    border:none;
+    background:#03a9f4;
+    border-radius: 5px;
+    height: 30px;
 }

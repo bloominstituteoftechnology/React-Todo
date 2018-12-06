@@ -72,33 +72,5 @@ body{
 }
 .header h1{
     font-size: 32px;
-}
-
-#root > div > form > input{
-    width:75%;
-    margin-bottom: 20px;
-}
-#root > div > ul{
-    width:75%;
-    background: #03A9F4;
-    border-radius: 2%;
-    margin-bottom:20px;
-}
-
-#root > div > ul > li{
-    color: #212121;
-    font-size: 20px;
-    font-family: 'Permanent Marker', cursive;
-}
-
-#root > div > form > button:nth-child(3){
-    margin-right:5px;
-    background: #1976D2;
-    border-radius: 10px;
-    width: 50%;
-}
-
-#root > div > form > button:nth-child(4){
-    background: #1976D2;
-    border-radius: 10px;
+    font-family: 'Permanent Marker',cursive;
 }
