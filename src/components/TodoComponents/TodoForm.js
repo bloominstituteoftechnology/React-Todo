@@ -14,6 +14,7 @@ class TodoForm extends React.Component {
     this.setState({inputText: event.target.value});
   }
 
+  //Function to handle clicking on Add Todo button
   addTodo = (event) => {
     event.preventDefault();
     const text = this.state.inputText.slice();
@@ -21,6 +22,7 @@ class TodoForm extends React.Component {
     this.setState({inputText: ""});
   }
 
+  //function to handle clicking on Clear Completed button
   removeCompleted = event => {
     event.preventDefault();
     this.props.removeCompleted();
