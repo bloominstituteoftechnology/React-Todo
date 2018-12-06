@@ -1,4 +1,34 @@
+* {
+  box-sizing: border-box;
+}
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 600px;
+  margin: 0 auto;
+  border: 1px solid #000;
+}
+
+.form-container {
+  margin: 0 auto;
+}
+
+.todo-list {
+  margin: 30px;
+}
+
+.todo-item {
+  border: solid #000;
+  background-color: #eeeeee;
+  border-radius: 5px;
+  padding-top: 3px;
+  padding-left: 5px;
+  margin: 5px 0;
+  height: 30px;
+  
+}
 
 .completed {
   text-decoration: line-through;

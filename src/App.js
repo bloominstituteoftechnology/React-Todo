@@ -12,7 +12,6 @@ class App extends React.Component {
       value: "",
       todoData: []
     }
-    this.toggleComplete = this.toggleComplete.bind(this);
   }
 
   changeValue = event => {
@@ -20,17 +19,21 @@ class App extends React.Component {
   }
 
   addToDo = event => {
-    let todos = this.state.todoData;
-    todos.push({
-      task: this.state.value,
-      id: Date.now(),
-      completed: false
-    });
-    this.setState(
-      { 
-        value: "",
-        todoData: todos 
+
+    this.setState(prevState => {
+      let todos = prevState.todoData.slice();
+      todos.push({
+        task: this.state.value,
+        id: Date.now(),
+        completed: false
       });
+
+      return {
+        value: "", 
+        todoData: todos 
+      };
+    });
+    
     event.preventDefault();
   }
 
@@ -46,12 +49,16 @@ class App extends React.Component {
     this.setState({ todoData: unfinished })
   }
 
+  clearAll = () => {
+    this.setState({ todoData: [] })
+  }
+
   render() {
     return (
-      <div>
+      <div className="app-container">
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todoData} toggle={this.toggleComplete} />
-        <TodoForm todo={this.changeValue} add={this.addToDo} value={this.state.value} clear={this.clearCompleted} />
+        <TodoForm todo={this.changeValue} add={this.addToDo} value={this.state.value} clearAll={this.clearAll} clear={this.clearCompleted} />
       </div>
     );
   }
