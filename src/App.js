@@ -63,7 +63,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>What To Do, What To Do?</h2>
         <TodoList clickHandler={this.entryClick} todoList={this.state.listArr} />
         <TodoForm addEntry={this.addItem} clearCompleted={this.clearCompleted}/>
       </div>
