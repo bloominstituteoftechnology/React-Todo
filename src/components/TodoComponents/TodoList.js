@@ -1,6 +1,8 @@
 import React from 'react';
 import ToDo from './Todo.js';
 
+// loops through the list items and return a div with the differnt ToDos
+
 const ToDoList = props => {
   return (
     <div className="main">

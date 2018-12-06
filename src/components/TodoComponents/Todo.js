@@ -1,8 +1,13 @@
-import React from "react";
+import React from 'react';
 
+// creates a list of items based on user input
 const ToDo = props => {
-  const { task, id, completed } = props.item;
-  return <li class="everythingElse" onClick={props.clicked}>{task}</li>;
+  const {task, id, completed} = props.item;
+  return (
+    <li className="everythingElse" onClick={props.clicked}>
+      {task}
+    </li>
+  );
 };
 
 export default ToDo;

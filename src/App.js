@@ -5,6 +5,8 @@ import {AddButton} from './components/TodoComponents/TodoForm.js';
 import {Input} from './components/TodoComponents/TodoForm.js';
 import {ClearCompleted} from './components/TodoComponents/TodoForm.js';
 
+// the main app
+
 class App extends React.Component {
   constructor() {
     super();
@@ -14,6 +16,7 @@ class App extends React.Component {
     };
   }
 
+  // function to change the state of the the app
   updateState = () => {
     const input = document.querySelector('input');
     let toDoList = this.state.list.slice();
@@ -27,12 +30,15 @@ class App extends React.Component {
     }
     this.setState({list: toDoList});
     input.value = '';
+    console.log(toDoList);
   };
 
+  // captures the input of the user interaction
   captureInput = event => {
     this.setState({currentInput: event.target.value});
   };
 
+  // marks and changes the "completed" element of the object. Also adds and removes classes for styling
   completed = event => {
     let theList = this.state.list.slice();
     theList.map(item => {
@@ -51,6 +57,7 @@ class App extends React.Component {
     this.setState({list: theList});
   };
 
+  // function that changes the displayed items based on if they have been completed or not.
   clear = () => {
     let newList = this.state.list.slice();
     let finalList = newList.filter(item => {
