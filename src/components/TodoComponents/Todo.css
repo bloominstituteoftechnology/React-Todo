@@ -2,6 +2,12 @@ html: {
   font-size: 62.5%;
 }
 
+#root {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 h2 {
   text-align: center;
 }
