@@ -24,7 +24,17 @@ class App extends React.Component {
         ]
       }
     }
-
+createNewTodo = (text) => {
+  
+  const newTodo = {
+    task: text,
+    id: Date.now(),
+    completed: false,
+  }
+  const oldTodos = this.state.todos.slice()
+  oldTodos.push(newTodo)
+  this.setState({todos: oldTodos})
+}
 
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
