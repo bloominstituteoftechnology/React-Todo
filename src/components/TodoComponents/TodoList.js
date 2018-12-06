@@ -7,9 +7,12 @@ import TodoForm from './TodoForm.js';
 class TodoList extends React.Component {
   constructor(props) {
     super(props);
+
+    this.props.loadData()
   }
 
   render() {
+    ;
     const taskList = this.props.tasks.map(item => <Todo key={item.id} name={item.task} completed={item.completed} completedHandler={this.props.completed}/>);
     return(
       <div className="to-do-list">

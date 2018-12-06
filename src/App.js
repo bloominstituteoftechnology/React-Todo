@@ -15,7 +15,7 @@ class App extends React.Component {
       filter: ''
   }
 
-  this.startState();
+  // this.startState();
 }
 
   newTask = event => {
@@ -75,8 +75,9 @@ class App extends React.Component {
   }
 
   startState = () => {
+    console.log('run')
     if( localStorage.getItem('tasks') !== null) {
-      this.state.tasks = JSON.parse(localStorage.tasks);
+      this.setState({tasks: JSON.parse(localStorage.tasks)})
     }
   }
 
@@ -89,7 +90,8 @@ class App extends React.Component {
         <TodoList tasks={this.state.tasks}
                   newTask={this.newTask.bind(this)}
                   completed={this.completed.bind(this)}
-                  remove={this.removeTasks.bind(this)}/>
+                  remove={this.removeTasks.bind(this)}
+                  loadData={this.startState.bind(this)}/>
       </div>
     );
   }
