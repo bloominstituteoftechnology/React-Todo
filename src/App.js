@@ -1,4 +1,7 @@
 import React from "react";
+import "reset-css";
+import "normalize.css";
+import "./App.css";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
 
