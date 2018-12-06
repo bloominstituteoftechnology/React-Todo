@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
   constructor(){
@@ -13,11 +14,15 @@ class App extends React.Component {
             task: 'Bake Cookies',
             id: 1528817084358,
             completed: false
+          },
+          {
+            task: 'Counqour the world!',
+            id: 152882345234584358,
+            completed: false
           }
         ]
       }
     }
-  }
 
 
   // you will need a place to store your state in this component.
@@ -27,6 +32,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+       <TodoList todos={this.state.todos} />
       </div>
     );
   }
