@@ -1,6 +1,8 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList.js';
 
+import './css/index.css';
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -89,7 +91,7 @@ class App extends React.Component {
   render() {
     console.log(this.state)
     return (
-      <div>
+      <div className='app'>
         <h2>Welcome to your Todo App!</h2>
         <TodoList tasks={this.state.tasks}
                   newTask={this.newTask.bind(this)}
