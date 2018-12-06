@@ -28,14 +28,14 @@ class App extends React.Component {
       completed: false
     };
 
-    const oldTodos = this.state.todos.slice();
+    const oldTodos = [...this.state.todos];
     oldTodos.push(newTodo);
 
     this.setState({ todos: oldTodos });
   };
 
   toggleCompleted = () => {
-    this.setState({ completed: !this.state.completed });
+    this.setState({ completed: !this.state.todos.completed });
   };
 
   render() {
