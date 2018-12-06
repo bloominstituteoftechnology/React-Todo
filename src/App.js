@@ -6,22 +6,7 @@ class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      todos: [{
-            task: 'Organize Garage',
-            id: 1528817077286,
-            completed: false
-          },
-          {
-            task: 'Bake Cookies',
-            id: 1528817084358,
-            completed: false
-          },
-          {
-            task: 'Counqour the world!',
-            id: 152882345234584358,
-            completed: false
-          }
-        ]
+      todos: []
       }
     }
 createNewTodo = (text) => {
@@ -30,10 +15,12 @@ createNewTodo = (text) => {
     task: text,
     id: Date.now(),
     completed: false,
-  }
-  const oldTodos = this.state.todos.slice()
-  oldTodos.push(newTodo)
-  this.setState({todos: oldTodos})
+  };
+  this.setState(prevState => {
+    const todos = prevState.todos.slice();
+    todos.push(newTodo);
+    return { todos: todos };
+  });
 }
 
   // you will need a place to store your state in this component.
@@ -43,8 +30,8 @@ createNewTodo = (text) => {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-       <TodoList todos={this.state.todos} />
-       <TodoForm todoCreator={this.createNewTodo}/>
+        <TodoList todos={this.state.todos} />
+        <TodoForm createTodo={this.createNewTodo} />
       </div>
     );
   }

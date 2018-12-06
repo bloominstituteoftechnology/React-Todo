@@ -1,8 +1,7 @@
-////Just starting project.
-import React from 'react';
+import React from "react";
 
-function Todo(props){
-    return <li>{props.todo.task}</li>
+function Todo(props) {
+  return <li>{props.todo.task}</li>;
 }
 
-export default Todo
+export default Todo;
