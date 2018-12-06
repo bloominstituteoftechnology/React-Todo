@@ -1,6 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
+import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
-class App extends Component {
+class App extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -17,12 +19,34 @@ class App extends Component {
         }
       ]
     };
-  
-    render() {
-      return (
-        <div className="App">
-        </div>
-      );
-    }
+  }
+
+  createNewTodoObject = text => {
+    const newTodo = {
+      task: text,
+      id: Date.now(),
+      completed: false
+    };
+
+    const oldTodos = this.state.todos.slice();
+    oldTodos.push(newTodo);
+
+    this.setState({ todos: oldTodos });
+  };
+
+  toggleCompleted = () => {
+    this.setState({ completed: !this.state.completed });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <h2>Actions</h2>
+        <TodoList todos={this.state.todos} />
+        <TodoForm createNewTodoObject={this.createNewTodoObject} />
+      </div>
+    );
   }
 }
+
+export default App;
