@@ -19,27 +19,16 @@ class TodoForm extends React.Component {
 
   render(){
       return (
-    <form onSubmit ={this.submitHandler}>
+    <form>
       <input 
       type = "text"
       value = {this.state.inputText}
       onChange = {this.changeHandler}
       />
-      <button type="submit">Add Todo</button>
+      <button type="submit" onClick = {this.submitHandler} >Add Todo</button>
       <button>Clear Todos</button>
     </form>
 )
   }
 }
-
-
-// const TodoForm = props => {
-//   return (
-//     <form>
-//       <input type = "text"/>
-//       <button type="submit">Add Todo</button>
-//       <button>Clear Todos</button>
-//     </form>
-// )
-// }
 export default TodoForm;

@@ -25,10 +25,12 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     }
-    const oldTodos = this.state.todos.slice ()
-    oldTodos.push(newTodos)
-    this.setState({todos: oldTodos})
+    const todos = this.state.todos.slice ()
+   todos.push(newTodos)
+    this.setState({todos: todos})
   }
+
+  
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
