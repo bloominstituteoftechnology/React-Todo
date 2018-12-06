@@ -44,9 +44,19 @@ class App extends React.Component {
     const newList = this.state.tasks.slice();
 
     for(let i = 0; i < newList.length; i++) {
-      if(event.target.innerText === newList[i].task) {
+      const key1 = newList[i].task.split(' ');
+      const key2 = event.target.innerText.split(' ');
+
+      if(key1[key1.length-1] == "") {
+        key1.pop();
+      } else if (key2[key2.length-1 == ""]) {
+        key2.pop();
+      }
+
+      if(key1.join('') === key2.join('')) {
         newList[i].completed = !newList[i].completed;
         this.setState({tasks: newList});
+        break;
       }
     }
   }
@@ -57,7 +67,7 @@ class App extends React.Component {
 
     const strList = JSON.stringify(newList);
     localStorage.setItem("tasks", strList);
-    
+
     this.setState({tasks: newList})
   }
 
