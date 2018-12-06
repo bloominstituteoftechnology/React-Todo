@@ -10,7 +10,7 @@ form{
     width:%;
 }
 .type-space{
-    width:100%;
+    width:75%;
     margin-bottom:25px;
 }
 .buttons{
@@ -31,6 +31,7 @@ li{
     font-family: 'Permanent Marker',cursive;
     cursor: pointer;
     user-select:none;
+    font-size:20px;
 }
 
 .buttons .add{
