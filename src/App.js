@@ -1,36 +1,36 @@
-import React from "react";
-import "./components/TodoComponents/Todo.css";
-import ToDoList from "./components/TodoComponents/TodoList.js";
-import { AddButton } from "./components/TodoComponents/TodoForm.js";
-import { Input } from "./components/TodoComponents/TodoForm.js";
-import { ClearCompleted } from "./components/TodoComponents/TodoForm.js";
+import React from 'react';
+import './components/TodoComponents/Todo.css';
+import ToDoList from './components/TodoComponents/TodoList.js';
+import {AddButton} from './components/TodoComponents/TodoForm.js';
+import {Input} from './components/TodoComponents/TodoForm.js';
+import {ClearCompleted} from './components/TodoComponents/TodoForm.js';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       list: [],
-      currentInput: ""
+      currentInput: '',
     };
   }
 
   updateState = () => {
-    const input = document.querySelector("input");
+    const input = document.querySelector('input');
     let toDoList = this.state.list.slice();
     let currInput = this.state.currentInput;
-    if (input.value !== "") {
+    if (input.value !== '') {
       toDoList.push({
         task: currInput,
         id: Date.now(),
-        completed: false
+        completed: false,
       });
     }
-    this.setState({ list: toDoList });
-    input.value = "";
+    this.setState({list: toDoList});
+    input.value = '';
   };
 
-  captureInput = () => {
-    this.setState({ currentInput: event.target.value });
+  captureInput = event => {
+    this.setState({currentInput: event.target.value});
   };
 
   completed = event => {
@@ -39,14 +39,16 @@ class App extends React.Component {
       if (event.target.innerText === item.task) {
         if (item.completed === false) {
           item.completed = true;
-          event.target.classList.add("completed");
-        } else {
+          event.target.classList.add('completed');
+          event.target.classList.remove('everythingElse');
+        } else if (event.target.innerText === true) {
           item.completed = false;
-          event.target.classList.remove("completed");
+          event.target.classList.add('everythingElse');
+          event.target.classList.remove('completed');
         }
       }
     });
-    this.setState({ list: theList });
+    this.setState({list: theList});
   };
 
   clear = () => {
@@ -54,8 +56,13 @@ class App extends React.Component {
     let finalList = newList.filter(item => {
       return item.completed === false;
     });
-    console.log(finalList);
-    this.setState({ list: finalList });
+    this.setState({list: finalList});
+    let setList = document.querySelectorAll('li');
+    setList.forEach(listItem => {
+      listItem.classList.remove('everythingElse');
+      listItem.classList.remove('completed');
+      listItem.classList.add('everythingElse');
+    });
   };
 
   // you will need a place to store your state in this component.
@@ -65,7 +72,7 @@ class App extends React.Component {
     return (
       <div
         onKeyPress={event => {
-          if (event.key === "Enter") {
+          if (event.key === 'Enter') {
             this.updateState();
           }
         }}>
