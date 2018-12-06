@@ -146,12 +146,25 @@ html body {
   padding: 15px;
   box-sizing: border-box;
 }
-.app h2 {
+.app .app__search {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+.app .app__search h2 {
   font-size: 4.8rem;
   text-align: center;
-  width: 30%;
-  padding: 20px 0 25% 0;
   align-self: center;
+  margin: 40px 0 30px 0;
+}
+.input-group {
+  height: 35px;
+}
+.input-group .form-control {
+  height: 35px;
+  width: 20%;
+  font-size: 1.6rem;
+  padding: 0 10px;
 }
 .to-do-list {
   width: 100%;

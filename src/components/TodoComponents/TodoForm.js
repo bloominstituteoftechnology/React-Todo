@@ -9,6 +9,7 @@ class TodoForm extends React.Component {
     return(
       <form>
         <input
+          className="task-item"
           type="text"
           placeholder={"Enter Something To Do"}
         />

@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList.js';
+import { InputGroup, InputGroupAddon, Button, Input } from 'reactstrap';
 
 import './css/index.css';
 
@@ -12,7 +13,8 @@ class App extends React.Component {
 
     this.state = {
       tasks: [],
-      filter: ''
+      filter: '',
+      memory: []
   }
 
   // this.startState();
@@ -23,7 +25,7 @@ class App extends React.Component {
 
     const tasksCurrent = this.state.tasks;
     const newList = tasksCurrent.slice();
-    const task = document.querySelector('input').value;
+    const task = document.querySelector('.task-item').value;
     let id = undefined;
 
 
@@ -37,11 +39,12 @@ class App extends React.Component {
 
     newList.push({ task:task, id:id, completed:completed })
 
-    document.querySelector('input').value = "";
+    document.querySelector('.task-item').value = "";
     const strList = JSON.stringify(newList);
     localStorage.setItem("tasks", strList);
     this.setState({tasks: newList});
   }
+
 
   completed = event => {
     const newList = this.state.tasks.slice();
@@ -64,6 +67,7 @@ class App extends React.Component {
     }
   }
 
+
   removeTasks = event => {
     event.preventDefault();
     const newList = this.state.tasks.filter(item => item.completed === false);
@@ -74,6 +78,7 @@ class App extends React.Component {
     this.setState({tasks: newList})
   }
 
+
   startState = () => {
     console.log('run')
     if( localStorage.getItem('tasks') !== null) {
@@ -81,11 +86,65 @@ class App extends React.Component {
     }
   }
 
+filterHandler = (event, array) => {
+  this.setState({filter: event.target.value});
+  console.log(this.state.filter)
+}
+
+submitHandler = (event) => {
+  event.preventDefault();
+
+  const searchTerm = this.state.filter;
+  const prevState = this.state.tasks;
+  const filterTasks = this.state.tasks.filter(obj => obj.task.toLowerCase().includes(searchTerm.toLowerCase()));
+
+  if(searchTerm === '') {
+    this.setState({
+      tasks: this.state.memory,
+      filter: ''
+    })
+    console.log(this.state);
+    return;
+  }
+
+  this.setState({
+    tasks: filterTasks,
+    filter: '',
+    memory: prevState
+  });
+}
+
+clearHandler = () => {
+  this.setState({ tasks: this.state.memory, filter: '' })
+}
 
   render() {
     return (
       <div className='app'>
-        <h2>Keep Track of Life's Menial Tasks</h2>
+        <div className='app__search'>
+          <h2>Keep Track of Life's Menial Tasks</h2>
+
+          <InputGroup>
+            <InputGroupAddon addonType="prepend">
+             <Button color="danger" onClick={this.clearHandler}>Clear</Button>
+            </InputGroupAddon>
+
+              <Input
+                placeholder="Task To Search..."
+                value={this.state.filter}
+                onChange={this.filterHandler}
+               />
+
+            <InputGroupAddon addonType="append">
+              <Button
+                color="success"
+                onClick={this.submitHandler}
+                >
+                Search
+              </Button>
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
 
         <TodoList tasks={this.state.tasks}
                   newTask={this.newTask.bind(this)}
