@@ -14,8 +14,8 @@ class TodoForm extends React.Component {
           placeholder={"Enter Something To Do"}
         />
 
-        <button onClick={this.props.newTask}>Add to List</button>
-        <button onClick={this.props.remove}>Remove Completed</button>
+        <button onClick={this.props.newTask}>Add</button>
+        <button onClick={this.props.remove}>Remove Finished</button>
       </form>
     );
   }

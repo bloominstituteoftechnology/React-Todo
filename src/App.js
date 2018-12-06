@@ -94,18 +94,15 @@ filterHandler = (event, array) => {
 submitHandler = (event) => {
   event.preventDefault();
 
+  if(this.state.filter === "") {
+    alert('Please Enter Search Term')
+    return;
+  }
+
   const searchTerm = this.state.filter;
   const prevState = this.state.tasks;
   const filterTasks = this.state.tasks.filter(obj => obj.task.toLowerCase().includes(searchTerm.toLowerCase()));
 
-  if(searchTerm === '') {
-    this.setState({
-      tasks: this.state.memory,
-      filter: ''
-    })
-    console.log(this.state);
-    return;
-  }
 
   this.setState({
     tasks: filterTasks,
