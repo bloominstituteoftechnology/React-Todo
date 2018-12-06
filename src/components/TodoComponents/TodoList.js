@@ -6,7 +6,7 @@ import ToDo from "./ToDo";
 const ToDoList = props => {
   return (
     <div>
-      <h1>To Do:</h1>
+      <h1>Do or do not, there is no try:</h1>
       <ul>
         {props.todos.map(data => (
           <li>
