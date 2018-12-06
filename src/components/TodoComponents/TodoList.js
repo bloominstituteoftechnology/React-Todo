@@ -1,12 +1,10 @@
-import React from "react";
-import ToDo from "./Todo.js";
+import React from 'react';
+import ToDo from './Todo.js';
 
 const ToDoList = props => {
   return (
-    <div>
-      {props.state.map(item => (
-        <ToDo clicked={props.checked} item={item} />
-      ))}
+    <div className="main">
+      {props.state.map(item => <ToDo clicked={props.checked} item={item} />)}
     </div>
   );
 };

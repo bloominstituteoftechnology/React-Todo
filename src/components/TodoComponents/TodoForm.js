@@ -1,12 +1,16 @@
 import React from 'react';
 
 export const AddButton = props => {
-  return <button onClick={props.update}>Add To List</button>;
+  return (
+    <button className="add" onClick={props.update}>
+      Add To List
+    </button>
+  );
 };
 
 export const ClearCompleted = props => {
   return (
-    <button className="everythingElse" onClick={props.clear}>
+    <button className="clear" onClick={props.clear}>
       Clear Completed Items
     </button>
   );

@@ -41,7 +41,7 @@ class App extends React.Component {
           item.completed = true;
           event.target.classList.add('completed');
           event.target.classList.remove('everythingElse');
-        } else if (event.target.innerText === true) {
+        } else {
           item.completed = false;
           event.target.classList.add('everythingElse');
           event.target.classList.remove('completed');
@@ -78,9 +78,11 @@ class App extends React.Component {
         }}>
         <h2>To Do List</h2>
         <ToDoList checked={this.completed} state={this.state.list} />
-        <Input placeholder="Enter Your Task Here" input={this.captureInput} />
-        <AddButton update={this.updateState} />
-        <ClearCompleted clear={this.clear} />
+        <div className="buttons">
+          <Input placeholder="Enter Your Task Here" input={this.captureInput} />
+          <AddButton update={this.updateState} />
+          <ClearCompleted clear={this.clear} />
+        </div>
       </div>
     );
   }
