@@ -4,12 +4,19 @@ import React from "react";
 import Todo from "./Todo";
 
 const TodoList = props => {
-  let arr = props.list.map(e => (
-    <div className="todo__item" key={e.id} onClick={() => props.strike(e.id)}>
-      <Todo completed={e.completed} task={e.task} />
+  return (
+    <div className="todo__list">
+      {props.list.map(e => (
+        <div
+          className="todo__item"
+          key={e.id}
+          onClick={() => props.strike(e.id)}
+        >
+          <Todo completed={e.completed} task={e.task} />
+        </div>
+      ))}
     </div>
-  ));
-  return <div className="todo__list">{arr}</div>;
+  );
 };
 
 export default TodoList;

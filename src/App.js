@@ -14,19 +14,16 @@ class App extends React.Component {
 
   handleInputChange = e => {
     e.preventDefault();
-    this.state.list.push({
+    let newTodo = this.state.list.slice();
+    newTodo.push({
       task: e.target.parentNode.children[0].value,
       id: Date.now(),
       completed: false
     });
     e.target.parentNode.children[0].value = "";
     this.setState({
-      list: this.state.list.filter(e => {
-        if (e.task !== "" && e.task !== undefined) {
-          return true;
-        } else {
-          return false;
-        }
+      list: newTodo.filter(e => {
+        return e.task !== "" && e.task !== undefined;
       })
     });
   };
@@ -35,14 +32,8 @@ class App extends React.Component {
       this.setState({
         list: this.state.list.filter(e => {
           if (e.task !== "" && e.task !== undefined) {
-            if (!e.completed) {
-              return true;
-            } else {
-              return false;
-            }
-          } else {
-            return false;
-          }
+            return !e.completed;
+          } else return false;
         })
       });
     }
@@ -54,9 +45,7 @@ class App extends React.Component {
           return { task: e.task, id: e.id, completed: true };
         } else if (e.id === id && e.completed === true) {
           return { task: e.task, id: e.id, completed: false };
-        } else {
-          return e;
-        }
+        } else return e;
       })
     });
   };
