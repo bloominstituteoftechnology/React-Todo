@@ -12,30 +12,50 @@ class App extends React.Component {
     this.state = {
       todos: [
         {
-          id: 1,
-          task: "Create App Component",
+          task: 'Organize Garage',
+          id: 1528817077286,
           completed: false
         },
         {
-          id: 2,
-          task: "Create ToDo List Component",
+          task: 'Bake Cookies',
+          id: 1528817084358,
           completed: false
-        },
-      ]
-    }
+        }
+      ],
+      todo: ""
+    };
   }
 
-  
-    
+  addNewObject = event => {
+    event.preventDefault();
+    const todos = this.state.todos.slice();
+    todos.push({
+      id: Date.now(),
+      task: this.state.todo,
+      completed: false
+    })
+    this.setState( {todos, todo:""} );
+  }
+
+updateTodoTask = event => this.setState( { [event.target.name]: event.target.value } )
+
   render() {
     return (
-      <div className="root">
-        <ToDoList tasks={this.state.todos} />
-        <ToDoForm />
+      <div>
+
+        <ToDoList todos = { this.state.todos } />
+
+        <ToDoForm 
+          value = { this.state.todo }
+          handleUpdateTask = { this.updateTodoTask }
+          handleAddNew = { this.addNewObject }
+        />
+
       </div>
     );
   }
 }
+
 
 
 export default App;

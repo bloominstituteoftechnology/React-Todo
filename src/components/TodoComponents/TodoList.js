@@ -1,14 +1,14 @@
 import React from "react";
 import ToDo from "./ToDo";
 
-// your components will all go in this `component` directory.
-// feel free to change this component.js into TodoList.js
+                                //Passed from Apps.js
+                                //todos = { this.state.todos }
 const ToDoList = props => {
   return (
     <div>
       <h1>To Do:</h1>
       <ul>
-        {props.tasks.map(data => (
+        {props.todos.map(data => (
           <li>
             <ToDo key={data.id} taskItem={data.task} />
           </li>
