@@ -11,38 +11,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      tasks: [
-        {
-          task: 'string1',
-          id: 101011,
-          completed: false
-        },
-        {
-          task: 'string2',
-          id: 1010112,
-          completed: false
-        },
-        {
-          task: 'string3',
-          id: 1010113,
-          completed: false
-        },
-        {
-          task: 'string4',
-          id: 1010114,
-          completed: false
-        },
-        {
-          task: 'string5',
-          id: 1010115,
-          completed: false
-        },
-        {
-          task: 'string6',
-          id: 1010116,
-          completed: false
-        },
-      ],
+      tasks: JSON.parse(localStorage.tasks)
   }
 }
 
@@ -66,6 +35,8 @@ class App extends React.Component {
     newList.push({ task:task, id:id, completed:completed })
 
     document.querySelector('input').value = "";
+    const strList = JSON.stringify(newList);
+    localStorage.setItem("tasks", strList);
     this.setState({tasks: newList});
   }
 
@@ -84,12 +55,14 @@ class App extends React.Component {
     event.preventDefault();
     const newList = this.state.tasks.filter(item => item.completed === false);
 
+    const strList = JSON.stringify(newList);
+    localStorage.setItem("tasks", strList);
+    
     this.setState({tasks: newList})
   }
 
 
   render() {
-    console.log(this.state)
     return (
       <div className='app'>
         <h2>Keep Track of Life's Menial Tasks</h2>
