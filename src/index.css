@@ -73,4 +73,5 @@ body{
 .header h1{
     font-size: 32px;
     font-family: 'Permanent Marker',cursive;
+    position: fixed;
 }
