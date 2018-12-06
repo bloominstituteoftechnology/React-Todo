@@ -19,24 +19,49 @@ class App extends React.Component {
 
   addNewItem = event => {
     event.preventDefault();
-    const selectTextInput = document.querySelector('input[type="text"]');
-    if (selectTextInput.value !== "") {
-      this.setState({
-        TodoData: [
-          ...this.state.TodoData,
-          {
-            todo: this.state.newItem,
-            id: Date.now(),
-            completed: this.state.completed
-          }
-        ],
-        newItem: ""
-      });
+    if (this.state.newItem !== "") {
+      this.setState(
+        prevState => {
+          return {
+            TodoData: prevState.TodoData.concat({
+              todo: this.state.newItem,
+              id: Date.now(),
+              completed: false
+            }),
+            newItem: ""
+          };
+        },
+      );
     }
   };
 
   formEventHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  clearHandler = event =>{
+    event.preventDefault();
+    
+    const clearedArray = [...this.state.TodoData].filter(cur => cur.completed === false)
+
+    this.setState({TodoData: clearedArray})
+  }
+
+
+  toggleHandler = event => {
+    const toggledArray = [...this.state.TodoData]
+    let position = null;
+
+    const target = toggledArray.find((cur, index) => {
+      position = index
+      return cur.todo === event.target.innerText
+    });
+
+    target.completed === false ? target.completed = true : target.completed=false;
+    
+    toggledArray[position] = target;
+
+    this.setState({TodoData: toggledArray});
   };
 
   render() {
@@ -47,8 +72,9 @@ class App extends React.Component {
           inputText={this.state.inputText}
           newItem={this.state.newItem}
           formEventHandler={this.formEventHandler}
+          clearButton={this.clearHandler}
         />
-        <TodoList todoData={this.state.TodoData} />
+        <TodoList todoData={this.state.TodoData} toggleItem={this.toggleHandler} />
       </div>
     );
   }

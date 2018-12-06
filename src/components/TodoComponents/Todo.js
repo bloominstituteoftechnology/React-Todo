@@ -4,7 +4,7 @@ import "./Todo.css";
 const Todo = props => {
   return (
     <div className="listItem">
-      <p>{props.todo}</p>
+      <p onClick={props.toggleItem} className={props.completed === true ? 'completedTrue' : null}>{props.todo}</p>
     </div>
   );
 };
