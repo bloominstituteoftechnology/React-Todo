@@ -6,7 +6,7 @@ import './Todo.css';
 
 const TodoList = props => {
   return props.todoList.map(entry => {
-    return <Todo clickHandler={props.clickHandler} listItem={entry.task} key={entry.id} />
+    return <Todo clickHandler={props.clickHandler} listItem={entry.task} divID={entry.id} key={entry.id} />
   })
 }
 

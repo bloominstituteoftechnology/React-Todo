@@ -24,8 +24,29 @@ class App extends React.Component {
   }
 
   entryClick = event => {
+    event.preventDefault();
     event.target.classList.toggle('complete');
+    const targetId= event.target.id;
+    const switchArray = this.state.listArr;
+    console.log(targetId);
 
+    const toggleArray = switchArray.map( item => {
+      if(item.id === Number(targetId) && item.completed === false) {
+        return {
+        task: item.task,
+        id: item.id,
+        completed: true
+      }
+    } else if (item.id === Number(targetId) && item.completed === true) {
+      return {
+        task: item.task,
+        id: item.id,
+        completed: false
+      }
+    } else return item;
+    })
+    this.setState({listArr: toggleArray})
+    // this.setState({listArr: toggleArray})
   }
 
   clearCompleted = event => {
