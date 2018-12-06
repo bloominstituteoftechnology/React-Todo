@@ -4,7 +4,7 @@ import React from 'react';
 const ToDo = props => {
   const {task, id, completed} = props.item;
   return (
-    <li className="everythingElse" onClick={props.clicked}>
+    <li className="everythingElse" key={id} onClick={props.clicked}>
       {task}
     </li>
   );
