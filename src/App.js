@@ -11,8 +11,11 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      tasks: JSON.parse(localStorage.tasks)
+      tasks: [],
+      filter: ''
   }
+
+  this.startState();
 }
 
   newTask = event => {
@@ -47,9 +50,9 @@ class App extends React.Component {
       const key1 = newList[i].task.split(' ');
       const key2 = event.target.innerText.split(' ');
 
-      if(key1[key1.length-1] == "") {
+      if(key1[key1.length-1] === "") {
         key1.pop();
-      } else if (key2[key2.length-1 == ""]) {
+      } else if (key2[key2.length-1 === ""]) {
         key2.pop();
       }
 
@@ -71,11 +74,18 @@ class App extends React.Component {
     this.setState({tasks: newList})
   }
 
+  startState = () => {
+    if( localStorage.getItem('tasks') !== null) {
+      this.state.tasks = JSON.parse(localStorage.tasks);
+    }
+  }
+
 
   render() {
     return (
       <div className='app'>
         <h2>Keep Track of Life's Menial Tasks</h2>
+
         <TodoList tasks={this.state.tasks}
                   newTask={this.newTask.bind(this)}
                   completed={this.completed.bind(this)}
