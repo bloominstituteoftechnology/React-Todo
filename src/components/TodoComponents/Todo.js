@@ -1,14 +1,17 @@
 import React from "react";
 
+import "./Todo.css"
+
                             //Passed from ToDoList.js
                             //key={data.id} 
-                            //taskItem={data.task}
+                            //todo={data}
+                            //handleToggle = {props.handleToggle}
 
 const ToDo = props => {
   return (
-    <div>
-      <h3>{props.taskItem}</h3>
-    </div>
+      <div>
+      {props.todo.task}
+      </div>
   );
 };
 

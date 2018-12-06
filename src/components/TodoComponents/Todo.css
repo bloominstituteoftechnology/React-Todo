@@ -1,3 +1,7 @@
-body {
-    background-image: url()
+li {
+    list-style: none;
+}
+
+.viewTrue {
+    text-decoration: line-through;
 }

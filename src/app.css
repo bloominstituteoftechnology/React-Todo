@@ -1,0 +1,8 @@
+body {
+    background-image: url(./sleeping.jpg);
+    background-size: cover;
+}
+
+.viewTrue {
+    text-decoration: line-through;
+}
