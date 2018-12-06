@@ -10,10 +10,11 @@ class TodoForm extends React.Component{
     changeHandeler = (event) => {
 this.setState({inputText: event.target.value});
     }
-submitHandler = (event) => {
-event.preventDefault()
-this.props.createTodo(this.state.inputText)
-}
+    submitHandler = event => {
+        event.preventDefault();
+        this.props.createTodo(this.state.inputText);
+        this.setState({ inputText: "" });
+      };
     render(){
         return (
         <form onSubmit={this.submitHandler}>

@@ -44,7 +44,7 @@ createNewTodo = (text) => {
       <div>
         <h2>Welcome to your Todo App!</h2>
        <TodoList todos={this.state.todos} />
-       <TodoForm />
+       <TodoForm todoCreator={this.createNewTodo}/>
       </div>
     );
   }
