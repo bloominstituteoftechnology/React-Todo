@@ -25,45 +25,20 @@ class App extends React.Component {
       }
     ],
     todoSearch: [], //list of search result todos
-    currentInput: "", //keeps track of what is in the todo input field
     searchInput: "" //keeps track of what is in the search input field
   }
 
-  //function to keep track of the text in the todo input field
-  saveInputHandler = event => {
-    const inputValue = event.target.value;
-    this.setState({currentInput: inputValue});
-  }
-
-  //function to handle clicking the button add Todo
-  addTodoBtnHandler = event => {
-    const todos = this.state.todos.slice();
-    const text = this.state.currentInput;
-    if(!text) return;
-    
-    todos.push({
-      task: text,
-      id: Date.now(),
-      completed: false
-    });
-    this.setState({todos: todos, currentInput: ""});
-
-  }
-
   //function to handle pushing enter when done typing in add todo input field
-  addTodoInputHandler = event => {
-    const todos = this.state.todos.slice();
-    const text = event.target.value;
-    if(!text) return;
-
-    if(event.keyCode === 13) {
-      todos.push({
+  addTodoInputHandler = (event, text) => {
+      const newTodo = {
         task: text,
         id: Date.now(),
         completed: false
+      }
+      this.setState(prevState => {
+        prevState.todos.push(newTodo);
+        return {todos: prevState.todos};
       });
-      this.setState({todos: todos, currentInput: ""});
-    }
   }
 
   //function to handle clicking on a todo
@@ -77,13 +52,9 @@ class App extends React.Component {
 
   //function to handle clicking on the button Clear Completed
   removeCompletedBtnHandler = event => {
-    const todoArr = this.state.todos.slice();
-    const searchArr = this.state.todoSearch.slice();
-    const notCompleted = todoArr.filter(td => !td.completed);
-    const notCompletedSearch = searchArr.filter(td => !td.completed);
-    this.setState({
-      todos: notCompleted,
-      todoSearch: notCompletedSearch
+    this.setState(prevState => {
+      const notCompleted = prevState.todos.filter(td => !td.completed);
+      return {todos: notCompleted};
     });
   }
 
@@ -179,7 +150,6 @@ componentWillUnmount() {
         <TodoList todos={this.state.todos} todoClick={this.todoClickHandler}/>
         <TodoForm 
           current={this.state.currentInput}
-          addFromBtn={this.addTodoBtnHandler} 
           addFromInput={this.addTodoInputHandler} 
           removeCompleted={this.removeCompletedBtnHandler} 
           saveInput={this.saveInputHandler}/>
