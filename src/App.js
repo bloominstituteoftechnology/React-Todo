@@ -1,10 +1,9 @@
 import React from 'react';
 
 import TodoList from './components/TodoComponents/TodoList';
-import TodoForm from './components/TodoComponents/TodoForm';
 import Todos from './components/TodoComponents/Todo';
 
-
+import './components/TodoComponents/Todo';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -14,34 +13,46 @@ class App extends React.Component {
     super();
     this.state = {
       name: 'Billy`s List',
+      placeholder: 'Add an item',
       todos: Todos,
+      todo: ""
     } 
   }
+  addTodo = () => {
+    const todos = this.state.todos.slice();
 
-  addItem = () => {
-    event.preventDefault();
     const input = document.querySelector('#todo-input');
-    const newList = this.state.todos.slice();
 
     const newItem = {
       task: input.value,
       id: Date.now(),
       completed: false
     }
-    newList.push(newItem);
-    this.setState({todos: newList});
+    todos.push(newItem);
+    this.setState({todos: todos});
+    input.value = this.state.placeholder;
 
-    input.value = "";
   }
+  markComplete = event => {
+    console.log(event.target);
 
+  }
+  clear = () => {
+
+  }
   
 
   render() {
     return (
       <div>
         <h1>{this.state.name}</h1>
-        <TodoList />
-        <TodoForm addItem={this.addItem}/>
+        <input 
+            type="text"
+            id="todo-input"
+            placeholder="Add Todo"
+        />
+        <button onClick={this.addTodo}>Add To Do</button>
+        <TodoList markComplete={this.markComplete} billys={this.state.todos}/>
       </div>
     );
   }

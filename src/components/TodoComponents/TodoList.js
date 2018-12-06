@@ -3,14 +3,15 @@
 
 import React from 'react';
 
-import todos from './Todo';
 
-const TodoList = () => {
+const TodoList = props => {
     
     return (
-        <div> 
-             {todos.map(todo => <div key={todo.completed}>{todo.task}</div>)}
-        </div>
+        <ul>
+            {props.billys.map(todo => {
+            return <li key={Math.random()} onClick={props.markComplete}>{todo.task}</li>;
+            })}
+        </ul>
     )
 }
 
