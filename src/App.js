@@ -6,32 +6,18 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      listArr: [
-        // {
-        //   task: "Take the trash out",
-        //   id: 1,
-        //   completed: false
-        // },
-        // {
-        //   task: "Sing with the birds",
-        //   id: 2,
-        //   completed: false
-        // },
-        // {
-        //   task: "Change the baby's diapers",
-        //   id: 3,
-        //   completed: false
-        // }
-      ]
+      listArr: [ ]
     };
   }
 
   addItem = entry => {
+
     const newTodo = {
       task: entry,
       id: Date.now(),
       completed: false
     }
+    
     const changeList = this.state.listArr;
     changeList.push(newTodo);
     this.setState({listArr: changeList});
