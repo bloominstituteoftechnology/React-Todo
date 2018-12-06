@@ -24,6 +24,11 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <ul>
+          {this.state.todos.map((todo) => {
+            return <li key={todo.id}>{todo.task}</li>
+          })}
+        </ul>
       </div>
     );
   }
