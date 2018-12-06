@@ -92,7 +92,7 @@ class App extends React.Component {
     console.log(this.state)
     return (
       <div className='app'>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>Keep Track of Life's Menial Tasks</h2>
         <TodoList tasks={this.state.tasks}
                   newTask={this.newTask.bind(this)}
                   completed={this.completed.bind(this)}

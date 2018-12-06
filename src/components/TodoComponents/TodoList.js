@@ -15,7 +15,9 @@ class TodoList extends React.Component {
       <div className="to-do-list">
         <TodoForm newTask={this.props.newTask.bind(this)}
                   remove={this.props.remove.bind(this)} />
-        {taskList}
+        <div className="list-container">
+          {taskList}
+        </div>
       </div>
     );
   }
