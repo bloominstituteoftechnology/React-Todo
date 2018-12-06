@@ -12,6 +12,7 @@ class App extends React.Component {
       value: "",
       todoData: []
     }
+    this.toggleComplete = this.toggleComplete.bind(this);
   }
 
   changeValue = event => {
@@ -34,16 +35,23 @@ class App extends React.Component {
   }
 
   toggleComplete = (event) => {
-    
+    let todo = this.state.todoData.findIndex(p => p.id === Number(event.target.dataset.id))
+    let temp = this.state.todoData;
+    temp[todo].completed = !temp[todo].completed
+    this.setState({ todoData: temp })
+  }
+
+  clearCompleted = () => {
+    let unfinished = this.state.todoData.filter(todo => !todo.completed);
+    this.setState({ todoData: unfinished })
   }
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todoData} />
-        {/* {this.state.todoData.map(todo => <TodoList todos={todo.task} key={todo.id} />)} */}
-        <TodoForm todo={this.changeValue} add={this.addToDo} value={this.state.value} />
+        <TodoList todos={this.state.todoData} toggle={this.toggleComplete} />
+        <TodoForm todo={this.changeValue} add={this.addToDo} value={this.state.value} clear={this.clearCompleted} />
       </div>
     );
   }
