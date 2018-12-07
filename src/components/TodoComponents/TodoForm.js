@@ -19,10 +19,7 @@ class TodoForm extends React.Component {
   }
   clearHandler = (event) => {
     event.preventDefault()
-    // {this.props.todos.map(event => {if (this.props.todos.completed == false){
-    //   return (this.setState(this.submitHandler()))
-    // }})
-    // }
+  
   }
 
 

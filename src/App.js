@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList"
 import TodoForm from "./components/TodoComponents/TodoForm"
-import Todo from "./components/TodoComponents/Todo"
+
 
 class App extends React.Component {
   constructor(){
@@ -33,7 +33,7 @@ class App extends React.Component {
   crossOut = (event) => {
     event.currentTarget.classList.toggle('crossout');
   }
-
+  
   
 
 

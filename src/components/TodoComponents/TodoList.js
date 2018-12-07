@@ -6,15 +6,14 @@ const TodoList = (props) => {
   return(
     <ul>
       {props.todos.map(todo => {
-        console.log(todo)
         
+        // console.log(props.crossOut);
         return <Todo 
         
         crossOut = {props.crossOut}
         clear = {props.clear}
         key= {todo.id} 
         todo={todo} />
-        
     })}
     </ul>
   )
