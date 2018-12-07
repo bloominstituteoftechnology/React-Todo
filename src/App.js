@@ -59,14 +59,16 @@ class App extends React.Component {
     todos.push({ task: this.state.todo, completed: false, id: Date.now() });
     //pushing new contents into the shallow copy created by this.state.todos.slice();
     this.setState({ todos, todo: '' });
-     //persist data in local storage
-    window.localStorage.setItem('todo', JSON.stringify(todos))
-    
+    //  persist data in local storage
+     localStorage.setItem('todos', JSON.stringify(this.state.todos))
+     localStorage.setItem('todo', JSON.stringify(this.state.todo))
+     console.log(JSON.parse(window.localStorage.getItem(this.state.todos)))
   };
 
   changeTodo = banana=> this.setState({ [banana.target.name]: banana.target.value });
 
- 
+
+
 
 
   //This method adds the mark through items that the user clicks
