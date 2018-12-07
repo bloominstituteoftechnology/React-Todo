@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+.appContainer {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  border: 0.2rem inset dodgerblue;
+  margin-top: 2rem;
+}
+
+h1 {
+  text-align: center;
+}

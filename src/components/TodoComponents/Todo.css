@@ -1,3 +1,139 @@
 .completedTrue {
   text-decoration: line-through;
 }
+
+.todoForm {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.inputField {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.formButtons {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+input,
+span,
+label {
+  font-family: 'Ubuntu', sans-serif;
+  display: block;
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  font-size: 22px;
+}
+
+input:focus {
+  outline: 0;
+}
+
+input.inputField {
+  font-size: 48px;
+  font-weight: 300;
+  border-radius: 2px;
+  margin: 0;
+  border: none;
+  /* width: 80%; */
+  background: rgba(0, 0, 0, 0);
+  transition: padding-top 0.2s ease, margin-top 0.2s ease;
+  overflow-x: hidden;
+}
+
+input.inputField+label {
+  display: block;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  width: 15%;
+  border: 2px solid skyblue;
+  border-radius: 5px;
+  transition: width 0.7s ease;
+  height: 0px;
+}
+
+input.inputField:focus+label {
+  width: 100%;
+}
+
+input.inputField:focus,
+input.inputField:valid {
+  padding-top: 35px;
+}
+
+input.inputField:focus+label > span,
+input.inputField:valid+label > span {
+  top: -100px;
+  font-size: 22px;
+  color: #333;
+}
+
+
+input.inputField:valid+label {
+  border-color: mediumspringgreen;
+}
+
+input.inputField:invalid {
+  box-shadow: none;
+}
+
+input.inputField+label > span {
+  font-weight: 300;
+  margin: 0;
+  position: absolute;
+  color: #8F8F8F;
+  font-size: 48px;
+  top: -66px;
+  left: 0px;
+  z-index: -1;
+  transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+.subBtn,
+.clearBtn {
+  transition: opacity 0.2s ease, background 0.2s ease;
+  display: block;
+  opacity: 0;
+  margin: 10px 0 0 0;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px inset black
+}
+
+.subBtn {
+  border-right: 0;
+}
+
+.clearBtn {
+  opacity: unset;
+}
+
+.subBtn:hover,
+.clearBtn:hover {
+  background: #EEE;
+}
+
+.subBtn:active,
+.clearBtn:active {
+  background: #999;
+}
+
+input.inputField:valid~.formButtons>.subBtn {
+  animation: appear 1s forwards;
+}
+
+input.inputField:invalid~.formButtons>.subBtn {
+  display:none
+}
+
+@keyframes appear {
+  100% {
+    opacity: 1;
+  }
+}

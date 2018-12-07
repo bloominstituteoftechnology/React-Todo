@@ -1,4 +1,5 @@
 import React from "react";
+import "google-fonts"
 import "reset-css";
 import "normalize.css";
 import "./App.css";
@@ -70,6 +71,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="appContainer">
+        <h1>A Simple Todo List</h1>
         <TodoForm
           addNewItem={this.addNewItem}
           inputText={this.state.inputText}
