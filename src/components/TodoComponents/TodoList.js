@@ -6,7 +6,9 @@ import ToDo from './Todo.js';
 const ToDoList = props => {
   return (
     <div className="main">
-      {props.state.map(item => <ToDo clicked={props.checked} item={item} />)}
+      {props.state.map(item => (
+        <ToDo clicked={props.checked} key={item.id} item={item} />
+      ))}
     </div>
   );
 };

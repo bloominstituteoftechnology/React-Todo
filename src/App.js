@@ -18,52 +18,92 @@ class App extends React.Component {
 
   // function to change the state of the the app
   updateState = () => {
-    const input = document.querySelector('input');
-    let toDoList = this.state.list.slice();
-    let currInput = this.state.currentInput;
-    if (input.value !== '') {
-      toDoList.push({
-        task: currInput,
-        id: Date.now(),
-        completed: false,
-      });
-    }
-    this.setState({list: toDoList});
-    input.value = '';
-    console.log(toDoList);
+    // const input = document.querySelector('input');
+    // let toDoList = this.state.list.slice();
+    // let currInput = this.state.currentInput;
+    // if (input.value !== '') {
+    //   toDoList.push({
+    //     task: currInput,
+    //     id: Date.now(),
+    //     completed: false,
+    //   });
+    // }
+    this.setState(prevState => {
+      const input = document.querySelector('input');
+      let toDoList = this.state.list.slice();
+      let currInput = this.state.currentInput;
+      if (input.value !== '') {
+        toDoList.push({
+          task: currInput,
+          id: Date.now(),
+          completed: false,
+        });
+      }
+      // this.setState({list: toDoList});
+      input.value = '';
+      return {list: toDoList};
+    });
   };
 
   // captures the input of the user interaction
   captureInput = event => {
-    this.setState({currentInput: event.target.value});
+    let theEvent = event.target.value;
+    this.setState(prevState => {
+      return {currentInput: theEvent};
+    });
+    // this.setState({currentInput: event.target.value});
   };
 
   // marks and changes the "completed" element of the object. Also adds and removes classes for styling
   completed = event => {
-    let theList = this.state.list.slice();
-    theList.map(item => {
-      if (event.target.innerText === item.task) {
-        if (item.completed === false) {
-          item.completed = true;
-          event.target.classList.add('completed');
-          event.target.classList.remove('everythingElse');
-        } else {
-          item.completed = false;
-          event.target.classList.add('everythingElse');
-          event.target.classList.remove('completed');
+    let theEvent = event.target;
+    this.setState(prevState => {
+      let theList = this.state.list.slice();
+      theList.map(item => {
+        if (theEvent.innerText === item.task) {
+          if (item.completed === false) {
+            item.completed = true;
+            theEvent.classList.add('completed');
+            theEvent.classList.remove('everythingElse');
+          } else {
+            item.completed = false;
+            theEvent.classList.add('everythingElse');
+            theEvent.classList.remove('completed');
+          }
         }
-      }
+      });
     });
-    this.setState({list: theList});
+    // let theList = this.state.list.slice();
+    // theList.map(item => {
+    //   if (event.target.innerText === item.task) {
+    //     if (item.completed === false) {
+    //       item.completed = true;
+    //       event.target.classList.add('completed');
+    //       event.target.classList.remove('everythingElse');
+    //     } else {
+    //       item.completed = false;
+    //       event.target.classList.add('everythingElse');
+    //       event.target.classList.remove('completed');
+    //     }
+    //   }
+    // });
+    // this.setState({list: theList});
   };
 
   // function that changes the displayed items based on if they have been completed or not.
   clear = () => {
-    let newList = this.state.list.slice();
-    let finalList = newList.filter(item => {
-      return item.completed === false;
+    // let newList = this.state.list.slice();
+    // let finalList = newList.filter(item => {
+    //   return item.completed === false;
+    // });
+    this.setState(prevState => {
+      let newList = prevState.list.slice();
+      let finalList = newList.filter(item => {
+        return item.completed === false;
+      });
+      return {list: finalList};
     });
-    this.setState({list: finalList});
+    // this.setState({list: finalList});
     let setList = document.querySelectorAll('li');
     setList.forEach(listItem => {
       listItem.classList.remove('everythingElse');

@@ -19,3 +19,16 @@ export const ClearCompleted = props => {
 export const Input = props => {
   return <input placeholder={props.placeholder} onChange={props.input} />;
 };
+
+class ToDoForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentInput: '',
+    };
+  }
+
+  captureInput = event => {
+    this.setState({currentInput: event.target.value});
+  };
+}
