@@ -1,5 +1,4 @@
 import React from "react";
-import "google-fonts"
 import "reset-css";
 import "normalize.css";
 import "./App.css";

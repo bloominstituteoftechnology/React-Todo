@@ -1,5 +1,9 @@
-* {
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Shadows+Into+Light|Ubuntu');
+*{
   box-sizing: border-box;
+}
+
+html {
   font-size: 62.5%;
 }
 
@@ -13,4 +17,6 @@
 
 h1 {
   text-align: center;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 5rem;
 }
