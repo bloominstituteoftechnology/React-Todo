@@ -2,6 +2,8 @@ import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
+import "./components/TodoComponents/Todo.css";
+
 class App extends React.Component {
   constructor() {
     super();
@@ -29,28 +31,53 @@ class App extends React.Component {
     };
 
     const oldTodos = [...this.state.todos];
+
     oldTodos.push(newTodo);
 
     this.setState({ todos: oldTodos });
   };
 
   toggleCompleted = id => {
+    let todos = [...this.state.todos];
+
+    todos = todos.map(todo => {
+      //easier approach from Sandbox example
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+
+    this.setState({ todos: todos });
+
+    //more advanced notes from Sneha
+    /*
     const { todos } = this.state;
+
     const todoIndex = todos.findIndex(todo => todo.id === id);
-    todos[todoIndex].completed = true;
+
+    todos[todoIndex].completed = !todos[todoIndex].completed;
+
     const newTodos = [
-      ...todos.slice(0, todoIndex),
-      todos[todoIndex],
-      ...todos.slice(todoIndex + 1)
+      ...todos.slice(0, todoIndex), //items before edited object
+      todos[todoIndex], //edited todo object itself
+      ...todos.slice(todoIndex + 1) //items after edited todo object
     ];
+
     this.setState({ todos: newTodos });
+    */
   };
 
   render() {
     return (
       <div className="App">
         <h2>Actions</h2>
-        <TodoList todos={this.state.todos} />
+        <TodoList
+          todos={this.state.todos}
+          toggleCompleted={this.toggleCompleted}
+        />
         <TodoForm
           createNewTodoObject={this.createNewTodoObject}
           toggleCompleted={this.toggleCompleted}
