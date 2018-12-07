@@ -80,7 +80,6 @@ class App extends React.Component {
 
 
   startState = () => {
-    console.log('run')
     if( localStorage.getItem('tasks') !== null) {
       this.setState({tasks: JSON.parse(localStorage.tasks)})
     }
@@ -88,7 +87,6 @@ class App extends React.Component {
 
 filterHandler = (event, array) => {
   this.setState({filter: event.target.value});
-  console.log(this.state.filter)
 }
 
 submitHandler = (event) => {
