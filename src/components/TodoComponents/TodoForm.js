@@ -17,7 +17,7 @@ class ToDoForm extends React.Component {
 		this.props.createNewTodo(this.state.inputText)
 		this.setState( {inputText: ''} )
 	}
-
+ 
 	render(){
 		return (
 			<form onSubmit={this.submitHandler}>

@@ -10,7 +10,6 @@ class App extends React.Component {
     super()
     this.state = {
       todos: [],
-      condition: true
     };
   }
 
@@ -21,7 +20,7 @@ class App extends React.Component {
       const newTodo = {
         task: text,
         id: Date.now(),
-        status: true
+        status: false
       }
       oldTodos.push(newTodo)
       this.setState( { todos: oldTodos } )
@@ -29,14 +28,10 @@ class App extends React.Component {
   }
 
   fullyCompleted = (currentSelected) => {
-    // console.log(currentSelected)
-    const oldTodosAgain = this.state.todos.slice()
-    if(currentSelected.status === false) {
-      oldTodosAgain.status = true;
+    if(currentSelected.status === false){
+      const newSelected = currentSelected.slice()
+      console.log(newSelected)
     }
-
-    this.setState( { todos:oldTodosAgain})
-    // console.log(oldTodosAgain)
   }
 
 
@@ -51,10 +46,8 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <ToDoList
-          ToggleClass = {this.ToggleClass}
-
-          todos={this.state.todos}/>
-
+          todos={this.state.todos}
+          fullyCompleted = {this.fullyCompleted}/>
         <ToDoForm createNewTodo= { this.createNewTodo } />
       </div>
     );

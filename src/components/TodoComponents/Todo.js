@@ -6,20 +6,25 @@ class Todo extends React.Component {
 	constructor(props){
 		super(props)
 		this.state = {
-
 			isActive: true
 		}
 	}
 	completedHandler = () => {
 		// console.log('hi')
-		// this.props.fullyCompleted(currentSelected);
+		const currentSelected = this.props
+
+		this.props.fullyCompleted(currentSelected);
 	}
 
 	ToggleClass = (e) => {
 		// const currentSelected = this.props
-		this.setState({isActive: !this.state.isActive})
+		const currentSelected = this.props;
+		// const currentSelected = this.props
+			this.setState({isActive: !this.state.isActive})
+			this.props.fullyCompleted(currentSelected)
 		// console.log(currentSelected)
 
+ 
 	}
 
 	render(){	
