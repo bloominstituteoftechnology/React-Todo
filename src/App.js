@@ -34,6 +34,13 @@ class App extends React.Component {
     event.currentTarget.classList.toggle('crossout');
   }
   
+ 
+  cleared = (event) => {
+    event.preventDefault();
+    const newarr = [];
+    this.state.todos.map(todo => {if (todo.completed === false){newarr.push(todo)}});    
+    this.setState({todos: newarr})
+      }
   
 
 
@@ -49,7 +56,10 @@ class App extends React.Component {
 
         />
         
-        <TodoForm addTodo = {this.addTodo}/> 
+        <TodoForm addTodo = {this.addTodo}
+                  cleared = {this.cleared}
+        /> 
+        
         
       </div>
     );
