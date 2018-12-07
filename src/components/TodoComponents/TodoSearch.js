@@ -27,7 +27,11 @@ class TodoSearch extends React.Component {
   searchTodo = (event) => {
     event.preventDefault();
     const text = this.state.inputText.slice();
-    this.props.searchTodo(event, text);
+    if(!text) return;
+    if(this.props.todos === []) return;
+    const searchResult = this.props.todos.filter(todo => todo.task.toLowerCase().includes(text.toLowerCase()));
+    if(searchResult.length === 0) alert("Sorry, no todos found with text " + text);
+    this.props.updateSearch(event, searchResult);
   }
 
   render() {

@@ -18,14 +18,27 @@ class TodoForm extends React.Component {
   addTodo = (event) => {
     event.preventDefault();
     const text = this.state.inputText.slice();
-    this.props.addFromInput(event, text);
+    const todos = this.props.todos.slice();
+    if(!text) return;
+    const newTodo = {
+      task: text,
+      id: Date.now(),
+      completed: false
+    }
+    todos.push(newTodo);
+
+    this.props.updateTodos(event, todos);
     this.setState({inputText: ""});
   }
 
   //function to handle clicking on Clear Completed button
   removeCompleted = event => {
     event.preventDefault();
-    this.props.removeCompleted();
+    const notCompleted = this.props.todos.filter(td => !td.completed);
+    const searchNotCompleted = this.props.todoSearch.filter(td => !td.completed);
+
+    this.props.updateTodos(event, notCompleted);
+    this.props.updateSearch(event, searchNotCompleted);
   }
 
   render() {
