@@ -5,8 +5,8 @@ import './Todo.css';
 const Todo = props => {
   return (
     <div 
-     onClick={e => props.toggle(e)} 
-     className={`todo-item${props.todo.completed ? ' completed' : ''}`} 
+     onClick={props.toggle} 
+     className={`todo-item${props.todo.completed ? ' completed' : ''}${props.todo.searched ? ' searched' : ''}`} 
      data-id={props.todo.id}
     >
 
