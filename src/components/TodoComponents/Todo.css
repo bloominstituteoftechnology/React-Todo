@@ -51,6 +51,13 @@ li {
   font-size: 1.5rem;
 }
 
+.local {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
 .everythingElse {
   text-decoration: none;
 }

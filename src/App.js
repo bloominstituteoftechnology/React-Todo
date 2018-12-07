@@ -4,14 +4,17 @@ import ToDoList from './components/TodoComponents/TodoList.js';
 import {AddButton} from './components/TodoComponents/TodoForm.js';
 import {Input} from './components/TodoComponents/TodoForm.js';
 import {ClearCompleted} from './components/TodoComponents/TodoForm.js';
+import {Save} from './components/TodoComponents/TodoForm.js';
 
 // the main app
 
 class App extends React.Component {
   constructor() {
     super();
+    (this.local = window.localStorage),
+      (this.info = JSON.parse(this.local.getItem('info')));
     this.state = {
-      list: [],
+      list: this.info,
       currentInput: '',
     };
   }
@@ -52,6 +55,11 @@ class App extends React.Component {
       return {currentInput: theEvent};
     });
     // this.setState({currentInput: event.target.value});
+  };
+
+  setLocal = () => {
+    let info = JSON.stringify(this.state.list);
+    this.local.setItem('info', info);
   };
 
   // marks and changes the "completed" element of the object. Also adds and removes classes for styling
@@ -129,6 +137,7 @@ class App extends React.Component {
           <Input placeholder="Enter Your Task Here" input={this.captureInput} />
           <AddButton update={this.updateState} />
           <ClearCompleted clear={this.clear} />
+          <Save save={this.setLocal} />
         </div>
       </div>
     );
