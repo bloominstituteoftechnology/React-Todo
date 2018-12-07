@@ -13,6 +13,7 @@
 
 .placeholder-entry {
   color: #828282;
+  font-size: 2.4rem;
 }
 
 .todo-item {
@@ -33,12 +34,13 @@ form {
   width: 90%;
 }
 
-label {
+form label {
   text-decoration: underline;
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  font-size: 2.4rem;
+  color: #FFFFFF;
 
 }
 
@@ -55,6 +57,7 @@ label {
   display: flex;
   justify-content: space-around;
 }
+
 
 button {
   background-color: #57c7f1;
