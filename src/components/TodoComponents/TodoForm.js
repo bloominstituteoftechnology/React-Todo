@@ -19,6 +19,10 @@ class TodoForm extends React.Component {
     this.setState({ inputText: "" });
   };
 
+  delete = event => {
+    event.preventDefault();
+  };
+
   render() {
     return (
       <form onSubmit={this.submitHandler}>
@@ -28,7 +32,9 @@ class TodoForm extends React.Component {
           onChange={this.changeHandler}
         />
         <button type="submit">Add Todo</button>
-        <button>Clear Todos</button>
+        <button
+          onClick={this.delete}
+        >Clear Todos</button>
       </form>
     );
   }

@@ -10,7 +10,7 @@ class App extends Component {
     };
   }
 
-  createNewTodo = (text /* string */) => {
+  createNewTodo = (text) => {
     const newTodo = {
       task: text,
       id: Date.now(),
@@ -23,15 +23,21 @@ class App extends Component {
       return { todos: todos };
     });
   };
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+
+  deleteTodo = () => {
+
+  };
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todos} />
-        <TodoForm createTodo={this.createNewTodo} />
+        <TodoForm
+          createTodo={this.createNewTodo}
+          deleteTodo={this.deleteTodo}
+          todos={this.state.todos}
+        />
       </div>
     );
   }

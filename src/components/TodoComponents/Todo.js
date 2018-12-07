@@ -12,13 +12,16 @@ class Todo extends React.Component {
   completedHandler = () => {
     const currentState = this.state.marked;
     this.setState({ marked: !currentState });
+
   };
 
   render() {
     return (
       <li
         className={this.state.marked ? 'completed' : null}
-        onClick={this.completedHandler}>{this.props.todo.task}</li>
+        onClick={this.completedHandler}
+      >{this.props.todo.task}
+      </li>
     );
   }
 }
