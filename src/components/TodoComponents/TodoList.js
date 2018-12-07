@@ -5,10 +5,20 @@ import './Todo.css';
 import Todo from './Todo';
 
 const TodoList = props => {
-  console.log(props);
+  console.log(props)
+  const filteredSearch = props.tasks.filter(
+    (task) => {
+      return task.task.toLowerCase().indexOf(props.search.toLowerCase()) !=- 1;
+    }
+  );
+  // const filteredSearch = props.tasks.filter(
+  //   (task) => {
+  //     return task.task.indexOf(props.search) !== -1;
+  //   }
+  // )
   return (
     <div className="TodoListContainer">
-      {props.tasks.map(task => (
+      {filteredSearch.map(task => (
         <Todo
           toggleCompleteTask = {props.toggleCompleteTask}
           className="TodoList"

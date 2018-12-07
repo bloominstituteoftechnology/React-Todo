@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import Search from './components/SearchComponent/Search';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -21,7 +22,8 @@ class App extends React.Component {
           completed: false
         }
       ],
-      todo: ''
+      todo: '',
+      search: ''
     };
   }
 
@@ -68,8 +70,10 @@ class App extends React.Component {
   addTask = e => {
     e.preventDefault()
     const tasks = this.state.tasks.slice();
+    if (this.state.todo !== ''){
     tasks.push({ task: this.state.todo, completed: false, id: Date.now() });
     this.setState({ tasks, todo: ''});
+  }
   };
 
   toggleCompleteTask = id => {
@@ -94,11 +98,16 @@ class App extends React.Component {
     this.setState({tasks})
   };
 
+  updateSearch = (e) => {
+    this.setState({search: e.target.value.substr(0,20)});
+  }
+
   render() {
     return (
       <div className="app-container">
         <h1> Todo List: MVP</h1>
-        <TodoList tasks={this.state.tasks} toggleCompleteTask={this.toggleCompleteTask}/>
+        <Search value={this.state.search} updateSearch = {this.updateSearch}/>
+        <TodoList search={this.state.search} tasks={this.state.tasks} toggleCompleteTask={this.toggleCompleteTask}/>
         <TodoForm
           value={this.state.todo}
           handleTodoChange = {this.changeTodo}
