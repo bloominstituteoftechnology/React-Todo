@@ -53,7 +53,6 @@ class App extends React.Component {
     this.setState(prevState=>{
       const myTodoList = prevState.toDoList.slice()
 
-
       // find the to do
       let index = 0;
       const todo = myTodoList.find((e,i)=>{
@@ -75,7 +74,7 @@ class App extends React.Component {
    
   clearCompleted= event =>{
     event.preventDefault();
-    console.log(event.target)
+
     //copy state and filter out completed tasks
     const myTodoList= this.state.toDoList.slice().filter(e=>e.completed !==true)
 
