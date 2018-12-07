@@ -9,7 +9,7 @@ class Todo extends React.Component {
 
   render() {
     return (
-      <p id={this.props.taskId} onClick={this.handleToggleTask} className={this.props.completed.toString()}>{this.props.taskItem}</p>
+      <li id={this.props.taskId} onClick={this.handleToggleTask} className={this.props.completed.toString()}>{this.props.taskItem}</li>
     )
   }
 }

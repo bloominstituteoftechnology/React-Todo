@@ -47,10 +47,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="todo-container">
         <h2>Welcome to your Todo App!</h2>
-        <TodoList items={this.state.todo} toggleTask={this.handleToggleTask} />
-        <TodoForm onItemAdd={this.handleAddTask} newTask={this.state.newTask} onItemText={this.handleInputChange} onClearCompleted={this.handleClearCompleted}/>
+        <div className="list-container">
+          <TodoList items={this.state.todo} toggleTask={this.handleToggleTask} />
+          <TodoForm onItemAdd={this.handleAddTask} newTask={this.state.newTask} onItemText={this.handleInputChange} onClearCompleted={this.handleClearCompleted}/>
+        </div>
+        
       </div>
     );
   }
