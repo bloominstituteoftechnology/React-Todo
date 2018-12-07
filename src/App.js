@@ -2,18 +2,7 @@ import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
-const taskItems = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
-];
+const taskItems = [];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -45,19 +34,15 @@ class App extends React.Component {
 
   handleToggleTask = (taskId) => {
     this.setState(prevState => {
-      const task = prevState.todo.filter(task => task.id === taskId);
-      const taskStatus = task[0].completed === false ? task[0].completed = true : task[0].completed = false;
-      console.log(taskStatus);
-      return {todo: task}
-      // if (task[0].completed === true) {
-      //   task[0].completed = false;
-      //   return { todo: task }
-      // } else {
-      //   task[0].completed = true;
-      //   return { todo: task }
-      // }
+      const task = prevState.todo.find(task => task.id === taskId);
+      return task.completed === false ? task.completed = true : task.completed = false;
     })
-    console.log(this.state.todo)
+  }
+  handleClearCompleted = (event) => {
+    this.setState(prevState => {
+      const completed = prevState.todo.filter(task => task.completed === false);
+      return {todo: completed}
+    })
   }
 
   render() {
@@ -65,7 +50,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList items={this.state.todo} toggleTask={this.handleToggleTask} />
-        <TodoForm onItemAdd={this.handleAddTask} newTask={this.state.newTask} onItemText={this.handleInputChange} />
+        <TodoForm onItemAdd={this.handleAddTask} newTask={this.state.newTask} onItemText={this.handleInputChange} onClearCompleted={this.handleClearCompleted}/>
       </div>
     );
   }

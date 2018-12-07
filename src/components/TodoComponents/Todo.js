@@ -5,7 +5,6 @@ class Todo extends React.Component {
 
   handleToggleTask = (event) => {
     this.props.toggleTask(this.props.taskId)
-
   }
 
   render() {
