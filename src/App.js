@@ -38,10 +38,10 @@ class App extends React.Component {
   }
 
   toggleComplete = (event) => {
-    let todo = this.state.todoData.findIndex(p => p.id === Number(event.target.dataset.id))
+    let todo = this.state.todoData.findIndex(p => p.id === Number(event.target.dataset.id));
     let temp = this.state.todoData;
-    temp[todo].completed = !temp[todo].completed
-    this.setState({ todoData: temp })
+    temp[todo].completed = !temp[todo].completed;
+    this.setState({ todoData: temp });
   }
 
   clearCompleted = () => {
@@ -56,7 +56,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-container">
-        <h2>Welcome to your Todo App!</h2>
+        <h2>Make your very own ToDo List!</h2>
         <TodoList todos={this.state.todoData} toggle={this.toggleComplete} />
         <TodoForm todo={this.changeValue} add={this.addToDo} value={this.state.value} clearAll={this.clearAll} clear={this.clearCompleted} />
       </div>
