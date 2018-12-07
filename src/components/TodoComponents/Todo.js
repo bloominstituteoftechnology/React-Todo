@@ -1,10 +1,18 @@
 import React from "react";
+import './Todo.css';
 
-const ListItemRenderer = props => {
-  const {task} = props.taskItems;
-  return (
-    <p>{task}</p>
-  )
+class Todo extends React.Component {
+
+  handleToggleTask = (event) => {
+    this.props.toggleTask(this.props.taskId)
+
+  }
+
+  render() {
+    return (
+      <p id={this.props.taskId} onClick={this.handleToggleTask} className={this.props.completed.toString()}>{this.props.taskItem}</p>
+    )
+  }
 }
 
-export default ListItemRenderer;
+export default Todo;

@@ -31,7 +31,6 @@ class App extends React.Component {
     event.preventDefault();
     const taskItems = this.state.todo.slice();
     if (this.state.newTask.length > 0) {
-      console.log(taskItems);
       taskItems.push({task: this.state.newTask, id: Date.now(), completed: false});
       this.setState({todo: taskItems});
       this.setState({newTask: ""});
@@ -40,16 +39,32 @@ class App extends React.Component {
 
   handleInputChange = (event) => {
     if (event.target.value.length > 0) {
-      console.log(event.target.value);
       this.setState({newTask: event.target.value});
     }
   }
-  
+
+  handleToggleTask = (taskId) => {
+    this.setState(prevState => {
+      const task = prevState.todo.filter(task => task.id === taskId);
+      const taskStatus = task[0].completed === false ? task[0].completed = true : task[0].completed = false;
+      console.log(taskStatus);
+      return {todo: task}
+      // if (task[0].completed === true) {
+      //   task[0].completed = false;
+      //   return { todo: task }
+      // } else {
+      //   task[0].completed = true;
+      //   return { todo: task }
+      // }
+    })
+    console.log(this.state.todo)
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList items={this.state.todo}/>
+        <TodoList items={this.state.todo} toggleTask={this.handleToggleTask} />
         <TodoForm onItemAdd={this.handleAddTask} newTask={this.state.newTask} onItemText={this.handleInputChange} />
       </div>
     );
