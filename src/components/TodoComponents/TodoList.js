@@ -2,14 +2,20 @@
 // feel free to change this component.js into TodoList.js
 
 import React from 'react';
-
+import Todo from './Todo';
 
 const TodoList = props => {
     
     return (
         <ul>
-            {props.billys.map(todo => {
-            return <li key={Math.random()} onClick={props.markComplete}>{todo.task}</li>;
+            {props.todos.map(todo => {
+                return (
+                <Todo 
+                    checkTodo={props.checkTodo} 
+                    key={todo.id} 
+                    todo={todo}
+                />
+                )
             })}
         </ul>
     )

@@ -1,24 +1,13 @@
-const todos = [
-    {
-    task: 'Apples',
-    id: 1528817077286,
-    completed: false
-    },
-    {
-    task: 'Oranges',
-    id: 1528817084358,
-    completed: false
-    },
-    {
-    task: 'Milk',
-    id: 1528817084358,
-    completed: false
-    },
-    {
-    task: 'Toilet Paper',
-    id: 1528817084358,
-    completed: false
-    }
-]
+import React from 'react';
 
-export default todos;
+const Todo = props => {
+
+    return (
+        <li id={props.todo.id} onClick={() => props.checkTodo(props.todo)} >
+            {props.todo.task} <span class="fa fa-check"></span>
+        </li>
+    );
+};
+
+
+export default Todo;

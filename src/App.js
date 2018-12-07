@@ -1,9 +1,9 @@
 import React from 'react';
 
 import TodoList from './components/TodoComponents/TodoList';
-import Todos from './components/TodoComponents/Todo';
+import TodoForm from './components/TodoComponents/TodoForm';
 
-import './components/TodoComponents/Todo';
+import './components/TodoComponents/Todo.css';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -14,45 +14,88 @@ class App extends React.Component {
     this.state = {
       name: 'Billy`s List',
       placeholder: 'Add an item',
-      todos: Todos,
-      todo: ""
+      todos: [
+        {
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        },
+        {
+          task: 'Clean More',
+          id: 1528817011158,
+          completed: false
+        }
+      ],
+      todo: "",
+      completedList: []
     } 
   }
-  addTodo = () => {
-    const todos = this.state.todos.slice();
 
-    const input = document.querySelector('#todo-input');
+  addTodo = (text) => {
+
+    const currentTodos = this.state.todos.slice();
 
     const newItem = {
-      task: input.value,
+      task: text,
       id: Date.now(),
       completed: false
     }
-    todos.push(newItem);
-    this.setState({todos: todos});
-    input.value = this.state.placeholder;
+
+    if (newItem.task === '') {
+      currentTodos.push();
+    }
+    else {
+      currentTodos.push(newItem);
+    }
+    this.setState({todos: currentTodos});
 
   }
-  markComplete = event => {
-    console.log(event.target);
 
+  markComplete = (todo) => {
+    
+    const htmlElementsArray = document.querySelectorAll('li');
+    let todoID = Number(todo.id);
+
+    if (todo.completed === true) {
+      todo.completed = false;
+    }
+    else {
+      todo.completed = true;
+    }
+    for (let i=0; i < htmlElementsArray.length; i++) {
+      let htmlElementID = Number(htmlElementsArray[i].id);
+      
+      if (htmlElementID === todoID) {
+        htmlElementsArray[i].classList.toggle('completed');
+      }
+    }
   }
+
   clear = () => {
+    const cleared = this.state.todos.slice();
+    const newArray = [];
+    cleared.filter(clearItem => {
+      if (clearItem.completed === false) {
+          newArray.push(clearItem)
+      }
+      return newArray;
+    })
+
+    this.setState({todos: newArray});
 
   }
-  
 
   render() {
     return (
-      <div>
+      <div className="wrapper">
         <h1>{this.state.name}</h1>
-        <input 
-            type="text"
-            id="todo-input"
-            placeholder="Add Todo"
-        />
-        <button onClick={this.addTodo}>Add To Do</button>
-        <TodoList markComplete={this.markComplete} billys={this.state.todos}/>
+        <TodoForm removeCompleted={this.clear} createTodo={this.addTodo}/>
+        <TodoList checkTodo ={this.markComplete} todos={this.state.todos}/>
       </div>
     );
   }
