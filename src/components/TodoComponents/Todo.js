@@ -1,17 +1,33 @@
 import React from 'react';
-
-import TodoForm from "./TodoForm.js"
-
-const Task = props => {
-  const { task } = props.displayTask;
-  
+import './Todo.css'
 
 
-  return (
-    <div>
-      <h3>Task: { task } </h3>
-    </div>
-  )
+class Todo extends React.Component {
+	constructor(props){
+		super(props)
+		this.state = {
+
+			isActive: true
+		}
+	}
+	completedHandler = () => {
+		// console.log('hi')
+		// this.props.fullyCompleted(currentSelected);
+	}
+
+	ToggleClass = (e) => {
+		// const currentSelected = this.props
+		this.setState({isActive: !this.state.isActive})
+		// console.log(currentSelected)
+
+	}
+
+	render(){	
+		return  <li 
+					className = {(this.state.isActive) ? 'non-active' : 'active'}
+					onClick = {this.ToggleClass}> {this.props.task} </li>
+	}
 }
 
-export default Task;
+
+export default Todo;

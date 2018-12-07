@@ -1,67 +1,64 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-// import TodoForm from './components/TodoComponents/TodoForm.js';
-import List from './components/TodoComponents/TodoList.js';
-import Task from './components/TodoComponents/Todo.js';
+import ToDoList from './components/TodoComponents/TodoList.js';
+import ToDoForm from './components/TodoComponents/TodoForm.js';
+import './components/TodoComponents/Todo.css'
+
+
 
 class App extends React.Component {
   constructor() {
-    super();
-    this.state= {
-      tasks: List,
-      task: ""
+    super()
+    this.state = {
+      todos: [],
+      condition: true
+    };
+  }
 
+
+  createNewTodo = (text) => {
+    if(text !== ""){
+      const oldTodos = this.state.todos.slice()
+      const newTodo = {
+        task: text,
+        id: Date.now(),
+        status: true
+      }
+      oldTodos.push(newTodo)
+      this.setState( { todos: oldTodos } )
     }
   }
 
-  handleUpdateState = e => {
-    e.preventDefault();
-    const newTasks = this.state.tasks.slice();
-    newTasks.push({
-      id: new Date(),
-      task: this.state.task,
-      completed: false
-    });
-    this.setState({ tasks: newTasks });
-  };
+  fullyCompleted = (currentSelected) => {
+    // console.log(currentSelected)
+    const oldTodosAgain = this.state.todos.slice()
+    if(currentSelected.status === false) {
+      oldTodosAgain.status = true;
+    }
 
-
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  finishSelected = () => {
-    console.log("finish!");
+    this.setState( { todos:oldTodosAgain})
+    // console.log(oldTodosAgain)
   }
+
+
+
 
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
+
   render() {
     return (
       <div>
-        <h2>Welcome to the TODO APP!</h2>
+        <h2>Welcome to your Todo App!</h2>
+        <ToDoList
+          ToggleClass = {this.ToggleClass}
 
-        {this.state.tasks.map(task => (
-          <Task displayTask = {task} />
-        ))}
+          todos={this.state.todos}/>
 
-
-        <form onSubmit={this.handleUpdateState}>
-          <button>Click to Add</button>
-          <input name="task" 
-          value={this.state.task} 
-          onChange={this.handleInputChange} />
-        </form>
-
+        <ToDoForm createNewTodo= { this.createNewTodo } />
       </div>
-
-    )
+    );
   }
 }
-
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
 
 export default App;

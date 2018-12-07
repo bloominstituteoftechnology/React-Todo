@@ -1,0 +1,7 @@
+.active {
+	text-decoration: line-through;
+}
+
+.non-active {
+	text-decoration: none;
+}
