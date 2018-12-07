@@ -27,58 +27,53 @@ class App extends React.Component {
     };
   }
 
-  addToDo = event =>{
-    //prevent default
-    event.preventDefault()
+  /*
+    the ideas were going to pass down the function
+    and because of this method is defined in here
+    this refers to app.js' this
+  
+  */
+  addToDo = (text) =>{
+    const newTodo = {
+      task: text,
+      id: Date.now(),
+      completed: false
+    };
 
-    // get the input box
-    const input=document.querySelector('#todo-input')
-
-    // make a copy of state
-    const myTodoList= this.state.toDoList.slice()
-
-    //  make a new to do
-    const newToDo = {
-        task: input.value,
-        id: Date.now(),
-        completed: false
-    }
-
-    // add thee new to do
-    myTodoList.push(newToDo)
-
-    //update state
-    this.setState({toDoList: myTodoList})
-
-    //clear input
-    input.value= ""
+    this.setState(prevState => {
+      const todos = prevState.toDoList.slice();
+      todos.push(newTodo);
+      return { toDoList: todos };
+    });
   }
 
   toggleCompleted = event=>{
-    console.log(event.target.innerText)
-    //copy state
-    const myTodoList= this.state.toDoList.slice()
+    const myKey = event.target.dataset.key
 
-    // find the to do
-    let index = 0;
-    const todo = myTodoList.find((e,i)=>{
-      index = i;
-      return e.task === event.target.innerText
+    this.setState(prevState=>{
+      const myTodoList = prevState.toDoList.slice()
+
+
+      // find the to do
+      let index = 0;
+      const todo = myTodoList.find((e,i)=>{
+        index = i;
+        return e.id.toString() === myKey
+      })
+
+      //toggle the completed
+      todo.completed === false? todo.completed = true: todo.completed=false;
+      
+      //update copied state
+      myTodoList[index] = todo;
+
+       // update actual state
+      return {toDoList:myTodoList}
     })
-
-    //toggle the completed
-    todo.completed === false? todo.completed = true: todo.completed=false;
-    
-    //update copied state
-    myTodoList[index] = todo;
-    console.log(todo)
-
-    // update actual state
-    this.setState({toDoList:myTodoList})
 
   }
    
-  clearCompleted= event=>{
+  clearCompleted= event =>{
     event.preventDefault();
     console.log(event.target)
     //copy state and filter out completed tasks
@@ -90,7 +85,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <div className="container is-dark with-title app-wrapper">
         <h2 className="title">Welcome to your Todo App!</h2>
@@ -98,7 +93,7 @@ class App extends React.Component {
           <h3 className="title">To-Dos</h3>
           <ToDoList list={this.state.toDoList} toggleCompleted={this.toggleCompleted} />
         </div>
-        <ToDoForm clickHandler={this.addToDo} clearCompleted={this.clearCompleted}/>
+        <ToDoForm addToDo={this.addToDo} clearCompleted={this.clearCompleted}/>
       </div>
       
     );
