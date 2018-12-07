@@ -4,10 +4,10 @@ import './Todo.css';
 const TodoForm = props =>{
   return (
     <div>
-      <form onSubmit={props.onSubmit}>
-        <input placeholder='...todo' value={props.value} onChange={props.onChange}/>
-        <button>Add Todo</button>
-        <button>Clear Completed</button>
+      <form onSubmit={props.submit}>
+        <input placeholder='...todo' value={props.value} onChange={props.change}/>
+        <button type='sumbit'>Add Todo</button>
+        <button type='reset'>Clear Completed</button>
       </form>
     </div>
   );

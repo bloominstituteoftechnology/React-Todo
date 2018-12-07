@@ -12,19 +12,27 @@ class App extends React.Component {
     };
   }
 
-  onChange = e =>{
+  createNewTodo = (text) =>{
+    const newTodo = {
+      task: text,
+      id: Date.now(),
+      completed: false
+    };
+    this.setState(prevState => {
+      const todos = prevState.todoList.slice();
+      todos.push(newTodo);
+      return { todoList: todos };
+    });
+  }
+
+  changeHandler = e =>{
     this.setState({todoInput: e.target.value});
   }
 
-  onSubmit = e =>{
+  submitHandler = e =>{
     e.preventDefault();
-    this.setState
-    (
-      {
-        todoInput: '',
-        todoList: [...this.state.todoList, this.state.todoInput]
-      }
-    );
+    this.createNewTodo(this.state.todoInput);
+    this.setState({todoInput: ''});
   }
 
   render() {
@@ -32,7 +40,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todoItem={this.state.todoList} />
-        <TodoForm onSubmit={this.onSubmit} value={this.state.todoInput} onChange={this.onChange}/>
+        <TodoForm submit={this.submitHandler} value={this.state.todoInput} change={this.changeHandler}/>
       </div>
     );
   }
