@@ -1,5 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
+import { getHeapStatistics } from 'v8';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -8,25 +10,40 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ]
-    }
+      todos: []
+    };
   }
+  CreateTodo = (todo) => {
+    const newTodo = {
+      task: this.state.inputText,
+      id: Date.now(),
+      completed: false
+    };
+
+    this.setState(prevState => {
+      const todos = prevState.todos.slice();
+      todos.push(newTodo);
+      return { todos: todos };
+
+    })
+   
+  }
+  handleChange = (event) => {
+        this.setState({
+      [event.target.name]: event.target.value
+    });
+    console.log(event.target.name);
+  };
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos = {this.state.todos} />
+        <TodoList todos={this.state.todos} />
+        <TodoForm
+          addTodo={this.CreateTodo}
+          inputText={this.state.inputText}
+          handleChange={this.handleChange}
+        />
       </div>
     );
   }
