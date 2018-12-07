@@ -1,6 +1,6 @@
 import React from 'react'
 // import TodoList from './TodoList';
-
+import "./Todo.css"
 
 class TodoForm extends React.Component {
   constructor(props){
@@ -18,21 +18,15 @@ class TodoForm extends React.Component {
     this.setState ({inputText:''})
   }
   
-  // clearHandler = (event) => {
-  //   event.preventDefault()
-  //   this.props.cleared()
-  // }
-
-  
-
-
   render(){
       return (
     <form>
       <input 
+      required
       type = "text"
       value = {this.state.inputText}
       onChange = {this.changeHandler}
+      
       />
       <button type="submit" onClick = {this.submitHandler} >Add Todo</button>
       <button type="submit" onClick = {this.props.cleared}>Clear Todos</button>

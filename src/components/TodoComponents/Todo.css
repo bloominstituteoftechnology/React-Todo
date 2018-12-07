@@ -1,4 +1,32 @@
 .crossout{
   text-decoration: line-through;
+  color:red;
+}
+input{
+  background: slateblue;
+  color:white;
+  margin: 0% 2% 0% 3%;
 }
 
+ul {
+  background : lightgreen;
+}
+div{
+  background:lightyellow;
+  max-width: 400px;
+  border: 1px solid black;
+}
+form button:nth-child(2){
+  background: greenyellow;
+ border-radius: 25%;
+ margin: 2% 2% 4% 2%;
+ width: 22%;
+}
+form button:nth-child(3){
+  background: lightpink;
+  border-radius: 25%;
+ margin: 2% 2% 4% 2%;
+}
+h2{
+margin: 3% 0% 0% 6%;
+}

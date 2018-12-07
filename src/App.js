@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList"
 import TodoForm from "./components/TodoComponents/TodoForm"
+import "./components/TodoComponents/Todo.css"
 
 
 class App extends React.Component {
@@ -30,6 +31,7 @@ class App extends React.Component {
    todos.push(newTodos)
     this.setState({todos: todos})
   }
+
   crossOut = (event) => {
     event.currentTarget.classList.toggle('crossout');
   }
@@ -38,7 +40,7 @@ class App extends React.Component {
   cleared = (event) => {
     event.preventDefault();
     const newarr = [];
-    this.state.todos.map(todo => {if (todo.completed === false){newarr.push(todo)}});    
+    this.state.todos.map(todo => {if (todo.completed === false){return newarr.push(todo)}else{return console.log(todo)}});    
     this.setState({todos: newarr})
       }
   
