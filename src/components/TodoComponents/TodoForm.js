@@ -1,6 +1,4 @@
 import React from 'react';
-import Todo from './Todo';
-import TodoList from './TodoList';
 
 class TodoForm extends React.Component {
   constructor(props){
@@ -28,7 +26,7 @@ class TodoForm extends React.Component {
       <form onSubmit = {this.submitHandler}>
         <input type = "text" placeholder = "Add Task" value = {this.state.inputText} onChange = {this.changeHandler}></input>
         <button type = "submit" >Add Task</button>
-        <button type = "button">Clear Completed</button>
+        <button type = "button" onClick = {this.props.clearHandler}>Clear Completed</button>
       </form>
     );
   }

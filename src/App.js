@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 
   submitFn = text => {
-    if(text != ""){
+    if(text !== ""){
       const newTodo = {
         task: text,
         id: Date.now(),
@@ -34,8 +34,7 @@ class App extends React.Component {
   };
 
   toggleTodo = id => {
-    let task = this.state.todos.slice();
-    task = task.map(todo => {
+    let task = this.state.todos.map(todo => {
       if(id === todo.id ){
         todo.completed = !todo.completed
         return todo
@@ -47,7 +46,18 @@ class App extends React.Component {
     this.setState({
       todos: task
     })
+  }
 
+  clearHandler = event => {
+    if(!this.state.todos.completed){
+      let newArray = this.state.todos.filter(props => {
+        return props.completed !== true
+      })
+
+      this.setState({
+        todos: newArray
+      })
+    }
   }
 
   render() {
@@ -55,7 +65,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos = {this.state.todos} toggleTodo = {this.toggleTodo} />
-        <TodoForm submitFn = {this.submitFn} />
+        <TodoForm submitFn = {this.submitFn} clearHandler = {this.clearHandler}/>
       </div>
     );
   }
