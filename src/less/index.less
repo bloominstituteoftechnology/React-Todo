@@ -1,3 +1,4 @@
+@clr-white: #eef4f2;
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +7,7 @@
 }
 
 body {
-  background: navy;
+  background: #233656;
   display: flex;
   width: 100%;
   height: 100vh;
@@ -17,20 +18,52 @@ body {
 .todo {
   border-radius: 10px;
   width: 50%;
+  max-width: 800px;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem;
-  background: slategrey;
+  padding: 1rem 6rem;
+  background: #6f89a3;
+  text-align: center;
+  @media (max-width: 1333px) {
+    padding: 1rem;
+  }
   @media (max-width: 950px) {
+    padding: 1rem;
     width: 95%;
+  }
+  &__search {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    &__hidden {
+      display: none;
+      transition: all 200ms ease-in-out;
+    }
+    &__searchbox {
+      width: 85%;
+      background: @clr-white;
+      border: none;
+      padding: 7px;
+      border-radius: 5px;
+      transition: all 200ms ease-in-out;
+      @media (max-width: 950px) {
+        padding: 10px;
+        margin: 0.5rem 0;
+      }
+    }
   }
   &__title {
     text-align: center;
   }
   &__list {
-    padding: 1rem 2rem 2rem;
+    width: 85%;
+    margin: auto;
+    padding: 1rem 0 2rem;
   }
   &__item {
     padding: 0.35rem 0;
@@ -38,7 +71,9 @@ body {
     position: relative;
     &:after {
       content: "";
-      width: 40%;
+      width: 100%;
+      left: -50%;
+      transform: translateX(50%);
       bottom: 0;
       height: 1px;
       position: absolute;
@@ -54,7 +89,7 @@ body {
       flex-direction: column;
     }
     button {
-      background: white;
+      background: @clr-white;
       border: none;
       padding: 7px;
       border-radius: 5px;
@@ -65,6 +100,7 @@ body {
       }
     }
     input {
+      background: @clr-white;
       border: none;
       padding: 7px;
       border-radius: 5px;

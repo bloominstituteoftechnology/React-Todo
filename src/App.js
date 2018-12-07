@@ -8,10 +8,30 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      list: []
+      list: [],
+      searchList: [],
+      searching: false
     };
+    this.searchBox = null;
   }
-
+  search = e => {
+    this.searchBox = e.target.parentNode.querySelector(
+      ".todo__search__searchbox"
+    );
+    this.searchBox.classList.toggle("todo__search__hidden");
+  };
+  searchHandler = e => {
+    this.setState({
+      searchList: this.state.list.filter(todo => {
+        return (
+          todo.task.includes(...e.target.value.split``) &&
+          todo.task !== undefined &&
+          todo.task !== ""
+        );
+      }),
+      searching: e.target.value.length > 0
+    });
+  };
   handleInputChange = e => {
     e.preventDefault();
     let newTodo = this.state.list.slice();
@@ -38,6 +58,12 @@ class App extends React.Component {
       });
     }
   };
+  handleAll = _ => {
+    console.log("hi");
+    this.setState({
+      list: []
+    });
+  };
   handleStrike = id => {
     this.setState({
       list: this.state.list.map(e => {
@@ -52,11 +78,24 @@ class App extends React.Component {
   render() {
     return (
       <div className="todo">
-        <h2 className="todo__title">Todo list: MVP</h2>
-        <TodoList list={this.state.list} strike={this.handleStrike} />
+        <h2 className="todo__title">To-Do list: MVP</h2>
+        <span className="todo__search">
+          <i onClick={this.search} className="fas fa-search" />
+          <input
+            type="text"
+            placeholder="Search..."
+            className="todo__search__hidden todo__search__searchbox"
+            onChange={this.searchHandler}
+          />
+        </span>
+        <TodoList
+          list={!this.state.searching ? this.state.list : this.state.searchList}
+          strike={this.handleStrike}
+        />
         <TodoForm
           change={this.handleInputChange}
           clearCompleted={this.handleClear}
+          clearAll={this.handleAll}
         />
       </div>
     );
