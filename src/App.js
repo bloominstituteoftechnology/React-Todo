@@ -70,6 +70,21 @@ class App extends React.Component {
     */
   };
 
+  clear = () => {
+    const cleared = [...this.state.todos];
+    const todos = [];
+
+    cleared.filter(todo => {
+      if (todo.completed === false) {
+        return todos.push(todo);
+      }
+      console.log(todos);
+      return todos;
+    });
+
+    this.setState({ todos: todos });
+  };
+
   render() {
     return (
       <div className="App">
@@ -81,6 +96,7 @@ class App extends React.Component {
         <TodoForm
           createNewTodoObject={this.createNewTodoObject}
           toggleCompleted={this.toggleCompleted}
+          clear={this.clear}
         />
       </div>
     );
