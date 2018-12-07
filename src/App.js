@@ -24,7 +24,7 @@ class App extends React.Component {
     this.setState({
       searchList: this.state.list.filter(todo => {
         return (
-          todo.task.includes(...e.target.value.split``) &&
+          todo.task.includes(e.target.value) &&
           todo.task !== undefined &&
           todo.task !== ""
         );

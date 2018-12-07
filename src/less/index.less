@@ -26,10 +26,11 @@ body {
   padding: 1rem 6rem;
   background: #6f89a3;
   text-align: center;
-  @media (max-width: 1333px) {
+  @media (max-width: 1456px) {
     padding: 1rem;
+    width: 95%;
   }
-  @media (max-width: 950px) {
+  @media (max-width: 1456px) {
     padding: 1rem;
     width: 95%;
   }
@@ -42,7 +43,6 @@ body {
     cursor: pointer;
     &__hidden {
       display: none;
-      transition: all 200ms ease-in-out;
     }
     &__searchbox {
       width: 85%;
@@ -51,7 +51,7 @@ body {
       padding: 7px;
       border-radius: 5px;
       transition: all 200ms ease-in-out;
-      @media (max-width: 950px) {
+      @media (max-width: 1456px) {
         padding: 10px;
         margin: 0.5rem 0;
       }
@@ -61,6 +61,7 @@ body {
     text-align: center;
   }
   &__list {
+    cursor: pointer;
     width: 85%;
     margin: auto;
     padding: 1rem 0 2rem;
@@ -85,7 +86,7 @@ body {
     align-self: center;
     display: flex;
     justify-content: space-between;
-    @media (max-width: 950px) {
+    @media (max-width: 1456px) {
       flex-direction: column;
     }
     button {
@@ -93,7 +94,7 @@ body {
       border: none;
       padding: 7px;
       border-radius: 5px;
-      @media (max-width: 950px) {
+      @media (max-width: 1456px) {
         width: auto;
         display: inline-block;
         margin: 0.5rem 0;
@@ -104,7 +105,7 @@ body {
       border: none;
       padding: 7px;
       border-radius: 5px;
-      @media (max-width: 950px) {
+      @media (max-width: 1456px) {
         padding: 10px;
         margin: 0.5rem 0;
       }
