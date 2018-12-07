@@ -63,14 +63,13 @@ class App extends Component{
   };
 
   completeTodoHandle = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     let completedMessage = this.state.todo.slice();
     completedMessage = completedMessage.filter(
       todo => !todo.completed);
-  this.setState({
-      completedMessage
-    })
-  }
+  this.setState({ todo: completedMessage });
+  console.log("Elements left", completedMessage)
+  }; 
 
 
   render (){

@@ -1,18 +1,6 @@
 import React from 'react';
 import './Todo.css';
 
-
-// const Todo = props => {
-//     console.log(props.todo)
-//     return (
-//     <div className="todo" onClick={props.todo.completedMessage}>
-//             <h2>{props.todo.todo}</h2>
-//     </div>
-//     );
-// };
-
-// export default Todo;
-
 const Todo = props => {
     console.log(props.todo)
     return (
