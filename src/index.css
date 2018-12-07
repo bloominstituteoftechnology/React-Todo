@@ -17,17 +17,15 @@ h1 {
   margin-top: 15px;
 }
 
-
-
 @media (max-width: 600px) {
-body {
-  max-width: 600px;
-  width: 97%;
-  margin: 0 auto;
-  font-size: 1.4rem;
-}
+  body {
+    max-width: 600px;
+    width: 97%;
+    margin: 0 auto;
+    font-size: 1.4rem;
+  }
 
-h1 {
-  font-size: 2.8rem;
-}
+  h1 {
+    font-size: 2.8rem;
+  }
 }
