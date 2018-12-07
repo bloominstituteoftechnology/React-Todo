@@ -10,6 +10,7 @@ class TodoList extends Component {
     return (
       <div className="todoListMain">
         <div className="header">
+        <div>Todo List: MVP</div>
           <form onSubmit={this.props.addItem}>
             <input
               placeholder="Task"
@@ -17,7 +18,8 @@ class TodoList extends Component {
               value={this.props.currentItem.text}
               onChange={this.props.handleInput}
             />
-            <button type="submit"> Add Task </button>
+            <button type="submit"> Add Todo </button>
+            <button type="delete">Clear Completed</button>
           </form>
         </div>
       </div>
