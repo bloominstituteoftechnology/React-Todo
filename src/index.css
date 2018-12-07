@@ -1,0 +1,33 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 900px;
+  width: 95%;
+  margin: 0 auto;
+  font-size: 1.8rem;
+  background-color: #0ccfe9;
+}
+
+h1 {
+  font-size: 4.8rem;
+  text-align: center;
+  margin-top: 15px;
+}
+
+
+
+@media (max-width: 700px) {
+body {
+  max-width: 600px;
+  width: 97%;
+  margin: 0 auto;
+  font-size: 1.4rem;
+}
+
+h1 {
+  font-size: 2.8rem;
+}
+}

@@ -28,7 +28,6 @@ class App extends React.Component {
     event.target.classList.toggle('complete');
     const targetId= event.target.id;
     const switchArray = this.state.listArr;
-    console.log(targetId);
 
     const toggleArray = switchArray.map( item => {
       if(item.id === Number(targetId) && item.completed === false) {
@@ -63,8 +62,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>What To Do, What To Do?</h2>
+        <h1>What To Do, What To Do?</h1>
+        <div className="listbox">
         <TodoList clickHandler={this.entryClick} todoList={this.state.listArr} />
+        </div>
         <TodoForm addEntry={this.addItem} clearCompleted={this.clearCompleted}/>
       </div>
     );
