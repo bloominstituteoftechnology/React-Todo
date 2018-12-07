@@ -1,32 +1,38 @@
-import React, { Component } from 'react';
-import TodoList from './components/TodoComponents/TodoList';
+import React, { Component } from "react";
+import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
 class App extends Component {
-  state = {
-    todos: [
-      {
-        task: 'Tasks',
-        completed: false
-      },
-    ]
+  constructor() {
+    super();
+    this.state = {
+      todos: []
+    };
   }
 
-  addTask = (todo) => {
-    const { todos } = this.state;
-    todos.push({
-      task: todo,
+  createNewTodo = (text /* string */) => {
+    const newTodo = {
+      task: text,
+      id: Date.now(),
       completed: false
+    };
+
+    this.setState(prevState => {
+      const todos = prevState.todos.slice();
+      todos.push(newTodo);
+      return { todos: todos };
     });
-
-    this.setState({ todos: todos });
-    console.log(this.state);
   };
-
+  // you will need a place to store your state in this component.
+  // design `App` to be the parent component of your application.
+  // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <TodoList
-        todo={this.state.todos}
-        clicked={this.addTask} />
+      <div>
+        <h2>Welcome to your Todo App!</h2>
+        <TodoList todos={this.state.todos} />
+        <TodoForm createTodo={this.createNewTodo} />
+      </div>
     );
   }
 }
