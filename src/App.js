@@ -60,6 +60,8 @@ class App extends React.Component {
     //pushing new contents into the shallow copy created by this.state.todos.slice();
     this.setState({ todos, todo: '' });
     //  persist data in local storage
+    //  localStorage.setItem('todos', JSON.stringify(todos))
+    //  localStorage.setItem('todo', JSON.stringify(todo)) ===>returns undefined
      localStorage.setItem('todos', JSON.stringify(this.state.todos))
      localStorage.setItem('todo', JSON.stringify(this.state.todo))
      console.log(JSON.parse(window.localStorage.getItem(this.state.todos)))

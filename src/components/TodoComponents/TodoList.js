@@ -12,6 +12,10 @@ import Todo from './Todo';
 //     )
 // }
 
+//passing props
+//mapping over todos from state on app
+//returning the new array
+//placing and returning the toggle handler on <Todo />
 const TodoList = props => {
     return (
         <div>
