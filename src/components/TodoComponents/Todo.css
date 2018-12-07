@@ -1,0 +1,27 @@
+
+body {
+    background-color: aliceblue;
+    text-align: center;
+}
+
+input {
+    border:1px solid black;
+    margin-right: 10px;
+    height: 20px;
+}
+
+button {
+    border:1px solid black;
+    background-color: white;
+    margin-right: 10px;
+    height: 20px;
+    border-radius: 10%;
+}
+
+ .add {
+    background-color: teal;
+}
+
+ .clear {
+    background-color: lightcoral;
+}

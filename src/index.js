@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from 'react-dom';
 import App from './App';
+import ReactDOM from 'react-dom';
 
 const myTitle=props=>{
 
@@ -30,3 +30,4 @@ const  myArr=[
 
 ];
 
+ReactDOM.render(<App />, document.getElementById('root'));
