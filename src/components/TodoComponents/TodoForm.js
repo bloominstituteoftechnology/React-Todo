@@ -24,8 +24,8 @@ class TodoForm extends React.Component {
   return (
     <form>
       <label>
-        Add task:
-      <input onChange={this.inputHandler} type="text" value={this.state.userInput} placeholder="What do you want to do?" />
+        Add task
+      <input className="input-field" onChange={this.inputHandler} type="text" value={this.state.userInput} placeholder="What do you want to do?" />
       </label>
       <div className="button-container">
       <button onClick={this.submitHandler} type="submit">Submit</button>

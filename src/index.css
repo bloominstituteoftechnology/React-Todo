@@ -19,7 +19,7 @@ h1 {
 
 
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 body {
   max-width: 600px;
   width: 97%;

@@ -1,8 +1,11 @@
 .listbox {
+  max-width: 800px;
+  width: 90%;
+
   border: 4px solid #FFFFFF;
   border-radius: 5px;
   padding: 10px 3%;
-  margin-top: 10px;
+  margin: 20px auto;
   background-color: #57c7f1;
   display: flex;
   flex-direction: column;
@@ -12,30 +15,73 @@
   color: #828282;
 }
 
+.todo-item {
+  margin: 10px 0;
+  color: #FFFFFF;
+  font-size: 2.4rem;
+}
+
+.todo-item:hover {
+  cursor: pointer;
+}
+
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  width: 90%;
 }
 
+label {
+  text-decoration: underline;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
 
+}
 
+.input-field {
+  margin: 10px auto;
+  max-width: 500px;
+  width: 100%;
+  font-size: 2.0rem;
+}
 
+.button-container {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
 
+button {
+  background-color: #57c7f1;
+  color: #FFFFFF;
+  border: 4px solid #FFFFFF;
+  border-radius: 10px;
+  font-size: 2.4rem;
 
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 .complete {
   text-decoration: line-through;
+}
+
+@media (max-width: 600px) {
+
+  .todo-item {
+    font-size: 1.8rem;
+    margin: 5px 0;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    margin: 10px auto;
+  }
 }
