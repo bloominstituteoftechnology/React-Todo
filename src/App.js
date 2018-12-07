@@ -38,6 +38,7 @@ class App extends React.Component {
   appendNewTodo = text => {
     // first make an object with the same attributes as the object in the todoArr
     // set it's task value to what was passed to it from the handleSubmit method in TodoForm
+    if (text != "") {
     const newTodo = {
       id: Date.now(),
       task: text,
@@ -53,6 +54,7 @@ class App extends React.Component {
       // now set this.state.todos = to the new todos copy with the added task
       return { todos: todos }
     })
+    }
   }
 
   handleCompleted = event => {
@@ -65,8 +67,7 @@ class App extends React.Component {
   }
 
   toggleCompleted = id => {
-    let todoArray = this.state.todos.slice();
-    todoArray = todoArray.map(todo => {
+    let todoArray = this.state.todos.map(todo => {
       if (id === todo.id) { // match id sent in from Todo onClick event
         todo.completed = !todo.completed; // flip completed status
         return todo;
