@@ -5,11 +5,11 @@ import Todo from './Todo';
 
 const TodoList = (props) => {
 
-    return(
-        <li>
-            {props.task.map(task =>(<Todo task = {props.task}  id = {props.id} complete = {props.complete} />))};
-        </li>
-    );
+	return(
+		<ul>
+			{props.todos.map(task =>{ return <Todo key = {task.id} todo = {task} toggleTodo = {props.toggleTodo}/>})}
+		</ul>
+	);
 };
         
 
