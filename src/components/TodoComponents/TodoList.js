@@ -5,8 +5,15 @@ import Todo from './Todo';
 
 
 const TodoList = props => {
+    console.log(props, "clicked!")
     return (
-       <div> <ul>{props.todo.map(todo => (<Todo todo={todo} />))}</ul>
+       <div> <ul>
+       {props.todo.map(todo =>( 
+            <Todo key={todo.id} 
+            todo={todo} 
+            toggleTask={props.handleToggleTask}
+        />
+        ))}</ul>
        </div>
     )
 }

@@ -15,3 +15,11 @@
     height: 30px;
     margin-right: 10px;
 }
+
+.taskComplete{
+    text-decoration: line-through;
+}
+
+.taskNotComplete{
+    text-decoration: none;
+}
