@@ -15,7 +15,7 @@ class TodoForm extends React.Component {
         />
 
         <button onClick={this.props.newTask}>Add</button>
-        <button onClick={this.props.remove}>Remove Finished</button>
+        <button onClick={this.props.remove}>Remove</button>
       </form>
     );
   }
