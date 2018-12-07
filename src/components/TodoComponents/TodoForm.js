@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class TodoForm extends Component {
   createTasks = item => {
     return(
-    <li key={item.key} onClick={() => this.props.deleteItem(item.key)}>
+    <li className={item.completed?'completed':''} key={item.key} onClick={() => this.props.deleteItem(item.key)}>
     {item.text}
   </li>
     )
@@ -16,6 +16,8 @@ class TodoForm extends Component {
 
   }
 }
+
+
 
 export default TodoForm
 

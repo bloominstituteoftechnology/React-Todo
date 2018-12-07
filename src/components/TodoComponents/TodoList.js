@@ -10,7 +10,7 @@ class TodoList extends Component {
     return (
       <div className="todoListMain">
         <div className="header">
-        <div>Todo List: MVP</div>
+        <h1>Todo List: MVP</h1>
           <form onSubmit={this.props.addItem}>
             <input
               placeholder="Task"
@@ -19,7 +19,7 @@ class TodoList extends Component {
               onChange={this.props.handleInput}
             />
             <button type="submit"> Add Todo </button>
-            <button type="delete">Clear Completed</button>
+            <button onClick ={() => this.props.deleteAll()}>Clear Completed</button>
           </form>
         </div>
       </div>

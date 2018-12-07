@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-//import './App.css'
+import './components/TodoComponents/Todo.css'
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
 
@@ -12,12 +12,23 @@ class App extends Component {
       currentItem: {
         text: '',
         key: '',
+        completed:false
       },
     }
   }
   deleteItem = key => {
-    const filteredItems = this.state.items.filter(item => {
-      return item.key !== key
+    var filteredItems = this.state.items.filter(item => {
+      return item.key === key
+
+    })
+    filteredItems [0].completed = true
+    this.setState({
+      items: this.state.items,
+    })
+  }
+  deleteAll = e => {
+    var filteredItems = this.state.items.filter(item => {
+      return !item.completed
     })
     this.setState({
       items: filteredItems,
@@ -50,6 +61,7 @@ class App extends Component {
           inputElement={this.inputElement}
           handleInput={this.handleInput}
           currentItem={this.state.currentItem}
+          deleteAll={this.deleteAll}
         />
         <TodoForm entries={this.state.items} deleteItem={this.deleteItem} />
       </div>
