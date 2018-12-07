@@ -1,8 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Raleway');
+
 body {
-    background-image: url(./sleeping.jpg);
-    background-size: cover;
+    background-color: #1D84B5;
+    color: white;
+
 }
 
 .viewTrue {
     text-decoration: line-through;
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 50px;
 }

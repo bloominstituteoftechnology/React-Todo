@@ -3,6 +3,7 @@ import ToDoList from "./components/TodoComponents/ToDoList";
 import ToDoForm from "./components/TodoComponents/ToDoForm";
 
 import "./app.css";
+import yoda from "./yoda.gif";
 
 // you will need a place to store your state in this component.
 // design `App` to be the parent component of your application.
@@ -39,17 +40,7 @@ receives data from: todoforms*/
     this.setState( {todos, todo:""} );
   }
 
-    /* listToggle takes in the previous state of this.state.completed 
-  and sets it equal to its exact opposite, in this case true.. in order to 
-  force a change in the className on the clicked component
 
-  receives data from: todolist.js */
-
-  listToggle = () => {
-    this.setState(prevState => {
-      return  {completed: !prevState.completed} 
-    });
-}
 
 /*updateToDoTask takes an event in as a parameter then sets the state equal to
 the data passed up from todoform. the event's target's name (task) is then set 
@@ -59,6 +50,35 @@ as an existing key, it changes that keys value to our target value*/
 updateTodoTask = event => this.setState( { [event.target.name]: event.target.value } )
 
 
+
+    /* listToggle creates a copy of this.state.todos using slice(), then it takes 
+    todos and maps it so that it will itterate over each array and compare their
+    id's with the id of the selected element, if it returns true the key (completed)
+    will be flipped to true and a strikethrough style will be applied, it then 
+    returns todo, if it returns false it simply returns to todo. It then will set 
+    state to the todos variable we just created
+
+  receives data (id) from: todolist.js */
+
+  listToggle = (keyId) => {
+   let todos = this.state.todos.slice();
+   todos = todos.map((todo) => {
+     if (todo.id === keyId) {
+        todo.completed = !todo.completed;
+        return todo
+     } else {
+       return todo
+     }
+   });
+   this.setState({ todos })
+}
+
+removeItem = event => {
+  event.preventDefault();
+  let todos = this.state.todos.slice();
+  todos = todos.filter(todo => !todo.completed);
+  this.setState({ todos })
+}
 
   render() {
     return (
@@ -72,6 +92,7 @@ updateTodoTask = event => this.setState( { [event.target.name]: event.target.val
           value = { this.state.todo }
           handleUpdateTask = { this.updateTodoTask }
           handleAddNew = { this.addNewObject }
+          removeItem = { this.removeItem }
         />
 
       </div>

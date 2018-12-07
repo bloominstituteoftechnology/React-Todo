@@ -1,7 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Raleway');
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 50px;
+}
+
 li {
     list-style: none;
 }
 
-.viewTrue {
-    text-decoration: line-through;
+.inputForm {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.btn {
+    display: flex;
+    width: auto;
+    margin: 0 auto;
 }

@@ -9,15 +9,14 @@ import "./Todo.css"
 
 
 const ToDoList = props => {
+
+
   return (
     <div>
-      <h1>Do or do not, there is no try:</h1>
+      <h1>To Do:</h1>
       <ul>
         {props.todos.map(data => (
-          <li 
-          className={ `falseDefault ${props.todos.completed ?  "viewTrue" : null }`}
-          onClick = {props.handleToggle}>
-          
+          <li>
             <ToDo 
             key={data.id} 
             todo={data}

@@ -6,11 +6,12 @@ import "./Todo.css"
                         //value = { this.state.todo }
                         //handleUpdateTask = { this.updateTodoTask }
                         //handleAddNew = { this.addNewObject }
+                        //removeItem = { this.removeItem }
 
 const ToDoForm = props => {
  
     return(
-        <form>
+        <form className="inputForm">
             <input 
                 onChange = { props.handleUpdateTask }
                 type = "text"
@@ -18,10 +19,10 @@ const ToDoForm = props => {
                 value = { props.value }
                 placeholder = "Add a task..."
             />
+            <br />
+            <button className="btn btn1" onClick = { props.handleAddNew }>Add it!</button>
 
-            <button onClick = { props.handleAddNew }>Add it!</button>
-
-            <button>Outta Here</button>
+            <button className="btn" onClick = { props.removeItem }>Outta Here</button>
         </form>
     )
 }

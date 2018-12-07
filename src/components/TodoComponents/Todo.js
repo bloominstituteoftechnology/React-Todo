@@ -9,7 +9,9 @@ import "./Todo.css"
 
 const ToDo = props => {
   return (
-      <div>
+      <div 
+      style={ props.todo.completed ?  {textDecoration: 'line-through'} : null }
+      onClick = { () => props.handleToggle(props.todo.id) } >
       {props.todo.task}
       </div>
   );
