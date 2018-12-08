@@ -49,12 +49,18 @@ class App extends React.Component {
     this.setState({todoList: todosCompleted});
   }
 
+  deleteHandler = () =>{
+    let todos = this.state.todoList.slice();
+    let todosDelete = todos.filter(todo => todo.completed === false);
+    this.setState({todoList: todosDelete});
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todoItem={this.state.todoList} click={this.clickHandler}/>
-        <TodoForm submit={this.submitHandler} value={this.state.todoInput} change={this.changeHandler}/>
+        <TodoForm submit={this.submitHandler} delete={this.deleteHandler} value={this.state.todoInput} change={this.changeHandler}/>
       </div>
     );
   }
