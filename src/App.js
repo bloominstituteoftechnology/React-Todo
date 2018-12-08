@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import './components/TodoComponents/Todo.css';
 
 class App extends React.Component {
   constructor(props){
@@ -57,8 +58,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className='app'>
+        <h2 className='title'>What do you need to do?</h2>
         <TodoList todoItem={this.state.todoList} click={this.clickHandler}/>
         <TodoForm submit={this.submitHandler} delete={this.deleteHandler} value={this.state.todoInput} change={this.changeHandler}/>
       </div>

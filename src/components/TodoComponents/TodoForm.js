@@ -3,11 +3,13 @@ import './Todo.css';
 
 const TodoForm = props =>{
   return (
-    <div>
-      <form onSubmit={props.submit} onReset={props.delete}>
-        <input placeholder='...todo' value={props.value} onChange={props.change}/>
-        <button type='sumbit'>Add Todo</button>
-        <button type='reset'>Clear Completed</button>
+    <div className='todo-form'>
+      <form onSubmit={props.submit} onReset={props.delete} className='form'>
+        <input placeholder='...todo' value={props.value} onChange={props.change} className='input'/>
+        <div className='btn-layout'>
+          <button type='sumbit' className='btn'>Add Todo</button>
+          <button type='reset' className='btn'>Clear Completed</button>
+        </div>
       </form>
     </div>
   );
