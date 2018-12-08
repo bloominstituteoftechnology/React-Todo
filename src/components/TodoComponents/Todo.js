@@ -1,29 +1,15 @@
-import React from "react";
+import React from 'react'
 import './Todo.css';
 
-class Todo extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      marked: false
-    };
-  }
+const Todo = (props) => {
+  const { todo, onToggleComplete } = props;
+  console.log(props);
 
-  completedHandler = () => {
-    const currentState = this.state.marked;
-    this.setState({ marked: !currentState });
-
-  };
-
-  render() {
-    return (
-      <li
-        className={this.state.marked ? 'completed' : null}
-        onClick={this.completedHandler}
-      >{this.props.todo.task}
-      </li>
-    );
-  }
+  return (
+    <li
+      className={todo.completed ? 'completed' : null}
+      onClick={() => onToggleComplete(todo.id)}>{todo.task}
+    </li>
+  );
 }
-
-export default Todo;
+export default Todo; 

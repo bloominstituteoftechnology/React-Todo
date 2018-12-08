@@ -1,43 +1,47 @@
-import React, { Component } from "react";
-import TodoList from "./components/TodoComponents/TodoList";
-import TodoForm from "./components/TodoComponents/TodoForm";
+import React from 'react';
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      todos: []
-    };
+class App extends React.Component {
+
+  state = {
+    todos: [],
+    currentId: 0,
+  };
+
+  handleToggleComplete = (taskId) => {
+    const { todos } = this.state;
+    const todoIndex = todos.findIndex(todo => todo.id === taskId);
+
+    todos[todoIndex].completed = !todos[todoIndex].completed;
+
+    const newTodos = [...todos.slice(0, todoIndex), todos[todoIndex], ...todos.slice(todoIndex + 1)]
+    this.setState({ todos: newTodos })
   }
 
-  createNewTodo = (text) => {
-    const newTodo = {
+  handleAddTask = (text) => {
+    const { todos, currentId } = this.state;
+    const newTask = {
       task: text,
-      id: Date.now(),
+      id: currentId,
       completed: false
     };
 
-    this.setState(prevState => {
-      const todos = prevState.todos.slice();
-      todos.push(newTodo);
-      return { todos: todos };
-    });
-  };
+    this.setState({ todos: [...todos, newTask], currentId: currentId + 1 })
+  }
 
-  deleteTodo = () => {
-
-  };
+  handleClearCompleted = () => {
+    const { todos } = this.state;
+    const remainingTodos = todos.filter(todo => todo.completed === false)
+    this.setState({ todos: remainingTodos });
+  }
 
   render() {
+    const { todos } = this.state
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos} />
-        <TodoForm
-          createTodo={this.createNewTodo}
-          deleteTodo={this.deleteTodo}
-          todos={this.state.todos}
-        />
+        <TodoList todos={todos} onToggleComplete={this.handleToggleComplete} />
+        <TodoForm onAddTask={this.handleAddTask} onClearCompleted={this.handleClearCompleted} />
       </div>
     );
   }
