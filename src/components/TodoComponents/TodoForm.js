@@ -19,6 +19,7 @@ class TodoForm extends React.Component {
   }
   
   render(){
+    
       return (
     <form>
       <input 
@@ -29,7 +30,7 @@ class TodoForm extends React.Component {
       
       />
       <button type="submit" onClick = {this.submitHandler} >Add Todo</button>
-      <button type="submit" onClick = {this.props.cleared}>Clear Todos</button>
+      <button onClick = {this.props.cleared}>Clear Todos</button>
     </form>
 )
   }
