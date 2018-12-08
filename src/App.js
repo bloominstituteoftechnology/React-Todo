@@ -35,11 +35,25 @@ class App extends React.Component {
     this.setState({todoInput: ''});
   }
 
+  clickHandler = (taskId) =>{
+    let todos = this.state.todoList.slice();
+    let todosCompleted = todos.map(todo => {
+      if(todo.id === taskId){
+        todo.completed = !todo.completed;
+        return todo;
+      }
+      else {
+        return todo;
+      }
+    });
+    this.setState({todoList: todosCompleted});
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todoItem={this.state.todoList} />
+        <TodoList todoItem={this.state.todoList} click={this.clickHandler}/>
         <TodoForm submit={this.submitHandler} value={this.state.todoInput} change={this.changeHandler}/>
       </div>
     );
