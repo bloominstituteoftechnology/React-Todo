@@ -12,7 +12,7 @@ const ToDoList = props => {
 
 
   return (
-    <div>
+    <div className="listItems">
       <h1>To Do:</h1>
       <ul>
         {props.todos.map(data => (

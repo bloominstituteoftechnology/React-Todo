@@ -3,7 +3,6 @@ import ToDoList from "./components/TodoComponents/ToDoList";
 import ToDoForm from "./components/TodoComponents/ToDoForm";
 
 import "./app.css";
-import yoda from "./yoda.gif";
 
 // you will need a place to store your state in this component.
 // design `App` to be the parent component of your application.

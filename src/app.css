@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Raleway');
 
+
 body {
     background-color: #1D84B5;
     color: white;
-
 }
 
 .viewTrue {
@@ -11,8 +11,12 @@ body {
 }
 
 .wrapper {
-    width: 100%;
+    background-color: #20FC8F;
+    width: 25%;
+    border-radius: 15px;
+    box-shadow: 6px 5px #2D2D2A;
     margin: 0 auto;
     text-align: center;
-    padding-top: 50px;
+    margin-top: 100px;
+    padding: 10px 10px 40px;
 }

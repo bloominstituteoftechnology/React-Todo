@@ -17,12 +17,18 @@ const ToDoForm = props => {
                 type = "text"
                 name = "todo"
                 value = { props.value }
+                id = "textBox"
                 placeholder = "Add a task..."
+                
             />
             <br />
-            <button className="btn btn1" onClick = { props.handleAddNew }>Add it!</button>
+            <button 
+            className="btn btn-one" 
+            onClick = { props.handleAddNew }>Add it!</button>
 
-            <button className="btn" onClick = { props.removeItem }>Outta Here</button>
+            <button 
+            className="btn" 
+            onClick = { props.removeItem }>Outta Here</button>
         </form>
     )
 }
