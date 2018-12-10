@@ -4,7 +4,7 @@ const Todo = props => {
    
     return (
         <div>
-            <h3>{props.todoProp.task}</h3>
+            <h3 onClick={()=> props.handleToggleComplete(props.todoProp.id)}>{props.todoProp.task}</h3>
         </div>
     );
 }
