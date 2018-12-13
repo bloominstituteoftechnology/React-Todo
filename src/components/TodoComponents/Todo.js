@@ -2,7 +2,8 @@ import React from 'react';
 
 const Todo = props => {
     return (
-        <li items = {props.itemsInput}></li>
+        <li style = {props.todo.completed ? {textDecoration: 'line-through'} : null}
+        onClick = {() => props.toggleTodo(props.todo.id)}>{props.todo.items}</li>
     );
 };
 
