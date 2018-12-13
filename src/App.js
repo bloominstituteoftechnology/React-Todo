@@ -1,5 +1,4 @@
 import React from 'react';
-// import ReactDOM from "react-dom";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -8,29 +7,45 @@ class App extends React.Component {
 
   constructor() {
     super();
-
     this.state = {
-      message : '',
+      todos: [],
+      task: ''
     }
   }
 
-  handleToDoInput = event => {
-    console.log(event.target.value);
-    this.setState({ message: event.target.value });
+  // set task to input
+  handleToDoInput = (event) => {
+    // console.log(event.target.value);
+    this.setState({ task: event.target.value });
   };
 
+  // create a copy of todos[], assign id, completed and task
+  addTodo = event => {
+    let newArr = [...this.state.todos] // Example: [..array] => 1, 2, 3 => [1, 2, 3] => newArr
+    newArr.push({id: Date.now(),
+      completed: false,
+      task: this.state.task
+    }) 
+    // assign content of newArr to todos and clear content of task after input
+    this.setState({todos: newArr, task: ''})   
+  }
+
   render() {
+    console.log("rendered again!")
     return (
-      <div>
+      <div className="App">
         <h2>Welcome to your Todo App!</h2>
-        <h2>Message: {this.state.message}</h2>
         <input
           type = "text"
           placeholder = "To do"
-          onClick = {this.handleToDoInput}
+          onChange = {this.handleToDoInput}
+          value = {this.state.task}
         />
-        <button>Add Todo</button>
+        <button onClick={this.addTodo}>Add Todo</button>
         <button>Clear Completed</button>
+        <div>
+          {this.state.todos.map(todo => <p key={todo.id}>{todo.task}</p>)}
+        </div>
       </div>
     );
   }
