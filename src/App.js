@@ -1,4 +1,5 @@
 import React from 'react';
+ import './components/TodoComponents/Todo.css';
  import TodoList from "./components/TodoComponents/TodoList";
  import TodoForm from "./components/TodoComponents/TodoForm";
  
@@ -7,16 +8,7 @@ import React from 'react';
    constructor() {
     super();
     this.state = {
-      items:[{
-        task: 'Practice JavaScript',
-        id: 1,
-        completed: false
-      },
-      {
-        task: 'Practice React',
-        id: 2,
-        completed: false
-      }]
+      items:[]
     };
   }
    
@@ -33,12 +25,13 @@ import React from 'react';
         task.push(newTodo);
         
         return{
-          todos: task
+          items: task
         }
       })
     }
   };
-   toggleTodo = id => {
+   
+  toggleTodo = id => {
     let task = this.state.items.map(todo => {
       if(id === todo.id ){
        todo.completed = !todo.completed
@@ -53,6 +46,7 @@ import React from 'react';
     })
    }
 
+   
    clearHandler = event => {
      if(!this.state.items.completed) {
        let newItems = this.state.items.filter(props => {
@@ -64,10 +58,11 @@ import React from 'react';
      }
    }
    
+   
    render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h1>Angie's Todo App!</h1>
         <TodoList items = {this.state.items} toggleTodo = {this.toggleTodo} />
         <TodoForm Submit = {this.Submit} clearHandler = {this.clearHandler} />
       </div>

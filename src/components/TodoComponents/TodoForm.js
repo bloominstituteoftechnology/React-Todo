@@ -25,11 +25,13 @@ class TodoForm extends React.Component {
   
    render(){
     return(
+    <div className='buttons'>
       <form onSubmit = {this.submitHandler}>
-        <input type = "text" placeholder = "Enter Todo" value = {this.state.inputText} onChange = {this.changeHandler}></input>
-        <button type = "submit" >Add Task</button>
-        <button type = "button" onClick = {this.props.clearHandler}>Clear Completed</button>
+        <input className="w3-hover-white" type = "text" placeholder = "ENTER NEW TASK HERE!" value = {this.state.inputText} onChange = {this.changeHandler}></input>
+        <button className="w3-hover-green" id='submit' type = "submit" >ADD TASK</button>
+        <button className="w3-hover-red" type = "button" onClick = {this.props.clearHandler}>CLEAR COMPLETED</button>
       </form>
+    </div>
     );
   }
 };

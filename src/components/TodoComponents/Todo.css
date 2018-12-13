@@ -1,0 +1,124 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* My Styling */
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-size: 62.5%;
+}
+
+body {
+    background-color: slategray;
+    height: 100%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+#root {
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+h1 {
+    display: flex;
+    font-size: 7rem;
+    border-bottom: 2px dashed ghostwhite;
+    font-family: Impact;
+}
+
+li {
+    display: flex;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5%;
+    background-color: steelblue;
+    margin: 5%;
+    color: white;
+    font-size: 2rem;
+    font-family: cursive;
+}
+
+button {
+    border: 2px solid black;
+    display: flex;
+    margin-left: 29%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    padding: 5%;
+    border-radius: 10px;
+    font-weight: bolder;
+    font-family: cursive;
+    font-size: 1.5rem;
+}
+
+#submit {
+    margin-left: 35.5%;
+}
+
+input {
+    border: 2px solid slategray;
+    border-radius: 20px;
+    padding: 3% 25% 3% 15%;
+    margin-left: 15%;
+    margin-top: 20%;
+    margin-bottom: 5%;
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    font-family: Impact;
+}
