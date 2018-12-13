@@ -1,0 +1,16 @@
+.app {
+    text-align: center;
+    color: #222222;
+}
+
+.toggle-complete {
+    cursor: pointer;
+}
+
+.toggle-complete.true {
+    text-decoration: line-through;
+}
+
+.toggle-complete.false {
+    text-decoration: none;
+}

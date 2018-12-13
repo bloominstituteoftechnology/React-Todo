@@ -36,12 +36,25 @@ class App extends React.Component {
     })
   }
 
+  changeComplete = id => {
+    console.log(this.state)
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          return {...todo, completed: todo.completed === 'true' ? 'false' : 'true'};
+        } else {
+          return todo;
+        }
+      })
+    })
+  }
+
   render() {
     return (
-      <div>
+      <div className="app">
         <h2>ToDo List MVP!</h2>
 
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} changeComplete={this.changeComplete} />
         <TodoForm addTodo={this.addTodo} inputText={this.state.inputText} inputTextTwo={this.state.inputTextTwo} handleChange={this.handleChange} />
       </div>
     );
