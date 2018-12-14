@@ -6,5 +6,16 @@ import Todo from './Todo';
 
  const TodoList = props => {
 
-    
+    return (
+        
+        <div>
+      
+            {props.todos.map(todo => {
+            return <Todo key = {todo.id} todoProp = {todo} handleToggleComplete={props.handleToggleComplete}/>} )}
+         
+         </div>
+      );
+
+      }
+
  export default TodoList;
