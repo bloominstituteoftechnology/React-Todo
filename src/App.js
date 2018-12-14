@@ -56,6 +56,18 @@ import TodoForm from './components/TodoComponents/TodoForm';
 
         <h2>Welcome to your Todo App!</h2>
 
+        <TodoForm
+          value = {this.state.todo}
+          changeHandler = {this.changeTodo}
+          addHandler = {this.addTodo}
+          clearHandler = {this.clearTodo}
+        />
+
+        <TodoList 
+          handleToggleComplete = {this.completeTodo}
+          todos = {this.state.todos} 
+        />
+
       </div>
     );
   }
