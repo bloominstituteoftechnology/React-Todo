@@ -1,10 +1,38 @@
+html {
+    font: 62.5%;
+}
 .app {
+    display: block;
+    margin: 0 auto;
     text-align: center;
     color: #222222;
+    max-width: 500px;
+    margin-top: -50px;
+}
+
+.title {
+    color: rgb(147,29,37);
+    font-size: 6rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-size: 3rem;
+}
+
+input {
+    width: 100%;
+    font-size: 2rem;
+    margin: 20px;
 }
 
 .toggle-complete {
     cursor: pointer;
+    font-size: 2rem;
+    color:#222222;
 }
 
 .toggle-complete.true {
@@ -13,4 +41,20 @@
 
 .toggle-complete.false {
     text-decoration: none;
+}
+
+button {
+    border: 1px solid #222222;
+    text-align: center;
+    background-color: rgb(147,29,37);
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.6rem;
+    width: 250px;
+    margin: 10px 0;
+}
+
+button:hover {
+    color:rgb(147,29,37);
+    background: white;
 }

@@ -17,7 +17,6 @@ class App extends React.Component {
     this.state = {
       todos: todoData,
       inputText: '',
-      inputTextTwo: '',
     };
   }
 
@@ -31,17 +30,17 @@ class App extends React.Component {
   addTodo = event => {
     event.preventDefault();
     this.setState({
-      todos: [...this.state.todos, {task: this.state.inputText}],
+      todos: [...this.state.todos, {task: this.state.inputText, id: Date.now(), completed:false}],
       inputText: ''
     })
   }
 
-  changeComplete = id => {
+  changeComplete= id => {
     console.log(this.state)
     this.setState({
       todos: this.state.todos.map(todo => {
         if (todo.id === id) {
-          return {...todo, completed: todo.completed === 'true' ? 'false' : 'true'};
+          return {...todo, completed: todo.completed === false ? true : false};
         } else {
           return todo;
         }
@@ -49,13 +48,20 @@ class App extends React.Component {
     })
   }
 
+  clearCompleted = event => {
+    event.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(todo => !todo.completed)
+    
+    })
+  }
+
   render() {
     return (
       <div className="app">
-        <h2>ToDo List MVP!</h2>
-
+        <h2 className="title">ToDo</h2>
         <TodoList todos={this.state.todos} changeComplete={this.changeComplete} />
-        <TodoForm addTodo={this.addTodo} inputText={this.state.inputText} inputTextTwo={this.state.inputTextTwo} handleChange={this.handleChange} />
+        <TodoForm clearCompleted={this.clearCompleted} addTodo={this.addTodo} inputText={this.state.inputText} inputTextTwo={this.state.inputTextTwo} handleChange={this.handleChange} />
       </div>
     );
   }
