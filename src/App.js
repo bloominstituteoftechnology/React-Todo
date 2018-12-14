@@ -1,26 +1,17 @@
 import React from 'react';
+import Todo from './components/TodoComponents/Todo';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
+// you will need a place to store your state in this component.
+// design `App` to be the parent component of your application.
+// this component is going to take care of state, and any change handlers you need to work with your state
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
-
     this.state = {
-      toDoData: [
-        {
-          task: 'Make dinner',
-          id: 1,
-          completed: false
-        },
-        {
-          task: 'Do laundry',
-          id: 2,
-          completed: false
-        },
-      ]
+      todoData: [],
+      textField: ''
     };
   }
 
@@ -28,11 +19,26 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <h1>Todo List</h1>
+        <h1>Todo List: MVP</h1>
         <TodoList data={this.state} />
+        <TodoForm addNew={this.addTodo} handleInput={this.handleInput} />
       </div>
     );
   }
+
+  addTodo = () => {
+    this.setState({
+      todoData: [
+        ...this.state.todoData,
+        { task: this.state.textField, id: Date.now(), completed: false }
+      ],
+      textField: ''
+    });
+  };
+
+  handleInput = event => {
+    this.setState({ textField: event.target.value });
+  };
 }
 
 export default App;
