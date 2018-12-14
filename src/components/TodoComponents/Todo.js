@@ -6,6 +6,7 @@ const Todo = props => {
   if (!props.completed) {
     completed = '';
   }
+  
   return (
     <div
       className={completed}

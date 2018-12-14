@@ -1,3 +1,65 @@
-.completedTodo {
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #006778;
+}
+
+.app {
+  text-align: center;
+  width: 60%;
+  font-size: 1.6rem;
+  margin: 0 auto;
+  background-color: #006778;
+  padding: 20px 0;
+  border: 2px solid #000000;
+}
+
+.todoList {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.todoList div {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 5px;
+  padding: 5px 5px;
+  cursor: pointer;
+}
+
+.todoList .completed {
   text-decoration: line-through;
+  color: #000000;
+}
+
+form input {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  padding: 5px 5px;
+  margin-top: 20px;
+  border: none;
+}
+
+form button {
+  margin: 20px 7% 0 7%;
+  background-color: #9F792C;
+  border-color: #9F792C;
+  width: 33%;
+  padding: 10px 0;
+  cursor: pointer;
+  font-size: 1.8rem;
+}
+
+.formBtns {
+  display: flex;
+  justify-content: center;
 }

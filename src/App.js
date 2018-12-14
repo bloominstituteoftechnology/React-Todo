@@ -10,6 +10,7 @@ import './components/TodoComponents/Todo.css';
 class App extends React.Component {
   constructor() {
     super();
+
     this.state = {
       todoData: [],
       textField: ''
@@ -62,7 +63,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="app">
         <h2>Welcome to your Todo App!</h2>
         <h1>Todo List: MVP</h1>
         <TodoList data={this.state} toggleComplete={this.toggleComplete} />
