@@ -1,8 +1,18 @@
 import React from 'react';
+import './Todo.css';
 
 const Todo = props => {
+  let completed = 'completed';
+  if (!props.completed) {
+    completed = '';
+  }
   return (
-    <div key={props.id} id={props.id}>
+    <div
+      className={completed}
+      key={props.id}
+      id={props.id}
+      onClick={props.toggleComplete}
+    >
       {props.text}
     </div>
   );
