@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css'
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import Search from './components/SearchComponent/Search';
@@ -102,16 +103,39 @@ class App extends React.Component {
     this.setState({search: e.target.value.substr(0,20)});
   }
 
+  // drag features:
+  onDragStart = (e, id) =>{
+    console.log('dragStart :', id);
+    e.dataTransfer.setData("id", id);
+  };
+
+  onDragOver = (e) =>{
+    e.preventDefault();
+    console.log('dragOver is functioning');
+  }
+
+  onDrop =(e, id) =>{
+    const itemId = e.dataTransfer.getData('id');
+    
+    console.log(id);
+    console.log('onDrop: ' + itemId);
+  }
   render() {
     return (
       <div className="app-container">
         <h1> Todo List: MVP</h1>
-        <Search value={this.state.search} updateSearch = {this.updateSearch}/>
-        <TodoList search={this.state.search} tasks={this.state.tasks} toggleCompleteTask={this.toggleCompleteTask}/>
+        <Search
+          value={this.state.search}
+          updateSearch = {this.updateSearch}/>
+        <TodoList
+          onDrop ={this.onDrop}
+          onDragStart = {this.onDragStart}
+          onDragOver = {this.onDragOver} search={this.state.search} tasks={this.state.tasks} toggleCompleteTask={this.toggleCompleteTask}/>
         <TodoForm
           value={this.state.todo}
           handleTodoChange = {this.changeTodo}
-          addTask={this.addTask} clearCompleted = {this.clearCompleted}/>
+          addTask={this.addTask}
+          clearCompleted = {this.clearCompleted}/>
       </div>
     );
   }

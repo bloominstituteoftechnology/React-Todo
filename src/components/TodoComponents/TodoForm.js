@@ -3,7 +3,7 @@ import './Todo.css';
 
 const TodoForm = props => {
   return (
-    <form>
+    <form className="formBox">
       <input
         onChange={props.handleTodoChange}
         type="text"
@@ -11,8 +11,8 @@ const TodoForm = props => {
         value = {props.value}
         placeholder=" Add a todo"
       />
-      <button onClick={props.addTask} className="btn"> Add Todo </button>
-      <button onClick={props.clearCompleted} className="btn"> Clear Completed</button>
+    <button onClick={props.addTask} className="btn add"> Add Todo </button>
+      <button onClick={props.clearCompleted} className="btn clear"> Clear Completed</button>
     </form>
   )
 }

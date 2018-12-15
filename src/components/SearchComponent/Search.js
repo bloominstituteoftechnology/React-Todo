@@ -3,12 +3,14 @@ import './Search.css';
 
 const Search = (props) =>{
   return(
-    <input
-    type="text"
-    onChange={props.updateSearch}
-    name="search"
-    value={props.value}
-    placeholder="search"/>
+    <div className="searchBox">
+      <input
+      type="text"
+      onChange={props.updateSearch}
+      name="search"
+      value={props.value}
+      placeholder="search..."/>
+  </div>
   )
 }
 
