@@ -15,8 +15,7 @@ const TodoForm = props => {
                 placeholder = "To do"
                 onChange = {props.inputHandleFunc}
                 value = {props.task}
-                className ="inputEnter"
-                // onKeyPress={}
+                onKeyPress={props.enter}
             />
             <button onClick={props.submitButtonHandleFunc}>Add Todo</button>
             <button>Clear Completed</button> 

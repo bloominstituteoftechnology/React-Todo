@@ -17,51 +17,46 @@ class App extends React.Component {
 
   // set task to input
   handleToDoInput = event => {
-    // console.log(event.target.value);
-    this.setState({ task: event.target.value });
-    // **** PRESS ENTER FEATURE NEEDED ****
+    // if(event.target.value !== ''){
+      this.setState({ task: event.target.value });
+    // }
   };
 
-  // create a copy of todos[], assign id, completed and task
-  addTodo = event => {
-    let newArr = [...this.state.todos] // Example: [..array] => 1, 2, 3 => [1, 2, 3] => newArr
-    newArr.push(
-      {id: Date.now(),
-      completed: false,
-      task: this.state.task
-    }) 
-    // console.log(newArr);
-    // assign content of newArr to todos and clear content of task after input
-    this.setState({todos: newArr, task: ''})   
+  enter = event => {
+    console.log("event: ", event);
+    if(event.target.value !== ''){
+      if (event.key === 'Enter') {
+        this.addTodo(event);
+      }
+    }
   }
 
+  // clearButtonHandleFucn = event
+
+  // create a copy of todos[], assign id, completed and task
+  addTodo = event => {  
+      let newArr = [...this.state.todos] // Example: [..array] => 1, 2, 3 => [1, 2, 3] => newArr
+      newArr.push(
+        {id: Date.now(),
+        completed: false,
+        task: this.state.task
+      }) 
+      // assign content of newArr to todos and clear content of task after input
+      this.setState({todos: newArr, task: ''})   
+  }
 
   render() {
-    // console.log("rendered again!")
-    console.log(this.state.todos);  
+    console.log('App state.todos', this.state.todos);  
     return (
       <div className="App">
         <h2>Welcome to your Todo App!</h2>
-        {/* Instead of input and buttons <TodoForm /> will be here */}
-
-        {/* <input
-          type = "text"
-          placeholder = "To do"
-          onChange = {this.handleToDoInput}
-          value = {this.state.task}
-        />
-        <button onClick={this.addTodo}>Add Todo</button>
-        <button>Clear Completed</button> */}
         <TodoForm 
           inputHandleFunc={this.handleToDoInput} 
           task={this.state.task} 
+          enter={this.enter}
           submitButtonHandleFunc={this.addTodo}
           // clearButtonHandleFucn={}
         />
-        {/* Instead of div below, TodoList component */}
-        {/* <div>
-          {this.state.todos.map(todo => <p key={todo.id}>{todo.task}</p>)}
-        </div> */}
         <TodoList todos={this.state.todos}/>
       </div>
     );

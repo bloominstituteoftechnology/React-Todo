@@ -20,6 +20,29 @@ const TodoList = (props) => {
         )
 }
 
+// the code below works, but this.props.todos.map() makes it
+// unnecessary to use class component in this case
+// so I decided to use functional component
+// class TodoList extends React.Component {
+//     constructor(props) {
+//         super(props)
+//         this.state = {
+//             todoList: props.todos
+//         }
+//     }
+
+//     render() {
+//         console.log("TodoList props: ", this.props)
+//         return(
+//             <div>
+//                 {this.props.todos.map(todo =>
+//                     <Todo task={todo.task} key={todo.id}/>
+//                 )}
+//             </div>
+//         )
+//     }
+// }
+
 export default TodoList;
 
 
