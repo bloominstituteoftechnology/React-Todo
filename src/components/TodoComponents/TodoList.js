@@ -6,15 +6,18 @@
     the list generating a new <Todo /> for each element in the array.
 */
 
-// import App from '../../App';
-import Todo from '../TodoComponents/Todo'
+import React from 'react';
+import Todo from './Todo';
 
-const TodoList = props => {
-    return (
-        <div>
-            {props.todoProps.map(todo => <Todo task = {todo.task} />)}
-        </div>
-    )
+const TodoList = (props) => {
+        // console.log("TodoList props: ", props)
+        return (
+            <div>
+                {props.todos.map(todo => 
+                    <Todo key={todo.id} task={todo.task} />
+                )}
+            </div>
+        )
 }
 
 export default TodoList;

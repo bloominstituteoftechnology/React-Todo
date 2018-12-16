@@ -16,9 +16,10 @@ class App extends React.Component {
   }
 
   // set task to input
-  handleToDoInput = (event) => {
+  handleToDoInput = event => {
     // console.log(event.target.value);
     this.setState({ task: event.target.value });
+    // **** PRESS ENTER FEATURE NEEDED ****
   };
 
   // create a copy of todos[], assign id, completed and task
@@ -37,7 +38,7 @@ class App extends React.Component {
 
   render() {
     // console.log("rendered again!")
-    console.log(this.state.todos);
+    console.log(this.state.todos);  
     return (
       <div className="App">
         <h2>Welcome to your Todo App!</h2>
@@ -51,15 +52,17 @@ class App extends React.Component {
         />
         <button onClick={this.addTodo}>Add Todo</button>
         <button>Clear Completed</button> */}
-        <TodoForm inputHandleFunc={this.handleToDoInput} 
-                  inputValue={this.state.task} 
-                  submitButtonHandleFunc={this.addTodo}
-                  // clearButtonHandleFucn={}
-          />
-        <div>
+        <TodoForm 
+          inputHandleFunc={this.handleToDoInput} 
+          task={this.state.task} 
+          submitButtonHandleFunc={this.addTodo}
+          // clearButtonHandleFucn={}
+        />
+        {/* Instead of div below, TodoList component */}
+        {/* <div>
           {this.state.todos.map(todo => <p key={todo.id}>{todo.task}</p>)}
-        </div>
-        <TodoList todoProps={this.state.todos}/>
+        </div> */}
+        <TodoList todos={this.state.todos}/>
       </div>
     );
   }

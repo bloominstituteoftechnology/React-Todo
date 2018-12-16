@@ -5,10 +5,7 @@
     Once a todo is submitted, the Todo List should re-render and show the added todo.
 */
 
-// const ButtonComponent = props => <button className={
-//     `basicButtonStyles ${props.buttonStyles}`}>{props.text}</button>;
-
-import App from '../../App'
+import React from 'react';
 
 const TodoForm = props => {
     return (
@@ -17,7 +14,9 @@ const TodoForm = props => {
                 type = "text"
                 placeholder = "To do"
                 onChange = {props.inputHandleFunc}
-                value = {props.inputValue}
+                value = {props.task}
+                className ="inputEnter"
+                // onKeyPress={}
             />
             <button onClick={props.submitButtonHandleFunc}>Add Todo</button>
             <button>Clear Completed</button> 
