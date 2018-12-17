@@ -17,13 +17,11 @@ class App extends React.Component {
 
   // set task to input
   handleToDoInput = event => {
-    // if(event.target.value !== ''){
       this.setState({ task: event.target.value });
-    // }
   };
 
   enter = event => {
-    console.log("event: ", event);
+    // console.log("event: ", event);
     if(event.target.value !== ''){
       if (event.key === 'Enter') {
         this.addTodo(event);
@@ -35,14 +33,23 @@ class App extends React.Component {
 
   // create a copy of todos[], assign id, completed and task
   addTodo = event => {  
+    // this if statement does not allow to add empty objects to todos[]
+    if(this.state.task !== ''){
       let newArr = [...this.state.todos] // Example: [..array] => 1, 2, 3 => [1, 2, 3] => newArr
       newArr.push(
-        {id: Date.now(),
-        completed: false,
-        task: this.state.task
-      }) 
+        {
+          id: Date.now(),
+          completed: false,
+          task: this.state.task
+        }) 
       // assign content of newArr to todos and clear content of task after input
-      this.setState({todos: newArr, task: ''})   
+      this.setState({
+        todos: newArr, 
+        task: ''})
+    }
+    else {
+      console.log("empty string")
+    }
   }
 
   render() {
