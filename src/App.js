@@ -52,6 +52,27 @@ class App extends React.Component {
     }
   }
 
+  completeHandler = event => {
+    console.log(event.target.id, 'even.target.id')
+    
+    let newTodos = [...this.state.todos]
+
+    newTodos = newTodos.map(todo => {
+      console.log('todo id', todo.id)
+      if (todo.id === Number(event.target.id)) {
+        console.log('success')
+        todo.completed = !todo.completed
+      }
+      return todo
+    }) 
+
+    console.log('New Todos', newTodos)
+
+    this.setState({
+      todos: newTodos
+    })
+  }
+
   render() {
     console.log('App state.todos', this.state.todos);  
     return (
@@ -64,7 +85,7 @@ class App extends React.Component {
           submitButtonHandleFunc={this.addTodo}
           // clearButtonHandleFucn={}
         />
-        <TodoList todos={this.state.todos}/>
+        <TodoList todos={this.state.todos} completeHandler={this.completeHandler} />
       </div>
     );
   }

@@ -10,11 +10,16 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = (props) => {
-        // console.log("TodoList props: ", props)
+        console.log("TodoList props: ", props)
         return (
             <div>
                 {props.todos.map(todo => 
-                    <Todo key={todo.id} task={todo.task} />
+                    <Todo
+                      id={todo.id}
+                      key={todo.id}
+                      task={todo.task} 
+                      completed={todo.completed}
+                      completeHandler={props.completeHandler}/>
                 )}
             </div>
         )
