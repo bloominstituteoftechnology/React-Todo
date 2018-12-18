@@ -18,7 +18,7 @@ const TodoForm = props => {
                 onKeyPress={props.enter}
             />
             <button onClick={props.submitButtonHandleFunc}>Add Todo</button>
-            <button>Clear Completed</button> 
+            <button onClick={props.removeCompleted}>Clear Completed</button> 
         </div>
 
     )

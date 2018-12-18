@@ -52,21 +52,31 @@ class App extends React.Component {
     }
   }
 
+  // changes the state of a todo item
   completeHandler = event => {
-    console.log(event.target.id, 'even.target.id')
-    
+    // console.log(event.target.id, 'even.target.id')
+    //creates a copy of todos[]
     let newTodos = [...this.state.todos]
 
     newTodos = newTodos.map(todo => {
-      console.log('todo id', todo.id)
+      // console.log('todo id', todo.id)
       if (todo.id === Number(event.target.id)) {
-        console.log('success')
+        // console.log('success')
         todo.completed = !todo.completed
       }
       return todo
     }) 
 
-    console.log('New Todos', newTodos)
+    // console.log('New Todos', newTodos)
+
+    this.setState({
+      todos: newTodos
+    })
+  }
+
+  removeCompleted = event => {
+    let newTodos = [...this.state.todos]
+    newTodos = newTodos.filter(todo => !todo.completed)
 
     this.setState({
       todos: newTodos
@@ -83,7 +93,7 @@ class App extends React.Component {
           task={this.state.task} 
           enter={this.enter}
           submitButtonHandleFunc={this.addTodo}
-          // clearButtonHandleFucn={}
+          removeCompleted={this.removeCompleted}
         />
         <TodoList todos={this.state.todos} completeHandler={this.completeHandler} />
       </div>
