@@ -1,3 +1,11 @@
 .completed-todo{
   text-decoration: line-through;
 }
+
+.hidden{display: none}
+
+.search-bar{
+  width: 20%;
+  height: 20px;
+  font-size:20px;
+}

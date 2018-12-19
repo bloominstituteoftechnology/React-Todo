@@ -9,11 +9,11 @@ const TodoList = props => {
 
   const todoList = props.todos.map((todo,index) => {
 
-    return <Todo key = {props.todoList[index].id} listClickFunction = {()=>props.function(index,props.className)} listClass ={props.todoList[index].completed ? 'completed-todo': ""} identifier = {props.todoList[index].id} content = {todo}  />
+    return <Todo key = {props.todoList[index].id} listClickFunction = {()=>props.function(index,props.className)} listClass ={props.todoList[index].completed ? 'completed-todo': ""} identifier = {props.todoList[index].id} content = {props.todoList[index].task}  />
   });
   return(
 
-    <ul>{todoList}</ul>
+    <ul className ={props.showResults ? "hidden": ""}>{todoList}</ul>
 
   );
 }
