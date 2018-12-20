@@ -20,6 +20,13 @@ let searchResults = [];
 
 if(localStorage.getItem("todosCompleted")){
 let todoCompleted =Array.from(localStorage.getItem("todosCompleted")).join("").split(",");
+for(let i = 0; i<todoCompleted.length;i++){
+  if(todoCompleted[i] === "true"){
+    todoCompleted[i] = true;
+  }else{
+    todoCompleted[i] = false;
+  }
+}
 let todoIds = Array.from(localStorage.getItem("todoIds")).join("").split(",");
 let todoTasks = Array.from(localStorage.getItem("todoTasks")).join("").split(",");
 todoCompleted.forEach((todo,index)=>{todoList.push(

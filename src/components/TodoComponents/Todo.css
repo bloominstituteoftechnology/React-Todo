@@ -1,5 +1,10 @@
 .completed-todo{
   text-decoration: line-through;
+  text-decoration-color:black;
+  color:red;
+  font-size:40px;
+  font-family: sans-serif;
+  list-style-type: none;
 }
 
 .hidden{display: none}
@@ -8,4 +13,35 @@
   width: 20%;
   height: 20px;
   font-size:20px;
+}
+
+.todo-list{
+  min-height:30vh;
+
+}
+
+.todo{
+   color: green;
+   font-size:40px;
+   font-family: sans-serif;
+   list-style-type: none;
+
+}
+
+.search-bar{
+
+}
+.blue{
+  color:blue
+}
+
+.search-bar input{
+  min-width:200px;
+  margin: 0 auto;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+.search-btn{
+
 }
