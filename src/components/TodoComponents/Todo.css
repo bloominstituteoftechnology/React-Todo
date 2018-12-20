@@ -1,30 +1,85 @@
 .completed-todo{
-  text-decoration: line-through;
   text-decoration-color:black;
-  color:red;
+
+  color:white;
   font-size:40px;
   font-family: sans-serif;
-  list-style-type: none;
+  list-style-type: none;text-align:center;
+  width:100%;
+  height:60px;
+  padding-top:10px;
+
+  background: #fa3a49;
+  border-radius: 8px;
+  margin-top:10px;
+}
+
+.todo-form{
+  width:30%;
+  margin: 0 auto;
+  font-size:20px;
+}
+
+.todo-form input{
+  margin-top:20px;
+  flex-direction: column;
+  height:40px;
+  width:99%;
+  padding: 0;
+  margin:0 auto;
+}
+
+.todo-form button{
+  width:100%;
+  height:40px;
+  margin-top:10px;
+
 }
 
 .hidden{display: none}
 
 .search-bar{
-  width: 20%;
-  height: 20px;
+  width: 30%;
+
   font-size:20px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-bar input{
+  width:99%;
+  height:40px;
+
+  padding: 0;
+
+}
+
+.search-bar button{
+  height:40px;
+
 }
 
 .todo-list{
   min-height:30vh;
-
+  width:30%;
+  margin:0 auto;
+  padding-left: 0;
+  margin-bottom: 20px;
 }
 
 .todo{
-   color: green;
+   color: white;
    font-size:40px;
    font-family: sans-serif;
    list-style-type: none;
+   text-align:center;
+   width:100%;
+   height:60px;
+   padding-top:10px;
+   background: #2fc974;
+   border-radius: 8px;
+   margin-top:10px;
 
 }
 

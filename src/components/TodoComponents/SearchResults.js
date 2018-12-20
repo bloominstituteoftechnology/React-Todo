@@ -5,7 +5,7 @@ const SearchResults = props =>{
   const resultList = props.searchResults.map((result,index) => {
 
 
-    return <Todo   listClass ={(props.resultList[index].completed ? 'completed-todo': "")} identifier = {props.resultList[index].id} content = {props.resultList[index].task}  />
+    return <Todo   listClass ={(props.resultList[index].completed ? 'completed-todo': "todo")} identifier = {props.resultList[index].id} content = {props.resultList[index].task}  />
   });
   return(
 

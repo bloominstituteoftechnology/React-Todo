@@ -1,5 +1,11 @@
-.todo-container{
-  width:960px;
+body{
+  max-width:1024px;
   margin:0 auto;
+}
 
+todo-container{
+  width:80%;
+  margin:0 auto;
+  display: flex;
+  flex-direction: column;
 }

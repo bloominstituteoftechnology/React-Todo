@@ -6,6 +6,7 @@ import SearchBar from './components/TodoComponents/SearchBar.js';
 import SearchResults from './components/TodoComponents/SearchResults.js';
 
 import './components/TodoComponents/Todo.css';
+import './App.css'
 
 let todoList = [];
 let todoContainer = [];
@@ -206,7 +207,7 @@ getTodo = event =>{
 
   render() {
     return (
-      <div>
+      <div class = "todo-container">
         <TodoList showResults = {this.state.showResults} todoList = {todoList} function = {this.markTodo} todos ={this.state.todos} className = {this.state.todosClasses}/>
         <SearchResults resultList = {searchResults} searchResults = {this.state.searchResults} showResults ={this.state.showResults} />
 
