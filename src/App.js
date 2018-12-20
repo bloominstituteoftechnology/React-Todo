@@ -57,6 +57,13 @@ class App extends React.Component {
     })
   }
 
+  removeCompleted = e => {
+    e.preventDefault();
+    this.setState({
+      todoList: this.state.todoList.filter(task => task.completed === false)
+    })
+  }
+
   render() {
     return (
       <div> 
@@ -68,6 +75,7 @@ class App extends React.Component {
         <TodoForm 
         eventHandler={this.changeEventHandler} 
         submitHandler={this.submitEventHandler}
+        clearCompleted={this.removeCompleted}
         />
       </div>
     );
