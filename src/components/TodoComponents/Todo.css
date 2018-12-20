@@ -1,7 +1,71 @@
+.app{
+    width: 900px;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: #FEEEB7;
+    border: 1px solid black;
+}
+
+.header{
+    font-weight: bold;
+    border-bottom: 1px solid grey;
+    padding: 25px 0;
+    width: 90%;
+    margin: 0 auto;
+}
+
 .task-completed{
     text-decoration: line-through;
 }
 
 .todo-item{
     cursor: pointer;
+    font-weight: lighter;
+    padding: 15px 0;
+    border-top: 1px solid lightgrey;
+    margin: unset;
+    width: 90%;
+    margin: 0 auto;
+}
+.todo-list{
+    margin: 25px 0 0 0; 
+}
+
+.todo-form{
+    padding: 25px 0;
+    border-top: 1px solid lightgrey;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.todo-form input{
+    width: 40%;
+    height: 30px;
+    margin: 0 auto;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.form-buttons{
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-buttons button{
+    cursor: pointer;
+    background-color: white;
+    padding: 10px 35px;
+    margin-top: 15px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.form-buttons button:hover{
+    transition: .2s;
+    color: white;
+    background-color: darkgrey;
 }

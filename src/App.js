@@ -66,8 +66,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div> 
-        <h1>Todo App</h1>
+      <div className="app"> 
+        <h1 className="header">Todo List</h1>
         <TodoList 
         todoObjects={this.state.todoList} 
         markCompleted={this.markCompleted}
