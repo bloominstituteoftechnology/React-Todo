@@ -1,3 +1,4 @@
+
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList.js';
 import TodoForm from './components/TodoComponents/TodoForm.js';
@@ -20,6 +21,7 @@ let searchResults = [];
 
 if(localStorage.getItem("todosCompleted")){
 let todoCompleted =Array.from(localStorage.getItem("todosCompleted")).join("").split(",");
+console.log(todoCompleted)
 for(let i = 0; i<todoCompleted.length;i++){
   if(todoCompleted[i] === "true"){
     todoCompleted[i] = true;
@@ -27,6 +29,7 @@ for(let i = 0; i<todoCompleted.length;i++){
     todoCompleted[i] = false;
   }
 }
+console.log(todoCompleted)
 let todoIds = Array.from(localStorage.getItem("todoIds")).join("").split(",");
 let todoTasks = Array.from(localStorage.getItem("todoTasks")).join("").split(",");
 todoCompleted.forEach((todo,index)=>{todoList.push(
@@ -100,12 +103,22 @@ submitSearch = (event) =>{
 }
 
 markTodo = (index) =>{
+  todoCompleted = [];
+  for(let i = 0; i< todoList.length;i++){
+    todoCompleted.push(todoList[i].completed);
+  }
 
   todoList[index].completed = !(todoList[index].completed);
+  todoCompleted = [];
+  for(let i = 0; i<todoList.length;i++){
+    todoCompleted[i] = todoList[i].completed;
+  }
+  console.log(todoCompleted)
   console.log(classList);
   this.setState((prevState, props) => {return {todosClasses: classList }});
   this.setState((prevState,props)=>{return {todos:todoList}});
 
+  localStorage.setItem("todosCompleted", todoCompleted);
 
 
   /*if(event.target.classList.includes('completed-todo')){
@@ -117,6 +130,10 @@ getTodo = event =>{
   currentTodo = event.target.value;
 }
  addTodo = () => {
+   console.log('in add ===================================')
+   console.log(todoList)
+   console.log(todoNameList)
+   console.log(todoCompleted)
    const newTodo =
      {task: currentTodo,
       id: Date.now(),
@@ -125,17 +142,23 @@ getTodo = event =>{
    todoList.push(newTodo);
 
    todoListItems.push(newTodo.id);
-
+   console.log(todoList)
 
      todoNameList.push(currentTodo);
-  this.setState((prevState, props) =>{return{todos: todoList}});
+   this.setState((prevState, props) =>{return{todos: todoList}});
    this.setState((prevState,props)=>{return {todoNames: todoNameList}});
    this.setState((prevState, props)=>{return{completedTodos: todoListItems}})
    console.log('');
-   todoTasks.push(newTodo.task);
-
-   todoIds.push(newTodo.id);
-   todoCompleted.push(newTodo.completed);
+   todoTasks = [];
+   todoIds = [];
+   todoCompleted = [];
+   todoNameList = [];
+   for(let i = 0; i<todoList.length; i++){
+     todoTasks.push(todoList[i].task);
+     todoIds.push(todoList[i].id);
+     todoCompleted.push(todoList[i].completed);
+     todoNameList.push(todoList[i]);
+   }
 
    localStorage.setItem("todoTasks", todoTasks);
    localStorage.setItem("todoIds", todoIds);
@@ -146,11 +169,36 @@ getTodo = event =>{
  clearCompletedTodos = () => {
   console.log('clearing ' + todoList)
   const result = todoList.filter(todo => todo.completed === false);
+  console.log(result)
   todoNameList = [];
   result.forEach(todo => todoNameList.push(todo.task));
   todoList = result;
+  todoTasks = [];
+  todoIds = [];
+  todoCompleted = [];
+  todoNameList = [];
+  for(let i = 0; i<todoList.length; i++){
+    todoTasks.push(todoList[i].task);
+    todoIds.push(todoList[i].id);
+    todoCompleted.push(todoList[i].completed);
+    todoNameList.push(todoList[i]);
+  }
+  localStorage.setItem("todoTasks", todoTasks);
+  localStorage.setItem("todoIds", todoIds);
+  localStorage.setItem("todosCompleted", todoCompleted);
+  localStorage.setItem("todoNames", JSON.stringify(todoNameList));
   console.log(todoList)
   this.setState({todos: todoList});
+  localStorage.setItem("todoList", JSON.stringify(todoListItems));
+
+
+  ///New stuff
+
+
+
+
+  localStorage.setItem("todoList", JSON.stringify(todoListItems));
+
   this.setState((prevState, props) =>{return{todos: todoList}});
    this.setState((prevState,props)=>{return {todoNames: todoNameList}});
    this.setState((prevState, props)=>{return{completedTodos: todoListItems}})
