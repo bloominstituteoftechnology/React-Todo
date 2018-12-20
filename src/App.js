@@ -1,6 +1,7 @@
 import React from 'react';
-import TodoList from './components/TodoComponents/TodoList'
-import TodoForm from './components/TodoComponents/TodoForm'
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
+import Todo from './components/TodoComponents/Todo.css'
 
 class Task{
   constructor(taskName){
@@ -48,12 +49,17 @@ class App extends React.Component {
     })
   }
 
+  markCompleted = e => {
+    e.target.classList.toggle('task-completed');
+  }
+
   render() {
     return (
       <div> 
         <h2>Todo App</h2>
         <TodoList 
         todoObjects={this.state.todoList} 
+        markCompleted={this.markCompleted}
         />
         <TodoForm 
         eventHandler={this.changeEventHandler} 
