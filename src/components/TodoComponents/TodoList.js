@@ -6,7 +6,11 @@ import Todo from './Todo'
 const TodoList = props => {
     return (
         <div> {props.todoObjects.map(todoItem => { 
-                return <Todo taskName={todoItem.task} taskId={todoItem.id} markCompleted={props.markCompleted}/> 
+                return <Todo 
+                taskName={todoItem.task} 
+                taskId={todoItem.id} 
+                markCompleted={props.markCompleted}
+                /> 
             })} 
         </div>
     )

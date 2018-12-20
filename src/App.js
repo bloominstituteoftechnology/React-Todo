@@ -1,15 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import Todo from './components/TodoComponents/Todo.css'
-
-class Task{
-  constructor(taskName){
-    this.task = taskName,
-    this.id = Date.now(),
-    this.completed = false
-  }
-}
+import './components/TodoComponents/Todo.css'
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -43,20 +35,32 @@ class App extends React.Component {
     this.setState({
       todoList: [
         ...this.state.todoList,
-        new Task(this.state.inputText)
+        {task:this.state.inputText, completed: false, id: Date.now()}
       ],
       inputText: ''
     })
   }
 
-  markCompleted = e => {
+  markCompleted = (e, id) => {
     e.target.classList.toggle('task-completed');
+    this.setState({
+      todoList: this.state.todoList.map(task => {
+        if(task.id === id){
+          return {
+            ...task, 
+            completed: task.completed === true ? false : true
+          };
+        } else {
+          return task;
+        }
+      })
+    })
   }
 
   render() {
     return (
       <div> 
-        <h2>Todo App</h2>
+        <h1>Todo App</h1>
         <TodoList 
         todoObjects={this.state.todoList} 
         markCompleted={this.markCompleted}
