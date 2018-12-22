@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList.js'
 import TodoForm from './components/TodoComponents/TodoForm.js'
+import './App.css'
 
 function addTask(obj, task) {
   obj.todo.push({
@@ -33,13 +34,18 @@ class App extends React.Component {
     this.state = {
       todo : [
         {
-          task: 'Organize Garage',
+          task: 'EPI, Strings 6.5',
           id: 1528817077286,
           completed: false
         },
         {
-          task: 'Bake Cookies',
+          task: 'Advent of Code',
           id: 1528817084358,
+          completed: false
+        },
+        {
+          task: 'LeetCode Medium Problem',
+          id: 1528817084498,
           completed: false
         }
       ]
@@ -61,8 +67,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>A Naive To Do App</h2>
+      <div className="app">
+        <img className="logo" src={require('./img/logo.jpg')}></img>
         <TodoList todoChange={this.todoChange} list={this.state.todo}/>
         <TodoForm handleClear={this.handleClear} onAdd={this.handleAdd}/>
       </div>
