@@ -7,8 +7,8 @@ function TodoForm(props) {
       <input
         value={props.task}
         type="text"
-        name="characterName"
-        placeholder="Task"
+        name="task"
+        placeholder="Add new Task"
         onChange={props.handleChanges}
       />
       {/* <input

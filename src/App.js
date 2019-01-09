@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import Todo from './components/TodoComponents/Todo';
 
 const todoArray = [
   {
@@ -16,7 +15,7 @@ const todoArray = [
     id: 1528817084358,
     completed: false
   }
-];
+]
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -27,8 +26,8 @@ class App extends React.Component {
     this.state = {
       todoList: todoArray,
       task: "",
-      // id: ,
-      // completed:
+      id: "",
+      completed: ""
     };
   }
 
@@ -50,6 +49,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <TodoList todoList={this.state.todoList} />
         <TodoForm />
       </div>
     );

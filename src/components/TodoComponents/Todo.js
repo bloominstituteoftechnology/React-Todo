@@ -4,6 +4,7 @@ function Todo(props) {
   // do more stuff here
   return (
     <div>
+        {props.todoTD.task}
     </div>
   );
   // this won't get touched
