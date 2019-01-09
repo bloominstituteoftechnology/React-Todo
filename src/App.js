@@ -10,10 +10,18 @@ class App extends React.Component {
     super();
   }
 
+  handleClick = e => {
+    const button = e.currentTarget.dataset.button;
+  }
+
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="todo-app">
+        <h1 className="todo-main-header">Todo App</h1>
+        <TodoList 
+          handleClick={this.handleClick}/>
+        <TodoForm 
+          handleClick={this.handleClick} />
       </div>
     );
   }

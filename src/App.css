@@ -1,1 +1,15 @@
-@import 'variables.css'
+@import 'index.css';
+@import 'variables.css';
+
+.todo-app {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.todo-main-header {
+    text-align: center;
+    font-size: 6.4rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
