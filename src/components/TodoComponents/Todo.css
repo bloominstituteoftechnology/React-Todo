@@ -1,3 +1,13 @@
 .item-container {
   margin: 5px 0;
 }
+
+
+form {
+  padding: 10px 0;
+}
+
+button {
+  padding: 2px 10px;
+  margin-left: 10px;
+}

@@ -17,21 +17,37 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      list: ToDoItems
-      // pass this data down to ToDo Component, then iterate over each item
+      list: ToDoItems,
+      task: ''
     };
   }
 
+  handleChanges = e => {
+    this.setState({ [e.target.holder]: e.target.value });
+  };
+
   submitForm(e) {
     e.preventDefault();
-    // this.setState(e.target.value);
+    this.setState({
+      list: [
+        ...this.state.list,
+        { task: this.state.task, id: generateId, completed: false }
+      ],
+      task: ''
+    });
   }
 
   render() {
     return (
       <div className="container">
         <h1>To Do App</h1>
-        <ToDoList submitForm={this.submitForm} list={this.state.list} />
+        <ToDoList
+          list={this.state.list}
+          handleChanges={this.handleChanges}
+          submitForm={this.submitForm}
+          inputText={this.state.inputText}
+          holder4={this.state.holder}
+        />
       </div>
     );
   }

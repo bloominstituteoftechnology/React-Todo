@@ -8,7 +8,13 @@ const ToDoList = props => {
   return (
     <Fragment>
       <ToDo list={props.list} />
-      <ToDoForm submitForm={props.submitForm} />
+      <ToDoForm
+        list={props.list}
+        handleChanges={props.handleChanges}
+        submitForm={props.submitForm}
+        inputText={props.inputText}
+        holder={props.holder}
+      />
     </Fragment>
   );
 };
