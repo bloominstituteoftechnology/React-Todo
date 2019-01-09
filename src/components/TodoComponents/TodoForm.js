@@ -3,13 +3,13 @@ import React from 'react';
 function ToDoForm(props) {
   console.log('To Do Form is re-rendering');
   return (
-    <form onSubmit={props.addNewToDoItem}>
+    <form onSubmit={props.addNewItem}>
       {/* this input "controlled" input */}
       <input
         value={props.toDoItem}
         type="text"
         name="toDoItem"
-        placeholder="A Thing To Do"
+        placeholder="Put It On the List!"
         onChange={props.handleChanges}
       />
       <button type="submit">Add To Do Item</button>

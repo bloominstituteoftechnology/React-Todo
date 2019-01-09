@@ -42,7 +42,11 @@ class App extends React.Component {
     return (
       <div className="App">
       <TodoList toDoDataList={this.state.toDoList} />
-      <TodoForm />
+      <TodoForm
+        addNewItem={this.addNewItem}
+        handleChanges={this.handleChanges}
+        toDoItem={this.state.toDoItem}
+        characterMovie={this.state.characterMovie} />
       </div>
     );
   }
