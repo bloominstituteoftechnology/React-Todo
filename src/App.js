@@ -47,6 +47,13 @@ class App extends React.Component {
     this.state ( {todos} );
   };
 
+  clearCompletedTodos = event => {
+    event.preventDefault();
+    let todos = this.state.todos.slice();
+    todos = todos.filter(todo => !todo.completed);
+    this.setState({ todos });
+  };
+
   render() {
     return (
       <div>
