@@ -24,6 +24,10 @@ class App extends React.Component {
 		],
 	};
 
+	idGen = () => {
+		return Math.random();
+	};
+
 	addTodo = event => {
 		event.preventDefault();
 		this.setState({
@@ -31,13 +35,15 @@ class App extends React.Component {
 				...this.state.todos,
 				{
 					task: this.state.todo,
-					id: 2,
+					id: this.idGen(),
 					completed: false,
 				},
 			],
 			todo: '',
 		});
 	};
+
+	deleteTodo = id => {};
 
 	onInputChange = event => {
 		this.setState({ todo: event.target.value });

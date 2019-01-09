@@ -1,8 +1,9 @@
 import React from 'react';
+import './Todo.css';
 
 const TodoForm = props => {
 	return (
-		<form>
+		<form className="todo-form">
 			<input
 				value={props.todoInput}
 				type="text"

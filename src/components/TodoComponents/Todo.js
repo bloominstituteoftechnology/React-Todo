@@ -1,10 +1,14 @@
 import React from 'react';
+import './Todo.css';
 
 const Todo = props => {
 	return (
 		<div>
 			{props.todo.map(el => (
-				<div key={el.id}>{el.task}</div>
+				<div className="todo" key={el.id}>
+					{el.task}
+					<button>Delete</button>
+				</div>
 			))}
 		</div>
 	);
