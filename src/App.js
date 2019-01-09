@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import { timingSafeEqual } from 'crypto';
 
 class App extends React.Component {
   constructor() {
@@ -33,6 +34,19 @@ class App extends React.Component {
 
   changeTodo = event => this.setState({ [event.target.name]: event.target.value} );
   
+  toggleTodoComplete = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo => {
+      if (todo === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.state ( {todos} );
+  };
+
   render() {
     return (
       <div>
