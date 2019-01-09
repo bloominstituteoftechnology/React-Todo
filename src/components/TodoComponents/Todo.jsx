@@ -1,7 +1,13 @@
 import React, { Component, Fragment } from 'react';
 
-const ToDo = () => {
-  return <p>Iterate over todo Data here</p>;
+const ToDo = props => {
+  return (
+    <div>
+      {props.list.map(item => {
+        return <div>{item.task}</div>;
+      })}
+    </div>
+  );
 };
 
 export default ToDo;

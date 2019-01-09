@@ -7,7 +7,7 @@ import ToDoForm from './TodoForm';
 const ToDoList = props => {
   return (
     <Fragment>
-      <ToDo />
+      <ToDo list={props.list} />
       <ToDoForm submitForm={props.submitForm} />
     </Fragment>
   );
