@@ -4,22 +4,22 @@ import TodoForm from './components/TodoComponents/TodoForm';
 
 const taskList = [
 	{
-		task: 'finish building ToDo App',
+		task: 'Something something',
 		id: 1,
 		completed: false
 	},
 	{
-		task: 'cook dinner',
+		task: 'Something even more',
 		id: 2,
 		completed: false
 	},
 	{
-		task: 'clean kitchen',
+		task: 'Do more work',
 		id: 3,
 		completed: false
 	},
 	{
-		task: 'reward yourself and buy a nintendo switch',
+		task: 'a new task just for the sake of having a task',
 		id: 4,
 		completed: false
 	}
@@ -39,19 +39,27 @@ class App extends React.Component {
 		this.setState({ [e.target.name]: e.target.value });
 	};
 
+	handleClear() {
+		console.log('Consider it cleared');
+	}
+
 	addNewTodo = e => {
 		e.preventDefault();
-		this.setState({
-			todoList: [
-				...this.state.todoList,
-				{
-					todoItem: this.state.todoItem,
-					id: Date.now(),
-					completed: false
-				}
-			],
-			todoItem: ''
-		});
+		if (this.state.todoItem === '') {
+			alert('Please enter a Todo');
+		} else {
+			this.setState({
+				todoList: [
+					...this.state.todoList,
+					{
+						task: this.state.todoItem,
+						id: Date.now(),
+						completed: false
+					}
+				],
+				todoItem: ''
+			});
+		}
 	};
 
 	render() {
@@ -59,6 +67,7 @@ class App extends React.Component {
 			<div>
 				<TodoForm
 					handleChanges={this.handleChanges}
+					handleClear={this.handleClear}
 					addNewTodo={this.addNewTodo}
 					todoItem={this.state.todoItem}
 				/>
