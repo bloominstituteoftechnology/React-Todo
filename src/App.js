@@ -27,9 +27,11 @@ class App extends React.Component {
   addTodo = event => {
     event.preventDefault();
     const todos = this.state.todos.slice();
-    todos.push ({task: this.state.todo, completed: false, id: Date.now()});
-    this.setState({todos, todo: ''});
+    todos.push ( {task: this.state.todo, completed: false, id: Date.now()} );
+    this.setState( {todos, todo: ''} );
   };
+
+  changeTodo = event => this.setState({ [event.target.name]: event.target.value} );
   
   render() {
     return (
