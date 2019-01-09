@@ -12,8 +12,7 @@ const ToDoList = props => {
         list={props.list}
         handleChanges={props.handleChanges}
         submitForm={props.submitForm}
-        inputText={props.inputText}
-        holder={props.holder}
+        addingTask={props.addingTask}
       />
     </Fragment>
   );

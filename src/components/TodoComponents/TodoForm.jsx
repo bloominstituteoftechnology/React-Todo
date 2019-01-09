@@ -4,12 +4,13 @@ const ToDoForm = props => {
   return (
     <form onSubmit={props.submitForm}>
       <input
-        value={props.holder}
+        value={props.addingTask}
         type="text"
+        name="addingTask"
         placeholder="Input new task"
         onChange={props.handleChanges}
       />
-      <button type="submit"> Add Task </button>
+      <button> Add Task </button>
     </form>
   );
 };

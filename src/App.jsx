@@ -4,7 +4,7 @@ import './App.css';
 
 import ToDoList from './components/TodoComponents/TodoList';
 
-let generateId = Date.now();
+let generateId = Date.now().valueOf();
 
 const ToDoItems = [
   { task: 'finish building todo app', id: generateId, completed: false },
@@ -18,24 +18,24 @@ class App extends Component {
     super();
     this.state = {
       list: ToDoItems,
-      task: ''
+      addingTask: ''
     };
   }
 
   handleChanges = e => {
-    this.setState({ [e.target.holder]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
-  submitForm(e) {
+  submitForm = e => {
     e.preventDefault();
     this.setState({
       list: [
         ...this.state.list,
-        { task: this.state.task, id: generateId, completed: false }
+        { task: this.state.addingTask, id: generateId, completed: false }
       ],
-      task: ''
+      addingTask: ''
     });
-  }
+  };
 
   render() {
     return (
@@ -45,8 +45,7 @@ class App extends Component {
           list={this.state.list}
           handleChanges={this.handleChanges}
           submitForm={this.submitForm}
-          inputText={this.state.inputText}
-          holder4={this.state.holder}
+          addingTask={this.state.addingTask}
         />
       </div>
     );
