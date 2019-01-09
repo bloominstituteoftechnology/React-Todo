@@ -1,8 +1,28 @@
 .todoButton{
     background: white;
     border-radius: 4px;
+    border: 1px solid blue;
 }
 .clearButton{
     background: white;
     border-radius: 4px;
+    border: 1px solid blue;
+}
+.clearButton:active{
+    transition: .2s;
+    color: black;
+    background-color: rgba(0, 0, 255, 0.466);
+}
+.todoButton:active{
+    transition: .2s;
+    color: black;
+    background-color: rgba(0, 0, 255, 0.466);
+}
+.todo{
+    border: 1px solid blue; 
+    border-radius: 4px;
+}
+.todo:focus{
+    border: 3.5px solid #00BCD4;; 
+   
 }
