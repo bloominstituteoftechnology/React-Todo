@@ -4,7 +4,7 @@ import List from "./TodoList";
 
 class Todo extends Component {
   render() {
-    return <li>Todo</li>;
+    return <ul>{this.props.todo}</ul>;
   }
 }
 
