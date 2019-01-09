@@ -1,10 +1,15 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
+import './Todo.css';
 
 const ToDo = props => {
   return (
     <div>
       {props.list.map(item => {
-        return <div>{item.task}</div>;
+        return (
+          <div className="item-container" key={item.id}>
+            {item.task}
+          </div>
+        );
       })}
     </div>
   );
