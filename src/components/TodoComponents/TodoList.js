@@ -3,8 +3,6 @@
 import React from 'react';
 import ToDo from './Todo';
 
-
-
 const TodoList = (props) => {
     return (
         <div>
@@ -13,12 +11,12 @@ const TodoList = (props) => {
                     <ToDo 
                         key = {todo.id}
                         value = {todo.task}
-                        completed = {todo.completed}
+                        
                     />
                 )
             })}
         </div>
-    );
+    )
 }
 
 export default TodoList;

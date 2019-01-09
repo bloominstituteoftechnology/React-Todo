@@ -1,26 +1,69 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
-
-
-const ToDoItems = [
-  { task: 'ToDo List', id: 1, completed: false},
-  { task: 'cook dinner', id: 2, completed: false },
-  { task: 'clean kitchen', id: 3, completed: false },
-  { task: 'go to the gym', id: 4, completed: false }
-];
-
+import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  constructor() {
+    super ();
+    this.state = {
+      textInput: '',
+      todos: [
+        {
+          task: 'Make ToDo List',
+          id: 1,
+          completed: false
+        },
+        {
+          task: 'Fill out Stand Up form',
+          id: 2,
+          completed: false
+        }
+      ]
+    };
+  }
+
+  handleInput = (e) => {
+    console.log(e.target.value);
+    this.setState({
+      textInput:e.target.value
+    });
+  };
+
+  handleAdd = (e) => {
+    e.preventDefault();
+    let id = Date.now();
+    this.setState({
+      todos: [
+        ...this.state.todos,
+      {task: this.state.textInput,
+        id,
+        completed: false
+      
+      }
+
+      ],
+      textInput: ''
+    })
+  }
+
+  
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App starting!</h2>
+        <h1>ToDo List</h1>
+        <TodoList 
+          todos = {this.state.todos}
+        />
+        <TodoForm 
+          textInput = {this.state.textInput}
+          handleInput = {this.handleInput}
+          handleAdd = {this.handleAdd}
+        />
       </div>
     );
   }
 }
 
 export default App;
+
