@@ -21,18 +21,45 @@ class App extends React.Component {
           task: 'Bake Cookies',
           completed: false
         }
-      ]
+      ],
+      currentTodoInput: ""
     }
 
     localStorage.setItem("todos", JSON.stringify(this.state.todos));
   }
 
+  addTodo(e) {
+    this.setState({ 
+        todos: [...this.state.todos, {
+          id: Date.now(),
+          task: this.state.currentTodoInput,
+          completed: false,
+        }],
+        currentTodoInput: ""
+    }, () => localStorage.setItem("todos", JSON.stringify(this.state.todos)));
+  }
+
   handleChange = e => {
     const input = e.currentTarget.dataset.input;
+    
+    switch(input) {
+      case 'new-todo-textarea' :
+        this.setState({currentTodoInput: e.currentTarget.value});
+        break;
+    }
   }
 
   handleClick = e => {
     const button = e.currentTarget.dataset.button;
+    
+    switch(button) {
+      case 'todo-add' :
+        this.addTodo(e);
+        break;
+
+      case 'toggle-completed' :
+        break;
+    }
   }
 
   render() {
@@ -40,6 +67,7 @@ class App extends React.Component {
       <div className="todo-app">
         <h1 className="todo-main-header">Todo App</h1>
         <TodoForm 
+          currentTodoInput={this.state.currentTodoInput}
           handleChange={this.handleChange}
           handleClick={this.handleClick} />
         <TodoList 

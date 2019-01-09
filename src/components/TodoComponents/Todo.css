@@ -3,6 +3,9 @@
 /* Overall Todo list styles */
 
 .todo-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
     margin: 20px auto;
 }
@@ -10,11 +13,15 @@
 /* Individual Todo list item styles*/
 
 .todo-item {
-    position: relative;
-    width: 100%;
+    width: 30%;
+    margin: 20px 1.5%;
+}
+
+.todo-item-text {
+    overflow: auto;
+    height: 250px;
     padding: 10px;
     border: 5px double var(--todo-item-border-color);
-    margin: 20px auto;
 }
 
 .todo-item-header {
@@ -28,15 +35,16 @@
 }
 
 .todo-item-complete-btn {
-    position: absolute;
-    bottom: 0;
+    display: block;
     padding: 10px 5%;
+    margin: 10px 0 0 auto;
 }
 
 /* Todo form styles */
 
 .todo-form {
-    margin: 50px 0;
+    width: 50%;
+    margin: 50px auto;
 }
 
 .todo-form-header {
@@ -45,14 +53,12 @@
 }
 
 .todo-form-container {
-    /* display: flex;
-    flex-direction: column; */
     width: 100%;
 }
 
 .todo-form-input {
     width: 100%;
-    height: 100px;
+    height: 150px;
     margin: 20px 0;
 }
 
