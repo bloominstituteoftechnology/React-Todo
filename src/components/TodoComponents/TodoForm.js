@@ -4,7 +4,6 @@ function ToDoForm(props) {
   console.log('To Do Form is re-rendering');
   return (
     <form onSubmit={props.addNewItem}>
-      {/* this input "controlled" input */}
       <input
         value={props.toDoItem}
         type="text"
