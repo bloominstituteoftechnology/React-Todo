@@ -1,4 +1,22 @@
 import React from 'react';
+import ReactDOM from "react-dom";
+
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
+import Todo from './components/TodoComponents/Todo';
+
+const todoArray = [
+  {
+    task: 'Organize Garage',
+    id: 1528817077286,
+    completed: false
+  },
+  {
+    task: 'Bake Cookies',
+    id: 1528817084358,
+    completed: false
+  }
+];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -7,15 +25,31 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      todoList: todoArray,
       // task: ,
       // id: ,
       // completed:
     };
   }
+
+  handleChanges = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  addNewTodo = ev => {
+    ev.preventDefault();
+    this.setState({
+      TodoList: [
+        ...this.state.todoList,
+        { todoName: this.state.todoName }
+      ],
+      todoName: ""
+    });
+  };
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
       </div>
     );
   }
