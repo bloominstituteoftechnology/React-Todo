@@ -6,13 +6,14 @@ import TodoForm from './TodoForm'
 
 
 const TodoList = props =>{
+    
     return(
         <div>
         {props.toDoListData.map((activity, i) =>{
             console.log(activity);
            return <Todo activity={activity} id={i}/>
         })}
-        <TodoForm />
+        
         </div>
     )
 }

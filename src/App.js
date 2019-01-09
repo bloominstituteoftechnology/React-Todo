@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList'
+import TodoForm from './components/TodoComponents/TodoForm'
 
 const todoData = [
   {id: '1', task: 'Clean Garage', completed: false },
@@ -13,7 +14,27 @@ class App extends React.Component {
   super();
   this.state={
     toDoListData: todoData,
+    task: '',
+    completedTasks: [],
+
   }
+}
+
+handleChanges = ev => {
+  this.setState({ ['task']: ev.target.value });
+};
+
+addNewToDo = ev =>{
+  ev.preventDefault();
+  this.setState({
+    toDoListData:[
+      ...this.state.toDoListData,
+      {
+        task: this.state.task
+      }
+    ],
+    task: ""
+  })
 }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -22,7 +43,14 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList toDoListData={this.state.toDoListData}/>
+        <TodoList 
+        toDoListData={this.state.toDoListData}
+        />
+        <TodoForm 
+        handleChanges={this.handleChanges}
+        task={this.state.task} 
+        addNewToDo={this.addNewToDo}
+        />
       </div>
     );
   }
