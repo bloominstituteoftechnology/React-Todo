@@ -1,8 +1,9 @@
 import React from  'react';
-
+import './Todo.css'
 
 const Todo = props =>{ 
-    return <li>{props.activity.task}</li> 
+    console.log(props.activity.completed)
+    return <li className="sign" onClick={props.taskCompleted}>{props.activity.task}</li> 
 }
 
 export default Todo;

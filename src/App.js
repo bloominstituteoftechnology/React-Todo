@@ -3,9 +3,9 @@ import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
 
 const todoData = [
-  {id: '1', task: 'Clean Garage', completed: false },
-  {id: '2', task:'Do Laundry', completed: false },
-  {id: '3', task: 'Watch Seinfeld', completed: false },
+  {id: Date.now(), task: 'Clean Garage', completed: false },
+  {id: Date.now(), task:'Do Laundry', completed: false },
+  {id: Date.now(), task: 'Watch Seinfeld', completed: false },
 ]
 
 
@@ -16,7 +16,7 @@ class App extends React.Component {
     toDoListData: todoData,
     task: '',
     completedTasks: [],
-
+    addStrike: false,
   }
 }
 
@@ -30,12 +30,25 @@ addNewToDo = ev =>{
     toDoListData:[
       ...this.state.toDoListData,
       {
-        task: this.state.task
+        task: this.state.task,
+        id: Date.now(),
+        completed: false
       }
     ],
     task: ""
   })
-}
+};
+
+// taskCompleted = (ev) =>{
+//   console.log(ev.target.classList)
+//   if(ev.target.classList.contains('sign')){
+//     console.log(ev.target.className.add(strike))
+//   }
+//   if(ev.target.classList.contains('strike')){
+//     ev.target.classList.remove('strike');
+//   }
+  
+// }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -45,6 +58,8 @@ addNewToDo = ev =>{
         <h2>Welcome to your Todo App!</h2>
         <TodoList 
         toDoListData={this.state.toDoListData}
+        taskCompleted={this.taskCompleted}
+        addStrike = {this.state.addStrike}
         />
         <TodoForm 
         handleChanges={this.handleChanges}
