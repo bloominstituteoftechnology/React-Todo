@@ -6,8 +6,12 @@ const ToDo = props => {
     <div>
       {props.list.map(item => {
         return (
-          <div className="item-container" key={item.id}>
-            {item.task}
+          <div
+            className="item-container"
+            key={item.id}
+            onClick={() => props.toggleCompleted(item.task)}
+          >
+            <p className={item.completed.toString()}>{item.task}</p>
           </div>
         );
       })}

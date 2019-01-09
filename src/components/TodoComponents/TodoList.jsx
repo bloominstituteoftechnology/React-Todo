@@ -7,7 +7,7 @@ import ToDoForm from './TodoForm';
 const ToDoList = props => {
   return (
     <Fragment>
-      <ToDo list={props.list} />
+      <ToDo list={props.list} toggleCompleted={props.toggleCompleted} />
       <ToDoForm
         list={props.list}
         handleChanges={props.handleChanges}
