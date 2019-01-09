@@ -11,6 +11,7 @@ const toDoData = [
   }
 ];
 
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -20,8 +21,7 @@ class App extends React.Component {
     this.state = {
       toDoList: toDoData,
       toDoItem: '',
-      id: '',
-      completed: false
+      
     };
   }
 
@@ -31,27 +31,45 @@ class App extends React.Component {
 
   addNewItem = event => {
     event.preventDefault();
+    const newTask = {
+      id: Date.now(),
+      completed: false,
+      toDoItem: this.state.toDoItem
+    }
     this.setState({
       toDoList: [
         ...this.state.toDoList,
-        { toDoItem: this.state.toDoItem }
+        newTask
       ],
-      toDoItem: ''
+      toDoItem: '',
+      
     });
   };
 
-  render() {
+  render() { 
+    console.log(this.state.toDoList)
     return (
+      
       <div>
+        
         <ToDoList toDoDataList={this.state.toDoList}/>
         <ToDoForm
         addNewItem = {this.addNewItem}
         handleChanges = {this.handleChanges}
         toDoItem = {this.state.toDoItem}
+        id = {this.state.id}
         />
       </div>
+       
     );
+   
+    
   }
+  
 }
+
+
+
+
 
 export default App;
