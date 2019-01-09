@@ -26,7 +26,7 @@ class App extends React.Component {
     super();
     this.state = {
       todoList: todoArray,
-      // task: ,
+      task: "",
       // id: ,
       // completed:
     };
@@ -41,15 +41,16 @@ class App extends React.Component {
     this.setState({
       TodoList: [
         ...this.state.todoList,
-        { todoName: this.state.todoName }
+        { task: this.state.task }
       ],
-      todoName: ""
+      task: ""
     });
   };
 
   render() {
     return (
       <div>
+        <TodoForm />
       </div>
     );
   }
