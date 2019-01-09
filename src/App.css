@@ -68,3 +68,8 @@ img {
     height: auto;
     align-self: center;
 }
+
+.search-bar {
+    margin: 0px 5%;
+    padding: 5px 5% 0px 5%;
+}
