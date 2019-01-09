@@ -33,7 +33,7 @@ class App extends React.Component {
       event.preventDefault();
       this.setState({
           todoList: [
-              ...this.state.todoList
+              ...this.state.todoData
           ]
       })
   }
