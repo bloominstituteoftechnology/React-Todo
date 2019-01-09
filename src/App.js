@@ -32,24 +32,20 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo : [
-        {
-          task: 'EPI, Strings 6.5',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Advent of Code',
-          id: 1528817084358,
-          completed: false
-        },
-        {
-          task: 'LeetCode Medium Problem',
-          id: 1528817084498,
-          completed: false
-        }
-      ]
+      todo : []
     }
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem("todo")) {
+      this.setState({todo : JSON.parse(localStorage.getItem("todo"))});
+    } else {
+      localStorage.setItem("todo", JSON.stringify([]));
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("todo", JSON.stringify(this.state.todo));
   }
 
   handleAdd = task => {
