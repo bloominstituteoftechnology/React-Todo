@@ -16,12 +16,11 @@ class App extends React.Component {
     toDoListData: todoData,
     task: '',
     completedTasks: [],
-    addStrike: false,
   }
 }
 
 handleChanges = ev => {
-  this.setState({ ['task']: ev.target.value });
+  this.setState({ task: ev.target.value });
 };
 
 addNewToDo = ev =>{
@@ -30,8 +29,8 @@ addNewToDo = ev =>{
     toDoListData:[
       ...this.state.toDoListData,
       {
-        task: this.state.task,
         id: Date.now(),
+        task: this.state.task,
         completed: false
       }
     ],
@@ -39,16 +38,9 @@ addNewToDo = ev =>{
   })
 };
 
-// taskCompleted = (ev) =>{
-//   console.log(ev.target.classList)
-//   if(ev.target.classList.contains('sign')){
-//     console.log(ev.target.className.add(strike))
-//   }
-//   if(ev.target.classList.contains('strike')){
-//     ev.target.classList.remove('strike');
-//   }
-  
-// }
+taskCompleted = (ev) =>{
+  ev.target.classList.toggle('strike');
+  }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
