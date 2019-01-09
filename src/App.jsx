@@ -31,7 +31,7 @@ class App extends Component {
     this.setState({
       list: [
         ...this.state.list,
-        { task: this.state.addingTask, id: generateId, completed: false }
+        { task: this.state.addingTask, id: Date.now(), completed: false }
       ],
       addingTask: ''
     });
