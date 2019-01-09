@@ -1,0 +1,19 @@
+@import 'reset.css';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 32.5%;
+    font-family: "Roboto";
+}
+
+p {
+    font-size: 1.6rem;
+    line-height: 1.2;
+}
+
+img {
+    max-width: 100%;
+}
