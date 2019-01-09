@@ -31,11 +31,12 @@ class App extends React.Component {
       taskName: ''
     });
   };
-  
+
   render() {
     console.log('gloop');
     return (
       <div className='App'>
+        <h1>Todo List: MVP</h1>
         <TodoList todoTaskList={this.state.todoList} />
         <TodoForm
         addNew = {this.addNew}
