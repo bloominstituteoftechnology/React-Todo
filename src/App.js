@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const todoData = [
   {
     task: 'Organize Garage',
@@ -13,23 +14,26 @@ const todoData = [
   }
 ];
 
-class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
+class App extends React.Component {
   constructor() {
-    super();
-    this.state = {
-      todo: todoData,
-    }
+      super();
+      this.state = {
+          todo: todoData
+      }
+  }
   render() {
     return (
-      <div className="app">
-        <Todolist />
-        <TodoForm />
-      </div>
-    );
+        <div className='app'>
+            <TodoList todoData={this.state.todoData} />
+            <TodoForm
+                addTodo={this.addTodo}
+                handleChanges={this.handleChagnes}
+            />
+        </div>
+    )
   }
 }
-
 export default App;
