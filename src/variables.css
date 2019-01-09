@@ -1,6 +1,7 @@
 :root {
     /* Color assignments*/
-    
+    --todo-item-border-color: var(--black);
 
     /* Color values */
+    --black: #000000;
 }

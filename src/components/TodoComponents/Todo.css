@@ -2,11 +2,36 @@
 
 /* Overall Todo list styles */
 
-
+.todo-list {
+    width: 100%;
+    margin: 20px auto;
+}
 
 /* Individual Todo list item styles*/
 
+.todo-item {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    border: 5px double var(--todo-item-border-color);
+    margin: 20px auto;
+}
 
+.todo-item-header {
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.todo-item-details {
+    margin-bottom: 50px;
+}
+
+.todo-item-complete-btn {
+    position: absolute;
+    bottom: 0;
+    padding: 10px 5%;
+}
 
 /* Todo form styles */
 
@@ -15,7 +40,7 @@
 }
 
 .todo-form-header {
-    font-size: 4.8rem;
+    font-size: 2.4rem;
     font-weight: bold;
 }
 
