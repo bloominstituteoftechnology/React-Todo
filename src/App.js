@@ -33,9 +33,7 @@ class App extends React.Component {
       event.preventDefault();
       this.setState({
           todoList: [
-              ...this.state.todoList, {
-
-              }
+              ...this.state.todoList
           ]
       })
   }
@@ -45,7 +43,7 @@ class App extends React.Component {
             <TodoList todoData={this.state.todo} />
             <TodoForm
                 addTodo={this.addTodo}
-                handleChanges={this.handleChagnes}
+                handleChanges={this.handleChanges}
             />
         </div>
     )
