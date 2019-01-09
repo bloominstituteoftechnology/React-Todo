@@ -5,25 +5,27 @@ import TodoList from './components/TodoComponents/TodoList';
 const todoData = [
   {
     task: 'Stuff1',
-    id: 1,
+    id: Date.now(),
     completed: false
   },
   {
     task: 'Stuff2',
-    id: 2,
+    id: Date.now(),
     completed: false
   },
   {
     task: 'Stuff3',
-    id: 3,
+    id: Date.now(),
     completed: false
   },
   {
     task: 'Stuff4',
-    id: 4,
+    id: Date.now(),
     completed: false
   },
 ]
+
+console.log(todoData);
 
 class App extends React.Component {
   constructor() {
