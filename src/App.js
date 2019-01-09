@@ -3,7 +3,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
-const todoData = [
+const todoDataStarter = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -20,7 +20,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoData: todoData, 
+      todoData: todoDataStarter, 
       inputText: ""
     }
   }
@@ -28,22 +28,35 @@ class App extends React.Component {
   handleInput = (e) => {
     this.setState({
       inputText: e.target.value
-    })
+    });
   }
 
   addTodoItem = (e) => {
     e.preventDefault();
-    console.log('addItem');
+    console.log('addItem: ', this.state.inputText);
+    this.setState({
+      todoData: [
+        ...this.state.todoData,
+        {
+          task: this.state.inputText,
+          id: Date.now(),
+          completed: false
+        }
+      ],
+      inputText: ""
+    });
   }
 
   render() {
+    console.log(this.state.inputText);
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todoData={todoData} />
+        <TodoList todoData={this.state.todoData} />
         <TodoForm 
           handleInput={this.handleInput}
           addTodoItem={this.addTodoItem} 
+          inputText={this.state.inputText}
         />
       </div>
     );

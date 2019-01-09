@@ -7,6 +7,7 @@ class TodoForm extends Component {
         <input 
           type="text" 
           placeholder="New Todo Item"
+          value={this.props.inputText}
           onChange={this.props.handleInput}
         />
         <button>Add Item</button>
