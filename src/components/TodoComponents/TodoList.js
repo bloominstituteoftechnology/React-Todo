@@ -7,6 +7,9 @@ import Todo from './Todo';
 const TodoList = props => {
   return (
     <React.Fragment>
+      <div className="todos-completed">
+        {`Tasks completed: ${props.todoList.filter(todo => todo.completed).length} / ${props.todoList.length}`}
+      </div>
       <input
         className="todo-search" 
         type="search" 

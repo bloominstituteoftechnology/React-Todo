@@ -2,6 +2,14 @@
 
 /* Overall Todo list styles */
 
+.todos-completed{
+    display: block;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin: 10px auto 37.5px;
+}
+
 .todo-search {
     display: block;
     width: 20%;
@@ -20,7 +28,7 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    margin: 20px auto;
+    margin: 37.5px auto;
 }
 
 /* Individual Todo list item styles*/
