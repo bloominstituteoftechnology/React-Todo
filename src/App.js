@@ -117,19 +117,18 @@ class App extends React.Component {
   }
 
   handleClick(e) {
-    const button = e.currentTarget.name;
+    const button = e.currentTarget.name || e.currentTarget.dataset.id;
     switch(button) {
       case 'todo-add' :
         this.addTodo(e);
         break;
 
-      case 'toggle-completed' :
-        this.toggleCompletedTodo(e);
-        break;
-
       case 'remove-completed-todos' :
         this.removeCompletedTodos(e);
         break;
+
+      default :
+        this.toggleCompletedTodo(e);
     }
   }
 

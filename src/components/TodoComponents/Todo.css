@@ -1,5 +1,27 @@
 @import '../../variables.css';
 
+/* Animations */
+
+@keyframes transluscent-fade-out{
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.25;
+    }
+}
+
+@keyframes transluscent-fade-in{
+    0% {
+        opacity: 0.25;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 /* Overall Todo list styles */
 
 .todos-completed{
@@ -33,9 +55,25 @@
 
 /* Individual Todo list item styles*/
 
-.todo-item {
+.todo-item, .todo-item-done {
     width: 30%;
     margin: 20px 1.5%;
+}
+
+.todo-item:hover, .todo-item-done:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition-duration: 500ms;
+    transition-property: all;
+}
+
+.todo-item {
+    animation: transluscent-fade-in 0.5s;
+}
+
+.todo-item-done {
+    opacity: 0.25;
+    animation: transluscent-fade-out 0.5s;
 }
 
 .todo-item-text {
