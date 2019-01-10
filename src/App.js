@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm';
-// import { InstantSearch, Hits } from 'react-instantsearch-dom';
+
 
 class App extends React.Component {
   constructor() {
