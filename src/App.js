@@ -20,7 +20,7 @@ import React from "react";
 import { TodoList } from "./components/TodoComponents/TodoList";
 import { TodoForm } from "./components/TodoComponents/TodoForm";
 import "./components/TodoComponents/Todo.css";
-import SimpleStorage from "react-simple-storage"; // https://github.com/ryanjyost/react-simple-storage
+import SimpleStorage from "react-simple-storage"; // https://github.com/ryanjyost/react-simple-storage Used for local storage
 
 
 
