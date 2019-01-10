@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor() {
     super();
 
-    const todos = JSON.parse(localStorage.getItem("todos")) || [
+    this.todos = JSON.parse(localStorage.getItem("todos")) || [
       {
         _id: "1528817077286",
         dateCreated: "June 22, 2001 - 12:00 AM",
@@ -28,8 +28,8 @@ class App extends React.Component {
     ];
 
     this.state = {
-      todos,
-      queriedTodos: todos,
+      todos: this.todos,
+      queriedTodos: this.todos,
       currentTodoInput: "",
       searchQuery: ""
     }
@@ -38,15 +38,19 @@ class App extends React.Component {
   }
 
   addTodo(e) {
-    this.setState({ 
-        todos: [...this.state.todos, {
-          id: String(Date.now()),
-          dateCreated: Moment().format("MMMM D, YYYY - LT"),
-          task: this.state.currentTodoInput,
-          completed: false,
-        }],
-        currentTodoInput: ""
-    }, () => localStorage.setItem("todos", JSON.stringify(this.state.todos)));
+    if (this.state.currentTodoInput) {
+      this.setState({ 
+          todos: [...this.state.todos, {
+            _id: String(Date.now()),
+            dateCreated: Moment().format("MMMM D, YYYY - LT"),
+            task: this.state.currentTodoInput,
+            completed: false,
+          }],
+          queriedTodos: this.state.todos,
+          currentTodoInput: "",
+          searchQuery: ""
+      }, () => localStorage.setItem("todos", JSON.stringify(this.state.todos)));
+    }
   }
 
   searchTodos(searchQuery) {
@@ -60,23 +64,23 @@ class App extends React.Component {
   }
 
   toggleCompletedTodo(e) {
-    const todoList = this.state.todos;
-    
-    for (let i = 0; i < todoList.length; i++) {
-      if (todoList[i]._id === e.currentTarget.dataset.id) {
-        todoList[i].completed = !todoList[i].completed;
+    const queriedTodos = this.state.queriedTodos;
+    for (let i = 0; i < queriedTodos.length; i++) {
+      if (queriedTodos[i]._id === e.currentTarget.dataset.id) {
+        queriedTodos[i].completed = !queriedTodos[i].completed;
         break;
       }
     }
 
     this.setState({
-      todos: todoList
+      queriedTodos
     }, () => localStorage.setItem("todos", JSON.stringify(this.state.todos)));
   }
 
   removeCompletedTodos(e) {
     this.setState({
-      todos: this.state.todos.filter(todo => !todo.completed)
+      todos: this.state.todos.filter(todo => !todo.completed),
+      queriedTodos: this.state.queriedTodos.filter(todo => !todo.completed)
     }, () => localStorage.setItem("todos", JSON.stringify(this.state.todos)));
   }
 
@@ -96,7 +100,6 @@ class App extends React.Component {
 
   handleClick = e => {
     const button = e.currentTarget.dataset.button;
-    
     switch(button) {
       case 'todo-add' :
         this.addTodo(e);

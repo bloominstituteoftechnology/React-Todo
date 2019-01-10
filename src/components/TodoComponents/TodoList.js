@@ -10,9 +10,9 @@ const TodoList = props => {
       <input className="todo-search" type="search" placeholder="Search for todos...." data-input="todo-search" onChange={e => props.handleChange(e)}/>
       <button className="todo-remove-completed-btn" data-button="remove-completed-todos" onClick={e => props.handleClick(e)}>Remove Completed Todos</button>
       <div className="todo-list">
-        {props.todoList.map(todoItem => (
+        {props.todoList.map((todoItem, i) => (
           <Todo 
-            key={todoItem._id}
+            key={i}
             id={todoItem._id}
             dateCreated={todoItem.dateCreated}
             todoDetails={todoItem.task}
