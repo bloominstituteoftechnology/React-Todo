@@ -47,22 +47,21 @@ class App extends React.Component {
   }
 
   toggleCompleted = id => {
-    this.setState ({
-      todos: this.state.todos.map( todo => {
-        if (todo.id !== id) {
-          return todo;
-        } else {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          // this is the one we clicked on
           return {
             ...todo,
-            completed: !todo.completed,
-          }
+            completed: !todo.completed
+          };
         }
-          
-    
-       
-      }),
-    })
-  }
+        return todo;
+      })
+    });
+  };
+  
+
 
   
 

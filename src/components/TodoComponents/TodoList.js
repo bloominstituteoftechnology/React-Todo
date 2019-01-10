@@ -7,7 +7,7 @@ function TodoList(props) {
   return (
     <div>
       {props.todos.map(todo => {
-        return <Todo todo={todo} />;
+        return <Todo toggleCompleted={props.toggleCompleted} todo={todo} />;
       })}
     </div>
   );
