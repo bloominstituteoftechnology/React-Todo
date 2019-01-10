@@ -1,8 +1,87 @@
-.strike{
-    text-decoration:  line-through;
+  /* Defaults */
+  html, body {
+    height: 100%;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } 
+  button {
+    border: none;
+    padding: 0;
+    outline: none;
+    background-color: transparent;
+    user-select: none;
+  }
+  span {
+    box-sizing: border-box;
+  }
+img{
+    max-width:100%;
+    height: auto;
+}
+.iphone{
+    /* width: 500px;
+    margin: 0 auto;
+    border: 1px solid red; */
+
+    border-radius: 6vh;
+    padding: 10vh 1.5vh;
+    border: 0.5vh solid #525c6b;
+}
+.screen{
+    /* background-color: #3f74ca; */
+    padding: 1.5vh;
+    width: 36vh;
+    border: 0.5vh solid #525c6b;
 }
 
+/* Colors */
+
+/* white: #fff;
+athens-gray: #f7f8fa;
+shuttle-gray: #525c6b;
+indigo: #3f74ca; */
+
+.strike{
+    text-decoration:  line-through;
+
+}
 .todo-item{
-    padding: 10px 0;
-    margin: 20px 0
+    padding: 10px 20px;
+    margin: 20px 15px;
+    list-style: none;
+    border: 1px solid green;
+}
+
+.button{
+    font-size: 3rem;
+    border: 3px solid;
+    height: auto;
+    width: 15%;
+    padding: 0 0 5px;
+    margin: 10px;
+    border-radius: 100%;
+}
+.buttons-div{
+    display: flex;
+    justify-content: center;
+}
+
+.new-todo-input{
+    width: 45%;
+    border: 3px solid;
+    margin: 10px auto;
+    padding: 15px 0px;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.titles{
+    text-align: center;
+}
+form{
+    text-align: center;
 }

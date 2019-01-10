@@ -1,7 +1,7 @@
 import React from 'react';
-import TodoList from './components/TodoComponents/TodoList'
-import TodoForm from './components/TodoComponents/TodoForm'
-
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
+import ToDoLogo from './todoLogo.png';
 
 const todoData = [
   {id: 0, task: 'Clean Garage', completed: false },
@@ -10,6 +10,7 @@ const todoData = [
 ]
 
 let nextId = 3;
+console.log(nextId)
 const getNewId = () => {
   nextId += 1;
   return nextId;
@@ -46,25 +47,12 @@ addNewToDo = ev =>{
   })
 };
 
-// taskCompleted = id =>{
-//   // ev.target.classList.toggle('strike');
-//   this.setState({
-//     toDoListData: this.state.toDoListData.map(todo =>{
-//       if(todo.id === id){
-//         return {
-//           ...toDoListData,
-//           todo: todo.addStrike === "strike" ? " " : "strike"
-//         };
-//       } else{
-//         return toDoListData;
-//       }
-//     })
-//   })
   taskCompleted = id => {
-    console.log(id);
     this.setState({
       toDoListData: this.state.toDoListData.map(toDo => {
         if (toDo.id === id) {
+          console.log(toDo.id);
+          console.log(id);
           return {
             ...toDo,
             completed: toDo.completed ===  false ? true : false
@@ -97,18 +85,22 @@ addNewToDo = ev =>{
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoList 
-        toDoListData={this.state.toDoListData}
-        taskCompleted={this.taskCompleted}
-        />
-        <TodoForm 
-        handleChanges={this.handleChanges}
-        task={this.state.task} 
-        addNewToDo={this.addNewToDo}
-        removeCompleted={this.removeCompleted}
-        />
+      <div className="iphone">
+        <div className="screen">
+          <div>
+            <img src={ToDoLogo} alt=""/>
+          </div>
+          <TodoList 
+          toDoListData={this.state.toDoListData}
+          taskCompleted={this.taskCompleted}
+          />
+          <TodoForm 
+          handleChanges={this.handleChanges}
+          task={this.state.task} 
+          addNewToDo={this.addNewToDo}
+          removeCompleted={this.removeCompleted}
+          />
+        </div>
       </div>
     );
   }

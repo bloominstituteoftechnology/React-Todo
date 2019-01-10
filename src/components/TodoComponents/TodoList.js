@@ -9,8 +9,8 @@ const TodoList = props =>{
     
     return(
         <div>
-        {props.toDoListData.map((activity, i) =>{
-           return <Todo taskCompleted={props.taskCompleted} activity={activity} id={i}/>
+        {props.toDoListData.map((activity) =>{
+           return <Todo taskCompleted={props.taskCompleted} activity={activity}/>
         })}
         
         </div>
