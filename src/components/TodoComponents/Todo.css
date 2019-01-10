@@ -1,0 +1,24 @@
+.task {
+	margin: 5px;
+	font-size: 1.4rem;
+}
+input[type='checkbox'] {
+	zoom: 1.5;
+}
+
+form {
+	display: flex;
+	flex-wrap: wrap;
+	width: 400px;
+	justify-content: space-between;
+}
+.input {
+	width: 400px;
+	height: 20px;
+	margin-bottom: 10px;
+}
+button {
+	display: flex;
+	width: 195px;
+	height: 30px;
+}
