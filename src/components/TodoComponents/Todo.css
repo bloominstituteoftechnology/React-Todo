@@ -56,8 +56,8 @@
 /* Individual Todo list item styles*/
 
 .todo-item, .todo-item-done {
-    width: 30%;
-    margin: 20px 1.5%;
+    width: 25%;
+    margin: 20px 2.5%;
 }
 
 .todo-item:hover, .todo-item-done:hover {
@@ -149,6 +149,31 @@
     margin-left: auto;
 }
 
+@media (max-width: 800px) {
+    /* Overall Todo list styles */
+
+    .todo-search {
+        width: 37.5%;
+    }
+
+    .todo-remove-completed-btn {
+        width: 45%;
+    }
+
+    /* Individual Todo list item styles*/
+
+    .todo-item, .todo-item-done {
+        width: 40%;
+        margin: 20px 3.75%;
+    }
+
+    /* Todo form styles */
+    
+    .todo-form {
+        width: 87.5%;
+    }
+}
+
 @media (max-width: 500px) {
     /* Overall Todo list styles */
 
@@ -164,6 +189,7 @@
 
     .todo-item, .todo-item-done {
         width: 80%;
+        margin: 20px 0;
     }
 
     /* Todo form styles */
