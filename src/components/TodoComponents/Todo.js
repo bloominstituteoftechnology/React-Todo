@@ -1,11 +1,13 @@
-import React, { Component } from "react";
-import Form from "./TodoForm";
-import List from "./TodoList";
+import React from "react";
 
-class Todo extends Component {
-  render() {
-    return <ul>{this.props.todo}</ul>;
-  }
-}
+const Todo = props => {
+  const { task, completed, key } = props;
+
+  return (
+    <ul>
+      <li>{task}</li>
+    </ul>
+  );
+};
 
 export default Todo;

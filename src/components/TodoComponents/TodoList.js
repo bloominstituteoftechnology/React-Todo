@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import Todo from "./Todo";
-import Form from "./TodoForm";
 
-class List extends Component {
-  render() {
-    return (
-      <div className="list">
-        {this.props.tasks.map(task => (
-          <Todo todo={task.task} completed={task.completed} id={task.id} />
-        ))}
-      </div>
-    );
-  }
-}
+const List = props => {
+  const { tasks } = props;
+
+  return (
+    <div className="list">
+      {tasks.map(task => (
+        <Todo task={task.task} completed={task.completed} key={task.id} />
+      ))}
+    </div>
+  );
+};
 
 export default List;

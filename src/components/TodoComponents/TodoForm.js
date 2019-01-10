@@ -1,15 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Form extends Component {
-  render() {
-    return (
-      <div className="form">
-        <input placeholder="....todo" />
-        <button>Add Todo</button>
-        <button>Clear Completed</button>
-      </div>
-    );
-  }
-}
+const Form = props => {
+  const { task, handleChange, handleAddTasks } = props;
+  return (
+    <form>
+      <input
+        type="text"
+        value={task}
+        placeholder="....todo"
+        onChange={handleChange}
+      />
+      <button onClick={handleAddTasks}>Add Todo</button>
+      <button>Clear Completed</button>
+    </form>
+  );
+};
 
 export default Form;
