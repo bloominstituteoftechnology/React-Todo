@@ -78,6 +78,11 @@ h4{
     color: white;
     cursor: pointer;
 }
+.big-button{
+    width: 95%;
+    background-color: #364799;
+    margin-top: 10px; 
+}
 
 .add{
     background-color: #1F9D55

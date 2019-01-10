@@ -70,6 +70,13 @@ addNewToDo = ev =>{
       toDoListData: this.state.toDoListData.filter(todo => todo.completed === false)
     })
   }
+  removeAll = ev =>{
+    ev.preventDefault();
+    this.setState({
+      toDoListData: this.state.toDoListData.filter(todo => todo.id < 0)
+   
+    }) 
+  }
   // activity.task.push(this.state.completedTasks);
   // console.log(this.state.completedTasks)
   // console.log(activity.task)
@@ -90,7 +97,6 @@ addNewToDo = ev =>{
           <div className="logo-container">
             <img src={ToDoLogo} alt=""/>
           </div>
-          
           <TodoList 
           toDoListData={this.state.toDoListData}
           taskCompleted={this.taskCompleted}
@@ -100,6 +106,7 @@ addNewToDo = ev =>{
           task={this.state.task} 
           addNewToDo={this.addNewToDo}
           removeCompleted={this.removeCompleted}
+          removeAll={this.removeAll}
           />
         </div>
       </div>
