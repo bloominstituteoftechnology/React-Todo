@@ -1,14 +1,18 @@
-import React from 'react';
-import Todo from './Todo';
+import React from "react";
+import Todo from "./Todo";
 
 const TodoList = props => {
-    return(
-        <div>
-            {props.todoList.map(item => {
-                return <Todo todoItem={item}/>
-            })}
-        </div>
-    )
-}
+  return (
+    <div>
+      {props.tasks.map(taskInMap => (
+        <Todo
+          key={taskInMap.id}
+          taskOnProps={taskInMap}
+          lineThrough={props.lineThrough}
+        />
+      ))}
+    </div>
+  );
+};
 
-export default TodoList
+export default TodoList;
