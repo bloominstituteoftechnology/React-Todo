@@ -21,6 +21,9 @@ img{
     max-width:100%;
     height: auto;
 }
+h4{
+    margin: 0px;
+}
 .iphone{
     /* width: 500px;
     margin: 0 auto;
@@ -36,52 +39,87 @@ img{
     width: 36vh;
     border: 0.5vh solid #525c6b;
 }
-
-/* Colors */
-
-/* white: #fff;
-athens-gray: #f7f8fa;
-shuttle-gray: #525c6b;
-indigo: #3f74ca; */
-
-.strike{
-    text-decoration:  line-through;
-
+.logo-container{
+    border-bottom: 2px solid #364799;
+    margin-bottom: 15px;
 }
+/* Colors */
+/* Logo color: #364799 */
+
+
 .todo-item{
     padding: 10px 20px;
     margin: 20px 15px;
     list-style: none;
-    border: 1px solid green;
+    /* border: 1px solid #364799; */
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    color: white;
+    background-color: #364799;
+    border-radius: 5px;
+    letter-spacing: 1.2px;
+    height: auto;
+    cursor: pointer;
+}
+.todo-list{
+    overflow-x:hidden;
+    overflow-y:auto;
+    height: 375px;
+}
+.todo-item:hover{
+    background-color: #556ad6;
 }
 
 .button{
-    font-size: 3rem;
-    border: 3px solid;
-    height: auto;
-    width: 15%;
-    padding: 0 0 5px;
-    margin: 10px;
-    border-radius: 100%;
+    width: 47.5%;
+    border-radius: 5px;
+    font-size: 1.15rem;
+    height: 40px;
+    color: white;
+    cursor: pointer;
 }
+
+.add{
+    background-color: #1F9D55
+}
+.clear{
+    background-color: #EF5753
+
+}
+
 .buttons-div{
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .new-todo-input{
-    width: 45%;
-    border: 3px solid;
+    width: 95%;
+    border: 2px solid #364799;
     margin: 10px auto;
     padding: 15px 0px;
     font-size: 1rem;
     border-radius: 5px;
     text-align: center;
+    font-family: 'Raleway', sans-serif; 
 }
 
 .titles{
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin: 50px 0 0; 
+}
+.todo-title{
+    font-family: 'Raleway', sans-serif;
 }
 form{
     text-align: center;
+}
+
+.strike{
+    text-decoration:  line-through;
+    background: #38C172;
+}
+.strike:hover{
+    background: #38C172;
 }

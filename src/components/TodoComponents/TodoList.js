@@ -8,7 +8,7 @@ import Todo from './Todo.js'
 const TodoList = props =>{
     
     return(
-        <div>
+        <div className="todo-list">
         {props.toDoListData.map((activity) =>{
            return <Todo taskCompleted={props.taskCompleted} activity={activity}/>
         })}

@@ -87,9 +87,10 @@ addNewToDo = ev =>{
     return (
       <div className="iphone">
         <div className="screen">
-          <div>
+          <div className="logo-container">
             <img src={ToDoLogo} alt=""/>
           </div>
+          
           <TodoList 
           toDoListData={this.state.toDoListData}
           taskCompleted={this.taskCompleted}
