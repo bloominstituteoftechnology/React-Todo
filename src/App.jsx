@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import ToDoList from './components/TodoComponents/TodoList';
+import SearchComponent from './components/TodoComponents/SearchComponent';
 
 let generateId = Date.now();
 
@@ -13,14 +14,33 @@ const ToDoItems = [
   { task: 'buy a nintendo switch', id: generateId + 3, completed: false }
 ];
 
+// set up search: value in state
+// set up similar method to handle method, with .filter
+// if there's a match, return filtered state
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       list: ToDoItems,
-      addingTask: ''
+      addingTask: '',
+      id: '',
+      completed: '',
+      searchValue: ''
     };
   }
+
+  searchTasks = event => {
+    this.handleChanges(event);
+    this.setState(previousState => {
+      const updatedToDoItems = previousState.list.filter(task => {
+        task.task === this.state.searchValue;
+      });
+      return {
+        list: updatedToDoItems
+      };
+    });
+  };
 
   clearCompleted = () => {
     this.setState(previousState => {
@@ -66,6 +86,10 @@ class App extends Component {
     return (
       <div className="container">
         <h1>To Do App</h1>
+        <SearchComponent
+          handleChanges={this.handleChanges}
+          searchTasks={this.searchTasks}
+        />
         <ToDoList
           list={this.state.list}
           handleChanges={this.handleChanges}
