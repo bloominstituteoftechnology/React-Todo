@@ -10,7 +10,6 @@ const TodoList = props =>{
     return(
         <div>
         {props.toDoListData.map((activity, i) =>{
-            console.log(activity);
            return <Todo taskCompleted={props.taskCompleted} activity={activity} id={i}/>
         })}
         
