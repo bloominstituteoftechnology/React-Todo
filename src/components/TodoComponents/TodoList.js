@@ -14,6 +14,7 @@ const TodoList = props => {
           <Todo 
             key={todoItem._id}
             id={todoItem._id}
+            dateCreated={todoItem.dateCreated}
             todoDetails={todoItem.task}
             isCompleted={todoItem.completed}
             handleClick={props.handleClick}/>

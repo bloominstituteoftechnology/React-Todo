@@ -7,6 +7,7 @@ const Todo = props => {
     <div className="todo-item">
       <div className="todo-item-text">
         <h2 className="todo-item-header">{props.isCompleted ? "DONE" : "To Do:"}</h2>
+        <div className="todo-item-date">{`Created: ${props.dateCreated}`}</div>
         <p className="todo-item-details">{props.todoDetails}</p>
       </div>
       <button className="todo-item-complete-btn" data-id={props.id} data-button="toggle-completed" onClick={e => props.handleClick(e)}>{`${props.isCompleted ? "Unmark" : "Mark"} completed`}</button>

@@ -5,6 +5,7 @@ import './App.css';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+import Moment from 'moment';
 import Fuse from 'fuse.js';
 
 class App extends React.Component {
@@ -14,11 +15,13 @@ class App extends React.Component {
     const todos = JSON.parse(localStorage.getItem("todos")) || [
       {
         _id: "1528817077286",
+        dateCreated: "June 22, 2001 - 12:00 AM",
         task: 'Organize Garage',
         completed: false
       },
       {
         _id: "1528817084358",
+        dateCreated: "November 2, 1966 - 12:00 AM",
         task: 'Bake Cookies',
         completed: false
       }
@@ -38,6 +41,7 @@ class App extends React.Component {
     this.setState({ 
         todos: [...this.state.todos, {
           id: String(Date.now()),
+          dateCreated: Moment().format("MMMM D, YYYY - LT"),
           task: this.state.currentTodoInput,
           completed: false,
         }],

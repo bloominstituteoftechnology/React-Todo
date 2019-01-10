@@ -43,6 +43,12 @@
     margin-bottom: 10px;
 }
 
+.todo-item-date {
+    font-size: 1.4rem;
+    color: var(--todo-item-date-font-color);
+    margin: 5px 0 15px;
+}
+
 .todo-item-details {
     margin-bottom: 50px;
 }

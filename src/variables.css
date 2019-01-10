@@ -1,7 +1,9 @@
 :root {
     /* Color assignments*/
     --todo-item-border-color: var(--black);
+    --todo-item-date-font-color: var(--grey);
 
     /* Color values */
+    --grey: #808080;
     --black: #000000;
 }
