@@ -7,10 +7,11 @@ function TodoForm(props) {
             <input
                 value={props.task}
                 type="text"
+                name="task"
                 playerholder="add new todo"
                 onChange={props.handleChanges}
             />
-            <button onClick={props.addTodo} type="submit">Add Todo</button>
+            <button type="submit">Add Todo</button>
         </form>
     )
 }

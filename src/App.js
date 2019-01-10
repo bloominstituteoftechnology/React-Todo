@@ -24,34 +24,19 @@ class App extends React.Component {
       super();
       this.state = {
           todo: todoData,
-          text: ''
+          taskNew: ''
       }
   }
   handleChanges = event => {
       this.setState({ [event.target.name]: event.target.value })
   }
-  // addTodo = (event) => {
-  //       event.preventDefault()
-  //       this.setState({
-  //           task: [
-  //               ...this.state.todoList,
-  //               {
-  //                   task: this.state.todo,
-  //                   id: Date.now(),
-  //                   completed: false
-  //               }]
-  //       })
-  //   }
   addTodo = event => {
       event.preventDefault();
       this.setState({
-          todo: [
-              ...this.state.todoData,
-              { task: this.state.text }
-          ],
-          text: ''
-      })
-  }
+          todo: [...this.state.todo, { task: this.state.task }],
+          taskNew: ""
+      });
+  };
   render() {
     return (
         <div className='app'>
