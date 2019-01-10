@@ -1,5 +1,5 @@
 import React from 'react';
-import posed from 'react-pose';
+// import posed from 'react-pose';
 import SplitText from 'react-pose-text';
 
 import './styles/css/index.css';
@@ -72,14 +72,20 @@ class App extends React.Component {
 
 	render() {
 		const charPoses = {
-			exit: { opacity: 0 },
-			enter: { opacity: 1 },
+			exit: { opacity: 0, y: 20 },
+			enter: {
+				opacity: 1,
+				y: 0,
+				delay: ({ charIndex }) => charIndex * 30,
+			},
 		};
 		return (
 			<div className="app">
 				<header className="title">
 					<h1>
-						<SplitText charPoses={charPoses}>TO-DO LIST</SplitText>
+						<SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+							TO-DO LIST
+						</SplitText>
 					</h1>
 				</header>
 				<TodoForm
