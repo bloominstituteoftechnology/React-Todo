@@ -39,14 +39,16 @@ class App extends React.Component {
 
   addTodo(e) {
     if (this.state.currentTodoInput) {
+      const todos = [...this.state.todos, {
+        _id: String(Date.now()),
+        dateCreated: Moment().format("MMMM D, YYYY - LT"),
+        task: this.state.currentTodoInput,
+        completed: false,
+      }];
+
       this.setState({ 
-          todos: [...this.state.todos, {
-            _id: String(Date.now()),
-            dateCreated: Moment().format("MMMM D, YYYY - LT"),
-            task: this.state.currentTodoInput,
-            completed: false,
-          }],
-          queriedTodos: this.state.todos,
+          todos,
+          queriedTodos: todos,
           currentTodoInput: "",
           searchQuery: ""
       }, () => localStorage.setItem("todos", JSON.stringify(this.state.todos)));
@@ -82,6 +84,22 @@ class App extends React.Component {
       todos: this.state.todos.filter(todo => !todo.completed),
       queriedTodos: this.state.queriedTodos.filter(todo => !todo.completed)
     }, () => localStorage.setItem("todos", JSON.stringify(this.state.todos)));
+  }
+
+  handleKeyDown = e => {
+    if (e.keyCode === 13 || e.which === 13) {
+      e.stopPropagation();
+      e.preventDefault();
+      e.currentTarget.value = "";
+
+      const input = e.currentTarget.dataset.input;
+
+      switch(input) {
+        case 'new-todo-textarea' :
+          this.addTodo(e)
+          break;
+      }
+    }
   }
 
   handleChange = e => {
@@ -122,6 +140,7 @@ class App extends React.Component {
         <TodoForm 
           currentTodoInput={this.state.currentTodoInput}
           handleChange={this.handleChange}
+          handleKeyDown={this.handleKeyDown}
           handleClick={this.handleClick} />
         <TodoList 
           todoList={this.state.queriedTodos}
