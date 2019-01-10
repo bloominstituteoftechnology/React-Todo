@@ -54,6 +54,12 @@ class App extends React.Component {
     }, () => localStorage.setItem("todos", JSON.stringify(this.state.todos)));
   }
 
+  removeCompletedTodos(e) {
+    this.setState({
+      todos: this.state.todos.filter(todo => !todo.completed)
+    }, () => localStorage.setItem("todos", JSON.stringify(this.state.todos)));
+  }
+
   handleChange = e => {
     const input = e.currentTarget.dataset.input;
     
@@ -74,6 +80,10 @@ class App extends React.Component {
 
       case 'toggle-completed' :
         this.toggleCompletedTodo(e);
+        break;
+
+      case 'remove-completed-todos' :
+        this.removeCompletedTodos(e);
         break;
     }
   }

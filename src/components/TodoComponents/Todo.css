@@ -2,6 +2,12 @@
 
 /* Overall Todo list styles */
 
+.todo-remove-completed-btn {
+    display: block;
+    padding: 10px 5%;
+    margin: 10px auto;
+}
+
 .todo-list {
     display: flex;
     flex-wrap: wrap;
