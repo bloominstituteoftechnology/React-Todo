@@ -4,17 +4,19 @@ import TodoForm from './components/TodoComponents/TodoForm.js';
 import SearchBar from './components/TodoComponents/SearchBar.js';
 import './App.css'
 
+let showSearch = false;
+
 function addTask(obj, task) {
   obj.todo.push({
     task: task,
     id: Date.now(),
     completed: false,
   });
-  obj.searched.push({
-    task: task,
-    id: Date.now(),
-    completed: false,
-  });
+  //obj.searched.push({
+  //  task: task,
+  //  id: Date.now(),
+  //  completed: false,
+  //});
   return obj;
 }
 
@@ -25,11 +27,11 @@ function editTask(obj, id) {
       obj.todo[i].completed = !obj.todo[i].completed
     }
   }
-  for (let i=0;i<obj.searched.length;i++) {
-    if (obj.searched[i].id === id) {
-      obj.searched[i].completed = !obj.searched[i].completed
-    }
-  }
+  //for (let i=0;i<obj.searched.length;i++) {
+  //  if (obj.searched[i].id === id) {
+  //    obj.searched[i].completed = !obj.searched[i].completed
+  //  }
+  //}
   return obj;
 }
 
@@ -46,11 +48,13 @@ function searching(obj, string) {
   if (string.length > 0) {
     const searched_array = obj.todo.filter( item => { return (item.task.toUpperCase().indexOf(string.toUpperCase()) > -1)});
     obj.searched = searched_array;
+    showSearch = true;
     return obj
   }
   else if (string.length === 0) {
     console.log("empty")
     obj.searched = obj.todo;
+    showSearch = false;
     return obj
   }
 }
@@ -101,7 +105,7 @@ class App extends React.Component {
 
         <SearchBar handleSearchBar={this.handleSearchBar}/>
 
-        <TodoList todoChange={this.todoChange} list={this.state.searched}/>
+        <TodoList todoChange={this.todoChange} list={showSearch ? this.state.searched : this.state.todo}/>
         <TodoForm handleClear={this.handleClear} onAdd={this.handleAdd}/>
       </div>
     );
