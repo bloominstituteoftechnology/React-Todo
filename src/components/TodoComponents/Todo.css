@@ -1,3 +1,11 @@
+/* @keyframes strikethrough {
+    from {text-decoration: none;}
+    to {text-decoration: line-through;
+        text-decoration-color: red;}
+} */
+
 .complete {
-    text-decoration: line-through;
+    background-image: linear-gradient(to bottom right, rgb(0, 49, 0), rgb(17, 255, 184));
+    -webkit-text-fill-color: rgb(37, 250, 0);
+    -webkit-text-stroke: 2px black;
 }

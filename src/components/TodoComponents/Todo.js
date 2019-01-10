@@ -3,7 +3,7 @@ import './Todo.css';
 
 const Todo = props => {
     return <div
-        className={props.task.complete ? 'complete' : null}
+        className={`list-body ${props.task.complete ? 'complete' : null}`}
         onClick={() => props.setComplete(props.index)}>
             {props.task.taskName}
     </div>

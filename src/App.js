@@ -4,7 +4,7 @@ import TodoForm from './components/TodoComponents/TodoForm';
 
 
 const todoList = [
-  {taskName: 'Learn setState()', id: Date.now(), complete: false},
+  {taskName: 'Fix weird null div bug', id: Date.now(), complete: false},
 ]
 
 class App extends React.Component {
@@ -61,7 +61,7 @@ class App extends React.Component {
     console.log('gloop');
     return (
       <div className='App'>
-        <h1>Todo List: MVP</h1>
+        <div className='title'><h1>To-Do List</h1></div>
         <TodoList setComplete = {this.setComplete}
           todoList={this.state.todoList} />
         <TodoForm

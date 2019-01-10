@@ -14,6 +14,7 @@ const TodoList = props => {
                     index = {index}
                     setComplete = {props.setComplete}
                     key = {task.id}/>)
+                    
             })}
         </div>
     );
