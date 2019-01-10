@@ -1,4 +1,6 @@
 import React from 'react';
+import moment from 'moment';
+
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -6,23 +8,27 @@ import './App.css';
 
 const taskList = [
 	{
-		task: 'Something something',
+		task: 'Task one',
 		id: 1,
-		completed: false
+		date: moment().format('MMM Do YYYY'),
+		completed: true
 	},
 	{
-		task: 'Something even more',
+		task: 'Task two',
 		id: 2,
+		date: moment().format('MMM Do YYYY'),
 		completed: false
 	},
 	{
-		task: 'Do more work',
+		task: 'Task three',
 		id: 3,
+		date: moment().format('MMM Do YYYY'),
 		completed: false
 	},
 	{
-		task: 'a new task just for the sake of having a task',
+		task: 'Task four',
 		id: 4,
+		date: moment().format('MMM Do YYYY'),
 		completed: false
 	}
 ];
@@ -33,12 +39,17 @@ class App extends React.Component {
 		this.state = {
 			todoList: taskList,
 			todoItem: '',
-			id: ''
+			id: '',
+			date: ''
 		};
 	}
 
 	handleChanges = e => {
 		this.setState({ [e.target.name]: e.target.value });
+	};
+
+	handleCheckbox = e => {
+		console.log(e.target.checked);
 	};
 
 	handleClear() {
@@ -56,7 +67,8 @@ class App extends React.Component {
 					{
 						task: this.state.todoItem,
 						id: Date.now(),
-						completed: false
+						completed: false,
+						date: moment().format('MMM Do YYYY')
 					}
 				],
 				todoItem: ''
@@ -72,8 +84,12 @@ class App extends React.Component {
 					handleClear={this.handleClear}
 					addNewTodo={this.addNewTodo}
 					todoItem={this.state.todoItem}
+					date={this.state.date}
 				/>
-				<TodoList todoList={this.state.todoList} />
+				<TodoList
+					todoList={this.state.todoList}
+					handleCheckbox={this.handleCheckbox}
+				/>
 			</div>
 		);
 	}

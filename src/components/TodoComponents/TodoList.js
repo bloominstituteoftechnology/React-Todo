@@ -13,6 +13,9 @@ function TodoList(props) {
 						key={todo.id}
 						id={todo.id}
 						completed={todo.completed}
+						date={todo.date}
+						handleCheckbox={props.handleCheckbox}
+						completed={todo.completed}
 					/>
 				);
 			})}

@@ -1,6 +1,6 @@
 .task {
 	margin: 5px;
-	font-size: 1.4rem;
+	font-size: 1.2rem;
 }
 input[type='checkbox'] {
 	zoom: 1.5;
@@ -21,4 +21,8 @@ button {
 	display: flex;
 	width: 195px;
 	height: 30px;
+	text-align: center;
+}
+.timestamp {
+	font-size: 1rem;
 }
