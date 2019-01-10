@@ -29,7 +29,7 @@ class App extends React.Component {
 }
 
 handleChanges = ev => {
-  this.setState({ task: ev.target.value });
+  this.setState({ [ev.target.name]: ev.target.value });
 };
 
 addNewToDo = ev =>{

@@ -12,7 +12,7 @@ const TodoForm = props =>{
             onChange={props.handleChanges}
             className="new-todo-input"
             />
-            <div class="buttons-div">
+            <div className="buttons-div">
                 <button className="add button" onClick={props.addNewToDo}>Add</button>
                 <button className="clear button" onClick={props.removeCompleted}>Clear</button>
             </div>

@@ -28,13 +28,13 @@ h4{
     /* width: 500px;
     margin: 0 auto;
     border: 1px solid red; */
-
+    background-color: black;
     border-radius: 6vh;
     padding: 10vh 1.5vh;
     border: 0.5vh solid #525c6b;
 }
 .screen{
-    /* background-color: #3f74ca; */
+    background-color: white;
     padding: 1.5vh;
     width: 36vh;
     border: 0.5vh solid #525c6b;
@@ -64,9 +64,10 @@ h4{
 .todo-list{
     overflow-x:hidden;
     overflow-y:auto;
-    height: 375px;
+    height: 310px;
 }
-.todo-item:hover{
+.todo-item:hover,
+.big-button:hover{
     background-color: #556ad6;
 }
 
@@ -87,8 +88,14 @@ h4{
 .add{
     background-color: #1F9D55
 }
+.add:hover{
+    background-color: #38C172;
+}
 .clear{
-    background-color: #EF5753
+    background-color: #E3342F;
+}
+.clear:hover{
+    background-color: #EF5753;
 
 }
 
