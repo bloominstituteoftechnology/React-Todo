@@ -1,5 +1,8 @@
 import React from 'react';
+import posed from 'react-pose';
+import SplitText from 'react-pose-text';
 
+import './styles/css/index.css';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -68,17 +71,26 @@ class App extends React.Component {
 	};
 
 	render() {
+		const charPoses = {
+			exit: { opacity: 0 },
+			enter: { opacity: 1 },
+		};
 		return (
-			<div>
-				<TodoList
-					list={this.state.todos}
-					toggleCompleted={this.toggleCompleted}
-				/>
+			<div className="app">
+				<header className="title">
+					<h1>
+						<SplitText charPoses={charPoses}>TO-DO LIST</SplitText>
+					</h1>
+				</header>
 				<TodoForm
 					todoInput={this.state.todo}
 					addTodo={this.addTodo}
 					clearCompleted={this.clearCompleted}
 					handleChange={this.onInputChange}
+				/>
+				<TodoList
+					list={this.state.todos}
+					toggleCompleted={this.toggleCompleted}
 				/>
 			</div>
 		);
