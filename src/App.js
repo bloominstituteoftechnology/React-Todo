@@ -20,6 +20,8 @@ import React from "react";
 import { TodoList } from "./components/TodoComponents/TodoList";
 import { TodoForm } from "./components/TodoComponents/TodoForm";
 import "./components/TodoComponents/Todo.css";
+import SimpleStorage from "react-simple-storage"; // https://github.com/ryanjyost/react-simple-storage
+
 
 
 const todos = [
@@ -46,12 +48,16 @@ class App extends React.Component {
         inputText: ""
       });
     }
+    localStorage.setItem('todos',JSON.stringify(todos));
+    localStorage.setItem('task',"");
   };
 
   handleChanges = event => {
+    console.log(event.target.name);
     this.setState({
-      inputText: event.target.value
+      [event.target.name]: event.target.value
     });
+    localStorage.setItem(event.target.name,event.target.value);
   };
 
   completeTodo = id => {
@@ -68,7 +74,7 @@ class App extends React.Component {
 
   clearTodo = event => {
     event.preventDefault();
-    let todos = this.state.todos.slice();
+    let todos = this.state.todos;
     todos = todos.filter(todo => !todo.completed);
     this.setState({ todos });
   };
@@ -80,7 +86,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Todo</h1>
-        
+        <SimpleStorage parent={this} />
         <TodoList tasklist={this.state.todos} 
         handleComplete={this.completeTodo}
         />
