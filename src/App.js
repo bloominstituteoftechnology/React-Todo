@@ -6,32 +6,7 @@ import TodoForm from './components/TodoComponents/TodoForm';
 
 import './App.css';
 
-const taskList = [
-	{
-		task: 'Task one',
-		id: 0,
-		date: moment().format('MMM Do YYYY'),
-		completed: false
-	},
-	{
-		task: 'Task two',
-		id: 1,
-		date: moment().format('MMM Do YYYY'),
-		completed: false
-	},
-	{
-		task: 'Task three',
-		id: 2,
-		date: moment().format('MMM Do YYYY'),
-		completed: false
-	},
-	{
-		task: 'Task four',
-		id: 3,
-		date: moment().format('MMM Do YYYY'),
-		completed: false
-	}
-];
+const taskList = [];
 
 class App extends React.Component {
 	constructor() {
@@ -46,47 +21,81 @@ class App extends React.Component {
 	}
 
 	handleChanges = e => {
-		this.setState({ [e.target.name]: e.target.value });
+		this.setState(
+			{ [e.target.name]: e.target.value },
+			this.updateLocalStorage
+		);
 	};
 
 	handleCheckbox = index => {
 		console.log(index);
-		this.setState({
-			todoList: this.state.todoList.map(todo => {
-				if (index !== todo.id) {
-					return todo;
-				} else {
-					return {
-						...todo,
-						completed: !todo.completed
-					};
-				}
-			})
-		});
+		this.setState(
+			{
+				todoList: this.state.todoList.map(todo => {
+					if (index !== todo.id) {
+						return todo;
+					} else {
+						return {
+							...todo,
+							completed: !todo.completed
+						};
+					}
+				})
+			},
+			this.updateLocalStorage
+		);
 	};
 
-	handleClear() {
-		alert('Consider it cleared');
-	}
+	handleClear = () => {
+		this.setState(
+			{
+				todoList: this.state.todoList.filter(todo => {
+					if (todo.completed === false) {
+						return todo;
+					}
+					console.log(todo.completed);
+				})
+			},
+			this.updateLocalStorage
+		);
+	};
 
 	addNewTodo = e => {
 		e.preventDefault();
 		if (this.state.todoItem === '') {
 			alert('Please enter a Todo');
 		} else {
-			this.setState({
-				todoList: [
-					...this.state.todoList,
-					{
-						task: this.state.todoItem,
-						id: Date.now(),
-						completed: false,
-						date: moment().format('MMM Do YYYY')
-					}
-				],
-				todoItem: ''
-			});
+			this.setState(
+				{
+					todoList: [
+						...this.state.todoList,
+						{
+							task: this.state.todoItem,
+							id: Date.now(),
+							completed: false,
+							date: moment().format('MMM Do YYYY')
+						}
+					],
+					todoItem: ''
+				},
+				this.updateLocalStorage
+			);
 		}
+	};
+
+	updateLocalStorage = list => {
+		const x = this.state.todoList;
+		localStorage.setItem('list', JSON.stringify(x));
+	};
+
+	loadStorage = () => {
+		let value = localStorage.getItem('list');
+		value = JSON.parse(value);
+		this.setState({ todoList: value });
+	};
+
+	componentDidMount = () => {
+		this.loadStorage();
 	};
 
 	render() {
