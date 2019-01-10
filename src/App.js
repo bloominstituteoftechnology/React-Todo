@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './App.css';
 
 const data = [
   {
@@ -11,6 +12,21 @@ const data = [
   {
     task: 'Bake Cookies',
     id: 1528817084358,
+    completed: true
+  },
+  {
+    task: 'Eat',
+    id: 15243434084358,
+    completed: true
+  },
+  {
+    task: 'Clean',
+    id: 15234344358,
+    completed: false
+  },
+  {
+    task: 'Shopping',
+    id: 1528834344438,
     completed: false
   }
 ];
@@ -28,26 +44,56 @@ class App extends React.Component {
   }
 
   handleChanges = ev => {
-    this.setState({ todo: ev.target.value })
+    this.setState({ [ev.target.name]: ev.target.value })
   }
 
   addTodo = ev => {
     ev.preventDefault()
-    this.setState({ 
-      data: [
-        ...this.state.data, {task: this.state.todo, id: Math.floor(Math.random() * 1000000), completed: false}], todo: '' })
-    console.log(this.state.data)
+    console.log(ev.target)
+    if(this.state.todo === ''){
+      alert('Enter an item you have Todo')
+    } else {
+      this.setState({ 
+        data: [
+          ...this.state.data, {task: this.state.todo, id: Date.now(), completed: false}], todo: '' })
+    }
   }
 
+  itemClicked = (id) => {
+    this.setState({
+      data: this.state.data.map((e) => {
+        if( id !== e.id) {
+          return e
+        } else {
+          return {
+            ...e,
+            completed: !e.completed
+          }
+        }
+      },
+      )
+    })
+  }
+
+  clearTodo = ev => {
+    ev.preventDefault();
+    this.setState({
+      data: this.state.data.filter((e) => !e.completed)
+    })
+  }
   render() {
     return (
-      <div>
+      <div className='container'>
         <h2>To Do List</h2>
-        <TodoList data={this.state.data}/>
+        <TodoList 
+          data={this.state.data}
+          itemClicked={this.itemClicked}
+        />
         <TodoForm 
           todo={this.state.todo} 
           handleChanges={this.handleChanges}
           addTodo={this.addTodo}
+          clearTodo={this.clearTodo}
         />
       </div>
     );

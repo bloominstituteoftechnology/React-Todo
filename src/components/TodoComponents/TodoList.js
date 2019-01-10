@@ -10,7 +10,7 @@ const TodoList = (props) => {
             {
             props.data.map((e) => {
                 return(
-                    <Todo task={e.task}/>
+                    <Todo itemClicked={props.itemClicked} id={e.id} completed={e.completed} task={e.task}/>
                 )
             })
         }
