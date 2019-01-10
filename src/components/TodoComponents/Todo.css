@@ -49,8 +49,12 @@
     margin: 5px 0 15px;
 }
 
-.todo-item-details {
+.todo-item-details, .todo-item-details-done {
     margin-bottom: 50px;
+}
+
+.todo-item-details-done {
+    text-decoration: line-through;
 }
 
 .todo-item-complete-btn {
