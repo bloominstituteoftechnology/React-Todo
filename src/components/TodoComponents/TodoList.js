@@ -6,7 +6,7 @@ function TodoList(props) {
   return (
     <div>
       {props.toDoDataList.map((toDo, index) => {
-        return <TodoNote toDo={toDo} key={index} />;
+        return <TodoNote toDo={toDo} key={index} id={Date.now()} />;
       })}
     </div>
   );
