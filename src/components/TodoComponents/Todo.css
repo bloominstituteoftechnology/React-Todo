@@ -1,3 +1,22 @@
+#root{
+    width: 700px;
+    height: 700px;
+}
+.main-container{
+    border: 2px solid #ff000030;
+    width: 51%;
+    margin-left: 500px;
+    border-radius: 16px;
+    height: auto;
+    
+}
+.main-form{
+    margin-left: 14px;
+    height: 37px;
+}
+.main-container h2{
+    padding-left: 22px;
+}
 .todoButton{
     background: white;
     border-radius: 4px;
@@ -25,4 +44,7 @@
 .todo:focus{
     border: 3.5px solid #00BCD4;; 
    
+}
+.todoText{
+    text-align: center;
 }

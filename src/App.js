@@ -1,47 +1,61 @@
 import React from 'react';
+
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import './components/TodoComponents/Todo.css'
 
+const todos = [
+  {
+    task: 'Organize Garage',
+    id: 1528817077286,
+    completed: false
+  },
+  {
+    task: 'Bake Cookies',
+    id: 1528817084358,
+    completed: false
+  }
+];
+
 class App extends React.Component {
-  constructor(){
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      todoList: [
-        {task: '',
-        completed: false}, 
-        {task: '',
-        completed: false}
-      ],
-      taskText: '',
-    }
+      todos, // same as todos: todos,
+      newTodoText: ''
+    };
   }
 
-  handleChange = e => {
-    this.setState({
-      taskText: e.target.value
-    })
-  }
+  handleChanges = ev => {
+    this.setState({ [ev.target.name]: ev.target.value });
+  };
 
-  handleSubmit = e => {
+  addTodo = e => {
     e.preventDefault();
     this.setState({
-      todoList: [
-        ...this.state.todoList,
-        {task: this.state.taskText, completed: false}
+      todos: [
+        ...this.state.todos,
+        {
+          task: this.state.newTodoText,
+          id: Date.now(),
+          completed: false
+        }
       ],
-      taskText: ''
-    })
-  }
+      newTodoText: ''
+    });
+  };
 
   render() {
     return (
-      <div>
-        <TodoList todoList={this.state.todoList}/>
-        <TodoForm 
-        handleChange={this.handleChange} 
-        taskText={this.state.taskText}
-        handleSubmit={this.handleSubmit}
+      <div className='main-container'>
+        <h2>Welcome to your Todo App!</h2>
+        <TodoList
+        todos={this.state.todos}
+        />
+  <TodoForm
+          addTodo={this.addTodo}
+          handleChanges={this.handleChanges}
+          newTodoText={this.state.newTodoText}
         />
       </div>
     );
