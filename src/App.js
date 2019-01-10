@@ -39,14 +39,6 @@ class App extends React.Component {
   };
   render() {
     return (
-        <div className='app'>
-            <TodoList todoData={this.state.todo} />
-            <TodoForm
-                addTodo={this.addTodo}
-                handleChanges={this.handleChanges}
-            />
-        </div>
-    )
   }
 }
 export default App;
