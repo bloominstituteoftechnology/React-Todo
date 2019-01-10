@@ -1,3 +1,58 @@
-.app {
-    margin-left: 500px;
+* {
+    box-sizing: border-box;
 }
+
+body {
+    margin: 0 auto;
+    font-size: 62.5%;
+}
+
+.app {
+    margin: 2.5% 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: lightblue;
+}
+
+h1 {
+    color: grey;
+    font-size: 2.4rem;
+}
+
+p {
+    color: black;
+    font-size: 1.4rem;
+}
+
+form {
+    display: flex;
+    margin-left: 35%;
+    
+}
+
+form input{
+    font-size: 1.6rem;
+    margin: 2%;
+    padding: 2%;
+    margin-bottom: 30%;
+    margin-left: -15%;
+}
+
+form .buttons {
+    display: flex;
+    flex-direction: column;
+  
+    
+    
+}
+
+form button {
+    font-size: 16px;
+    padding: 3% 13%;
+    border-radius: 5px;
+    margin-bottom: 10%;
+
+}
+
+

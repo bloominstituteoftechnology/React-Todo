@@ -8,9 +8,13 @@ function TodoForm(props) {
         type="text"
         onChange={props.handleChanges}
         name="newTodoText"
+        required
       />
-      <button onClick={props.addTodo}>Add Todo</button>
-      <button onClick={props.clearComplete}>Clear Complete</button>
+      <div className="buttons">
+        <button className="button1" onClick={props.addTodo}>Add To-Do</button>
+        <button onClick={props.clearComplete}>Clear Complete</button>
+      </div>
+      
     </form>
   );
 }
