@@ -2,6 +2,7 @@
     /* Color assignments*/
     --todo-item-border-color: var(--black);
     --todo-item-date-font-color: var(--grey);
+    --todo-item-line-through-color: var(--black);
 
     /* Color values */
     --grey: #808080;

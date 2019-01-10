@@ -72,8 +72,20 @@
 }
 
 .todo-item-done {
+    position: relative;
     opacity: 0.25;
     animation: transluscent-fade-out 0.5s;
+}
+
+.todo-item-done:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -18.75%;
+    background-color: var(--todo-item-line-through-color);
+    width: 137.5%;
+    height: 2.5px;
+    transform: rotate(30deg);
 }
 
 .todo-item-text {
@@ -150,12 +162,8 @@
 
     /* Individual Todo list item styles*/
 
-    .todo-item {
-        width: 90%;
-    }
-
-    .todo-item-complete-btn {
-        width: 100%;
+    .todo-item, .todo-item-done {
+        width: 80%;
     }
 
     /* Todo form styles */
