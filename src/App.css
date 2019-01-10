@@ -1,0 +1,83 @@
+.todo-container {
+    width: 500px;
+    margin: 0 auto;
+    padding: 10px 25px 50px 25px;
+    background-color: rgb(244, 246, 247);
+    border-radius: 5px;
+}
+
+p {
+    font-family: "interstate",sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+h1 {
+    font-family: "interstate",sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 48px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.completed {
+    color: red;
+    text-decoration: line-through;
+    opacity: .5;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    font-family: "interstate",sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    text-align: center;
+    margin: 10px 0;
+    cursor: pointer;
+    border: 1px solid black;
+    background-color: rgb(254, 254, 254);
+    border-radius: 15px;
+}
+
+button:hover {
+    color: darkgreen;
+    background-color: rgb(211, 239, 206);
+}
+
+button:focus {
+    outline:0;
+}
+
+.clear {
+    background-color: rgb(254, 254, 254);
+}
+
+.clear:hover {
+    color: rgb(111, 38, 39);
+    background-color: rgb(254, 224, 244);
+}
+
+.clear:focus {
+    outline:0;
+}
+
+input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 99%;
+    height: 50px;
+    font-family: "interstate",sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
