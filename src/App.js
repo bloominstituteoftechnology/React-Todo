@@ -40,20 +40,6 @@ class App extends React.Component {
     });
   };
 
-  toggleComplete = index => {
-    let todos = this.state.todos.slice()
-    todos = todos.map((todo, ind)=> {
-      if (index === ind) {
-        todo.complete = !todo.complete
-        return todo
-      } else {
-        return todo
-      }
-    })
-    this.setState({
-      todos
-    })
-  }
 
   clearComplete = ev => {
     ev.preventDefault();
@@ -64,16 +50,25 @@ class App extends React.Component {
     });
   };
 
-  // toggleComplete = index => {
-  //   this.setState({
-  //     todos: this.state.todos.map((todo, indx))
-  //   })
-  // }
+  toggleComplete = index => {
+    this.setState({
+      todos: this.state.todos.map((todo, idx) => {
+        if (index !== idx) {
+          return todo;
+        } else {
+          return {
+            ...todo,
+            complete: !todo.complete
+          }
+        }
+      })
+    })
+  }
 
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h1>To-Do List For Today!</h1>
         <TodoList 
         todos={this.state.todos}
         toggleComplete={this.toggleComplete}
