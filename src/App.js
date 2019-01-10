@@ -7,10 +7,16 @@ class App extends React.Component {
     super();
     this.state = {
       todoList: [
-        {task: 'do something',
-        completed: false}, 
-        {task: 'do something else',
-        completed: false}
+        {
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
       ],
       taskText: '',
     }
@@ -27,16 +33,34 @@ class App extends React.Component {
     this.setState({
       todoList: [
         ...this.state.todoList,
-        {task: this.state.taskText, completed: false}
+        {task: this.state.taskText, completed: false, id: Date.now()}
       ],
       taskText: ''
+    })
+  }
+
+  toggleCompleted = id => {
+    this.setState({
+      todoList: this.state.todoList.map(todo => {
+        if(todo.id === id){
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        }else {
+          return todo
+        }
+      })
     })
   }
 
   render() {
     return (
       <div>
-        <TodoList todoList={this.state.todoList}/>
+        <TodoList 
+        todoList={this.state.todoList}
+        toggleCompleted={this.toggleCompleted}
+        />
         <TodoForm 
         handleChange={this.handleChange} 
         taskText={this.state.taskText}
