@@ -1,7 +1,8 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import './components/TodoComponents/Todo.css'
+import SearchBar from './components/TodoComponents/SearchBar'
+import './components/TodoComponents/Todo.css';
 
 class App extends React.Component {
   constructor(){
@@ -44,7 +45,7 @@ class App extends React.Component {
   }
 
   toggleCompleted = (e,id) => {
-    e.target.classList.toggle('completed');
+    // e.target.classList.toggle('completed');
     this.setState({
       todoList: this.state.todoList.map(todo => {
         if(todo.id === id){
@@ -69,8 +70,20 @@ class App extends React.Component {
     })
   }
 
+  searchTasks = e => {
+    this.setState({
+      todoList: this.state.todoList.filter(todo => {
+        if(todo.task.toLowerCase().includes(e.target.value.toLowerCase())){
+          return todo;
+        }
+      })
+    })
+  }
+
   render() {
     return (
+      <div>
+      <SearchBar searchTasks={this.searchTasks}/>
       <div className="app">
         <h1 className="header">Todo List</h1>
         <TodoList 
@@ -83,6 +96,7 @@ class App extends React.Component {
         handleSubmit={this.handleSubmit}
         clearCompleted={this.clearCompleted}
         />
+      </div>
       </div>
     );
   }

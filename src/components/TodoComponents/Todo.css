@@ -75,3 +75,17 @@
     color: white;
     background-color: black;
 }
+
+.search-bar{
+    width: 700px;
+    margin: 5px auto;
+}
+
+.search-bar input{
+    font-size: 20px;
+    width: 700px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid black;
+    text-align: center;
+}
