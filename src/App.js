@@ -12,9 +12,9 @@ class App extends React.Component {
   constructor() {
     super();
 
-    this.todos = JSON.parse(localStorage.getItem("todos")) || [
+    const todos = JSON.parse(localStorage.getItem("todos")) || [
       {
-        _id: "1528817077286",
+        _id: this.randomizer(),
         dateCreated: Moment().format("MMMM D, YYYY - LT"),
         task: "Add some todos!",
         completed: false
@@ -22,8 +22,8 @@ class App extends React.Component {
     ];
 
     this.state = {
-      todos: this.todos,
-      queriedTodos: this.todos,
+      todos,
+      queriedTodos: todos,
       currentTodoInput: "",
       searchQuery: ""
     }
@@ -35,10 +35,14 @@ class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  randomizer() {
+    return Math.floor(Math.random() * 1000) + String(Date.now()) + Math.floor(Math.random() * 1000);
+  }
+
   addTodo(e) {
     if (this.state.currentTodoInput) {
       const todos = [...this.state.todos, {
-        _id: String(Date.now()),
+        _id: this.randomizer(),
         dateCreated: Moment().format("MMMM D, YYYY - LT"),
         task: this.state.currentTodoInput,
         completed: false,
