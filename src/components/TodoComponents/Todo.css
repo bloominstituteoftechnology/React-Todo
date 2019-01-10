@@ -26,3 +26,6 @@ button {
 .timestamp {
 	font-size: 1rem;
 }
+.todo {
+	display: flex;
+}

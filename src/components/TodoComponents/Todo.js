@@ -4,13 +4,16 @@ import './Todo.css';
 
 function Todo(props) {
 	return (
-		<div className={`task ${props.id} `}>
+		<div className="todo">
 			<input
 				type="checkbox"
-				checked={props.completed}
-				onClick={props.handleCheckbox}
+				name={props.todo.id}
+				onClick={() => props.handleCheckbox(props.todo.id)}
 			/>
-			{props.task} - <span className="timestamp">{props.date}</span>
+			<div className={props.todo.completed ? 'completed' : null}>
+				{props.todo.task} -{' '}
+				<span className="timestamp">{props.todo.date}</span>
+			</div>
 		</div>
 	);
 }

@@ -9,13 +9,9 @@ function TodoList(props) {
 			{props.todoList.map(todo => {
 				return (
 					<Todo
-						task={todo.task}
+						todo={todo}
 						key={todo.id}
-						id={todo.id}
-						completed={todo.completed}
-						date={todo.date}
 						handleCheckbox={props.handleCheckbox}
-						completed={todo.completed}
 					/>
 				);
 			})}

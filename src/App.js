@@ -9,25 +9,25 @@ import './App.css';
 const taskList = [
 	{
 		task: 'Task one',
-		id: 1,
+		id: 0,
 		date: moment().format('MMM Do YYYY'),
-		completed: true
+		completed: false
 	},
 	{
 		task: 'Task two',
-		id: 2,
+		id: 1,
 		date: moment().format('MMM Do YYYY'),
 		completed: false
 	},
 	{
 		task: 'Task three',
-		id: 3,
+		id: 2,
 		date: moment().format('MMM Do YYYY'),
 		completed: false
 	},
 	{
 		task: 'Task four',
-		id: 4,
+		id: 3,
 		date: moment().format('MMM Do YYYY'),
 		completed: false
 	}
@@ -40,7 +40,8 @@ class App extends React.Component {
 			todoList: taskList,
 			todoItem: '',
 			id: '',
-			date: ''
+			date: '',
+			completed: ''
 		};
 	}
 
@@ -48,12 +49,24 @@ class App extends React.Component {
 		this.setState({ [e.target.name]: e.target.value });
 	};
 
-	handleCheckbox = e => {
-		console.log(e.target.checked);
+	handleCheckbox = index => {
+		console.log(index);
+		this.setState({
+			todoList: this.state.todoList.map(todo => {
+				if (index !== todo.id) {
+					return todo;
+				} else {
+					return {
+						...todo,
+						completed: !todo.completed
+					};
+				}
+			})
+		});
 	};
 
 	handleClear() {
-		console.log('Consider it cleared');
+		alert('Consider it cleared');
 	}
 
 	addNewTodo = e => {
