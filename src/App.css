@@ -12,3 +12,9 @@
     font-weight: bold;
     margin-bottom: 50px;
 }
+
+@media (max-width: 500px) {
+    .todo-main-header {
+        font-size: 4.2rem;
+    }
+}

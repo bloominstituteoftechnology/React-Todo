@@ -90,3 +90,31 @@
     padding: 10px 5%;
     margin-left: auto;
 }
+
+@media (max-width: 500px) {
+    /* Overall Todo list styles */
+
+    .todo-search {
+        width: 50%;
+    }
+
+    .todo-remove-completed-btn {
+        width: 62.5%;
+    }
+
+    /* Individual Todo list item styles*/
+
+    .todo-item {
+        width: 90%;
+    }
+
+    .todo-item-complete-btn {
+        width: 100%;
+    }
+
+    /* Todo form styles */
+    
+    .todo-form {
+        width: 87.5%;
+    }
+}
