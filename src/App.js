@@ -52,8 +52,10 @@ class App extends React.Component {
     this.setState({
       todo: [
         ...this.state.todo,
-        {task: this.state.task}
+        {task: this.state.task, completed: false}
+
       ], task: ""
+
     })
 
 
@@ -67,6 +69,7 @@ class App extends React.Component {
         <TodoList todoItemList={this.state.todo} />
         <TodoForm addNewTodo={this.addNewTodo} 
                   handleChanges={this.handleChanges}
+                  task={this.state.task}
                   />
       </div>
     );
