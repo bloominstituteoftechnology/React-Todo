@@ -20,6 +20,7 @@ class App extends React.Component {
         completed: false
       }
     ];
+
     this.state = {
       todos: this.todos,
       queriedTodos: this.todos,
@@ -28,6 +29,10 @@ class App extends React.Component {
     }
 
     localStorage.setItem("todos", JSON.stringify(this.state.todos));
+
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   addTodo(e) {
@@ -51,10 +56,11 @@ class App extends React.Component {
   searchTodos(searchQuery) {
     this.setState({
       queriedTodos: searchQuery === "" ? this.state.todos : new Fuse(this.state.todos, {
-        threshold: 0.1,
+        tokenize: true,
+        threshold: 0,
         location: 0, 
         keys: ["task"]
-      }).search(searchQuery)
+      }, searchQuery).search(searchQuery)
     });
   }
 
@@ -79,14 +85,13 @@ class App extends React.Component {
     }, () => localStorage.setItem("todos", JSON.stringify(this.state.todos)));
   }
 
-  handleKeyDown = e => {
+  handleKeyDown(e) {
     if (e.keyCode === 13 || e.which === 13) {
       e.stopPropagation();
       e.preventDefault();
       e.currentTarget.value = "";
 
-      const input = e.currentTarget.dataset.input;
-
+      const input = e.currentTarget.name;
       switch(input) {
         case 'new-todo-textarea' :
           this.addTodo(e)
@@ -95,22 +100,20 @@ class App extends React.Component {
     }
   }
 
-  handleChange = e => {
-    const input = e.currentTarget.dataset.input;
-    
+  handleChange(e) {
+    const input = e.currentTarget.name;
     switch(input) {
       case 'new-todo-textarea' :
         this.setState({currentTodoInput: e.currentTarget.value});
         break;
       case 'todo-search' :
-        this.setState({searchQuery: e.currentTarget.value});
         this.searchTodos(e.currentTarget.value);
         break;
     }
   }
 
-  handleClick = e => {
-    const button = e.currentTarget.dataset.button;
+  handleClick(e) {
+    const button = e.currentTarget.name;
     switch(button) {
       case 'todo-add' :
         this.addTodo(e);

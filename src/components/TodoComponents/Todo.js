@@ -10,7 +10,13 @@ const Todo = props => {
         <div className="todo-item-date">{`Created: ${props.dateCreated}`}</div>
         <p className="todo-item-details">{props.todoDetails}</p>
       </div>
-      <button className="todo-item-complete-btn" data-id={props.id} data-button="toggle-completed" onClick={e => props.handleClick(e)}>{`${props.isCompleted ? "Unmark" : "Mark"} completed`}</button>
+      <button 
+        className="todo-item-complete-btn"  
+        name="toggle-completed" 
+        data-id={props.id}
+        onClick={props.handleClick}>
+        {`${props.isCompleted ? "Unmark" : "Mark"} completed`}
+      </button>
     </div>
   );
 };

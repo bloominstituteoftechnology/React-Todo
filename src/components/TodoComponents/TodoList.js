@@ -7,8 +7,18 @@ import Todo from './Todo';
 const TodoList = props => {
   return (
     <React.Fragment>
-      <input className="todo-search" type="search" placeholder="Search for todos...." data-input="todo-search" onChange={e => props.handleChange(e)}/>
-      <button className="todo-remove-completed-btn" data-button="remove-completed-todos" onClick={e => props.handleClick(e)}>Remove Completed Todos</button>
+      <input
+        className="todo-search" 
+        type="search" 
+        placeholder="Search for todos...." 
+        name="todo-search" 
+        onChange={props.handleChange}/>
+      <button 
+        className="todo-remove-completed-btn" 
+        name="remove-completed-todos" 
+        onClick={props.handleClick}>
+        Remove Completed Todos
+      </button>
       <div className="todo-list">
         {props.todoList.map((todoItem, i) => (
           <Todo 
