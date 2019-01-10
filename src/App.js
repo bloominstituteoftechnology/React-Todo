@@ -23,7 +23,7 @@ class App extends React.Component {
   constructor() {
       super();
       this.state = {
-          todo: todoData,
+          todos: todoData,
           taskNew: ''
       }
   }
@@ -33,12 +33,36 @@ class App extends React.Component {
   addTodo = event => {
       event.preventDefault();
       this.setState({
-          todo: [...this.state.todo, { task: this.state.task }],
+          todos: [...this.state.todo, { task: this.state.task }],
           taskNew: ""
       });
   };
+  toggleComplete = (id) => {
+      this.setState({
+          todos: this.state.todos.map(todo => {
+              if(todo.id === id) {
+                  return {
+
+                  }
+              }
+          })
+      })
+  }
   render() {
     return (
+        <div>
+            <h2>Welcome to your Todo App!</h2>
+            <TodoList
+                toggleComplete={this.toggleComplete}
+                todos={this.state.todos}
+            />
+            <TodoForm
+                addTodo={this.addTodo}
+                handleChanges={this.handleChanges}
+                newTodoText={this.state.newTodoText}
+            />
+        </div>
+    )
   }
 }
 export default App;

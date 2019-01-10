@@ -8,7 +8,7 @@ function TodoList(props) {
     return (
         <div>
             {props.todoData.map((todo, index) => {
-                return <Todo todo={todo} key={index} />;
+                return <Todo toggleComplete={props.toggleComplete} todo={todo} key={index} />;
             })}
         </div>
     )
