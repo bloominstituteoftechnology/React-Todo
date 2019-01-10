@@ -5,6 +5,7 @@ import TodoForm from './components/TodoComponents/TodoForm'
 
 
 
+
 const todoItems = [
   {
     task: "Take dog for walk",
@@ -40,7 +41,8 @@ class App extends React.Component {
     super();
     this.state = {
       todo: todoItems,
-      task: ""
+      task: "",
+      completed: ""
     };
   }
   handleChanges = ev =>{
@@ -66,11 +68,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <TodoList todoItemList={this.state.todo} />
+      <div className = 'todo-list'>
         <TodoForm addNewTodo={this.addNewTodo} 
                   handleChanges={this.handleChanges}
                   task={this.state.task}
                   />
+        <TodoList todoItemList={this.state.todo} />
+        </div>
       </div>
     );
   }
