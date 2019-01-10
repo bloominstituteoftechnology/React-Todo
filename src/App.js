@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './components/TodoComponents/Todo.css'
 
 class App extends React.Component {
   constructor(){
@@ -39,7 +40,8 @@ class App extends React.Component {
     })
   }
 
-  toggleCompleted = id => {
+  toggleCompleted = (e,id) => {
+    e.target.classList.toggle('completed');
     this.setState({
       todoList: this.state.todoList.map(todo => {
         if(todo.id === id){
@@ -48,6 +50,16 @@ class App extends React.Component {
             completed: !todo.completed
           }
         }else {
+          return todo
+        }
+      })
+    })
+  }
+
+  clearCompleted = () => {
+    this.setState({
+      todoList: this.state.todoList.filter(todo => {
+        if(!todo.completed){
           return todo
         }
       })
@@ -65,6 +77,7 @@ class App extends React.Component {
         handleChange={this.handleChange} 
         taskText={this.state.taskText}
         handleSubmit={this.handleSubmit}
+        clearCompleted={this.clearCompleted}
         />
       </div>
     );
