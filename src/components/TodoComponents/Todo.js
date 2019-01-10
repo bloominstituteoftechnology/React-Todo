@@ -3,6 +3,7 @@ import React from 'react';
 
 class Todo extends React.Component {
     handleClick = () => {
+        console.log("handle click of todo")
         this.props.todoChange(this.props.id);
     }
     render() {
