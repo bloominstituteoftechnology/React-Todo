@@ -3,7 +3,7 @@ import Todo from './Todo'
 
 function TodoList(props) {
   return (
-    <div>
+    <div className="todo-list">
       {props.todoDataList.map((todo, index) => {
         return <Todo todo={todo} key ={index} changeCompletion={props.changeCompletion}/>
       })}

@@ -5,10 +5,10 @@ import TodoForm from './components/TodoComponents/TodoForm';
 import "./components/TodoComponents/Todo.css";
 
 const todoItems = [
-  { task: 'finish building ToDo App', id: 1, completed: false},
-  { task: 'cook dinner', id: 2, completed: false },
-  { task: 'clean kitchen', id: 3, completed: false },
-  { task: 'reward yourself and buy a nintendo switch', id: 4, completed: false }
+  { task: 'Finish building ToDo App', id: 1, completed: false},
+  { task: 'Workout', id: 2, completed: false },
+  { task: 'Do laundry', id: 3, completed: false },
+  { task: 'Reward yourself by watching Initial D', id: 4, completed: false }
 ];
 
 
@@ -62,7 +62,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="app-container">
         <h1>Todo List: MVP</h1>
         <TodoList 
           todoDataList={this.state.todoList} 

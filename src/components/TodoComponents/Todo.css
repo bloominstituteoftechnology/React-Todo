@@ -1,11 +1,71 @@
+* {
+  box-sizing: border-box;
+  background-color: rgb(74, 94, 131);
+  color: white;
+}
+
+.app-container {
+  width: 95%;
+  margin: 64px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 64px;
+}
+
 .todo-item {
-  color: black
+  color: white;
+  cursor: pointer;
+}
+
+.todo-item:hover {
+  color: red;
 }
 
 .todo-item.true {
   text-decoration: line-through;
+  color: red;
 }
 
 .todo-item.false {
   text-decoration: none;
+}
+
+.todo-list {
+  text-align: left;
+  font-size: 28px;
+}
+
+form {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+input {
+  width: 90%;
+  padding: 12px 12px;
+  font-size: 20px;
+  margin: 0 auto 22px;
+}
+
+::placeholder {
+  color: white;
+}
+
+button {
+  padding: 8px 8px;
+  font-size: 16px;
+  width: 45%;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+button:hover {
+  color: rgb(74, 94, 131);
+  background-color: white;
+
 }
