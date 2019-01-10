@@ -5,24 +5,30 @@ import './App.css';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+import Fuse from 'fuse.js';
+
 class App extends React.Component {
   constructor() {
     super();
 
+    const todos = JSON.parse(localStorage.getItem("todos")) || [
+      {
+        _id: "1528817077286",
+        task: 'Organize Garage',
+        completed: false
+      },
+      {
+        _id: "1528817084358",
+        task: 'Bake Cookies',
+        completed: false
+      }
+    ];
+
     this.state = {
-      todos: JSON.parse(localStorage.getItem("todos")) || [
-        {
-          _id: "1528817077286",
-          task: 'Organize Garage',
-          completed: false
-        },
-        {
-          _id: "1528817084358",
-          task: 'Bake Cookies',
-          completed: false
-        }
-      ],
-      currentTodoInput: ""
+      todos,
+      queriedTodos: todos,
+      currentTodoInput: "",
+      searchQuery: ""
     }
 
     localStorage.setItem("todos", JSON.stringify(this.state.todos));
@@ -37,6 +43,16 @@ class App extends React.Component {
         }],
         currentTodoInput: ""
     }, () => localStorage.setItem("todos", JSON.stringify(this.state.todos)));
+  }
+
+  searchTodos(searchQuery) {
+    this.setState({
+      queriedTodos: searchQuery === "" ? this.state.todos : new Fuse(this.state.todos, {
+        threshold: 0.1,
+        location: 0, 
+        keys: ["task"]
+      }).search(searchQuery)
+    });
   }
 
   toggleCompletedTodo(e) {
@@ -66,6 +82,10 @@ class App extends React.Component {
     switch(input) {
       case 'new-todo-textarea' :
         this.setState({currentTodoInput: e.currentTarget.value});
+        break;
+      case 'todo-search' :
+        this.setState({searchQuery: e.currentTarget.value});
+        this.searchTodos(e.currentTarget.value);
         break;
     }
   }
@@ -97,7 +117,8 @@ class App extends React.Component {
           handleChange={this.handleChange}
           handleClick={this.handleClick} />
         <TodoList 
-          todoList={this.state.todos}
+          todoList={this.state.queriedTodos}
+          handleChange={this.handleChange}
           handleClick={this.handleClick}/>
       </div>
     );

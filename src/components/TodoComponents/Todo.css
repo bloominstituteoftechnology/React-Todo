@@ -2,6 +2,13 @@
 
 /* Overall Todo list styles */
 
+.todo-search {
+    display: block;
+    width: 20%;
+    padding: 5px 1%;
+    margin: 10px auto 20px;
+}
+
 .todo-remove-completed-btn {
     display: block;
     padding: 10px 5%;
