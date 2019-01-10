@@ -15,18 +15,11 @@ class App extends React.Component {
     this.todos = JSON.parse(localStorage.getItem("todos")) || [
       {
         _id: "1528817077286",
-        dateCreated: "June 22, 2001 - 12:00 AM",
-        task: 'Organize Garage',
-        completed: false
-      },
-      {
-        _id: "1528817084358",
-        dateCreated: "November 2, 1966 - 12:00 AM",
-        task: 'Bake Cookies',
+        dateCreated: Moment().format("MMMM D, YYYY - LT"),
+        task: "Add some todos!",
         completed: false
       }
     ];
-
     this.state = {
       todos: this.todos,
       queriedTodos: this.todos,
