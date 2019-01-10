@@ -3,7 +3,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
 
-const todoData = [
+const todosList = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -16,15 +16,12 @@ const todoData = [
   }
 ];
 
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
 class App extends React.Component {
   constructor() {
       super();
       this.state = {
-          todos: todoData,
-          taskNew: ''
+          todos: todosList,
+          newTask: ''
       }
   }
   handleChanges = event => {
@@ -33,19 +30,39 @@ class App extends React.Component {
   addTodo = event => {
       event.preventDefault();
       this.setState({
-          todos: [...this.state.todo, { task: this.state.task }],
-          taskNew: ""
+          todos: [
+              ...this.state.todos,
+              {
+                  task: this.state.task,
+                  id: Date.now(),
+                  completed: false
+              }
+          ],
+          newTask: ''
       });
   };
-  toggleComplete = (id) => {
+  toggleComplete = id => {
+      this.setState({
+          todos: this.state.todos.map(todo => {})
+      })
+  }
+  toggleComplete = id => {
       this.setState({
           todos: this.state.todos.map(todo => {
-              if(todo.id === id) {
+              if (todo.id === id) {
                   return {
-
+                        ...todo,
+                      complete: !todo.complete
                   }
               }
+              return todo;
           })
+      })
+  }
+  clearComplete = event => {
+      event.preventDefault();
+      this.setState({
+          todos: this.state.todos.filter(todo => !todo.complete)
       })
   }
   render() {
@@ -59,7 +76,7 @@ class App extends React.Component {
             <TodoForm
                 addTodo={this.addTodo}
                 handleChanges={this.handleChanges}
-                newTodoText={this.state.newTodoText}
+                newTask={this.state.newTask}
             />
         </div>
     )
