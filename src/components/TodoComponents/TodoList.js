@@ -5,7 +5,7 @@ function TodoList(props) {
   return (
     <div>
       {props.todoDataList.map((todo, index) => {
-        return <Todo todo={todo} key ={index} />
+        return <Todo todo={todo} key ={index} changeCompletion={props.changeCompletion}/>
       })}
     </div>
   )

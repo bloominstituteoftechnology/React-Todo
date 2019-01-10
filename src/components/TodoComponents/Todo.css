@@ -1,0 +1,11 @@
+.todo-item {
+  color: black
+}
+
+.todo-item.true {
+  text-decoration: line-through;
+}
+
+.todo-item.false {
+  text-decoration: none;
+}
