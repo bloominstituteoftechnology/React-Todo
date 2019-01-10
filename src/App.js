@@ -48,7 +48,7 @@ class App extends React.Component {
         { 
           task: this.state.task,
           id: Date.now(), 
-          completed: false 
+          completed: false
         }
       ],
       task: ''
@@ -70,6 +70,15 @@ class App extends React.Component {
       })
     });
   };
+
+  clearCompleted = event => {
+    event.preventDefault();
+    this.setState({
+      todoList: this.state.todoList.filter(
+        todo => todo.completed === false
+      )
+    });
+  };
   
   render() {
     return (
@@ -78,6 +87,7 @@ class App extends React.Component {
           toggleCompleted={this.toggleCompleted}
           todoDataList={this.state.todoList} />
         <TodoForm
+          clearCompleted={this.clearCompleted}
           addNewTodo={this.addNewTodo}
           handleChanges={this.handleChanges}
           task={this.state.task}

@@ -1,3 +1,18 @@
 .completed {
     text-decoration: line-through;
 }
+
+.todo-container {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input {
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 4px;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 4px;
+}
+

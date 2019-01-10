@@ -1,10 +1,12 @@
 import React from 'react';
+import './Todo.css';
 
 import Todo from './Todo';
 
 function TodoList(props) {
     return (
-        <div>
+        <div className='todo-container'>
+            <h1>My Todo List:</h1>
             {props.todoDataList.map((todo, id) => {
                 return (
                     <Todo 
