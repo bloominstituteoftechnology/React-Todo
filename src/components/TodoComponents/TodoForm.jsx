@@ -11,7 +11,9 @@ const ToDoForm = props => {
         onChange={props.handleChanges}
       />
       <button> Add Task </button>
-      <button className="clear-button"> Clear Completed </button>
+      <button className="clear-button" onClick={props.clearCompleted}>
+        Clear Completed
+      </button>
     </form>
   );
 };

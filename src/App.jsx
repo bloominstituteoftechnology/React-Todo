@@ -22,6 +22,17 @@ class App extends Component {
     };
   }
 
+  clearCompleted = () => {
+    this.setState(previousState => {
+      const clearedList = previousState.list.filter(
+        toDoItem => !toDoItem.completed
+      );
+      return {
+        list: clearedList
+      };
+    });
+  };
+
   toggleCompleted = task => {
     this.setState(previousState => {
       const updatedList = previousState.list.map(toDoItem => {
@@ -61,6 +72,7 @@ class App extends Component {
           submitForm={this.submitForm}
           addingTask={this.state.addingTask}
           toggleCompleted={this.toggleCompleted}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );
