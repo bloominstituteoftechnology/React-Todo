@@ -1,0 +1,15 @@
+.iconbutton {
+    display: block;
+    border: 0.1rem solid black;
+}
+
+.iconbutton-icon {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.iconbutton-label {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: lighter;
+}

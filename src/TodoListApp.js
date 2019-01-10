@@ -1,4 +1,8 @@
 import React from 'react';
+import TodoListItem from './components/TodoComponents/TodoListItem';
+import TodoListItemForm from './components/TodoComponents/TodoListItemForm';
+
+import './TodoListApp.css';
 
 class TodoListApp extends React.Component {
   constructor (props) {
@@ -23,19 +27,19 @@ class TodoListApp extends React.Component {
     }
 
     let newState = this.state;
-    switch (newState.todoItems[key].state) {
+    switch (newState.todoItems[key].status) {
       case "active":
-        newState.todoItems[key].state = "complete";
+        newState.todoItems[key].status = "complete";
         break;
       case "complete":
-        newState.todoItems[key].state = "cancelled";
+        newState.todoItems[key].status = "cancelled";
         break;
       case "cancelled":
-        newState.todoItems[key].state = "active";
+        newState.todoItems[key].status = "active";
         break;
       default:
-        console.log(`toggleTodo(${key}): This todo item has an invalid state. Setting to active.`);
-        newState.todoItems[key].state = "active";
+        console.log(`toggleTodo(${key}): This todo item has an invalid status. Setting to active.`);
+        newState.todoItems[key].status = "active";
         break;
     }
 
@@ -48,6 +52,7 @@ class TodoListApp extends React.Component {
       return;
     }
 
+    console.log(`deleteTodo(${key}) was called.`);
     let newState = this.state;
     newState.todoItems.splice(key, 1);
     this.setState(newState);
@@ -55,7 +60,7 @@ class TodoListApp extends React.Component {
 
   submitTodo(todoObject) {
     todoObject.date = new Date();
-    todoObject.state = "active";
+    todoObject.status = "active";
 
     let newState = this.state;
     newState.todoItems.push(todoObject);
@@ -65,15 +70,13 @@ class TodoListApp extends React.Component {
   render() {
     return (
       <div className="todolistapp">
-        <h2>API Functional... UI not functional</h2>
-        {this.state.todoItems.map((item, index)=> {
-          return (
-            <div className="todolistapp-item">
-              <p>{`${index}: ${item.name} - ${item.date}`}</p>
-              <p>{`${item.description} - ${item.state}`}</p>
-            </div>
-          );
-        })}
+        <h2>Functional UI... Styling incomplete.</h2>
+        <div className="todolistapp-container">
+          {this.state.todoItems.map((item, index) => 
+            <TodoListItem onToggle={_ => this.toggleTodo(index)} onDelete={_ => this.deleteTodo(index)} item={item} />
+          )}
+          <TodoListItemForm onSubmit={(value) => this.submitTodo(value)} />
+        </div>
       </div>
     );
   }

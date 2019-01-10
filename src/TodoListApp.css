@@ -1,0 +1,11 @@
+.todolistapp {
+    margin: 0 auto;
+}
+
+.todolistapp-container {
+    width: 50.0rem;
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}

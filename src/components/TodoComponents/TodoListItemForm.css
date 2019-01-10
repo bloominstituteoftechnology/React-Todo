@@ -1,0 +1,31 @@
+.todolistapp-itemform {
+    border: 0.2rem solid black;
+    border-radius: 0.4rem;
+    margin: 0.5rem 0;
+}
+
+.todolistapp-itemform-header {
+    display: flex;
+    width: 100%;
+}
+
+.todolistapp-itemform-name {
+    margin: 0 0.25rem;
+}
+
+.todolistapp-itemform-body {
+    padding: 0.25rem;
+}
+
+.todolistapp-itemform-body-hr {
+
+}
+
+.todolistapp-itemform-description {
+
+}
+
+.todolistapp-itemform-body-footer {
+    display: flex;
+    flex-direction: row-reverse;
+}

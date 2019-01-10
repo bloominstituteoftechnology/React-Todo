@@ -1,0 +1,10 @@
+.checkbox {
+    display: inline-block;
+    border: 0.3rem solid black;
+    border-radius: 0.3rem;
+    width: 2rem;
+    height: 2rem;
+    box-sizing: border-box;
+    padding: 0.1rem 0.15rem;
+    margin: 0.15rem;
+}

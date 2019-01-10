@@ -1,0 +1,43 @@
+.todolistapp-item {
+    border: 0.2rem solid black;
+    border-radius: 0.4rem;
+    margin: 0.5rem 0;
+}
+
+.todolistapp-item-header {
+    display: flex;
+}
+
+.todolistapp-item-header-text {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.todolistapp-item-name {
+    margin: 0 0.25rem;
+}
+
+.todolistapp-item-date {
+    margin: 0;
+    justify-self: flex-end;
+    position: absolute;
+    right: 0.25rem;
+}
+
+.todolistapp-item-body {
+    padding: 0.25rem;
+}
+
+.todolistapp-item-body-hr {
+
+}
+
+.todolistapp-item-body-description {
+
+}
+
+.todolistapp-item-body-footer {
+    display: flex;
+    flex-direction: row-reverse;
+}
