@@ -1,19 +1,18 @@
 import React from 'react';
 
-function ToDoForm(props) {
-    return (
-        <form onSubmit={props.addNewItem}>
-            <input
-             value={props.toDoItem}
-             
-             type="text"
-             name="toDoItem"
-             placeholder="New To-Do Item"
-             onChange={props.handleChanges}
-            />
-            <button type="submit">Add Item</button>
-        </form>
-    )
+function TodoForm(props) {
+  return (
+    <form>
+      <input
+        value={props.newTodoText}
+        type="text"
+        onChange={props.handleChanges}
+        name="newTodoText"
+      />
+      <button onClick={props.addTodo}>Add Todo</button>
+      <button onClick={props.clearComplete}>Clear Complete</button>
+    </form>
+  );
 }
 
-export default ToDoForm;
+export default TodoForm;
