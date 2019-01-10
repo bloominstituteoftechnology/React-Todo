@@ -2,14 +2,19 @@ import React, { Component } from "react";
 import Todo from "./Todo";
 
 const List = props => {
-  const { tasks } = props;
+  const { tasks, toggleComplete } = props;
 
   return (
-    <div className="list">
+    <ul className="list">
       {tasks.map(task => (
-        <Todo task={task.task} completed={task.completed} key={task.id} />
+        <Todo
+          task={task.task}
+          completed={task.completed}
+          id={task.id}
+          toggleComplete={toggleComplete}
+        />
       ))}
-    </div>
+    </ul>
   );
 };
 

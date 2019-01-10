@@ -1,13 +1,9 @@
 import React from "react";
 
 const Todo = props => {
-  const { task, completed, key } = props;
+  const { task, toggleComplete, id } = props;
 
-  return (
-    <ul>
-      <li>{task}</li>
-    </ul>
-  );
+  return <li onClick={() => toggleComplete(id)}>{task}</li>;
 };
 
 export default Todo;

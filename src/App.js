@@ -23,7 +23,7 @@ class App extends React.Component {
   state = {
     list: todoList,
     task: "",
-    id: 1528817084358,
+    id: "",
     completed: false
   };
 
@@ -36,18 +36,38 @@ class App extends React.Component {
   handleAddTask = e => {
     e.preventDefault();
     this.setState({
-      task: "",
-      list: [...this.state.list, { task: this.state.task }]
+      list: [
+        ...this.state.list,
+        {
+          task: this.state.task,
+          id: Date.now(),
+          completed: this.state.completed
+        }
+      ],
+      task: ""
+    });
+  };
+
+  toggleComplete = id => {
+    this.setState({
+      list: this.state.list.map(list => {
+        if (list.id === id) {
+          return {
+            ...list,
+            completed: !list.completed
+          };
+        }
+        return list;
+      })
     });
   };
 
   render() {
     return (
       <div>
-        <List tasks={this.state.list} />
+        <List tasks={this.state.list} toggleComplete={this.toggleComplete} />
         <Form
           task={this.state.task}
-          id={this.state.id}
           handleChange={this.handleChanges}
           handleAddTasks={this.handleAddTask}
         />
