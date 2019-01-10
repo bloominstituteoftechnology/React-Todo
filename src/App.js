@@ -60,6 +60,13 @@ class App extends React.Component {
       })
     });
   };
+
+  clearCompleted = e => {
+    e.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(todo => !todo.completed)
+    });
+  };
   
 
 
@@ -76,6 +83,7 @@ class App extends React.Component {
           toggleCompleted = {this.toggleCompleted}
         />
         <TodoForm 
+          clearCompleted = {this.clearCompleted}
           textInput = {this.state.textInput}
           handleInput = {this.handleInput}
           handleAdd = {this.handleAdd}
