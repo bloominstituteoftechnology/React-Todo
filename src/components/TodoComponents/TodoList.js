@@ -5,7 +5,11 @@ import './Todo.css';
 const TodoList = props => {
 	return (
 		<div className="todo-list">
-			<Todo todo={props.list} />
+			{props.list.map(todo => {
+				return (
+					<Todo todo={todo} key={todo.id} toggle={props.toggleCompleted} />
+				);
+			})}
 		</div>
 	);
 };

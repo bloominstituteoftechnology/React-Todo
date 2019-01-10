@@ -14,6 +14,10 @@ button {
 	font-size: 15px;
 }
 
+.complete {
+	text-decoration: line-through;
+}
+
 .todo-form {
 	margin: 50px auto;
 	line-height: 140%;

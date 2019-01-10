@@ -4,9 +4,6 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
-	// you will need a place to store your state in this component.
-	// design `App` to be the parent component of your application.
-	// this component is going to take care of state, and any change handlers you need to work with your state
 	state = {
 		id: 1,
 		todo: '',
@@ -43,7 +40,28 @@ class App extends React.Component {
 		});
 	};
 
-	deleteTodo = id => {};
+	toggleCompleted = id => {
+		this.setState({
+			todos: this.state.todos.map(todo => {
+				if (todo.id === id) {
+					return {
+						...todo,
+						completed: !todo.completed,
+					};
+				}
+				return todo;
+			}),
+		});
+	};
+
+	clearCompleted = event => {
+		event.preventDefault();
+		this.setState({
+			todos: this.state.todos.filter(todo => {
+				return todo.completed === false;
+			}),
+		});
+	};
 
 	onInputChange = event => {
 		this.setState({ todo: event.target.value });
@@ -52,10 +70,14 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<TodoList list={this.state.todos} />
+				<TodoList
+					list={this.state.todos}
+					toggleCompleted={this.toggleCompleted}
+				/>
 				<TodoForm
 					todoInput={this.state.todo}
 					addTodo={this.addTodo}
+					clearCompleted={this.clearCompleted}
 					handleChange={this.onInputChange}
 				/>
 			</div>

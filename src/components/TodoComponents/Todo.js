@@ -3,13 +3,12 @@ import './Todo.css';
 
 const Todo = props => {
 	return (
-		<div>
-			{props.todo.map(el => (
-				<div className="todo" key={el.id}>
-					{el.task}
-					<button>Delete</button>
-				</div>
-			))}
+		<div className="todo">
+			<div
+				className={props.todo.completed ? 'complete' : null}
+				onClick={() => props.toggle(props.todo.id)}>
+				{props.todo.task}
+			</div>
 		</div>
 	);
 };
