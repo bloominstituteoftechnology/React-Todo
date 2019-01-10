@@ -14,7 +14,7 @@ class App extends React.Component {
           completed: false
         },
         {
-          task: 'Fill out Stand Up form',
+          task: 'Build Death Star',
           id: 2,
           completed: false
         }
@@ -46,6 +46,26 @@ class App extends React.Component {
     })
   }
 
+  toggleCompleted = id => {
+    this.setState ({
+      todos: this.state.todos.map( todo => {
+        if (todo.id !== id) {
+          return todo;
+        } else {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          }
+        }
+          
+    
+       
+      }),
+    })
+  }
+
+  
+
   
 
   render() {
@@ -54,6 +74,7 @@ class App extends React.Component {
         <h1>ToDo List</h1>
         <TodoList 
           todos = {this.state.todos}
+          toggleCompleted = {this.toggleCompleted}
         />
         <TodoForm 
           textInput = {this.state.textInput}
