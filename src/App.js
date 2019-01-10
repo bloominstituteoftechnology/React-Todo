@@ -12,12 +12,12 @@ class App extends React.Component {
     this.state = {
       todos: JSON.parse(localStorage.getItem("todos")) || [
         {
-          _id: 1528817077286,
+          _id: "1528817077286",
           task: 'Organize Garage',
           completed: false
         },
         {
-          _id: 1528817084358,
+          _id: "1528817084358",
           task: 'Bake Cookies',
           completed: false
         }
@@ -31,11 +31,26 @@ class App extends React.Component {
   addTodo(e) {
     this.setState({ 
         todos: [...this.state.todos, {
-          id: Date.now(),
+          id: String(Date.now()),
           task: this.state.currentTodoInput,
           completed: false,
         }],
         currentTodoInput: ""
+    }, () => localStorage.setItem("todos", JSON.stringify(this.state.todos)));
+  }
+
+  toggleCompletedTodo(e) {
+    const todoList = this.state.todos;
+    
+    for (let i = 0; i < todoList.length; i++) {
+      if (todoList[i]._id === e.currentTarget.dataset.id) {
+        todoList[i].completed = !todoList[i].completed;
+        break;
+      }
+    }
+
+    this.setState({
+      todos: todoList
     }, () => localStorage.setItem("todos", JSON.stringify(this.state.todos)));
   }
 
@@ -58,6 +73,7 @@ class App extends React.Component {
         break;
 
       case 'toggle-completed' :
+        this.toggleCompletedTodo(e);
         break;
     }
   }

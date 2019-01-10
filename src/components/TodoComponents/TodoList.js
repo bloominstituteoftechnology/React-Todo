@@ -9,8 +9,10 @@ const TodoList = props => {
     <div className="todo-list">
       {props.todoList.map(todoItem => (
         <Todo 
+          key={todoItem._id}
+          id={todoItem._id}
           todoDetails={todoItem.task}
-          isCompleted={todoItem.isCompleted}
+          isCompleted={todoItem.completed}
           handleClick={props.handleClick}/>
       ))}
     </div>
