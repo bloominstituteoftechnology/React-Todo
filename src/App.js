@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import ToDoLogo from './todoLogo.png';
+import SearchBar from './components/TodoComponents/SeachBar';
 
 const todoData = [
   {id: 0, task: 'Clean Garage', completed: false },
@@ -25,12 +26,20 @@ class App extends React.Component {
     toDoListData: todoData,
     task: '',
     completedTasks: [],
+    search: '',
   }
 }
 
 handleChanges = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
-};
+  if(ev.target.name === 'search'){
+    this.setState({
+      toDoListData: this.state.toDoListData.filter(toDo => {
+        return toDo.task.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1; }
+      )
+  })
+}
+}
 
 addNewToDo = ev =>{
   ev.preventDefault();
@@ -77,6 +86,9 @@ addNewToDo = ev =>{
    
     }) 
   }
+  searchItem = () => {
+    
+  }
   // activity.task.push(this.state.completedTasks);
   // console.log(this.state.completedTasks)
   // console.log(activity.task)
@@ -107,6 +119,11 @@ addNewToDo = ev =>{
           addNewToDo={this.addNewToDo}
           removeCompleted={this.removeCompleted}
           removeAll={this.removeAll}
+          />
+          <SearchBar 
+          searchItem ={this.searchItem}
+          handleChanges={this.handleChanges}
+          
           />
         </div>
       </div>

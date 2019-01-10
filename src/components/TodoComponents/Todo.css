@@ -72,7 +72,7 @@ h4{
 }
 
 .button{
-    width: 47.5%;
+    width: 49%;
     border-radius: 5px;
     font-size: 1.15rem;
     height: 40px;
@@ -80,7 +80,7 @@ h4{
     cursor: pointer;
 }
 .big-button{
-    width: 95%;
+    width: 100%;
     background-color: #364799;
     margin-top: 10px; 
 }
@@ -102,11 +102,11 @@ h4{
 .buttons-div{
     margin: 0 auto;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .new-todo-input{
-    width: 95%;
+    width: 100%;
     border: 2px solid #364799;
     margin: 10px auto;
     padding: 15px 0px;
