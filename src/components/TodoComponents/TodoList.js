@@ -5,10 +5,16 @@ import Todo from './Todo';
 function TodoList(props) {
     return (
         <div>
-            {props.todoDataList.map((todo, index) => {
-                return <Todo todo={todo} key={index} />
+            {props.todoDataList.map((todo, id) => {
+                return (
+                    <Todo 
+                        todo={todo} 
+                        key={todo.id}
+                        toggleCompleted={props.toggleCompleted}
+                    />
+                );
             })}
-        </div>
+        </div>   
     );
 }
 
