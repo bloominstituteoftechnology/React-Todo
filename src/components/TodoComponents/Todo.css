@@ -1,4 +1,54 @@
 .todoContainer {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.toDo--item {
+    border: 1px lightsteelblue dashed;
+    border-radius: 2px;
+    color: rgb(99,105,50);
+    background-color: rgba(255,255,255, .6);
+    margin-bottom: 20px;
+    letter-spacing: 1.8px;
+    width: 60%;
+    padding: 20px
+}
+
+.toDo--item:hover {
+    background-color:  rgba(99,105,50, .5);
+        color: white;
+
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.form--input {
+    font-size: 1.5rem;
+    border: 2px lightgrey solid;
+    border-radius: 3px;
+    width: 85%;
+    margin: 0 auto 15px auto;
+}
+
+.form--btn {
+    font-size: 1.5rem;
+    border-radius: 3px;
+    width: 70%;
+    padding: 10px;
+    margin: 0 auto 15px auto;
+    background-color:  rgba(99,105,50, .7);
+    color: white;
+}
+
+.form--btn:hover {
+    color: rgba(99,105,50, .7);
+    background-color: rgba(255,255,255, .6);
 }

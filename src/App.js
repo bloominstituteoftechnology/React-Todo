@@ -1,6 +1,8 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoHeading from './components/TodoComponents/TodoHeading';
+
 import './App.css';
 
 const data = [
@@ -85,6 +87,7 @@ class App extends React.Component {
     return (
       <div className='container'>
         <h2>To Do List</h2>
+        <TodoHeading data={this.state.data}/>
         <TodoList 
           data={this.state.data}
           itemClicked={this.itemClicked}
