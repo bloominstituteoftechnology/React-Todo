@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todo.css';
 
 function TodoForm(props) {
     return (
@@ -11,7 +12,7 @@ function TodoForm(props) {
                 onChange={props.handleChanges}
             />
             <button type="submit">Add Todo</button>
-            <button type="submit">Clear Completed</button>
+            <button onClick={props.clearCompleted}>Clear Completed</button>
         </form>
     );
 }
