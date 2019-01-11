@@ -20,6 +20,16 @@ class App extends React.Component {
 		};
 	}
 
+	handleSearch = () => {
+		this.state.todoList.filter(todo => {
+			if (todo.task.includes(this.todoItem)) {
+				this.setState({
+					todoList: todo
+				});
+			}
+		});
+	};
+
 	handleChanges = e => {
 		this.setState(
 			{ [e.target.name]: e.target.value },
@@ -52,6 +62,8 @@ class App extends React.Component {
 				todoList: this.state.todoList.filter(todo => {
 					if (todo.completed === false) {
 						return todo;
+					} else {
+						return null;
 					}
 					console.log(todo.completed);
 				})
@@ -83,14 +95,13 @@ class App extends React.Component {
 		}
 	};
 
-	updateLocalStorage = list => {
-		const x = this.state.todoList;
-		localStorage.setItem('list', JSON.stringify(x));
+	updateLocalStorage = () => {
+		localStorage.setItem('list', JSON.stringify(this.state.todoList));
 	};
 
 	loadStorage = () => {
 		let value = localStorage.getItem('list');
-		value = JSON.parse(value);
+		value = JSON.parse(value) || [];
 		this.setState({ todoList: value });
 	};
 
@@ -107,6 +118,7 @@ class App extends React.Component {
 					addNewTodo={this.addNewTodo}
 					todoItem={this.state.todoItem}
 					date={this.state.date}
+					handleSearch={this.handleSearch}
 				/>
 				<TodoList
 					todoList={this.state.todoList}

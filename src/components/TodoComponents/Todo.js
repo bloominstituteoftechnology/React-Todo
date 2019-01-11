@@ -10,8 +10,11 @@ function Todo(props) {
 				name={props.todo.id}
 				onClick={() => props.handleCheckbox(props.todo.id)}
 			/>
-			<div className={props.todo.completed ? 'completed' : null}>
-				{props.todo.task} -{' '}
+			<div
+				className={`todoLine ${
+					props.todo.completed ? 'completed' : null
+				}`}>
+				<span className="todoItem">{props.todo.task}</span>
 				<span className="timestamp">{props.todo.date}</span>
 			</div>
 		</div>

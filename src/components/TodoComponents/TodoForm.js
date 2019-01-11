@@ -17,6 +17,9 @@ function TodoForm(props) {
 			<button type="button" onClick={props.handleClear}>
 				Clear Completed
 			</button>
+			{/* <button type="button" onClick={props.handleSearch}>
+				Search
+			</button> */}
 		</form>
 	);
 }

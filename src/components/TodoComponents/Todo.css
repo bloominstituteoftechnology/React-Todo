@@ -3,23 +3,41 @@
 	font-size: 1.2rem;
 }
 input[type='checkbox'] {
-	zoom: 1.5;
+	cursor: pointer;
+	-webkit-appearance: none;
+	appearance: none;
+	background: #e8e9eb;
+	border-radius: 1px;
+	box-sizing: border-box;
+	position: relative;
+	box-sizing: content-box;
+	width: 30px;
+	height: 30px;
+	border-width: 0;
+	margin-right: 10px;
 }
-
+input[type='checkbox']:checked {
+	background-color: #2ecc71;
+}
+input[type='checkbox']:focus {
+	outline: 0 none;
+	box-shadow: none;
+}
 form {
+	box-sizing: border-box;
 	display: flex;
 	flex-wrap: wrap;
-	width: 400px;
+	width: 100%;
 	justify-content: space-between;
 }
 .input {
-	width: 400px;
+	width: 100%;
 	height: 20px;
 	margin-bottom: 10px;
 }
 button {
 	display: flex;
-	width: 195px;
+	width: 45%;
 	height: 30px;
 	text-align: center;
 }
@@ -28,4 +46,19 @@ button {
 }
 .todo {
 	display: flex;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	padding: 15px;
+	color: #e8e9eb;
+	background-color: #b90021;
+}
+.todoLine {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.todoItem {
+	display: flex;
+	vertical-align: baseline;
+	font-size: 1.6rem;
 }
