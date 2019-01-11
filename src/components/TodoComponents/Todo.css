@@ -1,0 +1,65 @@
+.main-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.heading {
+  border: 2px solid #4267b2;
+  border-radius: 10px;
+  text-align: center;
+  color: #4267b2;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  margin: 5% 0;
+  border-radius: 5px;
+}
+
+form input:hover {
+  border-color: #4267b2;
+}
+
+form button {
+  margin-bottom: 5%;
+  border-radius: 10px;
+  background: white;
+}
+
+.add:hover {
+  border-color: #4267b2;
+  background: white;
+  color: black;
+}
+
+.add {
+  background: #4267b2;
+  color: white;
+}
+
+.clear:hover {
+  border-color: red;
+  background: white;
+  color: black;
+}
+
+.clear {
+  background: red;
+  color: white;
+}
+
+ul {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  min-height: 100px;
+}
+
+ul li {
+  cursor: pointer;
+  margin: 5% 0;
+}

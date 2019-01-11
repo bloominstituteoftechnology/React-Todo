@@ -7,11 +7,15 @@ const Form = props => {
       <input
         type="text"
         value={task}
-        placeholder="....todo"
+        placeholder="....add todo or to don't"
         onChange={handleChange}
       />
-      <button onClick={handleAddTasks}>Add Todo</button>
-      <button onClick={handleRemoveTask}>Clear Completed</button>
+      <button className="add" onClick={handleAddTasks}>
+        Add Todo
+      </button>
+      <button className="clear" onClick={handleRemoveTask}>
+        Clear Completed
+      </button>
     </form>
   );
 };

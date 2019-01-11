@@ -71,14 +71,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <List tasks={this.state.list} toggleComplete={this.toggleComplete} />
-        <Form
-          task={this.state.task}
-          handleChange={this.handleChanges}
-          handleAddTasks={this.handleAddTask}
-          handleRemoveTask={this.handleRemoveTask}
-        />
+      <div className="main-container">
+        <div className="content-container">
+          <h1 className="heading">My Todo List..</h1>
+          <List tasks={this.state.list} toggleComplete={this.toggleComplete} />
+          <Form
+            task={this.state.task}
+            handleChange={this.handleChanges}
+            handleAddTasks={this.handleAddTask}
+            handleRemoveTask={this.handleRemoveTask}
+          />
+        </div>
       </div>
     );
   }
