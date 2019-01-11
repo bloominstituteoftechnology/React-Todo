@@ -62,6 +62,13 @@ class App extends React.Component {
     });
   };
 
+  handleRemoveTask = e => {
+    e.preventDefault();
+    this.setState({
+      list: this.state.list.filter(list => list.completed !== true)
+    });
+  };
+
   render() {
     return (
       <div>
@@ -70,6 +77,7 @@ class App extends React.Component {
           task={this.state.task}
           handleChange={this.handleChanges}
           handleAddTasks={this.handleAddTask}
+          handleRemoveTask={this.handleRemoveTask}
         />
       </div>
     );

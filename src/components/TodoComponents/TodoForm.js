@@ -1,7 +1,7 @@
 import React from "react";
 
 const Form = props => {
-  const { task, handleChange, handleAddTasks } = props;
+  const { task, handleChange, handleAddTasks, handleRemoveTask } = props;
   return (
     <form>
       <input
@@ -11,7 +11,7 @@ const Form = props => {
         onChange={handleChange}
       />
       <button onClick={handleAddTasks}>Add Todo</button>
-      <button>Clear Completed</button>
+      <button onClick={handleRemoveTask}>Clear Completed</button>
     </form>
   );
 };

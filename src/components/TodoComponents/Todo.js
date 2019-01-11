@@ -6,8 +6,7 @@ const Todo = props => {
   return (
     <li
       style={{
-        textDecoration: completed ? "line-through" : null,
-        curser: "pointer"
+        textDecoration: completed ? "line-through" : null
       }}
       onClick={() => toggleComplete(id)}
     >
