@@ -10,13 +10,18 @@
     height: auto;
     
 }
+<<<<<<< HEAD
 .todoForm{
+=======
+.main-form{
+>>>>>>> 466f99b10404af68e500587d92f0bf0e03f39a25
     margin-left: 14px;
     height: 37px;
 }
 .main-container h2{
     padding-left: 22px;
 }
+<<<<<<< HEAD
 
  .task-header.true {
     text-decoration: line-through;
@@ -24,6 +29,8 @@
     
   }
   
+=======
+>>>>>>> 466f99b10404af68e500587d92f0bf0e03f39a25
 .todoButton{
     background: white;
     border-radius: 4px;
@@ -52,8 +59,14 @@
     border: 3.5px solid #00BCD4;; 
    
 }
+<<<<<<< HEAD
 .task-header{
     text-align: center;
     font-size: 25px;
     font-family: cursice;
 }
+=======
+.todoText{
+    text-align: center;
+}
+>>>>>>> 466f99b10404af68e500587d92f0bf0e03f39a25
