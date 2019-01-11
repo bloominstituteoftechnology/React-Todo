@@ -3,7 +3,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
 
-const todoData = [
+const todosList = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -16,15 +16,12 @@ const todoData = [
   }
 ];
 
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
 class App extends React.Component {
   constructor() {
       super();
       this.state = {
-          todo: todoData,
-          taskNew: ''
+          todos: todosList,
+          newTask: ''
       }
   }
   handleChanges = event => {
@@ -33,16 +30,52 @@ class App extends React.Component {
   addTodo = event => {
       event.preventDefault();
       this.setState({
-          todo: [...this.state.todo, { task: this.state.task }],
-          taskNew: ""
+          todos: [
+              ...this.state.todos,
+              {
+                  task: this.state.newTask,
+                  id: Date.now(),
+                  completed: false
+              }
+          ],
+          newTask: ''
+      });
+  };
+
+  toggleComplete = id => {
+      this.setState({
+          todos: this.state.todos.map(todo => {
+              if (todo.id === id) {
+                  return {
+                        ...todo,
+                      completed: !todo.completed
+                  };
+              }
+              return todo;
+          })
+      });
+  };
+  clearComplete = event => {
+      event.preventDefault();
+      this.setState({
+          todos: this.state.todos.filter(todo => todo.completed === false)
       });
   };
   render() {
     return (
-      <div className="app">
-        <TodoList todoData={this.state.todo} />
-        <TodoForm addTodo={this.addTodo} handleChanges={this.handleChanges} />
-      </div>
+        <div>
+            <h2>Welcome to your Todo App!</h2>
+            <TodoList
+                toggleComplete={this.toggleComplete}
+                todos={this.state.todos}
+            />
+            <TodoForm
+                addTodo={this.addTodo}
+                handleChanges={this.handleChanges}
+                newTask={this.state.newTask}
+                clearComplete={this.clearComplete}
+            />
+        </div>
     );
   }
 }

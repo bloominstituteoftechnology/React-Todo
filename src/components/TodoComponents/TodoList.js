@@ -7,8 +7,8 @@ import Todo from './Todo'
 function TodoList(props) {
     return (
         <div>
-            {props.todoData.map((todo, index) => {
-                return <Todo todo={todo} key={index} />;
+            {props.todos.map((todo, index) => {
+                return <Todo toggleComplete={props.toggleComplete} todo={todo} key={index} />;
             })}
         </div>
     )
