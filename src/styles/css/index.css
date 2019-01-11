@@ -207,6 +207,7 @@ h5 {
   display: flex;
 }
 .todo-form .buttons .add-btn {
+  border: 1px solid red;
   background-color: #0066ff;
   color: white;
   border-radius: 5px;
