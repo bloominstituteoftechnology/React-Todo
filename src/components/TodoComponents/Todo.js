@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import "./Todo.css";
 const Todo = props => {
@@ -13,12 +12,3 @@ const Todo = props => {
 };
 
 export default Todo;
-=======
-import React from 'react';
-
-function Todo(props) {
-  return <p className='todoText'>{props.todo.task}</p>;
-}
-
-export default Todo;
->>>>>>> 466f99b10404af68e500587d92f0bf0e03f39a25
