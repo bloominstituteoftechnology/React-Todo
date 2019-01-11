@@ -112,6 +112,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="todoApp">
+				<h1>Todo App</h1>
 				<TodoForm
 					handleChanges={this.handleChanges}
 					handleClear={this.handleClear}

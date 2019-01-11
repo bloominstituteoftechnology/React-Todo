@@ -1,6 +1,7 @@
 .completed {
-	color: gray;
+	color: white;
 	text-decoration: line-through;
+	text-decoration: ;
 }
 .todoApp {
 	max-width: 600px;
@@ -21,4 +22,9 @@ form {
 	color: white;
 	padding: 15px;
 	width: 100%;
+}
+
+h1 {
+	width: 100%;
+	text-align: center;
 }
