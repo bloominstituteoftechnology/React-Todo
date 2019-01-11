@@ -51,6 +51,8 @@ body {
     font-size: 1.5rem;
     font-family: 'Coda', cursive;
     color: white;
+    letter-spacing: 1.8px;
+
 }
 
 html { 
@@ -61,10 +63,7 @@ html {
     background-size: cover;
   }
 
-body, html {
-    height: 100%;
-    margin: 0;
-}
+
 
 h2 {
     font-family: 'Luckiest Guy', cursive;
@@ -74,7 +73,10 @@ h2 {
     text-shadow: -1px 0 lightgray, 0 1px lightgray, 1px 0 lightgray, 0 -1px lightgray;
 
 }
-
+button {
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
 #root {
     display: flex;
     justify-content: center;
@@ -93,5 +95,5 @@ h2 {
 }
 .completed {
     text-decoration: line-through;
-    color: white;
+    color: lightgoldenrodyellow;
 }

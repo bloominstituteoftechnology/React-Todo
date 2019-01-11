@@ -14,7 +14,8 @@
     margin-bottom: 20px;
     letter-spacing: 1.8px;
     width: 60%;
-    padding: 20px
+    padding: 20px;
+    text-transform: capitalize;
 }
 
 .toDo--item:hover {
@@ -36,12 +37,13 @@
     border-radius: 3px;
     width: 85%;
     margin: 0 auto 15px auto;
+    padding: 10px;
 }
 
 .form--btn {
     font-size: 1.5rem;
     border-radius: 3px;
-    width: 70%;
+    width: 75%;
     padding: 10px;
     margin: 0 auto 15px auto;
     background-color:  rgba(99,105,50, .7);
@@ -51,4 +53,8 @@
 .form--btn:hover {
     color: rgba(99,105,50, .7);
     background-color: rgba(255,255,255, .6);
+}
+
+.addTodoHeading {
+ text-transform: uppercase;
 }
