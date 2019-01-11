@@ -1,5 +1,4 @@
 import React from 'react';
-// import posed from 'react-pose';
 import SplitText from 'react-pose-text';
 
 import './styles/css/index.css';
@@ -76,7 +75,7 @@ class App extends React.Component {
 			enter: {
 				opacity: 1,
 				y: 0,
-				delay: ({ charIndex }) => charIndex * 30,
+				delay: ({ charIndex }) => charIndex * 90,
 			},
 		};
 		return (
