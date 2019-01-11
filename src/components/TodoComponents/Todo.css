@@ -135,3 +135,10 @@ form{
 .strike:hover{
     background: #38C172;
 }
+
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}

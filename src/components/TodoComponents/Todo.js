@@ -4,7 +4,10 @@ import './Todo.css'
 const Todo = props =>{ 
     // console.log(props.taskCompleted)
     return <li 
-    className={`${props.activity.completed === true ? 'strike' : ''} todo-item` } 
+    className={`
+    ${props.activity.completed === true ? 'strike' : null}
+    ${props.activity.hide === true ? 'hide' : 'show'}
+    todo-item` } 
     completed={props.activity.completed} 
     onClick={()=>{props.taskCompleted(props.activity.id)}}
      >

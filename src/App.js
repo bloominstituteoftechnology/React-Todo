@@ -2,12 +2,12 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import ToDoLogo from './todoLogo.png';
-import SearchBar from './components/TodoComponents/SeachBar';
+import SearchBar from './components/TodoComponents/SearchBar';
 
 const todoData = [
-  {id: 0, task: 'Clean Garage', completed: false },
-  {id: 1, task:'Do Laundry', completed: false },
-  {id: 2, task: 'Watch Seinfeld', completed: false },
+  {id: 0, task: 'Clean Garage', completed: false, hide: false },
+  {id: 1, task:'Do Laundry', completed: false, hide: false },
+  {id: 2, task: 'Watch Seinfeld', completed: false, hide: false },
 ]
 
 let nextId = 3;
@@ -33,12 +33,22 @@ class App extends React.Component {
 handleChanges = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
   if(ev.target.name === 'search'){
-    this.setState({
-      toDoListData: this.state.toDoListData.filter(toDo => {
-        return toDo.task.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1; }
-      )
+    // this.setState({
+    this.state.toDoListData.forEach(toDo => {
+        const searchVal = this.state.search.toLowerCase();
+        if(toDo.task.toLowerCase().includes(searchVal) === true ){
+          console.log(toDo);
+          toDo.hide = false ;
+        } else{
+          toDo.hide = true;
+        }
+}) 
+if(ev.target.value === ''){
+  this.state.toDoListData.forEach(toDo => {
+    toDo.hide = false
   })
 }
+  }
 }
 
 addNewToDo = ev =>{
@@ -49,7 +59,8 @@ addNewToDo = ev =>{
       {
         id: getNewId(),
         task: this.state.task,
-        completed: false
+        completed: false,
+        hide: false
       }
     ],
     task: ""
