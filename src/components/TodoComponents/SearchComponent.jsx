@@ -6,9 +6,9 @@ const SearchComponent = props => {
       <input
         className="search-bar"
         type="text"
-        name="searchValue"
+        name="searchText"
         placeholder="Search Tasks"
-        onChange={props.searchTasks}
+        onChange={props.handleChanges}
       />
     </form>
   );

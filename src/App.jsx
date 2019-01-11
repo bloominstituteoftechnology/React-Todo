@@ -23,23 +23,33 @@ class App extends Component {
     super();
     this.state = {
       list: ToDoItems,
+      shownList: ToDoItems,
       addingTask: '',
       id: '',
       completed: '',
-      searchValue: ''
+      searchText: ''
     };
   }
 
-  searchTasks = event => {
-    this.handleChanges(event);
-    this.setState(previousState => {
-      const updatedToDoItems = previousState.list.filter(task => {
-        task.task === this.state.searchValue;
+  searchList = searchText => {
+    if (this.state.searchText.length > 0) {
+      const shownArr = this.state.list.filter(item => {
+        if (
+          JSON.stringify(item)
+            .toLowerCase()
+            .includes(searchText.toLowerCase())
+        ) {
+          return true;
+        }
       });
-      return {
-        list: updatedToDoItems
-      };
-    });
+      this.setState({
+        shownList: shownArr
+      });
+    } else {
+      this.setState({
+        shownList: this.state.list
+      });
+    }
   };
 
   clearCompleted = () => {
@@ -69,6 +79,10 @@ class App extends Component {
 
   handleChanges = event => {
     this.setState({ [event.target.name]: event.target.value });
+    // add conditional, if input value is 0, display state.list
+    if (this.state.searchText.length > 0) {
+      this.searchList(event.target.value);
+    }
   };
 
   submitForm = event => {
@@ -86,10 +100,7 @@ class App extends Component {
     return (
       <div className="container">
         <h1>To Do App</h1>
-        <SearchComponent
-          handleChanges={this.handleChanges}
-          searchTasks={this.searchTasks}
-        />
+        {/* <SearchComponent handleChanges={this.handleChanges} /> */}
         <ToDoList
           list={this.state.list}
           handleChanges={this.handleChanges}
