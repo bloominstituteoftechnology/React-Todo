@@ -33,7 +33,7 @@ class App extends React.Component {
           todos: [
               ...this.state.todos,
               {
-                  task: this.state.task,
+                  task: this.state.newTask,
                   id: Date.now(),
                   completed: false
               }
@@ -41,30 +41,26 @@ class App extends React.Component {
           newTask: ''
       });
   };
-  toggleComplete = id => {
-      this.setState({
-          todos: this.state.todos.map(todo => {})
-      })
-  }
+
   toggleComplete = id => {
       this.setState({
           todos: this.state.todos.map(todo => {
               if (todo.id === id) {
                   return {
                         ...todo,
-                      complete: !todo.complete
-                  }
+                      completed: !todo.completed
+                  };
               }
               return todo;
           })
-      })
-  }
+      });
+  };
   clearComplete = event => {
       event.preventDefault();
       this.setState({
-          todos: this.state.todos.filter(todo => !todo.complete)
-      })
-  }
+          todos: this.state.todos.filter(todo => todo.completed === false)
+      });
+  };
   render() {
     return (
         <div>
@@ -77,9 +73,10 @@ class App extends React.Component {
                 addTodo={this.addTodo}
                 handleChanges={this.handleChanges}
                 newTask={this.state.newTask}
+                clearComplete={this.clearComplete}
             />
         </div>
-    )
+    );
   }
 }
 export default App;

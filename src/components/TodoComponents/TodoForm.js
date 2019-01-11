@@ -3,16 +3,16 @@ import React from 'react';
 function TodoForm(props) {
     // console.log('todo form test');
     return (
-        <form onSubmit={props.addTodo}>
+        <form>
             <input
-                value={props.task}
+                value={props.newTask}
                 type="text"
-                name="task"
+                name="newTask"
                 playerholder="add new todo"
                 onChange={props.handleChanges}
             />
-            <button type="submit">Add Todo</button>
-            <button onClick={props.clearComplete}>Clear done!</button>
+            <button onClick={props.addTodo}>Add Todo</button>
+            <button onClick={props.clearComplete}>Clear complete</button>
         </form>
     )
 }
