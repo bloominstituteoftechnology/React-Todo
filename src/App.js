@@ -22,6 +22,51 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.hydrateStateWithLocalStorage();
+    window.addEventListener(
+      'beforeunload',
+      this.saveStateToLocalStorage.bind(this) 
+    );
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener(
+      'beforeunload',
+      this.saveStateToLocalStorage.bind(this) 
+    );
+  }
+
+  hydrateStateWithLocalStorage() {
+    for (let key in this.state) {
+      if (localStorage.hasOwnProperty(key)) {
+        let value = localStorage.getItem(key);
+
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  }
+
+  saveStateToLocalStorage() {
+    for (let key in this.state) {
+      localStorage.setItem(key, JSON.stringify(this.state[key]));
+    }
+  }
+
+
+  updateInput(key, value) {
+    // update react state
+    this.setState({ [key]: value });
+
+    // update localStorage
+    localStorage.setItem(key, value);
+  }
+
   handleInput = (e) => {
     console.log(e.target.value);
     this.setState({
@@ -43,7 +88,9 @@ class App extends React.Component {
 
       ],
       textInput: ''
-    })
+    });
+    localStorage.setItem('id', JSON.stringify(id));
+    localStorage.setItem('textInput', '');
   }
 
   toggleCompleted = id => {
@@ -66,6 +113,8 @@ class App extends React.Component {
     this.setState({
       todos: this.state.todos.filter(todo => !todo.completed)
     });
+    localStorage.setItem('todos', JSON.stringify({
+      todos: this.state.todos.filter(todo => !todo.completed)}));
   };
   
 
