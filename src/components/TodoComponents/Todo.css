@@ -1,10 +1,18 @@
 .App {
     font-family: sans-serif;
     text-align: center;
-
   }
+
+  .App h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #48BE82;
+  }
+
+
   body {
-    background-color: rgb(143, 196, 150);
+    background-image: linear-gradient(to top, #4fb576 0%, #44c489 30%, #28a9ae 46%, #28a2b7 59%, #4c7788 71%, #6c4f63 86%, #432c39 100%);
+    
   }
   
   .todo-list {
@@ -47,4 +55,20 @@
 
   .input-form {
       margin-top: 15px;
+      
   }
+  .input-form input {
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 39px;
+    font-size: 20px;
+    line-height: 2;
+  }
+.input-form button {
+  background-image: linear-gradient(to top, #b3ffab 0%, #12fff7 100%);
+  border-radius: 39px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 600;
+}
+  
