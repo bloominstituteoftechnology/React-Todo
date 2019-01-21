@@ -1,0 +1,26 @@
+.listContainer{
+    border: 1px solid red;
+    height: 200px;
+    text-align: center;
+    line-height: 24px;
+}
+
+/* .toDoBox{
+    border: 1px solid red;
+} */
+
+form {
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+input{
+    text-align: center;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-around;
+}

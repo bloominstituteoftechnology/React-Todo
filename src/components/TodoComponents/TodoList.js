@@ -1,10 +1,11 @@
 import React from 'react';
+import './Todo.css';
 
 import TodoNote from './Todo';
 
 function TodoList(props) {
   return (
-    <div>
+    <div className="listContainer">
       {props.todos.map(todo => {
         return <TodoNote 
         todo={todo}
