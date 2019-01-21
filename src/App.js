@@ -1,25 +1,21 @@
 import React from 'react';
 import './App.css';
+
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
 const toDoData = [
-  { toDoItem: 'Wash the car', id: Date.now(), completed: false, textDecoration: "none" },
-  { toDoItem: 'Drink 16oz of water', id: Date.now(), completed: false, textDecoration: "none" },
-  { toDoItem: 'Read a book', id: Date.now(), completed: false, textDecoration: "none" },
-  { toDoItem: 'Cook dinner', id: Date.now(), completed: false, textDecoration: "none" },
-  { toDoItem: 'Study tomorrow\'s class materials', id: Date.now(), completed: false, textDecoration: "none" }
+  { task: 'Drink 16oz of water', id: 42, completed: false, textDecoration: "none" },
+  { task: 'Read a book', id: 17, completed: false, textDecoration: "none" },
+  { task: 'Study tomorrow\'s class materials', id: 86, completed: false, textDecoration: "none" }
 ];
 
 class App extends React.Component {
   constructor() {
     super ();
-
     this.state = {
-      toDoList: toDoData,
-      toDoItem: '',
-      id: Date.now(),
-      completed: false
+      todos: toDoData,
+      todo: ''
     };
   }
 
@@ -27,22 +23,35 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  onClick = () => {
-    this.setState({ textDecoration: "strikethrough"});
-  }
-
   addNewItem = ev => {
     ev.preventDefault();
     this.setState({
-      toDoList: [
-        ...this.state.toDoList,
-        { toDoItem: this.state.toDoItem,
-        id: Date.now(),
-        completed: false }
+      todos: [
+        ...this.state.todos,
+        { task: this.state.todo, 
+          id: Date.now(), 
+          completed: false, 
+          textDecoration: "none" }
       ],
-      toDoItem: ''
+      todo: ''
     });
   };
+
+
+  toggleCompleted = id => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id){
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        }
+        return todo;
+      })
+    });
+  }
+ 
 
   render() {
     console.log('Render is running!');
@@ -51,12 +60,13 @@ class App extends React.Component {
       <div className="App">
       <h1 className="toDoHeader">Things to Accomplish:</h1>
       <TodoList 
-      toDoDataList={this.state.toDoList}
-      clicked={this.onClick} />
+      toggleCompleted={this.toggleCompleted}
+      todos={this.state.todos}
+      />
       <TodoForm
         addNewItem={this.addNewItem}
         handleChanges={this.handleChanges}
-        toDoItem={this.state.toDoItem}
+        todo={this.state.todo}
          />
       </div>
       </div>

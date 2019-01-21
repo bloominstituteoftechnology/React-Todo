@@ -1,3 +1,8 @@
 body {
     margin: 0 auto;
+    max-width: 880px;
+    display: flex;
+    justify-content: center;
 }
+ /* .main-list-style{
+ } */
