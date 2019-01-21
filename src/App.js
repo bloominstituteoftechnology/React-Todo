@@ -35,7 +35,13 @@ class App extends React.Component {
       ],
       todo: ''
     });
+    this.saveList();
   };
+
+  saveList = ev => {
+    const todo = this.state.todo
+    localStorage.setItem('todo', todo);
+  }
 
 
   toggleCompleted = id => {
@@ -64,6 +70,7 @@ class App extends React.Component {
       todos={this.state.todos}
       />
       <TodoForm
+        saveList={this.saveList}
         addNewItem={this.addNewItem}
         handleChanges={this.handleChanges}
         todo={this.state.todo}

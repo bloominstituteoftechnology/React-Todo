@@ -5,7 +5,7 @@ function ToDoForm(props) {
   return (
     <form>
       <input
-        value={props.value}
+        value={props.todo}
         type="text"
         name="todo"
         placeholder="Put It On the List!"
