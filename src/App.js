@@ -43,6 +43,7 @@ class App extends React.Component {
       const completed = prevState.todo.filter(task => task.completed === false);
       return {todo: completed}
     })
+    console.log(this.state.todo);
   }
 
   render() {
