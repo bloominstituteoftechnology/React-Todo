@@ -1,11 +1,10 @@
-// `<TodoList />` receives your Todos array and iterates over the list generating a new `<Todo />` for each element in the array.
 import React from 'react';
 import Todo from './Todo';
 
-export default function ToDoList(props) {
+export default function ToDoList({ todoObject }) {
   return (
     <div>
-      {props.todoObject.map(toDo => (
+      {todoObject.map(toDo => (
         <Todo key={toDo.id} todoData={toDo.task} />
       ))}
     </div>
