@@ -41,7 +41,12 @@ class App extends React.Component {
 
   completeTask = event => {
     event.preventDefault();
-    
+    this.state.todos.forEach(element => {
+      if(element.uid === event.target.uid) {
+        element.completed = true;
+      };
+    })
+    console.log("Hello")
   }
 
 
