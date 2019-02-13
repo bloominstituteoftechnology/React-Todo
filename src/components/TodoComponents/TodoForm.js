@@ -1,16 +1,18 @@
-// `<TodoForm>` will hold your input field and your `Add Todo` and `Clear Completed` buttons.
 import React from 'react';
 
-export default function TodoForm(props) {
+export default function TodoForm({ 
+    typeValue, onTaskTypeChange, onAddClick, onEnter 
+}) 
+{
   return (
     <div>
       <input
         type="text"
-        value={props.typeValue}
-        onChange={event => props.onTaskTypeChange(event)}
-        onKeyPress={event => props.onEnter(event)}
+        value={typeValue}
+        onChange={event => onTaskTypeChange(event)}
+        onKeyPress={event => onEnter(event)}
       />
-      <button onClick={() => props.onAddClick()}>Add Todo</button>
+      <button onClick={() => onAddClick()}>Add Todo</button>
       <button>Clear Completed</button>
     </div>
   );
