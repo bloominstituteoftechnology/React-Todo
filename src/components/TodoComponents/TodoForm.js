@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function TodoForm({ 
-    typeValue, onTaskTypeChange, onAddClick, onEnter 
+    typeValue, onTaskTypeChange, onAddClick, onEnter, onClearClick
 }) 
 {
   return (
@@ -13,7 +13,7 @@ export default function TodoForm({
         onKeyPress={event => onEnter(event)}
       />
       <button onClick={() => onAddClick()}>Add Todo</button>
-      <button>Clear Completed</button>
+      <button onClick={() => onClearClick()}>Clear Completed</button>
     </div>
   );
 }

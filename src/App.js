@@ -14,6 +14,7 @@ class App extends React.Component {
     this.onAddClick = this.onAddClick.bind(this);
     this.onEnter = this.onEnter.bind(this);
     this.onComplete = this.onComplete.bind(this);
+    this.onClearClick = this.onClearClick.bind(this);
   }
 
   onTaskTypeChange = event => {
@@ -46,6 +47,11 @@ class App extends React.Component {
     }
   };
 
+  onClearClick = () => {
+    let clearedList = this.state.todoObject.filter(item => item.completed === false)
+    this.setState({todoObject: [...clearedList]})
+  };
+
   clearInputs = () => {
     this.setState({
       taskTyped: ''
@@ -56,14 +62,12 @@ class App extends React.Component {
     let newList = this.state.todoObject.map(item => {
       if (item.id === props) {
         item.completed = true
-        item.className = 'finito'
         return item
       }
       else {
         return item
       }
     })
-    console.log(this.state.todoObject);
    this.setState({todoObject: [...newList]})
   };
 
@@ -80,6 +84,7 @@ class App extends React.Component {
           onTaskTypeChange={this.onTaskTypeChange}
           onAddClick={this.onAddClick}
           onEnter={this.onEnter}
+          onClearClick={this.onClearClick}
         />
       </div>
     );
