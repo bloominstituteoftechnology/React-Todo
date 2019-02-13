@@ -1,6 +1,6 @@
 import React from 'react';
 import todo from './components/TodoComponents/Todo';
-//import TodoForm from './components/TodoComponents/TodoForm'
+import TodoForm from './components/TodoComponents/TodoForm'
 
 
 // const Task = props => {
@@ -25,12 +25,12 @@ class App extends React.Component {
 
   handleUpdateState = () => {
     const tasks = this.state.tasks.slice();
-    //this clones our tasks array
-    tasks.push ({
-      updatedTasks: "" //i want to push our new task into the tasks array
-    });
+    // //this clones our tasks array
+    // tasks.push ({
+    //   updatedTasks: "" //i want to push our new task into the tasks array
+    // });
 
-    this.setState({ tasks: tasks });
+    this.setState({ tasks: [...this.state.tasks, {task:this.state.updatedTasks, id:Date.now(), completed:false }] });
     //from react api - the only way to change state
 
   };
@@ -40,9 +40,6 @@ class App extends React.Component {
     this.setState({ updatedTasks: event.target.value });
   };
   
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
       <div>
@@ -51,8 +48,8 @@ class App extends React.Component {
           return (<div key={myTask.task}>{myTask.task}</div>)
         })}
         {/* // <Task taskProp= {task} />)} */}
-        <div>{this.state.updatedTasks} </div>
-        {/* <TodoForm /> this does not work when i try to import from TodoForm*/}
+        {/* <div>{this.state.updatedTasks} </div> */}
+        {/* <TodoForm /> when importing this component it the button do not work*/}
         <input type="text" placeholder="...to do" onChange={this.handleInputChange} />
         <button onClick={this.handleUpdateState}>Add ToDo</button>
         <button>Clear Completed </button>

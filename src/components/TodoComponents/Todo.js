@@ -1,4 +1,4 @@
-//import React from 'react';
+import React from 'react';
 
 const todo = [
     {
@@ -20,7 +20,7 @@ const todo = [
         task: 'Figure out how to push new task to list',
         id: Date.now(),
         completed: false
-    },
+    }
 ];
 
 
