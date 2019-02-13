@@ -3,11 +3,11 @@ import React from 'react';
 import Todo from './Todo';
 
 export default function ToDoList(props) {
-    return (
-        <div>
-            {
-              props.todoObject.map(toDo => <Todo key={toDo.id} todoData={toDo.task}/>)
-            }
-        </div>
-    );
+  return (
+    <div>
+      {props.todoObject.map(toDo => (
+        <Todo key={toDo.id} todoData={toDo.task} />
+      ))}
+    </div>
+  );
 }
