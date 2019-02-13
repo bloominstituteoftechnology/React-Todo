@@ -21,19 +21,30 @@ class App extends React.Component {
           task: 'Bake Cookies',
           id: 1528817084358,
           completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1428817084358,
+          completed: false
         }
-      ],
+      ], taskTyped: '',
     }
+
+    this.onTaskTypeChange = this.onTaskTypeChange.bind(this);
   }
 
-
+  onTaskTypeChange  = event => {
+    this.setState({
+      taskTyped: event.target.value,
+    });
+  }
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <ToDoList todoObject={this.state.todoObject} />
-        <TodoForm />
+        <TodoForm typeValue={this.state.taskTyped} onTaskTypeChange={this.onTaskTypeChange}/>
       </div>
     );
   }
