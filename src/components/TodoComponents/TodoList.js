@@ -7,9 +7,9 @@ function TodoList(props) {
             {props.todos.map(item => {
                 return (
                     <Todo
+                        key={item.id}
                         task={item.task}
                         id={item.id}
-                        key={item.id}
                     />
                 )
             })}

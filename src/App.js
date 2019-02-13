@@ -1,41 +1,18 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-
-// const TODOLIST = [
-//   {
-//     task: 'first you get the sugar',
-//     id: '1',
-//     completed: false,
-//   },
-//   {
-//     task: 'then you get the power',
-//     id: '2',
-//     completed: false,
-//   },
-//   {
-//     task: 'then you get the women',
-//     id: '3',
-//     completed: false,
-//   },
-// ];
+import './components/TodoComponents/Todo.css'
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-
   constructor() {
     super();
     this.state = {
-      task: '',
-      completed: false,
       todos: [],
+      task: '',
     };
   }
 
   formHandler = e => {
-    console.log(this.state.task);
     this.setState({
       task: e.target.value
     });
@@ -46,6 +23,7 @@ class App extends React.Component {
     const newTodo = {
       task: this.state.task,
       id: Date.now(),
+      completed: false,
     }
     this.setState({
       todos: [...this.state.todos, newTodo],
@@ -53,15 +31,28 @@ class App extends React.Component {
     });
   }
 
+  listClick = e => {
+    e.target.classList.toggle('completed');
+  }
+
+  clearTodo = e => {
+    
+  }
+
   render() {
     return (
-      <div>
-        <h2>in america</h2>
-        <TodoList todos={this.state.todos} />
+      <div className="list-container">
+        <h2>DOING IT</h2>
+        <div className="todo-list" onClick={this.listClick}>
+          <TodoList
+            todos={this.state.todos}
+          />
+        </div>
         <TodoForm
           onSubmit={this.addTodo}
           onChange={this.formHandler}
           value={this.state.task}
+          clearTodo={this.clearTodo}
         />
       </div>
     );
