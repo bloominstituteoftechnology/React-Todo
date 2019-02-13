@@ -37,17 +37,17 @@ class App extends React.Component {
   }
 
   onAddClick = () => {
-    this.setState({
-      todoObject: this.state.todoObject.concat({'task': this.state.taskTyped, 'id': this.state.todoObject.length + 1, 'completed': false})
-    })
+    this.setState(st => ({
+      todoObject: st.todoObject.concat({'task': st.taskTyped, 'id': st.todoObject.length + 1, 'completed': false})
+    }))
     this.clearInputs();
   }
 
   onEnter = event => {
     if (event.key === 'Enter'){
-    this.setState({
-      todoObject: this.state.todoObject.concat({'task': this.state.taskTyped, 'id': this.state.todoObject.length + 1, 'completed': false})
-    })
+    this.setState(st => ({
+      todoObject:st.todoObject.concat({'task': st.taskTyped, 'id': st.todoObject.length + 1, 'completed': false})
+    }))
     this.clearInputs();
   }
 }
