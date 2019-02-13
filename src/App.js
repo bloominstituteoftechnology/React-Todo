@@ -14,23 +14,24 @@ class App extends React.Component {
       todoObject: [
         {
           task: 'Organize Garage',
-          id: 1528817077286,
+          id: 100,
           completed: false
         },
         {
           task: 'Bake Cookies',
-          id: 1528817084358,
+          id: 101,
           completed: false
         },
         {
           task: 'Bake Cookies',
-          id: 1428817084358,
+          id: 102,
           completed: false
         }
       ], taskTyped: '',
     }
 
     this.onTaskTypeChange = this.onTaskTypeChange.bind(this);
+    this.onAddClick = this.onAddClick.bind(this);
   }
 
   onTaskTypeChange  = event => {
@@ -39,12 +40,19 @@ class App extends React.Component {
     });
   }
 
+  onAddClick = () => {
+    console.log('supp')
+    this.setState({
+      todoObject: this.state.todoObject.concat({'task': this.state.taskTyped, 'id': this.state.todoObject.length + 1, 'completed': false})
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <ToDoList todoObject={this.state.todoObject} />
-        <TodoForm typeValue={this.state.taskTyped} onTaskTypeChange={this.onTaskTypeChange}/>
+        <TodoForm typeValue={this.state.taskTyped} onTaskTypeChange={this.onTaskTypeChange} onAddClick={this.onAddClick}/>
       </div>
     );
   }

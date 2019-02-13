@@ -5,7 +5,7 @@ export default function TodoForm(props) {
   return (
     <div>
       <input type="text" value={props.typeValue} onChange={(event) => props.onTaskTypeChange(event)}/>
-      <button>Add Todo</button>
+      <button onClick={() => props.onAddClick()}>Add Todo</button>
       <button>Clear Completed</button>
     </div>
   );
