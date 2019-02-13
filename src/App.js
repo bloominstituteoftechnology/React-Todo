@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
   constructor () {
@@ -31,6 +32,9 @@ class App extends React.Component {
     return (
       <div>
         <h2>Todo App!</h2>
+        <TodoList 
+        todos={this.state.todos}
+        />
         <TodoForm 
         inputText={this.state.inputText}
         handleChanges={this.handleChanges}
