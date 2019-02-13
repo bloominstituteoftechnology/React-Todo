@@ -56,14 +56,14 @@ class App extends React.Component {
     let newList = this.state.todoObject.map(item => {
       if (item.id === props) {
         item.completed = true
+        item.className = 'finito'
         return item
       }
       else {
         return item
       }
     })
-
-   console.log(newList);
+    console.log(this.state.todoObject);
    this.setState({todoObject: [...newList]})
   };
 
