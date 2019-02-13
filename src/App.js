@@ -10,7 +10,7 @@ class App extends React.Component {
     this.state = {
       todos: [],
       task: '',
-      id: '',
+      uid: '',
       completed: false,
     }
   }
@@ -31,14 +31,19 @@ class App extends React.Component {
     event.preventDefault();
     const newTaskItem = {
       task: this.state.task,
-      id: this.state.id,
+      uid: Date.now(),
       completed: this.state.completed,
     };
     this.setState({
-      todos: [...this.state.todos, newTaskItem],
-      id: Date.now(), // assigned to new array
-    });
+      todos: [...this.state.todos, newTaskItem]// assigned to new array
+    });   
   };
+
+  completeTask = event => {
+    event.preventDefault();
+    
+  }
+
 
   render() {
     return (
@@ -47,7 +52,7 @@ class App extends React.Component {
           handleChanges = {this.handleChanges}
           addTask = {this.addTask}
           task = {this.state.task}
-          id = {this.state.id}
+          uid = {this.state.uid}
           todos = {this.state.todos}
         />
       </div>
