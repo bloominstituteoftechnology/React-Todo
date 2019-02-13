@@ -22,11 +22,6 @@ class App extends React.Component {
           id: 101,
           completed: false
         },
-        {
-          task: 'Bake Cookies',
-          id: 102,
-          completed: false
-        }
       ], taskTyped: '',
     }
 
@@ -41,11 +36,17 @@ class App extends React.Component {
   }
 
   onAddClick = () => {
-    console.log('supp')
     this.setState({
       todoObject: this.state.todoObject.concat({'task': this.state.taskTyped, 'id': this.state.todoObject.length + 1, 'completed': false})
     })
+    this.clearInputs();
   }
+
+  clearInputs = () => {
+    this.setState({
+      taskTyped: '',
+    })
+  };
 
   render() {
     return (
