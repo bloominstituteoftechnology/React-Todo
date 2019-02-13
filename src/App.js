@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoList from './components/TodoComponents/TodoList'
+import Todo from './components/TodoComponents/Todo'
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -8,16 +8,24 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      tasks: '',
+      todos: [],
       task: '',
       id: '',
       completed: false,
     }
   }
 
+  // This event handler will set the task value to something that mirrors what the user has input in the form input field
+
   handleChanges = event => {
-    this.setState({ task: event.target.value });
+    this.setState({ 
+      task: event.target.value,
+    });
   };
+
+
+  // This event handler will add a timestamp to the new task object and add it to the todos array 
+
 
   addTask = event => {
     event.preventDefault();
@@ -27,18 +35,20 @@ class App extends React.Component {
       completed: this.state.completed,
     };
     this.setState({
-      tasks: [...this.state.tasks, newTaskItem] // assigned to new array
+      todos: [...this.state.todos, newTaskItem],
+      id: Date.now(), // assigned to new array
     });
   };
 
   render() {
     return (
       <div>
-        <TodoList 
+        <Todo 
           handleChanges = {this.handleChanges}
           addTask = {this.addTask}
           task = {this.state.task}
           id = {this.state.id}
+          todos = {this.state.todos}
         />
       </div>
     );
