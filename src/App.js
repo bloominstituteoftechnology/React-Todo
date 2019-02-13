@@ -27,6 +27,7 @@ class App extends React.Component {
 
     this.onTaskTypeChange = this.onTaskTypeChange.bind(this);
     this.onAddClick = this.onAddClick.bind(this);
+    this.onEnter = this.onEnter.bind(this);
   }
 
   onTaskTypeChange  = event => {
@@ -42,6 +43,15 @@ class App extends React.Component {
     this.clearInputs();
   }
 
+  onEnter = event => {
+    if (event.key === 'Enter'){
+    this.setState({
+      todoObject: this.state.todoObject.concat({'task': this.state.taskTyped, 'id': this.state.todoObject.length + 1, 'completed': false})
+    })
+    this.clearInputs();
+  }
+}
+
   clearInputs = () => {
     this.setState({
       taskTyped: '',
@@ -53,7 +63,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <ToDoList todoObject={this.state.todoObject} />
-        <TodoForm typeValue={this.state.taskTyped} onTaskTypeChange={this.onTaskTypeChange} onAddClick={this.onAddClick}/>
+        <TodoForm typeValue={this.state.taskTyped} onTaskTypeChange={this.onTaskTypeChange} onAddClick={this.onAddClick} onEnter={this.onEnter}/>
       </div>
     );
   }
