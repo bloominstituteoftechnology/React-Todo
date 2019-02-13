@@ -51,6 +51,7 @@ class App extends React.Component {
         <Todo 
           handleChanges = {this.handleChanges}
           addTask = {this.addTask}
+          completeTask = {this.completeTask}
           task = {this.state.task}
           uid = {this.state.uid}
           todos = {this.state.todos}

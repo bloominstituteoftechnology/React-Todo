@@ -7,9 +7,8 @@ const Todo = props => {
         <div>
            <h1>To-Do List</h1>
             <TodoList 
-                id = {props.uid}
                 todos = {props.todos}
-                completed = {props.completed}
+                completeTask = {props.completeTask}
             />
             <TodoForm 
                 handleChanges = {props.handleChanges}
