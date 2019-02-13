@@ -3,7 +3,6 @@ import TodoForm from './components/TodoComponents/TodoForm';
 import ToDoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -14,6 +13,7 @@ class App extends React.Component {
     this.onTaskTypeChange = this.onTaskTypeChange.bind(this);
     this.onAddClick = this.onAddClick.bind(this);
     this.onEnter = this.onEnter.bind(this);
+    this.onComplete = this.onComplete.bind(this);
   }
 
   onTaskTypeChange = event => {
@@ -52,11 +52,29 @@ class App extends React.Component {
     });
   };
 
+  onComplete = props => {
+    let newList = this.state.todoObject.map(item => {
+      if (item.id === props) {
+        item.completed = true
+        return item
+      }
+      else {
+        return item
+      }
+    })
+
+   console.log(newList);
+   this.setState({todoObject: [...newList]})
+  };
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <ToDoList todoObject={this.state.todoObject} />
+        <ToDoList
+          onComplete={this.onComplete}
+          todoObject={this.state.todoObject}
+        />
         <TodoForm
           typeValue={this.state.taskTyped}
           onTaskTypeChange={this.onTaskTypeChange}
