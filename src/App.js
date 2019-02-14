@@ -29,6 +29,7 @@ class App extends React.Component {
             ],
 
             todo: '',
+
             filtered: [{
                 task: 'Finish MVP',
                 id: 4566,
@@ -61,14 +62,17 @@ toggleTodoComplete = element => {
             return todo;
         }
     });
-    this.setState({ todos });
+    
+    this.setState({ filtered: todos });
 }
 
 clearCompletedToDos = element => {
     element.preventDefault();
     let todos = this.state.todos.slice();
+    let filtered = this.state.filtered.slice();
     todos = todos.filter(todo => !todo.completed);
-    this.setState({ todos });
+    filtered = filtered.filter(e => !e.completed);
+    this.setState({ filtered, todos });
 }
 
 handleChange = e => {
@@ -101,7 +105,7 @@ handleChange = e => {
                 />
                 <Search 
                     handleSearch = {this.handleChange}
-                   
+                
                 />
                 <TodoList
                     handleToggleComplete = {this.toggleTodoComplete}
