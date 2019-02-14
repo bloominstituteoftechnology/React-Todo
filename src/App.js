@@ -63,7 +63,7 @@ class App extends React.Component {
   onComplete = props => {
     let newList = this.state.todoObject.map(item => {
       if (item.id === props) {
-        item.completed = true;
+        item.completed = !item.completed;
         return item;
       } else {
         return item;
