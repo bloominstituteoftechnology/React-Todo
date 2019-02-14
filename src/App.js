@@ -13,14 +13,14 @@ class App extends React.Component {
     };
   }
 
-  handleInput = event => {
+  handleInput = e => {
     this.setState({
-      [event.target.name]: event.target.value
+      [e.target.name]: e.target.value
     });
   };
 
-  addTodo = event => {
-    event.preventDefault();
+  addTodo = e => {
+    e.preventDefault();
     if (this.state.todo) {
       const newTodos = [...this.state.todos];
       newTodos.push({
@@ -48,12 +48,13 @@ class App extends React.Component {
     this.setState({ todos: newTodos });
   };
 
-  clearCompletedTodos = event => {
-    event.preventDefault();
+  clearCompletedTodos = e => {
+    e.preventDefault();
     let todos = [...this.state.todos];
     todos = todos.filter(todo => !todo.completed);
     this.setState({ todos });
   };
+  
   render() {
     return (
       <div>
