@@ -5,18 +5,42 @@ import React from 'react';
 import './Todo.css';
 import Todo from './Todo';
 
-const TodoList = props => {
-    return (
-        <div className="listContainer">
-            {props.todos.map(element => (
-                <Todo
-                    handleToggleComplete={props.handleToggleComplete}
-                    key={element.id}
-                    todo={element}
-                />
-            ))}
-        </div>
-    );
+class TodoList extends React.Component {
+    constructor(props) {
+        super(props);
+        console.log(props.todos)
+        this.state = {
+            
+        }
+    }
+
+    // componentDidMount() {
+    //     this.setState({
+    //         filtered: this.props.items
+    //     });
+    // }
+      
+    // componentWillReceiveProps(nextProps) {
+    //     this.setState({
+    //         filtered: nextProps.items
+    //     });
+    // }
+
+
+
+render() {
+        return (
+            <div className="listContainer">
+                {this.props.todos.map(element => (
+                    <Todo
+                        handleToggleComplete={this.props.handleToggleComplete}
+                        key={element.id}
+                        todo={element}
+                    />
+                ))}
+            </div>
+        );
+}
 }
 
 export default TodoList;

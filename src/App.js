@@ -6,6 +6,7 @@ import Search from './components/TodoComponents/Search';
 
 
 
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -28,7 +29,16 @@ class App extends React.Component {
             ],
 
             todo: '',
-            search: ''
+            filtered: [{
+                task: 'Finish MVP',
+                id: 4566,
+                completed: false
+            },
+            {
+                task: 'Try Stretch Goals',
+                id: 5678,
+                completed: false
+            }],
         }
     }
 
@@ -36,7 +46,7 @@ addTodo = element => {
     element.preventDefault();
     const todos = this.state.todos.slice();
     todos.push({ task: this.state.todo, completed: false, id: Date.now() });
-    this.setState({ todos, todo: '' });
+    this.setState({ todos, todo: '', filtered: todos });
 }
 
 changeTodo = element => this.setState({ [element.target.name]: element.target.value });
@@ -61,11 +71,23 @@ clearCompletedToDos = element => {
     this.setState({ todos });
 }
 
-handleSearchFunction = element => {
-    element.preventDefault();
-    const todos = this.state.todos.filter(e => e.task.includes(element.target.name))
-    this.setState({ [element.target.name]: element.target.value, todos})
+handleChange = e => {
+    let currentList = [];
+    let newList = [];
 
+    
+        currentList = this.state.todos;
+        console.log(currentList)
+        newList = currentList.filter(item => {
+            console.log(item.task.toLowerCase())
+            const lc = item.task.toLowerCase();
+            const filter = e.target.value.toLowerCase();
+            return lc.includes(filter);
+        });
+
+    this.setState({
+        filtered: newList,
+    });
 }
 
     render() {
@@ -78,12 +100,12 @@ handleSearchFunction = element => {
                     handleClearTodos = {this.clearCompletedToDos}
                 />
                 <Search 
-                    value = {this.state.search}
-                    handleSearch = {this.handleSearchFunction}
+                    handleSearch = {this.handleChange}
+                   
                 />
                 <TodoList
                     handleToggleComplete = {this.toggleTodoComplete}
-                    todos={this.state.todos}
+                    todos={this.state.filtered}
                 />
             </div>
         );
