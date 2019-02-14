@@ -5,7 +5,7 @@ function TodoList(props) {
   return (
     <div>
         { props.list.map((listItem, index) => {
-            return <Todo key={listItem.id} listItem={listItem} />
+            return <Todo key={index} listItem={listItem} />
           })}
     </div>
   );

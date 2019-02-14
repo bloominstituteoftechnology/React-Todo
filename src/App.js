@@ -23,6 +23,7 @@ class App extends React.Component {
       completed: false,
     };
     console.log(newTodo);
+    // debugger;
     this.setState({
       list: [...this.state.list, newTodo],
       inputValue: '',
@@ -34,13 +35,13 @@ class App extends React.Component {
       inputValue: e.target.value
     });
   };
+
   render() {
     return (
       <div>
         <h2>To Do:</h2>
         <TodoList list={this.state.list}/>
-
-        <TodoForm addTodo={this.addTodo} value={this.inputValue} handleChanges={this.handleChanges} />
+        <TodoForm addTodo={this.addTodo} value={this.state.inputValue} handleChanges={this.handleChanges} />
         <button>Delete Completed</button>
       </div>
     );
