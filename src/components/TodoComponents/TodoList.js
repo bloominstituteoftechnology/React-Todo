@@ -1,12 +1,13 @@
 import React from 'react';
+import Todo from './Todo';
 
 const TodoList = props => {
     return (
         <ul>
-            {props.todos.map( todo => (
+            {props.todos.map( todo => (                
                 <Todo 
-                todo={todo}
-                key={todo.id}                
+                todo={todo.task}
+                key={todo.id}
                 />
             )
 
@@ -14,3 +15,5 @@ const TodoList = props => {
         </ul>
     )
 }
+
+export default TodoList;
