@@ -19,7 +19,7 @@ class App extends React.Component {
     super();
     this.state = {
       tasks: tasks,
-      input: "test"
+      input: ""
     };
   }
 

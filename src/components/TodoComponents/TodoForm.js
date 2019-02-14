@@ -10,6 +10,8 @@ const TaskForm = props => {
         onChange={props.handleChanges}
         placeholder="task"
         />
+        <button type="submit">Add Todo</button>
+        <button type="">Clear Completed</button>
         </form>
     );
 };
