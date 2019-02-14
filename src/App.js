@@ -2,6 +2,8 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+import './components/TodoComponents/Todo.css';
+
 const list = [
 ]
 
@@ -10,7 +12,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      list: list,
+      list: [],
       inputValue: '', 
     };
   }
@@ -38,7 +40,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h2>To Do:</h2>
         <TodoList list={this.state.list}/>
         <TodoForm addTodo={this.addTodo} value={this.state.inputValue} handleChanges={this.handleChanges} />

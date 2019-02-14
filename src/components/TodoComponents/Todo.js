@@ -2,7 +2,7 @@ import React from 'react';
 
 function Todo(props) {
   return(
-    <p>{props.listItem.item}</p>
+    <p className={`item ${props.listItem.completed ? ` completed` : ``}`}>{props.listItem.item}</p>
   );
 }
 
