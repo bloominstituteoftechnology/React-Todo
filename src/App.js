@@ -2,6 +2,7 @@ import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 import './components/TodoComponents/Todo.css';
+import Search from './components/TodoComponents/Search';
 
 
 
@@ -27,6 +28,7 @@ class App extends React.Component {
             ],
 
             todo: '',
+            search: ''
         }
     }
 
@@ -59,6 +61,13 @@ clearCompletedToDos = element => {
     this.setState({ todos });
 }
 
+handleSearchFunction = element => {
+    element.preventDefault();
+    const todos = this.state.todos.filter(e => e.task.includes(element.target.name))
+    this.setState({ [element.target.name]: element.target.value, todos})
+
+}
+
     render() {
         return (
             <div class="wrapper">
@@ -67,6 +76,10 @@ clearCompletedToDos = element => {
                     handleToDoChange = {this.changeTodo}
                     handleAddTodo = {this.addTodo}
                     handleClearTodos = {this.clearCompletedToDos}
+                />
+                <Search 
+                    value = {this.state.search}
+                    handleSearch = {this.handleSearchFunction}
                 />
                 <TodoList
                     handleToggleComplete = {this.toggleTodoComplete}

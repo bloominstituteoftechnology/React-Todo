@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: Lora;
 }
 
 .wrapper {
@@ -12,10 +13,12 @@
 .inputContainer {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .input {
     text-align: center;
+    border: 2px solid goldenrod;
     border-radius: 5px;
     font-size: 1.5rem;
 }
@@ -23,17 +26,25 @@
 .buttonsContainer {
     display: flex;
     justify-content: space-around;
+    margin-top: 10px;
 }
 
 .button {
     width: 49%;
     padding: 8px;
+    border: 2px solid black;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    color: white;
+    background-color: rgb(92, 92, 92);
 
 }
 
 .listContainer {
-    width: 300px;
-    margin: auto;
+    width: 310px;
+    margin: 10px auto;
+    border: 5px double rgb(26, 25, 25);
+    border-radius: 6px;
 }
 
 .list {
@@ -43,4 +54,16 @@
     background-color: white;
     font-size: 1.5rem;
     text-decoration-color: red;
+}
+
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.search {
+    text-align: center;
+    font-size: 1.1rem;
+    border: 2px solid black;
 }
