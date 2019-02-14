@@ -33,6 +33,12 @@
     margin: 10px 0;
 }
 
+.addButton:hover {
+    border: 1px solid white;
+    background-color: forestgreen;
+    color: white;
+}
+
 .clearButton {
     padding: 8px 20px;
     width: 150px;
@@ -41,6 +47,12 @@
     color: firebrick;
     cursor: pointer;
     margin: 10px 0;
+}
+
+.clearButton:hover {
+    border: 1px solid white;
+    background-color: firebrick;
+    color: white;
 }
 
 .header {
@@ -65,4 +77,5 @@
     flex-direction: column;
     border: 1px solid black;
     padding: 10px;
+
 }

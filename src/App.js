@@ -42,11 +42,15 @@ class App extends React.Component {
 
   completeTask = event => {
     event.preventDefault();
-    this.setState({
-      // todos: this.state.todos.map(element => {
-        
-      // })
+    const target = this.state.todos.filter(element => {
+      
     })
+    this.setState({
+      todos: this.state.todos.filter(element => {
+        
+      })
+    })
+    console.log(`The button's working at least :/`)
   }
 
 

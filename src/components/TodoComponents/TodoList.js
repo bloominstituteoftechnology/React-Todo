@@ -10,7 +10,7 @@ const TodoList = props => {
             {props.todos.map(todo => {
                return (
                     <div 
-                    className={todo.completed ? "complete" : "incomplete"}
+                    className={todo.completed === true ? "complete" : "incomplete"}
                     key={todo.uid} 
                     uid={todo.uid}
                     onClick={props.completeTask}
