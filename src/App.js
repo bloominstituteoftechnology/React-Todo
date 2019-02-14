@@ -1,5 +1,6 @@
 import React from 'react';
 import Todo from './components/TodoComponents/Todo'
+import './App.css'
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -41,12 +42,11 @@ class App extends React.Component {
 
   completeTask = event => {
     event.preventDefault();
-    this.state.todos.forEach(element => {
-      if(element.uid === event.target.uid) {
-        element.completed = true;
-      };
+    this.setState({
+      // todos: this.state.todos.map(element => {
+        
+      // })
     })
-    console.log("Hello")
   }
 
 
