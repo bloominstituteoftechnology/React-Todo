@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import './components/TodoComponents/Todo.css';
 
 
 
@@ -61,15 +62,15 @@ clearCompletedToDos = element => {
     render() {
         return (
             <div class="wrapper">
-                <TodoList
-                    handleToggleComplete = {this.toggleTodoComplete}
-                    todos={this.state.todos}
-                />
                 <TodoForm
                     value = {this.state.todo}
                     handleToDoChange = {this.changeTodo}
                     handleAddTodo = {this.addTodo}
                     handleClearTodos = {this.clearCompletedToDos}
+                />
+                <TodoList
+                    handleToggleComplete = {this.toggleTodoComplete}
+                    todos={this.state.todos}
                 />
             </div>
         );

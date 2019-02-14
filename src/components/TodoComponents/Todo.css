@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 600px;
+    border: 3px solid rgb(29, 29, 29);
+    border-radius: 8px;
+    background-color: darkred;
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.input {
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    width: 49%;
+    padding: 8px;
+
+}
+
+.listContainer {
+    width: 300px;
+    margin: auto;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    background-color: white;
+    font-size: 1.5rem;
+    text-decoration-color: red;
+}
