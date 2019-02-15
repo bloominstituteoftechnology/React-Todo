@@ -1,95 +1,84 @@
-import React from 'react';
-import TodoList from './components/TodoComponents/TodoList';
-import TodoForm from './components/TodoComponents/TodoForm';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react'
+import TodoList from './components/TodoComponents/TodoList'
+import TodoForm from './components/TodoComponents/TodoForm'
+import styled from 'styled-components'
 
 const StyledApp = styled.div`
     margin: 0 auto;
     width: 50vw;
     height: 90vh;
-    height: calc(* 2);
     padding: 50px;
     box-shadow: 0 5px 10px 0 #757575, 0 4px 5px 0 #a8a8a8;
     background-color: #251635;
-`;
-class App extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            tasks: [],
-            taskInput: ''
-        };
-    }
+`
 
-    componentDidMount() {
-        const storedTasks = JSON.parse(localStorage.getItem('tasksList'));
-        if (storedTasks) {
-            this.setState({
-                tasks: storedTasks
-            });
-        }
-    }
+const toggleTask = (id, tasks, setTasks) => {
+    setTasks(
+        tasks.map(task => {
+            if (task.id === id) {
+                return {
+                    ...task,
+                    completed: !task.completed
+                }
+            } else return task
+        })
+    )
+}
 
-    componentDidUpdate() {
-        localStorage.setItem('tasksList', JSON.stringify(this.state.tasks));
-    }
+const handleInput = (event, setTaskInput) => {
+    const inputValue = event.target.value
+    setTaskInput(inputValue)
+}
 
-    addTask = event => {
-        event.preventDefault();
-        if (event.target[0].value !== '') {
-            this.setState({
-                tasks: [
-                    ...this.state.tasks,
-                    {
-                        task: this.state.taskInput,
-                        id: Date.now(),
-                        completed: false
-                    }
-                ],
-                taskInput: ''
-            });
-        }
-    };
+const clearCompleted = (event, tasks, setTasks) => {
+    event.preventDefault()
+    setTasks(tasks.filter(task => task.completed === false))
+}
 
-    clearTasks = event => {
-        event.preventDefault();
-        this.setState({
-            tasks: this.state.tasks.filter(task => task.completed === false)
-        });
-    };
-
-    handleChange = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
-    };
-
-    completeTask = id => {
-        this.setState({
-            tasks: this.state.tasks.map(task => {
-                if (task.id === id) {
-                    return {
-                        ...task,
-                        completed: task.completed === false ? true : false
-                    };
-                } else return task;
-            })
-        });
-    };
-
-    render() {
-        return (
-            <StyledApp>
-                <TodoList todoList={this.state.tasks} completeTask={this.completeTask} />
-                <TodoForm
-                    addTask={this.addTask}
-                    inputText={this.state.taskInput}
-                    handleChange={this.handleChange}
-                    clearTasks={this.clearTasks}
-                />
-            </StyledApp>
-        );
+const addTask = (event, tasks, setTasks, setTaskInput) => {
+    event.preventDefault()
+    const inputValue = event.target[0].value
+    if (inputValue !== '') {
+        setTasks([
+            ...tasks,
+            { task: inputValue, id: Date.now(), completed: false }
+        ])
+        setTaskInput('')
     }
 }
 
-export default App;
+const App = () => {
+    const [tasks, setTasks] = useState([])
+    const [taskInput, setTaskInput] = useState([])
+
+    useEffect(() => {
+        const storedTasks = JSON.parse(localStorage.getItem('tasksList'))
+        if (storedTasks) setTasks(storedTasks)
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('taskList', JSON.stringify(tasks))
+    })
+
+    return (
+        <StyledApp>
+            <TodoList
+                tasks={tasks}
+                toggleTask={toggleTask}
+                setTasks={setTasks}
+            />
+            <TodoForm
+                addTask={addTask}
+                inputText={taskInput}
+                handleInput={handleInput}
+                clearCompleted={clearCompleted}
+                setTasks={setTasks}
+                tasks={tasks}
+                taskInput={taskInput}
+                setTaskInput={setTaskInput}
+            />
+        </StyledApp>
+    )
+}
+
+export default App

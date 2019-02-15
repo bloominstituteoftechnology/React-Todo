@@ -1,29 +1,45 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Button } from '@smooth-ui/core-sc';
+import React from 'react'
+import styled from 'styled-components'
+import { Button } from '@smooth-ui/core-sc'
 
-const StyledForm = styled.form``;
+const StyledForm = styled.form``
 
 const TodoForm = props => {
     return (
         <>
-            <form onSubmit={props.addTask}>
+            <form
+                onSubmit={event =>
+                    props.addTask(
+                        event,
+                        props.tasks,
+                        props.setTasks,
+                        props.setTaskInput
+                    )
+                }>
                 <input
                     type="text"
                     name="taskInput"
                     placeholder="Add new task"
                     value={props.inputText}
-                    onChange={props.handleChange}
+                    onChange={event =>
+                        props.handleInput(event, props.setTaskInput)
+                    }
                 />
                 <Button type="submit" variant="success" width="100%">
                     Add Todo
                 </Button>
-                <Button type="button" variant="danger" width="100%" onClick={props.clearTasks}>
+                <Button
+                    type="button"
+                    variant="danger"
+                    width="100%"
+                    onClick={event =>
+                        props.clearCompleted(event, props.tasks, props.setTasks)
+                    }>
                     Clear Completed
                 </Button>
             </form>
         </>
-    );
-};
+    )
+}
 
-export default TodoForm;
+export default TodoForm
