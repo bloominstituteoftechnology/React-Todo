@@ -2,10 +2,29 @@ html, body {
   min-height: 100%;
 }
 
-.container {
+.App {
   max-width: 1200px;
+  width: 50%;
+  margin: 0 auto;
+  background-color: #ddd;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.header{
+  text-align: center;
+}
+
+.item {
+  background-color: #323232;
+  color: white;
+  padding: 10px;
+  font-family: "Ubuntu";
+  margin: 10px 0;
+  border-radius: 10px;
 }
 
 .completed {
   text-decoration-line: line-through;
+  color: gray;
 }
