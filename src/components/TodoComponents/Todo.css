@@ -15,6 +15,7 @@
      background: #04544E;
      color: black;
      border: none;
+     outline: none;
 }
 
 .todoBtn:hover {
@@ -25,10 +26,10 @@
 input {
    width: 45%;
    font-size: 18px;
-   
    background: transparent;
    border: none;
    border-bottom: 2px solid black;
+   outline: none;
 }
 
 ::placeholder {
@@ -51,6 +52,7 @@ h1 {
    justify-content: space-between;
    width: 85%;
 }
+
 
      
      
