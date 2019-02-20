@@ -1,0 +1,77 @@
+ body {
+     background: #3C3E3E;
+     
+ }
+
+ form {
+     display: flex;
+     justify-content: center;
+}
+
+ .todoBtn {
+     width: 15%;
+     padding: 10px;
+     font-size: 16px;
+     background: #04544E;
+     color: black;
+     border: none;
+}
+
+.todoBtn:hover {
+    color: #04544E;
+    background:black;
+}
+
+input {
+   width: 45%;
+   font-size: 18px;
+   
+   background: transparent;
+   border: none;
+   border-bottom: 2px solid black;
+}
+
+::placeholder {
+    color: black;
+}
+
+h1 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100px;
+   font-size: 50px;
+   border: 15px solid black;
+   background: #04544E;
+
+}
+
+.formSpace {
+   display: flex;
+   justify-content: space-between;
+   width: 85%;
+}
+
+     
+     
+
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+    
+    
+    
+
+   
+
+
+
+
+
+
