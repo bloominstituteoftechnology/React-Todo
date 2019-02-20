@@ -6,8 +6,20 @@ class App extends React.Component {
     todos: [
       {
       id: 1,
-      title: 'Take out the trash',
-      completed: false,
+      title: 'Organize Garage',
+      completed: false
+      },
+
+      {
+        id: 2,
+        title: 'Bake Cookies',
+        completed: false
+        },
+
+        {
+          id: 3,
+          title: 'Take out the trash',
+          completed: false
       }
     ]
   }
@@ -15,10 +27,11 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
+    console.log(this.state.todos);
     return (
       <div>
         <h2>App</h2>
-        <Todos/>
+        <Todos todos = {this.state.todos}/>
       </div>
     );
   }
