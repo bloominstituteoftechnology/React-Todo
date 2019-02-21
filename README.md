@@ -33,20 +33,20 @@ x - If yarn asks you to select different port with some error message, just sele
 ];
 ```
 
-- The `task` field is the todo title that will be shown to the user.
-- The `completed` field should default to `false` and will be the field that we toggle when we complete a todo.
+x- The `task` field is the todo title that will be shown to the user.
+x- The `completed` field should default to `false` and will be the field that we toggle when we complete a todo.
 - The `id` field is a unique `Time Stamp` that will be assigned by `Date.now()`.
 
 #### Day 1 Challenges
 
 - **Don't focus on styling yet**. We want you to worry about function over form today.
-- Your todo list should display a list of todos, an input field, a submit button, and a clear all button.
+- Your todo list should display a [x[ list of todos, [] an input field, [] a submit button, and a [] clear all button.
 - Be sure to use the given files for building out these components.
 - `<App />` will hold all the data needed for this project. It will also be the container for your Todo Components.
   - All of your application data will be stored here on `<App />`.
   - All of your `handler` functions should live here on `<App />`.
-- `<TodoList />` receives your Todos array and iterates over the list generating a new `<Todo />` for each element in the array.
-- `<Todo />` is a component that takes in the `todo` data and displays the task to the screen.
+x - `<TodoList />` receives your Todos array and iterates over the list generating a new `<Todo />` for each element in the array.
+x - `<Todo />` is a component that takes in the `todo` data and displays the task to the screen.
 - `<TodoForm>` will hold your input field and your `Add Todo` and `Clear Completed` buttons.
   - Your input field should take in user input, and allow a user to press `Enter` or click on the `Submit Button` to add a todo to your list.
   - Once a todo is submitted, the Todo List should re-render and show the added todo.
