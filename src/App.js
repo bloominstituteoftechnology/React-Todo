@@ -40,7 +40,7 @@ class App extends React.Component {
   
   // Delete todo
   delTodo = (id) => {
-    this.setState({ todos: [...this.state.todos.filter(todo=> todo.id !==id)] });
+    this.setState({ todos: [...this.state.todos.filter(todo => todo.id !==id)] });
   }
   
   // you will need a place to store your state in this component.

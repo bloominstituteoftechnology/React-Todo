@@ -21,6 +21,7 @@ export class TodoList extends React.Component {
             <p> 
             <input type="checkbox" onChange = {this.props.markComplete.bind(id)} /> {''}
         { title } 
+        <button onClick={this.props.delTodo.bind(this, id)}>x</button>
         </p>
       </div>
     )
