@@ -45,7 +45,7 @@ class App extends React.Component {
   
 
   // Add todo
-TodoForm = (title) = {
+TodoForm = (title) => {
   const newTodo = {
     id: 4,
     title,
@@ -62,7 +62,7 @@ TodoForm = (title) = {
     return (
       <div className="App">
         <h2>Todo List: MVP</h2>
-        <TodoForm TodoForm={this.state.TodoForm/>
+        <TodoForm TodoForm={this.TodoForm}/>
         <Todos todos = {this.state.todos} markComplete = 
         {this.markComplete} delTodo={this.delTodo}/>
       </div>
