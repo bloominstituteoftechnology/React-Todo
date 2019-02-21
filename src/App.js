@@ -1,5 +1,7 @@
 import React from 'react';
 import Todos from './components/TodoComponents/Todos';
+import TodoForm from './components/TodoComponents/TodoForm';
+// import TodoList from './components/TodoComponents/TodoList';
 
 
 class App extends React.Component {
@@ -34,15 +36,23 @@ class App extends React.Component {
     return todo;
     }) });
   }
+  
+  
+  // Delete todo
+  delTodo = (id) => {
+    this.setState({ todos: [...this.state.todos.filter(todo=> todo.id !==id)] });
+  }
+  
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
-    console.log(this.state.todos);
     return (
-      <div>
+      <div className="App">
         <h2>Todo List: MVP</h2>
-        <Todos todos = {this.state.todos} markComplete = {this.markComplete}/>
+        <TodoForm/>
+        <Todos todos = {this.state.todos} markComplete = 
+        {this.markComplete} delTodo={this.delTodo}/>
       </div>
     );
   }
