@@ -27,7 +27,7 @@ onChange = (e) => this.setState({ [e.target.name]:
         />
 
         <input type="submit" 
-        value="Submit"
+        value="Add todo"
         className="btn"
         /> 
         
