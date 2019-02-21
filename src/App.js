@@ -31,7 +31,7 @@ class App extends React.Component {
     if(todo.id === id) {
       todo.completed = !todo.completed 
     }
-    return todo
+    return todo;
     }) });
   }
   // you will need a place to store your state in this component.

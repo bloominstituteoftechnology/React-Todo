@@ -19,7 +19,7 @@ export class TodoList extends React.Component {
     return (
             <div style = {this.getStyle()}>
             <p> 
-            <input type="checkbox" onChange = {this.props.markComplete.bind(this.id)} /> {''}
+            <input type="checkbox" onChange = {this.props.markComplete.bind(id)} /> {''}
         { title } 
         </p>
       </div>
