@@ -1,24 +1,12 @@
-import React from 'react'
-import "./Todo.css";
+import React from 'react';
 
-Const Todo = props => {
+const Todo = props => {
     return (
-      <div className="Todo">
-        <img src={props.student.img} alt={props.student.name} />
-        <div className="student-info">
-          <h3>{props.student.name}</h3>
-          <p>
-            <strong>Identity:</strong> {props.student.identity}
-          </p>
-          <p>
-            <strong>Age:</strong> {props.student.age}
-          </p>
-          <p>
-            <strong>Best Friends:</strong> {props.student.bestFriend}
-          </p>
-        </div>
-      </div>
-    );
-  };
-  
+      <div
+      style={props.todo.completed ? { textDecoration: 'line-through' } : null}
+      onClick={() => props.handleToggleComplete(props.todo.id)}>
+      {props.todo.task}
+    </div>
+  );
+};
   export default Todo;

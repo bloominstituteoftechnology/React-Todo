@@ -1,34 +1,19 @@
 import React from "react";
 
-class TodoForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todoList
-    };
-  }
+const TodoForm = props => {
+  return (
+    <form>
+      <input
+        onChange={props.handleTodoChange}
+        type="text"
+        name="todo"
+        value={props.value}
+        placeholder="...todo"
+      />
+      <button onClick={props.handleAddTodo}>Add Todo</button>
+      <button onClick={props.handleClearTodos}>Clear Completed</button>
+    </form>
+  );
+};
 
-  handleChanges = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
- 
-  submitItem = e => {
-    this.setState({ item: "" });
-    this.props.addItem(e, this.state.item);
-  };
-
-  render() {
-    console.log("rendering form");
-    return (
-      <form onSubmit={this.submitItem}>
-        <input
-          type="text"
-          value={this.state.item}
-          name="item"
-          onChange={this.handleChanges}
-        />
-        <button>Add</button>
-      </form>
-    );
-  }
-}
+export default TodoForm;
