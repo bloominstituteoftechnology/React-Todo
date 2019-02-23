@@ -2,10 +2,10 @@ import React from 'react';
 
 const TodoForm = props => {
     return (
-        <div>
-        <div className="introBox">
-                    <p>Hello and welcome to your new Task Management System</p>
-                </div>
+    <div>
+            <div className="introBox">
+                <p>Hello and welcome to your new Task Management System</p>
+            </div>
 
         <div className="formContainer">
             
@@ -27,8 +27,8 @@ const TodoForm = props => {
             </div>
 
         </div>
-        
-        </div>
+
+    </div>
     )
 }
 
