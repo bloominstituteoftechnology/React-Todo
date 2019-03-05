@@ -1,0 +1,71 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    justify-content: space-around;
+    align-items: baseline;
+    font-size: 1.2rem;
+    margin-top: 16px;
+}
+
+input {
+    width: 200px;
+}
+
+.button {
+    padding: 5px 10px 5px 10px;
+    border: 1px solid darkgray;
+    width: 182px;
+    margin-top: 6px;
+    text-shadow: 4px 4px 1px darkgray;
+    background-color: white;
+}
+
+body {
+    font-family: Helvetica;
+    width: 80%;
+    margin: auto;
+    background-color: blanchedalmond;
+    
+    }
+
+.completed {
+    text-decoration: line-through;
+}
+
+.not-completed {
+    text-decoration: none;
+}
+
+h1 {
+    text-shadow: 4px 4px 5px skyblue;
+}
+
+.singleTodo {
+    box-shadow: 5px 5px 5px skyblue;
+    border: 1px solid darkgray;
+    margin: 10px;
+    margin-left: 0px;
+    width: 200px;
+    background-color: white;
+}
+
+.todoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.todoInput {
+    background-color: palegoldenrod;
+}
+
+.addTodo {
+    text-shadow: 2px 2px 2px green;
+}
+
+.clearCompleted {
+    text-shadow: 2px 2px 2px red;
+}
