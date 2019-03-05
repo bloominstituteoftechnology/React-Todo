@@ -18,7 +18,7 @@
 
 - Your todo data should be an array of objects that look a lot like this:
 
-```js
+```js 
 [
   {
     task: 'Organize Garage',
