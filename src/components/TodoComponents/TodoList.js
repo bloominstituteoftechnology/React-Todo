@@ -34,6 +34,7 @@ const todoList = [
       render() {
           return (
               <div>
+                  <TodoForm />
                   {this.state.stateTodoList.map(todoTask => (
                       <Todo todoTask={todoTask} />
                       ))}
