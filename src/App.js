@@ -19,22 +19,22 @@ class App extends React.Component {
         },
         {
           task: 'Follow Walk Through',
-          id: 1,
+          id: 3,
           completed: false
         },
         {
           task: 'Select Application',
-          id: 2,
+          id: 4,
           completed: false
         },
         {
           task: 'Select Product',
-          id: 1,
+          id: 5,
           completed: false
         },
         {
           task: 'Enter Information',
-          id: 2,
+          id: 6,
           completed: false
         }
       ],
