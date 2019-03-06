@@ -20,6 +20,21 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount = () => {
+    if (!localStorage.todoData) {
+      localStorage.setItem('todoData', JSON.stringify(this.state.TodoData))
+    }
+
+    let storedTodoArr = JSON.parse(localStorage.todoData)
+    this.setState({
+      TodoData: storedTodoArr
+    });
+  }
+  
+  componentDidUpdate() {
+    localStorage.setItem('todoData', JSON.stringify(this.state.TodoData))
+  }
+
   addNewItem = event => {
     event.preventDefault();
     if (this.state.newItem !== "") {

@@ -2,6 +2,7 @@
   "name": "react-i",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://javasc.rip/todo",
   "dependencies": {
     "normalize.css": "^8.0.1",
     "react": "^16.4.0",
