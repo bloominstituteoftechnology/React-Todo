@@ -4,37 +4,30 @@ import Todo from './Todo';
 class TodoForm extends React.Component {
     constructor() {
         super();
-        this.state = {
-            task: '',
-            id: '',
-            completed: '',
-
-        }
-        
     }
 
     render() {
         return (
             <div>
-            <form onSubmit={this.formSubmitHandler}>
+            <form onSubmit={this.props.submit}>
                 <input
                 name="task"
-                value={this.state.task}
-                onChange={this.inputChangeHandler}
+                value={this.props.task}
+                onChange={this.props.input}
                 placeholder="Task"
                 />
-                <input
+                {/* <input
                 name="id"
-                value={this.state.id}
-                onChange={this.inputChangeHandler}
+                value={this.props.id}
+                onChange={this.props.input}
                 placeholder="id"
-                />
-                <input
+                /> */}
+                {/* <input
                 name="completed"
-                value={this.state.completed}
-                onChange={this.inputChangeHandler}
+                value={this.props.completed}
+                onChange={this.props.input}
                 placeholder="true/false"
-                />
+                /> */}
                 <button type="submit">Add Todo</button>
                 <button type="submit">Clear Completed</button>
             </form>
