@@ -1,0 +1,37 @@
+
+.todoList {
+    height: 100%;
+    
+}
+input {
+    text-align: center;
+    width: 50vw;
+    margin: 20px;
+    padding: 10px;
+    font-size: 24px;
+}
+
+button {
+    border: 1px solid gray;
+    color: white;
+    padding: 20px;
+    margin: 100px 30px;
+    background: blue;
+    width: 210px;
+}
+
+.todoForm {
+    background: black;
+    border: 1px solid blue;
+}
+
+.task {
+    border-bottom: 3px solid blue;
+    background: #D8FD0A;
+    color: black;
+    font-size: 24px;
+    text-align: center;
+    padding: 5px;
+    width: 300px;
+    margin: 20px 0 20px 580px;
+}

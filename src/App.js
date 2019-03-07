@@ -1,5 +1,9 @@
 import React from 'react';
+
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
+
+import './App.css'
 
 const todoList = [
   {
@@ -23,11 +27,9 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      stateTodoList: todoList,
-      task: '',
-      id: '',
-      completed: '',
-    }
+      todoList: todoList,
+      task: ''
+    };
   }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -38,24 +40,66 @@ class App extends React.Component {
 
   formSubmitHandler = event => {
     event.preventDefault();
-    let newTodoTask = {
-      task: this.state.task,
-      id: Date.now(),
-      completed: this.state.completed,
-    };
     this.setState(prevState => {
       return {
-        stateTodoList: [...prevState.stateTodoList, newTodoTask],
-        task: "",
-        id: "",
-        completed: "",
+        todoList: [
+          ...prevState.todoList,
+          {
+            completed: false,
+            id: Date.now(),
+            name: prevState.task
+          }
+        ],
+        task: ''
       };
     });
   };
+
+
+  toggleTask = taskId => {
+    this.setState(prevState => {
+      return {
+        todoList: prevState.todoList.map(taskItem => {
+          if (taskItem.id === taskId) {
+            return {
+              task: taskItem.name,
+              id: taskItem.id,
+              completed: !taskItem.completed
+            };
+          } else {
+            return taskItem
+          }
+        })
+      };
+    });
+  };
+
+  clearCompleted = () => {
+    this.setState(prevState => {
+      return {
+        todoList: prevState.todoList.filter(taskItem => {
+          return !taskItem.completed;
+        })
+      };
+    });
+  };
+
   render() {
     return (
-      <div>
-        <h2><TodoList input={this.inputChangeHandler} task={this.state.task} id={this.state.id} completed={this.state.completed} submit={this.formSubmitHandler} stateTodoList={this.state.stateTodoList}/></h2>
+      <div className='app'>
+        <div className='header'>
+        <h1>Todo List</h1>
+        </div>
+        <TodoForm
+          task={this.state.task}
+          inputChangeHandler={this.state.inputChangeHandler}
+          formSubmitHandler={this.formSubmitHandler}
+        />
+        <TodoList
+          todoList={this.state.todoList}
+          toggleTask={this.state.toggleTask}
+        />
+        <button onClick={this.clearCompleted}>Clear Completed</button>
       </div>
     );
   }
