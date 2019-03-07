@@ -41,11 +41,11 @@ class App extends React.Component {
       this.setState(
         prevState => {
           return {
-            TodoData: prevState.TodoData.concat({
+            TodoData: [...prevState.TodoData, {
               todo: this.state.newItem,
               id: Date.now(),
               completed: false
-            }),
+            } ],
             newItem: ""
           };
         },
@@ -72,7 +72,7 @@ class App extends React.Component {
 
     const target = toggledArray.find((cur, index) => {
       position = index
-      return cur.todo === event.target.innerText
+      return cur.id === Number.parseInt(event.target.getAttribute('data-key'), 10)
     });
 
     target.completed === false ? target.completed = true : target.completed=false;

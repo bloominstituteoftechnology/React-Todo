@@ -17,9 +17,8 @@ const TodoForm = props => {
           className="inputField"
           id="todo"
           required
-          autocomplete="off"
         />
-        <label for="todo">
+        <label>
           <span>{props.inputText}</span>
         </label>
         <div className="formButtons">
