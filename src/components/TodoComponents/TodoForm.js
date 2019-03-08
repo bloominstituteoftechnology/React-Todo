@@ -4,11 +4,11 @@ class TodoForm extends React.Component {
 
     render() {
         return (
-            <div className="todoForm">
+            <div className='taskAdder'>
             <form onSubmit={this.props.formSubmitHandler}>
                 <input
                 type="text"
-                placeholder="New Task"
+                placeholder="Write New Task Here"
                 value={this.props.task}
                 name="task"
                 onChange={this.props.inputChangeHandler}

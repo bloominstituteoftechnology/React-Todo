@@ -25,7 +25,7 @@ const todoList = [
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       todoList: todoList,
       task: ''
@@ -47,7 +47,7 @@ class App extends React.Component {
           {
             completed: false,
             id: Date.now(),
-            name: prevState.task
+            task: prevState.task
           }
         ],
         task: ''
@@ -62,12 +62,12 @@ class App extends React.Component {
         todoList: prevState.todoList.map(taskItem => {
           if (taskItem.id === taskId) {
             return {
-              task: taskItem.name,
+              task: taskItem.task,
               id: taskItem.id,
               completed: !taskItem.completed
             };
           } else {
-            return taskItem
+            return taskItem;
           }
         })
       };
@@ -87,19 +87,23 @@ class App extends React.Component {
   render() {
     return (
       <div className='app'>
+      <div className='topSection'>
         <div className='header'>
-        <h1>Todo List</h1>
+          <h1>Todo List</h1>
         </div>
-        <TodoForm
-          task={this.state.task}
-          inputChangeHandler={this.state.inputChangeHandler}
-          formSubmitHandler={this.formSubmitHandler}
-        />
+        <div className="todoForm">
+          <TodoForm
+            task={this.state.task}
+            inputChangeHandler={this.inputChangeHandler}
+            formSubmitHandler={this.formSubmitHandler}
+          />
+            <button className='clear' onClick={this.clearCompleted}>Clear Completed</button>
+        </div>
+      </div>
         <TodoList
           todoList={this.state.todoList}
-          toggleTask={this.state.toggleTask}
+          toggleTask={this.toggleTask}
         />
-        <button onClick={this.clearCompleted}>Clear Completed</button>
       </div>
     );
   }

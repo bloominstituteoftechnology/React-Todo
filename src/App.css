@@ -1,7 +1,21 @@
 .app {
     border: 1px solid black;
-    background: yellow;
     background-image: url('https://i.stack.imgur.com/yJedC.jpg');
     margin: 0 auto;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.topSection {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    background: white;
+    margin: 50px;
+    padding: 50px;
+    width: 900px;
+    border: 1px solid black;
+    border-radius: 20px;
 }

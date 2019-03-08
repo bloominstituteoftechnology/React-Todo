@@ -7,11 +7,11 @@ function Todo(props) {
             className={`task ${completed}`}
             key={props.task.id}
             onClick={event => {
-                props.toggleTask(props.taskItem.id);
+                props.toggleTask(props.task.id);
             }}
         >
                
-                   <p>{props.task.name}</p> 
+                   <p>{props.task.task}</p> 
                 </div>
     );
 }

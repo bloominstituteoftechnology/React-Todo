@@ -1,37 +1,74 @@
-
-.todoList {
-    height: 100%;
-    
+h1 {
+    padding: 1px 50px;
+    margin: 20px 0;
 }
+
+.header {
+    margin: 0 0 50px 0;
+    border: 5px solid black;
+    border-radius: 50px;
+    background: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: 36px;
+}
+
 input {
+    border: 1px solid white;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+    display: flex;
     text-align: center;
-    width: 50vw;
-    margin: 20px;
-    padding: 10px;
-    font-size: 24px;
+    justify-content: center;
+    padding: 5px;
+    font-size: 20px;
 }
 
 button {
-    border: 1px solid gray;
-    color: white;
-    padding: 20px;
-    margin: 100px 30px;
-    background: blue;
-    width: 210px;
+    background: white;
+    border: 1px solid white;
+    border-bottom: 1px solid black;
+    padding: 20px 0;
+    width: 100%;
 }
 
+.clear {
+}
+
+.taskAdder {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+}
 .todoForm {
-    background: black;
-    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.todoList {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    margin-left: 10px;
 }
 
 .task {
-    border-bottom: 3px solid blue;
-    background: #D8FD0A;
+    padding: 0 20px;
+    background: white;
+    border: 1px solid red;
     color: black;
-    font-size: 24px;
+    margin: 25px;
     text-align: center;
-    padding: 5px;
-    width: 300px;
-    margin: 20px 0 20px 580px;
+}
+
+p {
+    font-size: 16px;
+    color: black;
+    border-bottom: 1px solid black;
 }
