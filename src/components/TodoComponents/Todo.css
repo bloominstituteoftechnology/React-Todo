@@ -1,0 +1,48 @@
+body #root .form #task-management{
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+
+body #root .form #task-management label, input{
+    margin: 1.5%;
+}
+
+body #root .list{
+    display: flex;
+    flex-direction: column;    
+}
+
+body #root .list .item{
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 4%;
+    padding: 2%;
+}
+
+body #root .list .item li{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+body #root .list .item li .completed{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+body #root .list .item li .completed label{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+
+
