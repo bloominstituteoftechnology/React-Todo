@@ -1,0 +1,54 @@
+.task.completed {
+    text-decoration: line-through;
+    color: black;
+  }
+  
+  .task {
+    color: #034f84;
+    font-family: "Sniglet", cursive;
+    background-color: #f7cac9;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+  }
+  
+  button {
+    margin: 0 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #034f84;
+    color: white;
+  }
+  
+  button:hover {
+    cursor: pointer;
+    background-color: #92a8d1;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .buttons {
+    padding: 15px;
+  }
+  
+  .toDoListItems {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+  
+  input {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: "Sniglet", cursive;
+    font-size: 15px;
+  }
+  
+  

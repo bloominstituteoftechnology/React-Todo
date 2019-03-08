@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet');
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #034f84;
+}
+.toDoContainer {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #f7786b;
+  border: 0.6px solid black;
+  padding: 20px;
+  border-radius: 9px;
+}
+
+.Title {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  font-family: "Sniglet", cursive;
+  font-size: 2rem;
+  color: white;
+}

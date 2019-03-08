@@ -1,6 +1,7 @@
 import React from "react";
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import "./styles.css";
 
 const todo = [
   {
@@ -21,35 +22,78 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
-    this.state =  {
+    this.state = {
       todo,
-      task: '',
-      id: Math.random(),
+      task: "",
+      id: Date.now()
     };
   }
 
+  inputHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
+  addItemhandler = event => {
+    event.preventDefault();
 
-  formSubmitHandler = event => {
-    event.preventDefault()
-      let newTodo = {
-        task: this.state.task,
-        id: this.state.id,
-        completed: false
-      }
+    this.setState(prevState => {
+      return {
+        todo: [
+          ...prevState.todo,
+          {
+            completed: false,
+            id: Date.now(),
+            task: prevState.task
+          }
+        ],
+        task: ""
+      };
+    });
+  };
 
-    this.setState({todo: [...this.state.todo, newTodo]})
-  }
+  toggleToDo = itemId => {
+    this.setState(prevState => {
+      return {
+        todo: prevState.todo.map(todoItem => {
+          if (todoItem.id === itemId) {
+            return {
+              task: todoItem.task,
+              id: todoItem.id,
+              completed: !todoItem.completed
+            };
+          } else {
+            return todoItem;
+          }
+        })
+      };
+    });
+  };
 
-  newTaskHandler = event => {
-    this.setState({task: event.target.value})
-  }
+  clearCompleted = () => {
+    this.setState(prevState => {
+      return {
+        todo: prevState.todo.filter(todoItem => {
+          return !todoItem.completed;
+        })
+      };
+    });
+  };
 
   render() {
     return (
-      <div>
-     {this.state.todo.map(newList =>  (<TodoList newList = {newList} />))} 
-      <TodoForm addTodo = {this.formSubmitHandler} newTask = {this.newTaskHandler}/>
+      <div className="toDoContainer">
+        <h2 className="Title"> Git'er Done List </h2>
+        <TodoForm
+          clearCompeted={this.clearCompleted}
+          addTodo={this.addItemhandler}
+          newTask={this.inputHandler}
+          inputHandler={this.inputHandler}
+        />
+        <div>
+          {this.state.todo.map(newList => (
+            <TodoList newList={newList} toggleItem={this.toggleToDo} />
+          ))}
+        </div>
       </div>
     );
   }

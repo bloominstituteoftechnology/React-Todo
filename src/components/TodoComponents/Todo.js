@@ -1,13 +1,19 @@
 import React from "react";
-import TodoList from './TodoList';
-import TodoForm from './TodoForm'
+import "./Todo.css";
 
-const Todo = props => (
+export default function Todo(props) {
+  let completed = props.newList.completed ? "completed" : "";
 
-        <div> 
-        <h2> {props.newList.task}</h2>
-        </div>
-
-)
-
-export default Todo;
+  return (
+    <div
+      className={`task ${completed}`}
+      key={props.id}
+      onClick={event => {
+        props.toggleTodo(props.newList.id);
+      }}
+      onKeyPress={props.emptyInputDiable}
+    >
+      <p> {props.newList.task}</p>
+    </div>
+  );
+}
