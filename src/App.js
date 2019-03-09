@@ -1,6 +1,6 @@
 import React from "react";
-import TodoForm from './components/TodoComponents/TodoForm';
-import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from "./components/TodoComponents/TodoForm";
+import TodoList from "./components/TodoComponents/TodoList";
 import "./styles.css";
 
 const todo = [
@@ -25,7 +25,8 @@ class App extends React.Component {
     this.state = {
       todo,
       task: "",
-      id: Date.now()
+      id: Date.now(),
+      search: ""
     };
   }
 
@@ -84,15 +85,23 @@ class App extends React.Component {
       <div className="toDoContainer">
         <h2 className="Title"> Git'er Done List </h2>
         <TodoForm
-          clearCompeted={this.clearCompleted}
+          task={this.state.task}
           addTodo={this.addItemhandler}
           newTask={this.inputHandler}
           inputHandler={this.inputHandler}
         />
-        <div>
+        <div className="bottomContainer">
           {this.state.todo.map(newList => (
             <TodoList newList={newList} toggleItem={this.toggleToDo} />
           ))}
+
+          <div className="clearBtn">
+            {" "}
+            <button onClick={this.clearCompleted}>
+              {" "}
+              Clear Completed{" "}
+            </button>{" "}
+          </div>
         </div>
       </div>
     );

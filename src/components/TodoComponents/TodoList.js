@@ -6,11 +6,7 @@ import "./Todo.css";
 
 const TodoList = props => (
   <div>
-    <Todo
-      newList={props.newList}
-      toggleTodo={props.toggleItem}
-      emptyInputDiable={props.emptyInputDiable}
-    />
+    <Todo newList={props.newList} toggleTodo={props.toggleItem} />
   </div>
 );
 

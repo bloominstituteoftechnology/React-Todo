@@ -5,14 +5,14 @@ export default function TodoForm(props) {
     <form onSubmit={props.addTodo}>
       <input
         type="text"
+        placeholder="Add a task"
         name="task"
         onChange={props.newTask}
         value={props.task}
       />
-      <div className="buttons">
-        <button type="submit"> Add Todo </button>
-        <button onClick={props.clearCompeted}> Clear Completed </button>
-      </div>
+      <button type="submit" className="buttons">
+        Add Todo
+      </button>
     </form>
   );
 }

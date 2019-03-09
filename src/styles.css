@@ -27,3 +27,8 @@ body {
   font-size: 2rem;
   color: white;
 }
+
+.clearBtn {
+  display: flex;
+  justify-content: center;
+}

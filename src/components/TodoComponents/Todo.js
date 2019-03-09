@@ -11,7 +11,6 @@ export default function Todo(props) {
       onClick={event => {
         props.toggleTodo(props.newList.id);
       }}
-      onKeyPress={props.emptyInputDiable}
     >
       <p> {props.newList.task}</p>
     </div>
