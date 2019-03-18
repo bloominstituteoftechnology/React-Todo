@@ -4,13 +4,13 @@ const TodoForm = props => (
   <form>
     <input
       type="text"
-      placeholder="...todo"
-      onKeyDown={props.addFromInput}
-      onChange={props.saveInput}
-      value={props.current}
+      placeholder="what needs to be done?"
+      name="todo"
+      onChange={props.handleTodoChange}
+      value={props.value}
     />
-    <button onClick={props.addFromBtn}>Add ToDo</button>
-    <button onCLick={props.removeCompleted}>Clear Completed</button>
+    <button onClick={props.handleAddTodo}>Add ToDo</button>
+    <button onCLick={props.handleClearTodos}>Clear Completed</button>
   </form>
 );
 export default TodoForm;

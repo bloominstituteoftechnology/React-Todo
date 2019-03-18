@@ -30,16 +30,59 @@ class App extends Component {
           id: 1528817095747,
           completed: false
         }
-      ]
+      ],
+      todo: ""
     };
   }
+
+  toggleComplete = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ todos });
+  };
+
+  // TODO FORM FUNCTIONS
+  addTodo = e => {
+    e.preventDefault();
+    const todos = this.state.todos.slice();
+    todos.push({
+      task: this.state.todo,
+      completed: false,
+      id: Date.now()
+    });
+    this.setState({ todos, todo: "" });
+  };
+
+  changeTodo = e => this.setState({ [e.target.name]: e.target.value });
+
+  clearCompletedTodos = e => {
+    e.preventDefault();
+    let todos = this.state.todos.slice();
+    todos = todos.filter(todo => !todo.completed);
+    this.setState({ todos });
+  };
 
   render() {
     return (
       <div>
         <h1>ToDo List: MVP</h1>
-        <TodoList />
-        <TodoForm />
+        <TodoList
+          todos={this.state.todos}
+          handleToggleComplete={this.toggleComplete}
+        />
+        <TodoForm
+          value={this.state.todo}
+          handleTodoChange={this.changeTodo}
+          handleAddTodo={this.addTodo}
+          handleClearTodos={this.clearCompletedTodos}
+        />
       </div>
     );
   }
