@@ -60,7 +60,7 @@ class App extends Component {
     this.setState({ todos, todo: "" });
   };
 
-  changeTodo = e => this.setState({ [e.target.name]: e.target.value });
+  todoChange = e => this.setState({ [e.target.name]: e.target.value });
 
   clearCompletedTodos = e => {
     e.preventDefault();
@@ -79,7 +79,7 @@ class App extends Component {
         />
         <TodoForm
           value={this.state.todo}
-          handleTodoChange={this.changeTodo}
+          handleTodoChange={this.todoChange}
           handleAddTodo={this.addTodo}
           handleClearTodos={this.clearCompletedTodos}
         />

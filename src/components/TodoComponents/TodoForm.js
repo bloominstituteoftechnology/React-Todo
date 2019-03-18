@@ -10,7 +10,7 @@ const TodoForm = props => (
       value={props.value}
     />
     <button onClick={props.handleAddTodo}>Add ToDo</button>
-    <button onCLick={props.handleClearTodos}>Clear Completed</button>
+    <button onCLick={props.handleClearCompletedTodos}>Clear Completed</button>
   </form>
 );
 export default TodoForm;
