@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import TodoForm from "./components/TodoComponents/TodoForm";
-
+import TodoList from "./components/TodoComponents/TodoList";
 
 class App extends Component {
   // you will need a place to store your state in this component.
@@ -11,27 +11,26 @@ class App extends Component {
     this.state = {
       todos: [
         {
-          task: 'Be a Lumberjack',
+          task: "Be a Lumberjack",
           id: 1528817078886,
           completed: false
         },
         {
-          task: 'Cook Steak',
+          task: "Cook Steak",
           id: 1528817077286,
           completed: false
         },
         {
-          task: 'Chop Lumber',
+          task: "Chop Lumber",
           id: 1528817084358,
           completed: false
-        }, 
+        },
         {
-          task: 'Wear Flannel',
+          task: "Wear Flannel",
           id: 1528817095747,
           completed: false
         }
       ]
-
     };
   }
 
@@ -39,6 +38,7 @@ class App extends Component {
     return (
       <div>
         <h1>ToDo List: MVP</h1>
+        <TodoList />
         <TodoForm />
       </div>
     );
