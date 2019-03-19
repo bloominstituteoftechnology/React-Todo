@@ -81,7 +81,7 @@ class App extends Component {
           value={this.state.todo}
           handleTodoChange={this.todoChange}
           handleAddTodo={this.addTodo}
-          handleClearTodos={this.clearCompletedTodos}
+          handleClearCompletedTodos={this.clearCompletedTodos}
         />
       </div>
     );
