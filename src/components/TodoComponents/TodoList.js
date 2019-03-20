@@ -5,7 +5,6 @@ import React from 'react';
 import './Todo.css';
 import Task from './Todo';
 
-
 const todo = [
     {
       task: 'Organize Garage',
@@ -20,7 +19,6 @@ const todo = [
     }
 ];
 
-
 function toDo () {
     return (
         <div className="list">
@@ -32,3 +30,4 @@ function toDo () {
 }
 
 export default toDo;
+

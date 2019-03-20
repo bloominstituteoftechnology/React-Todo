@@ -24,3 +24,37 @@ h3:hover {
     height: 40px;
     border-bottom: 2px solid rgb(142, 142, 255);
 }
+
+form{
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+}
+
+input{
+    height: 40px;
+    padding-left: 1rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+button{
+    height: 46px;
+    background-color: rgb(136, 191, 255);
+    justify-self: flex-end;
+    width: 10rem;
+    font-size: 1rem;
+}
+
+button:hover{ 
+    background-color: rgb(54, 146, 250);
+}
+
+.formStyle{
+    display: flex;
+    flex-direction: row;
+}
