@@ -11,6 +11,7 @@ class App extends React.Component {
       <div class="container-wrapper">
         <div className="container">
           <div class="container-header">
+            <img src="https://lh5.ggpht.com/5OSNXD-c2mNxKDIVx75vwZJtYf8xbT4gN_oxHZ6_bFPzujyl3fpL2WZROpjNBBx6qAra" class="icon"/>
             <h2>Todo App</h2>
           </div>
           <TodoList />
