@@ -11,8 +11,11 @@ class App extends React.Component {
     return (
       <div class="body">
         <h1>Todo List</h1>
-        <TodoList />
+        <div class="notepad">
+          <div class="redline"></div>
+          <TodoList />
         <TodoForm />
+        </div>
       </div>
     );
   }
