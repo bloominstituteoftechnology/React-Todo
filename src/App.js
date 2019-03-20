@@ -31,14 +31,14 @@ class App extends React.Component {
   handleChanges = event => {
       console.log('event: ', event.target.value)
       this.setState({
-          task: event.target.value
+          [event.target.name] : event.target.value
       });
   }
 
   updateList = event => {
       event.preventDefault();
       const newItem = {
-        task: this.state.task,
+        task: this.state.task
       }
       this.setState({
         theList: [...this.state.theList, newItem]
@@ -48,11 +48,11 @@ class App extends React.Component {
   render() {
       return (
           <div className="form-wrapper">
-            <h2>Welcome to your TodoFuckery App!</h2>
+            <h2>Welcome to your Todo App!</h2>
               <TodoForm 
                   value={this.state.task}
-                  handleChanges={this.state.handleChanges}
-                  updateList={this.state.updateList}
+                  handleChanges={this.handleChanges}
+                  updateList={this.updateList}
               />
               <TodoList task={this.state.theList}/>
           </div>
