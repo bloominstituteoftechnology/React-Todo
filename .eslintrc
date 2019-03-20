@@ -1,18 +1,20 @@
 {
-  "parser": "babel-eslint",
-  "extends": [
-    "wesbos"
-  ],
-  "rules": {
-    "import/no-unresolved": 0,
-    "no-nested-ternary": 0,
-    "camelcase": 0,
-    "no-console": 2,
-    "react/display-name": 0
-  },
-  "settings": {
-    "react": {
-      "version": "latest"
+    "parser": "babel-eslint",
+    "extends": [
+        "wesbos"
+    ],
+    "rules": {
+        "import/no-unresolved": 0,
+        "no-nested-ternary": 0,
+        "camelcase": 0,
+        "no-console": 2,
+        "react/display-name": 0,
+        "no-use-before-define": 0,
+        "jsx-a11y/label-has-associated-control": 0
+    },
+    "settings": {
+        "react": {
+            "version": "latest"
+        }
     }
-  }
 }
