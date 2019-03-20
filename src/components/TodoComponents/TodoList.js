@@ -5,4 +5,11 @@ import Todo from './Todo';
 
 
 
-export default TodoArray;
+const TodoList = () => {
+    return (
+        <div className="Todo-list">
+            <Todo />
+        </div>
+    )
+}
+export default TodoList;

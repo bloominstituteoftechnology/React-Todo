@@ -1,5 +1,9 @@
 import React from 'react';
 import './Todo.css';
 
-
-export default TodoArray;
+const Todo = () => {
+    return (
+        <h1>test</h1>
+    )
+}
+export default Todo;
