@@ -20,7 +20,9 @@ const todos = [
 const TodoList = () => {
 return (
     <div>
-        <Todo todoTitle={todos.title}/>
+        {todos.map(todo => (
+            <Todo todoTitle={todo} />
+        ))}
         <TodoForm />
     </div>
 )
