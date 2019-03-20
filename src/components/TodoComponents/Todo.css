@@ -46,3 +46,20 @@ button {
     margin-left: 3px;
     border-radius: 5px;
 }
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+ } 
+
+li {
+    list-style-type: none;
+    background-color: white;
+    padding: 20px 10px;
+    margin-top:5px;
+    -webkit-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.48);
+    -moz-box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.48);
+    box-shadow: 3px 3px 7px 0px rgba(0,0,0,0.48);
+    animation-duration: 0.5s;
+    animation-name: fadeIn;
+}
