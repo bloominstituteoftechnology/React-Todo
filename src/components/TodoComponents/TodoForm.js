@@ -1,15 +1,18 @@
 import React from 'react';
 
 function TodoForm(props) {
+    console.log(props)
     return (
         <form>
             <input
                 type="text"
                 value={props.task}
-                task="task"
+                name="task"
                 placeholder="Task"
+                onChange={props.handleChanges}
+
             />
-            <button>Add Todo</button>
+            <button onClick={props.updateTodoList}>Add Todo</button>
             <button>Clear Completed</button>
         </form>
 

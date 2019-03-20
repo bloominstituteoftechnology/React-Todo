@@ -28,16 +28,50 @@ class App extends React.Component {
       task: '',
       id: '',
       completed: Boolean,
-
     }
   }
+
+  handleChanges = event => {
+    console.log(event.target.name, event.target.value)
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  updateTodoList = event => {
+    event.preventDefault();
+    const newList = {
+      task: this.state.task,
+      id: this.state.id,
+      completed: this.state.completed
+
+    };
+
+    this.setState({
+      todos: [...this.state.todos, newList],
+      task: '',
+      id: '',
+      completed: Boolean,
+
+    });
+  };
+
+
+
   render() {
 
     return (
       <div className="app-wrapper">
         <h2>Welcome to your Todo App!</h2>
         <TodoList todoListProp={this.state.todos} />
-        <TodoForm task={this.state.task} />
+        <TodoForm
+          task={this.state.task}
+          id={this.state.id}
+          completed={this.state.completed}
+          handleChanges={this.handleChanges}
+          updateTodoList={this.updateTodoList}
+
+        />
       </div>
     );
   }
