@@ -5,10 +5,16 @@ import Todo from './Todo';
 
 
 
-const TodoList = () => {
+const TodoList = props => {
+    
     return (
         <div className="Todo-list">
-            <Todo />
+            {props.todos.map((todoX) => {
+                return (
+                  <Todo todo={todoX} />
+                )
+                
+            })}
         </div>
     )
 }

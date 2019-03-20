@@ -3,10 +3,18 @@ import React from 'react';
 
 
 
-const TodoForm = () => {
+const TodoForm = (props) => {
+    console.log(props)
     return (
         <div className="Todo-Form">
-            <h1>TestForm</h1>
+            <form>
+                <input 
+                type="text" 
+                name="inputText"
+                />
+                <button onClick={props.submitHandler}>Add</button>
+                <button>Clear</button>
+            </form>
         </div>
     )
 }

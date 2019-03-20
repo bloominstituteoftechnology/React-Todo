@@ -1,9 +1,11 @@
 import React from 'react';
 import './Todo.css';
 
-const Todo = () => {
+
+const Todo = (props) => {
+    console.log(props)
     return (
-        <h1>test</h1>
+        <h1>{props.todo.task}</h1>
     )
 }
 export default Todo;
