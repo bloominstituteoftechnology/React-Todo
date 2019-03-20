@@ -83,3 +83,9 @@ li {
     animation-name: fadeIn;
     border-radius: 5px;
 }
+
+li:hover {
+    /* background-color: rgb(238, 238, 238); */
+    background-color: rgb(217, 226, 230);
+
+}
