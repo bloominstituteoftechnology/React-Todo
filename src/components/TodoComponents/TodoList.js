@@ -4,6 +4,7 @@ import React from 'react'
 import Todo from './Todo'
 import TodoForm from './TodoForm'
 
+
 const todos = [
     {
         title: 'Eat Lunch',
@@ -48,9 +49,9 @@ class TodoList extends React.Component {
 
     render() {
         return (
-            <div>
+            <div class="form-body">
                 {this.state.todoList.map((todo, index) => (
-                    <Todo key={index} todoTitle={todo} />
+                    <Todo key={index} todoTitle={todo} />  
                 ))}
                 <TodoForm 
                     title= {this.state.title}
