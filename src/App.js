@@ -5,12 +5,14 @@ import TodoForm from "./components/TodoComponents/TodoForm";
 
 const todos = [
 	{
-		task: "Organize Garage",
+		task: "Static Demo Todo #1",
+		taskDetail: "This task can not be removed!",
 		id: 1528817077286,
 		completed: false
 	},
 	{
-		task: "Bake Cookies",
+		task: "Bake Cookies, Static#2",
+		taskDetail: "This task is just the same as the above",
 		id: 1528817084358,
 		completed: false
 	}
@@ -22,6 +24,7 @@ class App extends React.Component {
 		this.state = {
 			todoOGList: todos,
 			task: "",
+			taskDetail: "",
 			id: Date.now(),
 			completed: ""
 		};
@@ -31,12 +34,14 @@ class App extends React.Component {
 		this.setState({
 			[event.target.name]: event.target.value
 		});
+		// add tdetail here
 	};
 
 	addToList = event => {
 		event.preventDefault();
 		const newTodo = {
 			task: this.state.task,
+			taskDetail: this.state.taskDetail,
 			id: Date.now(),
 			completed: false
 		};
@@ -44,6 +49,10 @@ class App extends React.Component {
 		this.setState({
 			todoOGList: [...this.state.todoOGList, newTodo]
 		});
+	};
+
+	clearCompleted = event => {
+		event.preventDefault();
 	};
 
 	render() {
@@ -59,6 +68,7 @@ class App extends React.Component {
 					id={Date.now()}
 					handleChanges={this.handleChanges}
 					addToList={this.addToList}
+					// clearCompleted={this.clearCompleted} // commenting this out, temporary page wipe
 				/>
 			</div>
 		);

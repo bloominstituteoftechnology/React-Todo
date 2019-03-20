@@ -7,11 +7,18 @@ const TodoForm = props => {
 				type='text'
 				value={props.task}
 				name='task'
-				placeholder='What do you need Todo?'
+				placeholder='Title of Task'
+				onChange={props.handleChanges}
+			/>
+			<input
+				type='text'
+				value={props.taskDetail}
+				name='taskDetail'
+				placeholder='Task Details'
 				onChange={props.handleChanges}
 			/>
 			<button onClick={props.addToList}>Add Todo</button>
-			<button onClick={props.updateList}>Clear List</button>
+			<button onClick={props.clearCompleted}>Clear List</button>
 		</form>
 	);
 };
