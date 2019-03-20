@@ -1,6 +1,6 @@
 import React from "react";
-// import TodoList from "./components/TodoComponents/TodoList";
-// import Todo from "./components/TodoComponents/Todo";
+import TodoList from "./components/TodoComponents/TodoList";
+import Todo from "./components/TodoComponents/Todo";
 // import TodoForm from "./components/TodoComponents/TodoForm";
 
 const todos = [
@@ -26,10 +26,15 @@ class App extends React.Component {
 			completed: ""
 		};
 	}
+
 	render() {
 		return (
 			<div className='ToDo-wrapper'>
-				<h1>ToDoooooooooo Title</h1>
+				<h1>Todo List: App</h1>
+
+				<div className='ToDo-list'>
+					<TodoList todoState={this.state} />
+				</div>
 			</div>
 		);
 	}
