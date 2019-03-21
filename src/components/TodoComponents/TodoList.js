@@ -3,12 +3,14 @@
 import React from 'react'
 import Todo from './Todo'
 
+import "./Todo.css"
+
 const TodoList = props => {
     return (
-        <div>
+        <div className = "todolist">
             {props.todolist.map(item =>{
                 return(
-                    <Todo todo ={item} />
+                    <Todo todo ={item} toggleTodo={props.toggleTodo} />
                 )
             })}
 
