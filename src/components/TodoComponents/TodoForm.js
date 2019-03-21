@@ -42,7 +42,9 @@ class TodoForm extends React.Component {
         const newTask = {
             task: this.state.task,
             completed: false,
+            id: (Math.random()),
         };
+        // console.log(newTask);
 
          this.setState({
             todo: [...this.state.todo, newTask]
@@ -50,51 +52,67 @@ class TodoForm extends React.Component {
         // console.log(this.state.completed);
     };
 
-    CompletedTask = (id) => {
-        console.log(id);
+    deleteCompleted = item => {
+        item.preventDefault();
+        const newList = this.state.todo.slice();
+        console.log(newList);
+        
+        const filtered = newList.filter(item => 
+            item.completed === false 
+            // console.log(item);
+            // console.log(item.completed);
+            // var index = newList.indexOf(item);
+            // console.log(index);
+            // if (item.completed === true) {
+            //     newList.splice(index, 1);
+            // }
 
-        const newList = this.state.todo.map(item => {
-            if(item.id===id) {
-                item.completed = !item.completed;
-                return item; 
-            }
+            // return newList;
+            // console.log(newList);
 
-            else{
-                return item;
-            }
+        )
+        console.log(filtered);
+        
+        this.setState({
+            todo: filtered, newList:""
         });
 
-        console.log(newList);
-        //loop over groceries 
-        //find grocery by given id 
-        //change completed to true 
-        //return updated list to state 
-
-
-        // console.log("clicked");
-        // console.log(e.target.getAttribute('completed'));
-        // console.log(e);
-
-        // let selectedTask =e.completed; 
-        // console.log(e.completed);
-        // selectedTask = !selectedTask; 
-        // console.log(e.completed);
-        
-        
-        // this.setState = ({
-        //     completed: true,
-        //  })
-        
-
-        // e.target.style.display = 'none';
-        // const selectedTask = e.target; 
-        // console.log(selectedTask);
-        // // this.state.completed = this.state.completed;
-        // console.log(selectedTask.completed);
-        // this.value = false; 
-        // this.setState({
-        //     [e.target.completed]: e.target.value, 
+    //     let Completed = {task: this.state.task,};
+    //     console.log(Completed);
+        // Completed = Completed.filter((task) => {
+        //     console.log(this )
         // })
+        // const completed = {
+        //     task: Completed.state.task,
+        // // }
+        // this.setState({
+
+        //     })
+        // })
+        // console.log(Completed);
+        // this.setState({
+        //     completed: this.state.todo.map(item=> {
+        //         if(item.completed===true) {
+        //             item.target.style.display = 'none';
+        //         }
+        //     })
+        // })
+    };
+
+    CompletedTask = (id) => {
+        console.log(id);
+        this.setState({ 
+            todo: this.state.todo.map(item => {
+            if(item.id === id) {
+                return{
+                    ...item,
+                    completed: !item.completed
+                };
+            }
+                return item;
+        })
+    });
+
         
         
     }
@@ -105,7 +123,7 @@ class TodoForm extends React.Component {
             <div className="todo">
                 <div className="list">
                 {this.state.todo.map((taskfromMap, index) =>(
-                    <Task key={index} item={taskfromMap} completed={taskfromMap} completedTaskFunction={this.CompletedTask}/>
+                    <Task key={index} item={taskfromMap} completed={taskfromMap} completedTaskFunction={this.CompletedTask} deleteCompleted={this.deleteCompleted}/>
                 ))}
                 </div>
 
@@ -114,6 +132,7 @@ class TodoForm extends React.Component {
             completed={this.state.completed}
             updateList ={this.updateList}
             handleChanges = {this.handleChanges}
+            deleteCompleted = {this.deleteCompleted}
             />
             </div>
         );

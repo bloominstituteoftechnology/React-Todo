@@ -25,10 +25,12 @@ h3 {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    visibility: visible;
 }
 
 .task:hover .check{
     visibility: visible;
+    color: grey;
 }
 
 .task:hover h3{
@@ -42,6 +44,7 @@ h3 {
     right: 0;
     margin-right: 1.7rem;
     visibility: hidden;
+    color:rgb(255, 250, 231);  
 }
 
 
@@ -53,14 +56,15 @@ h3 {
     border: 2px solid rgb(240, 213, 118);
 }
 
-.checkbox:hover {
-    height: 20px;
-    width: 20px;
-}
+
 
 .toggled{
-    background-color: blue;
+    text-decoration: line-through;
+    color: grey;
+    color: black;
+
 }
+
 
 form{
     padding: 1rem 0 1rem 0;
