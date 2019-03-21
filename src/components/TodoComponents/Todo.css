@@ -33,9 +33,37 @@ button{
 
 .header {
     text-align: center;
+    color: rgb(16, 61, 92);
 }
 
 .Todo-Form {
     position: relative;
-    left: 120px;
+    left: 100px;
+}
+
+input {
+    height: 25px;
+    border-radius: 10px;
+}
+
+input[type=text]{
+    font-size: 15px;
+}
+
+.Add {
+    background: rgb(16, 61, 92);
+    color: white;
+    height: 30px;
+    border-radius: 10px;
+    Width: 50px;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.Clear {
+    background: rgb(16, 61, 92);
+    color: white;
+    height: 30px;
+    border-radius: 10px;
+    Width: 50px;
 }
