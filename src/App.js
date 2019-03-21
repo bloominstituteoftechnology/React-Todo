@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import TodoForm from './components/TodoComponents/TodoForm';
+import Key from './components/TodoComponents/Key';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -8,13 +9,17 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div class="body">
-        <h1>Todo List</h1>
-        <div class="notepad">
-          <div class="redline"></div>
-        <TodoForm />
-        </div>
-      </div>
+     
+        <div class="body">
+          <h1>My tasks</h1>
+          
+          <div class ="content">
+          <Key />
+          <TodoForm />
+        
+          </div>
+          </div>
+        
     );
   }
 }

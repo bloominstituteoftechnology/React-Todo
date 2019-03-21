@@ -1,26 +1,33 @@
 h1{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.25rem;
     padding: 1rem 0 1rem 0;
-    max-width: 500px;
+
     margin: 0 auto;
-    background-color: rgb(87, 39, 20);
-    color: white;
-    border-radius: 5px 5px 0 0;
+    color: rgb(1, 1, 102);
     letter-spacing: 2px;
     font-weight: 400;
-    border: 1px solid rgb(87, 39, 20);
-    margin-bottom:0;
+    border-bottom: 2px dotted rgb(204, 204, 255);
+    margin-bottom: 0;
 
 }
-
+html{
+    background-size: 100% 100%;
+    
+    background-image: url(https://us.123rf.com/450wm/1stchoice/1stchoice1807/1stchoice180700010/105037902-watercolor-background-gradient-soft-pastel-sky-texture-in-pale-pink-color-fading-to-white.jpg?ver=6)
+}
 .body{
-    margin-top: 2rem;
+    margin: 2rem;
+    border-radius: 10px;
+    padding: 20px 40px;
+    box-shadow: 0px 0px 30px rgb(235, 234, 234);
+    height: 100%;
+    overflow: hidden;
+    background-color: white;
 }
 
 .notepad{
-    max-width: 500px;
+    width: 100%;
     margin: 0 auto;
     height: 500px;
     background-color: #F8ECC2;
@@ -39,3 +46,11 @@ h1{
     margin-left: 50px;
     margin-top: -0.1rem;
 }
+
+.content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
