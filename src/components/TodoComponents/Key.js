@@ -9,6 +9,14 @@ const Key = props => {
             <div class= "colorPicker1"></div>
             <p>Work</p>
         </div>
+        <div class = "type">
+            <div class= "colorPicker2"></div>
+            <p>Home</p>
+        </div>
+        <div class = "type">
+            <div class= "colorPicker3"></div>
+            <p>Chores</p>
+        </div>
     </div>
   );
 };

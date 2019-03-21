@@ -11,10 +11,12 @@ class App extends React.Component {
     return (
      
         <div class="body">
+        <div class ="menu">
           <h1>My tasks</h1>
-          
-          <div class ="content">
           <Key />
+          </div>
+          <div class ="content">
+          
           <TodoForm />
         
           </div>

@@ -8,7 +8,7 @@ h3 {
     font-size: 1rem;
     font-weight: 100;
     padding-left: 1.5rem;
-    width: 100%;   
+    width: 20%;   
 }
 
 
@@ -19,6 +19,12 @@ h3 {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    margin-top: 0.8rem;
+}
+
+p{
+    color: grey;
+    width: 40%;
 }
 
 .task:first-child{
@@ -28,13 +34,14 @@ h3 {
 .cell{
     width: 100%;
     background-color: white;
-    box-shadow: 0px 0px 20px rgb(243, 243, 243);
+    box-shadow: 0px 0px 20px rgb(226, 226, 226);
     height: 70px;
     margin-top: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 }
 
 .cell:hover{ 
@@ -158,11 +165,11 @@ form{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 88%;
+    width: 90%;
 
     position: fixed;
     bottom: 1.5rem;
-    margin-left: -10rem;
+    margin-left: -18%;
 }
 
 input{
@@ -182,13 +189,18 @@ input:hover{
 
 button{
     height: 46px;
-    background-color: rgb(136, 191, 255);
     justify-self: flex-end;
     width: 10rem;
     font-size: 0.8rem;
     margin-left: 1rem;
     cursor: pointer;
-    border: none;
+    border: 2px solid rgb(164, 207, 255);
+    border-radius: 10rem;
+    background-color: white;
+}
+
+button:hover{ 
+    background-color:rgb(190, 220, 255);
 }
 
 .delete{
@@ -203,9 +215,6 @@ button{
     border: none;
 }
 
-button:hover{ 
-    background-color: rgb(54, 146, 250);
-}
 
 .formStyle{
     margin-top: 350px;
@@ -217,27 +226,28 @@ button:hover{
 
 .key {
     height: 100px; 
-    width: 15%;
-    margin-top: 2rem;
+    width: 100%;
+    margin-top: 0.5rem;
     /* border-left: 2px solid rgb(187, 187, 187); */
     display: flex;
     flex-direction: column;
     height: 3rem;
-    margin-right: 15px;
+    margin-left: -1.5rem;
     border-radius: 10px;
 }
 
 .todo{
     width: 100%;
+
 }
 
 .type{
     display: flex;
     flex-direction: row;
-    
     margin: 0;
     align-items: center;
     padding-left: 1.5rem;
+    margin-top: 2.0rem;
 }
 
 p{

@@ -4,17 +4,20 @@ import Task from './Task';
 import Form from './Form';
 
 
+
 const todo = [
     {
       task: 'Organize Garage',
       id: 1528817077286,
-      completed: false
+      completed: false,
+      type: 'Home',
     },
 
     {
       task: 'Bake Cookies',
       id: 1528817084358,
-      completed: false
+      completed: false,
+      type: 'Work',
     }
 ];
 
@@ -27,6 +30,7 @@ class TodoForm extends React.Component {
             todo,
             task: '',
             completed: false,
+            type: '', 
         };
     }
 
