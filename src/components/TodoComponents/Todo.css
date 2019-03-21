@@ -56,6 +56,7 @@ form {
 input {
     /* border: 1px solid blue; */
     height: 25px;
+    margin-top: 20px;
 }
 
 button {

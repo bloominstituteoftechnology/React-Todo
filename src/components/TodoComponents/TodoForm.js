@@ -4,7 +4,7 @@ const TodoForm = props => {
     return (
     <form>
         <div>
-            <h3 className="form-header">Add new Todo</h3>
+            {/* <h3 className="form-header">Add new Todo</h3> */}
             <input type="text"
                 value={props.title}
                 name="title"
