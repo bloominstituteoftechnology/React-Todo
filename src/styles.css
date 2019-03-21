@@ -1,0 +1,16 @@
+.app-wrapper {
+    width: 800px;
+    margin: 0 auto;
+    border: 2px solid grey;
+}
+
+.item {
+    color: black;
+    background: lightblue;
+}
+
+.item.completed {
+    background-color: grey;
+    color: white;
+    text-decoration: line-through;
+  }

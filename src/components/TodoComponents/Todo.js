@@ -3,8 +3,11 @@ import React from 'react';
 function Todo(props) {
 
     return (
-        <div className="todoTask">
-            <ul><li>{props.todoProp.task}</li></ul>
+        <div
+            className={`item${props.todoProp.completed ? " completed" : ""}`}
+            onClick={() => props.toggleItem(props.todoProp.id)}
+        >
+            <p>{props.todoProp.task}</p>
         </div>
     )
 }

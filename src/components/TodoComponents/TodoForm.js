@@ -1,7 +1,7 @@
 import React from 'react';
 
 function TodoForm(props) {
-    console.log(props)
+
     return (
         <form>
             <input
@@ -13,7 +13,7 @@ function TodoForm(props) {
 
             />
             <button onClick={props.updateTodoList}>Add Todo</button>
-            <button>Clear Completed</button>
+
         </form>
 
     )
