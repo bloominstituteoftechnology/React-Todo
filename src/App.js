@@ -38,12 +38,19 @@ class App extends React.Component {
   updateList = event => {
       event.preventDefault();
       const newItem = {
-        task: this.state.task
+        task: this.state.task, 
+        id: Date.now(),
       }
       this.setState({
         theList: [...this.state.theList, newItem]
       })
   }
+  // removeFromList = event => {
+  //   event.preventDefault();
+  //   const deleteItem = {
+  //     task: this.state.task = '',
+  //   }
+  // }
 
   render() {
       return (
