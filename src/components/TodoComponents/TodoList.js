@@ -9,8 +9,10 @@ function TodoList(props) {
     return (
         <div>
             {props.todoListProp.map((todoTask, index) => (
-                <Todo todoProp={todoTask} key={todoTask.index} />
+                <Todo todoProp={todoTask} key={index} />
             ))}
+
+            {/* //{todoTask.id} */}
         </div>
 
     )

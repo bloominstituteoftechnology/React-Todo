@@ -26,8 +26,8 @@ class App extends React.Component {
     this.state = {
       todos: todoData,
       task: '',
-      id: '',
-      completed: Boolean,
+      // id: '',
+      // completed: Boolean,
     }
   }
 
@@ -40,22 +40,19 @@ class App extends React.Component {
 
   updateTodoList = event => {
     event.preventDefault();
+
     const newList = {
       task: this.state.task,
-      id: this.state.id,
-      completed: this.state.completed
+      id: Date.now(),
+      completed: false
 
     };
 
     this.setState({
       todos: [...this.state.todos, newList],
       task: '',
-      id: '',
-      completed: Boolean,
-
     });
   };
-
 
 
   render() {
@@ -66,8 +63,8 @@ class App extends React.Component {
         <TodoList todoListProp={this.state.todos} />
         <TodoForm
           task={this.state.task}
-          id={this.state.id}
-          completed={this.state.completed}
+          // id={this.state.id}
+          // completed={this.state.completed}
           handleChanges={this.handleChanges}
           updateTodoList={this.updateTodoList}
 
