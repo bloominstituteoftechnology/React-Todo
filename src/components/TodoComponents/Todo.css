@@ -1,3 +1,41 @@
 .completed {
     text-decoration: line-through;
 }
+
+.Todo-list{
+    display: flex;
+    width: 500px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+p {
+    Color: black;
+    background: rgb(48, 142, 170);
+    width: 240px;
+    font-size: 25px;
+    border-radius: 10px;
+    padding: 2px;
+}
+
+.container {
+    background: lightblue;
+    width: 500px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+button{
+    background: white;
+    cursor: pointer;
+}
+
+.header {
+    text-align: center;
+}
+
+.Todo-Form {
+    position: relative;
+    left: 120px;
+}

@@ -3,7 +3,6 @@ import './Todo.css';
 
 
 const Todo = (props) => {
-    console.log(props)
     return (
         <div className={`item ${props.todo.completed ? "completed" : ''}`}
         onClick={() => props.toggleTodo(props.todo.id) }

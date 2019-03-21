@@ -3,6 +3,7 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 import './components/TodoComponents/Todo.css';
 
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   constructor() {
@@ -21,6 +22,7 @@ class App extends React.Component {
     this.submitHandler = this.submitHandler.bind(this);
     this.HandleChanges = this.HandleChanges.bind(this);
     this.toggleTodo = this.toggleTodo.bind(this);
+    this.clearTodos = this.clearTodos.bind(this);
 
   }  
 
@@ -40,6 +42,15 @@ class App extends React.Component {
       
     }
 
+    clearTodos(I){
+      I.preventDefault();
+      const filtered = this.state.TodoArray.filter(todo => {
+        return !todo.completed === true;
+      })
+
+      this.setState({TodoArray: filtered})
+      
+    }
 
     submitHandler(e) {
       e.preventDefault();
@@ -64,12 +75,14 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div>
+      <div className="container">
+      <h1 className="header">Todo List</h1>
        <TodoList todos={this.state.TodoArray} toggleTodo={this.toggleTodo}/>
        <TodoForm 
        handle={this.HandleChanges}
        submit={this.submitHandler}
        value={this.state.inputText}
+       clearTodos={this.clearTodos}
        />
       </div> 
       
