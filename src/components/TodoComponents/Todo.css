@@ -59,7 +59,7 @@ h3 {
 }
 
 .toggled{
-    visibility: visible; 
+    background-color: blue;
 }
 
 form{

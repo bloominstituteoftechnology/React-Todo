@@ -47,26 +47,45 @@ class TodoForm extends React.Component {
          this.setState({
             todo: [...this.state.todo, newTask]
         });
-        console.log(this.state.completed);
+        // console.log(this.state.completed);
     };
 
-    CompletedTask = (e) => {
+    CompletedTask = (id) => {
+        console.log(id);
+
+        const newList = this.state.todo.map(item => {
+            if(item.id===id) {
+                item.completed = !item.completed;
+                return item; 
+            }
+
+            else{
+                return item;
+            }
+        });
+
+        console.log(newList);
+        //loop over groceries 
+        //find grocery by given id 
+        //change completed to true 
+        //return updated list to state 
+
+
         // console.log("clicked");
         // console.log(e.target.getAttribute('completed'));
-        console.log(e);
+        // console.log(e);
 
-        let selectedTask =e.completed; 
-        console.log(e.completed);
-        selectedTask = !selectedTask; 
-        console.log(e.completed);
+        // let selectedTask =e.completed; 
+        // console.log(e.completed);
+        // selectedTask = !selectedTask; 
+        // console.log(e.completed);
         
-        this.setState({
-            this.completed: selectedTask,
-        })
         
-        // this.setState({
-        //     e.completed: !e.completed,
-        // })
+        // this.setState = ({
+        //     completed: true,
+        //  })
+        
+
         // e.target.style.display = 'none';
         // const selectedTask = e.target; 
         // console.log(selectedTask);

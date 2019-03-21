@@ -1,9 +1,10 @@
 import React from "react";
 
-function Task({ item, completed, completedTaskFunction }) {
-    // console.log(completedTaskFunction);
+function Task({ item,  completedTaskFunction }) {
   return (
-        <div className="task" onClick={(e)=>completedTaskFunction(completed)} >
+        <div className={`task${item.completed ? ' toggled' : ""}`}
+        onClick={() => completedTaskFunction(item.id)}
+        >
             <ul>
                 <h3><li>{item.task}</li></h3>
             </ul>
