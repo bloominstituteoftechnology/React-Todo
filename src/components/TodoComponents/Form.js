@@ -13,10 +13,10 @@ const Form = props => {
                 placeholder="Task"
                 onChange={props.handleChanges} 
                 
+                
                 />
                 <button onClick={props.updateList}>Add Task</button>
         </form>
-        
         </div>
     );
 };

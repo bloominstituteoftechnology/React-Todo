@@ -3,7 +3,8 @@
 
 import React from 'react';
 import './Todo.css';
-import Task from './Todo';
+import Task from './Task';
+import completedTaskFunction from './TodoForm';
 
 const todo = [
     {
@@ -20,10 +21,11 @@ const todo = [
 ];
 
 function toDo () {
+
     return (
-        <div className="list">
+        <div className="list" onClick={completedTaskFunction}>
             {todo.map(tasksfromMap => (
-                <Task item={tasksfromMap} key={tasksfromMap.id} />
+                <Task completedTaskFunction={completedTaskFunction} item={tasksfromMap} key={tasksfromMap.id} />
             ))}
         </div>
     )

@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
@@ -13,7 +12,6 @@ class App extends React.Component {
         <h1>Todo List</h1>
         <div class="notepad">
           <div class="redline"></div>
-          <TodoList />
         <TodoForm />
         </div>
       </div>
