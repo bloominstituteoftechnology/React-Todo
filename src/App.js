@@ -5,6 +5,8 @@
 import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import "./App.css";
+import "../src/components/TodoComponents/Todo.css";
 
 const todo = [
   {
@@ -52,20 +54,31 @@ class App extends React.Component {
     );
   };
 
+  addItem = item => {
+    const copy = this.state.groceries.slice();
+    copy.push(item);
+    // BUILD OUR ITEM OBJECT
+    // this.setState({ groceries: copy });
+  };
+
   render() {
     return (
-      <div>
-        <h2> </h2>
-        <div className="">
-          {this.state.todoList.map(todo => (
-            <TodoList todo={todo} key={todo.id} />
-          ))}
+      <div className="app">
+        <div className="title">
+          <i className="fa fa-tasks fafa" />
+          My To-do List
         </div>
+
         <TodoForm
           task={this.state.task}
           handleChanges={this.handleChanges}
           addTodo={this.addTodo}
         />
+        <div>
+          {this.state.todoList.map(todo => (
+            <TodoList todo={todo} key={todo.id} />
+          ))}
+        </div>
       </div>
     );
   }

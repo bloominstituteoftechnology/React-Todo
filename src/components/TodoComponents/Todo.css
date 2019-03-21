@@ -1,0 +1,70 @@
+.title {
+  color: #707070;
+  font-family: "Ceviche One", cursive;
+  font-size: 3rem;
+  align-items: center;
+  line-height: 100px;
+  /* text-decoration: underline dashed #87ceeb; */
+  text-shadow: 3px 2px #ffffff;
+}
+
+.button {
+  background: #757575;
+  border: none;
+  color: #ffffff;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 1rem;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 15px;
+  font-weight: bold;
+  outline: none;
+  text-shadow: 2px 1px#2d3234;
+
+  /* font-family: "Nanum Brush Script", cursive; */
+}
+
+.button:hover {
+  opacity: 1;
+  /* font-family: "Nanum Brush Script", cursive; */
+}
+
+.new-task {
+  color: #2d3234;
+  font-family: "Nanum Brush Script", cursive;
+  font-size: 1.7rem;
+  /* line-height: 1.2px; */
+  letter-spacing: 1px;
+}
+.todo-list {
+  line-height: 5px;
+  /* justify-items: center;
+  margin: 10px 30px; */
+  /* border: 1px solid #ffffff; */
+}
+
+.text {
+  background: #ffffff;
+  border: none;
+  color: #757575;
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 0.8rem;
+  margin: 10px 30px;
+  border-radius: 5px;
+  font-style: italic;
+  outline: none;
+}
+.fafa {
+  font-size: 2rem;
+  color: #87ceeb;
+  padding: 0 30px;
+  text-shadow: 3px 2px #ffffff;
+}
+/* font-family: "Ceviche One", cursive; */
+/* font-family: 'Nanum Brush Script', cursive; */

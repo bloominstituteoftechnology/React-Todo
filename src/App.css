@@ -1,0 +1,10 @@
+.app {
+  /* border: 3px solid #bcbcbc; */
+  height: 200%;
+  /* max-width: 600px;  */
+  border-radius: 2%;
+  text-align: center;
+  background-color: #e0e0e0;
+  /* background-image: linear-gradient(#e0e0e0, #87ceeb); */
+  justify-content: space-between;
+}
