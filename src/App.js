@@ -56,6 +56,14 @@ class App extends React.Component {
     });
   };
 
+  clearTodo = e => {
+    e.preventDefault();
+    // let todos = this.state.todos.slice();
+    let todos = [...this.state.todos];
+    todos = todos.filter(todo => !todo.completed);
+    this.setState({ todos });
+  };
+
   render() {
     return (
       <div className="app">
@@ -67,6 +75,7 @@ class App extends React.Component {
         <TodoForm
           //passing from addTodo func
           addTodo={this.addTodo}
+          clearTodo={this.clearTodo}
         />
         <div>
           <TodoList

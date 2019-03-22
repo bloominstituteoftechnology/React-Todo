@@ -66,5 +66,9 @@
   padding: 0 30px;
   text-shadow: 3px 2px #ffffff;
 }
+
+.todo {
+  cursor: default;
+}
 /* font-family: "Ceviche One", cursive; */
 /* font-family: 'Nanum Brush Script', cursive; */

@@ -10,7 +10,7 @@ class TodoForm extends React.Component {
   //synthetic event: that react has created
   handleChanges = e => {
     console.log("event:", e.target.value);
-    // update the task property on state
+    // update the name property on state
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -35,7 +35,9 @@ class TodoForm extends React.Component {
           name="todo"
         />
         <button className="button">Add Todo</button>
-        <button className="button">Clear</button>
+        <button className="button" onClick={this.props.clearTodo}>
+          Clear
+        </button>
       </form>
     );
   }
