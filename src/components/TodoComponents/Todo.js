@@ -8,7 +8,7 @@ const Todo = props => {
       // className={`todo ${props.todo.completed ? " completed" : null}`}
       style={props.todo.completed ? { textDecoration: "line-through" } : null}
     >
-      <ul className="new-task">{props.todo.name}</ul>
+      <ul className="new-todo">{props.todo.name}</ul>
     </div>
   );
 };
