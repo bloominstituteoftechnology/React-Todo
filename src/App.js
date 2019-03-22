@@ -8,14 +8,14 @@ import TodoForm from "./components/TodoComponents/TodoForm";
 import "./App.css";
 import "../src/components/TodoComponents/Todo.css";
 
-const todo = [
+const todos = [
   {
-    task: "Organize Garage",
+    name: "Organize Garage", //{props.todo.name} in Todo.js
     id: 1528817077286,
     completed: false
   },
   {
-    task: "Bake Cookies",
+    name: "Bake Cookies",
     id: 1528817084358,
     completed: false
   }
@@ -26,39 +26,34 @@ class App extends React.Component {
     super();
     //state is the BRAIN of the tree component
     this.state = {
-      todoList: todo,
-      task: "",
-      id: Date.now(),
-      completed: "null"
+      todos //same as === todos: todos
     };
   }
-
-  handleChanges = e => {
-    console.log("event:", e.target.value);
-    // update the task property on state
-    // this.setState({ [e.target.task]: e.target.value });
-    this.setState({ task: e.target.value });
-  };
-
-  addTodo = e => {
-    console.log("fired");
+  //we MUST declare this function in App.js 'cause DATA lies here in the parent component
+  addTodo = (e, todo) => {
+    //console.log("fired");
     e.preventDefault();
     const newTodo = {
-      task: this.state.task,
-      id: this.state.id,
-      completed: this.state.completed
+      name: todo,
+      id: Date.now(),
+      completed: false //always initialize with false here
     };
     //creating a brand new array
-    this.setState(
-      { todoList: [...this.state.todoList, newTodo] } //copy of array
-    );
+    this.setState({
+      //copy of array
+      todos: [...this.state.todos, newTodo]
+    });
   };
 
-  addItem = item => {
-    const copy = this.state.groceries.slice();
-    copy.push(item);
-    // BUILD OUR ITEM OBJECT
-    // this.setState({ groceries: copy });
+  toggleTodo = todoId => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todoId === todo.id) {
+          return { ...todo, completed: !todo.completed }; //same as...todo === name:todo.name, id:todo.id, etc.
+        }
+        return todo;
+      })
+    });
   };
 
   render() {
@@ -70,14 +65,16 @@ class App extends React.Component {
         </div>
 
         <TodoForm
-          task={this.state.task}
-          handleChanges={this.handleChanges}
+          //passing from addTodo func
           addTodo={this.addTodo}
         />
         <div>
-          {this.state.todoList.map(todo => (
-            <TodoList todo={todo} key={todo.id} />
-          ))}
+          <TodoList
+            //passing from this.state as props
+            todos={this.state.todos}
+            //passing down as a prop from toggleTodo func
+            toggleTodo={this.toggleTodo}
+          />
         </div>
       </div>
     );
