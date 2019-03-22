@@ -8,12 +8,12 @@ const Task = props => {
            <div class="cell">
                 <h3>{props.item.task}</h3>
                 <p>{props.item.type}</p>
-                <div class="colors">
+                {/* <div class="colors">
                   <div class= "colorPicker1 " onClick={props.changeBackground}></div>
                   <div class= "colorPicker2"></div>
                   <div class= "colorPicker3"></div>
                   <div class= "colorPicker4"></div>
-                </div>
+                </div> */}
               </div>
 
     </div>

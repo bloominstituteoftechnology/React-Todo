@@ -12,21 +12,23 @@ h1{
 }
 html{
     background-size: 100% 100%;
+    overflow: hidden;
     height: 100%;
+    width: 100%;
     background-image: url(https://image.freepik.com/free-vector/colorful-watercolor-texture_1048-3718.jpg?1)
 }
 .body{
-    margin: 1.5rem;
+    margin: 1rem;
     border-radius: 10px;
     padding: 20px 40px;
     box-shadow: 0px 0px 30px rgb(235, 234, 234);
-    height: 100%;
-    overflow: hidden;
     background-color: white;
     display: flex;
     flex-direction: row; 
     justify-content: space-between;
-
+    position: fixed;
+    height: 85%;
+    width: 90%;
 }
 
 .menu{

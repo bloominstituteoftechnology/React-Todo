@@ -24,7 +24,8 @@ h3 {
 
 p{
     color: grey;
-    width: 40%;
+    text-align: right;
+    margin-right: 2rem;
 }
 
 .task:first-child{
@@ -165,11 +166,8 @@ form{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 100%;
 
-    position: fixed;
-    bottom: 1.5rem;
-    margin-left: -18%;
 }
 
 input{
@@ -204,22 +202,23 @@ button:hover{
 }
 
 .delete{
-    background-color: white;
+    background-color: rgba(0, 0,0 ,0);
     border: none;
     color: grey;
 }
 
 .delete:hover{ 
     color: red;
-    background-color: white;
+    background-color:  rgba(0, 0,0 ,0);
     border: none;
 }
 
 
 .formStyle{
-    margin-top: 350px;
     display: flex;
     flex-direction: row;
+    bottom: 3rem;
+    position: fixed;
 }
 
 
@@ -253,4 +252,38 @@ button:hover{
 p{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.9rem;
+}
+
+.formExpand{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: rgb(163, 163, 241);
+    border: 3px solid rgb(192, 192, 255);
+    box-shadow: 0px 0px 20px rgb(192, 192, 192);
+    position: fixed; 
+    bottom: 5rem;
+    margin-left: 0.5rem;
+    text-align: center;
+}
+
+.plus{
+    padding-top:0;
+    font-size: 4rem;
+    font-weight: 1000px;
+    color: rgb(235, 235, 255);
+    cursor:pointer;
+}
+
+.plus:hover{
+    color: white;
+}
+
+.formExpand:hover{
+    transform: translate(-0px, -10px);
+}
+
+.formExpand:active{
+    transform: translate(-0px, -6px);
+    background-color: rgb(141, 141, 236);
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import TodoForm from './components/TodoComponents/TodoForm';
 import Key from './components/TodoComponents/Key';
+import Button from './components/TodoComponents/Button';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -14,12 +15,12 @@ class App extends React.Component {
         <div class ="menu">
           <h1>My tasks</h1>
           <Key />
+          <Button />
           </div>
-          <div class ="content">
-          
+         
           <TodoForm />
-        
-          </div>
+      
+
           </div>
         
     );

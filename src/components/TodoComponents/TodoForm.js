@@ -43,6 +43,7 @@ class TodoForm extends React.Component {
 
     updateList = item => {
         item.preventDefault();
+
         const newTask = {
             task: this.state.task,
             completed: false,
@@ -59,20 +60,10 @@ class TodoForm extends React.Component {
     deleteCompleted = item => {
         item.preventDefault();
         const newList = this.state.todo.slice();
-        console.log(newList);
+        // console.log(newList);
         
         const filtered = newList.filter(item => 
             item.completed === false 
-            // console.log(item);
-            // console.log(item.completed);
-            // var index = newList.indexOf(item);
-            // console.log(index);
-            // if (item.completed === true) {
-            //     newList.splice(index, 1);
-            // }
-
-            // return newList;
-            // console.log(newList);
 
         )
         console.log(filtered);
@@ -80,27 +71,6 @@ class TodoForm extends React.Component {
         this.setState({
             todo: filtered, newList:""
         });
-
-    //     let Completed = {task: this.state.task,};
-    //     console.log(Completed);
-        // Completed = Completed.filter((task) => {
-        //     console.log(this )
-        // })
-        // const completed = {
-        //     task: Completed.state.task,
-        // // }
-        // this.setState({
-
-        //     })
-        // })
-        // console.log(Completed);
-        // this.setState({
-        //     completed: this.state.todo.map(item=> {
-        //         if(item.completed===true) {
-        //             item.target.style.display = 'none';
-        //         }
-        //     })
-        // })
     };
 
     CompletedTask = (id) => {
@@ -131,6 +101,7 @@ class TodoForm extends React.Component {
                 ))}
                 </div>
 
+                
                 <Form
             task={this.state.task}
             completed={this.state.completed}
@@ -138,6 +109,7 @@ class TodoForm extends React.Component {
             handleChanges = {this.handleChanges}
             deleteCompleted = {this.deleteCompleted}
             />
+
             </div>
         );
     }
