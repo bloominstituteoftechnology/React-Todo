@@ -217,8 +217,9 @@ button:hover{
 .formStyle{
     display: flex;
     flex-direction: row;
-    bottom: 3rem;
+    bottom: 5rem;
     position: fixed;
+    width: 78%;
 }
 
 
@@ -254,6 +255,10 @@ p{
     font-size: 0.9rem;
 }
 
+
+
+/* Form Button */
+
 .formExpand{
     height: 80px;
     width: 80px;
@@ -261,9 +266,9 @@ p{
     background-color: rgb(163, 163, 241);
     border: 3px solid rgb(192, 192, 255);
     box-shadow: 0px 0px 20px rgb(192, 192, 192);
-    position: fixed; 
-    bottom: 5rem;
-    margin-left: 0.5rem;
+    position: absolute; 
+    bottom: 2rem;
+    margin-left:-9rem;
     text-align: center;
 }
 
@@ -283,7 +288,23 @@ p{
     transform: translate(-0px, -10px);
 }
 
+.formExpand:hover .buttonText{
+    visibility: visible;
+    color: grey;
+}
+
 .formExpand:active{
     transform: translate(-0px, -6px);
     background-color: rgb(141, 141, 236);
+}
+
+.formToggle{
+    margin-left: -10rem;
+}
+
+.buttonText {
+    margin-top: -2rem;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    visibility: hidden;
 }

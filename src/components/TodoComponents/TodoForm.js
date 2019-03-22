@@ -2,6 +2,7 @@ import React from 'react';
 import './Todo.css';
 import Task from './Task';
 import Form from './Form';
+import Button from './Button';
 
 
 
@@ -31,6 +32,7 @@ class TodoForm extends React.Component {
             task: '',
             completed: false,
             type: '', 
+            toggled: false,
         };
     }
 
@@ -86,13 +88,30 @@ class TodoForm extends React.Component {
                 return item;
         })
     });
-
-        
         
     }
 
+    expandForm = () => {
+        
+        this.setState({
+            toggled: !this.state.toggled
+        })
+
+        console.log(this.state.toggled);
+    }
 
     render() {
+        const inputField = this.state.toggled; 
+        console.log(inputField);
+        let formComponent;
+
+        if(inputField){
+            formComponent=<Form />;
+        } else{
+            formComponent=null; 
+        }
+        
+
         return(
             <div className="todo">
                 <div className="list">
@@ -100,17 +119,18 @@ class TodoForm extends React.Component {
                     <Task key={index} item={taskfromMap} completed={taskfromMap} completedTaskFunction={this.CompletedTask} deleteCompleted={this.deleteCompleted}/>
                 ))}
                 </div>
-
-                
-                <Form
-            task={this.state.task}
-            completed={this.state.completed}
-            updateList ={this.updateList}
-            handleChanges = {this.handleChanges}
-            deleteCompleted = {this.deleteCompleted}
-            />
-
+                      
+                <Button expandForm={this.expandForm} newProp={Form}/>
+                {formComponent}
             </div>
+           
+
+
+        
+
+
+
+
         );
     }
 }

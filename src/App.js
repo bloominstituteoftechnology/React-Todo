@@ -15,7 +15,6 @@ class App extends React.Component {
         <div class ="menu">
           <h1>My tasks</h1>
           <Key />
-          <Button />
           </div>
          
           <TodoForm />
