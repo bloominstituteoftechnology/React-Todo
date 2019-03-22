@@ -6,8 +6,9 @@
   line-height: 100px;
   /* text-decoration: underline dashed #87ceeb; */
   text-shadow: 3px 2px #ffffff;
+  display: flex;
+  justify-content: center;
 }
-
 .button {
   background: #757575;
   border: none;
@@ -34,18 +35,22 @@
   /* font-family: "Nanum Brush Script", cursive; */
 }
 
-.new-task {
+.new-todo {
   color: #2d3234;
   font-family: "Nanum Brush Script", cursive;
   font-size: 1.7rem;
   /* line-height: 1.2px; */
   letter-spacing: 1px;
+  border: 1px solid #87ceeb;
+  padding: 20px 0px;
+  margin: 5px 6px;
+  /* max-width: 200px; */
+  background-image: linear-gradient(#e0e0e0, #87ceeb, #e0e0e0);
 }
 .todo-list {
   line-height: 5px;
-  /* justify-items: center;
-  margin: 10px 30px; */
-  /* border: 1px solid #ffffff; */
+  width: 100%;
+  margin: 0 auto;
 }
 
 .text {
@@ -70,5 +75,23 @@
 .todo {
   cursor: default;
 }
+@media screen and (max-width: 800px) {
+  .title {
+    font-size: 2.4rem;
+    line-height: 80px;
+  }
+  .fafa {
+    color: #757575;
+    padding: 0px;
+  }
+  .button {
+    margin: 2px 1px;
+    padding: 10px 10px;
+  }
+  .title {
+    justify-content: space-evenly;
+  }
+}
+
 /* font-family: "Ceviche One", cursive; */
 /* font-family: 'Nanum Brush Script', cursive; */
