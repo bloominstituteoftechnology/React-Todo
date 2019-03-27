@@ -1,25 +1,28 @@
 import React from 'react';
-import TodoList from "./components/TodoList.js";
+import Todo from './components/Todo.js';
 
-const App = () => (
-  <div>
-    <h2>Todo App</h2>
-    <TodoList/>
-  </div>
-);
+class App extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            todos: ['study', 'swim', 'travel'],
+            newTodo: ''
+        }
+    }
+
+
+    render() {
+        return (
+            <div>
+                <p>Todos: </p>
+                <ul>
+                  {this.state.todos.map((todo) => {
+                      return <Todo todo={todo}/>;
+                  })}
+                </ul>
+            </div>
+        )
+    }
+}
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
