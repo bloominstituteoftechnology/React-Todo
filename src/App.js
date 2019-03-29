@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
 
 class App extends React.Component {
@@ -7,36 +8,44 @@ class App extends React.Component {
     super();
     this.state = {
 
+        userInput: "",
 
 
-      todos: [  
+      todos: [
 
 
-  {
-    task: 'Learn React',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Go Shopping',
-    id: 1528817084358,
-    completed: false
-  },
-]
+      ]
+
+    }
+  }
+
+  changeUserInput(input) {
+    this.setState({
+      userInput: input
+    },)
 
     
 
-    }
-}
+  }
   
 
 
 render() {
   return (
-    <div>
-      {console.log (this.state.todos)}
-      <h2>Welcome to the to-do list</h2>
+    <div className="to-do-main">
+      <input
+      onChange={ (e)=>this.changeUserInput(e.target.value)}
+      value={this.state.userInput}
+      type='Add an item'
+      />
+      <button>
+        Add New
+      </button>
+      <button>
+        Clear
+      </button>
       <TodoList todos= {this.state.todos} />
+      <TodoForm />
     </div>
   );
 

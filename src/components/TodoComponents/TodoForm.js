@@ -1,30 +1,52 @@
 import React  from "react";
 
-export default class MyForm extends React.Component {
+
+ class TodoForm extends React.Component {
     state = {
-    task: 'Learn React',
-    id: 1528817077286,
-    completed: false
-
+      text: ""
     };
-
+  
     handleChange = event => {
-        const isCheckbox = event.target.type === "checkbox";
-        this.setState({
-          [event.target.name]: isCheckbox
-            ? event.target.checked
-            : event.target.value
-        });
-      };
+      this.setState({
+        [event.target.name]: event.target.value
+      });
+    };
+  
+    handleSubmit = (event) => {
+      event.preventDefault();
+      this.props.onSubmit({
+      text: this.state.text,
+      complete: false
+    })
+
+    }
+    //     text: this.state.text,
+    //     complete: true
+    //   });
+    //   this.setState({
+    //     text: ""
+    //   });
+    // };
+  
+    render() {
+      return (
+
+        //create Function
+        <form onSubmit={this.handleSubmit}>
+          <input
+            name="text"
+            value={this.state.text}
+            onChange={this.handleChange}
+            placeholder="todo..."
+          />
+          
     
-      handleSubmit = event => {
-        event.preventDefault();
-        console.log(this.state);
-      };
+        </form>
 
-      render() {
-        return (
-          <form onSubmit={this.handleSubmit}>
-            <input
+        
+      );
+    }
+  }
 
-export default TodoForm;
+
+  export default TodoForm;

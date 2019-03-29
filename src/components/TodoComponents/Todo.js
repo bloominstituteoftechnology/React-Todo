@@ -1,16 +1,18 @@
 import React from 'react';
 
 
-const Todo = props => {
-    return(
-        <div className = 'todo'>
-        <h2>{props.todos.task}</h2>
-        
-        </div>
+export default props => (
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <div
+        style={{
+          textDecoration: props.todo.complete ? "line-through" : ""
+        }}
+        onClick={props.toggleComplete}
+      >
+        {props.todo.text}
+      </div>
+      <button onClick={props.onDelete}>x</button>
+    </div>
+  );
 
-    );
-}
 
-
-
-export default Todo;
