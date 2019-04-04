@@ -1,5 +1,6 @@
 import React from 'react';
-
+import TodoList from './components/TodoComponents/TodoList';
+import Todo from './components/TodoComponents/Todo';
 
 const todoData = [
   {
@@ -10,6 +11,11 @@ const todoData = [
   {
     task: 'Bake Cookies',
     id: 1528817084358,
+    completed: false
+  },
+  {
+    task: 'Bake',
+    id: 1528817084354,
     completed: false
   }
 ];
@@ -23,34 +29,16 @@ class App extends React.Component {
     super();
 
     this.state = {
-      app: todoData,
-      task: '',
-      id: '',
-      completed: ''
+      todos: todoData
     };
   }
-
-  addTodoData = e => {
-    e.preventDefault();
-    this.setState({
-      app: [
-        ...this.state.app,
-        {
-          task: this.state.task
-        }
-      ]
-    });
-  }
-  
   
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <div className='todo-list'>
-        {this.state.app.map(todo => (
-          <App app={todo} />
-        ))}
+        <TodoList todos={this.state.todos}/>
         </div>
       </div>
     );
