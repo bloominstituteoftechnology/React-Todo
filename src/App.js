@@ -1,45 +1,53 @@
 import React from "react";
-import Todo from "./components/TodoComponents/Todo";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
 
+const tasks = [];
+
 class App extends React.Component {
-  state = {
-    toDo: "", //could be an object that takes id and name
-    list: []
-  };
+  constructor() {
+    super();
+    this.state = {
+      list: tasks,
+      thing: {
+        task: "",
+        id: "",
+        completed: ""
+      }
+    };
+  }
 
   textChangeHandler = event => {
-    this.setState({ toDo: event.target.value });
+    this.setState({
+      ...this.state,
+      thing: {
+        ...this.state.thing,
+        [event.target.name]:event.target.value,
+        // task: event.target.value, // set up a value
+        id: Date.now(),
+        completed: false
+      }
+    });
   };
 
-  enterItemHandler = () => {
-    //copy state
-    const ToDos = [...this.state.list];
+  enterItemHandler = event => {
+    event.preventDefault();
+    this.setState({
+   
+      list: [...this.state.list, this.state.thing],
+      thing: {
+        task: "",
+        id: "",
+        completed: ""
+      }
+    },()=>console.log(this.state));
 
-    //create new task
-    const newToDo = this.state.toDo.toString();
-
-    // const newToDo = {
-    //   task: this.state.toDo.toString(),
-    //   id: Date.now(),
-    //   completed: false
-    // } 
-
-    //add task to state
-    ToDos.push(newToDo);
-
-    //set state
-    this.setState((this.state.list = ToDos)); // format the obj with all props here and set into an array
-
-    //clear Todo
-    this.setState((this.state.toDo = []));
-
-    //clear field
   };
-
-  emptyListHandler = () => {
-    this.setState({ list: [] });
+  
+  emptyListHandler = event => {
+    this.setState({
+      list: []
+    });
   };
 
   render() {
@@ -49,10 +57,9 @@ class App extends React.Component {
           textChange={this.textChangeHandler}
           enterItem={this.enterItemHandler}
           emptyList={this.emptyListHandler}
-          info={this.state.toDo}
+          info={this.state.thing}
         />
         <TodoList list={this.state.list} />
-        {console.log("app.js", this.state.list)}
       </div>
     );
   }

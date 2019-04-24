@@ -7,8 +7,9 @@ const ToDoList = (props) =>{
     return(
         <>
   
-        <ul>{props.list.map(item =>{
-            return <ToDo task={item} date={Date.now()} finished={false} />
+        <ul>{props.list.map(task =>{
+            return <ToDo task={task} key={task.id}/>
+
             
         })}</ul>
         </>

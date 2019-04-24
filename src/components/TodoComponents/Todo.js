@@ -5,7 +5,7 @@ const ToDo = (props) =>{
 
     return(
         <>
-        <li>{props.task}</li>
+        <li>{props.task.task}</li>
         </>
 
     )
