@@ -5,6 +5,13 @@
  */
 
 const React = require('react')
+const components = require('./components/')
+
+/**
+ * Constants
+ */
+
+const Component = React.Component
 
 /**
  * Define initial state
@@ -27,18 +34,20 @@ const initialState = [
  * Define component
  */
 
-class App extends React.Component {
+class App extends Component {
   constructor() {
     super()
-    this.state = initialState
+    this.state = { todo: initialState }
   }
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="jsx-App">
+        <h2>Todo List: MVP</h2>
+        <components.TodoList />
       </div>
     )
+    // <components.TodoForm />
   }
 }
 

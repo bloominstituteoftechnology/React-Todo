@@ -1,2 +1,33 @@
-// your components will all go in this `component` directory.
-// feel free to change this component.js into TodoList.js
+'use strict'
+
+/**
+ * Dependencies
+ */
+
+const React = require('react')
+
+/**
+ * Constants
+ */
+
+const Component = React.Component
+
+/**
+ * Define component
+ */
+
+class TodoList extends Component {
+  render() {
+    return (
+      <div className="jsx-TodoList">
+        jsx-TodoList
+      </div>
+    )
+  }
+}
+
+/**
+ * Export component
+ */
+
+module.exports = TodoList
