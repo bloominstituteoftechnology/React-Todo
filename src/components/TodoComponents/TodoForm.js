@@ -4,10 +4,10 @@ function TodoListForm(props) {
     return (
         <form onSubmit={props.onSubmit}>
             <input type="text" 
-                value={props.taskInput}
+                value={props.taskItem}
                 placeholder="...todo"
                 onChange={props.onChange}
-                name="taskInput"
+                name="taskItem"
                 />
             <button>Add Todo</button>
             <button type="button">Clear Completed</button>

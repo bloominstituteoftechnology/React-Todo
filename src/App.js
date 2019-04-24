@@ -12,7 +12,10 @@ class App extends React.Component {
       super();
       this.state = {
           listItems: todoListItems,
-          taskInput: ""
+          taskInput: {
+            taskItem: "",
+            completed: false
+          }
       };
   }
 
@@ -25,8 +28,10 @@ class App extends React.Component {
   addListItem = event => {
     event.preventDefault();
     this.setState({
-      listItems: [...this.state.listItems, this.state.taskInput],
-      item: {}
+      listItems: [...this.state.listItems, this.state.taskItem],
+      taskInput: {
+        taskItem: {}
+      }
     });
   };
 
@@ -34,7 +39,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <TodoList listItems={this.state.listItems}/>
-        <TodoForm onChange={this.handleChanges} onSubmit={this.addListItem} taskInput={this.state.taskInput}/>
+        <TodoForm onChange={this.handleChanges} onSubmit={this.addListItem} taskItem={this.state.taskItem}/>
       </div>
     );
   }
