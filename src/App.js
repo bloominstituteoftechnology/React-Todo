@@ -63,8 +63,8 @@ class App extends React.Component {
       return {
         toDoItems: currentState.toDoItems.filter((todoListItem) => todoListItem.task !== currentItem)
           .concat({
-            currentItem,
-            currentId,
+            task: currentItem,
+            id: currentId,
             completed: !completedTask.completed
           })
       }
