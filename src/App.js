@@ -51,7 +51,7 @@ class App extends React.Component {
   addTodo = event => {
     event.preventDefault();
     this.setState({
-      todoData: [...this.state.todoData, this.state.todoArray],
+      todoData: [...this.state.todoData, this.state.newTodo],
       newTodo: {
         task: '',
         id: '',
