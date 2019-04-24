@@ -16,18 +16,16 @@ const Component = React.Component
  * Define component
  */
 
-class TodoForm extends Component {
-  constructor() {
-    super()
-  }
-
-  render() {
-    return (
-      <div className="jsx-TodoForm">
-        jsx-TodoForm aoeu
-      </div>
-    )
-  }
+function TodoForm(props) {
+  return (
+    <div className="jsx-TodoForm">
+      <form onSubmit={props.addTask}>
+        <input type="text" name="task" placeholder="Task"></input>
+        <button onClick={props.addTask}>Add Todo</button>
+        <button onClick={props.clearCompletedTasks}>Clear Completed</button>
+      </form>
+    </div>
+  )
 }
 
 /**

@@ -40,12 +40,22 @@ class App extends Component {
     this.state = { todo: initialState }
   }
 
+  addTask() {
+    console.log("Add task")
+  }
+
+  clearCompletedTasks() {
+    console.log("Clear completed tasks")
+  }
+
   render() {
     return (
       <div className="jsx-App">
         <h2>Todo List: MVP</h2>
         <components.TodoList todo={this.state.todo} />
-        <components.TodoForm />
+        <components.TodoForm
+          addTask={this.addTask}
+          clearCompletedTasks={this.clearCompletedTasks} />
       </div>
     )
   }

@@ -12,7 +12,7 @@ const React = require('react')
 
 function Todo(props) {
   return (
-    <li className="jsx-Todo" id={props.data.id}>{props.data.task}</li>
+    <li className="jsx-Todo" key={props.data.id}>{props.data.task}</li>
   )
 }
 
