@@ -71,12 +71,16 @@ class App extends React.Component {
     });
   };
 
+  removeCompleted = () => {
+    console.log('clicked');
+  }
+
 	render() {
 		return (
 			<div className="wrapper">
 				<h2>Welcome to your Todo App!</h2>
 				<TodoList items={this.state.toDoItems} onMarkComplete={this.markComplete} />
-				<TodoForm onChange={this.handleChanges} onSubmit={this.addItem} todoValue={this.state.toDoItem.task} />
+				<TodoForm onChange={this.handleChanges} onSubmit={this.addItem} todoValue={this.state.toDoItem.task} onRemoveCompleted={this.removeCompleted}/>
 			</div>
 		);
 	}
