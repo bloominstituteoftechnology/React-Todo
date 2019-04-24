@@ -1,5 +1,14 @@
 import React from 'react';
 
-const WelcomeBanner = props => <h1>Hello, {props.message}!</h1>;
+const Todo = props => {
+    const items = props.todoList.map((currentItem, index) => {
+        return (
+            <div key={index}>
+                <p>{currentItem.index}</p>
+            </div>
+        )
+         
+    })
+}
 
 export default Todo
