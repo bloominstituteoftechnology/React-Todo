@@ -5,7 +5,7 @@
  */
 
 const React = require('react')
-const components = require('./components/')
+const components = require('./components/index')
 
 /**
  * Constants
@@ -44,10 +44,10 @@ class App extends Component {
     return (
       <div className="jsx-App">
         <h2>Todo List: MVP</h2>
-        <components.TodoList />
+        <components.TodoList todo={this.state.todo} />
+        <components.TodoForm />
       </div>
     )
-    // <components.TodoForm />
   }
 }
 

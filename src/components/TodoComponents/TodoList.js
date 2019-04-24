@@ -5,25 +5,18 @@
  */
 
 const React = require('react')
-
-/**
- * Constants
- */
-
-const Component = React.Component
+const Todo = require('./Todo')
 
 /**
  * Define component
  */
 
-class TodoList extends Component {
-  render() {
-    return (
-      <div className="jsx-TodoList">
-        jsx-TodoList
-      </div>
-    )
-  }
+function TodoList(props) {
+  return (
+    <ul className="jsx-TodoList">
+      {props.todo.map(todo => <Todo data={todo} />)}
+    </ul>
+  )
 }
 
 /**

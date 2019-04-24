@@ -17,10 +17,14 @@ const Component = React.Component
  */
 
 class TodoForm extends Component {
+  constructor() {
+    super()
+  }
+
   render() {
     return (
       <div className="jsx-TodoForm">
-        jsx-TodoForm
+        jsx-TodoForm aoeu
       </div>
     )
   }
