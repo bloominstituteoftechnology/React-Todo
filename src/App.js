@@ -1,6 +1,7 @@
 import React from "react";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
+import "./components/TodoComponents/Todo.css"
 
 const tasks = [];
 
@@ -52,7 +53,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
+      <h1>To Do List</h1>
         <TodoForm
           textChange={this.textChangeHandler}
           enterItem={this.enterItemHandler}

@@ -1,18 +1,20 @@
-import React from 'react'
+import React from "react";
 
+const TodoForm = props => {
+  return (
+    <form>
+      <input
+        onChange={props.textChange}
+        type="text"
+        placeholder="add task"
+        value={props.info.task}
+        name="task"
+      />
 
+      <button onClick={props.enterItem}>Add Item</button>
+      <button onClick={props.emptyList}>Empty List</button>
+    </form>
+  );
+};
 
-const TodoForm = (props) =>{
-
-    return (
-        <form>
-        <input  onChange={props.textChange} type="text" placeholder="change me" value={props.info.task} name="task" ></input>
-        <button onClick={props.enterItem}>Click me to enter todo item</button>
-        <button onClick={props.emptyList}>Click me to empty List</button>
-        
-        </form>
-    )
-}
-
-export default TodoForm
-
+export default TodoForm;
