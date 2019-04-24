@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Todo(props) {
+const Todo = props => {
     return (
-        <div className="todo-item">
-            <h4>{props.task.task}</h4>
-        </div>
+        <div>{props.todo.task}</div>
+        
     );
-}
+};
 
 export default Todo;
+
