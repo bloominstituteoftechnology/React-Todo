@@ -14,7 +14,7 @@ const Todo = require('./Todo')
 function TodoList(props) {
   return (
     <ul className="jsx-TodoList">
-      {props.todo.map(todo => <Todo data={todo} />)}
+      {props.todo.map(todo => <Todo key={todo.id.toString()} data={todo} onClick={props.onClick} />)}
     </ul>
   )
 }

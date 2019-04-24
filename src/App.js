@@ -44,6 +44,10 @@ class App extends Component {
     console.log("Add task")
   }
 
+  completedTask() {
+    console.log("Completed task")
+  }
+
   clearCompletedTasks() {
     console.log("Clear completed tasks")
   }
@@ -52,7 +56,7 @@ class App extends Component {
     return (
       <div className="jsx-App">
         <h2>Todo List: MVP</h2>
-        <components.TodoList todo={this.state.todo} />
+        <components.TodoList todo={this.state.todo} onClick={this.completedTask} />
         <components.TodoForm
           addTask={this.addTask}
           clearCompletedTasks={this.clearCompletedTasks} />
