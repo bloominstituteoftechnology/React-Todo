@@ -52,11 +52,13 @@ class App extends Component {
     event.target.elements.task.value = ''
   }
 
-  completedTask() {
-    console.log("Completed task")
+  completedTask = (event) => {
+    event.preventDefault()
+    event.target.style.textDecoration = 'line-through'
   }
 
-  clearCompletedTasks() {
+  clearCompletedTasks = (event) => {
+    event.preventDefault()
     console.log("Clear completed tasks")
   }
 
