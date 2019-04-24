@@ -35,31 +35,34 @@ class App extends React.Component {
 
 	handleChanges = (event) => {
 		this.setState({
-      toDoItem: {
-        ...this.state.toDoItem,
-        [event.target.name]: event.target.value
-      }
-    })
+			toDoItem: {
+				...this.state.toDoItem,
+				[event.target.name]: event.target.value
+			}
+		});
+	};
+
+	addItem = (event) => {
+		event.preventDefault();
+		this.setState({
+			toDoItems: [ ...this.state.toDoItems, this.state.toDoItem ],
+			toDoItem: {
+				task: '',
+				id: Date.now(),
+				completed: false
+			}
+		});
   };
   
-  addItem = (event) => {
-    event.preventDefault();
-    this.setState({
-      toDoItems: [...this.state.toDoItems, this.state.toDoItem],
-      toDoItem: {
-        task: '',
-        id: Date.now(),
-        completed: false
-      }
-    });
-    
-  };
+  markComplete = (task) => {
+    console.log(this);
+  }
 
 	render() {
 		return (
 			<div className="wrapper">
 				<h2>Welcome to your Todo App!</h2>
-				<TodoList items={this.state.toDoItems} />
+				<TodoList items={this.state.toDoItems} onMarkComplete={this.markComplete} />
 				<TodoForm onChange={this.handleChanges} onSubmit={this.addItem} todoValue={this.state.toDoItem.task} />
 			</div>
 		);

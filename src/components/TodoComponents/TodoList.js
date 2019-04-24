@@ -5,7 +5,7 @@ const TodoList = (props) => {
   return (
     <div className="todo-wrapper">
     {props.items.map(item => {
-        return <Todo key={item.id} item={item} />
+        return <Todo key={item.id} item={item} onMarkComplete={props.onMarkComplete}/>
       })}
     </div>
   )
