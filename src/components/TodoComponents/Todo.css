@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(./cork.png);
+    background-size: contain; 
+}
+
+button {
+    background: darkgrey;
+    font-weight: bold;
+    border-radius: 15px;
+    border: 2px solid black;
+    text-shadow: 0px 0px 1px green;
+    margin-left: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    background: green;
+}
+
+input {
+    border-radius: 15px;
+    border: 1px solid black;
+    padding: 5px;
+    background: lightgray;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1.2rem;
+}
+
+h1 {
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 15px;
+    background: darkgrey;
+}
+
+h2 {
+    margin-top: 0px;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+
+.listMaker {
+    padding: 25px;
+    border: 2px solid black;
+    text-shadow: 1px 1px 1px green;
+    border-radius: 20px;
+    width: 90%;
+    min-height: 550px;
+    background-image: url(./paper.jpg);
+    background-size: cover; 
+}
+
+.guts {
+    
+}
