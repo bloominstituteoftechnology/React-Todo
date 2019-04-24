@@ -33,13 +33,15 @@ class App extends React.Component {
     };
   }
 
+
+
   
   handleChanges = event => {
     console.log(event.target.name);
     this.setState({
       newTodo: {
         ...this.state.newTodo,
-        name: event.target.value,
+        task: event.target.value,
         id: Date.now(),
         completed: false
       }
@@ -62,7 +64,7 @@ class App extends React.Component {
     return (
       <div>
       <TodoList todoData={this.state.todoData} />
-      <TodoForm newTodo={this.state.newTodo} />
+      <TodoForm newTodo={this.state.newTodo} what={this} />
       </div>
     );
   }
