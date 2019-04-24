@@ -1,6 +1,6 @@
 import React from 'react';
-import Todo from './components/TodoComponents/Todo';
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
 
 const todoListItems = []
 
@@ -12,25 +12,20 @@ class App extends React.Component {
       super();
       this.state = {
           listItems: todoListItems,
-          listItem: {
-              item: '',
-          },
+          taskInput: ""
       };
   }
 
   handleChanges = event => {
     this.setState({
-      student: {
-        ...this.state.todoListItems,
-        [event.target.content]: event.target.value
-      }
+        [event.target.name]: event.target.value
     });
   };
 
   addListItem = event => {
     event.preventDefault();
     this.setState({
-      listItems: [...this.state.listItems, this.state.todoListItems],
+      listItems: [...this.state.listItems, this.state.taskInput],
       item: {}
     });
   };
@@ -38,10 +33,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        {this.state.listItems.map(item => (
-          <Todo todoListItems={item} />
-        ))}
-        <TodoForm />
+        <TodoList listItems={this.state.listItems}/>
+        <TodoForm onChange={this.handleChanges} onSubmit={this.addListItem} taskInput={this.state.taskInput}/>
       </div>
     );
   }
