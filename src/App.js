@@ -45,6 +45,9 @@ class App extends React.Component {
 	addItem = (event) => {
 		event.preventDefault();
 		this.setState({
+      // Array concatenation using the spread operator. This method doesn't mutate the toDoItems array directly
+      // equivalent to this let arr1 = [1, 2, 3]; let arr2 = [...arr1, 4]; 
+      // arr2 --> [1,2,3, 4], arr1 --> [1, 2, 3]
 			toDoItems: [ ...this.state.toDoItems, this.state.toDoItem ],
 			toDoItem: {
 				task: '',
@@ -54,9 +57,19 @@ class App extends React.Component {
 		});
   };
   
-  markComplete = (task) => {
-    console.log(this);
-  }
+  markComplete = (currentItem, currentId) => {
+    this.setState((currentState) => {
+      const completedTask = currentState.toDoItems.find((todoListItem) => todoListItem.task === currentItem)
+      return {
+        toDoItems: currentState.toDoItems.filter((todoListItem) => todoListItem.task !== currentItem)
+          .concat({
+            currentItem,
+            currentId,
+            completed: !completedTask.completed
+          })
+      }
+    });
+  };
 
 	render() {
 		return (
