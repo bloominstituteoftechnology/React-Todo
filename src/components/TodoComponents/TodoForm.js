@@ -21,7 +21,7 @@ function TodoForm(props) {
     <div className="jsx-TodoForm">
       <form onSubmit={props.addTask}>
         <input type="text" name="task" placeholder="...todo"></input>
-        <button onClick={props.addTask}>Add Todo</button>
+        <button type="submit">Add Todo</button>
         <button onClick={props.clearCompletedTasks}>Clear Completed</button>
       </form>
     </div>

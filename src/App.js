@@ -40,8 +40,16 @@ class App extends Component {
     this.state = { todo: initialState }
   }
 
-  addTask() {
-    console.log("Add task")
+  addTask = (event) => {
+    event.preventDefault()
+
+    this.setState({todo: [...this.state.todo, {
+      task: event.target.elements.task.value,
+      id: new Date(),
+      completed: false
+    }]})
+
+    event.target.elements.task.value = ''
   }
 
   completedTask() {
