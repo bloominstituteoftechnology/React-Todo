@@ -92,6 +92,7 @@ class App extends React.Component {
           list={this.state.list}
           toggleToComplete={this.toggleToComplete}
         />
+        <img src="https://ui-ex.com/images/zelda-transparent-nes.png"></img>
 
       </div>
     );
