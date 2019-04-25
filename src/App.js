@@ -29,6 +29,13 @@ class App extends React.Component {
     }
   }
 
+  handleChanges = evnt => {
+    this.setState({[evnt.target.name]: evnt.target.value});
+  } 
+
+
+
+
   render() {
     return (
       <div>
