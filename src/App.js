@@ -40,16 +40,12 @@ class App extends Component {
     this.state = { todo: initialState }
   }
 
-  addTask = (event) => {
-    event.preventDefault()
-
+  addTask = (task) => {
     this.setState({todo: [...this.state.todo, {
-      task: event.target.elements.task.value,
+      task: task,
       id: new Date(),
       completed: false
     }]})
-
-    event.target.elements.task.value = ''
   }
 
   toggleCompleted = id => {
