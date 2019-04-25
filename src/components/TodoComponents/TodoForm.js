@@ -12,7 +12,10 @@ const TodoForm = props => {
       />
 
       <button onClick={props.enterItem}>Add Item</button>
+      <button onClick={props.clearList}>Clear complete</button>
       <button onClick={props.emptyList}>Empty List</button>
+
+
     </form>
   );
 };

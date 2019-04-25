@@ -1,14 +1,27 @@
-import React from 'react'
-//create the object that accepts what data you put in the todolist that is the key
+import React from "react";
+import "./Todo.css";
 
-const ToDo = (props) =>{
+const ToDo = props => {
+  let classNames = "";
+  if (props.completed) {
+    classNames += "completed";
+  }
 
-    return(
-        <>
-        <li>{props.task.task}</li>
-        </>
+  function updateCompletedTask() {
+    props.toggleToComplete(props.task.id);
+    console.log(props.completed);
+  }
 
-    )
-} 
-
-export default ToDo
+  return (
+    <>
+      <li
+        className={classNames}
+        completed={props.completed}
+        onClick={updateCompletedTask}
+      >
+        {props.task.task}
+      </li>
+    </>
+  );
+};
+export default ToDo;

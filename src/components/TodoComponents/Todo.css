@@ -1,6 +1,6 @@
 
 .container{
-    max-width: 600px;
+    max-width:800px;
     margin: 0 auto;
     box-sizing: border-box;
     margin-top:30px;
@@ -36,4 +36,7 @@ li{
     font-size: 30px;
     text-decoration: none;
     color:white;
+}
+.completed{
+text-decoration: line-through;
 }
