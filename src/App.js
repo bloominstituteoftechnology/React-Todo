@@ -38,6 +38,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = { todo: initialState }
+    localStorage.setItem('todo', JSON.stringify(this.state.todo))
   }
 
   addTask = (task) => {
@@ -61,6 +62,20 @@ class App extends Component {
 
   clearCompletedTasks = () => {
     this.setState(prevState => ({ todo: prevState.todo.filter(t => !t.completed) }))
+  }
+
+  loadStateWithLocalStorage = () => {
+    let todo_ids = this.state.todo.map(todo => todo.id)
+
+    let storedTodo = JSON.parse(localStorage.getItem('todo'))
+
+    let oldTodo = storedTodo.filter(todo => (!todo_ids.includes(todo.id)))
+
+    this.setState(prevState => ({ todo: [...prevState.todo, ...oldTodo] }))
+  }
+
+  componentDidMount() {
+    this.loadStateWithLocalStorage()
   }
 
   render() {
