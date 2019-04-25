@@ -1,6 +1,7 @@
 import React from "react";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
+import ReactSearchBox from 'react-search-box'
 import "./components/TodoComponents/Todo.css";
 
 const tasks = []
@@ -80,7 +81,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1>To Do List</h1>
-        <TodoForm
+        <TodoForm className="container"
           textChange={this.textChangeHandler}
           enterItem={this.enterItemHandler}
           emptyList={this.emptyListHandler}
@@ -91,6 +92,7 @@ class App extends React.Component {
           list={this.state.list}
           toggleToComplete={this.toggleToComplete}
         />
+
       </div>
     );
   }

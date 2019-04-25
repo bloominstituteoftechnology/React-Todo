@@ -1,24 +1,46 @@
 
 .container{
+    min-height: 600px;
     max-width:800px;
     margin: 0 auto;
     box-sizing: border-box;
     margin-top:30px;
-    background-color: rgb(89, 89, 89);
+    background-image: linear-gradient(
+        hsla(139, 65%, 62%, 0.8),
+        hsla(207, 92%, 65%, 0.8)
+      );
+      clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
     padding: 20px;
 
 }
 
+.container--white{
+    max-width:800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    margin-top:30px;
+    background-color:white;
+    padding: 20px;
+}
+
 h1{
     color:white;
+    text-align: center;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-weight: 900;
+    font-size: 40px;
+    
 }
 
 button{
     padding: 10px 20px;
     font-size: 20px;
-    margin-left: 20px;
-    background-color: whitesmoke;
+    margin-left: 60px;
+    background-color:
+        hsla(69, 100%, 51%, 0.8);
     border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    border: 2px dotted purple;
 }
 
 button:hover{
@@ -29,14 +51,33 @@ input{
     height: 38px;
     justify-content: center;
     font-size: 20px;
+    border: 2px dotted purple;
+    margin-left: 50px;
    
+}
+
+ul{
+    list-style-type: none;
+    margin: 30px auto;
+    text-align: center;
+    padding-right:30px;
 }
 
 li{
     font-size: 30px;
     text-decoration: none;
     color:white;
+    width: 200px;
+    display: inline-block;
+    margin: 5px auto;
+    border-bottom: 3px solid;
+    border-image: (linear, 0 0, 0 100%, from(black), to(rgba(0, 0, 0, 0))) 
 }
 .completed{
 text-decoration: line-through;
+color: black;
+font-family: 'ZCOOL KuaiLe', cursive;
 }
+
+
+

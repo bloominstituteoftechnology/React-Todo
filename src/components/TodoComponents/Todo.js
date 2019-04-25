@@ -13,7 +13,7 @@ const ToDo = props => {
   }
 
   return (
-    <>
+    <div ClassName="todo-container">
       <li
         className={classNames}
         completed={props.completed}
@@ -21,7 +21,7 @@ const ToDo = props => {
       >
         {props.task.task}
       </li>
-    </>
+    </div>
   );
 };
 export default ToDo;

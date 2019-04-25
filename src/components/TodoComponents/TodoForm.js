@@ -6,14 +6,14 @@ const TodoForm = props => {
       <input
         onChange={props.textChange}
         type="text"
-        placeholder="add task"
+        placeholder=""
         value={props.info.task}
         name="task"
       />
 
-      <button onClick={props.enterItem}>Add Item</button>
-      <button onClick={props.clearList}>Clear complete</button>
-      <button onClick={props.emptyList}>Empty List</button>
+      <button onClick={props.enterItem}>Add</button>
+      <button onClick={props.clearList}>Clear</button>
+      <button onClick={props.emptyList}>Empty</button>
 
 
     </form>
