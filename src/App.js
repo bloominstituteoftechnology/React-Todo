@@ -14,7 +14,8 @@ class App extends React.Component {
           listItems: todoListItems,
           taskInput: {
             taskItem: "",
-            completed: false
+            id: "",
+            completed: "",
           }
       };
   }
