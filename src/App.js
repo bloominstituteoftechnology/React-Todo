@@ -14,6 +14,12 @@ const components = require('./components/index')
 const Component = React.Component
 
 /**
+ * Import styles
+ */
+
+require('./App.scss')
+
+/**
  * Define initial state
  */
 
@@ -67,6 +73,7 @@ class App extends Component {
   }
 
   updateLocalStorage = () => {
+    console.log("updateLocalStorage", JSON.stringify(this.state.todo, null, 2))
     localStorage.setItem('todo', JSON.stringify(this.state.todo))
   }
 

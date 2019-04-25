@@ -38,7 +38,7 @@ class TodoForm extends Component {
     return (
       <div className="jsx-TodoForm">
         <form onSubmit={this.onSubmit}>
-          <input type="text" name="task" value={this.state.task} onChange={this.onChange} placeholder="...todo"></input>
+          <input type="text" name="task" value={this.state.task} onChange={this.onChange} placeholder="...todo" autofocus></input>
           <button type="submit">Add Todo</button>
           <button onClick={this.props.clearCompletedTasks}>Clear Completed</button>
         </form>

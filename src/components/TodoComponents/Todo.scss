@@ -1,6 +1,8 @@
 .jsx-TodoList {
   padding-left: 0;
   margin-bottom: 0;
+  border: 1px solid #DDD;
+  padding: 20px;
 }
 
 .jsx-Todo {
@@ -8,12 +10,27 @@
   list-style: none;
 }
 
+.jsx-Todo:hover {
+  background-color: #DDD;
+}
+
 .jsx-Todo--completed {
   text-decoration: line-through;
 }
 
+.jsx-TodoForm {
+  border: 1px solid #DDD;
+  background-color: #333;
+  color: #FFF;
+  padding: 15px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
 .jsx-TodoForm input {
   outline: solid 3px #BEDDFD;
+  width: 100%;
+  margin: 10px 0px;
 }
 
 .jsx-TodoForm input:focus {
@@ -26,10 +43,16 @@
   border-radius: 5px;
   outline: none;
   cursor: pointer;
+  padding: 10px;
+  margin-right: 5px;
+}
+
+.jsx-TodoForm button:hover {
+  background-color: #DDD;
 }
 
 .jsx-TodoForm button:active {
-  background-color: #398ade;
+  background-color: #999;
 }
 
 *::selection {
