@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todo.scss';
 
 function Todo(props) {
     let classNames = "item"

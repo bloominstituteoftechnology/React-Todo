@@ -1,0 +1,76 @@
+.app {
+    width: 600px;
+    margin: 50px;
+    padding: 50px 0;
+    background-color: #2C2D36;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    font-family: 'Indie Flower', cursive;
+
+    .header {
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+    }
+    
+    .todo-list {
+        max-width: 500px;
+        padding: 0 50px;
+
+        p{ 
+            padding: 0 20px;
+            
+        }
+    }
+
+    button {
+        font-family: 'Indie Flower', cursive;
+        border-radius: 6px;
+        background-color: purple;
+        color: white; 
+        width: 125px;
+        height: 50px;
+        margin: 0 10px;
+        font-size: 1rem;
+    }
+
+    .item {
+        font-size: 1.5rem;
+        color: white;
+        margin: 0;
+        background-color: purple;
+        text-align: center;
+    }
+    .itemcompleted {
+        font-size: 1.5rem;
+        color: white;
+        background-color: plum;
+        margin: 0;
+        text-decoration: line-through;
+    }
+
+    .form {
+        width: 600px;
+        display: flex;
+
+        input {
+            background-color: #2C2D36;
+            border: 0;
+            margin-left: 10px;
+            padding: 10px 10;
+            font-size: 1.5rem;
+            width: 280px;
+            outline: 0;
+            color: white;
+            border-bottom: 2px solid purple; 
+
+            .placeholder {
+                text-align: right;
+            }
+        }
+
+    }
+}

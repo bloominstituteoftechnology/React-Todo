@@ -1,12 +1,23 @@
 import React from 'react';
+import './App.scss';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
 const todoListItems = [
   {
-    name: "blah",
+    name: "Finish React App",
     id: "123",
-    completed: "false",
+    completed: true,
+  },
+  {
+    name: "Style Todo List",
+    id: "124",
+    completed: true,
+  },
+  {
+    name: "Push to Git",
+    id: "125",
+    completed: false,
   },
 ]
 
@@ -51,7 +62,9 @@ class App extends React.Component {
         <div className="header">
           <h1>Todo List:</h1>
         </div>
-        <TodoList todoListItems={this.state.todoListItems} toggleComplete={this.toggleComplete} />
+        <div className="todo-list">
+          <TodoList todoListItems={this.state.todoListItems} toggleComplete={this.toggleComplete} />
+        </div>
         <div className="form">
           <TodoForm addItem={this.addItem} />
           <button onClick={this.removeCompleted}>Clear Completed</button>
