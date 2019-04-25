@@ -8,6 +8,10 @@
   list-style: none;
 }
 
+.jsx-Todo--completed {
+  text-decoration: line-through;
+}
+
 .jsx-TodoForm input {
   outline: solid 3px #BEDDFD;
 }
@@ -26,10 +30,6 @@
 
 .jsx-TodoForm button:active {
   background-color: #398ade;
-}
-
-.text-strikethrough {
-  text-decoration: line-through;
 }
 
 *::selection {

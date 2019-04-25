@@ -52,24 +52,27 @@ class App extends Component {
     event.target.elements.task.value = ''
   }
 
-  completedTask = (event) => {
-    event.preventDefault()
-    event.target.style.textDecoration = 'line-through'
+  toggleCompleted = id => {
+    this.setState(prevState => {
+      prevState.todo = prevState.todo.map(t => {
+        if (t.id === id) { t.completed = !t.completed }
+        return t
+      })
+
+      return prevState
+    })
   }
 
-  clearCompletedTasks = (event) => {
-    event.preventDefault()
-    console.log("Clear completed tasks")
+  clearCompletedTasks = () => {
+    this.setState(prevState => ({ todo: prevState.todo.filter(t => !t.completed) }))
   }
 
   render() {
     return (
       <div className="jsx-App">
         <h2>Todo List: MVP</h2>
-        <components.TodoList todo={this.state.todo} onClick={this.completedTask} />
-        <components.TodoForm
-          addTask={this.addTask}
-          clearCompletedTasks={this.clearCompletedTasks} />
+        <components.TodoList todo={this.state.todo} toggleCompleted={this.toggleCompleted} />
+        <components.TodoForm addTask={this.addTask} clearCompletedTasks={this.clearCompletedTasks} />
       </div>
     )
   }

@@ -9,7 +9,7 @@ const ReactDOM = require('react-dom')
 const App = require('./App')
 
 /**
- * Mount React App
+ * Mount component
  */
 
 ReactDOM.render(<App />, document.getElementById('root'))
