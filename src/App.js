@@ -38,7 +38,6 @@ class App extends Component {
   constructor() {
     super()
     this.state = { todo: initialState }
-    localStorage.setItem('todo', JSON.stringify(this.state.todo))
   }
 
   addTask = (task) => {
@@ -47,6 +46,7 @@ class App extends Component {
       id: new Date(),
       completed: false
     }]})
+    this.updateLocalStorage()
   }
 
   toggleCompleted = id => {
@@ -58,10 +58,16 @@ class App extends Component {
 
       return prevState
     })
+    this.updateLocalStorage()
   }
 
   clearCompletedTasks = () => {
     this.setState(prevState => ({ todo: prevState.todo.filter(t => !t.completed) }))
+    this.updateLocalStorage()
+  }
+
+  updateLocalStorage = () => {
+    localStorage.setItem('todo', JSON.stringify(this.state.todo))
   }
 
   loadStateWithLocalStorage = () => {
