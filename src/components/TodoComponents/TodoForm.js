@@ -3,7 +3,7 @@ import React from 'react';
 function TodoForms({inputText,handleChange,handleClear,addTask}) {
   return (
   <form>
-   <input placeholder="Add Todo" type="text" name="inputText"
+   <input className="form" placeholder="Add Todo" type="text" name="inputText"
    value={inputText} onChange={handleChange}/>
      <div>
      <button onClick={addTask}>Add Todo</button>

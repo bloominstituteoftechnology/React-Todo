@@ -15,15 +15,15 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
     handleChange = e => {
       this.setState({
-        [e.target.name]:e.target.value
-      })
+      [e.target.name]:e.target.value
+    })
     }
 
   handleClear = e => {
     e.preventDefault();
     this.setState({
       clearOnState: [...this.state.clearOnState, this.state.TodoList]
-    })
+  })
   }
 
    addTask = e => {
@@ -33,7 +33,7 @@ class App extends React.Component {
       id: new Date(),
       completed: false}],
       inputText: ''
-     })
+   })
    }
 
    clearComplete = () => {

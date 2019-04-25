@@ -1,4 +1,21 @@
 .toDoBackground {
-    background-color: pink;
-    border: 20px solid black;
+    border: 2px solid black;
+    height: 25px;
+    width: 400px;
+    font-size: 20px;
+}
+
+.form {
+    height: 200px;
+    width: 400px;
+    font-size: 50px;
+    text-align: center;
+    border: 2px solid black;
+}
+
+button {
+    height: 80px;
+    width: 203px;
+    font-size: 20px;
+    border: 2px solid black;
 }
