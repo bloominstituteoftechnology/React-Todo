@@ -55,7 +55,7 @@ class TodoForm extends React.Component {
                             onChange={this.props.handleInput}
                         />
                         <button type="submit"> Add Task </button>
-                        <button type="button" onClick={this.props.clearAll}> Clear All Items </button>
+                        <button type="button" onClick={this.props.clearCompleted}> Clear Completed Items </button>
                     </form>
 
                 </div>
@@ -65,4 +65,4 @@ class TodoForm extends React.Component {
     }
 }
 
-export default TodoList
+export default TodoForm

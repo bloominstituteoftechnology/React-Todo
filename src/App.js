@@ -1,7 +1,7 @@
 import React from 'react';
-import TodoForm from './components/TodoComponents/TodoList'
+import './App.css';
+import TodoForm from './components/TodoComponents/TodoForm'
 import Todo from './components/TodoComponents/Todo'
-// import TodoForm from './components/TodoComponents/TodoForm'
 
 class App extends React.Component {
   inputElement = React.createRef()  
@@ -13,14 +13,14 @@ class App extends React.Component {
     }
   }
 
-  // deleteItem = key => {
-  //   const filteredItems = this.state.listArray.filter(item => {
-  //     return item.key !== key
-  //   })
-  //   this.setState({
-  //     listArray: filteredItems,
-  //   })
-  // }
+  clearCompleted = e => {
+    e.preventDefault()
+    this.setState({
+      listArray: this.state.listArray.filter(current => {
+        return !current.completed
+      })
+    })
+  }
 
   completeItem = task => {
     const completedItems = this.state.listArray.map(item => {
@@ -55,14 +55,6 @@ class App extends React.Component {
       })
     }
   }
-
-  clearAll() {
-    const clearedList = {text: '', key: '', completed: ''}
-    this.setState({
-      listArray: clearedList,
-      currentItem: { text: '', key: '', completed: ''},
-    })
-  }
     
 
   render() {
@@ -73,7 +65,7 @@ class App extends React.Component {
           inputElement={this.inputElement} 
           handleInput={this.handleInput}
           currentItem = {this.state.currentItem} 
-          clearAll = {this.clearAll}
+          clearCompleted = {this.clearCompleted}
           />
         <Todo 
           entries={this.state.listArray} 
