@@ -1,5 +1,6 @@
 $break-medium: 860px;
 $break-small: 740px;
+$break-tiny: 500px;
 $body-bg: transparent;
 
 html {
@@ -60,7 +61,11 @@ html {
         @media screen and (max-width: $break-small){
             width:50%;
             margin-left: 25%;
-    }
+        }
+        @media screen and (max-width: $break-tiny){
+            width: 40%;
+            margin-left: 30%;
+        }
 }
 
     .item {
@@ -105,7 +110,11 @@ html {
             @media screen and (max-width: $break-small){
                 width: 50%;
                 margin-left: 25%;
-        }
+            }
+            @media screen and (max-width: $break-tiny){
+                width: 30%;
+                margin-left: 35%;
+            }
         }
 
     }
