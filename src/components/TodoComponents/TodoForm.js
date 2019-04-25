@@ -1,18 +1,42 @@
 import React from 'react';
 
-function TodoListForm(props) {
-    return (
-        <form onSubmit={props.onSubmit}>
-            <input type="text" 
-                value={props.taskItem}
-                placeholder="...todo"
-                onChange={props.onChange}
-                name="taskItem"
-                />
-            <button>Add Todo</button>
-            <button type="button">Clear Completed</button>
-        </form>
-    );
+class TodoListForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            input: ""
+        };
+    };
+
+    onUpdate = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+      };
+
+    handleSubmit = event => {
+        event.preventDefault();
+        this.props.addItem(this.state.input);
+        this.setState({ input: "" });
+    };
+
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <input 
+                    type="text" 
+                    name="input"
+                    id="new-item"
+                    placeholder="...todo"
+                    value={this.state.input}
+                    onChange={this.onUpdate}
+                    />
+                <button type="submit">Add Todo</button>
+            </form>
+        );
+    }
+    
 };
 
 export default TodoListForm;

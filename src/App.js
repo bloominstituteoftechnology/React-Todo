@@ -2,7 +2,13 @@ import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
-const todoListItems = []
+const todoListItems = [
+  {
+    name: "blah",
+    id: "123",
+    completed: "false",
+  },
+]
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -11,36 +17,45 @@ class App extends React.Component {
     constructor() {
       super();
       this.state = {
-          listItems: todoListItems,
-          taskInput: {
-            taskItem: "",
-            id: "",
-            completed: "",
-          }
+        todoListItems
       };
   }
 
-  handleChanges = event => {
+  addItem = item => {
     this.setState({
-        [event.target.name]: event.target.value
+      todoListItems: [
+        ...this.state.todoListItems, 
+        { name: item, completed: false, id: Date.now() }
+      ]
     });
   };
 
-  addListItem = event => {
-    event.preventDefault();
-    this.setState({
-      listItems: [...this.state.listItems, this.state.taskItem],
-      taskInput: {
-        taskItem: {}
-      }
+  toggleComplete = id => {
+    this.setState ({
+      todoListItems: this.state.todoListItems.map(item =>
+        item.id === id ? { ...item, completed: !item.completed } : item 
+      )
     });
   };
+
+  removeCompleted = () => {
+    this.setState({
+      todoListItems: this.state.todoListItems.filter(item => !item.completed)
+    });
+  };
+
 
   render() {
     return (
       <div className="app">
-        <TodoList listItems={this.state.listItems}/>
-        <TodoForm onChange={this.handleChanges} onSubmit={this.addListItem} taskItem={this.state.taskItem}/>
+        <div className="header">
+          <h1>Todo List:</h1>
+        </div>
+        <TodoList todoListItems={this.state.todoListItems} toggleComplete={this.toggleComplete} />
+        <div className="form">
+          <TodoForm addItem={this.addItem} />
+          <button onClick={this.removeCompleted}>Clear Completed</button>
+        </div>
       </div>
     );
   }
