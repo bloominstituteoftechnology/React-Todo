@@ -25,23 +25,35 @@ class App extends React.Component {
     super();
     this.state = {
       todos: todos,
-      todo: ''
-    }
+      task: "",
+      completed: false 
+    };
   }
 
-  handleChanges = evnt => {
-    this.setState({[evnt.target.name]: evnt.target.value});
+  handleChanges = event => {
+    this.setState({[event.target.name]: event.target.value});
   } 
 
+  addTodo = event => {
+    event.preventDefault();
+    
+      this.setState({
+      todos: [
+        ...this.state.todos,
+        {task: this.state.task, completed: false}
+     ],
+    task: ""
+    });
+  };
 
-
+  
 
   render() {
     return (
       <div>
         <h1>Day 1 Todo List MVP</h1>
         <TodoList todos={this.state.todos}/>
-        <TodoForm />
+        <TodoForm todo={this.addTodo} handleChange={this.handleChanges} taskField={this.state.task}/>
       </div>
     );
   }
