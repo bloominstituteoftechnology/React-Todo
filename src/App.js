@@ -13,12 +13,26 @@ class App extends React.Component {
     }
   }
 
-  deleteItem = key => {
-    const filteredItems = this.state.items.filter(item => {
-      return item.key !== key
+  // deleteItem = key => {
+  //   const filteredItems = this.state.listArray.filter(item => {
+  //     return item.key !== key
+  //   })
+  //   this.setState({
+  //     listArray: filteredItems,
+  //   })
+  // }
+
+  completeItem = task => {
+    const completedItems = this.state.listArray.map(item => {
+      if (item.key === task.key) {
+        return { 
+          ...task, 
+          completed: !task.completed
+        }
+      } else return item
     })
     this.setState({
-      listArray: filteredItems,
+      listArray: completedItems
     })
   }
 
@@ -63,7 +77,8 @@ class App extends React.Component {
           />
         <Todo 
           entries={this.state.listArray} 
-          deleteItem={this.deleteItem}
+          completeItem={this.completeItem}
+          
           />
       </div>
     )
@@ -71,6 +86,7 @@ class App extends React.Component {
 }
 
 export default App;
+
 
 /////////////////////////////////////////////////////
 // CODE FROM TUTORIAL
