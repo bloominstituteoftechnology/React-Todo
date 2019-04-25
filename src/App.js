@@ -7,8 +7,10 @@ class App extends React.Component {
  constructor() {
    super()
    this.state = {
-     tasks : [],
-     inputText: ''
+     tasks : [{}],
+     inputText: '',
+     completed: false,
+     id: Date.now()
    }
  }
   // design `App` to be the parent component of your application.
@@ -17,6 +19,21 @@ class App extends React.Component {
       this.setState({
       [e.target.name]:e.target.value
     })
+    }
+
+    lineThrough = id => {
+      this.setState({
+        tasks:this.state.tasks.map(task => {
+          if(task.id === id) {
+            return ({
+              ...task,completed: !task.completed
+            })
+          }
+          else {
+            return task
+          }
+        })
+      })
     }
 
   handleClear = e => {
@@ -30,23 +47,26 @@ class App extends React.Component {
      e.preventDefault()
      this.setState({
        tasks: [...this.state.tasks, {task: this.state.inputText,
-      id: new Date(),
+      id: Date.now(),
       completed: false}],
       inputText: ''
    })
    }
 
-   clearComplete = () => {
-
+   clearComplete = (e) => {
+    e.preventDefault();
+    this.setState({
+      tasks: this.state.tasks.filter(task => task.completed === false)
+    })
    };
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todo={this.state.tasks}></TodoList>
+        <TodoList todo={this.state.tasks} lineThrough={this.lineThrough}></TodoList>
         <TodoForm inputText={this.state.inputText} handleChange={this.handleChange}
-        clearComplete={this.handleChange} addTask={this.addTask}
+        clearComplete={this.clearComplete} addTask={this.addTask}
         />
       </div>
     );

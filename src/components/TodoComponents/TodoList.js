@@ -9,10 +9,10 @@ import './Todo.css';
 
 
 
-  const TodoList = (props) => {
+  const TodoList = ({lineThrough, todo}) => {
      return (
-             props.todo.map(i => {
-                 return <Todo task={i}></Todo>
+             todo.map(i => {
+                 return <Todo lineThrough={lineThrough} {...i}></Todo>
              })
           );
       

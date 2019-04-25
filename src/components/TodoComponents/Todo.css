@@ -1,9 +1,19 @@
-.toDoBackground {
+.list {
     border: 2px solid black;
+    border-radius: 2px;
     height: 25px;
     width: 400px;
     font-size: 20px;
+    border-radius: 8px;
 }
+
+.list.true {
+ text-decoration: line-through;
+}
+
+.list.false {
+    text-decoration: none;
+   }
 
 .form {
     height: 200px;
@@ -11,6 +21,7 @@
     font-size: 50px;
     text-align: center;
     border: 2px solid black;
+    border-radius: 8px;
 }
 
 button {
@@ -18,4 +29,5 @@ button {
     width: 203px;
     font-size: 20px;
     border: 2px solid black;
+    border-radius: 8px;
 }

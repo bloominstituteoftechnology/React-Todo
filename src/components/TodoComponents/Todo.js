@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Todo = props => {
+const Todo = ({id, completed, task, lineThrough}) => {
     return (
-        <div className="toDoBackground">
-            <li key={props.task.id}>{props.task.task}</li>
+        <div className={`list ${completed}`} onClick={()=> lineThrough(id)}>
+            <li>{task}</li>
         </div>
     )
 }
