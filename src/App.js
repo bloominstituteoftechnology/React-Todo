@@ -5,20 +5,11 @@ import TodoList from './components/TodoComponents/TodoList';
 
 const todoListItems = [
   {
-    name: "Finish React App",
-    id: "123",
-    completed: true,
-  },
-  {
-    name: "Style Todo List",
-    id: "124",
-    completed: true,
-  },
-  {
-    name: "Push to Git",
-    id: "125",
+    name: "",
+    id: "",
     completed: false,
   },
+ 
 ]
 
 class App extends React.Component {
