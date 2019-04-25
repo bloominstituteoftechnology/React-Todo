@@ -12,10 +12,16 @@ class TodoForm extends React.Component {
             [item]: value,
         })
     }
-    SubmitAdd = () => {
+    submitAdd = () => {
         this.props.addListItem(this.state)
         this.setState(this.initialState)
     }
+
+    submitClearAll = () => {
+        this.props.clearItems(this.state)
+        this.setState(this.initialState)
+    }
+
     render() {
         const {item} = this.state;
         return(
@@ -23,6 +29,7 @@ class TodoForm extends React.Component {
                 <label>New Item: </label>
                 <input type="text" value={item} />
                 <input type="button" value="Submit" onClick={this.submitAdd} />
+                <input type="button" value="Clear All Items" onClick={this.submitClearAll} />
             </form>
         )
     }

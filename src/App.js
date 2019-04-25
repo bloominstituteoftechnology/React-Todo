@@ -1,5 +1,6 @@
 import React from 'react';
-import Todo from './components/TodoComponents/Todo'
+import TodoList from './components/TodoComponents/TodoList'
+// import Todo from './components/TodoComponents/Todo'
 import TodoForm from './components/TodoComponents/TodoForm'
 
 class App extends React.Component {
@@ -14,13 +15,21 @@ class App extends React.Component {
     this.setState({ listArray: [...this.state.listArray, newItem] })
   }
 
+  clearAllItems() {
+    this.setState({
+      emptyArray: []
+    })
+  }
+
   render() {
     const {listArray} = this.state
     return (
-      <div>
-        <h1>Here's my to-do list</h1>
-        <Todo todoList={listArray} />
-        <TodoForm addListItem={this.addListItem}/>
+      <div className="todoListMain">
+        <div className="header">
+          <h1>Here's my to-do list</h1>
+          <TodoList todoList={listArray}>{listArray}</TodoList> 
+          <TodoForm addListItem={this.addListItem}/>
+        </div>
       </div>
      
     )
