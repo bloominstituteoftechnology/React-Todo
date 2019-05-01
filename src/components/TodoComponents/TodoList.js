@@ -2,6 +2,7 @@
 // feel free to change this component.js into TodoList.js
 
 import React from "react";
+import ToDo from './Todo'
 
 const TodoList = props => {
   return (
@@ -12,3 +13,5 @@ const TodoList = props => {
     </div>
   );
 };
+
+export default TodoList;
