@@ -1,88 +1,87 @@
 import React from 'react';
 
+
+// you will need a place to store your state in this component.
+// design `App` to be the parent component of your application.
+// this component is going to take care of state, and any change handlers you need to work with your state
+
+
+
+
+// task
+// ID
+// completed
+
+const tasks = [
+  {
+    Task: "Mixing",
+    ID: Date.now(),
+    Completed: false
+  }
+  //   {
+  //     Task: "Take out garbage",
+  //     ID: 2,
+  //     Completed: false
+  //   },
+  //   {
+  //     Task: "Wash Dishes",
+  //     ID: 3,
+  //     Completed: false
+  //   },
+];
+
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  constructor() {
+    super();
+    this.state = {
+
+      todolist: [{
+        Task: "Mixing",
+        ID: Date.now(),
+        Completed: false
+      }],
+      task: ""
+    }
+  }
+
+
+  changeHandler = (e) => {
+    this.setState({
+      Task: e.target.value
+    })
+  }
+
+  addTask = (e) => {
+    e.preventDefault();
+    const todolist = this.state.todolist.slice();
+    todolist.push({
+      task: this.state.task,
+      id: Date.now(),
+      completed: false
+    });
+
+    this.setState({
+      todolist: todolist,
+      task: ""
+    })
+  }
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h1>ToDo List</h1>
+        <TodoList
+          task={this.state.todolist}
+        />
+
+        <TodoForm
+          addTask={this.addTask}
+          changeHandler={this.ChangeHandler}
+          value={this.state.task}
+        />
       </div>
     );
   }
 }
 
 export default App;
-
-const tasks = [
-  {
-    Task: 'Compose Beats',
-    id: 01,
-    completed: false
-  },
-  {
-    Task: 'Mix',
-    id: 01,
-    completed: false
-  },
-  {
-    Task: 'Produce',
-    id: 01,
-    completed: false
-  },
-];
-
-
-
-class ToDo extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      TodoList: tasks,
-      Task: "",
-      ID: "",
-      Completed: ""
-
-    };
-  }
-
-  changeHandler = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
-  addTask = e => {
-    e.preventDefault();
-    this.setState({
-      TodoList: [
-        ...this.state.TodoList,
-        {
-          Task: this.state.Task,
-          ID: this.state.ID,
-          Completed: this.state.Copleted
-        }
-      ],
-      Task: "",
-      ID: "",
-      Completed: "",
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        <h1>ToDo List</h1>
-        <TaskList TodoList={this.state.TodoList} />
-        <TodoForm
-          addTask={this.addTask}
-          changeHandler={this.changeHandler}
-          Task={this.state.Task}
-          ID={this.state.ID}
-          Completed={this.state.Completed}
-        />
-      </div>
-    );
-  }
-}
