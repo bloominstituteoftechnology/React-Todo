@@ -19,7 +19,7 @@ const TodoForm = props => {
       <input
         name="completed"
         placeholder="false"
-        value={props.age}
+        value={props.completed}
         onChange={props.changeHandler}
       />
 

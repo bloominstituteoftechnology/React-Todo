@@ -30,7 +30,7 @@ class App extends React.Component {
 
   changeHandler = e => {
     this.setState({
-      [e.target.task]: e.target.value
+      [e.target.name]: e.target.value
     });
   };
 
