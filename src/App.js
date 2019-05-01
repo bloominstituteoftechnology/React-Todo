@@ -66,7 +66,7 @@ class App extends React.Component {
 
         <ul className="to-do-list">  {this.state.toDoListState.map( toDo => {
            return (
-            <ToDo 
+             <ToDo 
               toDo={toDo}       
               toggleComplete={this.toggleComplete} 
             />
