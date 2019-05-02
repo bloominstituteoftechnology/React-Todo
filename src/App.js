@@ -1,85 +1,75 @@
 import React from 'react';
-import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
-
-
-// you will need a place to store your state in this component.
-// design `App` to be the parent component of your application.
-// this component is going to take care of state, and any change handlers you need to work with your state
-
-
-
-
-// task
-// ID
-// completed
-
-const tasks = [
-  {
-    Task: "Mixing",
-    ID: Date.now(),
-    Completed: false
-  }
-  //   {
-  //     Task: "Take out garbage",
-  //     ID: 2,
-  //     Completed: false
-  //   },
-  //   {
-  //     Task: "Wash Dishes",
-  //     ID: 3,
-  //     Completed: false
-  //   },
-];
+import TodoForm from './components/TodoComponents/TodoForm';
+import "./Todo.css";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-
-      todolist: [{
-        Task: "Mixing",
-        ID: Date.now(),
-        Completed: false
-      }],
-      task: ""
-    }
+      todos: [
+        {
+          task: 'finish homework',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'do dishes',
+          id: 1528817084358,
+          completed: false
+        }
+      ],
+      todo: ''
+    };
   }
-
-
-  changeHandler = (e) => {
-    this.setState({
-      Task: e.target.value
-    })
-  }
-
-  addTask = (e) => {
+  // you will need a place to store your state in this component.
+  // design `App` to be the parent component of your application.
+  // this component is going to take care of state, and any change handlers you need to work with your state
+  addTodo = e => {
     e.preventDefault();
-    const todolist = this.state.todolist.slice();
-    todolist.push({
-      task: this.state.task,
-      id: Date.now(),
-      completed: false
-    });
-
+    const newTodo = { task: this.state.todo, completed: false, id: Date.now() };
     this.setState({
-      todolist: todolist,
-      task: ""
-    })
-  }
+      todos: [...this.state.todos, newTodo],
+      todo: ''
+    });
+  };
+
+  changeTodo = e => this.setState({ [e.target.name]: e.target.value });
+
+  toggleTodoComplete = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ todos });
+  };
+
+  clearCompletedTodos = e => {
+    e.preventDefault();
+    let todos = this.state.todos.filter(todo => !todo.completed);
+    this.setState({ todos });
+  };
 
   render() {
     return (
-      <div>
-        <h1>ToDo List</h1>
-        <TodoList
-          task={this.state.todolist}
-        />
-
+      <div className="App">
+        <div className="header">
+          <h1>Todo List : MVP</h1>
+          <TodoList
+            handleToggleComplete={this.toggleTodoComplete}
+            todos={this.state.todos}
+          />
+        </div>
         <TodoForm
-          addTask={this.addTask}
-          changeHandler={this.ChangeHandler}
-          value={this.state.task}
+          value={this.state.todo}
+          handleTodoChange={this.changeTodo}
+          handleAddTodo={this.addTodo}
+          handleClearTodos={this.clearCompletedTodos}
         />
       </div>
     );
