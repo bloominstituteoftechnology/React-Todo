@@ -36,6 +36,8 @@ span {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  display: flex;
+  
 }
 h1 {
   text-align: left;
@@ -47,13 +49,13 @@ h1 {
   justify-content: space-between;
   width: 100%;
   margin: 0 auto;
-}
-.item {
+} 
+ .item {
   background-color: dodgerblue;
   width: 45%;
   text-align: left;
   margin: 4px 0;
-  padding-left: 8px;
+  padding: 6px 8px;
 }
 
 .item.purchased {
@@ -61,7 +63,7 @@ h1 {
   text-decoration: line-through;
 }
 form {
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
 }
@@ -79,10 +81,11 @@ form > input {
 
 button {
   background-color: dodgerblue;
-  border: 1px solid dodgerblue;
+  border: 1px solid blue;
   color: white;
-  font-size: 16px;
+  font-size: 12px;
   padding: 6px 14px;
+  width: 150px;
 }
 
 input::placeholder {
