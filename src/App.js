@@ -10,27 +10,27 @@ import TodoList from './components/TodoComponents/TodoList';
 
 
 
-// // task
-// // ID
-// // completed
+// task
+// ID
+// completed
 
-// const tasks = [
-//   {
-//     Task: "Mixing",
-//     ID: Date.now(),
-//     Completed: false
-//   }
-//   //   {
-//   //     Task: "Take out garbage",
-//   //     ID: 2,
-//   //     Completed: false
-//   //   },
-//   //   {
-//   //     Task: "Wash Dishes",
-//   //     ID: 3,
-//   //     Completed: false
-//   //   },
-// ];
+const tasks = [
+  {
+    Task: "Mixing",
+    ID: Date.now(),
+    Completed: false
+  }
+  //   {
+  //     Task: "Take out garbage",
+  //     ID: 2,
+  //     Completed: false
+  //   },
+  //   {
+  //     Task: "Wash Dishes",
+  //     ID: 3,
+  //     Completed: false
+  //   },
+];
 
 class App extends React.Component {
   constructor() {
