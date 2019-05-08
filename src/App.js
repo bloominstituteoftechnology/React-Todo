@@ -8,16 +8,18 @@ class App extends React.Component {
   constructor(){
     super();
     this.state={
-      task: `Clean kitchen`
+      task: `${props.task}`
     }
-  }
 
+  }
+  completeTask = event => {
+    this.setState({task: event.target.value.strike()})
+  }
   render() {
     return (
       <div>
-      <h1>{this.state.task}</h1>
 
-      <Form />
+      <Form task={this.state.task} updateTask={this.updateTask}/>
       </div>
     );
   }
