@@ -1,5 +1,5 @@
 {
-  "name": "update-proj",
+  "name": "lambda-todo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
