@@ -1,0 +1,74 @@
+h1 {
+    padding: 1px 50px;
+    margin: 20px 0;
+}
+
+.header {
+    margin: 0 0 50px 0;
+    border: 5px solid black;
+    border-radius: 50px;
+    background: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: 36px;
+}
+
+input {
+    border: 1px solid white;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    font-size: 20px;
+}
+
+button {
+    background: white;
+    border: 1px solid white;
+    border-bottom: 1px solid black;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.clear {
+}
+
+.taskAdder {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+}
+.todoForm {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.todoList {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    margin-left: 10px;
+}
+
+.task {
+    padding: 0 20px;
+    background: white;
+    border: 1px solid red;
+    color: black;
+    margin: 25px;
+    text-align: center;
+}
+
+p {
+    font-size: 16px;
+    color: black;
+    border-bottom: 1px solid black;
+}
