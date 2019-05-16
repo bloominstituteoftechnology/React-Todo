@@ -30,7 +30,7 @@ class TodoForm extends React.Component {
                 onChange={this.changeTodo}
                 placeholder={'...type Task to Track'}
                 />
-                <button>
+                <button className='track-btn'>
                     Track
                 </button>
             </form>

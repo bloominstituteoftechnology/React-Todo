@@ -12,34 +12,59 @@
 }
 
 .header {
-    flex-flow: nowrap;
-    margin: 1% auto;
-    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin: 5% auto;
 }
 
 h1 {
-    flex-flow: nowrap;
-    margin: 1% auto;
+    display: flex;
+    flex-direction: column;
+    margin: 5% auto;
+}
+
+input {
+    display: flex;
+    flex-direction: column;
+    margin: 5% auto;
+    width: -webkit-fill-available;
+    align-items: center;
+    font-family: inherit;
+}
+
+.track-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 700;
+    padding: 1%;
+    width: 100%;
+    background-color: dodgerblue;
+    color: white;
+    margin: 10% auto;
 }
 
 .app-info {
     display: flex;
     flex-direction: column;
-    margin: 1% auto;
+    margin: auto;
 }
 
 .app-credit {
     display: flex;
     flex-direction: column;
-    margin: 2% auto;
+    margin: auto;
 }
 
 .task-list {
     display: flex;
     flex-direction: column;
-    margin: 2% auto;
+    margin: 5% auto;
     padding: 2%;
-    width: auto;
+    width: 50%;
+    
 }
 
 .todo {
@@ -48,11 +73,8 @@ h1 {
     margin: 1% auto;
     width: 100%;
     align-items: center;
-    -webkit-text-stroke-color: orangered;
-    -webkit-text-stroke-width: thin;
     font-weight: 800;
     font-size: 1.2rem;
-    letter-spacing: 0.08rem;
 }
 
 .clear-btn {
@@ -65,11 +87,15 @@ h1 {
     padding: 1%;
     background-color: dodgerblue;
     color: white;
+    margin: 5% auto;
 }
 
 p {
     display: flex;
     flex-direction: column;
+    padding: 1%;
+    margin: 1% auto;
+    width: 100%;
 }
 
 .todo.completed {
