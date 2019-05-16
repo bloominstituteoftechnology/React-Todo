@@ -72,7 +72,7 @@ class App extends React.Component {
         <TodoForm addTodo={this.addTodo} />
         </div>
         <section className='app-info'>
-          <p>Track your tasks on the go with TaskTrack.</p>
+          <p>Track your tasks faster with TaskTrack.</p>
         </section>
         <TodoList 
           todos={this.state.todos}
@@ -80,7 +80,7 @@ class App extends React.Component {
           clearCompleted={this.clearCompleted}
         />
         <section className='app-credit'>
-          <p>Follow me on Github @myke47</p>
+          <p>Github: @myke47</p>
         </section>
         <footer>
         <p>Created in React App</p>
