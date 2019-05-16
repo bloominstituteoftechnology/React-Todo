@@ -1,0 +1,84 @@
+
+
+.App {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: black;
+    color: white;
+    margin: 1% auto;
+    max-width: 1000px;
+    font-family:    Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header {
+    flex-flow: nowrap;
+    margin: 1% auto;
+    padding: 5%;
+}
+
+h1 {
+    flex-flow: nowrap;
+    margin: 1% auto;
+}
+
+.app-info {
+    display: flex;
+    flex-direction: column;
+    margin: 1% auto;
+}
+
+.app-credit {
+    display: flex;
+    flex-direction: column;
+    margin: 2% auto;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    margin: 2% auto;
+    padding: 2%;
+    width: auto;
+}
+
+.todo {
+    display: flex;
+    background-color: coral;
+    margin: 1% auto;
+    width: 100%;
+    align-items: center;
+    -webkit-text-stroke-color: orangered;
+    -webkit-text-stroke-width: thin;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 0.08rem;
+}
+
+.clear-btn {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 700;
+    padding: 1%;
+    background-color: dodgerblue;
+    color: white;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo.completed {
+    background-color: '';
+    text-decoration: line-through;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    margin: 2% auto;
+}
