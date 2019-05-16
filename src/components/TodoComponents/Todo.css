@@ -9,6 +9,7 @@
     margin: 1% auto;
     max-width: 1000px;
     font-family:    Verdana, Geneva, Tahoma, sans-serif;
+    height: -webkit-fill-available;
 }
 
 .header {
