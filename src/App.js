@@ -1,45 +1,71 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
-import { timingSafeEqual } from 'crypto';
+
+const todoData = [
+
+];
 
 class App extends React.Component {
   constructor () {
     super ();
-    this.state = [
-      {
-        task: "Organize Garage",
-        id: 1528817077286,
-        completed: false
-      },
-      {
-        task: "Bake Cookies",
-        id: 1528817084358,
-        completed: false
-      }
-    ];
+    this.state = {
+      todos: todoData,
+      inputText : ""
+    };
+  
+    }
+  
+  handleChange= event => {
+    this.setState({inputText:event.target.value})
   }
-  addToDo = (event) => {
+
+  handleClick = event => {
     event.preventDefault()
-    console.log('addToDo')
+
+    const newToDo = {
+      task: this.state.inputText,
+      id: Date.now(),
+      completed: false
+    };
+    this.setState({
+      todos: [...this.state.todos, newToDo],
+      inputText: ""
+    });
   }
   
-  clearComplete = (event) => {
+  clearComplete = event => {
     event.preventDefault()
-    console.log('complete')
-  }
-
-
+    let todos = this.state.todos.filter(todo=> !todo.completed);
+    this.setState({todos});
+  };
+  
+  toggleComplete = id => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ todos });
+  };
+  
+  
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
       <div>
-        <TodoForm task = {this.state[0].task}
-        addToDo = {this.addToDo} 
+        <TodoForm handleChange={this.handleChange}
+        inputText = {this.state.inputText}
+        handleClick = {this.handleClick} 
         clearComplete= {this.clearComplete}/>
-        <TodoList/>
+        <TodoList todoItems = {this.state.todos}
+        toggle={this.toggleComplete}/>
       </div>
     );
   }

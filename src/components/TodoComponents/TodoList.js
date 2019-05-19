@@ -6,9 +6,13 @@ import Todo from './Todo'
 
 const TodoList = props => {
     return (
-     <div>
-         <Todo/>
-    </div>
+        <React.Fragment>
+        {props.todoItems.map(todoItem => {
+   return  <Todo key ={todoItem.id} todoInfo= {todoItem}
+   toggle = {props.toggle}
+   />
+        })}
+   </React.Fragment>
     );
 };
 
