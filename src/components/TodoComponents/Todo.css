@@ -1,0 +1,8 @@
+.finished-task {
+    text-decoration: line-through;
+}
+.todo {
+    border: 1.5px solid black;
+    width: 100%;
+    margin-top: 2%;
+}
