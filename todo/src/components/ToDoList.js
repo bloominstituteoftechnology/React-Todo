@@ -12,20 +12,22 @@ const ToDoList = props => {
         )
     }
     else {
-        console.log(props.toDoList)
         return(
             <div>
                 {props.toDoList.map(task => {
                     return (
                         <ToDo 
-                            key={task + props.complete}
+                            key={task.id}
+                            id={task.id}
                             handleToggle={props.handleToggle}
                             todo = {task}
                             complete = {props.complete}
+                            handleDelete = {props.handleDelete}
                             />
 
                     )
                 })}
+                <button onClick={props.handleComplete}>Clear Completed</button>
             </div>
         )
     }

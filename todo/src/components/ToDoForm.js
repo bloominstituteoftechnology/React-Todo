@@ -2,7 +2,6 @@ import React from 'react';
 import '../index.css';
 
 const ToDoForm = props => {
-    console.log(props, "form");
     return (
         <form>
             <input 

@@ -14,22 +14,39 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    this.setState({toDoList: ['Laundry']});
-    console.log(this.state)
+    this.setState({toDoList: [{ todo: 'Laundry', complete: false, id: Date.now()}]});
   }
 
   handleChange = (event) => {
     this.setState({todo: event.target.value});
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.setState({todoList: this.state.toDoList.push(this.state.todo)});
-    this.setState({todo: ''});
+  handleComplete =() => {
+    const filtered = this.state.toDoList.filter(todo => {
+      return todo.complete === false;
+    })
+    this.setState({toDoList: filtered});
   }
 
-  handleToggle = () => {
-    this.setState({complete: !this.state.complete});
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const newToDo = {todo: this.state.todo, complete: false, id: Date.now()}
+    this.setState({toDoList: [...this.state.toDoList, newToDo], 
+      todo: '' });
+  }
+
+
+  handleToggle = (id) => {
+    let todos = this.state.toDoList.slice();
+    todos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.complete = !todo.complete;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({ toDoList: todos });
   }
 
   render(){
@@ -44,7 +61,8 @@ class App extends React.Component {
           handleToggle={this.handleToggle}
           complete={this.state.complete}
           toDoList = {this.state.toDoList}
-          todo={this.state.todo}
+          handleComplete={this.handleComplete}
+          handleDelete={this.handleDelete}
         />
       </div>
       

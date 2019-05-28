@@ -4,9 +4,12 @@ import '../index.css';
 
 
 const ToDo = (props) => {
-    console.log(props, "Todo Props");
     return (
-        <div className={props.complete  ? "text-done": ""} onClick={props.handleToggle}>{props.todo}</div>
+        <div className={props.todo.complete  ? "text-done": ""} onClick={()=> props.handleToggle(props.id)}>
+            <div>
+                {props.todo.todo} <span><button onClick={() => props.handleDelete(props.id)}>Delete</button></span>
+            </div>
+        </div>
     )
 }
 
