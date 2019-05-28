@@ -1,17 +1,95 @@
 body {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('./todobg.jpg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.header-container {
+  padding: 20px;
+  text-align: center;
+  background: silver;
+}
+form {
+  margin-top: 20px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  width: 75%;
 }
 
+form input {
+  width: 50%;
+  padding-left: 20px;
+  margin-right: 20px;
+  border-radius: 4px;
+}
+
+form button {
+  background: darkblue;
+  color: whitesmoke;
+  border-radius: 4px;
+  width: 20%;
+}
+
+.todo-list {
+  align-self: center;
+  margin-top: 20px;
+  width: 75%;
+}
 .text-done {
   text-decoration: line-through;
+}
+.text-done:before {
+  content: "\f14a"; /* FontAwesome Unicode */
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: -1.3rem; /* same as padding-left set on li */
+  width: 1.3rem; /* same as padding-left set on li */
+}
+
+ul {
+  list-style: none;
+  padding: 10px;
+}
+
+li {
+  padding-left: 1.3rem;
+  display: flex;
+  line-height: 2;
+}
+
+.list-item:before {
+  content: "\f0c8"; /* FontAwesome Unicode */
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: -1.3rem; /* same as padding-left set on li */
+  width: 1.3rem; /* same as padding-left set on li */
+}
+
+.todo-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  padding: 20px;
+  width: 75%;
+}
+.clear-complete {
+  align-self: center;
+  background: darkblue;
+  color: whitesmoke;
+  width: 20%;
+  height: 30px;
 }

@@ -9,6 +9,7 @@ const ToDoForm = props => {
                 placeholder="Enter todo..."
                 name="todo"
                 value={props.todo}
+                required
             />
             <button onClick={props.handleSubmit}>Submit</button>
         </form>

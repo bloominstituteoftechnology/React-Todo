@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import ToDoList from './components/ToDoList';
 import ToDoForm from './components/ToDoForm';
+import Header from './components/Header';
 
 class App extends React.Component {
   constructor(props){
@@ -30,6 +31,10 @@ class App extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    if(this.state.todo === "") {
+      alert("must enter something in input field!");
+      return;
+    }
     const newToDo = {todo: this.state.todo, complete: false, id: Date.now()}
     this.setState({toDoList: [...this.state.toDoList, newToDo], 
       todo: '' });
@@ -51,7 +56,8 @@ class App extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className="container">
+        <Header />
         <ToDoForm 
           todo={this.state.todo}
           handleChange = {this.handleChange}
@@ -62,7 +68,6 @@ class App extends React.Component {
           complete={this.state.complete}
           toDoList = {this.state.toDoList}
           handleComplete={this.handleComplete}
-          handleDelete={this.handleDelete}
         />
       </div>
       
