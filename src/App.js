@@ -35,7 +35,7 @@ class App extends React.Component {
           className="input"
           value={this.state.newTodo}
           onChange={this.changeHandler}
-          onEnter={this.addTodo}
+          onKeyDown={this.addTodoEnter}
           type="text"
         />
         <button className="btn" onClick={this.addTodo}>
@@ -45,9 +45,9 @@ class App extends React.Component {
     );
   }
 
-  crossOut = event => {
+  /*   crossOut = event => {
     this.setState;
-  };
+  }; */
 
   changeHandler = event => {
     this.setState({ newTodo: event.target.value });
@@ -61,6 +61,18 @@ class App extends React.Component {
     };
     this.setState({ todoList: this.state.todoList.concat(newTodo) });
     this.state.newTodo = "";
+  };
+
+  addTodoEnter = (event) => {
+    if (event.keyCode === 13) {
+      const newTodo = {
+        task: this.state.newTodo,
+        id: Date.now(),
+        completed: false
+      };
+      this.setState({ todoList: this.state.todoList.concat(newTodo) });
+      this.state.newTodo = "";
+    }
   };
 }
 
