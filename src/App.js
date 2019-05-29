@@ -58,7 +58,7 @@ class App extends React.Component {
     return (
       <div>
         <TodoList todoList={this.state.todos} completeTask={this.completeTask}/>
-        <TodoForm value={this.state.todoInput} inputEvent={this.onInputChange} addTodo={this.addTodo}/>
+        <TodoForm value={this.state.todoInput} inputEvent={this.onInputChange} addTodo={this.addTodo} clearCompleted={this.clearCompleted}/>
       </div>
     );
   }
