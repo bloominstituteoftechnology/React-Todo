@@ -1,6 +1,4 @@
 import React from 'react';
-import { placeholder } from '@babel/types';
-import { defaultCipherList } from 'constants';
 
 class TodoForm extends React.Component {
     render() {
@@ -9,6 +7,8 @@ class TodoForm extends React.Component {
                 <input
                     type='text'
                     placeholder="...todo"
+                    value={this.props.value}
+                    onChange={this.props.inputEvent}
                 />
                 <button>Add Todo</button>
                 <button>Clear Completed</button>
