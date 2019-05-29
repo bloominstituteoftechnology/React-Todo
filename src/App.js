@@ -9,45 +9,48 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      todos: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ],
+      todos: [],
       taskTitle: ''
     }
   }
 
+  async componentDidMount() {
+    const todos = await localStorage.getItem('todos');
+    const todoData = JSON.parse(todos);
+    this.setState({
+      todos: todoData || []
+    })
+  }
+
   handleChnage = (event)=>{
-    // debugger
     this.setState({
       taskTitle: event.target.value,
     })
   }
 
-  updateList = (e) => {
+  updateList = async (e) => {
     e.preventDefault();
     const newTask = {
-      id: Date.now(),
       task: this.state.taskTitle,
+      id: Date.now(),
       completed: false,
     };
-    this.setState({
-      todos: [...this.state.todos, newTask],
-    })
+    if(this.state.todos.length === 0) {
+      await this.setState({
+  todos: [newTask]
+})
+    } else {
+      await this.setState({
+        todos: [...this.state.todos, newTask]
+      })
+    }
+    await localStorage.setItem('todos', JSON.stringify(this.state.todos));
   }
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList list={this.state.todos}/>
+        {this.state.todos ? <TodoList list={this.state.todos}/>:<p>No data available</p> }
         <TodoForm
         value={this.state.taskTitle}
         handleChange = {this.handleChnage}
