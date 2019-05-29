@@ -3,10 +3,10 @@
 import React from "react";
 import Todo from "./Todo";
 const todoList = props => {
-  const output = props.todoData.map(element => (
+//   
+  return <>{props.todoData.map(element => (
     <Todo key={element.id} task={element.task} />
-  ));
-  return <>{output}</>;
+  ))}</>;
 };
 
 export default todoList;

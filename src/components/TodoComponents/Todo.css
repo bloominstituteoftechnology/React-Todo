@@ -10,4 +10,5 @@ Button:hover{
 }
 input{
     font-size: 16px;
+    outline: whitesmoke;
 }

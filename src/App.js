@@ -8,23 +8,24 @@ class App extends React.Component {
     super(props);
     this.state = {
       store: [],
-      data: ""
+      data: "",
+      search: []
     };
   }
   componentDidMount() {
-    // let me = [
-    //   {
-    //     task: "Organize Garage",
-    //     id: 1528817077286,
-    //     completed: false
-    //   },
-    //   {
-    //     task: "Bake Cookies",
-    //     id: 1528817084358,
-    //     completed: false
-    //   }
-    // ];
-    // localStorage.setItem("myCat", JSON.stringify(me));
+    let me = [
+      {
+        task: "Organize Garage",
+        id: 1528817077286,
+        completed: false
+      },
+      {
+        task: "Bake Cookies",
+        id: 1528817084358,
+        completed: false
+      }
+    ];
+    localStorage.setItem("myCat", JSON.stringify(me));
     let mee = localStorage.getItem("myCat");
     let josh = JSON.parse(mee);
     this.setState({ store: josh });
@@ -35,6 +36,7 @@ class App extends React.Component {
     newState.data = event.target.value;
     this.setState(newState);
   };
+
   onSubmitHandler = event => {
     event.preventDefault();
     let store = [...this.state.store];
@@ -43,6 +45,21 @@ class App extends React.Component {
     this.setState({ store: store, data: "" });
     localStorage.setItem("myCat", JSON.stringify(store));
   };
+
+  onSearchHandler = event => {
+    if (event.target.value.trim().length > 1) {
+      this.setState({ search: [] });
+    }
+    let index = event.target.value.toLowerCase();
+    let newState = [...this.state.store];
+    let filteredStore = newState.filter(
+      element => element.task.toLowerCase().indexOf(index) > -1
+    );
+    this.setState({ search: filteredStore });
+  };
+  onFocusHandler =()=>{
+      this.setState({ search: [] });
+  }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -55,7 +72,10 @@ class App extends React.Component {
           change={this.onChangeHandler}
           submit={this.onSubmitHandler}
           value={this.state.data}
+          search={this.onSearchHandler}
+          outOfFocus={this.onFocusHandler}
         />
+        <TodoList todoData={this.state.search} />
       </div>
     );
   }
