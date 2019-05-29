@@ -1,0 +1,12 @@
+Button{
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+Button:hover{
+    background: lightblue;
+}
+input{
+    font-size: 16px;
+}

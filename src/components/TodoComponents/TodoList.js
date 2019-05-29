@@ -6,7 +6,7 @@ const todoList = props => {
   const output = props.todoData.map(element => (
     <Todo key={element.id} task={element.task} />
   ));
-  return <div>{output}</div>;
+  return <>{output}</>;
 };
 
 export default todoList;
