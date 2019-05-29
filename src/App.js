@@ -33,6 +33,7 @@ class App extends React.Component {
         completed: false,
       })
     })
+    this.setState({todoInput: ""});
   }
 
   completeTask = (e) => {
@@ -55,7 +56,11 @@ class App extends React.Component {
   }
 
   inputKeyPress = (e) => {
-    
+    var keycode = (e.keyCode ? e.keyCode : e.which);
+    if (keycode === 13){
+      this.addTodo();
+    }
+
   }
   
   render() {
