@@ -49,7 +49,7 @@ class App extends React.Component {
     this.setState;
   }; */
 
-  changeHandler = event => {
+  changeHandler = (event) => {
     this.setState({ newTodo: event.target.value });
   };
 
@@ -60,10 +60,10 @@ class App extends React.Component {
       completed: false
     };
     this.setState({ todoList: this.state.todoList.concat(newTodo) });
-    this.state.newTodo = "";
+    this.setState({ newTodo: "" });
   };
 
-  addTodoEnter = (event) => {
+  addTodoEnter = event => {
     if (event.keyCode === 13) {
       const newTodo = {
         task: this.state.newTodo,
@@ -71,7 +71,7 @@ class App extends React.Component {
         completed: false
       };
       this.setState({ todoList: this.state.todoList.concat(newTodo) });
-      this.state.newTodo = "";
+      this.setState({ newTodo: "" });
     }
   };
 }
