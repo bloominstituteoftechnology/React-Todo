@@ -32,7 +32,8 @@ class App extends React.Component {
     })
   }
 
-  updateList = () => {
+  updateList = (e) => {
+    e.preventDefault();
     const newTask = {
       id: Date.now(),
       task: this.state.taskTitle,
@@ -41,7 +42,6 @@ class App extends React.Component {
     this.setState({
       todos: [...this.state.todos, newTask],
     })
-    console.log("====Yest", this.state)
   }
   render() {
     return (
