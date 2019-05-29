@@ -1,18 +1,18 @@
 import React from 'react';
 
-const TodoForm = ({newTask, handleChange, submitForm}) => {
+const TodoForm = ({taskTitle, handleChange, updateList}) => {
 return (
     <form>
         <h4>Input Todos</h4>
         <input
         type='text'
-        value={newTask}
-        // onChange={handleChange}
+        value={taskTitle}
+        onChange={handleChange}
         />
         <input
         type="button"
         value="Submit"
-        // onClick={submitForm}
+        onClick={updateList}
          />
     </form>
 )

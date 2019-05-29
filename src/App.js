@@ -21,15 +21,38 @@ class App extends React.Component {
           completed: false
         }
       ],
-      newTask: ''
+      taskTitle: ''
     }
+  }
+
+  handleChnage = (event)=>{
+    // debugger
+    this.setState({
+      taskTitle: event.target.value,
+    })
+  }
+
+  updateList = () => {
+    const newTask = {
+      id: Date.now(),
+      task: this.state.taskTitle,
+      completed: false,
+    };
+    this.setState({
+      todos: [...this.state.todos, newTask],
+    })
+    console.log("====Yest", this.state)
   }
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList list={this.state.todos}/>
-        <TodoForm />
+        <TodoForm
+        value={this.state.taskTitle}
+        handleChange = {this.handleChnage}
+        updateList = {this.updateList}
+        />
       </div>
     );
   }

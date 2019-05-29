@@ -5,8 +5,10 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = ({list}) => {
-        const data = list.map((todo)=>{
-        return (<Todo item={todo}/>)
+        const data = list.map((todo, index)=>{
+        return (
+            <Todo key={index} item={todo}/>
+        )
         })
         return <div>{data}</div>
 }
