@@ -7,7 +7,7 @@ const TodoForm = props => {
         type="text"
         name="todo"
         placeholder="enter task"
-        onChange={props.handleInputChange}
+        onChange={props.todoChange}
         />
         <button>Add Todo</button>
         <button>Clear Completed</button>

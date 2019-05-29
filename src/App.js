@@ -36,15 +36,20 @@ class App extends React.Component {
     });
   };
 
-  handleInputChange = event => {
+  todoChange = event => {
     this.setState({todo: event.target.value});
+  }
+
+  clearCompletedTask = event => {
+    event.preventDefault();
+    let clearTask = "clear task stuff";
   }
 
 
   render() {
     return (
       <div>
-        <TodoList />
+        <TodoList todos={this.state.todos} />
         <TodoForm />
       </div>
     );
