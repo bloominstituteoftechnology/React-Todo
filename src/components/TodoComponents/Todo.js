@@ -8,7 +8,7 @@ class Todo extends React.Component {
             textDecoration: "initial"
         }
         return (
-            <p style={style}>
+            <p style={style} id={this.props.id}>
                 {this.props.task}
             </p>
         )
