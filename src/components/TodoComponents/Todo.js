@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const todo = (props) => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+const todo = props => {
+  return (
+    <>
+      <li>{props.task}</li>
+    </>
+  );
+};
 
-export default todo
+export default todo;
