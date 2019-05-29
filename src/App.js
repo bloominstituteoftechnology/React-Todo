@@ -60,12 +60,20 @@ class App extends React.Component {
   };
 
   render() {
-    const { todoDisplayData, task, query } = this.state;
+    const { todoDisplayData, todoData, task, query } = this.state;
+    const displayTasksCount = todoDisplayData.length;
+    const todoTasksCount = todoData.length;
     return (
       <div>
         <h2>Welcome to My Todo App!</h2>
 
         <Search query={query} handleSearchInput={this.handleSearchInput} />
+
+        {todoTasksCount === 0 && <p>You have not yet added any tasks</p>}
+        {displayTasksCount === 0 && query.length > 0 && (
+          <p>No matching tasks were found</p>
+        )}
+
         <TodoList todoData={todoDisplayData} />
         <TodoForm
           task={task}
