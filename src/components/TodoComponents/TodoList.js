@@ -1,2 +1,9 @@
-// your components will all go in this `component` directory.
-// feel free to change this component.js into TodoList.js
+// Data array of todo's
+
+export const data = [
+    {
+        task: 'Make ToDo App',
+        id: 0001,
+        completed: false // very false
+    }
+]
