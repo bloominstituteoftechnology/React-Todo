@@ -8,6 +8,7 @@ export default () => (
     />
     <input
       type='submit'
+      value='Add Todo'
     />
     <button>Clear Completed</button>
   </form>
