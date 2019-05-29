@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css";
 
 const todoList = [
   /* {
@@ -27,20 +28,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="todoListComplete">
         {this.state.todoList.map(todo => (
           <div onClick={this.crossOut}>{todo.task}</div>
         ))}
         <input
-          className="input"
           value={this.state.newTodo}
           onChange={this.changeHandler}
           onKeyDown={this.addTodoEnter}
           type="text"
         />
-        <button className="btn" onClick={this.addTodo}>
-          Add ToDo
-        </button>
+        <button onClick={this.addTodo}>Add ToDo</button>
       </div>
     );
   }
@@ -49,7 +47,7 @@ class App extends React.Component {
     this.setState;
   }; */
 
-  changeHandler = (event) => {
+  changeHandler = event => {
     this.setState({ newTodo: event.target.value });
   };
 
