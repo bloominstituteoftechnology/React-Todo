@@ -35,7 +35,7 @@ class App extends React.Component {
     let newEntry = { task: this.state.data, id: Date.now(), completed: false };
     store = store.concat([newEntry]);
     this.setState({ store: store });
-    console.dir(event);
+    this.setState({ data: '' });
   };
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -45,7 +45,7 @@ class App extends React.Component {
       <div className='App'>
          <h1>TODO APP</h1>
         <TodoList todoData={this.state.store} />
-        <TodoForm change={this.onChangeHandler} submit={this.onSubmitHandler} />
+        <TodoForm change={this.onChangeHandler} submit={this.onSubmitHandler} value={this.state.data}/>
       </div>
     );
   }

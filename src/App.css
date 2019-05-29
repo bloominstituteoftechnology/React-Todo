@@ -5,3 +5,10 @@
     background: grey;
     padding: 20px;
 }
+li{
+    list-style: none;
+    line-height: 20px;
+}
+h1{
+    color: whitesmoke;
+}
