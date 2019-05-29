@@ -14,7 +14,17 @@ class App extends React.Component {
       task: ""
     };
   }
-  handleAddTodo = event => {
+  async componentDidMount() {
+    const data = await localStorage.getItem("todoData");
+    const todoData = JSON.parse(data);
+
+    this.setState({
+      ...this.state,
+      todoData: todoData || []
+    });
+  }
+
+  handleAddTodo = async event => {
     event.preventDefault();
     const { task } = this.state;
     const newTask = {
@@ -22,15 +32,17 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     };
-    this.setState(prevState => ({
+    await this.setState(prevState => ({
       todoData: [...prevState.todoData, newTask],
       task: ""
     }));
+    await localStorage.setItem("todoData", JSON.stringify(this.state.todoData));
   };
 
   handleTaskChange = event => {
     this.setState({ ...this.state, task: event.target.value });
   };
+
   render() {
     const { todoData, task } = this.state;
     return (
