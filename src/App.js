@@ -21,10 +21,12 @@ class App extends React.Component {
           completed: false
         }
       ],
+      task: ""
     }
   }
 
   addNewTask = event => {
+    console.log("clicked");
     event.preventDefault();
     const newTask = {
       task: this.state.task,
@@ -37,7 +39,7 @@ class App extends React.Component {
   };
 
   todoChange = event => {
-    this.setState({todo: event.target.value});
+    this.setState({task: event.target.value});
   }
 
   clearTask = event => {
@@ -45,13 +47,15 @@ class App extends React.Component {
     let clearTask = "clear task stuff";
   }
 
-
   render() {
     return (
       <div>
         <TodoList todos={this.state.todos} />
         <TodoForm
-        value={this.state.todo} />
+        addNewTask={this.addNewTask}
+        task={this.state.task}
+        todoChange={this.todoChange}
+        />
       </div>
     );
   }
