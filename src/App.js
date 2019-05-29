@@ -1,6 +1,7 @@
 import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import Search from "./components/TodoComponents/Search";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -11,7 +12,9 @@ class App extends React.Component {
 
     this.state = {
       todoData: [],
-      task: ""
+      todoDisplayData: [],
+      task: "",
+      query: ""
     };
   }
   async componentDidMount() {
@@ -20,6 +23,7 @@ class App extends React.Component {
 
     this.setState({
       ...this.state,
+      todoDisplayData: todoData || [],
       todoData: todoData || []
     });
   }
@@ -34,6 +38,7 @@ class App extends React.Component {
     };
     await this.setState(prevState => ({
       todoData: [...prevState.todoData, newTask],
+      todoDisplayData: [...prevState.todoDisplayData, newTask],
       task: ""
     }));
     await localStorage.setItem("todoData", JSON.stringify(this.state.todoData));
@@ -43,13 +48,25 @@ class App extends React.Component {
     this.setState({ ...this.state, task: event.target.value });
   };
 
+  handleSearchInput = event => {
+    const newDisplayData = this.state.todoData.filter(todo =>
+      todo.task.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    this.setState({
+      ...this.state,
+      query: event.target.value.toLowerCase(),
+      todoDisplayData: newDisplayData
+    });
+  };
+
   render() {
-    const { todoData, task } = this.state;
+    const { todoDisplayData, task, query } = this.state;
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>Welcome to My Todo App!</h2>
 
-        <TodoList todoData={todoData} />
+        <Search query={query} handleSearchInput={this.handleSearchInput} />
+        <TodoList todoData={todoDisplayData} />
         <TodoForm
           task={task}
           handleTaskChange={this.handleTaskChange}
