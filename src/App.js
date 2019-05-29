@@ -8,9 +8,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      task: "",
-      id: null,
-      completed: false
+      todoData: []
     };
   }
   render() {
