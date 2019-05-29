@@ -39,7 +39,7 @@ class App extends React.Component {
   completeTask = (e) => {
     let todoCopy = this.state.todos.map((item) => {
       if(item.id === parseInt(e.target.id)){
-        item.completed = true;
+        item.completed = !item.completed;
       }
       return item;
     })
