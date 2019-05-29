@@ -40,7 +40,18 @@ class App extends React.Component {
   }
 
   addTodo = () => {
-    console.log("run")
+    const newTodoItem = {
+      id: Date.now(),
+      task: this.state.newTodo,
+      completed: false,
+    }
+
+    const newTodoList = this.state.todoList.concat(newTodoItem)
+
+    this.setState({
+      todoList: newTodoList,
+      newTodo: "",
+    })
   }
 
   clearCompleted = () => {
