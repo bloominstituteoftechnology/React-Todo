@@ -1,0 +1,7 @@
+.container {
+  width: 100%;
+  background: rgba(245, 245, 245, 0.6);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
