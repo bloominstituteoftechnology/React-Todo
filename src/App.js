@@ -36,13 +36,15 @@ class App extends React.Component {
     appStorage.setItem("todos", JSON.stringify(this.state.todos));
   }
   addTodo = (e) => {
-    this.setState({ todos: this.state.todos.concat({
-        task: this.state.todoInput,
-        id:Date.now(),
-        completed: false,
+    if (this.state.todoInput){
+      this.setState({ todos: this.state.todos.concat({
+          task: this.state.todoInput,
+          id:Date.now(),
+          completed: false,
+        })
       })
-    })
-    this.setState({todoInput: ""});
+      this.setState({todoInput: ""});
+    }
   }
 
   completeTask = (e) => {
@@ -79,6 +81,7 @@ class App extends React.Component {
         <TodoList
           todoList={this.state.todos}
           completeTask={this.completeTask}
+          updateHandler={this.saveTodos}
         />
         <TodoForm
           value={this.state.todoInput}
