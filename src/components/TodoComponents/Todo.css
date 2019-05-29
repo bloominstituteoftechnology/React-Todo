@@ -1,0 +1,72 @@
+:root{
+  font-size: 62.5%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+*{
+  box-sizing: border-box;
+}
+#root{
+  display: flex;
+  justify-content: center;
+}
+.todo-app{
+  background-color: rgb(49, 52, 58);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+.user-input{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.user-input *{
+  border: 0.1rem solid white;
+  border-radius: 0.2rem;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0;
+}
+.user-input input{
+  width: 100%;
+  padding: 0.5rem;
+}
+.user-input button{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgb(65, 65, 80);
+  color: white
+}
+
+.user-input .add{
+  border-radius: 0.2rem 0rem 0rem 0.2rem;
+  border-right: none;
+}
+.user-input .add:hover{
+  background-color: rgb(50, 129, 50);
+}
+.user-input .clear{
+  border-radius: 0rem 0.2rem 0.2rem 0rem;
+  border-left: none;
+}
+.user-input .clear:hover{
+  background-color: rgb(136, 48, 48);
+}
+.todo-list{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.todo-list li{
+  font-size: 1.4rem;
+}
