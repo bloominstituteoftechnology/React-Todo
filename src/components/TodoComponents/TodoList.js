@@ -1,5 +1,6 @@
 import React from "react";
 import "./Todo.css";
+import Todo from "./Todo";
 
 const TodoList = ({ todoData }) => (
   <div className="todo-list">
