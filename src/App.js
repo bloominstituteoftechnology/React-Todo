@@ -1,5 +1,4 @@
 import React from "react";
-import uuid from 'uuid';
 
 const todoList = [
   /* {
@@ -29,38 +28,40 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {this.state.todoList.map(todo => <div>{todo.task}</div>)}
-        <input 
-        className="input"
-        value={this.state.newTodo}
-        onChange={this.changeHandler}
-        onEnter={this.addTodo}
-        type="text"
-      />
-        <button className="btn" onClick={this.addTodo} >
+        {this.state.todoList.map(todo => (
+          <div onClick={this.crossOut}>{todo.task}</div>
+        ))}
+        <input
+          className="input"
+          value={this.state.newTodo}
+          onChange={this.changeHandler}
+          onEnter={this.addTodo}
+          type="text"
+        />
+        <button className="btn" onClick={this.addTodo}>
           Add ToDo
         </button>
       </div>
     );
   }
 
-  changeHandler = (event) => {
+  crossOut = event => {
+    this.setState;
+  };
 
-    this.setState({newTodo: event.target.value})
-
-  }
+  changeHandler = event => {
+    this.setState({ newTodo: event.target.value });
+  };
 
   addTodo = () => {
-    const newTodo ={
+    const newTodo = {
       task: this.state.newTodo,
-      id: uuid(),
-      completed : false, 
-
-    }
-    this.setState({todoList: this.state.todoList.concat(newTodo)})
-    this.state.newTodo="";
-  }
+      id: Date.now(),
+      completed: false
+    };
+    this.setState({ todoList: this.state.todoList.concat(newTodo) });
+    this.state.newTodo = "";
+  };
 }
 
 export default App;
-
