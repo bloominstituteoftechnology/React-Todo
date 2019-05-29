@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 const exampleData = [
   {
     task: 'Organize Garage',
@@ -18,7 +19,10 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <TodoList todoList={exampleData} />
+      <div>
+        <TodoList todoList={exampleData} />
+        <TodoForm />
+      </div>
     );
   }
 }
