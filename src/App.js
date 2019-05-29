@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-const exampleData = [
+let initialData = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -13,11 +13,18 @@ const exampleData = [
     completed: false
   }
 ];
+
+const appStorage = window.localStorage;
+if (appStorage.getItem("todos")) {
+  initialData = JSON.parse(appStorage.getItem("todos"));
+} else {
+  appStorage.setItem("todos", JSON.stringify(initialData));
+}
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: exampleData,
+      todos: initialData,
       todoInput: "",
     }
   }
@@ -25,7 +32,9 @@ class App extends React.Component {
   onInputChange = (e) => {
     this.setState({ todoInput: e.target.value });
   }
-
+  saveTodos = () => {
+    appStorage.setItem("todos", JSON.stringify(this.state.todos));
+  }
   addTodo = (e) => {
     this.setState({ todos: this.state.todos.concat({
         task: this.state.todoInput,
@@ -56,7 +65,7 @@ class App extends React.Component {
   }
 
   inputKeyPress = (e) => {
-    var keycode = (e.keyCode ? e.keyCode : e.which);
+    var keycode = e.keyCode ? e.keyCode : e.which;
     if (keycode === 13){
       this.addTodo();
     }
@@ -64,6 +73,7 @@ class App extends React.Component {
   }
   
   render() {
+    this.saveTodos();
     return (
       <div>
         <TodoList
