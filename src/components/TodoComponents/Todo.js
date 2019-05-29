@@ -7,8 +7,8 @@ export default function TodoComponent(props) {
   return(
     <div>
       <h2>Todo List: MVP</h2>
-      <TodoList toDoList={toDoList}/>
       <TodoForm newToDo={newToDo} addTodo={addTodo} clearCompleted={clearCompleted} changeHandler={changeHandler} enterHandler={enterHandler} />
+      <TodoList toDoList={toDoList}/>
     </div>
   )
 }
