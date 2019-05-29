@@ -5,7 +5,7 @@ import Todo from "./Todo";
 const TodoList = ({ todoData }) => (
   <div className="todo-list">
     {todoData.map(item => (
-      <Todo key={item.id} item={item} />
+      <Todo key={item.id} todo={item} />
     ))}
   </div>
 );
