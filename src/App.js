@@ -49,6 +49,11 @@ class App extends React.Component {
     )
   }
 
+  clearCompleted = (e) => {
+    let newTodos = this.state.todos.filter((item) => !item.completed);
+    this.setState({ todos: newTodos });
+  }
+  
   render() {
     return (
       <div>
