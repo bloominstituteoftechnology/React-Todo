@@ -53,12 +53,25 @@ class App extends React.Component {
     let newTodos = this.state.todos.filter((item) => !item.completed);
     this.setState({ todos: newTodos });
   }
+
+  inputKeyPress = (e) => {
+    
+  }
   
   render() {
     return (
       <div>
-        <TodoList todoList={this.state.todos} completeTask={this.completeTask}/>
-        <TodoForm value={this.state.todoInput} inputEvent={this.onInputChange} addTodo={this.addTodo} clearCompleted={this.clearCompleted}/>
+        <TodoList
+          todoList={this.state.todos}
+          completeTask={this.completeTask}
+        />
+        <TodoForm
+          value={this.state.todoInput}
+          inputEvent={this.onInputChange}
+          addTodo={this.addTodo}
+          clearCompleted={this.clearCompleted}
+          inputKeyPress={this.inputKeyPress}
+        />
       </div>
     );
   }
