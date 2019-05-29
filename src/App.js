@@ -1,19 +1,26 @@
 import React from 'react';
-import {TodoList} from './components/TodoComponents/TodoList';
+import {todoList} from './components/TodoComponents/TodoList';
+import Todo from './components/TodoComponents/Todo';
+import TodoForm from './components/TodoComponents/TodoForm';
 class App extends React.Component {
   // you will need a place to store your state in this component.
   constructor(){
     super();
     this.state = {
-      todoText: TodoList,
+      todoText: todoList,
     };
   }
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-  newTodo = event =>{
+  addTodo = event =>{
+    event.preventDefault();
+    const newTodo = {
+      todoText: this.state.todoText,
+    };
     // console.log(event.target.value);
     this.setState ({
       todoText: [this.state.todoText, newTodo],
+      completed: false,
     })
   }
   handleChanges = event => {
@@ -22,7 +29,16 @@ class App extends React.Component {
   }
   render() {
     return (
-      <TodoForm />
+      <div>
+        <TodoForm />
+        <h1>To Do List: </h1>
+        <div className="todoList">
+          {this.state.todoText.map(todo => (
+            <Todo newTodo={todo}/>
+          ))}
+        </div>
+      </div>
+      
     );
   }
 }

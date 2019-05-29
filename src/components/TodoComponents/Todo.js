@@ -4,11 +4,11 @@ class Todo extends React.Component {
     return (
       <div className="newTodo">
         <div className="todoText">
-          <h3>this.props.</h3>
+          <h3>{this.props.newTodo.todoText}</h3>
         </div>
       </div>
     );
   };
 }
 
-export default TodoList;
+export default Todo;
