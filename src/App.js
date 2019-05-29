@@ -40,7 +40,7 @@ class App extends React.Component {
     this.setState({todo: event.target.value});
   }
 
-  clearCompletedTask = event => {
+  clearTask = event => {
     event.preventDefault();
     let clearTask = "clear task stuff";
   }
@@ -50,7 +50,8 @@ class App extends React.Component {
     return (
       <div>
         <TodoList todos={this.state.todos} />
-        <TodoForm />
+        <TodoForm
+        value={this.state.todo} />
       </div>
     );
   }
