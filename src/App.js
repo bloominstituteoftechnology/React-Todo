@@ -7,24 +7,30 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      store: [
-        {
-          task: "Organize Garage",
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: "Bake Cookies",
-          id: 1528817084358,
-          completed: false
-        }
-      ],
+      store: [],
       data: ""
     };
   }
+  componentDidMount() {
+    // let me = [
+    //   {
+    //     task: "Organize Garage",
+    //     id: 1528817077286,
+    //     completed: false
+    //   },
+    //   {
+    //     task: "Bake Cookies",
+    //     id: 1528817084358,
+    //     completed: false
+    //   }
+    // ];
+    // localStorage.setItem("myCat", JSON.stringify(me));
+    let mee = localStorage.getItem("myCat");
+    let josh = JSON.parse(mee);
+    this.setState({ store: josh });
+  }
 
   onChangeHandler = event => {
-    event.preventDefault();
     const newState = this.state;
     newState.data = event.target.value;
     this.setState(newState);
@@ -34,18 +40,22 @@ class App extends React.Component {
     let store = [...this.state.store];
     let newEntry = { task: this.state.data, id: Date.now(), completed: false };
     store = store.concat([newEntry]);
-    this.setState({ store: store });
-    this.setState({ data: '' });
+    this.setState({ store: store, data: "" });
+    localStorage.setItem("myCat", JSON.stringify(store));
   };
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div className='App'>
-         <h1>TODO APP</h1>
+      <div className="App">
+        <h1>TODO APP</h1>
         <TodoList todoData={this.state.store} />
-        <TodoForm change={this.onChangeHandler} submit={this.onSubmitHandler} value={this.state.data}/>
+        <TodoForm
+          change={this.onChangeHandler}
+          submit={this.onSubmitHandler}
+          value={this.state.data}
+        />
       </div>
     );
   }

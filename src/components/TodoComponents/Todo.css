@@ -3,6 +3,7 @@ Button{
     font-size: 16px;
     border-radius: 5px;
     margin-left: 10px;
+    outline: none;
 }
 Button:hover{
     background: lightblue;
