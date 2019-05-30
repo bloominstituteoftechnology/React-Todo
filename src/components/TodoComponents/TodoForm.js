@@ -1,9 +1,10 @@
 import React from 'react';
 
-const TodoForm = ({taskTitle, handleChange, updateList}) => {
+const TodoForm = ({taskTitle, handleChange, updateList, searchQuery, formType}) => {
 return (
+    formType === 'Add Task'?
     <form onSubmit={(e)=>updateList(e)}>
-        <h4>Input Todos</h4>
+        <h4>{formType}</h4>
         <input
         type='text'
         value={taskTitle}
@@ -20,7 +21,16 @@ return (
         type="button"
         value="Clear Completed"
          />
-    </form>
+    </form> :
+    <form onSubmit={(e)=>searchQuery(e)}>
+    <h4>{formType}</h4>
+    <input
+    // type='text'
+    // value={taskTitle}
+    // onChange={handleChange}
+    />
+     <button type="submit">Search</button>
+</form>
 )
 }
 

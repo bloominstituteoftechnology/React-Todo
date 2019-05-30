@@ -22,7 +22,7 @@ class App extends React.Component {
     })
   }
 
-  handleChnage = (event)=>{
+  handleChange = (event)=>{
     this.setState({
       taskTitle: event.target.value,
     })
@@ -46,14 +46,26 @@ class App extends React.Component {
     }
     await localStorage.setItem('todos', JSON.stringify(this.state.todos));
   }
+
+  handleSearch = (e) => {
+    e.preventDefault();
+    
+  }
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <TodoForm
+        formType='Search'
+        // value={this.state.taskTitle}
+        // handleChange = {this.handleChange}
+        searchQuery = {this.handleSearch}
+        />
         {this.state.todos ? <TodoList list={this.state.todos}/>:<p>No data available</p> }
         <TodoForm
+        formType='Add Task'
         value={this.state.taskTitle}
-        handleChange = {this.handleChnage}
+        handleChange = {this.handleChange}
         updateList = {this.updateList}
         />
       </div>
