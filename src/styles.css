@@ -24,7 +24,7 @@ h1 {
 
 .app {
   text-align: center;
-  height: 600px;
+  height: 800px;
   margin: 0 auto;
   border: 3px solid white;
 }
@@ -58,4 +58,10 @@ button {
   border: 2px solid #ffffff;
   color: #011f4b;
   font-size: 1rem;
+}
+
+img {
+  margin-top: 80px;
+  width: 30%;
+  height: 30%;
 }

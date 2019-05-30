@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList"
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoImage from './components/TodoComponents/TodoImage';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -84,6 +85,7 @@ class App extends React.Component {
         todoChange={this.todoChange}
         clearTask={this.clearTask}
         />
+        <TodoImage />
       </div>
     );
   }
