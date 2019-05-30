@@ -1,5 +1,7 @@
 .completed {
   text-decoration-line: line-through;
+  background: #fcf7f2;
+  text-decoration-color: #964b06;
 }
 
 .todo-list {
@@ -12,7 +14,12 @@
   padding: 1rem;
   font-size: 1.4rem;
   border-top: none;
+  cursor: pointer;
 }
+.todo-list .task:hover {
+  background: #fcf7f2;
+}
+
 .todo-list .task:nth-child(1) {
   border-top: 1px solid #e7e2e2;
 }
