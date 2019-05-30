@@ -31,14 +31,34 @@ class App extends React.Component {
       things
     };
   }
+
+  addTodo = todo => {
+    let newTodo = {
+      task: todo,
+      id: Date.now(),
+      completed: false
+    };
+    const sorted = [...this.state.things, newTodo].sort(function(a, b) {
+      let taskA = a.task.toUpperCase();
+      let taskB = b.task.toUpperCase();
+
+      return taskA > taskB ? 1 : -1;
+    });
+    this.setState({ things: sorted });
+  };
+  
+
   render() {
-    return (
-      <div className='App'>
-        <div className='header'>
-          <h1>What You Need To Do?!</h1>
+
+    if(this.state.things.length < 1) {
+      return (
+        <div className='App'>
+          <div className='header'>
+            <h1>What You Need To Do?!</h1>
+          </div>
         </div>
-      </div>
-    );
+      )
+    }
   }
 }
 
