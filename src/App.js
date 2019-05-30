@@ -30,7 +30,7 @@ class App extends React.Component {
     return (
       <div className="todoListComplete">
         {this.state.todoList.map(todo => (
-          <div onClick={this.crossOut}>{todo.task}</div>
+          <div onClick={this.crossOut}><Paragraph content={todo.task}></Paragraph></div>
         ))}
         <input
           value={this.state.newTodo}
@@ -38,7 +38,8 @@ class App extends React.Component {
           onKeyDown={this.addTodoEnter}
           type="text"
         />
-        <button onClick={this.addTodo}>Add ToDo</button>
+        <button onClick={this.addTodo}>Add Task!</button>
+        <button onCLock={this.deleteDoneTodos}>Delete done Tasks!</button>
       </div>
     );
   }
@@ -74,4 +75,28 @@ class App extends React.Component {
   };
 }
 
+class Paragraph extends React.Component{
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDone: false,
+      content: this.props.content
+    };
+  }
+
+  style() {
+    if(this.state.isDone){
+      return {textDecoration: "none"}
+    }
+    else{
+      return {textDecoration: "line-through"}
+    }
+  }
+
+  render(){
+    return <p>{this.content}</p>
+  }
+
+}
 export default App;
