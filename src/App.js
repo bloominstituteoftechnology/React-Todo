@@ -60,6 +60,17 @@ class App extends React.Component {
     await localStorage.setItem("todoData", JSON.stringify(this.state.todoData));
   };
 
+  clearCompleted = async () => {
+    const unCompletedTasks = this.state.todoData.filter(
+      task => !task.completed
+    );
+    await this.setState(prevState => ({
+      todoData: unCompletedTasks,
+      todoDisplayData: unCompletedTasks
+    }));
+    await localStorage.setItem("todoData", JSON.stringify(this.state.todoData));
+  };
+
   handleTaskChange = event => {
     this.setState({ ...this.state, task: event.target.value });
   };
@@ -99,6 +110,7 @@ class App extends React.Component {
           task={task}
           handleTaskChange={this.handleTaskChange}
           addTodo={this.handleAddTodo}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );

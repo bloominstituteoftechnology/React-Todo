@@ -1,7 +1,7 @@
 import React from "react";
 import "./Todo.css";
 
-const TodoForm = ({ task, handleTaskChange, addTodo }) => {
+const TodoForm = ({ task, handleTaskChange, addTodo, clearCompleted }) => {
   return (
     <form onSubmit={event => addTodo(event)} className="todo-form">
       <input
@@ -10,7 +10,9 @@ const TodoForm = ({ task, handleTaskChange, addTodo }) => {
         onChange={event => handleTaskChange(event)}
       />
       <button type="submit">Add Todo</button>
-      <button type="button">Clear Completed</button>
+      <button type="button" onClick={() => clearCompleted()}>
+        Clear Completed
+      </button>
     </form>
   );
 };
