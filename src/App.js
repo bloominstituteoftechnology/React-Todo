@@ -57,9 +57,19 @@ class App extends React.Component {
     );
     this.setState({ search: filteredStore });
   };
-  onFocusHandler =()=>{
-      this.setState({ search: [] });
-  }
+  onFocusHandler = () => {
+    this.setState({ search: [] });
+  };
+  onCompleteHandler = event => {
+    const newState = [...this.state.store];
+    let patchState = newState.map(element => {
+      if (element["id"] === event) {
+        element.completed = !element.completed
+      }
+      return element;
+    });
+    this.setState({ store: patchState });
+  };
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -67,7 +77,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>TODO APP</h1>
-        <TodoList todoData={this.state.store} />
+        <TodoList
+          todoData={this.state.store}
+          completed={this.onCompleteHandler}
+        />
         <TodoForm
           change={this.onChangeHandler}
           submit={this.onSubmitHandler}

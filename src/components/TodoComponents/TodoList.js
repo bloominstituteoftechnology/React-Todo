@@ -3,10 +3,20 @@
 import React from "react";
 import Todo from "./Todo";
 const todoList = props => {
-//   
-  return <>{props.todoData.map(element => (
-    <Todo key={element.id} task={element.task} />
-  ))}</>;
+  return (
+    <>
+      <ul>
+        {props.todoData.map(element => (
+          <Todo
+            key={element.id}
+            task={element.task}
+            strike={element.completed}
+            click={() => props.completed(element.id)}
+          />
+        ))}
+      </ul>
+    </>
+  );
 };
 
 export default todoList;
