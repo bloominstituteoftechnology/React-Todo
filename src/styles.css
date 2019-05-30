@@ -43,7 +43,7 @@ form {
 
 input::placeholder {
   color: #011f4b;
-  opacity: 2;
+  opacity: 1;
 }
 
 button {

@@ -45,15 +45,13 @@ class App extends React.Component {
     });
   }
 
-  toggleTask = n => {
+  toggleTask = id => {
     this.setState(prevTask => {
       return {
-        task: prevTask.todos.map(todo => {
-          if (todo.n === n) {
-            return {
-              ...todo,
-              completed: !todo.completed
-            };
+        todos: prevTask.todos.map(todo => {
+          if (todo.id === id) {
+            todo.completed = !todo.completed;
+            return todo;
           } else {
             return todo;
           }
@@ -66,7 +64,7 @@ class App extends React.Component {
     event.preventDefault();
     this.setState(prevTask => {
       return {
-        task: prevTask.todos.filter(todo => !todo.completed)
+        todos: prevTask.todos.filter(todo => !todo.completed)
       };
     });
   };
