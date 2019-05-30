@@ -4,4 +4,9 @@
 
 .todo-list > div {
   cursor: pointer;
+  user-select: none;
+}
+
+.todo-complete {
+  text-decoration: line-through;
 }

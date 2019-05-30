@@ -6,12 +6,17 @@ import Todo from './Todo';
 class TodoList extends React.Component {
   constructor(props) {
     super(props);
-    this.todoList = props;
+    this.props = props;
   }
 
   render() {
-    console.log(this.props.todoList);
-    return (<div>a</div>);
+    return (
+      <div className='todo-list'>
+        {this.props.todoList.map((todo) => (
+          <Todo todoInfo={todo} key={todo.id} toggleComplete={this.props.toggleComplete} className={todo.completed ? 'todo-complete' : 'todo-incomplete'} />
+        ))}
+      </div>
+    );
     /*
     return (
       <div className='todo-list'>

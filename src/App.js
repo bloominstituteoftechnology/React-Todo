@@ -1,23 +1,28 @@
 import React from 'react';
 import Todo from './components/TodoComponents/Todo';
+import TodoList from './components/TodoComponents/TodoList';
 
 import './components/TodoComponents/Todo.scss';
 
+const todos = [
+  {
+    task: 'wat',
+    id: Date.now(),
+    completed: false
+  },
+  {
+    task: 'lolnow',
+    id: Date.now() + 1,
+    completed: false
+  }
+];
+
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
     this.state = {
       newTask: '',
-      todoList: [
-        {
-          task: 'wat',
-          id: Date.now(),
-          completed: false
-        }
-      ]
+      todoList: todos
     };
   }
 
@@ -36,23 +41,31 @@ class App extends React.Component {
     });
   }
 
-  toggleComplete = (event) => {
-    console.log(event);
-    // this.setState({completed: true});
+  toggleComplete = (id) => {
+    this.setState(prevState => {
+      return {
+        todoList: prevState.todoList.map(item => {
+          if (item.id === id) {
+            return {
+              ...item,
+              completed: !item.completed
+            }
+          } else {
+            return item;
+          }
+        })
+      }
+    })
   }
 
   render() {
     return (
-      <div>
-        <div className='todo-list'>
-          {this.state.todoList.map((todo) => (
-            <Todo todoInfo={todo} key={todo.id} onClick={this.toggleComplete} /*onClick={this.toggleComplete}*/ className={todo.completed ? 'todo-complete' : 'todo-incomplete'} />
-          ))}
-        </div>
+      <div className='todo-app'> 
+        <TodoList todoList={this.state.todoList} toggleComplete={this.toggleComplete} />
 
         <form onSubmit={this.addTodo} className='todo-form'>
           <input placeholder='Task' value={this.state.newTask} onChange={this.handleChanges} />
-          <button>hi</button>
+          <button>Submit</button>
         </form>
       </div>
     )
