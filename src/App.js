@@ -33,23 +33,46 @@ class App extends React.Component {
       completed: false
     };
     this.setState({
-      todos: [...this.state.todos, newTask]
+      todos: [...this.state.todos, newTask],
+      task: " "
     });
   };
 
   todoChange = event => {
-    this.setState({task: event.target.value});
+    event.preventDefault();
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  toggleTask = n => {
+    this.setState(prevTask => {
+      return {
+        task: prevTask.todos.map(todo => {
+          if (todo.n === n) {
+            return {
+              ...todo,
+              completed: !todo.completed
+            };
+          } else {
+            return todo;
+          }
+        })
+      }
+    })
   }
 
 
   render() {
     return (
       <div>
+        <h1>To Do List:</h1>
         <TodoList todos={this.state.todos} />
         <TodoForm
         addNewTask={this.addNewTask}
         task={this.state.task}
         todoChange={this.todoChange}
+        toggleTask={this.toggleTask}
         />
       </div>
     );
