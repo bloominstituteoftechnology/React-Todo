@@ -26,7 +26,6 @@ class App extends React.Component {
   }
 
   addNewTask = event => {
-    console.log("clicked");
     event.preventDefault();
     const newTask = {
       task: this.state.task,
@@ -42,10 +41,6 @@ class App extends React.Component {
     this.setState({task: event.target.value});
   }
 
-  clearTask = event => {
-    event.preventDefault();
-    let clearTask = "clear task stuff";
-  }
 
   render() {
     return (
