@@ -20,6 +20,13 @@ class TodoForm extends Component {
           this.setState({taskName: ""})
       }
 
+    //   clearCompleted = (event) => {
+    //       event.preventDefault();
+    //       this.setState({
+    //           newTask : this.state.tasks.filter(task => task.completed)
+    //       })
+    //   };
+
     render() {
         return (
             <form onSubmit={this.addTask}>
@@ -27,13 +34,15 @@ class TodoForm extends Component {
                     placeholder="task name"
                     onChange={this.handleChanges}
                     value={this.state.taskName}
-                    name="taskName" 
+                    name="taskName"
+                    onChange={this.handleChanges} 
                 />
      <button>Add Task</button>
-     <button>Clear completed</button>
+     {/* <button onCLick={}>Clear completed</button> */}
 </form>
         );
     }
 }
+
 
 export default TodoForm;

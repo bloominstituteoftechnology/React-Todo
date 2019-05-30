@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../src/components/TodoComponents/Todo.css'
+
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
@@ -14,30 +16,53 @@ class App extends React.Component {
     };
   }
 
+  toggleItem = idNumber => {
+    // loop through this.state.taskList
+    // find the item the user clicked on
+    // toggle the boolean operator on the purchased property
+
+    const banana = this.state.taskList.map(task => {
+      
+      if (task.idNumber === idNumber) {
+        return {
+          ...task,
+          completed: !task.completed
+        };
+      } else {
+        return task;
+      }
+
+    })
+
+    this.setState({taskList: banana})
+
+  }
+
   addTask = taskName => {
+    // check for empty input and return alert if blank
     if(!taskName) return alert("enter todo plz")
+    // add an task from the form to the list
     const newTask = {
       taskName,
       idNumber: Date.now(),
       completed: false
     };
-    this.setState({
-      taskList: [...this.state.taskList, newTask], //New array with an added task
+
+    this.setState(prevState => {
+      return {
+        taskList: [...prevState.taskList, newTask]
+      };
     });
   }; 
 
-
-
-//   this.setState({taskName: event.target.value});
-// };
-
   render() {
-    console.log(this.state.name);
     return (   
       <div className='App'>
-        <h2>Welcome to your Todo Nightmare!</h2>
-        <TodoList taskList={this.state.taskList}/>
-
+        <h2 className="header">Welcome to your Todo Nightmare!</h2>
+        <TodoList 
+          taskList={this.state.taskList}
+          toggleItem={this.toggleItem}
+          />
       <TodoForm addTask={this.addTask}/>
       </div>
     );
