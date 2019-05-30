@@ -49,7 +49,19 @@ class App extends React.Component {
 
   handleSearch = (e) => {
     e.preventDefault();
-    
+    const data = JSON.parse(localStorage.getItem('todos'));
+    console.log(data);
+    const query = [];
+    data.map(task => {
+      if(task.task.toLowerCase().includes(e.target.value.toLowerCase())) {
+        query.push(task);
+      }
+      console.log(query);
+    return query
+  });
+    this.setState({
+      todos: query
+    })
   }
   render() {
     return (
@@ -57,8 +69,8 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         <TodoForm
         formType='Search'
-        // value={this.state.taskTitle}
-        // handleChange = {this.handleChange}
+        value={this.state.taskTitle}
+        handleChange = {this.handleChange}
         searchQuery = {this.handleSearch}
         />
         {this.state.todos ? <TodoList list={this.state.todos}/>:<p>No data available</p> }

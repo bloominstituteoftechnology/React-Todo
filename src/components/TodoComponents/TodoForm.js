@@ -22,14 +22,13 @@ return (
         value="Clear Completed"
          />
     </form> :
-    <form onSubmit={(e)=>searchQuery(e)}>
+    <form>
     <h4>{formType}</h4>
     <input
-    // type='text'
-    // value={taskTitle}
-    // onChange={handleChange}
+    type='text'
+    value={taskTitle}
+    onChange={searchQuery}
     />
-     <button type="submit">Search</button>
 </form>
 )
 }
