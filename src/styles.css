@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #feb2a8;
+}
+
+h1,
+div {
+  font-family: 'Oswald', sans-seriff;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.app {
+  text-align: center;
+  height: 600px;
+  margin: 0 auto;
+  border: 3px solid white;
+}
+
+form {
+  margin-top: 40px;
+}
+
+.form-input {
+  background-color: #fad9c1;
+  line-height: 30px;
+  width: 240px;
+  margin: 10px;
+  border: 2px solid #ffffff;
+}
+
+input::placeholder {
+  color: #011f4b;
+  opacity: 2;
+}
+
+button {
+  line-height: 30px;
+  width: 150px;
+  margin: 5px;
+  background-color: #fad9c1;
+  border: 2px solid #ffffff;
+  color: #011f4b;
+  font-size: 1rem;
+}
