@@ -63,7 +63,7 @@ class App extends React.Component {
   }
 
   selectHandler = async (id) => {
-    console.log('clicked');
+    console.log('selected');
     const data = JSON.parse(localStorage.getItem('todos'));
     const checkTask = data.map(task => {
       if (task.id === id) {
@@ -71,6 +71,17 @@ class App extends React.Component {
       }
       return task;
     });
+    await this.setState({
+      ...this.state,
+      todos: checkTask
+    });
+    await localStorage.setItem("todos", JSON.stringify(this.state.todos))
+  }
+
+  deleteHandler = async () => {
+    console.log('deleted');
+    const data = JSON.parse(localStorage.getItem('todos'));
+    const checkTask = data.filter(task => task.completed === false);
     await this.setState({
       ...this.state,
       todos: checkTask
@@ -99,6 +110,7 @@ class App extends React.Component {
           value={this.state.taskTitle}
           handleChange={this.handleChange}
           updateList={this.updateList}
+          deleteHandler = {this.deleteHandler}
         />
       </div>
     );

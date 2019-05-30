@@ -15,7 +15,7 @@ return (
         <input
         type="button"
         value="Clear Completed"
-        // onClick={deleteHandler}
+        onClick={deleteHandler}
          />
     </form> :
     <form>
