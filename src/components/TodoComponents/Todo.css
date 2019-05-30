@@ -1,7 +1,70 @@
+*{
+    box-sizing: border-box;
+}
 .todo {
     cursor: pointer;
 }
 
 .completed{
     text-decoration: line-through;
+}
+
+.todo-app {
+    margin: 0 auto;
+    max-width: 30rem;
+    height: 100vh;
+    padding-top: 1rem;
+    background: linear-gradient(82.02deg, #F2522E 2.47%, #CD2600 97.53%);
+}
+.todo-list{
+    max-height: 80vh;
+    overflow-y: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+body{
+    margin: 0;
+}
+input{
+    display: block;
+    border: none;
+    border-radius: 0.5rem;
+    width: 70%;
+    font-size: 1.5rem;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+p{
+    text-align: center;
+    max-width: 90%;
+    min-width: 60%;
+    width: 60%;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 2rem;
+    vertical-align: middle;
+    border-radius: .5rem;
+    background-color: #262122;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 0.5rem 0;
+}
+.search-bar{
+    margin-bottom: 1rem;
+}
+.modify-buttons{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.modify-buttons button{
+    width: 30%;
+    border: none;
+    background-color: #262122;
+    color: white;
+    border-radius: 0.5rem;
+    height: 2rem;
 }

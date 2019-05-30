@@ -83,7 +83,7 @@ class App extends React.Component {
   render() {
     this.saveTodos();
     return (
-      <div>
+      <div className="todo-app">
         <SearchBar
           value={this.state.searchString}
           searchChange={this.onSearchBarChange}

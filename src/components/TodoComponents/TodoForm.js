@@ -11,12 +11,14 @@ class TodoForm extends React.Component {
                     onChange={this.props.inputEvent}
                     onKeyPress={this.props.inputKeyPress}
                 />
+                <div className="modify-buttons">
                 <button onClick={this.props.addTodo}>
                     Add Todo
                 </button>
                 <button onClick={this.props.clearCompleted}>
                     Clear Completed
                 </button>
+                </div>
             </div>
         )
     }

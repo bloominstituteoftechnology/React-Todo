@@ -11,6 +11,7 @@ export default function SearchBar(props) {
             placeholder="Search..."
             value={value}
             onChange={searchChange}
+            className="search-bar"
         />
     )
 }
