@@ -4,10 +4,14 @@
 import React from 'react';
 import Todo from './Todo';
 
-const TodoList = ({list}) => {
+const TodoList = ({list, select}) => {
         const data = list.map((todo, index)=>{
         return (
-            <Todo key={index} item={todo}/>
+            <Todo
+            key={index}
+            item={todo}
+            select={select}
+            />
         )
         })
         return <div>{data}</div>
