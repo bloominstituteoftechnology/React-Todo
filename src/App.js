@@ -1,74 +1,92 @@
-import React from 'react';
-import TodoList from './components/TodoComponents/TodoList';
-import TodoForm from './components/TodoComponents/TodoForm';
 
-class App extends React.Component {
-  constructor() {
-    super();
+import React, { Component } from "react";
+import "./components/TodoComponents/Todo.css";
+// import TodoList from './components/TodoComponents/TodoList';
+// import TodoForm from './components/TodoComponents/TodoForm';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      todos: [
-        {
-          task: 'Turn in my Standup',
-          id: 1,
-          completed: false
-        },
-        {
-          task: 'Watch React Videos',
-          id: 2,
-          completed: false
-        }
-      ],
-      todo: ''
+      newItem: "",
+      list: []
     };
   }
-  addTodo = element => {
-    element.preventDefault();
-    const newTodo = { task: this.state.todo, completed: false, id: Date.now() };
-    this.setState({ 
-      todos: [...this.state.todos, newTodo], 
-      todo: '' 
+
+  updateTodo(key, value) {
+    // update react state
+    this.setState({ [key]: value });
+  }
+
+  addTodo() {
+    // create a new item
+    const newItem = {
+      id: 1 + Math.random(),
+      value: this.state.newItem.slice()
+    };
+
+    // copy current list of items
+    const list = [...this.state.list];
+
+    // add the new item to the list
+    list.push(newItem);
+
+    // update state with new list, reset the new item input
+    this.setState({
+      list,
+      newItem: ""
     });
-  };
+  }
 
-  changeTodo = element => this.setState({ [element.target.name]: element.target.value });
+  deleteItem(id) {
+    // copy current list of items
+    const list = [...this.state.list];
+    // filter out the item being deleted
+    const updatedList = list.filter(item => item.id !== id);
 
-  toggleTodoComplete = id => {
-    let todos = this.state.todos.slice();
-    todos = todos.map(todo => {
-      if (todo.id === id) {
-        todo.completed = !todo.completed;
-        return todo;
-      } else {
-        return todo;
-      }
-    });
-    this.setState({ todos });
-  };
-
-  clearCompletedTodos = element => {
-    element.preventDefault();
-    let todos = this.state.todos.filter(todo => !todo.completed);
-    this.setState({ todos });
-  };
+    this.setState({ list: updatedList });
+  }
 
   render() {
     return (
-      <div>
-        <h2>Welcome to Stacy's Todo App!</h2>
-        <TodoList
-          handleToggleComplete={this.toggleTodoComplete}
-          todos={this.state.todos}
-        />
-        <TodoForm
-          value={this.state.todo}
-          handleTodoChange={this.changeTodo}
-          handleAddTodo={this.addTodo}
-          handleClearTodos={this.clearCompletedTodos}
-        />
+      <div className="App">
+        <header className="App-header">
+          
+          <h1 className="App-title">Stacy's Todo List</h1>
+        </header>
+        <div>
+                
+          What needs to be done
+          <br />
+          <input
+            type="text"
+            placeholder="Type item here"
+            value={this.state.newItem}
+            onChange={e => this.updateTodo("newItem", e.target.value)}
+          />
+          <button
+            onClick={() => this.addTodo()}
+            disabled={!this.state.newItem.length}
+          >
+            &#43; Add
+          </button>
+          <br /> <br />
+          <ul>
+            {this.state.list.map(item => {
+              return (
+                <li key={item.id}>
+                  {item.value}
+                  <button onClick={() => this.deleteItem(item.id)}>
+                    Remove
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     );
   }
 }
-
 
 export default App;
