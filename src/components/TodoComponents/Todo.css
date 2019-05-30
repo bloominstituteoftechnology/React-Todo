@@ -33,3 +33,33 @@
 .search input:focus {
   background: e7e2e2;
 }
+
+.todo-form {
+  padding-top: 1rem;
+}
+
+.buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-items: flex-end;
+}
+
+.buttons button {
+  flex: 1;
+  margin-right: 1rem;
+  padding: 0.725rem 1.25rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.clear {
+  background: #7a1e1e;
+  color: white;
+}
+
+.add {
+  background: #37573d;
+  color: white;
+}
