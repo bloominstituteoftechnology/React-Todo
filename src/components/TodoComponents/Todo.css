@@ -1,3 +1,24 @@
+html {
+    background: ghostwhite;
+}
+
 .completed {
     text-decoration: line-through;
+}
+
+.list {
+    width: 50%;
+    margin: auto;
+    border: solid 1px black;
+    border-radius: 20%;
+    padding: 40px;
+    text-align: center;
+    background: white;
+    margin-top: 50px;
+}
+
+.list h1 {
+    margin: 0;
+    margin-bottom: 30px;
+    border-bottom: solid 1px black;
 }

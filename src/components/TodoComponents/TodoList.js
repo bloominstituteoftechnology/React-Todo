@@ -7,7 +7,7 @@ import Todo from './Todo'
 function TodoList(props) {
     return (
         <div>
-            <h1>Todo List!</h1>
+            <h1>Git 'Er Done List</h1>
         <div className="toDos">
             {props.todoData.map( item => (
                 <Todo key={item.id} todoProp={item} toggleTask={props.toggleTask} />
