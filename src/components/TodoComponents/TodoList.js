@@ -10,7 +10,7 @@ function TodoList(props) {
             <h1>Todo List!</h1>
         <div className="toDos">
             {props.todoData.map( item => (
-                <Todo key={item.id} todoProp={item} />
+                <Todo key={item.id} todoProp={item} toggleTask={props.toggleTask} />
             ))}
         </div>
         </div>
