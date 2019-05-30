@@ -26,6 +26,7 @@ class App extends React.Component {
     this.state = {
       todos: initialData,
       todoInput: "",
+      searchString: "Gar",
     }
   }
 
@@ -80,8 +81,8 @@ class App extends React.Component {
       <div>
         <TodoList
           todoList={this.state.todos}
+          searchString ={this.state.searchString}
           completeTask={this.completeTask}
-          updateHandler={this.saveTodos}
         />
         <TodoForm
           value={this.state.todoInput}
