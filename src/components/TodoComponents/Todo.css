@@ -16,3 +16,13 @@
 .todo-list .task:nth-child(1) {
   border-top: 1px solid #e7e2e2;
 }
+
+.search input {
+  border-radius: 2rem;
+  border: none;
+  background: #e7e2e2;
+}
+
+.search input:focus {
+  background: e7e2e2;
+}

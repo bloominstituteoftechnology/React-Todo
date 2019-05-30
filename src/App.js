@@ -103,16 +103,14 @@ class App extends React.Component {
 
         <Search query={query} handleSearchInput={this.handleSearchInput} />
 
-        {todoTasksCount === 0 && <p>You have not yet added any tasks</p>}
-        {displayTasksCount === 0 && query.length > 0 && (
-          <p>No matching tasks were found</p>
-        )}
-
         <TodoList
           todoData={todoDisplayData}
           handleToggleTask={this.toggleTask}
         />
-
+        {todoTasksCount === 0 && <p>You have not yet added any tasks</p>}
+        {displayTasksCount === 0 && query.length > 0 && (
+          <p>No matching tasks were found</p>
+        )}
         <TodoForm
           task={task}
           handleTaskChange={this.handleTaskChange}
