@@ -6,6 +6,7 @@ const TodoForm = ({ task, handleTaskChange, addTodo, clearCompleted }) => {
     <form onSubmit={event => addTodo(event)} className="todo-form">
       <input
         name="task"
+        type="text"
         value={task}
         onChange={event => handleTaskChange(event)}
       />

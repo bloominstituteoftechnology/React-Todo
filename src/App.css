@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #ffcf87;
+}
+.app {
+  width: 50%;
+  background: white;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 0.5rem;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+input[type="text"] {
+  display: block;
+  width: 100%;
+  padding: .8rem 1.35rem;
+  font-size: 1.3rem;
+  outline: none;
+}

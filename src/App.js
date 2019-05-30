@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import Search from "./components/TodoComponents/Search";
@@ -31,6 +32,12 @@ class App extends React.Component {
   handleAddTodo = async event => {
     event.preventDefault();
     const { task } = this.state;
+
+    if (this.state.task === "") {
+      alert("You need to enter a new task");
+      return;
+    }
+
     const newTask = {
       task,
       id: Date.now(),
@@ -91,7 +98,7 @@ class App extends React.Component {
     const displayTasksCount = todoDisplayData.length;
     const todoTasksCount = todoData.length;
     return (
-      <div>
+      <div className="app">
         <h2>Welcome to My Todo App!</h2>
 
         <Search query={query} handleSearchInput={this.handleSearchInput} />

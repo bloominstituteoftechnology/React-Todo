@@ -1,3 +1,18 @@
 .completed {
   text-decoration-line: line-through;
 }
+
+.todo-list {
+  margin: 10px auto;
+}
+
+.todo-list .task {
+  border: 1px solid #e7e2e2;
+  margin: 0px;
+  padding: 1rem;
+  font-size: 1.4rem;
+  border-top: none;
+}
+.todo-list .task:nth-child(1) {
+  border-top: 1px solid #e7e2e2;
+}
