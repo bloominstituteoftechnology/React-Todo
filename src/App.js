@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Todo from "./components/TodoComponents/Todo"
+import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -10,74 +11,34 @@ class App extends React.Component {
     super();
     this.state = {
       taskList: [],
-      taskName: '',
-      idNumber: '',
-      completed: ''
     };
   }
 
-  addTask = event => {
-    event.preventDefault();
+  addTask = taskName => {
+    if(!taskName) return alert("enter todo plz")
     const newTask = {
-      taskName: this.state.taskName,
-      idNumber: this.state.idNumber,
-      completed: this.state.completed
+      taskName,
+      idNumber: Date.now(),
+      completed: false
     };
     this.setState({
       taskList: [...this.state.taskList, newTask], //New array with an added task
-      taskName: '',
-      idNumber: '',
-      completed: ''
     });
-  };
+  }; 
 
-  handleChanges = event => {
-    console.log(event.target.value);
 
-    //save on state, message
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  };
 
 //   this.setState({taskName: event.target.value});
 // };
 
   render() {
     console.log(this.state.name);
-    return (
+    return (   
       <div className='App'>
         <h2>Welcome to your Todo Nightmare!</h2>
+        <TodoList taskList={this.state.taskList}/>
 
-        <div className="todo-list">
-          {this.state.taskList.map(taskFromMap => (
-            <Todo todoOnProps={taskFromMap} />
-          ))}
-        </div>
-
-        <form onSubmit={this.addTask}>
-            <input
-              placeholder="task name"
-              onChange={this.handleChanges}
-              value={this.state.taskName}
-              name="taskName" 
-              />
-
-            <input
-              placeholder="id number"
-              onChange={this.handleChanges}
-              value={this.state.idNumber}
-              name="idNumber" 
-              />
-
-            <input
-              placeholder="completed"
-              onChange={this.handleChanges}
-              value={this.state.completed}
-              name="completed" 
-              />
-          <button>Add Task</button>
-        </form>
+      <TodoForm addTask={this.addTask}/>
       </div>
     );
   }
