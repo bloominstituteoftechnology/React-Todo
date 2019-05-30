@@ -9,10 +9,8 @@ function TodoList(props) {
         <div>
             <h1>Todo List!</h1>
         <div className="toDos">
-            {
-                props.todoData.map( item => (
+            {props.todoData.map( item => (
                 <Todo key={item.id} todoProp={item} />
-
             ))}
         </div>
         </div>

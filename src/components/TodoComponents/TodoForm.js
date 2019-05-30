@@ -3,8 +3,8 @@ import React from 'react';
 function TodoForm(props){
 
     return (
-        <form name="task" onSubmit={props.handleChanges}>
-            <input  />
+        <form onSubmit={props.addTask}>
+            <input name="task" onChange={props.handleChanges} value={props.task}/>
             <input type='submit' value='Add' />
             <button>Clear</button>
         </form>
