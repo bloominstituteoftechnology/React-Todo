@@ -24,6 +24,6 @@ const toDo =
     id:340940,
     completed: false
     }
-];
+]
 
 render(<App />, document.getElementById('root'));
