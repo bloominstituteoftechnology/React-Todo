@@ -35,7 +35,7 @@ form {
 
 .form-input {
   background-color: #fad9c1;
-  line-height: 30px;
+  line-height: 40px;
   width: 240px;
   margin: 10px;
   border: 2px solid #ffffff;
@@ -44,12 +44,16 @@ form {
 input::placeholder {
   color: #011f4b;
   opacity: 1;
+  text-align: center;
 }
 
 button {
+  display: flex;
+  flex-wrap: wrap;
   line-height: 30px;
+  text-align: center;
   width: 150px;
-  margin: 5px;
+  margin: 5px auto;
   background-color: #fad9c1;
   border: 2px solid #ffffff;
   color: #011f4b;
