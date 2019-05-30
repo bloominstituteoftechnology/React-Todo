@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import SearchBar from './components/TodoComponents/SearchBar';
 let initialData = [
   {
     task: 'Organize Garage',
@@ -26,7 +27,7 @@ class App extends React.Component {
     this.state = {
       todos: initialData,
       todoInput: "",
-      searchString: "Gar",
+      searchString: "",
     }
   }
 
@@ -74,11 +75,19 @@ class App extends React.Component {
     }
 
   }
+
+  onSearchBarChange = (e) => {
+    this.setState({ searchString: e.target.value });
+  }
   
   render() {
     this.saveTodos();
     return (
       <div>
+        <SearchBar
+          value={this.state.searchString}
+          searchChange={this.onSearchBarChange}
+        />
         <TodoList
           todoList={this.state.todos}
           searchString ={this.state.searchString}
