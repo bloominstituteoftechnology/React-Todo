@@ -44,6 +44,22 @@ class App extends React.Component {
     await localStorage.setItem("todoData", JSON.stringify(this.state.todoData));
   };
 
+  toggleTask = async id => {
+    const updatedTodoData = this.state.todoData.map(task => {
+      if (task.id === id) {
+        return { ...task, completed: !task.completed };
+      }
+      return task;
+    });
+
+    await this.setState({
+      ...this.state,
+      todoData: updatedTodoData,
+      todoDisplayData: updatedTodoData
+    });
+    await localStorage.setItem("todoData", JSON.stringify(this.state.todoData));
+  };
+
   handleTaskChange = event => {
     this.setState({ ...this.state, task: event.target.value });
   };
@@ -74,7 +90,11 @@ class App extends React.Component {
           <p>No matching tasks were found</p>
         )}
 
-        <TodoList todoData={todoDisplayData} />
+        <TodoList
+          todoData={todoDisplayData}
+          handleToggleTask={this.toggleTask}
+        />
+
         <TodoForm
           task={task}
           handleTaskChange={this.handleTaskChange}
