@@ -1,46 +1,42 @@
-import React from 'react';
-import {todoList} from './components/TodoComponents/TodoList';
-import Todo from './components/TodoComponents/Todo';
-import TodoForm from './components/TodoComponents/TodoForm';
+import React from "react";
+import Todo from "./components/TodoComponents/Todo";
+import todoList from "./components/TodoComponents/TodoList";
+import './index.css'
+import TodoForm from "./components/TodoComponents/TodoForm";
 class App extends React.Component {
-  // you will need a place to store your state in this component.
   constructor(){
     super();
     this.state = {
-      todoText: todoList,
-    };
+      todos:  todoList,
+    }
+    this.handleChange = this.handleChange.bind(this)
   }
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-  addTodo = event =>{
-    event.preventDefault();
-    const newTodo = {
-      todoText: this.state.todoText,
-    };
-    // console.log(event.target.value);
-    this.setState ({
-      todoText: [this.state.todoText, newTodo],
-      completed: false,
+  handleChange(id){
+    this.setState(prevState => {
+      const updatedTodos = prevState.todos.map(todo => {
+        if(todo.id === id) {
+          todo.completed = !todo.completed
+        }
+        return todo
+      })
+      return {
+        todos: updatedTodos
+      }
     })
   }
-  handleChanges = event => {
-    event.preventDefault();
-    console.log(event);
-  }
-  render() {
-    return (
-      <div>
+  render(){
+    const todoItems = this.state.todos.map(item => (
+      <Todo key={item.id} item={item} handleChange={this.handleChange}/>
+    ));
+  return (
+      <div className="todo-list">
+        <h2>To Do List: </h2>
         <TodoForm />
-        <h1>To Do List: </h1>
-        <div className="todoList">
-          {this.state.todoText.map(todo => (
-            <Todo newTodo={todo}/>
-          ))}
-        </div>
+        {todoItems}
       </div>
-      
-    );
+    ); 
   }
+  
 }
 
 export default App;

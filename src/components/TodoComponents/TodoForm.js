@@ -1,14 +1,24 @@
 import React from 'react';
-import { exportDefaultDeclaration } from '@babel/types';
-
+// import todoList from './TodoList'
 class TodoForm extends React.Component {
+  addTodo = event => {
+    event.preventDefault();
+    const newTodo = {
+      text: 'hello',
+      completed: false
+    
+    };
+    this.setState(
+      {todoList: [...this.state.todoList, newTodo], }
+    );
+    console.log(setState);
+  };
   render(){
     return(
       <div>
-        <h2>{this.state.message}</h2>
-        <form onSubmit={this.handleChanges}>
-          <label htmlFor="newTodo">New Todo</label>
-          <input placeholder="New Todo" onChange={this.addTodo} id="newTodo" name="newTodo" />
+        <form onSubmit={this.addTodo}>
+          <label placeholder="newTodo"></label>
+          <input placeholder="New Todo" onChange={this.handleChange} id="newTodo" name="newTodo" />
           <button type="submit">Add Todo</button>
         </form>
       </div>
