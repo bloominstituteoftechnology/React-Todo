@@ -26,7 +26,7 @@
     completed: false
   },
   {
-    task: 'Bake Cookies',
+    task:  'Bake Cookies',
     id: 1528817084358,
     completed: false
   }
