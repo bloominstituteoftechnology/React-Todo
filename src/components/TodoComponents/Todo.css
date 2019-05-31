@@ -1,0 +1,52 @@
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container h1 {
+    text-decoration: underline;
+}
+
+.task-completed {
+    text-decoration: line-through; 
+}
+
+.form .text-field {
+    width: 250px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid lime;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.form text-field:focus {
+    outline: none;
+
+}
+
+.form div .button {
+    padding: 5px 10px;
+    width: 120px;
+    background: none;
+    border: none;
+    font-size: 12px;
+    color: white;
+}
+
+.form div .button:first-child {
+    margin-right: 10px;
+}
+
+.form div .button:focus {
+    outline: none;
+}
+
+.form div .button:hover {
+    color: black;
+    border-bottom: 1px solid lime;
+    transform: scale(1.2);
+    transition: 0.2s;
+}
+}
+
