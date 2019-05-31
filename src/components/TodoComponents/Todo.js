@@ -11,7 +11,7 @@ function Todo(props) {
             <input 
                 type="checkbox" 
                 checked={props.item.completed}
-                onChange={() => props.handleChange(props.item.id)}
+                onChange={() => props.toggleComplete(props.item.id)}
             />
             
             <p style={props.item.completed ? completedStyle : null}>{props.item.text}</p>
