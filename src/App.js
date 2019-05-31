@@ -8,30 +8,62 @@ class App extends React.Component {
     super();
     this.state = {
       todos:  todoList,
+      text: '',
     }
-    this.handleChange = this.handleChange.bind(this)
   }
-  handleChange(id){
-    this.setState(prevState => {
-      const updatedTodos = prevState.todos.map(todo => {
-        if(todo.id === id) {
-          todo.completed = !todo.completed
+  changeHandler = event => {
+    this.setState({
+      text: event.target.value,
+    })
+  } 
+  toggleComplete = (id) => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if(id === todo.id){
+          return {...todo, completed: !todo.completed}
         }
         return todo
       })
-      return {
-        todos: updatedTodos
-      }
     })
   }
+  // toggleCompleted(id){
+  //   this.setState(prevState => {
+  //     const updatedTodos = prevState.todos.map(todo => {
+  //       if(todo.id === id) {
+  //         todo.completed = !todo.completed
+  //       }
+  //       return todo
+  //     })
+  //     return {
+  //       todos: updatedTodos
+  //     }
+  //   })
+  // }
+  addTodo = event => {
+    event.preventDefault();
+    const newTodo = {
+      id: Date.now(),
+      text: this.state.text,
+      completed: false
+    
+    };
+    this.setState(
+      {todos: [...this.state.todos, newTodo,],
+       text: '',
+      }
+    );
+  };
   render(){
     const todoItems = this.state.todos.map(item => (
-      <Todo key={item.id} item={item} handleChange={this.handleChange}/>
+      <Todo 
+      key={item.id} 
+      item={item} 
+      toggleComplete={this.toggleComplete}/>
     ));
   return (
       <div className="todo-list">
         <h2>To Do List: </h2>
-        <TodoForm />
+        <TodoForm changeHandler={this.changeHandler} addTodo={this.addTodo} text={this.state.text} todoList={this.state.todos}/>
         {todoItems}
       </div>
     ); 
