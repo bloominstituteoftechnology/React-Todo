@@ -1,0 +1,11 @@
+.todoForm {
+    display: flex;
+}
+
+.btn {
+    flex: 1;
+}
+
+.inputField {
+    flex: 10;
+}
