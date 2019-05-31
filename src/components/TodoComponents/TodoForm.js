@@ -8,7 +8,7 @@ const TodoForm = props => {
                 className="text-field"
                 type="text"
                 value={props.task}
-                palceholder="Enter a todo here ..."
+                placeholder="Enter a todo here ..."
                 name="task"
                 onChange={props.changeHandler} />
             <div>

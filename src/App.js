@@ -7,11 +7,10 @@ import "./components/TodoComponents/Todo.css";
 const list = [];
 
 class App extends React.Component {
-
   constructor() {
     super();
     this.state = {
-      TodoList: list,
+      todoList: list,
       task: "",
     }
   }
@@ -34,7 +33,8 @@ class App extends React.Component {
   }
 
   toggleTodo = (e, taskId) => {
-    let newTodoList = this.state.todoList.map(task => (task.id === this.setState({
+    let newTodoList = this.state.todoList.map(task => (task.id === taskId ? {...task, completed: !task.completed} : task))
+    this.setState({
       todoList: newTodoList
     })
   
@@ -50,7 +50,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h2>ToDo List!</h2>
+        <h1>ToDo List!</h1>
         <TodoList todoList={this.state.todoList} toggleTodo={this.toggleTodo} />
         <TodoForm task={this.state.task} changeHandler={this.changeHandler} addTodoHandler={this.addTodoHandler} deleteCompletedHandler={this.deleteCompletedHandler} />
       </div>
