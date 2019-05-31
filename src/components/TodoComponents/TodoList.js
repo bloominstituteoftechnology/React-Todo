@@ -9,12 +9,14 @@ const TodoList = props => {
     return(
         <div>
             <p>no</p>
-            {props.todoItems.map(item => {
-                return <TodoItem  item={item} />
-            })}
+           
         </div>
     );
 }
+
+//  {props.todoItems.map(item => {
+//    return <TodoItem  item={item} />
+//})}
 
 
 
