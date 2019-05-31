@@ -1,10 +1,7 @@
 .container {
     margin: 0 auto;
     text-align: center;
-}
-
-.container h1 {
-    text-decoration: underline;
+    background-color: lightgray;
 }
 
 .task-completed {
@@ -15,9 +12,9 @@
     width: 250px;
     background: none;
     border: none;
-    border-bottom: 1px solid lime;
+    border-bottom: 2px solid dodgerblue;
     margin: 10px 0;
-    font-size: 14px;
+    font-size: 10px;
 }
 
 .form text-field:focus {
@@ -30,8 +27,8 @@
     width: 120px;
     background: none;
     border: none;
-    font-size: 12px;
-    color: white;
+    font-size: 10px;
+    color: solid black;
 }
 
 .form div .button:first-child {
@@ -44,7 +41,7 @@
 
 .form div .button:hover {
     color: black;
-    border-bottom: 1px solid lime;
+    border-bottom: 1px solid crimson;
     transform: scale(1.2);
     transition: 0.2s;
 }
