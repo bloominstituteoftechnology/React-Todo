@@ -37,6 +37,7 @@ class App extends React.Component {
     this.setState({
       todoList: newTodoList
     })
+  }
   
   deleteCompletedHandler = e => {
     e.preventDefault();
@@ -44,11 +45,9 @@ class App extends React.Component {
       todoList: this.state.todoList.filter(task => !task.completed)
     })
   }
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  
   render() {
-    return (
+  return (
       <div className="container">
         <h1>ToDo List!</h1>
         <TodoList todoList={this.state.todoList} toggleTodo={this.toggleTodo} />
@@ -56,6 +55,10 @@ class App extends React.Component {
       </div>
     );
   }
-}
+} 
 
 export default App;
+
+// you will need a place to store your state in this component.
+// design `App` to be the parent component of your application.
+// this component is going to take care of state, and any change handlers you need to work with your state
