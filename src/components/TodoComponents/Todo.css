@@ -9,12 +9,12 @@
 }
 
 .form .text-field {
-    width: 250px;
+    width: 350px;
     background: none;
     border: none;
     border-bottom: 2px solid dodgerblue;
     margin: 10px 0;
-    font-size: 10px;
+    font-size: 20px;
 }
 
 .form text-field:focus {
@@ -27,12 +27,12 @@
     width: 120px;
     background: none;
     border: none;
-    font-size: 10px;
+    font-size: 20px;
     color: solid black;
 }
 
 .form div .button:first-child {
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .form div .button:focus {
@@ -43,7 +43,7 @@
     color: black;
     border-bottom: 1px solid crimson;
     transform: scale(1.2);
-    transition: 0.2s;
+    transition: 0.4s;
 }
 
 
