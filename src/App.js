@@ -34,7 +34,7 @@ class App extends React.Component {
   }
 
   toggleTodo = (e, taskId) => {
-    let.newTodoList = this.state.todoList.map(task => (task.id === this.setState({
+    let newTodoList = this.state.todoList.map(task => (task.id === this.setState({
       todoList: newTodoList
     })
   
@@ -42,7 +42,7 @@ class App extends React.Component {
     e.preventDefault();
     this.setState({
       todoList: this.state.todoList.filter(task => !task.completed)
-    });
+    })
   }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
