@@ -50,7 +50,7 @@ h1 {
   margin: 4px 0;
   padding-left: 8px;
 }
-.purchased {
+.completed {
   background-color: #d17d7c;
   text-decoration: line-through;
   width: 45%;
