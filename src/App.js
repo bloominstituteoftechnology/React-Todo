@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -22,14 +23,63 @@ class App extends React.Component {
 
 handleSubmit = event => {
   let newList = this.state.taskList.slice();
+
+  if (this.state.currentTask === '') {
+    return;
+  } else {
+    let newObject = {
+      task: this.state.currentTask,
+      id: Date.now(),
+      completed: false
+    }
+    newList.push(newObject);
+    this.setState({taskList: newList});
+  };
+};
+
+handleEventChange = event => {
+  this.setState({currentTask: event.target.value});
+};
+
+handleEventFinish = currentId => {
+  let newList = this.state.taskList.slice();
+  newList = newList.map(task => {
+    if (currentId === task.id) {
+      task.completed = !task.completed;
+      return task;
+    } else {
+      return task;
+    }
+  });
+
+  this.setState({taskList: newList});
+  console.log(this.state.taskList);
 }
+
+handleClearCompleted = event => {
+  event.preventDefault();
+  let todoList = this.state.taskList.slice();
+  let newTodoList = todoList.filter(todo => todo.completed === false);
+  this.setState({taskList: newTodoList});
+  this.setState({taskList: newTodoList});
+
+}
+
+
 
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <TodoList 
+          taskList={this.state.taskList}
+          handleEventFinish={this.handleEventFinish}
+        />
 
-        <TodoForm />
+        <TodoForm 
+          handleEventChange={this.handleEventChange}
+          handleSubmit={this.handleSubmit}
+          handleClear={this.handleClearCompleted}
+        />
       </div>
     );
   }
