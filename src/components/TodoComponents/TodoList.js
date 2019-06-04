@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const ToDo = [
+const ToDoList = [
     {
         task: '',
         id: 23,
@@ -14,5 +14,6 @@ const ToDo = [
         completed: false
     }
 ];
+// console.log(ToDoList);
 
-export default ToDo;
+export default ToDoList;
