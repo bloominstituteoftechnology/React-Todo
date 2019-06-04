@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ToDoForm = props => {
+const TodoForm = props => {
     return (
         <div>
             <input onChange={props.handleEventChange} type="text" placeholder="Add to do"></input>
@@ -10,4 +10,4 @@ const ToDoForm = props => {
     );
 }
 
-export default ToDoForm;
+export default TodoForm;
