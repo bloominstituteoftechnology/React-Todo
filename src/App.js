@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -7,7 +8,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h1>Today's list of important things To Do!</h1>
+        <date className='todaysDate'>{moment().format('MMM Do YYYY')}</date>
       </div>
     );
   }
