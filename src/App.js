@@ -9,7 +9,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Today's list of important things To Do!</h1>
-        <date className='todaysDate'>{moment().format('MMM Do YYYY')}</date>
+        <div className='todaysDate'>{moment().format('MMM Do YYYY')}</div>
       </div>
     );
   }
