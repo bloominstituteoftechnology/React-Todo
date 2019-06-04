@@ -63,18 +63,15 @@ addTodo = todo => {
 };
 
 
-  render() {
+  render() { 
     return (
       <div className="app">
         <h2>Welcome to your Todo App!</h2>
-
         <TodoList 
          todos={this.state.Todos}
          toggleTodo={this.toggleTodo}
         />
-
          <TodoForm addTodo={this.addTodo} />
-
       </div>
     );
   }
@@ -91,78 +88,3 @@ export default App;
 
 //All of your handler functions should live here on <App />.
 
-
-//////////////////////////////////////////////////
-//EXAMPLE
-
-/*
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      // same as - groceries: groceries
-      groceries
-    };
-  }
-
-  toggleItem = id => {
-    this.setState({
-      groceries: this.state.groceries.map(item => {
-        if (item.id === id) {
-          return {
-            ...item,
-            // name: item.name,
-            // id: item.id,
-            // purchased: item.purchased
-            purchased: !item.purchased
-          };
-        }
-        return item;
-      })
-    });
-    // loop over groceries
-    // find grocery by given id
-    // change flag to true
-    // return updated list to state.
-  };
-
-  addItem = item => {
-    const copiedGroceries = this.state.groceries.slice();
-    const newItem = {
-      name: item,
-      id: Date.now(),
-      purchased: false
-    };
-    copiedGroceries.push(newItem);
-    // BUILD OUR ITEM OBJECT
-    this.setState({ groceries: copiedGroceries });
-  };
-
-  clearPurchased = () => {
-    // use filter
-    // looping over all the items inside of `this.state.groceries`
-    // filter out any items, who's item.purchased === true
-    // set your state with your new filtered list.
-  };
-
-  render() {
-    // when state is updated (Via setState) react calls render again!
-    return (
-      <div className="App">
-        <div className="header">
-          <h1>Shopping List</h1>
-          <ListForm addItem={this.addItem} />
-        </div>
-        <GroceryList
-          groceries={this.state.groceries}
-          toggleItem={this.toggleItem}
-        />
-        <button onClick={this.clearPurchased}>Clear Purchased</button>
-      </div>
-    );
-  }
-}
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
-*/
