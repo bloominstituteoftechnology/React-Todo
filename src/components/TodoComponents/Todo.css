@@ -1,0 +1,11 @@
+button {
+  background-color: #fff;
+}
+
+.todo {
+  color: tomato;
+}
+.todo.completed {
+  color: yellowgreen;
+  text-decoration: line-through;
+} 
