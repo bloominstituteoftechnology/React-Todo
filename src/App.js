@@ -39,7 +39,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <TodoList  todos={this.state.todos} />
+      <TodoList todos={this.state.todos} />
       <TodoForm value={this.state.todo} changeHandler={this.changeHandler} submitHandler={this.submitHandler}/>
     </div>
     );
