@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ToDoForm() {
+function TodoForm(props) {
     return (
 
         <form onSubmit={props.submitHandler}>

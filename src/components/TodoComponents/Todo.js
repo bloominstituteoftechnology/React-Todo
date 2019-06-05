@@ -1,8 +1,8 @@
 import React from 'react';
 
-function ToDo() {
+function Todo(props) {
   return (
-    <h1>{props.todo.task}</h1>  );
+    <h3>{props.todo.task}</h3>  );
 };
 
 export default Todo;
