@@ -2,12 +2,7 @@ import React from 'react';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
 
-const toDoArray = [{
-  task: 'Wake up!',
-  id: 1,
-  completed: false
-}];
-const newId = Date.now();
+const toDoArray = [];
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -15,12 +10,10 @@ class TodoList extends React.Component {
     this.state = {
       list: toDoArray,
       task: '',
-      id: { newId },
+      id: '',
       completed: false
     }
-    { console.log(this.state.list) }
   };
-  
 
   changeHandler = event => {
     this.setState({ [event.target.name]: event.target.value })
@@ -33,11 +26,13 @@ class TodoList extends React.Component {
       id: this.state.id,
       completed: this.state.completed
     };
+    newTask.id = Date.now();
 
     this.setState({
       toDoArray: [...this.state.list, newTask]
     });
     toDoArray.push(newTask);
+    { console.log(this.state.list) }
   };
 
   render() {
@@ -45,7 +40,7 @@ class TodoList extends React.Component {
       <div>
         <div className='todoList'>
           {this.state.list.map((item, index) => {
-            return <Todo item={item} key={index} />
+            return <Todo item={item} key={index} taskId={item} />
           })
           }
         </div>
