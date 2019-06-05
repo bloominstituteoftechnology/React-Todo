@@ -49,7 +49,7 @@ class TodoList extends React.Component {
           })
           };
         </div>
-        <TodoForm />
+        <TodoForm submitHandler={this.submitHandler} stateTask={this.state.task} changeHandler={this.changeHandler} />
       </div>
     )
   }
