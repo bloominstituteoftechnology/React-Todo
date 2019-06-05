@@ -7,14 +7,14 @@ class TodoForm extends React.Component {
         <form onSubmit={this.props.addTodo}>
           <label placeholder="newTodo"></label>
           <input 
-            placeholder="New Todo" 
+            placeholder="Insert New Task" 
             onChange={this.props.changeHandler} 
             task="newTodo" 
             name="newTodo" 
             value={this.props.text}
             required
             />
-          <button type="submit">Add Todo</button>
+          <button type="submit">Add Task To List</button>
         </form>
       </div>
     );
