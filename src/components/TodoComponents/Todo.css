@@ -1,0 +1,25 @@
+.submit-button {
+	-moz-box-shadow: 12px 8px 14px -7px #276873;
+	-webkit-box-shadow: 12px 8px 14px -7px #276873;
+	box-shadow: 12px 8px 14px -7px #276873;
+	background-color:transparent;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#7608cf;
+	font-family:Arial;
+	font-size:12px;
+	font-weight:bold;
+	padding:3px 11px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.submit-button:hover {
+	background-color:transparent;
+}
+.submit-button:active {
+	position:relative;
+	top:1px;
+}
