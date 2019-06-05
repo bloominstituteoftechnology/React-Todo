@@ -16,9 +16,32 @@ class App extends React.Component {
   };
   }
   
+  changeHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  submitHandler = event => {
+    event.preventDefault();
+    const newtodo = {
+      task: this.state.task,
+      id: Date.now(),
+      completed: false
+      
+    };
+
+    this.setState({
+      todos: [...this.state.todos, newtodo]
+      
+    });
+     
+  };
+
   render() {
     return (
-     
+      <div>
+      <TodoList  todos={this.state.todos} />
+      <TodoForm value={this.state.todo} changeHandler={this.changeHandler} submitHandler={this.submitHandler}/>
+    </div>
     );
   }
 }
