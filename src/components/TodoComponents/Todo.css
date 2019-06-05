@@ -1,0 +1,44 @@
+*{
+    padding: 20px;
+}
+
+.todo {
+    position: relative;
+    left: 400px;
+    border: solid 1px black;
+    width: 250px;
+    background-color: rgb(194, 226, 202);
+    border-radius: 15px;
+
+}
+.clearC .add{
+    margin: 1px;
+}
+.add {
+    border-radius: 7px;
+    font-family: 'Passion One', sans-serif;
+    font-weight: bold;
+    border: solid 2px black;
+}
+.clearC{
+    border-radius: 7px;
+    font-family: 'Passion One', sans-serif;
+    font-weight: bold;
+    border: solid 2px black;
+}
+.clearC:hover{
+    background-color: red;
+}
+.add:hover{
+    background-color: rgb(248, 125, 103);
+}
+.input{
+    border-radius: 7px;
+    border: solid 2px dodgerblue;
+}
+.list{
+    color: black;
+    font-weight: bold;
+    list-style-type: disc;
+}
+
