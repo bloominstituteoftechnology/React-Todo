@@ -13,15 +13,27 @@ class TodoList extends React.Component {
       id: { newId },
       completed: false
     }
-  }
+  };
+
+
 
   render() {
     return (
       <div className='todoList'>
-        {this.state.toDoArray.map((item, index) => {
+        {/* {this.state.toDoArray.map((item, index) => {
           return <Todo item={item} key={index} />
-        })};
+        })
+        }; */}
       </div>
+      <form onSubmit={this.submitHandler}>
+        <input
+          type='text'
+          value={this.state.task}
+          onChange={this.changeHandler}
+          placeholder='New Task'
+          name='task'
+        />
+      </form>
     )
   }
 }
