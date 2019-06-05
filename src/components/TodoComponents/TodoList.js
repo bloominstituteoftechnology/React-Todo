@@ -35,7 +35,7 @@ class TodoList extends React.Component {
     };
 
     this.setState({
-      toDoArray: [...this.state.toDoArray, newTask]
+      toDoArray: [...this.state.list, newTask]
     });
     toDoArray.push(newTask);
   };
@@ -44,10 +44,10 @@ class TodoList extends React.Component {
     return (
       <div>
         <div className='todoList'>
-          {this.state.toDoArray.map((item, index) => {
+          {this.state.list.map((item, index) => {
             return <Todo item={item} key={index} />
           })
-          };
+          }
         </div>
         <TodoForm submitHandler={this.submitHandler} stateTask={this.state.task} changeHandler={this.changeHandler} />
       </div>
