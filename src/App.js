@@ -69,20 +69,20 @@ class App extends Component {
 
   addTodo = event => {
     event.preventDefault();
+    let newTodo = {
+      task: todos,
+      id: Date.now(),
+      completed: false
+    }
     this.setState({
       todos: [
-        ...this.state.todos,
-        {
-          task: this.state.task,
-          id: this.state.id
-        }
-      ]
+        ...this.state.todos, newTodo]
     });
 };
 
   render() {
     return (
-      <div>
+      <div className="todo-app">
         <h1>To Do List</h1>
 
         <TodoList

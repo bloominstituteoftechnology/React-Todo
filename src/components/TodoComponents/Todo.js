@@ -4,7 +4,7 @@ function Todo(props) {
     return(
         <div className="todo-item">
             <p>
-                {props.todo.id} {props.todo.task}
+                {props.listTodo.id} {props.listTodo.task}
             </p>
         </div>
     );
