@@ -9,12 +9,12 @@ class App extends React.Component {
   state={
     tasks: [
     {
-      task: 'Organize Garage',
+      task: 'Change Laundry',
       id: 1528817077286,
       completed: false
     },
     {
-      task: 'Bake Cookies',
+      task: 'Walk the Dogs',
       id: 1528817084358,
       completed: false
     }
