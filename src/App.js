@@ -36,9 +36,10 @@ class App extends React.Component {
         id: Date.now(),
         completed: false
       }
-
       this.setState({tasks:[...this.state.tasks, newTask]})
   };
+
+  //     this.setState({ listItem: "" }); How to clear the submit boxs
 
   onToggle = (id) => {
     this.setState((prevState)=> {
