@@ -2,3 +2,27 @@
     background-color: red;
     text-decoration: line-through;
 }
+
+.todoForm{
+    width: 33%;
+    background: lightgray;
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    text-align: center;
+    border: 1px solid dodgerblue;
+}
+
+.todoListContainer{
+    background: seashell;
+    margin: 0 auto;   
+}
+
+.todoList{
+    cursor: pointer;
+}
+
+#checkbox{
+    display: flex;
+    flex-direction: row;
+}
