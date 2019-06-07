@@ -17,7 +17,7 @@ html {
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;;
+  align-items: flex-start;
 }
 
 .App>.todo-list {
@@ -28,8 +28,12 @@ html {
     color: #FFFFFD;
 }
 
-.App>.todo-list>.todoTask.completed {
+.todoTask.completed {
     text-decoration: line-through;
+}
+
+input, button {
+    border-radius: 4px;
 }
 
 /* 
@@ -65,7 +69,6 @@ button {
   display: inline-block;
   box-sizing: border-box;
   border: none;
-  border-radius: 4px;
   padding: 0 16px;
   margin-top: 0;
   min-width: 64px;

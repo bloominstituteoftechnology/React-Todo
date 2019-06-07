@@ -6,23 +6,18 @@ import "../src/components/TodoComponents/Todo.css";
 // assign the variable todoAll to the array/list
 const todoAll = [
   {
-      task: 'Eat dinner',
+      task: 'Explore strange new worlds',
       id: 1800,
       completed: false
   },
   {
-      task: 'Study React',
+      task: 'Seek out new life and new civilizations',
       id: 1830,
       completed: false
   },
   {
-      task: 'Class Time',
+      task: 'Boldly go where no man has gone before',
       id: 1900,
-      completed: false
-  },
-  {
-      task: 'Bedtime',
-      id: 2200,
       completed: false
   }
 ];
