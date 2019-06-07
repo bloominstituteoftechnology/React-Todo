@@ -1,100 +1,84 @@
-import React, { Component } from 'react';
-import TodoList from '../src/components/TodoComponents/TodoList';
-import TodoForm from '../src/components/TodoComponents/TodoForm';
+import React, {Component } from "react";
+import TodoList from "./components/TodoComponents/TodoList"
+import TodoForm from "./components/TodoComponents/TodoForm";
+import "../src/components/TodoComponents/Todo.css";
 
-const todos = [
+// assign the variable todoAll to the array/list
+const todoAll = [
   {
-      task: 'Get ready for work',
-      id: 600,
-      completed: false
-  },
-  {
-      task: 'Leave for work',
-      id: 700,
-      completed: false
-  },
-  {
-      task: 'Begin work',
-      id: 800,
-      completed: false
-  },
-  {
-      task: 'Lunch break',
-      id: 1200,
-      completed: false
-  },
-  {
-      task: 'Return from break',
-      id: 1300,
-      completed: false
-  },
-  {
-      task: 'Leave work',
-      id: 1700,
-      completed: false
-  },
-  {
-      task: 'Arrive home',
+      task: 'Eat dinner',
       id: 1800,
       completed: false
   },
   {
-      task: 'Eat dinner',
+      task: 'Study React',
       id: 1830,
       completed: false
   },
   {
-      task: 'Study React',
+      task: 'Class Time',
       id: 1900,
       completed: false
   },
   {
-      task: 'Class Time',
-      id: 2000,
-      completed: false
-  },
-  {
       task: 'Bedtime',
-      id: 2330,
+      id: 2200,
       completed: false
   }
 ];
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos
-    };
-  }
 
-  addTodo = event => {
-    event.preventDefault();
-    let newTodo = {
-      task: todos,
+// initialize state
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      initialTodoList: todoAll
+    };
+  };
+
+  addTask = newTask => {
+    const newTodoTask = {
+      task: newTask,
       id: Date.now(),
       completed: false
-    }
+    };
     this.setState({
-      todos: [
-        ...this.state.todos, newTodo]
+      initialTodoList: [...this.state.initialTodoList, newTodoTask]
     });
-};
+  };
+
+  toggleTaskComplete = id => {
+    const newList = this.state.initialTodoList.map(task => {
+      if (task.id === id) {
+        const newTodo = {
+          ...task,
+          completed: !task.completed
+        };
+        return newTodo;
+      } else {
+        return task;
+      }
+    });
+
+    this.setState({ initialTodoList: newList });
+  };
 
   render() {
     return (
-      <div className="todo-app">
-        <h1>To Do List</h1>
-
-        <TodoList
-          todos={this.state.todos}
-        />
-
-        <TodoForm
-          addTodo={this.addTodo}
-        />
+      <div className="App">
+        <div className="todo-list">
+          <h1>Todo List</h1>
+          <TodoList
+            todoAll={this.state.initialTodoList}
+            toggleTaskComplete={this.toggleTaskComplete}
+          />
+          <TodoForm
+            addNewTask={this.addTask}
+          />
+        </div>
       </div>
     );
   };
-}
+};
 
 export default App;
