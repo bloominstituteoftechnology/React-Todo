@@ -32,15 +32,60 @@ class App extends React.Component {
           completed: false
         }
       ],
-    } 
+      todo: 
+      {
+        task: '',
+        id: Date.now(),
+        completed: false
+      }
+    };
+  }
+
+  addTodo = event => {
+    event.preventDefault();
+    let todos = this.state.todos;
+    todos.push(this.state.todo);
+    this.setState({
+      todos: todos,
+      todo: {...this.state.todo,
+      task: '' }
+    });
+  }
+
+  changeTodo = event => {
+    this.setState({
+      todo: {...this.state.todo,
+      task: event.target.value }
+    });
   }
   
+  toggleCompleted = id => {
+    let todos = this.state.todos;
+    const newTodos = todos.map(todo => {
+      if (id === todo.id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+    });
+    this.setState({
+      todos: newTodos
+    });
+  }
+
   render() {
     return (
       <div>
         <h1>React ToDo List: MVP</h1>
-        <TodoList todos={this.state.todos}/>
-        <TodoForm />
+        <TodoList 
+        toggleCompleted={this.toggleCompleted}
+        todos={this.state.todos}/>
+        <TodoForm 
+        todo={this.state.todo}
+        changeTodo={this.changeTodo}
+        addTodo={this.addTodo}
+        clearTodos={this.clearTodos}/>
       </div>
     );
   }

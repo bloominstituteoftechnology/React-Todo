@@ -5,13 +5,13 @@ const TodoForm = props => {
         <form>
             <input 
             type="text"
-            placeholder="text"
+            placeholder="Add ToDo"
             name="ToDo"
             className="todoinput"
             onChange="text"
             />
-            <button>Add</button>
-            <button>Clear Completed</button>
+            <button onClick={props.addTodo}>Add</button>
+            <button onClick={props.clearTodos}>Clear Completed</button>
         </form>
     );
 };
