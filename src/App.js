@@ -17,6 +17,11 @@ class App extends React.Component {
       task: 'Walk the Dogs',
       id: 1528817084358,
       completed: false
+    },
+    {
+        task: 'Wash the Car',
+        id: Date.now(),
+        completed: false
     }
   ],
 
