@@ -1,0 +1,7 @@
+{
+    "builds": [
+      { "src": "*.html", "use": "@now/static" },
+      { "src": "date.js", "use": "@now/node" }
+    ]
+  }
+  
