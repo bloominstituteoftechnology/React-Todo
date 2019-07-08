@@ -59,10 +59,10 @@ button {
 	-ms-border-radius:4px;
 	-o-border-radius:4px;
 }
-		button:hover{
-			background-color:#444;
-			color:#fff
-		}
+button:hover{
+	background-color:rgb(32, 60, 185);
+	color:#fff
+}
 .timestamp {
 	font-size: 1rem;
 }
