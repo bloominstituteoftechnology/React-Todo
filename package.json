@@ -5,7 +5,9 @@
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4"
+    "react-redux": "^7.1.0",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
