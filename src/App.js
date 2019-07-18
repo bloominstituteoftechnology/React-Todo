@@ -6,32 +6,39 @@ import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
 
 class App extends React.Component {
+  //
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
-    this.state = {
-      currentTask: ""
-    };
+    // this.state = {
+    //   currentTask: ""
+    // };
   }
-  handleEventChange = event => {
-    event.preventDefault();
-    this.setState({ currentTask: event.target.value });
-    // console.log(this.state.currentTask);
-  };
-  handleEventFinish = currentId => {
-    let newList = this.props.taskList.slice();
-    newList = newList.map(task => {
-      if (currentId === task.id) {
-        task.completed = !task.completed;
-        return task;
-      } else {
-        return task;
-      }
-    });
-    // console.log(this.state.taskList);
-  };
+  // handleEventChange = event => {
+  //   event.preventDefault();
+  //   this.setState({ currentTask: event.target.value });
+  //   // console.log(this.state.currentTask);
+  // };
+  // clearCurrentTask = e => {
+  //   // e.preventDefault();
+  //   this.setState({ currentTask: "" });
+  //   console.log(this.state.currentTask);
+  // };
+  // handleEventFinish = currentId => {
+  //   let newList = this.props.taskList.slice();
+  //   newList = newList.map(task => {
+  //     if (currentId === task.id) {
+  //       task.completed = !task.completed;
+  //       return task;
+  //     } else {
+  //       return task;
+  //     }
+  //   });
+  //   // console.log(this.state.taskList);
+  // };
 
   handleClearCompleted = event => {
     event.preventDefault();
@@ -53,7 +60,7 @@ class App extends React.Component {
         <TodoForm
           handleEventChange={this.handleEventChange}
           addTask={this.props.addTask}
-          currentTask={this.state.currentTask}
+          clearCurrentTask={this.clearCurrentTask}
           handleClear={this.handleClearCompleted}
         />
       </div>
