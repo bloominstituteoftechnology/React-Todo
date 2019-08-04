@@ -15,14 +15,22 @@ class App extends React.Component {
       todo:[{
             task: "swim",
             id: Date.now(),
-            complete: false
+            completed: false
           }]
       
     }
-    console.log('state', this.state)
   }
-  handleChangeFunction = event => {
-    // this.setState({ todo: event.target.value})
+
+  addItem = (event, item) => {
+    event.preventDefault();
+    const newItem = {
+      task: item,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({
+      todo:[...this.state.todo, newItem]
+    })
   }
   render() {
     return (
@@ -30,7 +38,7 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
        
         <TodoList todo={this.state.todo}/>
-        <TodoForm />
+        <TodoForm addItem={this.addItem}/>
       </div>
     );
   }
