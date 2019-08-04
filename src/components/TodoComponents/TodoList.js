@@ -6,6 +6,9 @@ import TodoForm from "./TodoForm";
 const TodoList = props => {
   return (
     <div>
+      const items = this.state.task.map((item, key) =>
+      <li key={task.id}>{task.name}</li>
+      );
       <TodoForm />
     </div>
   );
