@@ -11,6 +11,7 @@ const TodoList = props => {
                 <Todo 
                     key={item.id} 
                     item={item}
+                    handleClick={props.setCompleted}
                 />
             ))}
             
