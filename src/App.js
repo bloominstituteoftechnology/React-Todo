@@ -1,5 +1,6 @@
 import React from 'react';
 import Todo from './components/TodoComponents/Todo'
+import TodoList from "./components/TodoComponents/TodoList"
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -9,7 +10,9 @@ class App extends React.Component {
   constructor(){
     super();
     this.state={
-      todo: ""
+      task: "",
+      id: Date.now(),
+      complete: false
     }
   }
   handleChangeFunction = event => {
@@ -19,7 +22,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <Todo propsTodo={this.state.todo} />
+        <Todo propsTodo={this.state.task} />
+        <TodoList/>
         <input onChange={this.handleChangeFunction}/>
       </div>
     );
