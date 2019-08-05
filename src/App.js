@@ -50,8 +50,9 @@ class App extends React.Component {
   render() {
     return (
       <>
-      <TodoForm />
+      
       <TodoList data={this.state.data} toggleItem={this.toggleItem}/>
+      <TodoForm />
       </>
     );
   }
