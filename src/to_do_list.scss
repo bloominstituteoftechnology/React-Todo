@@ -6,6 +6,7 @@
         width: 50%;
         height: auto;
         margin: 0 auto;
+        box-shadow: 1px 1px 6px #243592;
         .header-container{
             height: auto;
             width: 100%;
@@ -34,6 +35,7 @@
                 .list-item{
                     font-size:1.6rem;
                     font-weight: 100;
+                    margin: 15px;
                 }
             }
         }
