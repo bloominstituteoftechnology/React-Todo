@@ -8,11 +8,12 @@ class App extends React.Component {
   constructor() {
     super();
 
-    this.state = {
+    this.state = [{
       task: '',
       id: Date.now(),
       completed: false
-    }
+    },
+  ]
   }
 
   render() {
