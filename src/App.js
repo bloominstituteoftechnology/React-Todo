@@ -55,7 +55,7 @@ addTask = taskName => {
 
 clearCompleted = () => {
   this.setState({
-    todoData: this.state.todoData.filter(item=> !item.completed)
+    todoData: this.state.todoData.filter(item => !item.completed)
   });
 };
 
@@ -63,7 +63,7 @@ clearCompleted = () => {
     return (
       <div>
         <h2>ToDo List: MVP</h2>
-        <TodoList todoData={this.state.todoData} toggleItem={this.toggleItem}/>
+        <TodoList todoData={this.state.todoData} toggleItem={this.toggleItem} clearCompleted={this.clearCompleted}/>
         <TodoForm addTask={this.addTask}/>
       </div>
     );
