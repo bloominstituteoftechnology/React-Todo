@@ -44,7 +44,7 @@ toggleItem = id => {
 
 addTask = taskName => {
   const newTask = {
-    name: taskName,
+    task: taskName,
     id: Date.now(),
     completed: false
   };

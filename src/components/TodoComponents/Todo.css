@@ -1,0 +1,7 @@
+.todo-completed {
+    text-decoration: line-through;
+}
+
+.clear-btn {
+    margin-top: 16px;
+}
