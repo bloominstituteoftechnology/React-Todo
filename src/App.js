@@ -7,8 +7,8 @@ import ToDoForm from './components/TodoComponents/TodoForm'
 const toDoList = [
 
   {
-    task : 'Organize Garage',
-    id : '123',
+    task : '',
+    id : null,
     completed : false
   }
 
@@ -39,6 +39,26 @@ class App extends React.Component {
       list : [...this.state.list, newTask]
     })
   }
+
+  toggleItem = id => {
+
+    this.setState({
+      list : this.state.list.map( item => {
+        if (item.id === id ) {
+          return { ...item , completed : !item.completed}
+        } else {
+          return item;
+        }
+      })
+    })
+  }
+
+  clearCompleted = () => {
+    this.setState({
+      list : this.state.list.filter(item => !item.completed)
+    })
+  }
+  
   
   render() {
     return (
@@ -46,9 +66,11 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         <TodoList 
           list = {this.state.list} 
+          toggleItem = {this.toggleItem}
           />
         <ToDoForm 
           addTask = {this.addTask}
+          clearCompleted = {this.clearCompleted}
           />
       </div>
     );
