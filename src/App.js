@@ -23,6 +23,26 @@ class App extends React.Component {
     };
   }
 
+  toggleDone(event) {
+    const id = parseInt(event.currentTarget.dataset.id);
+
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.map((todo) => {
+        return (
+          id === todo.id
+            ? {
+              ...todo,
+              completed: !todo.completed,
+            }
+            : todo
+        );
+      }),
+    });
+
+    event.currentTarget.classList.toggle('completed');
+  }
+
   changeNewTodoTaskText(event) {
     this.setState({
       ...this.state,
@@ -58,7 +78,10 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos} />
+        <TodoList
+          todos={this.state.todos}
+          toggleDone={(event) => this.toggleDone(event)}
+        />
         <TodoForm
           newTodoTaskText={this.state.newTodoTaskText}
           changeNewTodoTaskText={(event) => this.changeNewTodoTaskText(event)}

@@ -8,12 +8,14 @@ class Todo extends Component {
       task,
       id,
       completed,
+      toggleDone,
     } = this.props;
 
     return (
       <div
-        key={id}
+        data-id={id}
         className={`task ${(completed ? "completed" : "")}`}
+        onClick={toggleDone}
       >
         {task}
       </div>
