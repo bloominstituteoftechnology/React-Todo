@@ -1,5 +1,7 @@
 import React from 'react';
 
+import TodoList from './components/TodoComponents/TodoList';
+
 let todoList = [
   {
     task: 'Organize Garage',
@@ -10,6 +12,11 @@ let todoList = [
     task: 'Bake Cookies',
     id: 1528817084358,
     completed: false
+  },
+  {
+    task: 'Clean kennel',
+    id: 43242314234,
+    completed: true
   }
 ];
 
@@ -25,9 +32,12 @@ class App extends React.Component {
   render() {
     console.log(this.state.list);
     return (
+      <>
       <div>
-        <h2>Look!</h2>
+        <h2>test!</h2>
       </div>
+      <TodoList array={this.state.list} />
+      </>
     );
     
   }

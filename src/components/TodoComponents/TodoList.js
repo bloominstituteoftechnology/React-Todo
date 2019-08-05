@@ -4,11 +4,19 @@ import Todo from './Todo';
 class TodoList extends React.Component {
     constructor(){super();}
 
-    props.array.map((item) => {
+    render(){
         return (
-            <Todo task={item.task} />
+            this.props.array.map((item) => {
+            return (
+            <Todo task={item.task}
+            
+            />)
+                    
+            }
+            )
         )
-    })
+    }
+    
 }
 
-export defualt TodoList;
+export default TodoList;
