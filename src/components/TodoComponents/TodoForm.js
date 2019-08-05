@@ -4,8 +4,14 @@ class TodoForm extends Component {
   render() {
     return (
       <>
-        <form>
-          <input onChange={this.props.changeNewTodoText} />
+        <form onSubmit={this.props.addTodo}>
+          <input
+            name="task"
+            className="new-task-text"
+            type="text"
+            onChange={this.props.changeNewTodoText}
+          />
+          <input type="submit" value="Add Item" />
         </form>
       </>
     );

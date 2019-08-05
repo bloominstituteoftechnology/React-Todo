@@ -9,17 +9,17 @@ class App extends React.Component {
     this.state = {
       todos: [
         {
-          task: "first item",
+          task: 'first item',
           id: 1528817077286,
           completed: false,
         },
         {
-          task: "second item",
+          task: 'second item',
           id: 1528817077287,
           completed: false,
         },
       ],
-      newTodoText: "",
+      newTodoText: '',
     };
   }
 
@@ -30,7 +30,8 @@ class App extends React.Component {
     });
   }
 
-  addTodo() {
+  addTodo(event) {
+    event.preventDefault();
     this.setState({
       ...this.state,
       todos: [
@@ -41,7 +42,9 @@ class App extends React.Component {
           completed: false,
         },
       ],
+      newTodoText: '',
     });
+    event.currentTarget.querySelector('.new-task-text').value = '';
   }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -53,8 +56,8 @@ class App extends React.Component {
         <TodoList todos={this.state.todos} />
         <TodoForm
           newTodoText={this.state.newTodoText}
-          changeNewTodoText={(e) => this.changeNewTodoText(e)}
-          addTodo={(e) => this.addTodo(e)}
+          changeNewTodoText={(event) => this.changeNewTodoText(event)}
+          addTodo={(event) => this.addTodo(event)}
         />
       </div>
     );
