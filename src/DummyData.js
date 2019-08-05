@@ -19,4 +19,9 @@ export const dummyData = [
       id: 4364657423442,
       completed: false
     },
+    {
+      task: 'Bake Brownies for Bake Sale',
+      id: 5647685345465,
+      completed: false
+    },
 ]

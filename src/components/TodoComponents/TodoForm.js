@@ -31,6 +31,7 @@ class TodoForm extends React.Component {
             <StyledForm>
                 <input
                     type='text'
+                    placeholder='Add new task:'
                     value={this.item}
                     name='item'
                     onChange={this.handleChanges}
