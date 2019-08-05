@@ -19,7 +19,7 @@ class TodoForm extends React.Component{
     render(){
         return(
             <form onSubmit={this.handleSubmit}>
-                <h2>form</h2>
+                
                 <input 
                     placeholder="...Todo"
                     type="text"
