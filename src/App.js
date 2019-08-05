@@ -34,7 +34,11 @@ class App extends React.Component {
     })
   };
 
-  clearCompleted = () => {};
+  clearCompleted = (item) => {
+    this.setState({
+      taskData: this.state.taskData.filter(i => !i.completed)
+    })
+  };
 
   toggleTask = (item) => {
     this.setState({
