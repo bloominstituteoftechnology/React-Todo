@@ -21,7 +21,16 @@ class App extends React.Component {
     }
   }
 
-  addTodo = () => {};
+  addTodo = (newTodo) => {
+    const newTask = {
+      task: newTodo,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({
+      taskData: [...this.state.taskData, newTask]
+    })
+  };
 
   clearCompleted = () => {};
 

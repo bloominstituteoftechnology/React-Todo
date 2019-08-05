@@ -4,9 +4,10 @@ class Todo extends React.Component {
     constructor(props) {
         super()
     }
-    console.log(props)
     render() {
-        return Hello World
+        return(
+            <p>{this.props.task}</p>
+        )
     }
 }
 
