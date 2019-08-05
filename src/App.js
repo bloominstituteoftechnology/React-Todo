@@ -19,8 +19,17 @@ class App extends React.Component {
           completed: false,
         },
       ],
-      newTodoText: "testing",
+      newTodoText: "",
     };
+  }
+
+  changeNewTodoText(event) {
+    this.setState({
+      ...this.state,
+      newTodoText: event.target.value,
+    });
+    console.log(`old value ${this.state.newTodoText}`);
+    
   }
 
   addTodo() {
@@ -41,12 +50,15 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
-    this.addTodo();
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todos} />
-        <TodoForm />
+        <TodoForm
+          newTodoText={this.state.newTodoText}
+          changeNewTodoText={(e) => this.changeNewTodoText(e)}
+          addTodo={(e) => this.addTodo(e)}
+        />
       </div>
     );
   }

@@ -4,7 +4,9 @@ class TodoForm extends Component {
   render() {
     return (
       <>
-        <p>TodoForm</p>
+        <form>
+          <input onChange={this.props.changeNewTodoText} />
+        </form>
       </>
     );
   }
