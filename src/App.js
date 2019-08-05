@@ -16,12 +16,23 @@ class App extends React.Component {
     }
   }
 
+  addItem = taskName => {
+    const newTask = {
+      task: taskName,
+      id: Date.now(),
+      completed: false,
+    }
+    this.setState({
+      dummyData: [...this.state.dummyData, newTask]
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList dummyData={this.state.dummyData}/>
-        <TodoForm />
+        <TodoForm addItem={this.addItem}/>
       </div>
     );
   }
