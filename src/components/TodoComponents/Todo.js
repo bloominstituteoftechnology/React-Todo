@@ -1,5 +1,13 @@
 import React from 'react';
 
-const Todo = (props) => {
+class Todo extends React.Component {
+    constructor(props) {
+        super()
+    }
+    console.log(props)
+    render() {
+        return Hello World
+    }
 }
+
 export default Todo;

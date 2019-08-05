@@ -1,9 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
-
-
 
 class App extends React.Component {
   constructor() {
