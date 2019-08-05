@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom'
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 const data = [
   {
@@ -23,13 +24,35 @@ class App extends React.Component {
     super();
     this.state = {
       data: data
-    }
+    };
   }
+
+  toggleItem = id => {
+    console.log(id);
+
+    this.setState({
+      data: this.state.data.map(item =>{
+        if (item.id === id) {
+          return{
+            ...item,
+            completed: !item.purchased
+          };
+        } else {
+          return item;
+        }
+      })
+    })
+  }
+
+
   
   
   render() {
     return (
-      <TodoList />
+      <>
+      <TodoForm />
+      <TodoList data={this.state.data} toggleItem={this.toggleItem}/>
+      </>
     );
   }
 }
