@@ -1,15 +1,13 @@
 import React from 'react';
 
-class extends React.Component {
-    constructor() {
-        super();
-    }
-    render() {
+    const TodoList = props => {
         return(
-            <>
-            </>
+            <div className= "whatever">
+                {props.}
+
+            </div>
         )
     }
-}
+
 
 export default  TodoList
