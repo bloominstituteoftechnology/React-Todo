@@ -25,13 +25,15 @@ handleChanges = event => {
 submitTask = event => {
     event.preventDefault();
     this.props.addTask(this.state.item)
-    console.log('Supposed to be submitting')
+    console.log('Supposed to be submitting', this.state)
 };
 
 
 
 render() {
+    console.log(this.props, 'this.props')
   return (
+      <>
     <form onSubmit={this.submitTask}>
     <input
       type="text"
@@ -40,8 +42,10 @@ render() {
       onChange={this.handleChanges}
     />
     <button>Add Todo</button>
-    <button>Clear Completed</button>
+    
   </form>
+  <button onCLick={this.props.clearTask}>Clear Completed</button>
+  </>
   );
 };
 }

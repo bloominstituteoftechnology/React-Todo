@@ -3,6 +3,8 @@ import ReactDom from 'react-dom'
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+import './components/TodoComponents/Todo.css'
+
 const data = [
   {
     task: 'Organize Garage',
@@ -28,20 +30,22 @@ class App extends React.Component {
   }
 
   toggleItem = id => {
-    console.log(id);
+    console.log('id', id);
 
     this.setState({
+    
       data: this.state.data.map(item =>{
         if (item.id === id) {
           return{
             ...item,
-            completed: !item.purchased
+            completed: !item.completed
           };
         } else {
           return item;
         }
       })
     })
+    console.log('setstate', this.state.data)
   }
 
   addTask = taskItem => {
