@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm.js'
+import './components/TodoComponents/Todo.css'
 
 function addTask(obj, task) {
   obj.todo.push({
