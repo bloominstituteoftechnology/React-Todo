@@ -38,16 +38,20 @@ class ToDoForm extends React.Component{
 
         this.props.clearCompleted()
 
+        this.setState({
+            taskItem : ''
+        })
+        console.log(this.state.taskItem)
     }
 
     render() {
         return (
             <Form onSubmit = {this.submitItem}>
                 <Form.Field>
-                    <label>Add Task</label>
+                    <label>Add a task</label>
                     <input 
                         placeholder="Task Description" 
-                        value = {this.taskItem}
+                        value = {this.state.taskItem}
                         name = 'taskItem'
                         onChange = {this.handleChange}
                         />

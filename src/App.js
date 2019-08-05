@@ -65,7 +65,7 @@ class App extends React.Component {
     return (
       <Card className = 'to-do-list'>
         <Card.Content className = 'header-container'>
-          <Card.Header>Welcome to your Todo App!</Card.Header>
+          <Card.Header>React To Do App</Card.Header>
         </Card.Content>
         <Card.Content className = 'items'>
           <TodoList 
