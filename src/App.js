@@ -44,15 +44,25 @@ class App extends React.Component {
     })
   }
 
+  addTask = taskItem => {
+    console.log('taskItem')
+    const newTask = {
+      task: taskItem,
+      id: Date.now(), //it basically returns a long number that ~equates to the current time, rounded to the millisecond
+      completed: false
+    };
+    this.setState({
+      data:[...this.state.data, newTask]
+    });
+  };
 
-  
-  
+
   render() {
     return (
       <>
       
-      <TodoList data={this.state.data} toggleItem={this.toggleItem}/>
-      <TodoForm />
+      <TodoList data={this.state.data} toggleItem={this.toggleItem}  />
+      <TodoForm addTask={this.addTask}/>
       </>
     );
   }

@@ -1,3 +1,7 @@
+//will hold input field and Add Todo and Clear Completed buttons
+//Input field shouldt take in user input and allow a user to press Enter or click on the submit button to add a todo to the list
+//Once submitted, todo List should re-render and show the added todo
+
 import React from 'react';
 
 import Todo from './Todo';
@@ -18,18 +22,25 @@ handleChanges = event => {
     });
 }
 
+submitTask = event => {
+    event.preventDefault();
+    this.props.addTask(this.state.item)
+    console.log('Supposed to be submitting')
+};
+
 
 
 render() {
   return (
-    <form onSubmit={``}>
+    <form onSubmit={this.submitTask}>
     <input
       type="text"
       value={this.state.item}
       name="item"
       onChange={this.handleChanges}
     />
-    <button>Add</button>
+    <button>Add Todo</button>
+    <button>Clear Completed</button>
   </form>
   );
 };
