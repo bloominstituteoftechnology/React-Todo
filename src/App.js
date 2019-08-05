@@ -35,6 +35,9 @@ class App extends React.Component {
     event.preventDefault();
     this.setState(this.baseState)
   }
+  remove(item) {
+    console.log(item)
+  }
 
 
 
@@ -42,7 +45,7 @@ class App extends React.Component {
     return (
       <div>
         <ToDoForm submit={this.submit} clear={this.clearToDo} setData={this.setData} />
-        < ToDoList task={this.state.task} />
+        < ToDoList task={this.state.task} Remove={this.remove} />
       </div>
     );
   }
