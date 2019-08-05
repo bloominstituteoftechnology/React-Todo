@@ -5,6 +5,8 @@ import TodoForm from './components/TodoComponents/TodoForm'
 
 import { dummyData } from './DummyData'
 
+import { StyledContainer } from './StyledComp'
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -19,7 +21,10 @@ class App extends React.Component {
   toggleItem = id => {
     this.setState({
       dummyData: this.state.dummyData.map(item => {
-        if (item.id === id) return {...item, completed: true}
+        if (item.id === id) {
+          if (item.completed === false) return {...item, completed: true}
+          else return {...item, completed: false}
+        }
         else return item
       })
     })
@@ -44,11 +49,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <StyledContainer>
         <h2>Welcome to your Todo App!</h2>
         <TodoList dummyData={this.state.dummyData} toggleItem={this.toggleItem}/>
         <TodoForm addItem={this.addItem} clearCompItems={this.clearCompItems}/>
-      </div>
+      </StyledContainer>
     );
   }
 }

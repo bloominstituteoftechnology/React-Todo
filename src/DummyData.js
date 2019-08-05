@@ -9,4 +9,14 @@ export const dummyData = [
       id: 1528817084358,
       completed: false
     },
+    {
+      task: 'Summon Cthulu',
+      id: 8888888888888,
+      completed: false
+    },
+    {
+      task: 'Restock the Pantry',
+      id: 4364657423442,
+      completed: false
+    },
 ]
