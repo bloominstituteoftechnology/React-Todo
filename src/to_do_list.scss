@@ -1,0 +1,85 @@
+#root{
+    width: 100vw;
+    height: 100%;
+    padding: 20px;
+    .to-do-list{
+        width: 50%;
+        height: auto;
+        margin: 0 auto;
+        .header-container{
+            height: auto;
+            width: 100%;
+            background-color: #FE6150;
+            font-size: 2rem;
+            font-weight: 700;
+            padding: 0;
+            .header{
+                color: #F8D91E;
+                text-shadow: 1px 1px #243592;
+                margin: 15px ;
+            }
+        }
+        .items{
+            height:auto;
+            width: 100%;
+            background-color: #243592;
+            color: #F8D91E;
+            padding: 0;
+            .todo-list{
+                margin: 15px;
+                p{
+                    font-size:1.8rem;
+                    font-weight: 600;
+                }
+                .list-item{
+                    font-size:1.6rem;
+                    font-weight: 100;
+                }
+            }
+        }
+        .form-container{
+            height:auto;
+            width: 100%;
+            background-color: #FE6150;
+            padding: 0;
+            .form{
+                margin: 15px;
+                .field{
+                    width: 100%;
+                    height:66%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                label{
+                font-size:1.4rem;
+                color: #F8D91E;
+                text-shadow: 1px 1px #243592;
+                height:30%;
+                font-size: 1.8rem;
+                margin-top: 10px;
+                }
+                input{
+                    background-color:  #243592;
+                    color: #F8D91E;
+                    height:30%;
+                    margin:20px auto 0px auto;
+                    font-size:1.4rem; 
+                }
+                input::placeholder{
+                    color : #F8D91E
+                }
+            }
+                button{
+                    background-color: #F8D91E;
+                    color: #243592;
+                    height:30%;
+                    margin: 10px 0;
+                }
+                .remove-btn{
+                    margin-left:20px;
+                }
+            }
+        }
+
+    }
+}

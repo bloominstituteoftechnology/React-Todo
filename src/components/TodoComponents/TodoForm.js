@@ -52,8 +52,8 @@ class ToDoForm extends React.Component{
                         onChange = {this.handleChange}
                         />
                 </Form.Field>
-                <Button type="submit">Add To Do</Button>
-                <Button type="button" onClick = {this.clearCompleted}>Clear Completed</Button>
+                <Button type="submit" >Add To Do</Button>
+                <Button type="button" onClick = {this.clearCompleted} className = 'remove-btn'>Clear Completed</Button>
             </Form>
         );
     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css'
-
+import './to_do_list.scss'
+import { Card } from 'semantic-ui-react'
 import TodoList from './components/TodoComponents/TodoList'
 import ToDoForm from './components/TodoComponents/TodoForm'
 
@@ -62,17 +63,23 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoList 
-          list = {this.state.list} 
-          toggleItem = {this.toggleItem}
+      <Card className = 'to-do-list'>
+        <Card.Content className = 'header-container'>
+          <Card.Header>Welcome to your Todo App!</Card.Header>
+        </Card.Content>
+        <Card.Content className = 'items'>
+          <TodoList 
+            list = {this.state.list} 
+            toggleItem = {this.toggleItem}
           />
+        </Card.Content>
+        <Card.Content className = 'form-container'>
         <ToDoForm 
           addTask = {this.addTask}
           clearCompleted = {this.clearCompleted}
           />
-      </div>
+        </Card.Content>
+      </Card>
     );
   }
 }
