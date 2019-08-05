@@ -3,8 +3,7 @@ import Todo from './Todo';
 
 class TodoList extends React.Component {
     constructor(props) {
-        console.log(props)
-        super();
+        super(props);
     }
     render() { 
         return(

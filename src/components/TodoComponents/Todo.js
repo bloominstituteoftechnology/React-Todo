@@ -2,7 +2,7 @@ import React from 'react';
 
 class Todo extends React.Component {
     constructor(props) {
-        super()
+        super(props)
     }
     render() {
         return(
