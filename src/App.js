@@ -2,6 +2,7 @@ import React from 'react';
 import TodoForm from "./components/TodoComponents/TodoForm"
 import TodoList from "./components/TodoComponents/TodoList"
 
+import { Card } from 'semantic-ui-react'
 import "./components/TodoComponents/Todo.css"
 
 
@@ -19,10 +20,6 @@ const todoData = [
 ];
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-
   constructor(){
     super();
     this.state={
@@ -67,19 +64,21 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-       
-        <TodoList 
-          todo={this.state.todo}
-          toggleItem={this.toggleItem}
+        
+        <div className="dashboard">
           
-        />
-        <TodoForm 
-          addItem={this.addItem}
-          clearCompleted={this.clearCompleted} 
-        />
-      </div>
+          <h2>Todo List</h2>
+          <TodoForm 
+            addItem={this.addItem}
+            clearCompleted={this.clearCompleted} 
+          />
+          <TodoList 
+            todo={this.state.todo}
+            toggleItem={this.toggleItem}
+            
+          />
+       </div>
+     
     );
   }
 }

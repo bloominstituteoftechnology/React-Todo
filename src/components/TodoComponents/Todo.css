@@ -1,3 +1,33 @@
+h2{
+   text-align: center; 
+}
+
+.todo{
+    text-align: center;
+    font-size: 2rem;
+}
 .todo.completed{
     text-decoration: line-through;   
+}
+
+.dashboard{
+    background-color: pink;
+    width: 80%;
+    margin: auto;
+    padding: 2rem;
+    height: 100vh;
+    
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.add-btn{
+    
+}
+.clear-btn{
+    
 }
