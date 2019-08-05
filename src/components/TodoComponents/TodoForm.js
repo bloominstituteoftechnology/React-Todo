@@ -11,21 +11,21 @@ class TodoForm extends React.Component {
   //   });
   // };
 
-  // submitItem = e => {
-  //   e.preventDefault();
-  //   this.props.addItem(this.state.item);
-  // };
+  submitTodo = e => {
+    e.preventDefault();
+    this.props.addItem(this.state.item);
+  };
 
   render() {
     return (
-      <form>
+      <form onSubmit={submitTodo}>
         <input
           type="text"
           value=""
-          name="item"
+          name="todo"
           // onChange=
         />
-        <button>Add</button>
+        <button>Add Todo</button>
       </form>
     );
   }
