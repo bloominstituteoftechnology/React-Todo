@@ -1,6 +1,7 @@
 import React from "react";
 import TodoList from "./components/TodoComponents/TodoList.js";
 import TodoForm from "./components/TodoComponents/TodoForm.js";
+import "./components/TodoComponents/Todo.css";
 
 const tasks = [
   { task: "Learn React", id: "1", completed: false },

@@ -19,6 +19,11 @@ class TodoForm extends React.Component {
     this.props.addTask(this.state.task);
   };
 
+  removeItem = event => {
+    event.preventDefault();
+    this.props.clearDone(this.state.task);
+  };
+
   render() {
     return (
       <form onSubmit={this.submitChange}>
@@ -32,7 +37,7 @@ class TodoForm extends React.Component {
         <button className="add-btn" onChange={this.todoChangeHandler}>
           Add Todo
         </button>
-        <button className="clear-btn" onClick={this.clearDone}>
+        <button className="clear-btn" onClick={this.removeItem}>
           Clear Completed
         </button>
       </form>
