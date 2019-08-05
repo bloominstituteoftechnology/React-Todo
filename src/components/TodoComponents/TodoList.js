@@ -12,6 +12,7 @@ import TodoList from './Todo'
                 <Todo 
                     key={item.id} 
                     item={item}
+                    handleClick={props.setCompleted}
                 />
             ))}
 
