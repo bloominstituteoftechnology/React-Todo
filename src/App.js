@@ -50,6 +50,7 @@ clearCompleted = () => {
   this.setState({
     todos: this.state.todos.filter(task => !task.completed)
   })
+ 
 }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -61,7 +62,8 @@ clearCompleted = () => {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todos}
-                  toggleTask={this.toggleTask} />
+                  toggleTask={this.toggleTask} 
+                  clearCompleted={this.clearCompleted}/>
         <TodoForm addTask={this.addTask}/>
       </div>
     );
