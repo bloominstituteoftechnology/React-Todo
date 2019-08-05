@@ -31,7 +31,6 @@ class App extends React.Component {
   }
 
   addTodo() {
-    if (this.state.todos.length > 2) return;
     this.setState({
       ...this.state,
       todos: [
