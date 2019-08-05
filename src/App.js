@@ -16,7 +16,7 @@ class App extends React.Component {
         {
           task: 'second item',
           id: 1528817077287,
-          completed: false,
+          completed: true,
         },
       ],
       newTodoText: '',
@@ -46,6 +46,14 @@ class App extends React.Component {
     });
     event.currentTarget.querySelector('.new-task-text').value = '';
   }
+
+  clearCompleted() {
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.filter(todo => !todo.completed),
+    });
+  }
+
   render() {
     return (
       <div>
@@ -56,7 +64,7 @@ class App extends React.Component {
           changeNewTodoText={(event) => this.changeNewTodoText(event)}
           addTodo={(event) => this.addTodo(event)}
         />
-        <button onClick={clearCompleted}>Clear Completed</button>
+        <button onClick={(event) => this.clearCompleted(event)}>Clear Completed</button>
       </div>
     );
   }
