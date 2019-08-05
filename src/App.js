@@ -19,14 +19,14 @@ class App extends React.Component {
           completed: true,
         },
       ],
-      newTodoText: '',
+      newTodoTaskText: '',
     };
   }
 
-  changeNewTodoText(event) {
+  changeNewTodoTaskText(event) {
     this.setState({
       ...this.state,
-      newTodoText: event.target.value,
+      newTodoTaskText: event.target.value,
     });
   }
 
@@ -37,17 +37,17 @@ class App extends React.Component {
       todos: [
         ...this.state.todos,
         {
-          task: this.state.newTodoText,
+          task: this.state.newTodoTaskText,
           id: Math.random() * Number.MAX_VALUE,
           completed: false,
         },
       ],
-      newTodoText: '',
+      newTodoTaskText: '',
     });
     event.currentTarget.querySelector('.new-task-text').value = '';
   }
 
-  clearCompleted() {
+  clearCompletedTasks() {
     this.setState({
       ...this.state,
       todos: this.state.todos.filter(todo => !todo.completed),
@@ -60,11 +60,11 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todos} />
         <TodoForm
-          newTodoText={this.state.newTodoText}
-          changeNewTodoText={(event) => this.changeNewTodoText(event)}
+          newTodoTaskText={this.state.newTodoTaskText}
+          changeNewTodoTaskText={(event) => this.changeNewTodoTaskText(event)}
           addTodo={(event) => this.addTodo(event)}
         />
-        <button onClick={(event) => this.clearCompleted(event)}>Clear Completed</button>
+        <button onClick={(event) => this.clearCompletedTasks(event)}>Clear Completed Tasks</button>
       </div>
     );
   }

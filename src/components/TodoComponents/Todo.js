@@ -11,7 +11,12 @@ class Todo extends Component {
     } = this.props;
 
     return (
-      <div key={id} className={completed ? "completed" : ""}>{task}</div>
+      <div
+        key={id}
+        className={`task ${(completed ? "completed" : "")}`}
+      >
+        {task}
+      </div>
     );
   }
 }

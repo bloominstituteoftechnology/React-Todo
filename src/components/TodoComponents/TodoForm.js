@@ -8,7 +8,7 @@ class TodoForm extends Component {
           name="task"
           className="new-task-text"
           type="text"
-          onChange={this.props.changeNewTodoText}
+          onChange={this.props.changeNewTodoTaskText}
         />
         <input type="submit" value="Add Item" />
       </form>
