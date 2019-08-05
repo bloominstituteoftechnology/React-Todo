@@ -46,9 +46,6 @@ class App extends React.Component {
     });
     event.currentTarget.querySelector('.new-task-text').value = '';
   }
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
       <div>
@@ -59,6 +56,7 @@ class App extends React.Component {
           changeNewTodoText={(event) => this.changeNewTodoText(event)}
           addTodo={(event) => this.addTodo(event)}
         />
+        <button onClick={clearCompleted}>Clear Completed</button>
       </div>
     );
   }
