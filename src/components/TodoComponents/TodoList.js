@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListGroup, ListGroupItem } from "shards-react";
+import { Button } from "shards-react";
 import Todo from './Todo';
 
 const TodoList = props => {
@@ -9,9 +9,9 @@ const TodoList = props => {
       {props.tasks.map(item => (
         <Todo key={item.id} item={item} toggleItem={props.toggleItem} />
       ))}
-      <button className="clear-btn" onClick={props.clearCompleted}>
-        Clear completed
-      </button>
+      <Button theme='light' onClick={props.clearCompleted}>
+        Clear Completed Objectives
+      </Button>
     </div>
   );
 };

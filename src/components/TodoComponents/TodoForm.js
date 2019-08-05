@@ -20,6 +20,7 @@ submitItem = e => {
     this.props.addItem(this.state.item);
 };
 
+
 render () {
     return (
         <Form onSubmit={this.submitItem}>
@@ -30,7 +31,7 @@ render () {
                 name="item"
                 onChange={this.handleChanges}
             />
-            <Button theme='dark'>Add</Button>
+            <Button theme='dark'>Acquire More Objectives</Button>
             </FormGroup>
         </Form>
     )

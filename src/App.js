@@ -1,38 +1,31 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
-
-
 const tasksData = [
   {
-    task: 'sleep',
+    task: '..come to Town',
     id: 123,
     completed: false
   },
   {
-    task: 'eat',
+    task: 'Save The Princess Zelda',
     id: 124,
     completed: false
   },
   {
-    task: 'game',
+    task: 'Save The Day',
     id: 1235,
     completed: false
   },
   {
-    task: 'dance',
+    task: 'Put Ganon in his grave',
     id: 1246,
     completed: false
   },
   {
-    task: 'Do The Kirby',
+    task: 'Become Hero',
     id: 1237,
     completed: false
-  },
-  {
-    task: 'Study',
-    id: 1248,
-    completed: true
   }
 ];
 
@@ -79,7 +72,7 @@ class App extends React.Component {
 
   clearCompleted = () => {
     this.setState({
-      tasks: this.state.tasks.filter(item => !item.Completed)
+      tasks: this.state.tasks.filter(item => !item.completed)
     });
   };
 
@@ -87,13 +80,15 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="header">
-          <h1>To Do List</h1>
-          <TodoForm addItem={this.addItem} />
+          <h1>Link's Objectives</h1>
+         
         </div>
         <TodoList
           tasks={this.state.tasks}
           toggleItem={this.toggleItem}
+          clearCompleted={this.clearCompleted}
         />
+         <TodoForm addItem={this.addItem} />
       </div>
     );
   }

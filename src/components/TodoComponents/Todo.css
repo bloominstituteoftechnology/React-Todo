@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-image: url('../../images/zeldaBackground.jpg');
+    background-attachment: fixed;
+    background-position: center;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span {
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+
+}
+
+.App {
+    font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  padding: 0 36px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+h1 {
+  text-align: left;
+  text-shadow: -5px 3px 2px rgba(0,0,0,0.6);
+}
+
+.shopping-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+.item {
+  background-color: #1bb04c;
+  width: 100%;
+  text-align: left;
+  margin: 4px 0;
+  padding: 10px;
+  opacity:0.8;
+  border-radius: 10px;
+  text-shadow: -5px 3px 2px rgba(0,0,0,0.6);
+
+}
+
+.item.completed {
+  background-color: #508372;
+  text-decoration: line-through;
+}
+form {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+form > input {
+  background-color: #2d2d37;
+  border: 0;
+  padding: 6px 0;
+  font-size: 1rem;
+  width: 240px;
+  outline: 0;
+  color: white;
+  border-bottom: 1px solid #e64944;
+  margin-right: 8px;
+}
+
+button {
+  background-color: #e64944;
+  border: 1px solid #e64944;
+  color: white;
+  font-size: 16px;
+  padding: 6px 14px;
+  margin-top: 15px;
+
+}
+
+input::placeholder {
+  color: #e64944;
+  opacity: 1;
+}
+
+.clear-btn {
+  margin-top: 16px;
+}
+.btn {
+    font-family: 'Press Start 2P', cursive;
+}
