@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { StyledForm, FormButtonContainer } from '../../StyledComp'
+
 class TodoForm extends React.Component {
     constructor() {
         super()
@@ -26,16 +28,18 @@ class TodoForm extends React.Component {
 
     render() {
         return (
-            <form>
+            <StyledForm>
                 <input
                     type='text'
                     value={this.item}
                     name='item'
                     onChange={this.handleChanges}
                 />
-                <button onClick={this.addNewTodo}>Add Todo</button>
-                <button onClick={this.clearFinished}>Clear Completed</button>
-            </form>
+                <FormButtonContainer>
+                    <button onClick={this.addNewTodo}>Add Todo</button>
+                    <button onClick={this.clearFinished}>Clear Completed</button>
+                </FormButtonContainer>
+            </StyledForm>
         )
     }
 }

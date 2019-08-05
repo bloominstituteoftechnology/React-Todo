@@ -4,14 +4,16 @@ import React from 'react'
 
 import Todo from './Todo'
 
+import { StyledList } from '../../StyledComp'
+
 const TodoList = ({ dummyData, toggleItem }) => {
     
     return (
-        <div>
+        <StyledList>
             {dummyData.map(item => (
                 <Todo key={item.id} item={item} toggleItem={toggleItem}/>
             ))}
-        </div>
+        </StyledList>
     )
 }
 
