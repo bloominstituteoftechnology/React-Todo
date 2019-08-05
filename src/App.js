@@ -16,6 +16,15 @@ class App extends React.Component {
     }
   }
 
+  toggleItem = id => {
+    this.setState({
+      dummyData: this.state.dummyData.map(item => {
+        if (item.id === id) return {...item, completed: true}
+        else return item
+      })
+    })
+  }
+
   addItem = taskName => {
     const newTask = {
       task: taskName,
@@ -31,7 +40,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList dummyData={this.state.dummyData}/>
+        <TodoList dummyData={this.state.dummyData} toggleItem={this.toggleItem}/>
         <TodoForm addItem={this.addItem}/>
       </div>
     );
