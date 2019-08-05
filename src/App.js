@@ -28,8 +28,6 @@ class App extends React.Component {
       ...this.state,
       newTodoText: event.target.value,
     });
-    console.log(`old value ${this.state.newTodoText}`);
-    
   }
 
   addTodo() {
