@@ -1,7 +1,8 @@
 import React from 'react';
-import Todo from './components/TodoComponents/Todo';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+
+import './components/TodoComponents/Todo.css'
 
 let todoData = [{
   task: 'get cookies',
@@ -24,40 +25,39 @@ class App extends React.Component {
     this.state = {
       todoData,
     }
-  
-
-  toggleItem = id => {
-    this.setState({
-      todoData: this.state.todoData.map(item => {
-        if (item.id === id) {
-          return {
-            ...item,
-            completed: !item.completed
-          };
-        } else {
-          return item;
-        }
-      })
-    })
-  }
-
-  addTask = taskName => {
-    const newTask = {
-      name: taskName,
-      id: Date.now(),
-      completed: false
-    };
-    this.setState({
-      todoData: [...this.state.todoData, newTask]
-    })
-  }
-
-  clearCompleted = () => {
-    this.setState({
-      todoData: this.state.todoData.filter(item=> !item.completed)
-    });
-  };
 }
+
+toggleItem = id => {
+  this.setState({
+    todoData: this.state.todoData.map(item => {
+      if (item.id === id) {
+        return {
+          ...item,
+          completed: !item.completed
+        };
+      } else {
+        return item;
+      }
+    })
+  })
+}
+
+addTask = taskName => {
+  const newTask = {
+    name: taskName,
+    id: Date.now(),
+    completed: false
+  };
+  this.setState({
+    todoData: [...this.state.todoData, newTask]
+  })
+}
+
+clearCompleted = () => {
+  this.setState({
+    todoData: this.state.todoData.filter(item=> !item.completed)
+  });
+};
 
   render() {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class extends React.Component {
+class TodoForm extends React.Component {
     constructor() {
         super();
 
@@ -17,7 +17,7 @@ class extends React.Component {
 
     submitItem = e => {
         e.preventDefault();
-        this.props.addItem(this.state.item);
+        this.props.addTask(this.state.task);
     };
 
     render() {
@@ -27,15 +27,15 @@ class extends React.Component {
                     <input
                         type="text"
                         placeholder='...todo'
-                        value={this.state.item}
-                        name="item"
+                        value={this.task}
+                        name="task"
                         onChange={this.handleChanges}
                     />
-                    <button>Add Todo</button>
+                    <button>Add Task</button>
                 </form>
             
         )
     }
 }
 
-export default TodoFrom
+export default TodoForm
