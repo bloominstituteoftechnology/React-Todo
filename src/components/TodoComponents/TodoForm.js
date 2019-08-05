@@ -32,7 +32,6 @@ class extends React.Component {
                         onChange={this.handleChanges}
                     />
                     <button>Add Todo</button>
-                    <button>Clear Completed</button>
                 </form>
             
         )
