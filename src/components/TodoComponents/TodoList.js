@@ -20,7 +20,7 @@ const TodoList = props => {
       {props.data.map(item => (
           <Todo key={item.id} item={item} toggleItem={props.toggleItem} />
       ))}
-      <button>Clear Purchased</button>
+    
     </div>
   );
 };

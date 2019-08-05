@@ -26,6 +26,9 @@ submitTask = event => {
     event.preventDefault();
     this.props.addTask(this.state.item)
     console.log('Supposed to be submitting', this.state)
+    this.setState({
+        item: '' //reset to blank
+    })
 };
 
 
@@ -42,9 +45,9 @@ render() {
       onChange={this.handleChanges}
     />
     <button>Add Todo</button>
-    
   </form>
-  <button onCLick={this.props.clearTask}>Clear Completed</button>
+
+  <button onClick={this.props.clearTask}>Clear Completed</button>
   </>
   );
 };

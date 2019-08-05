@@ -61,6 +61,7 @@ class App extends React.Component {
   };
 
   clearTask = () => {
+    console.log('cleartask', this.state.data)
     this.setState({
       data: this.state.data.filter(item => !item.completed)
     });
