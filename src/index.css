@@ -1,0 +1,17 @@
+.search{
+    text-align: center;
+    padding: 100px;
+    margin: 100px;
+}
+.todo-list{
+    width :100%;
+    justify-content: space-around;
+   display: flex;
+  
+}
+.btn-todo{
+    width:100%;
+}
+.btn-search{
+    margin-left: 7px;
+}
