@@ -9,11 +9,18 @@ class TodoForm extends React.Component {
     }
   }
 
-  handleChanges = event => {
+  handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    })
+    });
   }
+
+  // handleChange = e => {
+  //       this.setState({
+  //           [e.target.name]: e.target.value
+  //       });
+  //       console.log("handleChange", e.target.name, e.target.value)//logging changes when user is typing in the input field
+  //   } 
 
   submitItem = event => {
     event.preventDefault();
@@ -24,7 +31,7 @@ class TodoForm extends React.Component {
     return (
       <form onSubmit={this.submitItem}>
         <input type="text" value={this.item} name="item" onChange={this.handleChange}/>
-        <Button>Add</Button>
+        <button>Add</button>
       </form>
     )
   }
