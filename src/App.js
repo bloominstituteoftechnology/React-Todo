@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TodoList from './components/TodoComponents/TodoList'
+import TodoForm from './components/TodoComponents/TodoForm'
 
 import { dummyData } from './DummyData'
 
@@ -20,6 +21,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList dummyData={this.state.dummyData}/>
+        <TodoForm />
       </div>
     );
   }
