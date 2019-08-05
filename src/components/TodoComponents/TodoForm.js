@@ -17,7 +17,11 @@ class TodoForm extends React.Component {
     addNewTodo = event => {
         event.preventDefault()
         this.props.addItem(this.state.item)
-        this.item = ''
+    }
+
+    clearFinished = event => {
+        event.preventDefault()
+        this.props.clearCompItems()
     }
 
     render() {
@@ -30,7 +34,7 @@ class TodoForm extends React.Component {
                     onChange={this.handleChanges}
                 />
                 <button onClick={this.addNewTodo}>Add Todo</button>
-                <button>Clear Completed</button>
+                <button onClick={this.clearFinished}>Clear Completed</button>
             </form>
         )
     }
