@@ -4,7 +4,12 @@ import './Todo.css';
 
 class Todo extends Component {
   render() {
-    const {task, id, completed} = this.props;
+    const {
+      task,
+      id,
+      completed,
+    } = this.props;
+
     return (
       <div key={id} className={completed ? "completed" : ""}>{task}</div>
     );
