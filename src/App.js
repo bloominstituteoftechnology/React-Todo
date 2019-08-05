@@ -59,8 +59,8 @@ clearCompleted = () => {
   
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className = 'app'>
+        <h1>Get SHIFT Done</h1>
         <TodoList todos={this.state.todos}
                   toggleTask={this.toggleTask} 
                   clearCompleted={this.clearCompleted}/>
