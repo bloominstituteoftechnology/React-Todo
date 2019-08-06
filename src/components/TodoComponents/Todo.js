@@ -7,7 +7,14 @@ const Todo = props => {
             <ul>
                 <li>{props.task}</li>
             </ul>
+            
+            <div>
+                className={`todo${props.item.purchased ? ' purchased' : ''}`}
+                onClick={() => props.toggleItem(props.item.id)}
+            </div>
+
         </div>
+        
     )
 }
 
