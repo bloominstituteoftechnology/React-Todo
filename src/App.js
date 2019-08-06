@@ -5,7 +5,8 @@ const tasksData = [
   {
     task: '..come to Town',
     id: 123,
-    completed: false
+    completed: false,
+    rupees: 10
   },
   {
     task: 'Save The Princess Zelda',
@@ -34,6 +35,7 @@ class App extends React.Component {
     super();
     this.state = {
       task: '',
+      rupees:'',
       tasks: tasksData // tasks: tasks,
     };
 
@@ -50,6 +52,7 @@ class App extends React.Component {
             // task: item.task,
             // id: item.id,
             // completed: item.completed,
+            rupees: !item.rupees,
             completed: !item.completed
           };
         } else {

@@ -112,3 +112,12 @@ input::placeholder {
 .btn {
     font-family: 'Press Start 2P', cursive;
 }
+
+@media (max-width: 480px) {
+    .App {
+        max-width:480px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+}
