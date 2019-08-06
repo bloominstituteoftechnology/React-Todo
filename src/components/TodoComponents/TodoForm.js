@@ -30,7 +30,7 @@ class TodoForm extends Component {
             name="todo"
             onChange={this.handleChanges}
           />
-          <button className="add-btn">Add Todo</button>
+          <button className="addbtn">Add Todo</button>
         </form>
       </>
     );
