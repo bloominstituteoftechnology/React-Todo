@@ -12,7 +12,7 @@ class App extends React.Component {
     };
   }
 
-  toggleDone(event) {
+  toggleDone = (event) => {
     const id = parseInt(event.currentTarget.dataset.id);
     const updatedTodos = this.state.todos.map((todo) => {
       
@@ -34,14 +34,14 @@ class App extends React.Component {
     event.currentTarget.classList.toggle('completed');
   }
 
-  changeNewTodoTaskText(event) {
+  changeNewTodoTaskText = (event) => {
     this.setState({
       ...this.state,
       newTodoTaskText: event.target.value,
     });
   }
 
-  addTodo(event) {
+  addTodo = (event) => {
     event.preventDefault();
 
     const updatedTodos = [
@@ -61,14 +61,14 @@ class App extends React.Component {
     event.currentTarget.querySelector('.new-task-text').value = '';
   }
 
-  clearCompletedTasks() {
+  clearCompletedTasks = () => {
     this.setState({
       ...this.state,
       todos: this.state.todos.filter(todo => !todo.completed),
     });
   }
 
-  componentDidUpdate() {
+  componentDidUpdate = () => {
     localStorage.setItem('todos', JSON.stringify(this.state.todos));
   }
 
@@ -78,14 +78,14 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         <TodoList
           todos={this.state.todos}
-          toggleDone={(event) => this.toggleDone(event)}
+          toggleDone={this.toggleDone}
         />
         <TodoForm
           newTodoTaskText={this.state.newTodoTaskText}
-          changeNewTodoTaskText={(event) => this.changeNewTodoTaskText(event)}
-          addTodo={(event) => this.addTodo(event)}
+          changeNewTodoTaskText={this.changeNewTodoTaskText}
+          addTodo={this.addTodo}
         />
-        <button onClick={(event) => this.clearCompletedTasks(event)}>Clear Completed Tasks</button>
+        <button onClick={this.clearCompletedTasks}>Clear Completed Tasks</button>
       </div>
     );
   }
