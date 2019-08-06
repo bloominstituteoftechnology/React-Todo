@@ -2,23 +2,10 @@ import React from 'react';
 
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-  // todos: [
-  //   {
-  //     task: 'first item',
-  //     id: 1528817077286,
-  //     completed: false,
-  //   },
-  //   {
-  //     task: 'second item',
-  //     id: 1528817077287,
-  //     completed: true,
-  //   },
-  // ],
 
 class App extends React.Component {
   constructor() {
     super();
-    console.log(localStorage.getItem('todos'));
     this.state = {
       todos: localStorage.getItem('todos') === null ? [] : JSON.parse(localStorage.getItem('todos')),
       newTodoTaskText: '',
@@ -28,7 +15,6 @@ class App extends React.Component {
   toggleDone(event) {
     const id = parseInt(event.currentTarget.dataset.id);
     const updatedTodos = this.state.todos.map((todo) => {
-      console.log(`id ${id} todoId ${todo.id}`);
       
       return (
         id === todo.id
@@ -40,8 +26,6 @@ class App extends React.Component {
       );
     });
 
-    console.log(updatedTodos);
-    
     this.setState({
       ...this.state,
       todos: updatedTodos,
@@ -75,7 +59,6 @@ class App extends React.Component {
       newTodoTaskText: '',
     });
     event.currentTarget.querySelector('.new-task-text').value = '';
-    // localStorage.setItem('todos', JSON.stringify(updatedTodos));
   }
 
   clearCompletedTasks() {
