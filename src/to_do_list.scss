@@ -2,11 +2,18 @@
     width: 100vw;
     height: 100%;
     padding: 20px;
+    @media (max-width : 500px) {
+        padding: 0px;
+    }
     .to-do-list{
         width: 50%;
         height: auto;
         margin: 0 auto;
         box-shadow: 1px 1px 6px #243592;
+        @media (max-width : 500px) {
+            width: 100%;
+            height: 100%;
+        }
         .header-container{
             height: auto;
             width: 100%;
@@ -14,10 +21,22 @@
             font-size: 2rem;
             font-weight: 700;
             padding: 0;
+            @media (max-width : 500px) {
+                height: 20vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
             .header{
                 color: #F8D91E;
                 text-shadow: 1px 1px #243592;
                 margin: 15px ;
+                @media (max-width : 500px) {
+                    font-size:3.2rem;
+                }
+                .ui.card>.content, .ui.cards>.card>.content{
+                    flex-grow: 0;
+                    }
             }
         }
         .items{
@@ -26,6 +45,9 @@
             background-color: #243592;
             color: #F8D91E;
             padding: 0;
+            @media (max-width : 500px) {
+                height:50%;
+            }
             .todo-list{
                 margin: 15px;
                 p{
@@ -44,6 +66,9 @@
             width: 100%;
             background-color: #FE6150;
             padding: 0;
+            @media (max-width : 500px) {
+                height:30%;
+            }
             .form{
                 margin: 15px;
                 .field{
