@@ -2,7 +2,7 @@ import React from 'react';
 import TodoForm from "./components/TodoComponents/TodoForm"
 import TodoList from "./components/TodoComponents/TodoList"
 
-import { Card } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 import "./components/TodoComponents/Todo.css"
 
 
@@ -64,7 +64,7 @@ class App extends React.Component {
 
   render() {
     return (
-        
+
         <div className="dashboard">
           
           <h2>Todo List</h2>

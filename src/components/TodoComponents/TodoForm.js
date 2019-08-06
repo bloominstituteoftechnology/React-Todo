@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'semantic-ui-react'
 
 class TodoForm extends React.Component{
     constructor(props){
@@ -29,9 +30,10 @@ class TodoForm extends React.Component{
                     value={this.state.item}
                     onChange={this.handleChange}
                 />
-                <button className="add-btn" onClick={this.handleSubmit}>Add Todo</button>   
+                <Button color='blue' className="add-btn" onClick={this.handleSubmit}>Add Todo</Button>   
+                
             </form>
-                <button className="clear-btn" onClick={this.props.clearCompleted}>Clear Completed</button>
+                <Button color='red' className="clear-btn" onClick={this.props.clearCompleted}>Clear Completed</Button>
             </div>
             
         )        
