@@ -4,6 +4,9 @@ import React from 'react'
 import ToDo from './Todo'
 
 const TodoList = props => {
+
+    
+
     return (
         <div className = 'todo-list' >
             {props.list.length > 1 ?
@@ -15,7 +18,7 @@ const TodoList = props => {
             }
 
             {props.list.map( item => (
-                <ToDo item = {item} key = {item.id} toggleItem = {props.toggleItem} />
+                <ToDo item = {item} key = {item.id} toggleItem = {props.toggleItem}/>
         ))}
     </div>
     )

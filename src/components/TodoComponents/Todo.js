@@ -1,6 +1,8 @@
 import React from 'react'
 
 const ToDo = props => {
+
+
     return (
         <div onClick = {() => props.toggleItem(props.item.id)}>
             {props.item.completed ? 

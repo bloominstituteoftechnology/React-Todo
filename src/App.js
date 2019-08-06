@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState , useEffect} from 'react';
 import 'semantic-ui-css/semantic.min.css'
 import './to_do_list.scss'
 import { Card } from 'semantic-ui-react'
@@ -23,9 +23,9 @@ class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      list : toDoList
+      list : toDoList,
+      list : localStorage.getItem('list') === null ? [] : JSON.parse(localStorage.getItem('list'))
     }
-
   }
 
   addTask = taskName => {
@@ -39,6 +39,7 @@ class App extends React.Component {
     this.setState({
       list : [...this.state.list, newTask]
     })
+    
   }
 
   toggleItem = id => {
@@ -52,6 +53,8 @@ class App extends React.Component {
         }
       })
     })
+
+    
   }
 
   clearCompleted = () => {
@@ -59,13 +62,18 @@ class App extends React.Component {
       list : this.state.list.filter(item => !item.completed)
     })
   }
-  
+
+  componentDidUpdate() {
+    localStorage.setItem('list', JSON.stringify(this.state.list));
+  }
+
+
   
   render() {
     return (
       <Card className = 'to-do-list'>
         <Card.Content className = 'header-container'>
-          <Card.Header>React To Do App</Card.Header>
+          <Card.Header>React To-Do List</Card.Header>
         </Card.Content>
         <Card.Content className = 'items'>
           <TodoList 
@@ -77,6 +85,7 @@ class App extends React.Component {
         <ToDoForm 
           addTask = {this.addTask}
           clearCompleted = {this.clearCompleted}
+          arrList = {this.state.list}
           />
         </Card.Content>
       </Card>

@@ -48,9 +48,9 @@ class ToDoForm extends React.Component{
         return (
             <Form onSubmit = {this.submitItem}>
                 <Form.Field>
-                    <label>Add a task</label>
+                    <label>Manage Your Tasks</label>
                     <input 
-                        placeholder="Task Description" 
+                        placeholder="Add Your Task Here . . ." 
                         value = {this.state.taskItem}
                         name = 'taskItem'
                         onChange = {this.handleChange}
