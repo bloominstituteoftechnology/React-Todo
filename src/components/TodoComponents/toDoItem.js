@@ -1,40 +1,22 @@
 export let completedItems = [];
-export let itemList = [
-    new ToDoItem(),
-    new ToDoItem(),
-]
-itemList[0].name = "Walk the dog";
-itemList[1].name = "Buy dog food";
-itemList[1].completed = true;
+export let itemList = [];
 
 export function ToDoItem(){
     console.log("item created")
    let name = "";
    let createdOn = Date(Date.now());
-   let important = false;
+   
    let completed = false;
    let completedOn = null;
    let btnClass = "btn-todo btn btn-success";
    this.delete = () => {
-       if(completed){
+       if(completed){           
         completedItems = completedItems.filter((obj) => obj !== this);
-        console.log("dleting from ", completedItems)
        }else{
            throw new Error("items to delete should be on the completed section")
        }
    }
    Object.defineProperties(this, {
-    important:{
-        set(bool){
-            if(typeof bool !== "boolean"){
-                throw new Error("important must be a typeof boolean");
-            }
-            important = bool;
-        },
-        get(){
-            return important ? "Important":"Regular";
-        }
-    },
     name:{
         set(value){
             if(typeof value !== "string"){
@@ -49,7 +31,7 @@ export function ToDoItem(){
     completed:{
         set(bool){
             if(typeof bool !== "boolean"){
-                throw new Error("important must be a typeof boolean");
+                throw new Error("completed must be a typeof boolean");
             }
             if(bool){
                 completedOn = Date(Date.now());
@@ -59,6 +41,8 @@ export function ToDoItem(){
                     completedItems.push(this);
                 }
                 
+            }else{
+                itemList.push(this);
             }
             completed = bool;
         },
@@ -69,17 +53,26 @@ export function ToDoItem(){
     createdOn:{
         get(){
             return `created on: ${createdOn.toString()}`;
+        },
+        set(value){
+            createdOn = value;
         }
     },
     completedOn:{
         get(){
             return `completed on: ${completedOn.toString()}`;
         },
+        set(value){
+            completedOn = value;
+        }
     },
     btnClass:{
         get(){
             btnClass = completed ? "btn-todo btn btn-danger":"btn-todo btn btn-success"
             return btnClass;
+        },
+        set(value){
+            btnClass = value;
         }
     }
    })

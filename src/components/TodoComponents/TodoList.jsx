@@ -4,6 +4,7 @@ import { ToDoItem, completedItems, itemList } from "./toDoItem.js";
 import Items from "./items.jsx";
 import CompletedItems from "./completedItems.jsx";
 
+
 class TodoList extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +15,9 @@ class TodoList extends Component {
     this.addItem = this.addItem.bind(this);
     this.markComplete = this.markComplete.bind(this);
     this.delete = this.delete.bind(this);
+    this.store = this.store.bind(this);
+    this.serialize = this.serialize.bind(this);
+    this.deSerialize = this.deSerialize.bind(this);
 
   }
   addItem(name) {
@@ -27,6 +31,8 @@ class TodoList extends Component {
     itemList.push(item);
     this.setState({ itemsCompleted: completedItems });
     this.setState({ items: itemList });
+    this.store();
+
 
   }
 
@@ -34,18 +40,66 @@ class TodoList extends Component {
     obj.completed = true;
     this.setState({ itemsCompleted: completedItems });
     this.setState({ items: itemList });
+    this.store();
+
     
   }
   delete(obj) {
     obj.delete();
+    window.localStorage.removeItem(obj.name);//future danny why does this NOT work!?!?!?
     this.setState({ itemsCompleted: completedItems });
     this.setState({ items: itemList });
+    this.store();
   
+  }
+  serialize(object){
+    const item = {
+      name:object.name,
+      createdOn: object.createdOn,
+      important: object.important,
+      completed: object.completed,
+      btnClass:object.btnClass,
+    }
+    return JSON.stringify(item);
+  }
+  deSerialize(string){
+    const item = JSON.parse(string);
+    if (item.completed === "Delete"){
+      item.completed = true;
+    }else if (item.completed === "Complete"){
+      item.completed = false;
+    }
+    return item;
+  }
+  store() {
+    //serialize the arrays and store them
+    this.state.items.forEach(item => {
+      window.localStorage.setItem(item.name, this.serialize(item))
+    })
+    this.state.itemsCompleted.forEach(item => {
+      window.localStorage.setItem(item.name, this.serialize(item))
+    })
+  }
+  createItemsFromStorage(){
+
+    for (let i = 0; i < window.localStorage.length; ++i){
+      let data = this.deSerialize(window.localStorage.getItem(window.localStorage.key(i)));
+      let item = new ToDoItem();
+      item.name = data.name;
+      item.createdOn = data.createdOn;
+      item.completed = data.completed;
+      item.btnClass = data.btnClass;
+    }
+    this.setState({ itemsCompleted: completedItems });
+    this.setState({ items: itemList });
+  }
+  componentDidMount(){
+    this.createItemsFromStorage();
   }
  
 
   render() {
-    console.log("started:", itemList);
+    
     return (
         <>
       <div className="search">
