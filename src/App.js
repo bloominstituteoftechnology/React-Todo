@@ -24,7 +24,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoData
+      todoData: todoData
     };
   }
 
@@ -40,14 +40,27 @@ class App extends React.Component {
     })
   };
 
-  toggleTask = id => {
-    console.log("ID is working!");
-
+  toggleTask = (id) => {
+    console.log("toggle completed!", id); //it works now!
+    this.setState({
+      todoData: this.state.todoData.map(task => {
+        if(task.id === id) {
+          
+          return{
+            ...task,
+            completed: !task.completed
+          };
+        }
+        else {
+          return task;
+        }
+      })
+    })
   }
 
   clearCompleted = () => {
     this.setState({
-      groceries: this.state.todoData.filter(task => !task.completed)
+      todoData: this.state.todoData.filter(task => !task.completed)
     });
   };
 
@@ -56,7 +69,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <div> 
-          <TodoList todoData={this.state.todoData}/>
+          <TodoList todoData={this.state.todoData} toggleTask={this.toggleTask} clearCompleted={this.clearCompleted}/>
           <TodoForm addTask={this.addTask} toggleTask={this.toggleTask} /> 
         </div>
       </div>
