@@ -28,15 +28,32 @@ class App extends React.Component {
       list: todoList
     }
   }
+
+  handleChange = (e) => {
+    console.log("Pushed to list")
+    todoList.push({
+      task: e,
+      id: Date.now(),
+      completed: false
+    })
+  }
+  
   
   render() {
+    const addTask = () => {
+      console.log("Task added");
+    }
     console.log(this.state.list);
     return (
       <>
       <div>
-        <h2>test!</h2>
+        <h2>To Do</h2>
+        <form onSubmit={this.handleChange}>
+          <input type="text" placeholder="new task" />
+          <input type="button" onClick={addTask} value="Submit" />
+        </form>
       </div>
-      <TodoList array={this.state.list} />
+      <TodoList array={this.state.list}/>
       </>
     );
     

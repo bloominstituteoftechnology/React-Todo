@@ -1,13 +1,8 @@
 import React from 'react';
 
-class Todo extends React.Component {
-    constructor(){super();}
-
-    render () {
+const Todo = (props) => {
         return (
-            <h3>{this.props.task}</h3>
+            <h3>{props.task}</h3>
         )
     }
-}
-
 export default Todo;
