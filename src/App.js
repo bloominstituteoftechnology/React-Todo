@@ -46,11 +46,8 @@ class App extends React.Component {
     console.log(this.state.list);
   }
 
-
-  
   
   render() {
-    console.log(this.state.list);
     return (
       <>
       <div>

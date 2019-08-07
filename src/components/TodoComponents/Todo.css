@@ -1,0 +1,12 @@
+.task {
+    border: darkgreen;
+    background: green;
+    max-width: 20%;
+}
+
+.taskCompleted {
+    border: darkred;
+    background: red;
+    max-width: 20%;
+    text-decoration: line-through;
+}
