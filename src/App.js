@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList.js";
 import TodoForm from "./components/TodoComponents/TodoForm.js";
+import "./components/TodoComponents/Todo.css";
 
  const TodoListdata = [{
     task: "Clean House",
@@ -38,7 +39,7 @@ class App extends React.Component {
   constructor() {
     super(); 
     this.state = {
-      todo: TodoListdata
+      todo: []
     }
     // console.log(this.state); 
   }
@@ -47,15 +48,18 @@ toggleItem = id => {
   console.log(id)
   this.setState({
     todo: this.state.todo.map(item => {
+      console.log("this is Item",item)
       if(item.id === id) {
         return {
           ...item,
           completed: !item.completed
-        }
+        } 
+      } else {
+        return item; 
       }
     })
-  })
-}
+  });
+}; 
 
 
   addToDo = taskName => {
@@ -68,14 +72,16 @@ toggleItem = id => {
       todo: [ ...this.state.todo, newName ]
     })
   }
-  
-  
 
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  clearRender = () => {
+   this.setState({
+    todo: this.state.todo.filter(item => !item.completed)
+   });
+  }; 
+  
 
   render() {
+    console.log(this.state.todo)
     return (
       <div>
          {/* Title Section */}
@@ -84,18 +90,18 @@ toggleItem = id => {
       </div>
   
       <section>
-        {/* Form and button section */}
+        {/* Calling page functionality */}
+        <div>
 
-        <div> 
-        <button type="submit"> Submit </button>
-        <button> Clear </button>
-        </div> 
-       </section>
-       {/* Content seciton */}
-       <div>
-            <TodoForm addToDo={this.state.addToDo}   /> 
-             <TodoList todoItem={this.state.todo} ToggleItem={this.ToggleItem} /> 
+        <TodoList todo={this.state.todo} toggleItem={this.toggleItem} /> 
+        <TodoForm addToDo={this.addToDo}   /> 
+
        </div>
+       </section>
+       
+
+       
+        
        </div> 
       
     );

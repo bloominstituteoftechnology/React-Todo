@@ -1,7 +1,8 @@
 import React from "react"; 
 
+
 class ListForm extends React.Component {
-    constructor() {
+    constructor(props) {
         super(); 
         this.state = {
             item: ""
@@ -14,6 +15,7 @@ handleChange = event => {
     })
 }
 
+
 submitItem = event => {
     event.preventDefault(); 
     this.props.addToDo(this.state.item)
@@ -22,7 +24,14 @@ submitItem = event => {
     render() {
         return(
             <form onSubmit={this.submitItem}> 
-                <input type="text" placeholder="enter todo here" value={this.state.item} name="item" onChange={this.handleChange}  /> 
+                <input type="text" 
+                placeholder="enter todo here" 
+                value={this.state.item} 
+                name="item" 
+                onChange={this.handleChange}
+                 /> 
+                 <button> Submit </button>
+                 <button onChange={this.clearRender}> Clear </button>
             </form>
             )
         }
