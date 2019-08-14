@@ -21,7 +21,7 @@
             font-size: 2rem;
             font-weight: 700;
             padding: 0;
-            @media (max-width : 500px) {
+            @media (max-width : 550px) {
                 height: 20vh;
                 display: flex;
                 justify-content: center;
@@ -31,7 +31,7 @@
                 color: #F8D91E;
                 text-shadow: 1px 1px #243592;
                 margin: 15px ;
-                @media (max-width : 500px) {
+                @media (max-width : 550px) {
                     font-size:3.2rem;
                 }
                 .ui.card>.content, .ui.cards>.card>.content{
@@ -45,7 +45,7 @@
             background-color: #243592;
             color: #F8D91E;
             padding: 0;
-            @media (max-width : 500px) {
+            @media (max-width : 550px) {
                 height:50%;
             }
             .todo-list{
@@ -66,7 +66,7 @@
             width: 100%;
             background-color: #FE6150;
             padding: 0;
-            @media (max-width : 500px) {
+            @media (max-width : 550px) {
                 height:30%;
             }
             .form{
