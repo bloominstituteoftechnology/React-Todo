@@ -29,8 +29,7 @@ constructor() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        {this.state.todos.map(todo => <div>{todo.task}</div>)}
-        <TodoList />
+        <TodoList todos={this.state.todos} />
       </div>
     );
   }

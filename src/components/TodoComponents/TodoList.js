@@ -7,11 +7,13 @@ import React from 'react';
 class TodoList extends React.Component {
     constructor(props) {
         super(props);
+        console.log('TodoList', props);
     }
     render() {
+        console.log('TodoList', this.props);
         return (
-            <div>TodoList</div>
-        )
+            <div>{this.props.todos.map(todo => <div>{todo.task}</div>)}</div>
+        );
     }
 }
 
