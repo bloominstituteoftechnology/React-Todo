@@ -53,6 +53,11 @@ addTask = taskName => {
   })
 }
 
+clearFinished = () => {
+  this.setState({
+    tasks: this.state.tasks.filter(task => !task.completed)
+  })
+}
 
   render() {
     return (
@@ -62,7 +67,10 @@ addTask = taskName => {
           toDoItems={this.state.tasks}
           toggleTask={this.toggleTask}
         />
-        <TodoForm addTask={this.addTask}/>
+        <TodoForm 
+          addTask={this.addTask}
+          clearFinished={this.clearFinished}
+        />
       </div>
     );
   }
