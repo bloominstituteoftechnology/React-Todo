@@ -1,0 +1,9 @@
+
+/*any of the items that are completed will be given this className*/
+.completed {
+    text-decoration: line-through;
+}
+
+.not-completed {
+    text-decoration: none;
+}
