@@ -12,6 +12,21 @@ const toDoListData = [
     task: 'Bake Cookies',
     id: 1528817084358,
     completed: false
+  },
+  {
+    task: 'Bake Cakes',
+    id: 1528817084399,
+    completed: false
+  },
+  {
+    task: 'Organize Room',
+    id: 1528817077236,
+    completed: false
+  },
+  {
+    task: 'Cook Dinner',
+    id: 1528817077243,
+    completed: false
   }
 ];
 
@@ -85,10 +100,15 @@ class App extends React.Component {
     console.log (this.state);
 
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        
-        <TodoList toggleCompleted = {this.toggleCompleted} todos = {this.state.todos}/>
+      <div class = "main-div">
+
+        <div class = "todo-div">
+
+          <h2>My Todo List</h2>
+          
+          <TodoList toggleCompleted = {this.toggleCompleted} todos = {this.state.todos}/>         
+
+        </div>
 
         <TodoForm filterCompleted = {this.filterCompleted} addTodo = {this.addTodo} />
         
