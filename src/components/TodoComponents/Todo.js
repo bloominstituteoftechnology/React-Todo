@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todo.css';
 
 class Todo extends React.Component {
     constructor(props) {
@@ -7,7 +8,7 @@ class Todo extends React.Component {
     render() {
         console.log(this.props.todo);
         return (
-<div>
+<div className={this.props.todo.completed ? "completed" : ""}>
     {this.props.todo.task}
 </div>
         );
