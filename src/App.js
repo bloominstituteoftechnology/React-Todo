@@ -30,16 +30,22 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
-    const addTask = {
+    super();
+      this.state = {
+        todo: todoData
+      };
+  }
+
+  addItem = taskName => {
+    const newTask = {
       task: taskName,
       id: Date.now(),
       completed: false
     };
     this.setState({
-      todo: [...this.state.todo, addTask]
+      todo: [...this.state.todo, newTask]
     })
   }
-
 
   render() {
     return (
