@@ -1,5 +1,19 @@
 import React from 'react';
-import ToDoList from './components/TodoComponents/TodoList'
+import TodoList from './components/TodoComponents/TodoList'
+import TodoForm from './components/TodoComponents/TodoForm'
+
+const tasks = [
+  {
+    task: 'Organize Garage',
+    id: 1528817077286,
+    completed: false
+  },
+  {
+    task: 'Bake Cookies',
+    id: 1528817084358,
+    completed: false
+  }
+]
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -8,30 +22,47 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      tasks: [
-        {
-          task: 'Organize Garage',
-          id: 1528817077286,
-          completed: false
-        },
-        {
-          task: 'Bake Cookies',
-          id: 1528817084358,
-          completed: false
-        }
-      ]
+      tasks
     }
   }
 
-  // toDoChange = (childData) => {
-  //   this.setState({ tasks: childData })
-  // }
+toggleTask = id => {
+  // console.log('click')
+  this.setState({
+    tasks: this.state.tasks.map(task => {
+      if (task.id === id) {
+        return {
+          ...task,
+          completed: !task.completed
+        }
+      } else {
+        return task
+      }
+    })
+  })
+}
+
+addTask = taskName => {
+  const newTask = {
+    task: taskName,
+    id: Date.now(),
+    completed: false
+  }
+  this.setState({
+    tasks: [...this.state.tasks, newTask]
+  })
+}
+
 
   render() {
     return (
       <div>
         <h2>To-Do List:</h2>
-        <ToDoList toDoItems={this.state.tasks}/>
+        <TodoList 
+          toDoItems={this.state.tasks}
+          toggleTask={this.toggleTask}
+        />
+        <TodoForm addTask={this.addTask}/>
       </div>
     );
   }
