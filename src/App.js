@@ -1,4 +1,5 @@
 import React from 'react';
+import ToDoList from './components/TodoComponents/TodoList'
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -22,9 +23,9 @@ class App extends React.Component {
     }
   }
 
-  toDoChange = (childData) => {
-    this.setState({ tasks: childData })
-  }
+  // toDoChange = (childData) => {
+  //   this.setState({ tasks: childData })
+  // }
 
   render() {
     return (
