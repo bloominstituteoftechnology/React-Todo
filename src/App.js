@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm  from './components/TodoComponents/TodoForm';
 
 const todoData = [
   {
@@ -46,6 +47,7 @@ class App extends React.Component {
         <TodoList todos={this.state.todos}
           toggleCompleted={this.toggleCompleted}
         />
+        <TodoForm />
       </div>
     );
   }
