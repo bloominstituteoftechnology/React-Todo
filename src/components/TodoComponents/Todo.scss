@@ -1,0 +1,17 @@
+
+body, html, container {
+    background-color: #f5f5f5;
+}
+
+
+.todoItem {
+    cursor: pointer;
+}
+.completed {
+    text-decoration: line-through;
+    color: lightgrey;
+}
+
+#hide {
+    display: none;
+}
