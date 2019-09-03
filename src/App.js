@@ -26,6 +26,19 @@ class App extends React.Component {
     }
   }
 
+  filterCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => {
+        return !todo.completed;
+        // if (!todo.completed) {
+        //   return true;
+        // } else {
+        //   return true;
+        // }
+      })
+    });
+  }
+
   toggleCompleted = (id) => {
     this.setState({ 
       todos: this.state.todos.map(todo => {
@@ -38,11 +51,6 @@ class App extends React.Component {
     });
   }
     
-  // handleChange = (event) => {
-  //   // console.log("Change handler activated!");
-  //   this.setState({ [event.target.name]: event.target.value});
-  // };
-
 addTodo = task => {
   this.setState({
     todos: [...this.state.todos, {
@@ -65,7 +73,7 @@ addTodo = task => {
           listArray={this.state.todos}
           toggleCompleted={this.toggleCompleted}
           addTodo={this.addTodo}
-          
+          filterTodos={this.filterCompleted}
           handleChange={this.handleChange} 
           handleClick={this.handleClick}
           handleDoubleClick={this.handleDoubleClick}

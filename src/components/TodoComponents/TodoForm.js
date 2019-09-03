@@ -16,7 +16,8 @@ class TodoForm extends React.Component {
 
     handleSubmit = (event) => {
             event.preventDefault();
-            this.props.addTodo(this.state.newtodo)
+            this.props.addTodo(this.state.newtodo);
+            this.setState({ newtodo: ""})
         }
 
     render() {
@@ -30,10 +31,9 @@ class TodoForm extends React.Component {
                     value={this.state.newtodo}
                 />
                 <button 
-                onClick={this.props.handleClick}
-                type="submit"> Add new todo
+                    type="submit"> Add new todo
                 </button>
-                <button onDoubleClick={this.props.handleDoubleClick}>Clear Completed</button>
+                <button onDoubleClick={this.props.filterTodos}> Double click me to clear completed</button>
             </form>
         )
     }

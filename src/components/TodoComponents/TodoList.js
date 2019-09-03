@@ -13,7 +13,6 @@ class TodoList extends React.Component {
     render() {
         return(
             <div className="todo-list">
-                <h3>This is the ToDo list</h3>
                 {this.props.listArray.map(todo => {
                     return (
                         <div>
@@ -26,6 +25,7 @@ class TodoList extends React.Component {
                     );
                 })}
                 <TodoForm 
+                filterTodos={this.props.filterTodos}
                 addTodo={this.props.addTodo}
                 handleChange={this.props.handleChange}
                 handleClick={this.props.handleClick}
