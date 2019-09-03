@@ -7,10 +7,11 @@ class Todo extends React.Component {
     }
     render() {
         return (
-            <div>
-                <h4>this is a Todo component</h4>
-                {/* {console.log(this.props.toDo)} */}
-                <h4>{this.props.toDo.task}</h4>
+            <div 
+            onClick={() => this.props.toggleCompleted(this.props.todo.id)}
+            className={this.props.todo.completed ? "completed" : ""}>
+                {console.log(this.props.todo)}
+                <p>{this.props.todo.task}</p>
             </div>
         )
     }

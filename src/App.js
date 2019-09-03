@@ -11,25 +11,47 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo: [
+      todos: [
         {
-          task: "",
-          // id: "",
+          task: "task goes here",
+          id: "1234",
           completed: false
+        },
+        {
+          task: "task 2 goes here",
+          id: "4321",
+          completed: true
         }
       ]
     }
   }
-    
-  handleChange = (event) => {
-    // console.log("Change handler activated!");
-    this.setState({task: event.target.value});
-  };
 
-  handleClick = (event) => {
-    console.log("Click handler activated!");
-    console.log(this.state.task)
+  toggleCompleted = (id) => {
+    this.setState({ 
+      todos: this.state.todos.map(todo => {
+        if (id === todo.id) {
+          return {...todo, completed: !todo.completed}
+        } else {
+          return todo;
+        }
+      })
+    });
   }
+    
+  // handleChange = (event) => {
+  //   // console.log("Change handler activated!");
+  //   this.setState({ [event.target.name]: event.target.value});
+  // };
+
+addTodo = task => {
+  this.setState({
+    todos: [...this.state.todos, {
+      task: task,
+      id: Date.now(),
+      completed: false
+    }]
+  })
+}
 
   handleDoubleClick = () => {
     console.log("Double Click handler activated!")
@@ -40,12 +62,14 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList 
-          listArray={this.state.todo} 
+          listArray={this.state.todos}
+          toggleCompleted={this.toggleCompleted}
+          addTodo={this.addTodo}
+          
           handleChange={this.handleChange} 
           handleClick={this.handleClick}
           handleDoubleClick={this.handleDoubleClick}
          />
-        {/* {console.log(this.state)} */}
       </div>
     );
   }
