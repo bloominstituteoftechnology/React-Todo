@@ -32,6 +32,14 @@ class App extends React.Component {
 
   }
 
+  filterCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => {
+        return !todo.completed;
+      })
+    });
+  }
+
 
 toggleCompleted = (id) => {
   console.log("ToggleCompleted", id);
@@ -75,7 +83,7 @@ toggleCompleted = (id) => {
         toggleCompleted = {this.toggleCompleted}       
         
         />
-        <TodoForm addTodo= {this.addTodo} />
+        <TodoForm addTodo= {this.addTodo} filter= {this.filterCompleted} />
 
       </div>
     );
