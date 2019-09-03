@@ -74,9 +74,6 @@ addTodo = task => {
           toggleCompleted={this.toggleCompleted}
           addTodo={this.addTodo}
           filterTodos={this.filterCompleted}
-          handleChange={this.handleChange} 
-          handleClick={this.handleClick}
-          handleDoubleClick={this.handleDoubleClick}
          />
       </div>
     );
