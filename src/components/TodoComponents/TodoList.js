@@ -5,6 +5,19 @@
 import React, {useEffect} from 'react'
 import Todo from './Todo'
 
+//functional component
 const TodoList = props =>{
-return TodoList;
+return (
+    <div>
+    {props.todos.map(todo => (
+        <Todo task={todo.task} 
+        id={todo.id} 
+        completed={todo.completed}
+        key={todo.id}
+        toggleDone={todo.toggleDone}
+        />
+    ))}
+    </div>
+);
 } 
+export default TodoList;
