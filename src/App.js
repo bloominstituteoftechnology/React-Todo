@@ -39,23 +39,25 @@ class App extends React.Component {
       };
   }
 
+  //toggle updates todo's completed items from false to true
   toggleItem = id => {
     console.log(id);
 
-    // this.setState({
-    //   todo: this.state.todo.map(task => {
-    //     if(task.id === id) {
-    //       return {
-    //         ...task,
-    //         completed: !task.completed
-    //       };
-    //     } else {
-    //       return task;
-    //     }
-    //   })
-    // })
+    this.setState({
+      todo: this.state.todo.map(task => {
+        if(task.id === id) {
+          return {
+            ...task,
+            completed: !task.completed
+          };
+        } else {
+          return task;
+        }
+      })
+    })
   }
 
+  //To add new task
   addItem = taskName => {
     const newTask = {
       task: taskName,
@@ -67,6 +69,7 @@ class App extends React.Component {
     })
   }
 
+  //Used filter to toggle completed tasks
   clearCompleted = () => {
     this.setState({
       todo: this.state.todo.filter(item => !item.completed)
