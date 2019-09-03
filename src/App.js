@@ -39,7 +39,7 @@ class App extends React.Component {
   constructor() {
     super(); 
     this.state = {
-      todo: []
+      todo: TodoListdata
     }
     // console.log(this.state); 
   }
@@ -75,7 +75,7 @@ toggleItem = id => {
 
   clearRender = () => {
    this.setState({
-    todo: this.state.todo.filter(item => !item.completed)
+    todo: this.state.todo.filter(item => item.completed === false)
    });
   }; 
   
@@ -94,7 +94,7 @@ toggleItem = id => {
         <div>
 
         <TodoList todo={this.state.todo} toggleItem={this.toggleItem} /> 
-        <TodoForm addToDo={this.addToDo}   /> 
+        <TodoForm addToDo={this.addToDo} clearRender={this.clearRender}  /> 
 
        </div>
        </section>

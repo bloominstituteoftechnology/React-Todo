@@ -31,7 +31,7 @@ submitItem = event => {
                 onChange={this.handleChange}
                  /> 
                  <button> Submit </button>
-                 <button onChange={this.clearRender}> Clear </button>
+                 <button onClick={this.props.clearRender}> Clear </button>
             </form>
             )
         }
