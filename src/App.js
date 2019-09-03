@@ -9,7 +9,7 @@ const todoData = [
     completed: false
   },
   {
-    task: 'Bake Cookies',
+    task: 'Bake 12 Cookies ',
     id: 1528817084358,
     completed: true
   }
