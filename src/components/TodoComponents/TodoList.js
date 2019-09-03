@@ -3,7 +3,10 @@
 import React from "react";
 import Todo from "./Todo";
 const TodoList = props => {
-  
+  const handleClear = (e)=> {
+    e.preventDefault();
+    props.clearCompleted();
+  }
   
     return (
       <>
@@ -12,7 +15,7 @@ const TodoList = props => {
             return <Todo key={item.id} item={item} completedToggle={props.completedToggle}/>;
           })}
         </div>
-        <button>Clear Completed</button>
+        <button onClick={handleClear}>Clear Completed</button>
       </>
     );
 };
