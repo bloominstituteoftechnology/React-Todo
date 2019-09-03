@@ -1,0 +1,22 @@
+.full-app{
+    /* margin: 0 auto; */
+    /* border: 1px solid red; */
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.todo-list{
+    text-align: center;
+}
+
+.todo-form{
+    display:flex;
+    flex-direction: column;
+}
+.form-buttons{
+    margin-top: 20px;
+}
+
