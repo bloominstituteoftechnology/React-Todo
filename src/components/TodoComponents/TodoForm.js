@@ -11,8 +11,8 @@ class TodoForm extends React.Component {
         return (
             <div>
             <input onChange={this.props.handleChange}></input>
-            <button>Add Todo</button>
-            <button>Clear Completed</button>
+            <button onClick={this.props.handleClick}>Add Todo</button>
+            <button onDoubleClick={this.props.handleDoubleClick}>Clear Completed</button>
             </div>
         )
     }

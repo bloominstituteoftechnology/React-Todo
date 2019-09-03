@@ -15,12 +15,16 @@ class TodoList extends React.Component {
                 <h3>This is the ToDo list</h3>
                 {this.props.listArray.map(toDo => {
                     return (
-                    <div className="todo" key={""}>
-                        <Todo toDoItem={toDo}/>
-                    </div>
+  
+                        <Todo key={""} toDoItem={toDo}/>
+
                     );
                 })}
-                <TodoForm handleChange={this.props.handleChange}/>
+                <TodoForm 
+                handleChange={this.props.handleChange}
+                handleClick={this.props.handleClick}
+                handleDoubleClick={this.props.handleDoubleClick}
+                />
             </div>
         )
     }
