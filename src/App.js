@@ -4,30 +4,26 @@ import TodoForm from "./components/TodoComponents/TodoForm.js";
 
 const toDoListData = [
   {
-    task: 'Organize Garage',
+    task: 'Eat',
     id: 1528817077286,
     completed: false
   },
   {
-    task: 'Bake Cookies',
+    task: 'Code',
     id: 1528817084358,
     completed: false
   },
   {
-    task: 'Bake Cakes',
+    task: 'Sleep',
     id: 1528817084399,
     completed: false
   },
   {
-    task: 'Organize Room',
+    task: 'Repeat',
     id: 1528817077236,
     completed: false
-  },
-  {
-    task: 'Cook Dinner',
-    id: 1528817077243,
-    completed: false
   }
+  
 ];
 
 class App extends React.Component {
