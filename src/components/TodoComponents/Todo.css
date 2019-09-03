@@ -6,3 +6,20 @@
 .completed {
   text-decoration: line-through;
 }
+
+button {
+  background: white;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.todo-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  min-height: 500px;
+  margin: auto;
+  border: 1px solid grey;
+  border-radius: 10px;
+}

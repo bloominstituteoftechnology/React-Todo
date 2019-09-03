@@ -2,6 +2,7 @@ import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 
 import TodoForm from "./components/TodoComponents/TodoForm";
+import Header from "./components/TodoComponents/Header";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -62,7 +63,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="todo-card-container">
+        <Header />
         <TodoForm addTodo={this.addTodo} />
         <button onClick={() => this.clearCompleted()}>Clear List</button>
         <TodoList updateTodo={this.updateTodo} todos={this.state.todos} />
