@@ -42,18 +42,18 @@ class App extends React.Component {
   toggleItem = id => {
     console.log(id);
 
-    this.setState({
-      todo: this.state.todo.map(task => {
-        if(task.id === id) {
-          return {
-            ...task,
-            completed: !task.completed
-          };
-        } else {
-          return task;
-        }
-      })
-    })
+    // this.setState({
+    //   todo: this.state.todo.map(task => {
+    //     if(task.id === id) {
+    //       return {
+    //         ...task,
+    //         completed: !task.completed
+    //       };
+    //     } else {
+    //       return task;
+    //     }
+    //   })
+    // })
   }
 
   addItem = taskName => {
