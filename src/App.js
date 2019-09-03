@@ -14,23 +14,6 @@ class App extends React.Component {
       todos: []
     };
   }
-  render() {
-    return (
-      <div>
-        <TodoForm addTodo={this.addTodo} />
-        <button onClick={() => this.clearCompleted()}>Clear List</button>
-        <TodoList updateTodo={this.updateTodo} todos={this.state.todos} />
-      </div>
-    );
-  }
-
-  clearCompleted = () => {
-    const newList = this.state.todos.filter(item => {
-      return item.completed === false;
-    });
-
-    this.setState({ todos: newList });
-  };
 
   componentDidMount = () => {
     const todos = localStorage.getItem("todos");
@@ -40,6 +23,16 @@ class App extends React.Component {
     } else {
       console.log("No todos");
     }
+  };
+
+  clearCompleted = async () => {
+    const newList = this.state.todos.filter(item => {
+      return item.completed === false;
+    });
+
+    await this.setState({ todos: newList });
+    localStorage.clear();
+    localStorage.setItem("todos", JSON.stringify(this.state.todos));
   };
 
   addTodo = async todo => {
@@ -66,6 +59,16 @@ class App extends React.Component {
     });
     this.setState({ todos: newTodos });
   };
+
+  render() {
+    return (
+      <div>
+        <TodoForm addTodo={this.addTodo} />
+        <button onClick={() => this.clearCompleted()}>Clear List</button>
+        <TodoList updateTodo={this.updateTodo} todos={this.state.todos} />
+      </div>
+    );
+  }
 }
 
 export default App;
