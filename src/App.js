@@ -10,24 +10,25 @@ class App extends React.Component {
 
   constructor() {
     super();
-    this.state = [
+    this.state = {
+      todo: [
         {
           task: "",
-          id: "",
+          // id: "",
           completed: false
         }
       ]
-    } 
+    }
+  }
     
-  handleChange = () => {
-    console.log("Change handler activated!");
-    // this.setState([/*{task: event.target.value}*/]);
-    console.log(this.state.task)
+  handleChange = (event) => {
+    // console.log("Change handler activated!");
+    this.setState({task: event.target.value});
   };
 
-  handleClick = () => {
-    console.log("Click handler activated!")
-    // this.setState([{task: event.target.value}])
+  handleClick = (event) => {
+    console.log("Click handler activated!");
+    console.log(this.state.task)
   }
 
   handleDoubleClick = () => {
@@ -39,12 +40,12 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList 
-        listArray={this.state} 
-        handleChange={this.handleChange} 
-        handleClick={this.handleClick}
-        handleDoubleClick={this.handleDoubleClick}
+          listArray={this.state.todo} 
+          handleChange={this.handleChange} 
+          handleClick={this.handleClick}
+          handleDoubleClick={this.handleDoubleClick}
          />
-        {console.log(this.state)}
+        {/* {console.log(this.state)} */}
       </div>
     );
   }

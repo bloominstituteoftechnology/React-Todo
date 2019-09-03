@@ -15,9 +15,9 @@ class TodoList extends React.Component {
                 <h3>This is the ToDo list</h3>
                 {this.props.listArray.map(toDo => {
                     return (
-  
-                        <Todo key={""} toDoItem={toDo}/>
-
+                        <Todo 
+                        key={""} 
+                        toDo={toDo} />
                     );
                 })}
                 <TodoForm 

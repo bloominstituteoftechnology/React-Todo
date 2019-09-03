@@ -8,8 +8,9 @@ class Todo extends React.Component {
     render() {
         return (
             <div>
-            <h4>this is Todo component</h4>
-            {console.log(this.props.toDoItem.task)}
+                <h4>this is a Todo component</h4>
+                {/* {console.log(this.props.toDo)} */}
+                <h4>{this.props.toDo.task}</h4>
             </div>
         )
     }
