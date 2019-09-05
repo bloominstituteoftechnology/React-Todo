@@ -68,9 +68,9 @@ class App extends React.Component {
   render() {
     console.log("rendering...");
     return (
-      <div>
-        <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="App">
+        <div className="header">
+        <h2>My Checklist!</h2>
         <TodoForm addTask={this.addTask} />
         </div>
         <TodoList
