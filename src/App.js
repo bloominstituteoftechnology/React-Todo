@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Header from './Layout/Header';
+import Header from './components/Layout/Header';
 import Todos from './components/TodoComponents/Todos';
 import AddTodo from './components/TodoComponents/AddTodo';
 import uuid from 'uuid';
 import axios from 'axios';
+import './index.css';
 
 
 

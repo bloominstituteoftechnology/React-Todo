@@ -1,21 +1,26 @@
-  
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Header() {
   return (
     <header style={headerStyle}>
-      <h1>TodoList</h1>
-      <Link style={linkStyle} to="/">Home</Link> | <Link style={linkStyle} to="/about">About</Link>
+      <h1>Mommy Madness!!</h1>
+      < Link style={linkStyle} to="/panic">PANIC BUTTON!!</Link>
     </header>
   )
 }
 
 const headerStyle = {
-  background: '#333',
+  background: '#905d5d',
   color: '#fff',
   textAlign: 'center',
-  padding: '10px'
+  marginLeft: '100px',
+  alignItems: 'center',
+  padding: '10px',
+  fontSize: '25px',
+  borderRadius:'70px',
+  maxWidth:'80%'
+
 }
 
 const linkStyle = {

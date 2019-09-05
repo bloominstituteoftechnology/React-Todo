@@ -1,0 +1,31 @@
+.container{
+    margin: 0 auto;
+    max-width: 70%;
+    border-radius: 4px;
+    padding: 0 6rem;
+    background-color: #905d5d;
+
+}
+
+input {
+    max-width: 60%;
+}
+
+.btn {
+    /* display: inline-block; */
+    border:none;
+    background: #857663;
+    color:#fff;
+    padding: 7px 20px;
+    cursor: pointer;
+    border-radius: '8px';
+}
+
+.btn:hover{
+    background: #666;
+}
+
+h1{
+    
+font-family: 'Yesteryear', cursive;
+}
