@@ -78,6 +78,24 @@ form > input {
     margin-right: 8px;
 }
 
+@media (max-width: 500px) {
+  form > input{
+    width: 120px;
+  }
+}
+
+@media (max-width: 400px) {
+  form > input{
+    width: 90px;
+  }
+}
+
+@media (max-width: 320px) {
+  form > input{
+    width: 50px;
+  }
+}
+
 button {
     background-color: #EF5D60;
     border: 1px solid #EF5D60;

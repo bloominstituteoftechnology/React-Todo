@@ -70,8 +70,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="header">
-        <h2>My Checklist!</h2>
-        <TodoForm addTask={this.addTask} />
+        <h2 >My Checklist!</h2>
+        <TodoForm  addTask={this.addTask} />
         </div>
         <TodoList
           task={this.state.data}
