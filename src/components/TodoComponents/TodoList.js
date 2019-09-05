@@ -11,6 +11,9 @@
              {props.task.map(task => (
                  <Todo key={task.id} task={task} toggleTask={props.toggleTask}/>
              ))}
+             <button onClick={props.clearCompleted}>
+                 Clear Purchased
+             </button>
 
          </div>
      );
