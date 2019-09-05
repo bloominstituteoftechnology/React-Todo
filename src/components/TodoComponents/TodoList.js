@@ -12,7 +12,7 @@
                  <Todo key={task.id} task={task} toggleTask={props.toggleTask}/>
              ))}
              <button className="clear-btn" onClick={props.clearCompleted}>
-                 Clear Purchased
+                 Clear Completed
              </button>
 
          </div>
