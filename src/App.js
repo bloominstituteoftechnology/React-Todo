@@ -1,27 +1,53 @@
 import React from 'react';
+import Todos from './components/TodoComponents/Todos';
+import Header from './components/Layout/Header';
+import AddTodo from './components/TodoComponents/AddTodo';
+
 
 class App extends React.Component {
-  constructor() {
-    super();
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-     this.state={
-       todo: ""
-    };
+  state = {
+    todos: [
+      {
+        id: 1,
+        title: 'Trash',
+        status: false
+      },
+      {
+        id: 2,
+        title: 'Dinner Prep',
+        status: false
+      },
+      {
+        id: 3,
+        title: 'Meeting',
+        status: false
+      },
+    ]
   }
+
+  markComplete = (id) => {
+    debugger;
+    this.setState({todos: this.state.todos.map(todo =>{
+      if (todo.id === id){
+        todo.status = !todo.status
+      }
+      return todo;
+    })});
+}
+
+//Delete
+delTodo =(id) => {
+  this.setState({todos:[...this.state.todos.filter(todo => todo.id !== id)]})
+}
 
   render () {
     return (
-      <div>
-        <h1>Mommy Madness!</h1>
-        <h3>{this.state.todo}</h3>
-        <input type='text' placeholder='New Item'/> 
-        <div className="buttons">
-        <button onClick={this.handleSingleClickEvent}> Add ToDo </button>
-        <button> Clear Completed </button>
-        <button> Panic!! </button>
-        </div>
+      <div className='App'>
+        <div className='container'>
+        <Header />
+        <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo}/>
+      <AddTodo />
+      </div>
       </div>
      );
     }
