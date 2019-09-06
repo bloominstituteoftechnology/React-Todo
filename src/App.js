@@ -1,7 +1,8 @@
 import React from 'react';
-// import ReactDOM from "react-dom";
 import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 import "./components/TodoComponents/Todo.css";
+import "./App.css";
 const LearReactClass =[
   {
     task: "Run create react app",
@@ -27,9 +28,7 @@ const LearReactClass =[
 
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  
  constructor( ){
    super();
    this.state ={
@@ -43,10 +42,26 @@ class App extends React.Component {
   });
 };
 
+addItem = (e, itemTask) => {
+  e.preventDefault();
+  const existing = this.state.LearReactClass.filter(
+    item => item.task === itemTask
+  );
+  if (existing.length === 0) {
+    const newItem = {
+      task: itemTask,
+      id: Date.now(),
+      completed: false
+    };
+    this.setState({
+      LearReactClass: [...this.state.LearReactClass, newItem]
+    });
+  }
+};
 toggleItem = itemId => {
-  console.log("index.js: App: toggleItem: ", itemId);
-  console.log("index.js: App: this.state: ", this.state);
-  //this.state.groceries;
+  console.log( "Item Id",itemId);
+  console.log("state", this.state);
+  
   this.setState({
     LearReactClass: this.state.LearReactClass.map(item => {
       if (item.id === itemId) {
@@ -60,8 +75,12 @@ toggleItem = itemId => {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-      <TodoList  LearReactClass={this.state.LearReactClass}
-      toggleItem={this.toggleItem}/>
+        
+        <TodoList  LearReactClass={this.state.LearReactClass}
+        toggleItem={this.toggleItem}
+        clearCompleted={this.clearCompleted}
+        />
+        <TodoForm addItem={this.addItem}/>
       </div>
     );
   }
