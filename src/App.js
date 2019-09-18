@@ -6,23 +6,9 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [
-        {
-          task: 'gardening', 
-          completed: false
-        },
-        {
-          task: 'eating food',
-          completed: false
-        },
-        {
-          task: 'walking the dog',
-          completed: false
-        }
-      ],
+      todos: [],
     }
-    this.addTodo = this.addTodo.bind(this);
-    this.clearComplete = this.clearComplete.bind(this);
+    
   }
 
   // you will need a place to store your state in this component.
@@ -51,10 +37,10 @@ class App extends React.Component {
     this.setState({ todos });
   };
 
-  clearComplete = event => {
+  clearCompletedTodos = event => {
     event.preventDefault();
     let todos = this.state.todos.slice();
-    todos = todos.filter(todo => !todo.completed);
+    todos = todos.filter(todo => todo.completed === false);
     this.setState({ todos });
   };
   
