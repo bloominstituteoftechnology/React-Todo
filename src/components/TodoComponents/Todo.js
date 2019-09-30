@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components';
 import check from '../../assets/check.svg';
 
 const StyledTodo = styled.li`
-  list-style: none;
   transition: 200ms;
   &:not(:last-of-type) {
     margin-bottom: 20px;
