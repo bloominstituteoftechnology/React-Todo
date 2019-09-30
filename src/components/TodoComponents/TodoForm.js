@@ -7,29 +7,33 @@ const StyledInputContainer = styled.div`
 
   input {
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid black;
     padding: 10px;
     transition: 200ms;
+    font-weight: 500;
     &::placeholder {
       opacity: 0;
     }
-    &:focus {
-      border-color: blue;
-    }
   }
-  input:focus + label {
-    transform: translate3d(-10px, -15px, 0) scale(0.6);
-  }
+
   label {
     position: absolute;
     z-index: 100;
-    left: 24px;
+    left: 25px;
     top: 8px;
     transition: 200ms;
-    transform: translate3d(0, 0, 0);
     &:hover {
       cursor: text;
     }
+  }
+`;
+
+const StyledInput = styled.input`
+  &:focus + label {
+    transform: translate3d(-25px, -15px, 0) scale(0.6);
+  }
+  & + label {
+    transform: ${props => (props.dirty ? 'translate3d(-25px, -15px, 0) scale(0.6)' : 'translate3d(0, 0, 0)')};
   }
 `;
 
@@ -56,7 +60,7 @@ class TodoForm extends React.Component {
       this.setState(prevState => ({ error: !prevState.error }));
       return false;
     } else {
-      this.setState(prevState => ({ error: false }));
+      this.setState({ error: false });
     }
 
     e.target[1].focus();
@@ -70,13 +74,14 @@ class TodoForm extends React.Component {
     return (
       <form onSubmit={e => this.handleSubmit(e, this.state.todo)}>
         <StyledInputContainer>
-          <input
+          <StyledInput
             type='text'
             value={this.state.todo}
             onChange={e => this.handleChange(e)}
             name='todo'
             placeholder='New todo title'
             id='todo'
+            dirty={this.state.todo.length > 0}
           />
           <label htmlFor='todo'>New todo title</label>
         </StyledInputContainer>
