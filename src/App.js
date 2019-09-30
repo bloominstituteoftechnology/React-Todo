@@ -7,7 +7,7 @@ import './App.css'
 const taskArray = [{
       
   task: '',
-  id: null,
+  id: 1,
   completed: false
 
 }]
@@ -39,19 +39,31 @@ toggleTask = id => {
           ...task,
           completed: !task.completed
         };
-      }
+      } else{
         return task;
+      }
 
     })
   })
 }
+
+clearCompleted = () => {
+  this.setState({
+    tasks: this.state.tasks.filter(task=> !task.completed)
+  }
+
+  )
+}
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList tasks={this.state.tasks}
-                  toggleTask={this.toggleTask}/>
         <TodoForm addTask={this.addTask}/>
+        <TodoList tasks={this.state.tasks}
+                  toggleTask={this.toggleTask}
+                  clearCompleted={this.clearCompleted}/>
+
       </div>
     );
   }

@@ -11,6 +11,7 @@ const TodoList = props => {
                      key={task.id}
                      toggleTask={props.toggleTask}/>)}
         </ul>
+        <button onClick={props.clearCompleted}>Clear Completed</button> 
         </>
     )
 }
