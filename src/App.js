@@ -23,7 +23,8 @@ class App extends React.Component {
     super(props)
     this.state = {
       todos: todoList,
-      todoText: ""
+      todoText: "",
+      searchText: ""
     }
   }
 
@@ -43,6 +44,12 @@ class App extends React.Component {
     });
   }
 
+  setSearchText = (event) => {
+    this.setState({
+      searchText: event.target.value
+    });
+  }
+
   checkTodo = (id, event) => {
     this.setState(currentState => {
       return {
@@ -50,6 +57,15 @@ class App extends React.Component {
           if (todo.id !== id) return todo;
           return {id: todo.id, task: todo.task, completed: true}
         })
+      }
+    })
+  }
+
+  filterTodos = (event) => {
+    event.preventDefault();
+    this.setState(currentState => {
+      return {
+        todos: currentState.todos.filter(todo => todo.task.includes(currentState.searchText))
       }
     })
   }
@@ -62,10 +78,16 @@ class App extends React.Component {
     })
   }
 
+
   render() {
     return (
       <div>
         <h2>Todo App</h2>
+        <form>
+          <input type="text" placeholder="Search Todos" onChange={(event) => this.setSearchText(event)}/>
+          <button onClick={(event) => this.filterTodos(event)}>Search</button>
+          <br></br><br></br>
+        </form>
         <form>
           <input type="text" placeholder="Enter Todos" onChange={(event) => this.setTodo(event)}/>
           <button onClick={(event) => this.addTodo(event)}>Add</button>
