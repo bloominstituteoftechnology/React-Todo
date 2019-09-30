@@ -38,6 +38,17 @@ class App extends React.Component {
   // method to complete a todo item
   completeTodo = id => {
     console.log('complete todo, ', id);
+    // update state by finding the todo with that id and marking it as "complete"
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
+        } else return todo;
+      }),
+    });
   };
   // method to clear completed todo items
 
