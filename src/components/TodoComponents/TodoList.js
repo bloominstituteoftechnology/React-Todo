@@ -7,8 +7,8 @@ const TodoList = props => {
     <ul>
       {props.todos
         ? props.todos.map((todo, index) => (
-            <li key={index} onClick={() => props.markCompleted(todo)}>
-              {todo}
+            <li key={index} onClick={() => props.markCompleted(todo.id)}>
+              {todo.todoValue}
             </li>
           ))
         : null}

@@ -1,17 +1,21 @@
 import React, { Component } from "react";
 
 class TodoForm extends Component {
-  state = { todoValue: "" };
+  state = { todoValue: "", id: null, complete: false };
 
   inputChange = e => {
-    this.setState({ todoValue: e.target.value });
+    this.setState({
+      todoValue: e.target.value,
+      id: Math.random() * 10000000,
+      complete: false
+    });
   };
 
   handleSubmit = e => {
     e.preventDefault();
     console.log("submit");
-    this.props.onAdd(this.state.todoValue);
-    this.setState({ todoValue: "" });
+    this.props.onAdd(this.state);
+    this.setState({ todoValue: "", id: null, complete: false });
   };
 
   render() {
