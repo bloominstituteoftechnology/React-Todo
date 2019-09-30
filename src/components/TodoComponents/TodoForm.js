@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const StyledInputContainer = styled.div`
   position: relative;
+  padding-left: 15px;
 
   input {
     border: none;
@@ -22,10 +23,13 @@ const StyledInputContainer = styled.div`
   label {
     position: absolute;
     z-index: 100;
-    left: 9px;
+    left: 24px;
     top: 8px;
     transition: 200ms;
     transform: translate3d(0, 0, 0);
+    &:hover {
+      cursor: text;
+    }
   }
 `;
 
