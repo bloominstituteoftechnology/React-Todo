@@ -4,7 +4,7 @@ class TodoForm extends React.Component {
     constructor() {
         super();
         this.state = {
-            task: '';
+            task: ''
         };
     }
 
@@ -12,6 +12,7 @@ class TodoForm extends React.Component {
         this.setState({
             [e.target.name]: e.target.value
         });
+        console.log(this)
     }
 
     submitTask = e => {
@@ -21,7 +22,7 @@ class TodoForm extends React.Component {
 
     render() {
         return (
-            <form>
+            <form onSubmit={this.submitTask}>
                 <input
                     type='text'
                     value={this.task}

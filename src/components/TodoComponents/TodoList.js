@@ -7,11 +7,12 @@ const TodoList = props => {
     return (
         <div>
             {props.todo.map(task => (
-                <Todo />
+                <Todo key={task.id} task={task.name} />
             ))}
-            <button>
+            {console.log('This is on TodoList.js', props.todo)}
+            {/* <button>
                 Clear Finished Tasks
-            </button>
+            </button> */}
         </div>
     )
 }

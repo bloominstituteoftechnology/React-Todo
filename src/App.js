@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
-const Tasks = [];
+const Tasks = [
+  {
+    name: 'Tony',
+    id: 120,
+    completed: false,
+  }];
 
 class App extends React.Component {
   constructor() {
@@ -22,16 +28,17 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     };
+    console.log(this);
     this.setState({
       task: [...this.state.task, newTask]
-    })
-  }
+    });
+  };
   render() {
     return (
       <div>
         <div>
           <h1>Todo List</h1>
-
+          <TodoForm addTask={this.addTask} />
         </div>
         <TodoList todo={this.state.task} />
       </div>
