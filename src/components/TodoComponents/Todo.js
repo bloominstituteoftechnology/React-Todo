@@ -3,12 +3,13 @@ import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
 
 class Todo extends Component {
-  state = { todos: [] };
+  state = { todos: JSON.parse(window.localStorage.getItem("todos")) || [] };
 
   addHandler = todo => {
     let newTodos = [...this.state.todos];
     newTodos = [...newTodos, todo];
     this.setState({ todos: newTodos });
+    window.localStorage.getItem("todos", JSON.stringify(this.state.todos));
   };
 
   markCompletedHandler = id => {
@@ -23,14 +24,11 @@ class Todo extends Component {
       todo_target.complete = false;
       todo_target_parent.style.textDecoration = "none";
     }
-
-    console.log(todo_target);
   };
 
   clearHandler = () => {
     let todo_left = this.state.todos.filter(el => el.complete === false);
     this.setState({ todos: todo_left });
-    console.log(todo_left);
   };
 
   render() {
