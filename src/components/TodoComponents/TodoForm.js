@@ -17,6 +17,7 @@ handleChanges = event => {
 submitTask = event => {
     event.preventDefault();
     this.props.addTask(this.state.task)
+    event.target.reset()
     
 }
 
