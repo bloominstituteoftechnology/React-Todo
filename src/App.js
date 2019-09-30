@@ -64,6 +64,12 @@ class App extends React.Component {
     });
   };
 
+  clearList = () => {
+    this.setState({
+      task: this.state.task.filter(activity => !activity.completed)
+    });
+  }
+
   render() {
     return (
       <div className= "App">
