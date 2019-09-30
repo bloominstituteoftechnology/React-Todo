@@ -5,9 +5,13 @@ import React from "react";
 const TodoList = props => {
   return (
     <ul>
-      {props.todos.map(todo => (
-        <li>{todo}</li>
-      ))}
+      {props.todos
+        ? props.todos.map((todo, index) => (
+            <li key={index} onClick={() => props.markCompleted(todo)}>
+              {todo}
+            </li>
+          ))
+        : null}
     </ul>
   );
 };
