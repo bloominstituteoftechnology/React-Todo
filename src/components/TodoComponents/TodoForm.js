@@ -5,6 +5,7 @@ class TodoForm extends React.Component {
     super(props);
     this.state = {
       todo: '',
+      error: false,
     };
   }
 
@@ -17,6 +18,15 @@ class TodoForm extends React.Component {
 
   handleSubmit = (e, todo) => {
     e.preventDefault();
+
+    const todoLength = todo.replace(/\s/g, '').length;
+    if (todoLength === 0) {
+      this.setState(prevState => ({ error: !prevState.error }));
+      return false;
+    } else {
+      this.setState(prevState => ({ error: !prevState.error }));
+    }
+
     this.props.addTodo(todo);
     this.setState({
       todo: '',
@@ -27,6 +37,10 @@ class TodoForm extends React.Component {
     return (
       <form onSubmit={e => this.handleSubmit(e, this.state.todo)}>
         <input type='text' value={this.state.todo} onChange={e => this.handleChange(e)} name='todo' />
+        <p>
+          {this.state.error &&
+            `You're trying to add a todo without a meaningful title. Please amend your todo and add a meaningful title.`}
+        </p>
         <button type='submit'>Add Item</button>
       </form>
     );
