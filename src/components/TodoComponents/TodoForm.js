@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Input, Grid } from '@material-ui/core';
 
 class TodoForm extends React.Component {
   constructor() {
@@ -26,17 +27,25 @@ class TodoForm extends React.Component {
   render() {
     return (
       <>
-        <form >
-          <label htmlFor='Add Task'>Add Task</label>
-          <input
-            placeholder='Add Task'
-            type='text'
-            value={this.state.task}
-            name='task'
-            onChange={this.handleChanges}
-          />
-          {/* Add state-setting functionality */}
-          <button onClick={this.submitTask}>Add Task</button>
+        <form>
+          <Grid
+            justify='space-around'
+            spacing='2'
+          >
+            <Input
+              placeholder='Add Task'
+              type='text'
+              value={this.state.task}
+              name='task'
+              onChange={this.handleChanges}
+            />
+            {/* Add state-setting functionality */}
+            <Button
+              color='primary'
+              onClick={this.submitTask}
+            >
+              Add Task</Button>
+          </Grid>
         </form>
 
       </>

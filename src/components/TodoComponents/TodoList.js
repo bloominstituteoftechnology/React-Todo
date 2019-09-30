@@ -1,6 +1,7 @@
 import React from 'react';
 import Todo from './Todo';
 
+import Button from '@material-ui/core/Button';
 
 
 
@@ -16,7 +17,12 @@ class TodoList extends React.Component {
           {this.props.tasks.map(entry =>
             <Todo key={entry.id} id={entry.id} task={entry.task} completed={entry.completed} toggleCompleted={this.props.toggleCompleted} />)}
         </div>
-        <button onClick={this.props.clearCompleted}>Clear Completed</button>
+        <Button
+          color='secondary'
+          size='small'
+          onClick={this.props.clearCompleted}
+        >
+          Clear Completed</Button>
 
       </>
     )

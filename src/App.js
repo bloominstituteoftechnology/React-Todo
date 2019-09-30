@@ -1,4 +1,7 @@
 import React from 'react';
+import { Container } from '@material-ui/core';
+
+
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
@@ -54,13 +57,15 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <>
+      <Container
+        maxWidth='sm'
+      >
         <div>
           <h2>Welcome to your Todo App!</h2>
         </div>
         <TodoForm addTask={this.addTask} />
         <TodoList tasks={this.state.tasks} clearCompleted={this.clearCompleted} toggleCompleted={this.toggleCompleted} />
-      </>
+      </Container>
     );
   }
 }

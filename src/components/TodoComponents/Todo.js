@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card } from '@material-ui/core';
 
 class Todo extends React.Component {
   constructor(props) {
@@ -13,7 +14,9 @@ class Todo extends React.Component {
 
   render() {
     return (
-      <>
+      <Card
+        raised='true'
+      >
         <span
           onClick={this.handleToggle}
         >
@@ -25,7 +28,7 @@ class Todo extends React.Component {
             {this.props.task}
           </p>
         </span>
-      </>
+      </Card>
     )
   }
 }
