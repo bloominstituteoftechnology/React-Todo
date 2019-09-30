@@ -7,7 +7,7 @@ const todoList = [
     completed: false 
   },
   {
-    task: 'Drinking a coffee',
+    task: 'Drink a coffee',
     id: 1,
     completed: false
   }
@@ -27,14 +27,22 @@ class App extends React.Component {
   }
 
   addTodo = (event) => {
-    event.preventDefault();
-    console.log(this.state.todoText);
+    event.preventDefault()
+    this.setState(currentState => {
+      return {
+        todos: currentState.todos.concat({task: this.state.todoText, id: Date.now(), completed: false})
+      }
+    })
   }
 
   setTodo = (event) => {
     this.setState({
       todoText: event.target.value
     });
+  }
+
+  checkTodo = (event) => {
+    
   }
 
   render() {
@@ -46,8 +54,10 @@ class App extends React.Component {
           <button onClick={(event) => this.addTodo(event)}>Add</button>
         </form>
         <div className ="todos-container">
-          Todos go here
-        </div>
+           {this.state.todos.map(todo => (
+            <h2 onClick={(event) => this.checkTodo(event)}>{todo.task}</h2>
+          ))}
+        </div> 
       </div>
     );
   }
