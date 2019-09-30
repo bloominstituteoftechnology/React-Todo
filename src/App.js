@@ -11,9 +11,6 @@ const taskArray = [{
 
 }]
 
-
-
-
 class App extends React.Component {
   constructor(){
     super();
@@ -22,12 +19,23 @@ class App extends React.Component {
   };
 }
 
+  addTask = taskName => {
+    const newTask = {
+    task: taskName,
+    id: Date.now(),
+    completed: false
+  }
+  this.setState({
+    tasks: [...this.state.tasks, newTask]
+  })
+} 
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList tasks={this.state.tasks}/>
-        <TodoForm />
+        <TodoForm addTask={this.addTask}/>
       </div>
     );
   }
