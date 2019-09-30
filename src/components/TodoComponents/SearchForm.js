@@ -1,10 +1,10 @@
 import React from 'react';
 
-class TodoForm extends React.Component {
+class SearchForm extends React.Component {
     constructor() {
         super();
         this.state = {
-            task: ''
+            query: ''
         };
     }
 
@@ -14,31 +14,31 @@ class TodoForm extends React.Component {
         });
     }
 
-    submitTask = e => {
+    submitQuery = e => {
         e.preventDefault();
-        this.props.addTask(this.state.task);
+        this.props.searchList(this.state.query);
         this.setState({
-            task: ''
+            query: ''
         })
     };
 
     render(){
         return(
             <div>
-                <form onSubmit={this.submitTask}>
+                <form onSubmit={this.submitQuery}>
                     <input
                         type="text"
-                        value={this.state.task}
-                        name="task"
+                        value={this.state.query}
+                        name="query"
                         onChange={this.handleChanges}
                     />
-                    <button type="submit">Add Task</button>
+                    <button type="submit">Search</button>
                 </form>
-                <button onClick={this.props.clearCompleted}>Clear Completed</button>
+                <button onClick={this.props.clearSearch}>Clear Search</button>
             </div>
         );
     }
 }
 
 
-export default TodoForm;
+export default SearchForm;
