@@ -5,6 +5,7 @@ import check from '../../assets/check.svg';
 
 const StyledTodo = styled.li`
   list-style: none;
+  transition: 200ms;
   &:not(:last-of-type) {
     margin-bottom: 20px;
   }
@@ -15,23 +16,28 @@ const StyledTodo = styled.li`
 
   label {
     position: relative;
+    &:hover {
+      cursor: pointer;
+    }
     &::before {
       content: '';
       transition: 200ms;
       position: absolute;
+      opacity: 0;
       background-image: url(${check});
       left: -35px;
       width: 25px;
       height: 25px;
-      opacity: 0;
     }
   }
 
   ${props =>
     props.completed &&
     css`
+      & {
+        color: rgba(0, 0, 0, 0.5);
+      }
       label {
-        text-decoration: line-through;
         &::before {
           opacity: 1;
         }
