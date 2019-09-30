@@ -7,7 +7,9 @@ const TodoList = props => {
         <h2>To-Dos:</h2>
         <ul>
             {props.tasks.map(task => 
-                <Todo task={task} key={task.id}/>)}
+                <Todo task={task}
+                     key={task.id}
+                     toggleTask={props.toggleTask}/>)}
         </ul>
         </>
     )
