@@ -11,10 +11,14 @@ class TodoList extends React.Component {
   }
   render() {
     return (
-      <div>
-        {this.props.tasks.map(entry =>
-          <Todo key={entry.id} task={entry.task} />)}
-      </div>
+      <>
+        <div>
+          {this.props.tasks.map(entry =>
+            <Todo key={entry.id} id={entry.id} task={entry.task} completed={entry.completed} toggleCompleted={this.props.toggleCompleted} />)}
+        </div>
+        <button onClick={this.props.clearCompleted}>Clear Completed</button>
+
+      </>
     )
   }
 }

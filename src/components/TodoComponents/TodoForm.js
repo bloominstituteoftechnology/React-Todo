@@ -14,16 +14,14 @@ class TodoForm extends React.Component {
     })
   };
 
-  addTask = e => {
+  submitTask = e => {
     e.preventDefault();
-    this.props.addTask(this.state.task)
+    this.props.addTask(this.state.task);
+    this.setState({
+      task: ''
+    });
   };
 
-  // Clear Completed function
-  clearCompleted = e => {
-    e.preventDefault();
-
-  }
 
   render() {
     return (
@@ -31,15 +29,14 @@ class TodoForm extends React.Component {
         <form >
           <label htmlFor='Add Task'>Add Task</label>
           <input
-            placeholder="add task"
+            placeholder='Add Task'
             type='text'
-            value={this.task}
+            value={this.state.task}
             name='task'
             onChange={this.handleChanges}
           />
           {/* Add state-setting functionality */}
-          <button onClick={this.addTask}>Add Task</button>
-          <button onClick={this.clearCompleted}>Clear Completed</button>
+          <button onClick={this.submitTask}>Add Task</button>
         </form>
 
       </>
