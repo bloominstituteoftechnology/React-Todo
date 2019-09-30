@@ -36,6 +36,9 @@ class App extends React.Component {
 
   // need a method to add a todo item
   // method to complete a todo item
+  completeTodo = id => {
+    console.log('complete todo, ', id);
+  };
   // method to clear completed todo items
 
   // stretch
@@ -45,7 +48,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} completeTodo={this.completeTodo} />
       </div>
     );
   }
