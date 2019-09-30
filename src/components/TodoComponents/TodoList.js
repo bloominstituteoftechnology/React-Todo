@@ -8,7 +8,7 @@ const TodoList = props => (
       <Todo key={todo.id} todo={todo} completeTodo={props.completeTodo} />
     ))}
     <li>
-      <TodoForm />
+      <TodoForm addTodo={props.addTodo} />
     </li>
   </ul>
 );

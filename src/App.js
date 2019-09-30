@@ -35,6 +35,17 @@ class App extends React.Component {
   }
 
   // need a method to add a todo item
+  addTodo = todo => {
+    const newTodo = {
+      title: todo,
+      id: Date.now(),
+      completed: false,
+      category: 'uncategorized',
+    };
+    this.setState({
+      todos: [...this.state.todos, newTodo],
+    });
+  };
   // method to complete a todo item
   completeTodo = id => {
     console.log('complete todo, ', id);
@@ -59,7 +70,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos} completeTodo={this.completeTodo} />
+        <TodoList todos={this.state.todos} completeTodo={this.completeTodo} addTodo={this.addTodo} />
       </div>
     );
   }
