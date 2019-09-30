@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap");
+/* <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap" rel="stylesheet"> */
+
+/* font-family: 'Sawarabi Mincho', sans-serif; */
+
+.App {
+    font-family: Sawarabi Mincho;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2{
+    margin-right: 20px;
+}
+form{
+    width: 45%;
+}
+
+.task{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    background-color: none;
+    border-bottom: .5px solid rgba(32, 32, 32, 0.815);
+    color: #493079;
+    width: 45%;
+    text-align: left;
+    padding: 2px;
+    margin: 5px auto;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.task.completed{
+    text-decoration: line-through;
+    border: 1px solid red;
+}
+
+button {
+    background: #be1111;
+    border: none;
+    font-size: 1.25rem;
+    padding: 5px 10px;
+    margin: 5px 15px;
+    color: #fff;
+}
+
+.clear-button{
+    margin-top: 30px;
+}
+
+input{
+    height: 1.75rem;
+    width: 45%;
+    margin: 0 auto;
+    border: none;
+    background: none;
+    border-bottom: 2px solid black;
+}

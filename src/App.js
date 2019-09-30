@@ -1,13 +1,17 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import { AST_False } from 'terser';
 
-const taskData = [
+const tasksData = [
   {
-    task: 'Wash Dishes',
+    task: 'Wash all the walls.',
     id: 2542652,
     completed: true,
+  },
+  {
+    task: 'Shave the cat.',
+    id: 2542653,
+    completed: false,
   }
 ]
 
@@ -15,53 +19,53 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      task: taskData,
+      tasks: tasksData,
     };
   }
 
-  toggleItem = id => {
+  toggleTask = id => {
     console.log(id);
     this.setState({
-      tasks: this.state.tasks.map(task=>{
-        if (task.id === id){
+      tasks: this.state.tasks.map(item=>{
+        if (item.id === id){
           return{
-            ...task,
-            completed: !task.completed
+            ...item,
+            completed: !item.completed
           };
         } else {
-          return task;
+          return item;
         }
       })
     });
   };
 
-  addTask = task => {
+  addTask = taskTitle => {
     const newTask = {
-      task: task,
+      task: taskTitle,
       id: Date.now(),
       completed: false,
     };
       this.setState({
         tasks: [...this.state.tasks, newTask]
       });
-  }
+  };
 
   clearCompleted = () => {
     this.setState({
-      tasks: this.setState.tasks.filter(task=> !task.completed)
+      tasks: this.state.tasks.filter(item=> !item.completed)
     });
   };
 
   render() {
     return (
-      <div>
+      <div className='App'>
         <div className='header'>
-          <h2>Finish It</h2>
-          <TodoForm addTodo={this.addTodo}/>
+          <h2>Finish It: </h2>
+          <TodoForm addTask={this.addTask}/>
         </div>
         <TodoList
-          task={this.state.task}
-          toggleTask={this.state.task}
+          tasks={this.state.tasks}
+          toggleTask={this.toggleTask}
         />
       </div>
     );
