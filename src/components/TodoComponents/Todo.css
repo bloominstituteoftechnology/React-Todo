@@ -3,49 +3,71 @@
 
 /* font-family: 'Sawarabi Mincho', sans-serif; */
 
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
 .App {
     font-family: Sawarabi Mincho;
 }
+
 .header{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 25vh;
+    background: #000000;
+    color: white;
 }
+
 h2{
+    font-size: 2rem;
     margin-right: 20px;
 }
+
 form{
     width: 45%;
 }
-
-.task{
-    margin: 0 auto;
+.todo-list{
+    margin: 50px auto;
     display: flex;
     flex-direction: column;
     width: 60%;
+    align-items: center;
+}
+
+.task{    
     background-color: none;
     border-bottom: .5px solid rgba(32, 32, 32, 0.815);
-    color: #493079;
     width: 45%;
     text-align: left;
-    padding: 2px;
-    margin: 5px auto;
+    margin-bottom: 5px;
     font-weight: 600;
     font-size: 1.25rem;
 }
 
-.task.completed{
+.taskcompleted{
+    background-color: none;
+    border-bottom: .5px solid rgba(32, 32, 32, 0.815);
+    width: 45%;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 1.25rem;
     text-decoration: line-through;
-    border: 1px solid red;
+    color: #0000008f;
 }
 
 button {
     background: #be1111;
     border: none;
     font-size: 1.25rem;
-    padding: 5px 10px;
+    padding: 7px 15px;
     margin: 5px 15px;
     color: #fff;
+    font-family: Sawarabi Mincho;
 }
 
 .clear-button{
@@ -58,5 +80,7 @@ input{
     margin: 0 auto;
     border: none;
     background: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    font-size: 1.25rem;
 }
