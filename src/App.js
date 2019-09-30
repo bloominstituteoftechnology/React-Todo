@@ -2,14 +2,26 @@ import React from "react";
 import TodoList from "../src/components/TodoComponents/TodoList";
 import AddForm from "../src/components/TodoComponents/AddForm";
 import "./components/TodoComponents/Todo.css"
+import ls from 'local-storage'
 
 class App extends React.Component {
-  state = {
-    todos: [
+  constructor(){
+    super();
+    if (localStorage.getItem("localList"))
+    { this.state = {
+      todos: JSON.parse(localStorage.getItem("localList"))}}
+
+      else{
+    this.state = {todos: [
       { id: 1, content: "Smoke Meat", done: false },
-      { id: 2, content: "Apply Sweet Baby Ray's", done: true }
-    ]
+      { id: 2, content: "Apply Sweet Baby Ray's", done: false },
+      { id: 3, content: "Upload Viral Live Hangout Vid", done: false },
+      { id: 4, content: "Give fans the Zucc", done: false }
+    ]}}
   }
+
+  
+
 
   addItem = itemName => {
     const newItem = {
@@ -20,13 +32,17 @@ class App extends React.Component {
     console.log("new Item", newItem)
     this.setState({
       todos: [...this.state.todos, newItem]
+      
     });
     console.log(this.state);
+    
+    console.log("localList", localStorage.getItem("localList"))
   };
 
 
   toggleItem = id => {
     console.log(id);
+    
     this.setState({
       todos: this.state.todos.map(item => {
         if (item.id === id) {
@@ -41,6 +57,11 @@ class App extends React.Component {
       })
     });
   };
+
+  saveList = () => {
+    localStorage.setItem("localList", JSON.stringify(this.state.todos));
+  }
+
 
   clearComplete = () => {
     console.log("clear button pushed");
@@ -66,6 +87,7 @@ class App extends React.Component {
           toggleItem={this.toggleItem} />
 
           <AddForm addItem={this.addItem} />
+          <button onClick ={this.saveList}>Save List </button>
         </div>
       </div>
     );

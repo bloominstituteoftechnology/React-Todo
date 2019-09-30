@@ -8,10 +8,12 @@ class AddForm extends React.Component {
         this.setState({
             content: e.target.value
         })
+        
     }
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.addItem(this.state.content)
+        
         this.setState({
             content: ''
         }
