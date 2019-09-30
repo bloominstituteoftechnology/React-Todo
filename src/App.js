@@ -62,7 +62,11 @@ class App extends React.Component {
     });
   };
   // method to clear completed todo items
-
+  clearCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => todo.completed === false),
+    });
+  };
   // stretch
   // method to place todo items in specific buckets according to the item's category
 
@@ -71,6 +75,9 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todos} completeTodo={this.completeTodo} addTodo={this.addTodo} />
+        <button type='button' onClick={() => this.clearCompleted()}>
+          Clear Completed
+        </button>
       </div>
     );
   }
