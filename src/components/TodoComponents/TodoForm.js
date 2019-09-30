@@ -24,7 +24,7 @@ class TodoForm extends React.Component {
       this.setState(prevState => ({ error: !prevState.error }));
       return false;
     } else {
-      this.setState(prevState => ({ error: !prevState.error }));
+      this.setState(prevState => ({ error: false }));
     }
 
     this.props.addTodo(todo);
