@@ -25,6 +25,7 @@ class Todo extends React.Component {
  
     renderTodo(){
         if(this.props.todo.isDone)
+        
         return <s>{this.props.todo.value}</s>;
         else
         return this.props.todo.value;
