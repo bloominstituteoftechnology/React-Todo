@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './app.css';
 
 const todoList = [
   {
@@ -44,8 +44,6 @@ class App extends React.Component {
   }
 
   checkTodo = (id, event) => {
-    const thisText = event.target.innerText;
-    console.log(id)
     this.setState(currentState => {
       return {
         todos: currentState.todos.map(todo => {
@@ -56,8 +54,15 @@ class App extends React.Component {
     })
   }
 
+  clearTodo = (id, event) => {
+    this.setState(currentState => {
+      return {
+        todos: currentState.todos.filter(todo => todo.id !== id)
+      }
+    })
+  }
+
   render() {
-    console.log(this.state.todos)
     return (
       <div>
         <h2>Todo App</h2>
@@ -67,7 +72,10 @@ class App extends React.Component {
         </form>
         <div className ="todos-container">
            {this.state.todos.map(todo => (
-            <h2 key={todo.id} onClick={(event) => this.checkTodo(todo.id, event)}>{todo.task}</h2>
+             <>
+            <h2 className={todo.completed ? "todo-checked" : "todo-unchecked"} key={todo.id} onClick={(event) => this.checkTodo(todo.id, event)}>{todo.task}</h2>
+            <button onClick={(event) => this.clearTodo(todo.id, event)}>Clear</button>
+            </>
           ))}
         </div> 
       </div>
