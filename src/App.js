@@ -27,10 +27,6 @@ class App extends React.Component {
 
   toggleItem = id => {
     console.log(id);
-    // Update groceries on our state object
-    // use this.setState
-    // loop through the arr
-    // find which element we clicked update the "pruchased" property
     this.setState({
       todos: this.state.todos.map(item => {
         if (item.id === id) {
