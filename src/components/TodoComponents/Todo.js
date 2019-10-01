@@ -1,13 +1,16 @@
 import React from "react";
+import { isTemplateElement } from "@babel/types";
 
-
-
-const Todo = props => {
-return(
-<div>
-    <h1>{props.toDo.name}!</h1>;
-    
+export default function Todo(props) {
+  return (
+    <div>
+        <p
+          onClick={() => props.toggleItem(props.item.id)}
+          
+        >
+            {props.item.task}
+        </p>
+     
     </div>
-)
+  );
 }
-export default Todo

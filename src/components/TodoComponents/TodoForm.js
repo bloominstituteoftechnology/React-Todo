@@ -1,38 +1,82 @@
+// import React from "react";
+
+// class TodoForm extends React.Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       item: ""
+//     };
+//   }
+
+//   handleChanges = e => {
+//     this.setState({
+//       [e.target.name]: e.target.value
+//     });
+//   };
+
+//   submitItem = e => {
+//     e.preventDefault();
+//     this.setState({ item: "" });
+//     this.props.addItem(this.state.item);
+//   };
+
+
+
+//   render() {
+//     return (
+//       <form onSubmit={this.submitItem}>
+//         <input
+//           type="text"
+//           value={this.state.item}
+//           name="item"
+//           onChange={this.handleChanges}
+//           placeholder="...todo"
+//         />
+//         <br />
+//         <button type="submit">Add Todo</button>
+      
+//       </form>
+//     );
+//   }
+// }
+
+// export default TodoForm;
 import React from "react";
-
-
 class TodoForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      toDo: ""
+      newItem: ""
     };
   }
-
-  handleChanges = e => {
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+  handlesubmit = event => {
+    event.preventDefault();
+    this.props.addItem(this.state.newItem);
     this.setState({
-      [e.target.name]: e.target.value
+      newItem: ""
     });
   };
-
-  submitTodo = e => {
-    e.preventDefault();
-    this.props.addToDo(this.state.toDo);
-  };
-
+  // you will need a place to store your state in this component.
+  // design `App` to be the parent component of your application.
+  // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <form onSubmit={this.submitTodo}>
-        <input
-          type="text"
-          value={this.toDo}
-          name="name"
-          onChange={this.handleChanges}
-        />
-        <button>Add</button>
-      </form>
+      <div>
+        <form onSubmit={this.handlesubmit}>
+          <input
+            onChange={this.handleChange}
+            type="text"
+            placeholder="add to do"
+            name="newItem"
+            value={this.newItem}
+          />
+          <button type="submit">add todo</button>
+        </form>
+      </div>
     );
   }
 }
-
 export default TodoForm;
