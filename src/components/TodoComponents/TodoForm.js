@@ -24,10 +24,11 @@ class TodoForm extends Component {
     removeList = e => {
         e.preventDefault();
         this.props.clearSelected(this.state.item);
+        
     };
 
     render(){
-        console.log("rendering")
+        
         return(
             <form onSubmit={this.submitList}>
                 <input

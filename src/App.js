@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
 import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
-import TodoForm from "./components/TodoComponents/TodoForm"
+// import styled from "styled-components";
 
 const listData = [
   {
@@ -17,8 +18,6 @@ const listData = [
   }
 ];
 
-const list = listData;
-
 class App extends Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -30,6 +29,7 @@ class App extends Component {
       list: listData
     };
   }
+  
 
   toggleList = id => {
     console.log(id);
@@ -38,7 +38,7 @@ class App extends Component {
       list: this.state.list.map(item => {
         if (item.id === id) {
           return {
-            ...list,
+            ...item,
             selected: !item.selected
           };
         } else {
@@ -59,9 +59,10 @@ class App extends Component {
     });
   };
 
-  clearList = () => {
+  clearSelected = () => {
     this.setState({
-      list: this.state.list.filter(item => !item.selected)
+      list:
+      this.state.list.filter(item => item.selected)
     });
   };
 
@@ -70,10 +71,8 @@ class App extends Component {
       <div className="App">
         <div>
         <h2>Welcome to your Todo App!</h2>
-        
         <TodoForm 
         addList={this.addList}
-        clearSelected={this.clearSelected}
         />
       </div>
       <TodoList 
@@ -87,3 +86,8 @@ class App extends Component {
 }
 
 export default App;
+
+
+//STYLES!
+
+//
