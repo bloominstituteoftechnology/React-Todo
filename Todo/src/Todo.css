@@ -1,0 +1,11 @@
+.App {
+    font-family: Hammersmith one;
+}
+.clear-btn {
+   width: 170px;
+   height: 40px;
+   background-color: rgb(115, 181, 207);
+   color: white;
+   font-family: Hammersmith one;
+   font-size: 1rem;
+}
