@@ -62,6 +62,9 @@ class App extends React.Component {
       
       <div>
         <h2>{this.state.task} Welcome to your Todo App!</h2>
+        <div className='mainBox'>
+          
+        </div>
       </div>
     );
   }
