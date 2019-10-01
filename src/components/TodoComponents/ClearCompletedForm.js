@@ -1,4 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const StyledCompletedForm = styled.form`
+  display: flex;
+  flex-direction: row;
+  margin-top: 25px;
+`;
+
+const StyledButton = styled.button`
+  background-color: white;
+  outline: none;
+  border: 2px solid black;
+  padding: 10px 0;
+  margin-left: 15px;
+  min-width: 200px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 const ClearCompletedForm = props => {
   const handleSubmit = e => {
@@ -6,9 +25,9 @@ const ClearCompletedForm = props => {
     props.clearCompleted();
   };
   return (
-    <form onSubmit={e => handleSubmit(e)}>
-      <button type='submit'>Clear Completed</button>
-    </form>
+    <StyledCompletedForm onSubmit={e => handleSubmit(e)}>
+      <StyledButton type='submit'>Clear Completed</StyledButton>
+    </StyledCompletedForm>
   );
 };
 

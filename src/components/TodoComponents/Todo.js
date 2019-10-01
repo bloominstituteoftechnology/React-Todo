@@ -24,7 +24,8 @@ const StyledTodo = styled.li`
       position: absolute;
       opacity: 0;
       background-image: url(${check});
-      left: -35px;
+      left: -25px;
+      top: -3px;
       width: 25px;
       height: 25px;
     }

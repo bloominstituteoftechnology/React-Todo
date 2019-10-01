@@ -1,40 +1,71 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const StyledInputContainer = styled.div`
-  position: relative;
-  padding-left: 15px;
+const StyledTodoForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
 
-  input {
-    border: none;
-    border-bottom: 2px solid black;
-    padding: 10px;
-    transition: 200ms;
-    font-weight: 500;
-    &::placeholder {
-      opacity: 0;
-    }
+  p {
+    color: red;
+    min-height: 19px;
+    width: 100%;
+  }
+
+  div {
+    position: relative;
+    display: flex;
   }
 
   label {
     position: absolute;
     z-index: 100;
-    left: 25px;
-    top: 8px;
+    left: 20px;
+    top: 9px;
     transition: 200ms;
+    color: rgb(100, 100, 100);
     &:hover {
       cursor: text;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    outline: none;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 0;
+    min-width: 200px;
+    margin-left: 20px;
+    &:hover {
+      cursor: pointer;
     }
   }
 `;
 
 const StyledInput = styled.input`
+  border: none;
+  padding: 10px;
+  transition: 200ms;
+  font-weight: 500;
+
+  &::placeholder {
+    opacity: 0;
+  }
+
   &:focus + label {
-    transform: translate3d(-25px, -15px, 0) scale(0.6);
+    transform: translate3d(-30px, -28px, 0) scale(0.75);
+    color: white;
   }
-  & + label {
-    transform: ${props => (props.dirty ? 'translate3d(-25px, -15px, 0) scale(0.6)' : 'translate3d(0, 0, 0)')};
-  }
+
+  ${props =>
+    props.dirty &&
+    css`
+      label {
+        color: white;
+        transform: translate3d(-30px, -28px, 0) scale(0.75);
+      }
+    `}
 `;
 
 class TodoForm extends React.Component {
@@ -57,7 +88,7 @@ class TodoForm extends React.Component {
 
     const todoLength = todo.replace(/\s/g, '').length;
     if (todoLength === 0) {
-      this.setState(prevState => ({ error: !prevState.error }));
+      !this.state.error && this.setState(prevState => ({ error: !prevState.error }));
       return false;
     } else {
       this.setState({ error: false });
@@ -72,25 +103,24 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => this.handleSubmit(e, this.state.todo)}>
-        <StyledInputContainer>
-          <StyledInput
-            type='text'
-            value={this.state.todo}
-            onChange={e => this.handleChange(e)}
-            name='todo'
-            placeholder='New todo title'
-            id='todo'
-            dirty={this.state.todo.length > 0}
-          />
-          <label htmlFor='todo'>New todo title</label>
-        </StyledInputContainer>
-        <p>
-          {this.state.error &&
-            `You're trying to add a todo without a meaningful title. Please amend your todo and add a meaningful title.`}
-        </p>
-        <button type='submit'>Add Item</button>
-      </form>
+      <StyledTodoForm onSubmit={e => this.handleSubmit(e, this.state.todo)}>
+        <div>
+          <div>
+            <StyledInput
+              type='text'
+              value={this.state.todo}
+              onChange={e => this.handleChange(e)}
+              name='todo'
+              placeholder='New todo title'
+              id='todo'
+              dirty={this.state.todo.length > 0}
+            />
+            <label htmlFor='todo'>New todo title</label>
+          </div>
+          <button type='submit'>Add Item</button>
+        </div>
+        <p>{this.state.error && `Please add a meaningful title`}</p>
+      </StyledTodoForm>
     );
   }
 }
