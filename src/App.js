@@ -38,33 +38,43 @@ class App extends React.Component {
       task: jerseyShore
     };
   }
-  // toggleItem = id => {
-  //   console.log('this is in toggleItem');
-  //   this.setState({
+  toggleItem = id => {
+    console.log('this is in toggleItem');
+    this.setState({
       
-  //     id: this.state.id.map(item => {
-  //       console.log('this is item', item)
-  //       if (item.id === id) {
-  //         return {
-  //           ...item,
-  //           completed: !item.completed
-  //         };
+      id: this.state.id.map(item => {
+        console.log('this is item', item)
+        if (item.id === id) {
+          return {
+            ...item,
+            completed: !item.completed
+          };
 
-  //       } else{
-  //         return item;
-  //       }
-  //     })
-  //   });
-  // };
+        } else{
+          return item;
+        }
+      })
+    });
+  };
+
+  addTask = taskName => {
+    const newTask = {
+      task: taskName,
+      id: Date.now(),
+      completed: false
+    };
+
+    this.setState({
+      
+    })
+  }
   
   render() {
     return (
       
       <div>
-        <h2>{this.state.task} Welcome to your Todo App!</h2>
-        <div className='mainBox'>
-          
-        </div>
+        <h2> Welcome to your Todo App!</h2>
+     
       </div>
     );
   }
