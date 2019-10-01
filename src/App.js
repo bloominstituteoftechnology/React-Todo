@@ -15,6 +15,11 @@ const listData = [
     task: 'Bake Cookies',
     id: 1528817084358,
     completed: false
+  },
+  {
+    task: 'Go Ham',
+    id: 1538514054358,
+    completed: true
   }
 ];
 
@@ -30,10 +35,8 @@ class App extends Component {
     };
   }
   
-
   toggleList = id => {
     console.log(id);
-
     this.setState({
       list: this.state.list.map(item => {
         if (item.id === id) {
@@ -42,7 +45,7 @@ class App extends Component {
             selected: !item.selected
           };
         } else {
-          return item;
+          return item
         }
       })
     });
@@ -52,7 +55,7 @@ class App extends Component {
     const newList = {
       name: listName,
       id: Date.now(),
-      selected: false
+      selected: true
     };
     this.setState({
       list: [...this.state.list, newList]
@@ -79,6 +82,7 @@ class App extends Component {
       list={this.state.list}
       toggleList={this.toggleList}
       clearSelected={this.clearSelected}
+      listdata={this.state.listData}
       />
       </div>
     );
