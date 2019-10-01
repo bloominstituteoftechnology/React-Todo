@@ -33,7 +33,7 @@
 }
 
 
-.todoListMain .theList li:hover {
+.todoListMain .theList li:hover, .todoListMain .theList li.complete {
     background-color: pink;
     cursor: pointer;
 }
