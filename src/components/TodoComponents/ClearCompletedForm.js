@@ -10,10 +10,11 @@ const StyledCompletedForm = styled.form`
 const StyledButton = styled.button`
   background-color: white;
   outline: none;
-  border: 2px solid black;
+  border: 2px solid #124149;
   padding: 10px 0;
   margin-left: 15px;
   min-width: 200px;
+  color: #124149;
   &:hover {
     cursor: pointer;
   }

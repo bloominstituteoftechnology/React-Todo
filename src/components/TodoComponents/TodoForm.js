@@ -4,12 +4,14 @@ import styled, { css } from 'styled-components';
 const StyledTodoForm = styled.form`
   display: flex;
   flex-direction: column;
-  font-size: 1rem;
+  font-size: 1.4rem;
 
   p {
     color: red;
-    min-height: 19px;
+    min-height: 40px;
     width: 100%;
+    display: flex;
+    align-items: center;
   }
 
   div {
@@ -17,26 +19,15 @@ const StyledTodoForm = styled.form`
     display: flex;
   }
 
-  label {
-    position: absolute;
-    z-index: 100;
-    left: 20px;
-    top: 9px;
-    transition: 200ms;
-    color: rgb(100, 100, 100);
-    &:hover {
-      cursor: text;
-    }
-  }
-
   button {
     background-color: transparent;
     outline: none;
     border: 2px solid white;
-    color: white;
+    color: inherit;
     padding: 10px 0;
     min-width: 200px;
     margin-left: 20px;
+    font-size: inherit;
     &:hover {
       cursor: pointer;
     }
@@ -44,26 +35,39 @@ const StyledTodoForm = styled.form`
 `;
 
 const StyledInput = styled.input`
+  font-size: inherit;
   border: none;
   padding: 10px;
   transition: 200ms;
-  font-weight: 500;
-
+  width: 350px;
+  color: #124149;
   &::placeholder {
     opacity: 0;
   }
 
+  & + label {
+    position: absolute;
+    z-index: 100;
+    left: 20px;
+    top: 12px;
+    transition: 200ms;
+    color: #124149;
+    &:hover {
+      cursor: text;
+    }
+  }
+
   &:focus + label {
-    transform: translate3d(-30px, -28px, 0) scale(0.75);
+    transform: translate3d(-32px, -40px, 0) scale(0.75);
     color: white;
   }
 
   ${props =>
     props.dirty &&
     css`
-      label {
+      & + label {
         color: white;
-        transform: translate3d(-30px, -28px, 0) scale(0.75);
+        transform: translate3d(-32px, -40px, 0) scale(0.75);
       }
     `}
 `;
