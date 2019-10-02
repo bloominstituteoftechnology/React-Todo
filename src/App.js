@@ -61,11 +61,14 @@ class App extends React.Component {
   clearTodos = event => {
     console.log("fired completed")
     event.preventDefault();
-    let todos = this.state.todoArray.slice();
-    console.log("clear", todos)
-    todos = todos.filter(todo => !todo.completed);
-    console.log("afterclear", todos)
-    this.setState({ todos });
+    // let todos = this.state.todoArray.slice();
+
+    this.setState({
+        todoArray: this.state.todoArray.filter(todo => {
+            return !todo.completed
+        })
+    })
+    // console.log("afterclear", todos)
   };
 
 //   markCompleted = id  => {
