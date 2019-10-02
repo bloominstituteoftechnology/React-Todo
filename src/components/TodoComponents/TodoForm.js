@@ -23,12 +23,16 @@ handleSubmit = e => {
     });
 };
 
-// render() {
-//     return (
-//         // <form onSubmit
-//     )
-// }
-
+render() {
+    return (
+        <form onSubmit={this.handleSubmit}>
+            <input
+            type="text"
+            value={this.state.value}
+            onChange={this.handleChange} />
+        </form>
+    );
+  } 
 }
 
 export default TodoForm;
