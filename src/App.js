@@ -3,6 +3,7 @@ import Data from './components/TodoComponents/tasks';
 import Tasks from './components/TodoComponents/TodoList';
 import FormToDo from './components/TodoComponents/TodoForm';
 import './app.css';
+import SearchBar from './components/TodoComponents/Search';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -15,7 +16,7 @@ class App extends React.Component {
     }
   }
 
-  addItem = (itemName) => {
+  addItem = (event,itemName) => {
     const newItem = {
       id: Date.now(),
       task: itemName,
@@ -26,6 +27,27 @@ class App extends React.Component {
       listData: [...this.state.listData, newItem]
     })
 
+  }
+
+  searchItems = (value) => {
+    if(value !== ''){
+      this.setState({
+        // filter out all groceries that are purchased
+        listData: this.state.listData.filter(item => {
+          // this is the same as:
+          // item.purchased === false
+          const loweritem = item.task.toLowerCase();
+          if(loweritem.includes(value.toLowerCase())){
+            return item;
+          }
+        })
+      })
+    }
+    else{
+      this.setState({
+        listData: Data
+      })
+    }
   }
 
   clearPurchased = event => {
@@ -40,6 +62,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <SearchBar searchItems={this.searchItems} />
         {this.state.listData.map(item => (
           <Tasks key={item.id} name={item.task} completed={item.completed} />
         ))}
