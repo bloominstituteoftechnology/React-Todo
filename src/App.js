@@ -44,7 +44,7 @@ class App extends React.Component {
 
     this.setState({
       todos: this.state.todos.filter(todo => {
-        return !todo.purchased;
+        return !todo.completed;
       })
     });
   };
@@ -76,6 +76,9 @@ class App extends React.Component {
             onClick={e => this.toggleTodo(e, todo.id)}
           />
         ))}
+      </div>
+      <div>
+      <button onClick={this.clearCompleted}>Clear Completed</button>
       </div>
       </div> 
       )
