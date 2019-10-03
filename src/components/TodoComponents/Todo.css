@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+@import url("https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet");
+
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* background-color: #545477; */
+  background: rgb(142,214,199);
+background: -moz-linear-gradient(90deg, rgba(142,214,199,1) 0%, rgba(29,125,253,1) 77%, rgba(69,176,252,1) 100%);
+background: -webkit-linear-gradient(90deg, rgba(142,214,199,1) 0%, rgba(29,125,253,1) 77%, rgba(69,176,252,1) 100%);
+background: linear-gradient(90deg, rgba(142,214,199,1) 0%, rgba(29,125,253,1) 77%, rgba(69,176,252,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8ed6c7",endColorstr="#45b0fc",GradientType=1);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span {
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 0 36px;
+  max-width: 665px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  text-align: left;
+  font-family: 'Pacifico', cursive;
+}
+
+.todo-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+.item {
+  background-color: #00b377;
+  width: 45%;
+  text-align: left;
+  margin: 4px 0;
+  padding-left: 8px;
+  cursor: pointer;
+}
+
+.item.completed {
+  background-color: #8f9c98;
+  text-decoration: line-through;
+}
+
+form {
+  width: 60%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+form > input {
+  background-color: #54547721;
+  border: none;
+  padding: 6px 0;
+  font-size: 1rem;
+  width: 240px;
+  outline: 0;
+  color: white;
+  border-bottom: 2px solid #00b377;
+  margin-right: 8px;
+}
+
+button {
+  background-color: #00b377;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+input::placeholder {
+  color: #00b377;
+  opacity: 1;
+}
+
+.clear-btn {
+  background-color: #50508a;
+  margin-top: 16px;
+  font-size: 0.8rem;
+}
