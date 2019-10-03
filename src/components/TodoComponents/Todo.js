@@ -4,7 +4,7 @@ const Todo = props => {
     return (
         <div
         onClick={props.onClick}
-        className={`item${props.item.done ? "done" : ""}`}>
+        className={`item ${props.item.done ? "done" : ""}`}>
             <p>{props.item.name}</p>
         </div>
     )

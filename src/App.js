@@ -35,14 +35,14 @@ class App extends React.Component {
     )
   }
 // .map loops over an array and returns new items for each index in the array.
-// !item set to opposite boolean that it currently is. 
+// ! is set to be the opposite boolean that it currently is. 
 
   clearDone = (e) => {
     e.preventDefault()
 
     this.setState({
       shopList: this.state.shopList.filter(item => {
-        return !item.done === false
+        return !item.done 
       })
     })
   }
@@ -58,26 +58,20 @@ class App extends React.Component {
     })
   }
 
+ 
+
   render() {
     return (
       <div className="App">
         <div className="header">
           <h1>Grocery List</h1> 
-          <TodoForm addTodo={this.add} />
+          <TodoForm addTodo={this.addTodo} />
         </div>
-
-        <div className="grocery-list">
-          {this.state.shopList.map(item => (
-            <Todo
-            key={item.id}
-            item={item}
-            onClick={(e) => this.toggleItem(e, item.id)} />
-          ))}
+        <TodoList shopList={this.state.shopList} toggleItem={this.toggleItem} />
           <button className="clear-btn" onClick={this.clearDone}>
-            Done
+            Clear Done Items
           </button>
         </div>
-      </div>
     );
   }
 }

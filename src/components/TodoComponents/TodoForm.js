@@ -17,19 +17,23 @@ handleChange = e => {
 handleSubmit = e => {
     e.preventDefault();
 
-    this.props.addItem(e, this.state.value);
+    this.props.addTodo(e, this.state.value);
     this.setState({
         value: ""
     });
 };
 
+
+
 render() {
     return (
         <form onSubmit={this.handleSubmit}>
+            <label>Add Item</label>
             <input
             type="text"
             value={this.state.value}
             onChange={this.handleChange} />
+            <button type='submit'>Submit</button>
         </form>
     );
   } 
