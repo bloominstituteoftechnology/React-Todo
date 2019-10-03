@@ -14,7 +14,7 @@ render() {
                     item={item}
                     onClick={(e) => this.props.toggleItem(e, item.id)} />
             ))}
-            </div>
+         </div>
     )
   }
 }
