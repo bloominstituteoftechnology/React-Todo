@@ -1,0 +1,14 @@
+.card{
+    border: 1px black solid;
+    margin: 5px;
+    padding: 2%;
+    width: 40%;
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+span{
+    font-weight: bold;
+}
+
