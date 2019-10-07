@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+}
+.cleared-todo {
+    text-decoration: line-through;
+}
+.todo-class {
+    border: 1px solid black;
+}
