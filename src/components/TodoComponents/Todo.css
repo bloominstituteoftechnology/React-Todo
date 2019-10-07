@@ -65,7 +65,12 @@ h1 {
   text-align: left;
   margin: 4px 0;
   padding-left: 8px;
+  
   cursor: pointer;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;border-radius: 10px;
 }
 
 .item.completed {
@@ -97,6 +102,7 @@ button {
   color: white;
   font-size: 16px;
   padding: 6px 14px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -109,4 +115,5 @@ input::placeholder {
   background-color: #50508a;
   margin-top: 16px;
   font-size: 0.8rem;
+  border-radius: 10px;
 }

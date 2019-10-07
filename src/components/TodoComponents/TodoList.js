@@ -2,32 +2,32 @@
 // feel free to change this component.js into TodoList.js
 export default [
     {
-      task: "Bananas",
+      task: "Visit Rome",
       id: 123,
       completed: false
     },
     {
-      task: "Tortillas",
+      task: "Hike Everest",
       id: 124,
       completed: false
     },
     {
-      task: "Milk",
+      task: "Invent time travel",
       id: 1235,
       completed: false
     },
     {
-      task: "Pizza Sauce",
+      task: "Mess with the timeline",
       id: 1246,
       completed: false
     },
     {
-      task: "Raw Honey",
+      task: "Find a way to come back",
       id: 1237,
       completed: false
     },
     {
-      task: "Granola",
+      task: "Bring eggs and milk",
       id: 1248,
       completed: false
     }
