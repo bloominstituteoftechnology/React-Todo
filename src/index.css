@@ -1,9 +1,16 @@
+background{
+    background-color: #905d5d;
+}
+
+
+
+
 .container{
     margin: 0 auto;
     max-width: 70%;
     border-radius: 4px;
     padding: 0 6rem;
-    background-color: #905d5d;
+    background-color: lightslategray;
 
 }
 
