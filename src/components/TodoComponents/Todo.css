@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap');
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Liu Jian Mao Cao', cursive;
+}
+
+body {
+  background-color: rgb(90, 55, 117);
+  
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span {
+  color: white;
+  font-family: 'Liu Jian Mao Cao', cursive;
+}
+p{
+  font-size: 20px;
+}
+
+.App {
+  font-family: 'Liu Jian Mao Cao', cursive;
+  text-align: center;
+  padding: 0 36px;
+  max-width: 665px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h1 {
+  text-align: left;
+}
+
+.todoList {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+.item {
+  background-color: black;
+  width: 45%;
+  text-align: left;
+  margin: 4px 0;
+  padding-left: 8px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.item.completed {
+  background-color: red;
+  color: black;
+  text-decoration: line-through;
+  
+}
+form {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  
+}
+form > input {
+  font-size: 30px;
+  background-color: red;
+  border: 0;
+  border-radius: 8px;
+  padding: 6px 0;
+  font-size: 1rem;
+  width: 240px;
+  outline: 0;
+  color: black;
+  border-bottom: 1px solid red;
+  margin-right: 8px;
+  border: 1px solid black;
+}
+
+button {
+  background-color: black;
+  border: 1px solid red;
+  border-radius:10px;
+  color: white;
+  font-size: 16px;
+  padding: 6px 10px;
+  font-family: 'Liu Jian Mao Cao', cursive;
+}
+
+input::placeholder {
+  color: white;
+}
+
+.buttonClear {
+  margin-top: 16px;
+  font-family: 'Liu Jian Mao Cao', cursive;
+  font-size: 20px;
+}
