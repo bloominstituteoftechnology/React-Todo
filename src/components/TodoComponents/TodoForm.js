@@ -26,8 +26,9 @@ class TodoForm extends React.Component {
    render() {
         return(
             <form onSubmit={this.handleSubmit}>
-             <label htmlFor= "task">Enter New Task</label>  
+             <label className="search-text"htmlFor= "task">Enter New Task</label>  
                 <input 
+                className="search-text"
                 type="text"
                 name="task"
                 id="task"
@@ -35,7 +36,7 @@ class TodoForm extends React.Component {
                 onChange={this.handleChanges}
                 />
 
-                <button>Submit</button>
+                <button className="submit-btn">Submit</button>
             </form>
         )
    }
