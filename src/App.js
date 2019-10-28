@@ -1,7 +1,6 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
-// import './components/Todo.css'
 
 const data = [
   {
@@ -15,7 +14,6 @@ const data = [
     completed: false
   }
 ];
-
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -34,13 +32,23 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     };
-    console.log(newTask);
     this.setState({
       tasks: [...this.state.tasks, newTask]
     })
   }
 
-  filterCompleted = () => {};
+  filterCompleted = () => {
+    this.setState({
+      tasks: this.state.tasks.filter(task => {
+        if (!task.completed) {
+          return task;
+        }
+        else
+          return null;
+      })
+    })
+
+  };
 
   toggleCompleted = id => {
     // Iterate to find the clicked item 
@@ -59,15 +67,14 @@ class App extends React.Component {
     })
   }
 
+  // ---------------- Render The Page --------------------
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <p>Normal</p>
-        <p className="completed">Done</p>
-
+        <h2>Things to do today:</h2>
         <TodoList
           toggleCompleted={this.toggleCompleted}
+          clearCompleted={this.filterCompleted}
           tasks={this.state.tasks} />
         <TodoForm
           addTask={this.addTask}
@@ -75,6 +82,6 @@ class App extends React.Component {
       </div>
     );
   }
-}
+} // End of App Class
 
 export default App;

@@ -16,12 +16,13 @@ class TodoForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log("Submitting!");
-    this.props.addTask(this.state.newTask);
+    if (this.state.newTask !== '') {
+      this.props.addTask(this.state.newTask);
+      this.setState({ newTask: '' });
+    }
   }
 
   render() {
-    console.log("rendering form");
     return (
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="task">New Task</label>
@@ -38,8 +39,5 @@ class TodoForm extends React.Component {
   }
 
 } // End of TodoForm
-
-
-
 
 export default TodoForm;
