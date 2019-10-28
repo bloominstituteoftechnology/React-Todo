@@ -40,7 +40,14 @@ class App extends React.Component {
     });
   };
 
-  filterCompleted = () => { };
+  filterCompleted = (id) => {
+    console.log('The Roof is On Fire!')
+    this.setState({
+      things: this.state.things.filter(item =>
+        !item.completed)
+    });
+
+  };
 
   toggleCompleted = id => {
     this.setState({
@@ -56,7 +63,6 @@ class App extends React.Component {
       })
     });
 
-    // .map, .filter, .reduce, .forEach
   };
 
   render() {
@@ -70,6 +76,7 @@ class App extends React.Component {
         <TodoList
           toggleCompleted={this.toggleCompleted}
           things={this.state.things}
+          clearCompleted={this.filterCompleted}
         />
       </div>
     );

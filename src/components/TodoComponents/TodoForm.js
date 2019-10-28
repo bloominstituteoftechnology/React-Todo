@@ -19,7 +19,7 @@ class TodoForm extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         console.log("On Fire!");
-        // add our typed in item to the grocery list!
+        // add our typed in item to the list!
         this.props.addThings(this.state.newThings);
         this.setState({ newThings: '' });
     };
@@ -37,6 +37,7 @@ class TodoForm extends React.Component {
                     onChange={this.handleChanges}
                 />
                 <button>Add</button>
+
             </form>
         );
     }
