@@ -73,12 +73,22 @@ class App extends React.Component {
     })
   }
 
+ deleteTask = event => {
+   event.preventDefault();
+   this.setState({
+     list: this.state.list.filter(task => {
+       return !task.completed
+     })
+   
+   });
+ };
+
   render() {
     return (
       <div>
         <h2>To Do App</h2>
-        <TodoForm addTask={this.addTask} />
-        <TodoList toggleTask={this.toggleTask} list={this.state.list} />
+        <TodoForm removeTask={this.removeTask} addTask={this.addTask} />
+        <TodoList toggleTask={this.toggleTask} list={this.state.list} deleteTask={this.deleteTask} />
       </div>
     );
   }
