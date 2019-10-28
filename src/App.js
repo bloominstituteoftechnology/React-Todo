@@ -34,6 +34,9 @@ class App extends React.Component {
     this.setState({
       todo: [...this.state.data, newTodo]
     });
+
+  
+
   }
   render() {
     return (
