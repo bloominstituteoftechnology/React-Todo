@@ -1,39 +1,40 @@
-import React from "react"
+import React from 'react';
 
-class ListForm extends React.Component {
-    constructor() {
+class TodoForm extends React.Component {
+    constructor(){
         super();
-        this.state ={
-            task: ""
-        };
+        this.state = { 
+            newTodo: ""
+        }
     }
 
-    handleChange = e => {
+    handleChanges = e => {
+        console.log('Handle Change Working')
         this.setState({
-            [e.target.name]: e.target.value
+            newTodo: e.target.value
         });
     };
 
-    submitItem = e => {
+    handleSubmit = e => {
         e.preventDefault();
-        this.props.addTask(this.state.task);
+        console.log('Submit Works')
+        this.props.addTodo(this.state.newTodo);
     }
-
-    render() {
-        return (
-            <form onSubmit={this.submitItem}>
+    render(){
+        console.log('working on form')
+        return(
+            <form onSubmit={this.handleSubmit}>
                 <input
-                    type= "text"
-                    value= {this.task}
-                    name= "task"
-                    onChange={this.handleChange}
+                    type="text"
+                    name="todo"
+                    id="item"
+                    value={this.state.newTodo}
+                    onChange={this.handleChanges}
                 />
-                <button>Add Task</button>
+                <button>Add It!</button>
             </form>
         )
     }
-
 }
 
-
-export default ListForm;
+export default TodoForm;

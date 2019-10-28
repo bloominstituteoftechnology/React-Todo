@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDom from "react-dom";
-
-<<<<<<< HEAD
+import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
+import './components/TodoComponents/Todo.css'
 const data = 
 [
   {
@@ -16,31 +16,6 @@ const data =
   }
 ];
 
-=======
-import TodoList from "./components/TodoComponents/TodoList";
-const todoData = [
-    {
-        task: "Go to Gym",
-        id: Date.now(),
-        completed: false
-    },
-    {
-        task: "Do Laundry",
-        id: Date.now(),
-        completed: false
-    },
-    {
-        task: "Prepare Dinner",
-        id: Date.now(),
-        completed: false
-    },
-    {
-        task: "Code",
-        id: Date.now(),
-        completed: false
-    }
-];
->>>>>>> 26edddefdf4bff159cb1e2f8ffadf5931f67717f
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -48,19 +23,18 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-<<<<<<< HEAD
       todo: data
     }
   }
 
-  addTodo = item => {
-    const newTodo ={
-      name: item,
+  addTodo = task => {
+    const newTodo = {
+      task: task,
       id: Date.now(),
-      purchase: false
+      completed: false
     };
     this.setState({
-      todo: [...this.state.data, newTodo]
+      todo: [...this.state.todo, newTodo]
     });
 
   
@@ -71,58 +45,9 @@ class App extends React.Component {
       <div className="App">
         <div className="header">
           <h2>Todo List</h2>
+          <TodoForm addTodo={this.addTodo}/>
         </div>
-=======
-      task: todoData,
-    };
-  }
-
-  toggleList = id => {
-    console.log(id);
-
-    this.setState({
-      task: this.state.task.map(activity => {
-        if (activity.id === id) {
-          return {
-            ...activity,
-            completed: !activity.completed
-          };
-        } else {
-            return activity;
-          }
-        })
-    });
-  };
-
-
-  addTask = taskName => {
-    const newTask = {
-      task: taskName,
-      id: Date.now(),
-      completed: false
-    };
-    this.setState({
-      task: [...this.state.task, newTask]
-    });
-  };
-
-  clearList = () => {
-    this.setState({
-      task: this.state.task.filter(activity => !activity.completed)
-    });
-  }
-
-  render() {
-    return (
-      <div className= "App">
-        <div className= "header">
-          <h2>Welcome to your Todo App!</h2>
-        </div>
-        <TodoList
-          task={this.state.task}
-          toggleList={this.toggleList}
-        />
->>>>>>> 26edddefdf4bff159cb1e2f8ffadf5931f67717f
+          <TodoList todo={this.state.todo}/>
       </div>
     );
   }
