@@ -4,7 +4,7 @@ import React from "react";
 const ToDoTask = props => {
     return (
         <div>
-            <p>{props.task.name}</p>
+            <p>{props.task.task}</p>
         </div>
     )
 }

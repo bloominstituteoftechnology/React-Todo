@@ -1,5 +1,6 @@
 import React from "react";
 
+
 class TodoForm extends React.Component {
     constructor(){
         super();
@@ -24,7 +25,7 @@ class TodoForm extends React.Component {
    render() {
         return(
             <form onSubmit={this.handleSubmit}>
-             <label htmlFor= "task">New Task</label>  
+             <label htmlFor= "task">Add Task</label>  
                 <input 
                 type="text"
                 name="task"
@@ -33,7 +34,7 @@ class TodoForm extends React.Component {
                 onChange={this.handleChanges}
                 />
 
-                <button>Add</button>
+                <button>Enter</button>
             </form>
         )
    }
