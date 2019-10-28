@@ -1,6 +1,15 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import styled from 'styled-components/macro';
+
+import GlobalStyles from './style/GlobalStyles';
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+`;
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -47,11 +56,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm addTodo={this.addTodo} clearTodos={this.clearTodos} />
-        <TodoList todos={this.state.todos} completeTodo={this.completeTodo} />
-      </div>
+      <>
+        <GlobalStyles />
+        <Wrapper>
+          <h2>Welcome to your Todo App!</h2>
+          <TodoForm addTodo={this.addTodo} clearTodos={this.clearTodos} />
+          <TodoList todos={this.state.todos} completeTodo={this.completeTodo} />
+        </Wrapper>
+      </>
     );
   }
 }
