@@ -18,7 +18,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: [
+      todos: JSON.parse(localStorage.getItem('todos')) || [
         {
           id: Date.now(),
           task: 'Finish Todo MVP project',
@@ -26,6 +26,10 @@ class App extends React.Component {
         },
       ],
     };
+  }
+
+  componentDidMount() {
+    localStorage.setItem('todos', JSON.stringify(this.state.todos));
   }
 
   addTodo = title => {
@@ -37,6 +41,10 @@ class App extends React.Component {
     this.setState({
       todos: [...this.state.todos, newTodo],
     });
+    localStorage.setItem(
+      'todos',
+      JSON.stringify([...this.state.todos, newTodo]),
+    );
   };
 
   completeTodo = index => {
@@ -52,6 +60,14 @@ class App extends React.Component {
         .filter(todo => todo.completed !== true)
         .map(todo => todo),
     });
+    localStorage.setItem(
+      'todos',
+      JSON.stringify(
+        this.state.todos
+          .filter(todo => todo.completed !== true)
+          .map(todo => todo),
+      ),
+    );
   };
 
   render() {
