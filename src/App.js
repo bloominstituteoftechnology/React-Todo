@@ -5,6 +5,7 @@ import TodoList from './components/TodoComponents/TodoList';
 import './components/TodoComponents/Todo.css';
 
 
+
 const data = [
   {
     task: 'Organize Garage',
@@ -30,7 +31,7 @@ class App extends React.Component {
 
   addThings = name => {
     const newThings = {
-      name: name,
+      task: name,
       id: Date.now(),
       completed: false
     };

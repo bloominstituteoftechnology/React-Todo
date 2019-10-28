@@ -7,8 +7,8 @@ class TodoForm extends React.Component {
         this.state = {
             newThings: '',
             //what is below?
-            moreStateProperties: 9,
-            evenMore: { name: 'Dustin' }
+            // moreStateProperties: 9,
+            // evenMore: { name: 'Dustin' }
         };
     }
     handleChanges = e => {
@@ -28,7 +28,7 @@ class TodoForm extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
 
-                <label htmlFor="things">New Tasks</label>
+                <label htmlFor="things">New Tasks  </label>
                 <input
                     type="text"
                     name="things"
