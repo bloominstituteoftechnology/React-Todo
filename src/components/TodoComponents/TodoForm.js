@@ -32,7 +32,7 @@ class TodoForm extends React.Component {
                 <input
                     type="text"
                     name="things"
-                    id="Todo"
+                    id="todo"
                     value={this.state.newThings}
                     onChange={this.handleChanges}
                 />
