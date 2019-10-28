@@ -4,9 +4,9 @@ import './Todo.css';
 const Todo = props => {
   return (
     <div
-      className={`task${props.task.completed ? ' purchased' : ''}`}
+      className={`task${props.task.completed ? ' completed' : ''}`}
     >
-      <p>{props.task.name}</p>
+      <p>{props.task.task}</p>
     </div>
   );
 }

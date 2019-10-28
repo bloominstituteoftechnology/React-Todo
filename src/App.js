@@ -34,6 +34,7 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     };
+    console.log(newTask);
     this.setState({
       tasks: [...this.state.tasks, newTask]
     })
