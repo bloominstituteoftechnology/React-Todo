@@ -1,4 +1,6 @@
-body {
+
+
+html {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -6,3 +8,15 @@ body {
     background-color: #CD5C5C
 }
 
+.todo {
+    background-color: #7FFFD4;
+    width: 100px;
+    margin-top: 1%;
+    border-radius: 15px;
+    display: flex;   
+    cursor: pointer;
+}
+
+.todo.completed {
+    text-decoration: line-through;
+}

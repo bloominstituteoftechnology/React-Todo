@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
+
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 import './components/TodoComponents/Todo.css'
@@ -36,9 +38,22 @@ class App extends React.Component {
     this.setState({
       todo: [...this.state.todo, newTodo]
     });
-
+  }
   
-
+  toggleTodo = id => {
+    console.log('Crossed Out')
+    this.setState({
+      todo: this.state.todo.map(todo => {
+        if(todo.id === id){
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        } else {
+          return todo
+        }
+      })
+    })
   }
   render() {
     return (
@@ -47,7 +62,7 @@ class App extends React.Component {
           <h2>Todo List</h2>
           <TodoForm addTodo={this.addTodo}/>
         </div>
-          <TodoList todo={this.state.todo}/>
+          <TodoList todo={this.state.todo} toggleTodo={this.toggleTodo}/>
       </div>
     );
   }
