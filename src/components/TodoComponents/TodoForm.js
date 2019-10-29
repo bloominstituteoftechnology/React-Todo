@@ -25,6 +25,7 @@ this.setState({newTask: ""})
 
 
 
+
 render() {
     return(
         <div className= "todoform">
@@ -40,9 +41,6 @@ render() {
             <button type= 'submit' onClick={this.handleSubmit}>Add Todo</button>
             
         </form>
-        <span>
-        <button type= 'submit' onClick ={this.deleteCompleted}>Delete Completed</button>
-        </span>
         </div>
     )
 }

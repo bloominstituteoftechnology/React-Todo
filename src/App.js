@@ -27,14 +27,9 @@ class App extends React.Component {
     })
   }
 
-  deleteCompleted = (completed) => {
-    this.setState({
-      todos:this.state.todos.filter(item =>{
-        return (item.completed !== true)
-      })
-    })
-    
-}
+ 
+
+  
 
 
   toggleTodos = task => {
@@ -53,13 +48,21 @@ class App extends React.Component {
 
   }
 
+  deleteCompleted = () =>{
+    this.setState({
+      todos: this.state.todos.filter(item => {
+          return !item.completed
+        
+      })
+  })
+  }
+
   render() {
     return (
       <div>
-        <TodoForm addTask= {this.addTask}
-        deleteCompleted= {this.deleteCompleted}/>
+        <TodoForm addTask= {this.addTask} />
         <TodoList todos={this.state.todos} 
-        toggleTodos={this.toggleTodos}/>
+        toggleTodos={this.toggleTodos} deleteCompleted={this.deleteCompleted}/>
       </div>
     );
   }

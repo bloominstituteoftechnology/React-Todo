@@ -13,6 +13,7 @@ const TodoList = props => {
                 toggleTodos={props.toggleTodos}
                 />
             ))}
+            <button type= 'submit' onClick ={props.deleteCompleted}>Delete Completed</button>
         
         </div>
     )
