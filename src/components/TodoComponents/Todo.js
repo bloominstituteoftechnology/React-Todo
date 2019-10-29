@@ -12,7 +12,7 @@ export default class Todo extends Component {
     return (
       <div
         style={{ textDecoration: completed ? 'line-through' : 'none' }}
-        onClick={() => this.props.completeTodo(this.props.index)}
+        onClick={() => this.props.markComplete(id)}
       >
         {task}
       </div>

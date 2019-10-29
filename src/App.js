@@ -47,9 +47,11 @@ class App extends React.Component {
     );
   };
 
-  completeTodo = index => {
+  markComplete = id => {
     const newTodos = [...this.state.todos];
-    newTodos[index].completed = !newTodos[index].completed;
+    newTodos
+      .filter(todo => todo.id === id)
+      .map(todo => (todo.completed = !todo.completed));
     this.setState(newTodos);
   };
 
@@ -77,7 +79,7 @@ class App extends React.Component {
         <Wrapper>
           <h2>Welcome to your Todo App!</h2>
           <TodoForm addTodo={this.addTodo} clearTodos={this.clearTodos} />
-          <TodoList todos={this.state.todos} completeTodo={this.completeTodo} />
+          <TodoList todos={this.state.todos} markComplete={this.markComplete} />
         </Wrapper>
       </>
     );

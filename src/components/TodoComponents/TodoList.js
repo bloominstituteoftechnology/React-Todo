@@ -13,7 +13,7 @@ export default class TodoList extends Component {
             key={todo.id}
             todo={todo}
             index={index}
-            completeTodo={this.props.completeTodo}
+            markComplete={this.props.markComplete}
           />
         ))}
       </div>
