@@ -1,6 +1,7 @@
 import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import styled from "styled-components"
 import "./components/TodoComponents/Todo.css";
 
 const data = [
@@ -10,6 +11,19 @@ const data = [
     completed: false
   }
 ];
+
+const Container = styled.div`
+display:flex;
+flex-direction: column;
+align-items:center;
+`;
+
+const Title = styled.h2`
+font-family: 'Rock Salt', cursive;
+font-size: 3rem;
+color:#e0dbd1;
+
+`;
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -57,8 +71,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <Container>
+        {/* <Title>To Do List</Title> */}
         <div>
           <TodoForm addTask={this.addTask} clearComplete={this.clearComplete} />
         </div>
@@ -69,7 +83,7 @@ class App extends React.Component {
             deleteComplete={this.deleteComplete}
           />
         </div>
-      </div>
+      </Container>
     );
   }
 }

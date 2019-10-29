@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
+*{
+    max-width:100%;
+    max-height:100%;
+}
+body{
+    background-image: url('/Chalkboard.jpg');
+    background-size: cover;
+    
+}
+
 .completed{
     text-decoration: line-through;
+    text-decoration-color:#e0dbd1;
 }
