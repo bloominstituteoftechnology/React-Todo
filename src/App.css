@@ -1,0 +1,33 @@
+
+body {
+  font-size: 62.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container { 
+  margin-top: 5rem;
+  border: 1px solid black;
+  background-color: #F7DD38;
+  width: 18rem;
+  padding: 0.8rem;
+
+  font-family: Arial, sans-serif;
+}
+
+.todoList {
+  line-height: 0.5rem;
+  font-size: 1rem;
+
+}
+
+form label {
+  font-size: 0.8rem;
+  display: block;
+}
+
+h2 {
+  margin-top: 0rem;
+  font-size: 1.8rem;
+}
