@@ -14,8 +14,10 @@ color:#e0dbd1
 const Input = styled.input`
 font-family: 'Rock Salt', cursive;
 width:90%;
+height: 50px
 background-color: #15534a;
 color:#e0dbd1
+font-size:1.2rem;
 
 `;
 
