@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Title from './components/TodoComponents/Title';
-import Todo from './components/TodoComponents';
+import Todo from './components/TodoComponents/TodoList';
 
 
 
@@ -16,14 +16,15 @@ class App extends Component {
     };
   }
   changeHandler = event => {
-    this.setState({someValue: event.target.value});
+    this.setState({todoItem: event.target.value});
   };
 
   render() {
     return (
       <div>
         <Title message={this.state.titleMessage} />
-        <Todo item={this.state.todoItem}
+        <Todo items={this.state.todoItem} />
+        <input onChange={this.changeHandler} />
       </div>
     );
   }
