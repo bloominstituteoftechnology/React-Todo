@@ -6,6 +6,14 @@ class TodoForm extends React.Component {
     this.state = {};
   }
   render() {
-    return null;
+    return (
+      <form>
+        <input
+          type='text'
+        />
+      </form>
+    );
   }
 }
+
+export default TodoForm;
