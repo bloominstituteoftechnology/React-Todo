@@ -33,7 +33,7 @@ class App extends React.Component {
       todo: [
         ...this.state.todo,
         {
-          task: taskStored,
+          task: todoItem,
           id: Date.now(),
           complete: false
         }
