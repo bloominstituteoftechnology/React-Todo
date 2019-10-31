@@ -11,6 +11,7 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
+  box-shadow: -3px 3px 5px 6px #858534;
 }
 .task {
   color: purple;
