@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Title from './components/TodoComponents/Title';
-
-import Todo from './components/TodoComponents/Todo.css';
+import Todo from './components/TodoComponents';
 
 
 
@@ -12,13 +11,19 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      titleMessage: 'My TodoList App!'
+      titleMessage: 'My TodoList App!',
+      todoItem: ""
     };
   }
+  changeHandler = event => {
+    this.setState({someValue: event.target.value});
+  };
+
   render() {
     return (
       <div>
         <Title message={this.state.titleMessage} />
+        <Todo item={this.state.todoItem}
       </div>
     );
   }
