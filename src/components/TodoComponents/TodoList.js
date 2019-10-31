@@ -6,9 +6,14 @@ const TodoList = props => {
   console.log(test);
   return (
     <div>
-      {test.map(item => (
-        <Todo key={item.id} item={item} toggleComplete={props.toggleComplete} />
-      ))}
+      {test &&
+        test.map(item => (
+          <Todo
+            key={item.id}
+            item={item}
+            toggleComplete={props.toggleComplete}
+          />
+        ))}
       <button className="clear-button" onClick={props.clearComplete}>
         Make Room
       </button>
