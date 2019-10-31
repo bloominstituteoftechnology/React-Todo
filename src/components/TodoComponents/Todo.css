@@ -1,0 +1,7 @@
+.task {
+  color: hotpink;
+}
+
+.complete {
+  text-decoration: line-through;
+}
