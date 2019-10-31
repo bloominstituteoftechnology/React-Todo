@@ -13,6 +13,7 @@ const TodoList = props => {
           </div>
         );
       })}
+      <button>Clear Completed</button>
     </div>
   );
 };
