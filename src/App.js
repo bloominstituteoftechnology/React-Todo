@@ -8,7 +8,9 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      
+      task: "",
+      id: 123,
+      completed: false
     }
   }
   render() {
