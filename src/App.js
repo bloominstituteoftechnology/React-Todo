@@ -9,16 +9,14 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      task: "",
-      id: 123,
-      completed: false
+      task: ""
     }
   }
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm />
+        <TodoForm todo={this.state.task}/>
       </div>
     );
   }
