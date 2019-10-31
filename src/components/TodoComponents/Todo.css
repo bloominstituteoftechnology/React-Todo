@@ -1,7 +1,57 @@
+.app {
+  width: 60%;
+  min-height: 500px;
+  margin: 20% auto;
+  padding: 5%;
+  font-family: "Rock Salt", cursive;
+  font-size: 62.5%;
+  text-align: center;
+  color: purple;
+  background: #ffff88;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
 .task {
-  color: hotpink;
+  color: purple;
+  font-size: 1rem;
 }
 
 .complete {
+  color: hotpink;
   text-decoration: line-through;
+}
+
+.form {
+  height: 40px;
+  display: flex;
+  margin: 5%;
+  font-size: 1rem;
+}
+
+.input {
+  width: 60%;
+  background: #ffff88;
+  border: none;
+  border-bottom: 1px solid purple;
+}
+
+.clear-button {
+  margin: 5%;
+  color: hotpink;
+  border: none;
+  padding: 1rem 2rem;
+  background: #ffff88;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.add-button {
+  width: 40%;
+  color: purple;
+  border: none;
+  padding: 1rem 2rem;
+  background: #ffff88;
+  font-size: 1rem;
+  text-align: center;
 }

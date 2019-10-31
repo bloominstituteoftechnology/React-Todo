@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       todo: [
         {
-          task: "First Item ",
+          task: "",
           id: Date.now(),
           complete: false
         } //Initial state
@@ -20,18 +20,12 @@ class App extends React.Component {
     }; //State
   }
 
-  UNSAFE_componentWillMount(nextProps, nextState) {
-    localStorage.getItem("tasks") &&
-      this.setState({
-        tasks: nextState || "",
-        isLoading: false
-      });
-  }
   componentDidMount() {} //Component Did Mount
 
   UNSAFE_componentWillUpdate(nextProps, nextState) {
     localStorage.setItem("tasks", JSON.stringify(nextState.todo));
     localStorage.setItem("tasksDate", Date.now());
+    console.log(nextProps);
   } //Component Will Update
 
   addTask = todoItem => {
@@ -72,8 +66,8 @@ class App extends React.Component {
   render() {
     // console.log(`${this.state.todo.task}`);
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="app">
+        <h2>Are You Done?</h2>
         <TodoForm addTask={this.addTask} />
         <TodoList
           todo={this.state.todo}
