@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       todo: [
         {
-          task: "First Item",
+          task: "First Item ",
           id: Date.now(),
           complete: false
         } //Initial state
@@ -30,6 +30,7 @@ class App extends React.Component {
   componentDidMount() {} //Component Did Mount
 
   UNSAFE_componentWillUpdate(nextProps, nextState) {
+    // console.log(nextState.todo);
     localStorage.setItem("tasks", JSON.stringify(nextState.todo));
     localStorage.setItem("tasksDate", Date.now());
   } //Component Will Update
@@ -39,7 +40,7 @@ class App extends React.Component {
     // let taskStored = JSON.parse(localStorage.getItem("myStored"));
     // console.log(taskStored);
     let test = JSON.parse(localStorage.getItem("tasks"));
-    console.log(test);
+    console.log(test + " App");
     this.setState({
       todo: [
         ...this.state.todo,
@@ -51,6 +52,11 @@ class App extends React.Component {
       ]
     });
   };
+
+  // saveTodos = () => {
+  //   localStorage.setItem("tasks", JSON.stringify(this.state.todo));
+  //   localStorage.setItem("tasksDate", Date.now());
+  // };
 
   toggleComplete = taskID => {
     this.setState({
