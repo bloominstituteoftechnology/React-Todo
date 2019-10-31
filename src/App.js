@@ -15,17 +15,25 @@ class App extends React.Component {
           task: "First task",
           id: Date.now(),
           complete: false
-        }
-      ]
-    };
+        } //Initial state
+      ] //Todo Array
+    }; //State
   }
+  componentDidMount() {} //Component Did Mount
+
+  UNSAFE_componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem("tasks", "something");
+  } //Component Will Update
 
   addTask = todoItem => {
+    // localStorage.setItem("myStored", JSON.stringify(todoItem));
+    // let taskStored = JSON.parse(localStorage.getItem("myStored"));
+    // console.log(taskStored);
     this.setState({
       todo: [
         ...this.state.todo,
         {
-          task: todoItem,
+          task: taskStored,
           id: Date.now(),
           complete: false
         }
