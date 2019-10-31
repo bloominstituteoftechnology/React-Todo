@@ -20,27 +20,21 @@ class App extends React.Component {
     }; //State
   }
 
-  UNSAFE_componentWillMount() {
+  UNSAFE_componentWillMount(nextProps, nextState) {
     localStorage.getItem("tasks") &&
       this.setState({
-        tasks: JSON.parse(localStorage.getItem("tasks")) || "",
+        tasks: nextState || "",
         isLoading: false
       });
   }
   componentDidMount() {} //Component Did Mount
 
   UNSAFE_componentWillUpdate(nextProps, nextState) {
-    // console.log(nextState.todo);
     localStorage.setItem("tasks", JSON.stringify(nextState.todo));
     localStorage.setItem("tasksDate", Date.now());
   } //Component Will Update
 
   addTask = todoItem => {
-    // localStorage.setItem("myStored", JSON.stringify(todoItem));
-    // let taskStored = JSON.parse(localStorage.getItem("myStored"));
-    // console.log(taskStored);
-    let test = JSON.parse(localStorage.getItem("tasks"));
-    console.log(test + " App");
     this.setState({
       todo: [
         ...this.state.todo,
@@ -52,11 +46,6 @@ class App extends React.Component {
       ]
     });
   };
-
-  // saveTodos = () => {
-  //   localStorage.setItem("tasks", JSON.stringify(this.state.todo));
-  //   localStorage.setItem("tasksDate", Date.now());
-  // };
 
   toggleComplete = taskID => {
     this.setState({
