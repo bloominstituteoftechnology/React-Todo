@@ -12,23 +12,34 @@ class App extends React.Component {
     this.state = {
       todo: [
         {
-          task: "First task",
+          task: "First Item",
           id: Date.now(),
           complete: false
         } //Initial state
       ] //Todo Array
     }; //State
   }
+
+  UNSAFE_componentWillMount() {
+    localStorage.getItem("tasks") &&
+      this.setState({
+        tasks: JSON.parse(localStorage.getItem("tasks")) || "",
+        isLoading: false
+      });
+  }
   componentDidMount() {} //Component Did Mount
 
   UNSAFE_componentWillUpdate(nextProps, nextState) {
-    localStorage.setItem("tasks", "something");
+    localStorage.setItem("tasks", JSON.stringify(nextState.todo));
+    localStorage.setItem("tasksDate", Date.now());
   } //Component Will Update
 
   addTask = todoItem => {
     // localStorage.setItem("myStored", JSON.stringify(todoItem));
     // let taskStored = JSON.parse(localStorage.getItem("myStored"));
     // console.log(taskStored);
+    let test = JSON.parse(localStorage.getItem("tasks"));
+    console.log(test);
     this.setState({
       todo: [
         ...this.state.todo,
@@ -42,7 +53,6 @@ class App extends React.Component {
   };
 
   toggleComplete = taskID => {
-    console.log(`you toggled complete: id ${taskID}`);
     this.setState({
       todo: this.state.todo.map(task => {
         if (task.id === taskID)
@@ -65,6 +75,7 @@ class App extends React.Component {
   };
 
   render() {
+    // console.log(`${this.state.todo.task}`);
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
