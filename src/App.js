@@ -10,22 +10,32 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
+    const todoItems = JSON.parse(localStorage.getItem("tasks"));
     this.state = {
-      todo: [
-        {
-          task: "",
-          id: Date.now(),
-          complete: false
-        } //Initial state
-      ] //Todo Array
+      todo: todoItems ? todoItems : ""
+      //Todo Array
     }; //State
   }
 
-  componentDidMount() {} //Component Did Mount
+  componentDidMount() {
+    // const date = localStorage.getItem("tasksDate");
+    // const tasksDate = date && new Date(parseInt(date));
+    // const now = new Date();
+    // const taskAge = Math.round((now - tasksDate) / (1000 * 60));
+    // const procratinating = taskAge >= 1;
+    // if (procratinating) {
+    //   console.log("GET IT DONE");
+    //   this.isProcrastinating = true;
+    // }
+    // console.log(now);
+    // console.log(tasksDate);
+    // console.log(taskAge);
+  } //Component Did Mount
 
   UNSAFE_componentWillUpdate(nextProps, nextState) {
     localStorage.setItem("tasks", JSON.stringify(nextState.todo));
     localStorage.setItem("tasksDate", Date.now());
+
     console.log(nextProps);
   } //Component Will Update
 
@@ -36,7 +46,8 @@ class App extends React.Component {
         {
           task: todoItem,
           id: Date.now(),
-          complete: false
+          complete: false,
+          isProcrastinating: false
         }
       ]
     });

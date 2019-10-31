@@ -14,7 +14,9 @@ const Todo = props => {
       onClick={handleClick}
       className={`task${props.item.complete ? " complete" : ""}`}
     >
-      <p>{props.item.task}</p>
+      <p className={props.item.isProcrastinating ? "procrastinating" : ""}>
+        {props.item.task}
+      </p>
     </div>
   );
 };
