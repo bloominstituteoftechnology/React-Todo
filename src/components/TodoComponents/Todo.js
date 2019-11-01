@@ -1,18 +1,18 @@
 import React from "react";
 
 const Todo = props => {
-  let verboseClassName = "item";
-  if (props.item.completed) {
+  let verboseClassName = "job";
+  if (props.job.completed) {
     verboseClassName = verboseClassName + " completed";
   }
 
   const handleClick = () => {
-    props.toggleCompleted(props.item.id);
+    props.toggleCompleted(props.job.id);
   };
 
   return (
     <div onClick={handleClick} className={verboseClassName}>
-      <p>{props.item.task}</p>
+      <p>{props.job.task}</p>
     </div>
   );
 };

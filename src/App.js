@@ -38,18 +38,18 @@ class App extends React.Component {
   }
 
 
-  toggleCompleted(itemId) {
-    console.log("toggleCompleted: ", itemId);
+  toggleCompleted(jobId) {
+    console.log("toggleCompleted: ", jobId);
 
     this.setState({
-      jobs: this.state.jobs.map(item => {
-        if (item.id === itemId) {
+      jobs: this.state.jobs.map(job => {
+        if (job.id === jobId) {
           return {
-            ...item,
-            completed: !item.completed
+            ...job,
+            completed: !job.completed
           };
         }
-        return item;
+        return job;
       })
     });
   }
@@ -57,20 +57,20 @@ class App extends React.Component {
   clearCompleted = () => {
     console.log("clearCompleted");
     this.setState({
-      jobs: this.state.jobs.filter(item => {
-        return !item.completed;
+      jobs: this.state.jobs.filter(job => {
+        return !job.completed;
       })
     });
   };
 
-  addItem = itemName => {
-    console.log("add jobs: ", itemName);
+  addJob = jobName => {
+    console.log("add jobs: ", jobName);
 
     this.setState({
       jobs: [
         ...this.state.jobs,
         {
-          task: itemName,
+          task: jobName,
           id: Date.now(),
           completed: false
         }
@@ -85,7 +85,7 @@ class App extends React.Component {
       <div className="App">
         <div className="header">
           <h1>Welcome to Your Todo List App</h1>
-          <TodoForm addItem={this.addItem} />
+          <TodoForm addJob={this.addJob} />
         </div>
         <TodoList
           jobs={this.state.jobs}
@@ -98,6 +98,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);

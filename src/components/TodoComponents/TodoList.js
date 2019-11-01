@@ -7,10 +7,10 @@ import Todo from "./Todo";
 const TodoList = props => {
   return (
     <div className="todo-list">
-      {props.jobs.map(item => (
+      {props.jobs.map(job => (
         <Todo
-          key={item.id}
-          item={item}
+          key={job.id}
+          job={job}
           toggleCompleted={props.toggleCompleted}
         />
       ))}
