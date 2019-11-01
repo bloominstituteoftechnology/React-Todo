@@ -12,6 +12,7 @@ class App extends React.Component {
       task: ""
     }
   }
+
   render() {
     return (
       <div>
