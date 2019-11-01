@@ -42,7 +42,7 @@ h1 {
   text-align: left;
 }
 
-.item.completed {
+.job.completed {
   background-color: red;
   text-decoration: line-through;
 }

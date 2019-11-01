@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import "./components/TodoComponents/Todo.css";
@@ -34,11 +33,11 @@ class App extends React.Component {
     this.state = {
       jobs: data,
     };
-    this.toggleCompleted = this.toggleCompleted(this);
+    //this.toggleCompleted = this.toggleCompleted(this);
   }
 
 
-  toggleCompleted(jobId) {
+  toggleCompleted = (jobId) => {
     console.log("toggleCompleted: ", jobId);
 
     this.setState({

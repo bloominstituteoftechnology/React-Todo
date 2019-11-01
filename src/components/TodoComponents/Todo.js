@@ -3,7 +3,7 @@ import React from "react";
 const Todo = props => {
   let verboseClassName = "job";
   if (props.job.completed) {
-    verboseClassName = verboseClassName + " completed";
+    verboseClassName = verboseClassName + "completed";
   }
 
   const handleClick = () => {
