@@ -32,15 +32,47 @@ class App extends React.Component {
   constructor() {
     super();
 
-  }
+
+  clearCompleted = () => {
+    console.log("clearCompleted");
+    this.setState({
+      jobs: this.state.jobs.filter(item => {
+        return !item.completed;
+      })
+    });
+  };
+
+  addItem = itemName => {
+    console.log("add jobs: ", itemName);
+
+    this.setState({
+      jobs: [
+        ...this.state.jobs,
+        {
+          task: itemName,
+          id: Date.now(),
+          completed: false
+        }
+      ]
+    });
+
+  };
+
   render() {
     console.log("rendering...");
     return (
       <div className="App">
         <div className="header">
           <h1>Welcome to Your Todo List App</h1>
+          <TodoForm addItem={this.addItem} />
         </div>
-        </div>
+        <TodoList
+          jobs={this.state.jobs}
+          toggleCompleted={this.toggleCompleted}
+          clearCompleted={this.clearCompleted}
+        />
+      </div>
+    );
   }
 }
 
