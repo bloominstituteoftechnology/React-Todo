@@ -12,19 +12,35 @@ class App extends Component {
     super();
     this.state = {
       titleMessage: 'My TodoList App!',
-      todoItem: ""
+      todoItem: "",
+      todoList: []
     };
   }
-  changeHandler = event => {
+ /* changeHandler = event => {
     this.setState({todoItem: event.target.value});
+  }; */
+  handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      this.setState({todoItem: event.target.value});
+      
+    }
   };
+  
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.setState({todoList: [...this.state.todoList, this.state.todoItem]})
+        
+  }
+  
   render() {
     return (
       <div>
         <Title message={this.state.titleMessage} />
-        <Todo items={this.state.todoItem} />
-        <input onChange={this.changeHandler} />
+        <Todo items={this.state.todoList} />
+        <form onSubmit={this.handleSubmit}>
+        <input type="text" onKeyDown={this.handleKeyDown} />
+        </form>
       </div>
     );
   }
