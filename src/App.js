@@ -31,7 +31,28 @@ class App extends React.Component {
 
   constructor() {
     super();
+    this.state = {
+      jobs: data,
+    };
+    this.toggleCompleted = this.toggleCompleted(this);
+  }
 
+
+  toggleCompleted(itemId) {
+    console.log("toggleCompleted: ", itemId);
+
+    this.setState({
+      jobs: this.state.jobs.map(item => {
+        if (item.id === itemId) {
+          return {
+            ...item,
+            completed: !item.completed
+          };
+        }
+        return item;
+      })
+    });
+  }
 
   clearCompleted = () => {
     console.log("clearCompleted");
