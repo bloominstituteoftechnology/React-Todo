@@ -1,24 +1,28 @@
 import React from 'react'
 
 class TodoForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       todoName: ""
     };
   }
 
-  handleChange = e => {
+  handleChanges = event => {
     this.setState({
-      todoName: e.target.value
+      todoName: event.target.value
     });
   };
 
-  //To submit form
-  handleSubmit = e => {
-    e.preventDefault();
-    if (this.state.todoName !== "");
-    this.props.addTodo(this.state.todoName);
+  handleSubmit = event => {
+    event.preventDefault();
+    if (this.state.todoName !== "") {
+      console.log(this.state.todoName)
+      this.state.addTodo(this.state.todoName);
+      this.state({
+        itemName: ""
+      })
+    }
     this.setState({
       todoName: ""
     })
@@ -28,11 +32,12 @@ class TodoForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <input 
+          onChange ={this.handleChanges}
           type='text' 
           name='task' 
           value={this.state.todoName}
         />
-        <button>Add Todo</button>
+        <button onClick={this.addTodo}>Add Todo</button>
         <button>Clear Todo</button>
       </form>
     );
