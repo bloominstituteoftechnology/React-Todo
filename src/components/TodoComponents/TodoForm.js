@@ -23,10 +23,7 @@ class TodoForm extends React.Component {
         itemName: ""
       })
     }
-    this.setState({
-      todoName: ""
-    })
-  }
+  };
 
   render() {
     return (
@@ -38,7 +35,7 @@ class TodoForm extends React.Component {
           value={this.state.todoName}
         />
         <button onClick={this.addTodo}>Add Todo</button>
-        <button>Clear Todo</button>
+        <button onClick={clearList}>Clear Todo</button>
       </form>
     );
   }

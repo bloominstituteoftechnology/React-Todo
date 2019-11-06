@@ -11,7 +11,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      task: data
+      task: data,
+      completed: false
     }
   }
 
@@ -22,8 +23,17 @@ class App extends React.Component {
   addTodo = todoName => {
     // event.preventDefault();
     this.state([
-
+      
     ])
+  }
+
+  cosnt clearDoneTodo = () => {
+    console.log("Clear Todo")
+    this.state( {
+      task: this.state.task.filter(item => {
+        return !item.completed
+      })
+    });
   }
 
   render() {
