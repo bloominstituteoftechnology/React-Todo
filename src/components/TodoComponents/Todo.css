@@ -110,7 +110,7 @@
 @media (max-width: 500px) {
   .list {
     /* min-height: 200px; */
-    /* height: 400px; */
+    height: 400px;
     padding: 2%;
 
     display: flex;
