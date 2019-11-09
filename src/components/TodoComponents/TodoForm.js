@@ -25,17 +25,20 @@ class TodoForm extends React.Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="form">
-        <input
-          className="input"
-          placeholder="What else?"
-          onChange={this.handleChanges}
-          type="text"
-          name="item"
-          value={this.state.todoItem}
-        />
-        <button className="add-button">Do More</button>
-      </form>
+      <section className="form-container">
+        <label forhtml="to do list" hidden />
+        <form id="to do list" onSubmit={this.handleSubmit} className="form">
+          <input
+            className="input"
+            placeholder="What else?"
+            onChange={this.handleChanges}
+            type="text"
+            name="item"
+            value={this.state.todoItem}
+          />
+          <button className="add-button">Do More</button>
+        </form>
+      </section>
     );
   }
 }

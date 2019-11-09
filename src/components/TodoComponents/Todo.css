@@ -13,6 +13,7 @@
   justify-content: space-between;
   box-shadow: -3px 3px 5px 6px #858534;
 }
+
 .task {
   color: purple;
   font-size: 1rem;
@@ -23,18 +24,39 @@
   text-decoration: line-through;
 }
 
+.form-container {
+  display: flex;
+}
+
 .form {
   height: 40px;
   display: flex;
-  margin: 5%;
+  margin: 5% auto;
   font-size: 1rem;
+  width: 90%;
 }
 
 .input {
-  width: 60%;
+  flex-grow: 2;
   background: #ffff88;
   border: none;
-  border-bottom: 1px solid purple;
+  border-bottom: 1px dotted purple;
+  flex-grow: 2;
+}
+.add-button {
+  border: none;
+  color: purple;
+  background: #ffff88;
+  font-size: 1rem;
+  margin: 2% auto;
+  text-align: center;
+}
+.list {
+  min-height: 400px;
+  padding: 2%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
 }
 
 .clear-button {
@@ -47,18 +69,51 @@
   text-align: center;
 }
 
-.add-button {
-  width: 40%;
-  color: purple;
-  border: none;
-  padding: 1rem 2rem;
-  background: #ffff88;
-  font-size: 1rem;
-  text-align: center;
-}
-
 .procrastinating {
-  border: 1px solid red;
   color: red;
   font-size: 1.5rem;
+}
+
+@media (max-width: 500px) {
+  .app {
+    min-height: 90vh;
+    min-width: 90vw;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 500px) {
+  .form-container {
+    height: 100px;
+  }
+}
+
+@media (max-width: 500px) {
+  .form {
+    flex-flow: column nowrap;
+    width: 90%;
+    align-content: center;
+  }
+}
+@media (max-width: 500px) {
+  .add-button {
+    padding: 2%;
+  }
+}
+
+@media (max-width: 500px) {
+  .list {
+    min-height: 400px;
+    padding: 2%;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 500px) {
+  .clear-button {
+    padding: 2%;
+  }
 }

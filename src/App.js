@@ -5,9 +5,6 @@ import TodoForm from "./components/TodoComponents/TodoForm";
 // import TodoSearch from "./components/TodoComponents/TodoSearch";
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
     const todoItems = JSON.parse(localStorage.getItem("tasks"));
@@ -16,21 +13,6 @@ class App extends React.Component {
       //Todo Array
     }; //State
   }
-
-  componentDidMount() {
-    // const date = localStorage.getItem("tasksDate");
-    // const tasksDate = date && new Date(parseInt(date));
-    // const now = new Date();
-    // const taskAge = Math.round((now - tasksDate) / (1000 * 60));
-    // const procratinating = taskAge >= 1;
-    // if (procratinating) {
-    //   console.log("GET IT DONE");
-    //   this.isProcrastinating = true;
-    // }
-    // console.log(now);
-    // console.log(tasksDate);
-    // console.log(taskAge);
-  } //Component Did Mount
 
   UNSAFE_componentWillUpdate(nextProps, nextState) {
     localStorage.setItem("tasks", JSON.stringify(nextState.todo));
