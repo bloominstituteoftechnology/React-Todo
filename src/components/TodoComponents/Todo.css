@@ -1,3 +1,7 @@
+* {
+  border: 1px solid red !important;
+}
+
 .app {
   width: 60%;
   min-height: 500px;
@@ -45,11 +49,12 @@
 }
 .add-button {
   border: none;
-  color: purple;
+  color: green;
   background: #ffff88;
   font-size: 1rem;
-  margin: 2% auto;
+  /* margin: 2% auto; */
   text-align: center;
+  min-height: 30px;
 }
 .list {
   min-height: 400px;
@@ -103,8 +108,8 @@
 
 @media (max-width: 500px) {
   .list {
-    min-height: 300px;
-    height: 400px;
+    min-height: 200px;
+    /* height: 400px; */
     padding: 2%;
 
     display: flex;
