@@ -1,5 +1,5 @@
 * {
-  border: 1px solid red !important;
+  border: 1px solid red;
 }
 
 .app {
@@ -49,7 +49,7 @@
 }
 .add-button {
   border: none;
-  color: green;
+  color: purple;
   background: #ffff88;
   font-size: 1rem;
   /* margin: 2% auto; */
@@ -83,7 +83,7 @@
   .app {
     min-height: 90vh;
     min-width: 90vw;
-    justify-content: flex-start;
+    justify-content: space-evenly;
   }
 }
 
@@ -103,12 +103,13 @@
 @media (max-width: 500px) {
   .add-button {
     padding: 2%;
+    margin: 5% auto;
   }
 }
 
 @media (max-width: 500px) {
   .list {
-    min-height: 200px;
+    /* min-height: 200px; */
     /* height: 400px; */
     padding: 2%;
 
