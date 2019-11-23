@@ -24,16 +24,25 @@ h1 {
     align-items: center;
     width: 50%;
     background-color: #034f84;
-    padding: 1.5%
+    padding: 1.5%;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .container {
+      width: 100%;
+    }
+  }
+
 
 .list .item {
     border: 2px solid black;
     border-radius: 5px;
     margin: 2%;
     padding-left: 5%;
-    background-color: #eca1a6
+    background-color: #eca1a6;
 }
+
 
 p {
     font-size: 1.5rem;
