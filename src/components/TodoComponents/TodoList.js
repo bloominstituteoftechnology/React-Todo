@@ -3,6 +3,7 @@
 
 import React from 'react';
 import Todo from './Todo';
+import TodoForm from './TodoForm';
 
 
 
@@ -15,6 +16,7 @@ const TodoList = props => {
             task ={todo.task}
             id = {todo.id}
             completed = {todo.completed}
+            toggleTodos= {props.toggleTodos}
             />
         ))}
     </div>)
