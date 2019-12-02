@@ -29,15 +29,21 @@ class TodoForm extends React.Component {
     render() {
 
     return(
-        <form onSubmit={this.submitForm}>
+        <form 
+        className="formClass"
+        
+        onSubmit={this.submitForm}>
             <input
             type = "text"
             name = "todo"
             onChange={this.handleChanges}
             value = {this.state.newTodo}
             />
-            <button type ="submit">Add Todo</button>
             <button 
+            className = "buttonClass"
+            type ="submit">Add Todo</button>
+            <button 
+            className = "buttonClass2"
             type ="submit"
             onClick={this.props.deleteCompleted}
             >Clear Completed</button>
