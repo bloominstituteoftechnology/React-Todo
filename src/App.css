@@ -1,22 +1,24 @@
-.App {
-  text-align: center;
+body {
+  padding: 5vw;
 }
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+#delete-btn {
+  border: 1px solid #111111;
+  padding: 5px 10px;
+}
+#delete-btn:hover {
+  cursor: pointer;
+  background: firebrick;
+  /* text-decoration: line-through; */
 }
 
-.App-link {
-  color: #09d3ac;
+#todo {
+  cursor: pointer;
+}
+
+.crossOut {
+  color: red;
+  text-decoration: line-through;
 }
