@@ -1,13 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-const Todo = props => {
+function Todo(props) {
+
     return (
-        <div className={`item${props.item.completed ? ' completed' : ''}`}
-            onClick={() => props.toggleItem(props.item.id)}
-        >
-            <p>{props.item.task}</p>
-        </div>
-    );
-};
+        <h2 onClick={(e) => {
+            e.preventDefault()
+            props.handleChange(props.item.id)
+            e.target.style.color = 'red'
+        }} >{props.item.todo}</h2>
+    )
+}
 
 export default Todo;
