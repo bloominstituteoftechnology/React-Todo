@@ -7,21 +7,32 @@ class TodoForm extends React.Component {
       item: ''
     };
   }
+
+  handleChanges = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  submitTask = e => {
+    e.preventDefault();
+    this.PaymentResponse.addTask(this.state.item);
+  };
+
+  render() {
+    return (
+      <form onSubmit={this.subitTask}>
+        <input
+          type='text'
+          placeholder='Create New Task'
+          value={this.item}
+          name='item'
+          onChange={this.handleChanges}
+        />
+        <button>Add Task</button>
+      </form>
+    );
+  }
 }
 
-handleChanges = e => {
-  this.setState({
-    [e.target.name]: e.target.value
-  });
-};
-
-submitTask = e => {
-  e.preventDefault();
-  this.PaymentResponse.addTask(this.state.item);
-};
-
-render() {
-  return (
-    
-  )
-}
+export default TodoForm;
