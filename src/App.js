@@ -5,32 +5,32 @@ import TodoList from "./components/TodoComponents/TodoList";
 const todoData = [
   {
     task: "Eat Bananas",
-    id: Date.now(),
+    id: 1,
     completed: false
   },
   {
     task: "Eat Torillas",
-    id: Date.now(),
+    id: 2,
     completed: false
   },
   {
     task: "Eat Milk",
-    id: Date.now(),
+    id: 3,
     completed: false
   },
   {
     task: "Eat Pizza Sauce",
-    id: Date.now(),
+    id: 4,
     completed: false
   },
   {
     task: "Eat Raw Honey",
-    id: Date.now(),
+    id: 5,
     completed: false
   },
   {
     task: "Eat Granola",
-    id: Date.now(),
+    id: 6,
     completed: false
   }
 ];
@@ -57,15 +57,45 @@ class App extends React.Component {
       todoData: [...this.state.todoData, newTodo]
     });
   };
+  toggleCompleted = id => {
+    this.setState({
+      todoData: this.state.todoData.map(item => {
+        if (item.id === id) {
+          return {
+            ...item,
+            completed: !item.completed
+          };
+        } else {
+          return item;
+        }
+      })
+    });
+  };
+
+  clearCompleted = () => {
+    this.setState({
+      todoData: this.state.todoData.filter(item => {
+        if (item.completed === false) {
+          return {};
+        }
+      })
+    });
+  };
 
   render() {
     return (
       <div>
         <div>
           <h2>Welcome to your Todo App!</h2>
-          <TodoForm addTodo={this.addTodo} />
+          <TodoForm
+            addTodo={this.addTodo}
+            clearCompleted={this.clearCompleted}
+          />
         </div>
-        <TodoList todoData={this.state.todoData} />
+        <TodoList
+          toggleCompleted={this.toggleCompleted}
+          todoData={this.state.todoData}
+        />
       </div>
     );
   }
