@@ -1,6 +1,7 @@
 import React from 'react';
 import "./components/TodoComponents/Todo.css"
 import TodoForm from './components/TodoComponents/TodoForm';
+import ObjList from './components/TodoComponents/TodoList'
 
 const objectives = [
   {
@@ -39,6 +40,8 @@ addObj = newObjText => {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm addObj={this.addObj}/>
+        <ObjList objectives={this.state.objectives}/>
+
       </div>
     );
   }
