@@ -2,7 +2,7 @@ import React from "react";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
 
-const data = [
+const todoData = [
   {
     task: "Eat Bananas",
     id: Date.now(),
@@ -42,7 +42,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoData: data
+      todoData: todoData
     };
   }
   addTodo = newTodoText => {
@@ -54,7 +54,7 @@ class App extends React.Component {
     //add new item to grocery list
     //need to follow immutability rules
     this.setState({
-      groceries: [...this.state.todoData, newTodo]
+      todoData: [...this.state.todoData, newTodo]
     });
   };
 
