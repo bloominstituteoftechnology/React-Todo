@@ -1,3 +1,19 @@
+html {
+  background-image: url(./yellowpaper-img.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Indie Flower", cursive;
+  /* background-position: center; */
+}
 .item.completed {
   text-decoration: line-through;
+  color: red;
+}
+.task {
+  color: grey;
+}
+.outterDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
