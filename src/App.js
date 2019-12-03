@@ -7,32 +7,32 @@ const items = [
   {
     name: 'Clean Room',
     id: 123,
-    purchased: true
+    completed: true
   },
   {
     name: 'Vacuum',
     id: 124,
-    purchased: false
+    completed: false
   },
   {
     name: 'Get Groceries',
     id: 1235,
-    purchased: false
+    completed: false
   },
   {
     name: 'Mow Lawn',
     id: 1246,
-    purchased: false
+    completed: false
   },
   {
     name: 'Make Lunch',
     id: 1237,
-    purchased: false
+    completed: false
   },
   {
     name: 'Make Bed',
     id: 1248,
-    purchased: false
+    completed: false
   }
 ];
 
@@ -61,14 +61,39 @@ class App extends React.Component {
       items: [...this.state.items, newItem]
     });
   };
+
+  filterCompleted = event => {
+    event.preventDefault();
+    this.setState(prevState => {
+      return {
+        items: prevState.items.filter(todo => {
+          return !todo.completed;
+        })
+      }
+    })
+  };
+
+  toggleCompleted = todoId => {
+    const todos = this.state.items.map(item => {
+      if (item.id === todoId) {
+        item.completed = !item.completed;
+      }
+      return item
+    })
+    this.setState({ todos, item: ""});
+  };
+
+
   render() {
     return (
       <div>
         <div className="header">
           <h2>Welcome to your Todo App!</h2>
-          <TodoForm addItem={this.addItem} />
+          <TodoForm addItem={this.addItem}/>
         </div>
-        <TodoList items={this.state.items} />
+        <TodoList items={this.state.items}
+        toggleCompleted={this.toggleCompleted}
+        filterCompleted={this.filterCompleted} />
       </div>
     );
   }
