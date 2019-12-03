@@ -56,17 +56,13 @@ class App extends React.Component {
       things: this.state.things.filter(task => !task.done)
     });
   };
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm addItem={this.addItem} />
-        <button className="clear" onClick={this.clearDone}>
-          Clear Completed
-        </button>
-        <div className="header">
-          <h1>Todo List</h1>
-        </div>
+        <h1>Welcome to your Todo App!</h1>
+        <h2>Todo List</h2>
+        <TodoForm addItem={this.addItem} clearDone={this.clearDone} />
         <TodoList toggleDone={this.toggleDone} things={this.state.things} />
       </div>
     );
