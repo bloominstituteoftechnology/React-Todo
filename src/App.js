@@ -1,5 +1,5 @@
 import React from 'react';
-import Todo from './components/TodoComponents/Todo';
+import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 
@@ -38,6 +38,9 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     };
+    this.setState({
+      tasks: [...this.state.tasks, newTask]
+    })
   };
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -47,9 +50,9 @@ class App extends React.Component {
       <div>
         <div>
         <h2>A Todo App!</h2>
-        <Todo/>
+        <TodoList/>
         </div>
-        <TodoForm/>
+        <TodoForm newTaskItem={this.newTask}/>
       </div>
     );
   }
