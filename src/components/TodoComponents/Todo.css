@@ -1,0 +1,19 @@
+.TodoList {
+    margin: 20px auto;
+    border: solid 2px gray;
+    padding: 20px 20px;
+    border-radius: 3px;
+    color: white;
+}
+
+.todo{
+    background-color: rgba(150, 39, 201, 1);
+    width: 200px; height: 30px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.completed{
+    text-decoration: line-through;
+    opacity: 50%;
+}
