@@ -1,30 +1,30 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
-import ToDo from './components/TodoComponents/Todo';
+import TodoList from './components/TodoComponents/TodoList';
 
 
 
 const ToDoTasks = [
   {
     task: 'Laundry',
-    id: Date.now(),
+    id: 1234,
     completed: false
   },
 
   {
     task: 'Prepare Dinner',
-    id: Date.now(),
+    id: 1235,
     completed: false
   },
 
   {
     task: 'Wash dishes',
-    id: Date.now(),
+    id: 1236,
     completed: false
   },
   {
     task: 'Iron Clothes',
-    id: Date.now(),
+    id: 1237,
     completed: false
   }
 ];
@@ -42,7 +42,7 @@ class App extends React.Component {
     };
   }
 
-  addToDo = newTodotext=> {
+  addToDo = newTodotext => {
     const newTodoList = {
       task: newTodotext,
       id: Date.now(),
@@ -50,18 +50,26 @@ class App extends React.Component {
     };
 
     this.setState ({
-      groceries: [...this.state.todo, newTodoList]
+      todo: [...this.state.todo, newTodoList]
     });
   }
+
+  clearTasks = newTodotext => {
+    this.setState ({
+      todo: []
+    });
+  }
+
   render() {
     console.log('rendering...');
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm addtask ={this.addtask}/>
+        <TodoForm addToDo ={this.addToDo}/>
+        <TodoList todo ={this.state.todo} clearTasks={this.clearTasks}/>
       </div>
       
-
+      
     );
   }
 }
