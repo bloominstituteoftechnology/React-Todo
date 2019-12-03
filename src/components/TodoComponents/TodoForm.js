@@ -16,7 +16,7 @@ console.log(props)
                      placeholder='To Do.'
                      />
                      <button onClick={props.handleAddTodo} >Add to to do list.</button>
-                     <button type='reset'>clear completed items</button>
+                     <button >clear completed items</button>
                 </form>
              </div>
         )

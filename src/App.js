@@ -25,7 +25,7 @@ constructor(){
   };
 }
 addTodo = e => {
-  e.prevent.default();
+  e.preventDefault();
   const newTodo = {task: this.state.todo, completed: false, id: Date.now()};
   this.setState({
     todos: [...this.state.todos, newTodo],
