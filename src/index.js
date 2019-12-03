@@ -7,32 +7,32 @@ import App from "./App"
 
 const data = [
     {
-      name: "Pet the Dog",
+      name: "Dog food",
       id: 123,
       purchased: false
     },
     {
-      name: "Create React App",
+      name: "Chips",
       id: 124,
       purchased: false
     },
     {
-      name: "Eat a Sandwich",
+      name: "Soap",
       id: 1235,
       purchased: false
     },
     {
-      name: "Take a Walk",
+      name: "Apples",
       id: 1246,
       purchased: false
     },
     {
-      name: "Study",
+      name: "Soda",
       id: 1237,
       purchased: false
     },
     {
-      name: "Nap",
+      name: "Pizza",
       id: 1248,
       purchased: false
     }
