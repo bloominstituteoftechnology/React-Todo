@@ -1,4 +1,112 @@
-.completed {
-    color: lightgrey;
-    text-decoration: wavy;
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+@import url("https://use.typekit.net/vff0qxl.css");
+
+html,
+body {
+    background-image: url(./Solitude.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font: 1em 'sans-serif';
+    font-weight: 900;
+    color: #454e6b;
+
+}
+
+.App {
+  font-family: 'Sans-serif';
+  text-align: center;
+  padding: 0 36px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  font-family: sloop;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+  font: Sloop;
+  color: #454e6b;
+  font-weight: 900;
+  font-size: 85px;
+
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+}
+
+.task-list {
+  padding-top: 3%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+.toDo {
+  color: #023131;
+  font-weight: bolder;
+  background-color: hsl(0, 0%, 96%, .30);
+  outline-color: 1px whitesmoke;
+  width: 45%;
+  text-align: left;
+  margin: 4px 0;
+  padding-left: 8px;
+  cursor: pointer;
+  font-family: 'Inconsolata', monospace;
+  font-weight: bolder;
+  font-size: 1.25rem;
+}
+
+.toDo.completed {
+  background-color: transparent;
+  text-decoration: line-through;
+}
+form {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+form > input {
+  margin-right: 3%;
+  background-color: #023131;
+  border: 1px #000505;
+  font-size: 1rem;
+  width: 125x;
+  height: 100px;
+  
+  border-bottom: 1px solid #000c0c;
+  text-align: center;
+  font-family: 'Inconsolata', monospace;
+}
+
+button {
+  background-color: #abbdda;
+  border: 1px solid #023131;
+  border-bottom: 1px solid #000c0c;
+  color: #023131;
+  font-size: 16px;
+  margin-right: 4%;
+  width: 200px;
+  height: 100px;
+  font-family: 'Inconsolata', monospace;
+}
+
+input::placeholder {
+  color: #f3994a;
+  opacity: 1;
+}
+
+.clear-btn {
+  margin-right: 1%;
+  width: 200px;
+  height: 100px;
+  font-family: 'Inconsolata', monospace;
 }
