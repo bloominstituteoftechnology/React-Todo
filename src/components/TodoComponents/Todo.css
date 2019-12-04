@@ -50,9 +50,9 @@ h1{
   margin: 0 auto;
 }
 .toDo {
-  color: #023131;
+  color: #000c0c;
   font-weight: bolder;
-  background-color: hsl(0, 0%, 96%, .30);
+  background-color:hsl(217, 39%, 76%, .30);
   outline-color: 1px whitesmoke;
   width: 45%;
   text-align: left;
@@ -88,11 +88,12 @@ form > input {
 }
 
 button {
-  background-color: #abbdda;
+  background-color: hsl(217, 39%, 76%, .25);
   border: 1px solid #023131;
   border-bottom: 1px solid #000c0c;
   color: #023131;
   font-size: 16px;
+  font-weight: 700;
   margin-right: 4%;
   width: 200px;
   height: 100px;
