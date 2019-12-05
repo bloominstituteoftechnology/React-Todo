@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #2d2d37;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span {
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 0 36px;
+  width: 80%;
+  margin: 0 10%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:  3px dashed #3a4242;
+
+}
+
+h1 {
+  text-align: left;
+}
+
+.item {
+  background-color: #19c2ae;
+  /* width: 80%; */
+  text-align: center;
+  margin: 20px 0;
+  padding: 20px 10px;
+  cursor: pointer;
+}
+
+
+.item.completed {
+  color: #850323;
+  border: 2px solid #850323;
+  padding: 18px 8px;
+  background-color: #470012;
+  text-decoration: line-through;
+}
+
+.list-body{
+  padding: 0 5%;
+}
+
+.todo-list{
+  padding: 0 10%;
+}
+.todo-error{
+  color: #850323;
+  border: 2px solid #850323;
+  padding: 18px 8px;
+  background-color: #470012;
+  margin-top: 20px;
+
+}
+form {
+  width: 80%;
+  margin: 0 10%;
+
+}
+form > input {
+  background-color: #2d2d37;
+  border: 0;
+  padding: 6px 0;
+  font-size: 1rem;
+  outline: 0;
+  color: white;
+  border-bottom: 1px solid #6a9c9c;
+  margin-right: 8px;
+}
+
+button {
+  background-color: #6a9c9c;
+  border: 1px solid #6a9c9c;
+  color: white;
+  font-size: 16px;
+  padding: 6px 14px;
+}
+
+input::placeholder {
+  color: #6a9c9c;
+  opacity: 1;
+}
