@@ -11,11 +11,11 @@ const TodoForm = (props) => {
         <input 
         type="text"
         value={props.text} 
-        placeholder="add a task"
+        placeholder="Add a Task!"
         onChange={props.input}
         />
-        <div onClick={props.add} className="add">Add</div>
-        <div onClick={filteredList} className="clear">Clear</div>
+        <div onClick={props.add} className="add">Add Task</div>
+        <div onClick={filteredList} className="clear">Clear Completed</div>
     </div>
   );
 }

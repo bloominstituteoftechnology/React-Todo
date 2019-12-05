@@ -8,11 +8,11 @@ import "./Todo.css";
 class TodoList extends Component {
   render() {
       return(
-        <div>
+        <div className="main-content">
+            <div>
+                <h1 className="todo-header">What To-Do?</h1>
+            </div>
             <div className="top-content">
-                <div>
-                  <h1 className="todo-header">To-Do</h1>
-                </div>
                 <div>
                   <TodoForm 
                     state={this.props.state}
@@ -24,6 +24,7 @@ class TodoList extends Component {
                 </div>
             </div>
             <div className="todo-section">
+                <h2>Your List:</h2>
                 {this.props.state.todos.map(item => {
                     return (
                       <h4>

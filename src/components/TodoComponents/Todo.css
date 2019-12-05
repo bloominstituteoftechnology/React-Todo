@@ -1,24 +1,36 @@
-.content {
+.main-content {
   display: flex;
-  justify-content: center;
-}
-
-.top-content {
-  width: 400px;
-  padding: 10px;
-  border: 1px solid black;
+  flex-direction: column;
+  align-items: center;
 }
 
 .todo-header {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  padding: 5% 10px;
   text-decoration-line: underline;
+  background-color: #ccffcc;
+  border: 1px solid black;
+}
+
+.top-content {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  padding: 5% 10px;
+  background-image: url(../images/leafy-background.png);
+  background-position: center;
+  background-size: cover;
+  border: 1px solid black;
 }
 
 .todo-section {
-  padding: 1px 5px;
-  background-color: rgb(185, 255, 185);
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
+  width: 400px;
+  padding: 5% 10px;
+  margin-top: 20px;
+  background-color: lightcyan;
+  border: 1px solid black;
 }
 
 .completed {
@@ -28,15 +40,15 @@
 .add {
   background-color: white;
   text-align: center;
-  width: 20%;
-  margin: 2% 0;
+  width: 80%;
+  margin: 2% 10%;
   border: 1px solid black;
 }
 
 .clear {
   background-color: lightgray;
   text-align: center;
-  width: 20%;
-  margin: 2% 0;
+  width: 80%;
+  margin: 2% 10%;
   border: 1px solid black;
 }

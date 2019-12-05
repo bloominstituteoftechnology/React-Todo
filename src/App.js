@@ -64,7 +64,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="content">
+      <div>
         <TodoList 
           state={this.state} 
           input={this.handleInput}
