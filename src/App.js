@@ -1,55 +1,81 @@
-import React, { Component } from 'react';
-import TodoForm from './components/TodoComponents/TodoForm';
+import React, {Component} from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 
 class App extends Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
+
   constructor() {
-    super();
+    super()
     this.state = {
-        tasks: []
-    };
+      input: "",
+      todos: [
+        {
+          task: "",
+          id: "",
+          completed: false
+        }
+      ]
+    }
   }
 
-  toggleItem = items => {
+  handleInput = (event) => {
     this.setState({
-      tasks: this.state.tasks.map(item => {
-        if (items === item.id) {
-          return {
-            ...item,
-            completed: !item.completed
-          };
-        }
-        return item;
-      })
-    });
-  };
+      input: event.target.value
+    })
+  }
 
-  addItem = itemTask => {
-    const newItem = {
-      task: itemTask,
+  addTodo = () => {
+    let newTodo = {
+      task: this.state.input,
       id: Date.now(),
-      completed: false
+      completed: false,
     };
+    this.setState({
+      input: "",
+      todos: [...this.state.todos, newTodo]
+    })
+  }
 
-    this.setState({ tasks: [...this.state.tasks, newItem] });
-  };
+  toggleCompletedFlag = (todoId) => {
+    this.setState({
+      todos: this.state.todos.map(item => {
+        if (item.id === todoId) {
+          return {
+            task: item.task,
+            id: item.id,
+            completed: !item.completed,
+          }
+        }else{
+          return item;
+        }
+      })
+    })
+  }
+
+  removeCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter(item => {
+        return item.completed === !true;
+      })
+    })
+  }
 
   render() {
     return (
-      <div>
-        <div>
-        <TodoForm addItem={this.addItem}/>
-        </div>
-        <h3>Todo List</h3>
+      <div className="content">
         <TodoList 
-        tasks={this.state.tasks}
-        toggleItem={this.toggleItem}
-        />
+          state={this.state} 
+          input={this.handleInput}
+          text={this.state.input}
+          add={this.addTodo} 
+          remove={this.removeCompleted} 
+          toggle={this.toggleCompletedFlag}
+          />
       </div>
     );
   }
 }
+
 export default App;

@@ -1,0 +1,42 @@
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.top-content {
+  width: 400px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.todo-header {
+  text-decoration-line: underline;
+}
+
+.todo-section {
+  padding: 1px 5px;
+  background-color: rgb(185, 255, 185);
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.add {
+  background-color: white;
+  text-align: center;
+  width: 20%;
+  margin: 2% 0;
+  border: 1px solid black;
+}
+
+.clear {
+  background-color: lightgray;
+  text-align: center;
+  width: 20%;
+  margin: 2% 0;
+  border: 1px solid black;
+}
