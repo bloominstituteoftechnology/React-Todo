@@ -2,8 +2,8 @@ import React from 'react';
 import "./Todo.css";
 
 const TodoForm = (props) => {
-  const filteredList = () =>{
-      props.remove(props.completed)
+  const filteredList = () => {
+    props.remove(props.completed)
   }
 
   return (
@@ -11,7 +11,7 @@ const TodoForm = (props) => {
         <input 
         type="text"
         value={props.text} 
-        placeholder="Add a Task!"
+        placeholder="Enter task here"
         onChange={props.input}
         />
         <div onClick={props.add} className="add">Add Task</div>

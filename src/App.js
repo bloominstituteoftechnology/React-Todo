@@ -66,13 +66,13 @@ class App extends Component {
     return (
       <div>
         <TodoList 
-          state={this.state} 
-          input={this.handleInput}
-          text={this.state.input}
-          add={this.addTodo} 
-          remove={this.removeCompleted} 
-          toggle={this.toggleCompletedFlag}
-          />
+        state={this.state} 
+        input={this.handleInput}
+        text={this.state.input}
+        add={this.addTodo} 
+        remove={this.removeCompleted} 
+        toggle={this.toggleCompletedFlag}
+        />
       </div>
     );
   }

@@ -10,7 +10,7 @@
   width: 400px;
   padding: 5% 10px;
   text-decoration-line: underline;
-  background-color: #ccffcc;
+  background-color: rgb(154, 250, 151);
   border: 1px solid black;
 }
 
@@ -41,7 +41,7 @@
   background-color: white;
   text-align: center;
   width: 80%;
-  margin: 2% 10%;
+  margin: 5% 10%;
   border: 1px solid black;
 }
 
@@ -49,6 +49,6 @@
   background-color: lightgray;
   text-align: center;
   width: 80%;
-  margin: 2% 10%;
+  margin: 5% 10%;
   border: 1px solid black;
 }

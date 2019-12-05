@@ -7,7 +7,7 @@ import "./Todo.css";
 
 class TodoList extends Component {
   render() {
-      return(
+    return (
         <div className="main-content">
             <div>
                 <h1 className="todo-header">What To-Do?</h1>
@@ -15,11 +15,11 @@ class TodoList extends Component {
             <div className="top-content">
                 <div>
                   <TodoForm 
-                    state={this.props.state}
-                    text={this.props.text}
-                    input={this.props.input} 
-                    add={this.props.add} 
-                    remove={this.props.remove}
+                  state={this.props.state}
+                  text={this.props.text}
+                  input={this.props.input} 
+                  add={this.props.add} 
+                  remove={this.props.remove}
                   />
                 </div>
             </div>
@@ -39,7 +39,7 @@ class TodoList extends Component {
                 })}
             </div>
         </div>
-      );
+    );
   }
 }
 
