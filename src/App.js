@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import TodoList from './components/TodoComponents/TodoList.js';
@@ -87,7 +87,7 @@ class App extends React.Component {
 
   render() {
 
-    console.log(error);
+    // console.log(error);
     console.log("error: ", this.state.error)
     return (
       <div className="App">
