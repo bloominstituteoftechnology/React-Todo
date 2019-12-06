@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
+    "react-flip-move": "^3.0.4",
     "react-scripts": "3.1.2"
   },
   "scripts": {
