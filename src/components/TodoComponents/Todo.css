@@ -1,0 +1,7 @@
+.completed {
+  text-decoration: line-through;
+}
+
+.listItem {
+  font-size: 1.2rem;
+}
