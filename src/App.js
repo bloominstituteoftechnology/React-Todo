@@ -18,10 +18,22 @@ class App extends React.Component {
     this.setState({ task: event.target.value });
   };
 
+  onSubmit = event => {
+    event.preventDefault();
+    this.setState({
+      task: "",
+      id: Date.now(),
+      completed: false
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <TodoForm updateTaskState={this.taskChangeHandler} />
+        <TodoForm
+          updateTaskState={this.taskChangeHandler}
+          onSubmit={this.taskSubmit}
+        />
       </div>
     );
   }
