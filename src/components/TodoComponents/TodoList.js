@@ -13,15 +13,13 @@ class TodoList extends Component {
                 <h1 className="todo-header">What To-Do?</h1>
             </div>
             <div className="top-content">
-                <div>
-                  <TodoForm 
-                  state={this.props.state}
-                  text={this.props.text}
-                  input={this.props.input} 
-                  add={this.props.add} 
-                  remove={this.props.remove}
-                  />
-                </div>
+                <TodoForm 
+                state={this.props.state}
+                text={this.props.text}
+                input={this.props.input} 
+                add={this.props.add} 
+                remove={this.props.remove}
+                />
             </div>
             <div className="todo-section">
                 <h2>Your List:</h2>
@@ -32,7 +30,8 @@ class TodoList extends Component {
                         key={item.id} 
                         id={item.id} 
                         task={item.task} 
-                        completed={item.completed} toggle={this.props.toggle}
+                        completed={item.completed} 
+                        toggle={this.props.toggle}
                         />
                       </h4>
                     );

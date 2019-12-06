@@ -7,11 +7,12 @@ const Todo = (props) => {
     const itemClicked = () => {
         props.toggle(props.id)
     }
-        return (
-            <div className={className} onClick={itemClicked}>
-                <p>{props.task}</p>
-            </div>
-        );
+
+    return (
+        <div className={className} onClick={itemClicked}>
+            <p>{props.task}</p>
+        </div>
+    );
 }
 
 export default Todo;
