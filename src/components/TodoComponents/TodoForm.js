@@ -2,18 +2,26 @@ import React from 'react';
 
 class TodoForm extends React.Component {
 
-    constructor() {
+    constructor(props) {
 
-        super();
-        this.state = {}; 
+        super(props);
+        this.state = {
+          itemText: "",
+          name: "Trevor",
+          town: "Alexandria"
+        }; 
     
+      }
+
+      sumbitHandler = event => { 
+        event.preventDefault();
       }
 
       render() {
         return (
-          <div>
-            <h2>Welcome to your Todo App!</h2>
-          </div>
+          <form onSumbit={this.sumbitHandler}>
+
+          </form>
         );
       }
 
