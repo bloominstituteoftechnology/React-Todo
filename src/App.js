@@ -1,4 +1,5 @@
 import React from 'react';
+import { chores} from './data';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
