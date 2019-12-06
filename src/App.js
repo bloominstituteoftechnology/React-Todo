@@ -37,16 +37,17 @@ class App extends React.Component {
 
   addTodoItem = item => {
     const newItem = {
-      name: item,
-      purchased: false,
-      id: Math.floor(Math.random() * 1000)
+      task: item,
+      id: Math.floor(Math.random() * 1000),
+      completed: false
     };
     this.setState({ todoData: [...this.state.todoData, newItem] });
+    console.log(newItem)
   };
 
   render() {
     return (
-      <Container>
+      <Container style={{marginTop:'10%'}}>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm addTodoItem={this.addTodoItem}/>
         <TodoList
