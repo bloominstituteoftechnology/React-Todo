@@ -2,8 +2,12 @@ import React from "react";
 
 //components
 import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 //data
 import todoData from "./todoData";
+
+//styling
+import { Container } from "semantic-ui-react";
 
 // you will need a place to store your state in this component.
 // design `App` to be the parent component of your application.
@@ -17,30 +21,12 @@ class App extends React.Component {
     };
   }
 
-  //Use HandleChange to conditionally render todo Item list.  If checked, strike through the todo Item.
-  // handleChange = (id) => {
-  //   this.setState(prevState => {
-  //     const updater = prevState.todoData.map(item => {
-  //       if(item.id === id) {
-  //         return {
-  //           ...item,
-  //           completed: !item.completed
-  //         }
-  //         return updater
-  //       }
-  //     })
-  //     return {
-  //       todoData: updater
-  //     }
-  //   })
-  // }
-
   handleChange = id => {
     this.setState({
       todoData: this.state.todoData.map(item => {
-        if (item.id === id) {
+        if (id === item.id) {
           return {
-            ...todoData,
+            ...item,
             completed: !item.completed
           };
         }
@@ -49,15 +35,25 @@ class App extends React.Component {
     });
   };
 
+  addTodoItem = item => {
+    const newItem = {
+      name: item,
+      purchased: false,
+      id: Math.floor(Math.random() * 1000)
+    };
+    this.setState({ todoData: [...this.state.todoData, newItem] });
+  };
+
   render() {
     return (
-      <div>
+      <Container>
         <h2>Welcome to your Todo App!</h2>
+        <TodoForm addTodoItem={this.addTodoItem}/>
         <TodoList
           todoData={this.state.todoData}
           handleChange={this.handleChange}
         />
-      </div>
+      </Container>
     );
   }
 }

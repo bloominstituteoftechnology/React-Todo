@@ -1,27 +1,26 @@
 import React from "react";
+import { Checkbox } from 'semantic-ui-react'
+import styled from 'styled-components'
+
+const styledLabel = styled.div`
+  text-decoration: line-through;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5%;
+`
 
 const Todo = props => {
+    console.log(props)
   return (
     <div>
-      <input
-        type="checkbox"
-        checked={props.item.completed}
-        onChange={() => props.handleChange(props.item.id)}
+      <Checkbox 
+        label={props.item.id} 
+        onClick={() => props.handleChange(props.item.id)}
       />
-      <p>{props.item.task}</p>
+      
     </div>
   );
 };
 
 export default Todo;
 
-// const Item = props => {
-//   return (
-//     <div
-//       className={`item${props.item.purchased ? " purchased" : ""}`}
-//       onClick={e => props.toggleItem(props.item.id)}
-//     >
-//       {props.item.name}
-//     </div>
-//   );
-// };
