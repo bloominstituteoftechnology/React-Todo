@@ -1,18 +1,10 @@
-import React from React;
+import React from 'react';
 
-class Todo extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-  
-    }
-  }
+const Todo = props =>  {
 
-  render() {
     return (
-      <div></div>
+      <div>{props.chore.name}</div>
     );
-  }
-}
+};
 
 export default Todo;

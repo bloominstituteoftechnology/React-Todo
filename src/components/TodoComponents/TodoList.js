@@ -1,24 +1,17 @@
-import React from React;
+import React from 'react';
 import Todo from "../TodoComponents/Todo";
 
-class TodoList extends React.Component {
+const TodoList = props => {
 
-    constructor() {
-
-        super();
-        this.state = {}; 
-    
-      }
-
-      render() {
         return (
           <div>
-            <h2>Welcome to your Todo App!</h2>
+            {props.chores.map(item => {
+              return  <Todo chore={item}  key={item.id}/>
+            })}
           </div>
         );
-      }
 
-}
+};
 
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
