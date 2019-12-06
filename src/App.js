@@ -31,13 +31,32 @@ class App extends React.Component {
   });
 }
 
+ toggleItem = itemId => {
+
+  // Remember the setState function works exactly how it does with hooks: it is used to set the value of the state of each component
+
+    this.setState({
+      chores: this.state.chores.map(item => {
+        if (itemId === item.id) {
+          return {
+            ...item,
+            purchased : !item.purchased // I'm pretty sure this changes purchased to the value opposite of what is currently is
+          };
+        }
+      })
+    });
+
+ };
+
   render() {
     return (
       <div>
         <h1>Chores List</h1>
           <TodoForm addItem={this.addItem}/>
           <br/>
-          <TodoList chores={this.state.chores}/>
+          <TodoList 
+          toggleItem={this.toggleItem}
+          chores={this.state.chores}/>
       </div>
     );
   }
