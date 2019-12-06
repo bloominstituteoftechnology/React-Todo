@@ -1,6 +1,7 @@
 import React from 'react';
 import { chores } from './data';
 import TodoList from '../src/components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -16,9 +17,26 @@ class App extends React.Component {
 
   }
 
+  addItem = itemText => {
+    const newItem = {
+      name : itemText,
+      completed : false,
+      id: Date.now()
+    };
+
+    // why is calling this okay in this context?
+
+  this.setState({
+    chores: [...this.state.chores, newItem]
+  });
+}
+
   render() {
     return (
       <div>
+        <h1>Chores List</h1>
+          <TodoForm addItem={this.addItem}/>
+          <br/>
           <TodoList chores={this.state.chores}/>
       </div>
     );
