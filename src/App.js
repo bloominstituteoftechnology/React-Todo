@@ -3,6 +3,7 @@ import React from "react";
 //components
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import AppHeader from './components/TodoComponents/AppHeader'
 //data
 import todoData from "./todoData";
 
@@ -47,8 +48,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container style={{marginTop:'10%'}}>
-        <h2>Welcome to your Todo App!</h2>
+      <Container
+       textAlign='left'
+       style={{
+         margin: '15% auto',
+         width:'450px',
+         borderRadius:'5px',
+         border:'1px #d1d1d1 solid',
+         padding: '1%'
+       }}
+      >
+        <AppHeader/>
         <TodoForm addTodoItem={this.addTodoItem}/>
         <TodoList
           todoData={this.state.todoData}

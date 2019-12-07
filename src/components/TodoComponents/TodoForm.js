@@ -1,4 +1,5 @@
 import React from "react";
+import { Form, Button, Input } from "semantic-ui-react";
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -16,23 +17,38 @@ class TodoForm extends React.Component {
   submitHander = event => {
     event.preventDefault();
     this.props.addTodoItem(this.state.itemText);
-    this.setState({itemText: ""})
+    this.setState({ itemText: "" });
   };
-  
 
   render() {
     return (
-      <form onSubmit={this.submitHander}>
-        <input
+      <Form onSubmit={this.submitHander} 
+>
+        <Form.Field>
+            <label>
+                Notes...
+            </label>
+        </Form.Field>
+        <Input
+          focus
           type="text"
           name="itemText"
           value={this.state.itemText}
           onChange={this.changeHandler}
+          style={{marginRight:'5%', marginBottom:'2%'}}
         />
-        <button  type="submit">Add Item</button>
-      </form>
+        <Button type="submit">Add Item</Button>
+      </Form>
     );
-  }
+}
 }
 
 export default TodoForm;
+
+{/* <input
+  type="text"
+  name="itemText"
+  value={this.state.itemText}
+  onChange={this.changeHandler}
+/> */}
+{/* <button  type="submit">Add Item</button> */}
