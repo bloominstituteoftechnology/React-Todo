@@ -3,10 +3,11 @@ import Todo from "../TodoComponents/Todo";
 
 const TodoList = props => {
 
+        
         return (
           <div>
             {props.chores.map(item => {
-              return <Todo chore={item}  key={item.id} toggleItem={props.toggleItem}/>
+              return <Todo chores={item} toggleItem={props.toggleItem}/>
             })}
           </div>
         );

@@ -40,9 +40,10 @@ class App extends React.Component {
         if (itemId === item.id) {
           return {
             ...item,
-            purchased : !item.purchased // I'm pretty sure this changes purchased to the value opposite of what is currently is
+            completed : !item.completed // I'm pretty sure this changes purchased to the value opposite of what is currently is
           };
         }
+        return item;
       })
     });
 

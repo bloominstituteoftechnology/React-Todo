@@ -8,7 +8,7 @@ export const chores = [
     {
       name: "Sweep steps",
       id: 517,
-      completed: true
+      completed: false
     },
   
     {
