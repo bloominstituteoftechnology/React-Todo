@@ -1,4 +1,4 @@
-export const data = [
+export const todo = [
   {
     task: 'Organize Garage',
     id: 1528807077286,
