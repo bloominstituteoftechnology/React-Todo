@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 import App from './App';
 import ReactDOM from 'react-dom';
 
@@ -8,32 +7,32 @@ const data = [
     {
       name: "Clean Room",
       id: 123,
-      purchased: false
+      completed: false
     },
     {
-      name: "Do Homework",
+      name: "Feed the Cats",
       id: 124,
-      purchased: false
+      completed: false
     },
     {
       name: "Laundry",
       id: 1235,
-      purchased: false
+      completed: false
     },
     {
       name: "Play Video Games",
       id: 1246,
-      purchased: false
+      completed: false
     },
     {
-      name: "Study",
+      name: "Study Code",
       id: 1237,
-      purchased: false
+      completed: false
     },
     {
-      name: "Play Laser Tag",
+      name: "Start a Cult",
       id: 1248,
-      purchased: false
+      completed: false
     }
   ];
 export default data;

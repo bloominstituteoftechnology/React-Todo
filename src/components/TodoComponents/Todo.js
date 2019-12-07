@@ -9,11 +9,11 @@ const Todo = props => {
             <Item
               key={item.id}
               item={item}
-              togglePurchased={props.togglePurchased}
+              toggleCompleted={props.toggleCompleted}
             />
           ))}
-          <button className="clear-btn" onClick={props.clearPurchased}>
-            Clear Purchased
+          <button className="clear-btn" onClick={props.clearCompleted}>
+            Clear Completed
           </button>
         </div>
       );

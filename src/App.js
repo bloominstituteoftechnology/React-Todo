@@ -10,17 +10,17 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   state = {
-    groceries: data,
+    tasks: data,
     otherState: "this other state"
   };
-  togglePurchased = itemId => {
-    console.log("togglePurchased: ", itemId);
+  toggleCompleted = itemId => {
+    console.log("toggleCompleted: ", itemId);
     this.setState({
-        groceries: this.state.groceries.map(item => {
+        tasks: this.state.tasks.map(item => {
           if (item.id === itemId) {
             return {
               ...item,
-              purchased: !item.purchased
+              completed: !item.completed
             };
           }
           return item;
@@ -28,11 +28,11 @@ class App extends React.Component {
       });
     };
 
-    clearPurchased = () => {
-      console.log("clearPurchased");
+    clearCompleted = () => {
+      console.log("clearCompleted");
       this.setState({
-        groceries: this.state.groceries.filter(item => {
-          return !item.purchased;
+        tasks: this.state.tasks.filter(item => {
+          return !item.completed;
         })
       });
     };
@@ -41,12 +41,12 @@ class App extends React.Component {
       console.log("add item: ", itemName);
 
       this.setState({
-        groceries: [
-          ...this.state.groceries,
+        tasks: [
+          ...this.state.tasks,
           {
             name: itemName,
             id: Date.now(),
-            purchased: false
+            completed: false
           }
         ]
       });
@@ -65,9 +65,9 @@ console.log("rendering...");
         </div>
          <div className="Itembox">
         <Todo
-          groceries={this.state.groceries}
-          togglePurchased={this.togglePurchased}
-          clearPurchased={this.clearPurchased}
+          groceries={this.state.tasks}
+          toggleCompleted={this.toggleCompleted}
+          clearCompleted={this.clearCompleted}
         />
       </div>
       </div>

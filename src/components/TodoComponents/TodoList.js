@@ -2,12 +2,12 @@ import React from "react";
 
 const TodoList = props => {
   let verboseClassName = "item";
-  if (props.item.purchased) {
-    verboseClassName = verboseClassName + " purchased";
+  if (props.item.completed) {
+    verboseClassName = verboseClassName + " completed";
   }
 
   const handleClick = () => {
-    props.togglePurchased(props.item.id);
+    props.toggleCompleted(props.item.id);
   };
 
   return (
