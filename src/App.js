@@ -15,8 +15,12 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo: todo
+      todo: todo,
+      task: '',
+      id: 0,
+      completed: false
     };
+    console.log('this is state', todo);
   }
 
   toggleItem = itemId => {
@@ -30,8 +34,20 @@ class App extends React.Component {
             completed: !item.completed
           };
         }
-
         return item;
+      })
+    });
+  };
+
+  clearCompleted = item => {
+    this.setState({
+      todo: this.state.todo.filter(item => {
+        if (item.completed === false) {
+          return {
+            ...item,
+            completed: !item.completed
+          };
+        }
       })
     });
   };
@@ -48,9 +64,6 @@ class App extends React.Component {
     });
   };
 
-clearCompleted = itemId 
-
-
   render() {
     return (
       <div className='App'>
@@ -58,7 +71,7 @@ clearCompleted = itemId
           <h1>Hutch's TODO List:</h1>
           <TodoForm addItem={this.addItem} />
         </div>
-        <TodoList todo={this.state.todo} toggleItem={this.toggleItem} />
+        <TodoList todo={this.state.todo} toggleItem={this.toggleItem} clearCompleted={this.clearCompleted} />
       </div>
     );
   }

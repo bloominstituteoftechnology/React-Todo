@@ -3,9 +3,11 @@ import React from 'react';
 class TodoForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      itemText: ''
+      itemText: localStorage.getItem('itemText', props.itemText)
     };
+    console.log(localStorage);
   }
 
   changeHandler = event => {
@@ -15,6 +17,7 @@ class TodoForm extends React.Component {
   submitHandler = event => {
     event.preventDefault();
     this.props.addItem(this.state.itemText);
+    localStorage.setItem('task', this.state.itemText);
     this.setState({ itemText: '' });
   };
 
