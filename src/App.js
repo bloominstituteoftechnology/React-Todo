@@ -5,6 +5,8 @@ import { todo } from './components/data';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
+import './styles.css';
+
 // you will need a place to store your state in this component.
 // design `App` to be the parent component of your application.
 // this component is going to take care of state, and any change handlers you need to work with your state
@@ -13,12 +15,13 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo
+      todo: todo
     };
   }
 
   toggleItem = itemId => {
     console.log(itemId);
+
     this.setState({
       todo: this.state.todo.map(item => {
         if (itemId === item.id) {
@@ -35,22 +38,25 @@ class App extends React.Component {
 
   addItem = itemText => {
     const newItem = {
-      name: itemText,
+      task: itemText,
       completed: false,
-      id: Date.now
+      id: Date.now()
     };
 
     this.setState({
-      todos: [...this.state.todos, newItem]
+      todo: [...this.state.todo, newItem]
     });
   };
+
+clearCompleted = itemId 
+
 
   render() {
     return (
       <div className='App'>
         <div className='header'>
-          <h2>Hutch's TODO List:</h2>
-          <TodoForm addItem={this.item} />
+          <h1>Hutch's TODO List:</h1>
+          <TodoForm addItem={this.addItem} />
         </div>
         <TodoList todo={this.state.todo} toggleItem={this.toggleItem} />
       </div>
