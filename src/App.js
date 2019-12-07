@@ -20,7 +20,7 @@ class App extends React.Component {
   toggleItem = itemId => {
     console.log(itemId);
     this.setState({
-      items: this.state.item.map(item => {
+      todo: this.state.todo.map(item => {
         if (itemId === item.id) {
           return {
             ...item,
