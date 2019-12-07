@@ -1,0 +1,10 @@
+body {
+    padding: 50px;
+    background-color: #66CCFF;
+    font-family: sans-serif;
+}
+
+#root {
+    display:flex;
+    justify-content: flex;
+} 
