@@ -20,8 +20,8 @@ class App extends React.Component {
     };
   }
 
-  toggleTask = () => {
-    console.log("DONE");
+  toggleTask = itemId => {
+    console.log("DONE", itemId);
   };
 
   render() {
