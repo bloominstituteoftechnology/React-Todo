@@ -20,13 +20,17 @@ class App extends React.Component {
     };
   }
 
+  toggleTask = () => {
+    console.log("DONE");
+  };
+
   render() {
     return (
       <div className="App">
         <div className="header">
           <h1>ToDo List</h1>
         </div>
-        <TodoList tasks={this.state.tasks} />
+        <TodoList tasks={this.state.tasks} toggleTask={this.toggleTask} />
       </div>
     );
   }
