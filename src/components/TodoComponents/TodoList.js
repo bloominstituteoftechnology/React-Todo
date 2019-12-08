@@ -1,2 +1,13 @@
-// your components will all go in this `component` directory.
-// feel free to change this component.js into TodoList.js
+// Maps over the tasks array and creates a new item for each element
+import React from "react";
+
+const TodoList = props => {
+
+    return (
+        
+    )
+}
+
+export default TodoList
+
+
