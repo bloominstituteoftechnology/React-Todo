@@ -4,6 +4,7 @@ import "./components/TodoComponents/Todo.css";
 
 import { tasks } from "./data";
 import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
 // console.log(tasks);
 
@@ -36,12 +37,26 @@ class App extends React.Component {
     });
   };
 
+  // functionality creating new tasks and adds to exisiting task list
+  addItem = itemText => {
+    const newItem = {
+      taskName: itemText,
+      id: Date.now(),
+      completed: false
+    };
+
+    this.setState({
+      tasks: [...this.state.tasks, newItem]
+    });
+  };
+
   render() {
     console.log(this.state.tasks);
     return (
       <div className="App">
         <div className="header">
           <h1>ToDo List</h1>
+          <TodoForm addItem={this.addItem} />
         </div>
         <TodoList tasks={this.state.tasks} toggleTask={this.toggleTask} />
       </div>
