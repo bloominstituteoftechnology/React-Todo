@@ -7,35 +7,10 @@ class App extends React.Component {
 
   constructor() {
     super();
-    this.state = {
-      task: "",
-      id: Date.now(),
-      completed: false
-    };
   }
 
-  taskChangeHandler = event => {
-    this.setState({ task: event.target.value });
-  };
-
-  onSubmit = event => {
-    event.preventDefault();
-    this.setState({
-      task: "",
-      id: Date.now(),
-      completed: false
-    });
-  };
-
   render() {
-    return (
-      <div className="App">
-        <TodoForm
-          updateTaskState={this.taskChangeHandler}
-          onSubmit={this.taskSubmit}
-        />
-      </div>
-    );
+    return <div className="App"></div>;
   }
 }
 
