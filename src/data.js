@@ -2,31 +2,31 @@
 
 export const tasks = [
   {
-    task: "Do Laundry",
+    taskName: "Do Laundry",
     id: Date.now(),
     completed: false
   },
 
   {
-    task: "Vacuum Carpet",
+    taskName: "Vacuum Carpet",
     id: Date.now(),
     completed: false
   },
 
   {
-    task: "Wash Dishes",
+    taskName: "Wash Dishes",
     id: Date.now(),
     completed: false
   },
 
   {
-    task: "Cook Dinner",
+    taskName: "Cook Dinner",
     id: Date.now(),
     completed: false
   },
 
   {
-    task: "Read Next Chapter",
+    taskName: "Read Next Chapter",
     id: Date.now(),
     completed: false
   }
