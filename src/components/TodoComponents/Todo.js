@@ -2,7 +2,11 @@
 import React from "react";
 
 const Todo = props => {
-  return <div className="item">{props.item.taskName}</div>;
+  return (
+    <div className={`item${props.item.completed ? " completed" : " "}`}>
+      {props.item.taskName}
+    </div>
+  );
 };
 
 export default Todo;

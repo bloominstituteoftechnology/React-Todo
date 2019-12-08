@@ -4,13 +4,13 @@ export const tasks = [
   {
     taskName: "Do Laundry",
     id: Date.now(),
-    completed: false
+    completed: true
   },
 
   {
     taskName: "Vacuum Carpet",
     id: Date.now(),
-    completed: false
+    completed: true
   },
 
   {

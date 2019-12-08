@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./components/TodoComponents/Todo.css";
+
 import { tasks } from "./data";
 import TodoList from "./components/TodoComponents/TodoList";
 
@@ -13,6 +15,9 @@ class App extends React.Component {
 
   constructor() {
     super();
+    this.state = {
+      tasks
+    };
   }
 
   render() {
@@ -21,7 +26,7 @@ class App extends React.Component {
         <div className="header">
           <h1>ToDo List</h1>
         </div>
-        <TodoList tasks={tasks} />
+        <TodoList tasks={this.state.tasks} />
       </div>
     );
   }

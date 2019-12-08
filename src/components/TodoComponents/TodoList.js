@@ -9,6 +9,9 @@ const TodoList = props => {
     <div className="shopping-list">
       {props.tasks.map(item => {
         console.log(item);
+        {
+          /* change back to key={item.id} once dynamic rendering is figured out */
+        }
         return <Todo item={item} key={item.taskName} />;
       })}
     </div>
