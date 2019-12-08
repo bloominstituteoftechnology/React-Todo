@@ -5,7 +5,7 @@ import "./components/TodoComponents/Todo.css";
 import { tasks } from "./data";
 import TodoList from "./components/TodoComponents/TodoList";
 
-console.log(tasks);
+// console.log(tasks);
 
 // Main component
 class App extends React.Component {
@@ -20,11 +20,24 @@ class App extends React.Component {
     };
   }
 
+  // strikethrough & reset functionality
   toggleTask = itemId => {
     console.log("DONE", itemId);
+    this.setState({
+      tasks: this.state.tasks.map(item => {
+        if (itemId === item.id) {
+          return {
+            ...item,
+            completed: !item.completed
+          };
+        }
+        return item;
+      })
+    });
   };
 
   render() {
+    console.log(this.state.tasks);
     return (
       <div className="App">
         <div className="header">

@@ -1,6 +1,6 @@
-// Takes in data from tasks array and displays to screen
 import React from "react";
 
+// Takes in data from tasks array and displays to screen
 const Todo = props => {
   return (
     <div
