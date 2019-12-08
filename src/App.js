@@ -16,7 +16,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      tasks
+      tasks: tasks // can be shorthanded by a single "tasks"
     };
   }
 
