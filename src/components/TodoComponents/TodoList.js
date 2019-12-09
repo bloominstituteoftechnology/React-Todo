@@ -10,7 +10,7 @@ const TodoList = (props) => {
             {
                 props.todoData.map(item => {
                     return(
-                        <Todo item={item} key={item.id}/>
+                        <Todo item={item} key={item.id} handleCheckboxChange={props.handleCheckboxChange}/>
                         )
                     })
             }

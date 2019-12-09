@@ -1,7 +1,4 @@
-const todoData = [
-
-
-]
+const todoData = []
 
 export default todoData
 

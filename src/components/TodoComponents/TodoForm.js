@@ -11,7 +11,7 @@ class TodoForm extends React.Component {
 
   changeHandler = event => {
     this.setState({ itemText: event.target.value });
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
 
   submitHander = event => {
@@ -22,33 +22,34 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <Form onSubmit={this.submitHander} 
->
+      <Form onSubmit={this.submitHander}>
         <Form.Field>
-            <label>
-                Notes...
-            </label>
+          <label>Notes...</label>
         </Form.Field>
         <Input
           focus
           type="text"
           name="itemText"
-          value={this.state.itemText}
+          // value={this.state.itemText}
           onChange={this.changeHandler}
-          style={{marginRight:'5%', marginBottom:'2%'}}
+          style={{ marginRight: "5%", marginBottom: "2%" }}
         />
         <Button type="submit">Add Item</Button>
       </Form>
     );
-}
+  }
 }
 
 export default TodoForm;
 
-{/* <input
+{
+  /* <input
   type="text"
   name="itemText"
   value={this.state.itemText}
   onChange={this.changeHandler}
-/> */}
-{/* <button  type="submit">Add Item</button> */}
+/> */
+}
+{
+  /* <button  type="submit">Add Item</button> */
+}
