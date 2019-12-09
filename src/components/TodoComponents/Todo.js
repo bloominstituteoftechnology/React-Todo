@@ -1,6 +1,5 @@
 import React from "react";
 import { Checkbox } from "semantic-ui-react";
-import styled from "styled-components";
 
 const Todo = props => {
   return (

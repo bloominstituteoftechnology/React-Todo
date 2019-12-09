@@ -30,7 +30,7 @@ class TodoForm extends React.Component {
           focus
           type="text"
           name="itemText"
-          // value={this.state.itemText}
+          value={this.state.itemText}
           onChange={this.changeHandler}
           style={{ marginRight: "5%", marginBottom: "2%" }}
         />
@@ -41,15 +41,3 @@ class TodoForm extends React.Component {
 }
 
 export default TodoForm;
-
-{
-  /* <input
-  type="text"
-  name="itemText"
-  value={this.state.itemText}
-  onChange={this.changeHandler}
-/> */
-}
-{
-  /* <button  type="submit">Add Item</button> */
-}
