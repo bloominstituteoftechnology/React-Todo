@@ -1,6 +1,7 @@
 import React from 'react';
-
-
+import TodoStyle from './components/TodoComponents/Todo.css';
+import ToDoForm from './components/TodoComponents/TodoForm';
+import ToDoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
     // you will need a place to store your state in this component.
@@ -25,6 +26,8 @@ class App extends React.Component {
         <div>
             <h2>To-do List</h2>
             <h2 onClick={this.handleSingleClickEvent}>Hello {this.state.name}</h2>
+            <ToDoList/>
+            <ToDoForm/>
         </div>
         );
     }
