@@ -9,6 +9,9 @@ import {
 
 const TodoForm = props => {
 
+  const addTodo = props.addTodo;
+  const removeComplete = props.removeComplete;
+
     let input = '';
 
     const setInput = (e) => {
@@ -17,18 +20,20 @@ const TodoForm = props => {
     }
 
     const taskManager = (task) => {
-        let addTodo = props.addTodo;
-        let newTask = {task: task, status: false};
+        let todo = addTodo;
+        let newTask = {task: task, status: false, id: Date.now()};
         if(task !== '' && task !== undefined) {
             console.log(newTask);
-            addTodo(newTask);
+            todo(newTask);
         } else {
             console.log('Invalid task')
         }
     }
 
     const clearComplete = () => {
-        console.log('clear')
+        let remove = removeComplete;
+        console.log('form');
+        remove();
     }
 
   return (
@@ -41,7 +46,7 @@ const TodoForm = props => {
       <Button color="primary" onClick={(e) => taskManager(input)}>Add!</Button>
     </InputGroupAddon>
     <InputGroupAddon addonType="append">
-      <Button color="secondary">Clear Complete</Button>
+      <Button color="secondary" onClick={(e) => clearComplete()}>Clear Complete</Button>
     </InputGroupAddon>
   </InputGroup>
   );

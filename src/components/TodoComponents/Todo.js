@@ -7,12 +7,15 @@ import {
 } from "reactstrap";
 
 const Todo = props => {
+
+  const toggleComplete = props.toggleComplete;
+  
 if(props.status === true) {
     return (
         <ListGroupItem active>
           <ListGroupItemHeading>{"Task: " + props.task}</ListGroupItemHeading>
           <ListGroupItemText>{"Task Status: " + props.status}</ListGroupItemText>
-          {/* <Button>Mark Complete</Button> */}
+          <Button onClick={(e) => toggleComplete(props.id)}>Mark Incomplete</Button>
         </ListGroupItem>
     );
 } else {
@@ -20,7 +23,7 @@ if(props.status === true) {
         <ListGroupItem>
           <ListGroupItemHeading>{"Task: " + props.task}</ListGroupItemHeading>
           <ListGroupItemText>{"Task Status: " + props.status}</ListGroupItemText>
-          <Button>Mark Complete</Button>
+          <Button onClick={(e) => toggleComplete(props.id)}>Mark Complete</Button>
         </ListGroupItem>
     );
 }
