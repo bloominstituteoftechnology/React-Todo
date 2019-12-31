@@ -36,7 +36,8 @@
   width: 90%;
 }
 
-.input {
+.input,
+.input:active {
   flex-grow: 2;
   background: #ffff88;
   border: none;

@@ -17,8 +17,6 @@ class App extends React.Component {
   UNSAFE_componentWillUpdate(nextProps, nextState) {
     localStorage.setItem("tasks", JSON.stringify(nextState.todo));
     localStorage.setItem("tasksDate", Date.now());
-
-    console.log(nextProps);
   } //Component Will Update
 
   addTask = todoItem => {
@@ -49,7 +47,6 @@ class App extends React.Component {
   };
 
   clearComplete = () => {
-    console.log(`you clicked clear`);
     this.setState({
       todo: this.state.todo.filter(task => {
         return !task.complete;
@@ -58,10 +55,13 @@ class App extends React.Component {
   };
 
   render() {
-    // console.log(`${this.state.todo.task}`);
     return (
       <div className="app">
-        <h2>Are You Done?</h2>
+        {this.state.todo.length !== 0 ? (
+          <h4>Cross It Off</h4>
+        ) : (
+          <h4>Really, Nothing?</h4>
+        )}
         <TodoForm addTask={this.addTask} />
         <TodoList
           todo={this.state.todo}

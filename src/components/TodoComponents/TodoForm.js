@@ -30,13 +30,13 @@ class TodoForm extends React.Component {
         <form id="to do list" onSubmit={this.handleSubmit} className="form">
           <input
             className="input"
-            placeholder="What else?"
+            placeholder="I need to..."
             onChange={this.handleChanges}
             type="text"
             name="item"
             value={this.state.todoItem}
           />
-          <button className="add-button">Do More</button>
+          <button className="add-button">Add Items</button>
         </form>
       </section>
     );
