@@ -1,0 +1,6 @@
+.todo {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 1% 0;
+    max-width: 300px;
+}
