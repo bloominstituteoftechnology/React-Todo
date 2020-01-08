@@ -24,10 +24,36 @@ class App extends React.Component {
     }
   }
   // class methods
-  addTodo = () => {
-
+  addTodo = (newTodoText) => {
+    const newTodo = {
+      task: newTodoText,
+      id: this.state.todos.length + 1,
+      completed: false
+    };
+    this.setState({
+      todos: [...this.state.todos, newTodo]
+    })
   };
-
+  clearCompleted = (event) => {
+    event.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(t => t.completed === false)
+    })
+  };
+  completeTodo = (todoId) => {
+    this.setState({
+      todos: this.state.todos.map(t => {
+        if (t.id === todoId) {
+          return {
+            ...t,
+            completed: !t.completed
+          }
+        } else {
+          return t
+        }
+      })
+    })
+  };
   render() {
     return (
       <div>
@@ -35,7 +61,7 @@ class App extends React.Component {
           <h2>Welcome to your Todo App!</h2>
           <TodoForm addTodo={this.addTodo}/>
         </header>
-        <TodoList todos={this.state.todos}/>
+        <TodoList todos={this.state.todos} completeTodo={this.completeTodo} clearCompleted={this.clearCompleted}/>
       </div>
     );
   }

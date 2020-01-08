@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Todo = ({task, completed}) => {
-	// console.log("Todo:", task, completed);
+const Todo = (props) => {
+	console.log("Todo:", props);
 	return (
-		<div>
+		<div onClick={() => props.completeTodo(props.id)}>
 			<h2>Todo</h2>
-			<p>Task: {task}</p>
-			<p>Completed: {completed.toString()}</p>
+			<p>Task: {props.task}</p>
+			<p>Completed: {props.completed.toString()}</p>
 		</div>
 	)
 };
