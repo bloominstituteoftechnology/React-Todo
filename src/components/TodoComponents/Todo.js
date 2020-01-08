@@ -1,12 +1,12 @@
 import React from 'react';
+import './Todo.css'
 
 const Todo = (props) => {
-	console.log("Todo:", props);
+	// console.log("Todo:", props);
 	return (
-		<div onClick={() => props.completeTodo(props.id)}>
-			<h2>Todo</h2>
-			<p>Task: {props.task}</p>
-			<p>Completed: {props.completed.toString()}</p>
+		<div className='todo' onClick={() => props.completeTodo(props.todo.id)}>
+			<p>Task: {props.todo.task}</p>
+			<p>Completed: {props.todo.completed.toString()}</p>
 		</div>
 	)
 };
