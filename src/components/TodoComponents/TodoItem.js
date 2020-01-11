@@ -5,7 +5,13 @@ class ToDoItem extends React.Component {
     super();
   }
   render() {
-    return <div>"name of task goes here"</div>;
+    //
+    return (
+      <div>
+        "<div className="title">name of task goes here"</div>
+        <input type="checkbox" />
+      </div>
+    );
   }
 }
 

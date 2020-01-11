@@ -1,10 +1,16 @@
 import React from "react";
 
+import DeleteButton from "./components/TodoComponents/DeleteButton";
+import TodoForm from "./components/TodoComponents/TodoForm";
+import TodoList from "./components/TodoComponents/TodoList";
+
 class App extends React.Component {
   constructor() {
     // you will need a place to store your state in this component.
     super();
-    this.state = {};
+    this.state = {
+
+    };
   }
 
   // design `App` to be the parent component of your application.
@@ -13,6 +19,9 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <TodoList/>
+        <TodoForm/>
+        <DeleteButton/>
       </div>
     );
   }
