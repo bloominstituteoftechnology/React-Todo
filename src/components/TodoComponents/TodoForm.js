@@ -3,15 +3,23 @@ import React from "react";
 
 class TodoForm extends React.Component {
   constructor() {
-    super();
+    super(); 
+    this.state = {
+      text:  ''
+    }
   }
+
+  // const handleSubmit = e => {
+  //   this.state.text = e.target.value;
+  // }
   render() {
     return (
       <form>
         <label for="newtodo">
           {" "}
           Enter your to do here!
-          <input id="newtodo" type="text" />
+          {/* assign onSubmit to handleSubmit i think */}
+          <input id="newtodo" type="text"  />
         </label>
         <button onClick ='handleclickfunction'>Submit!</button>
       </form>
