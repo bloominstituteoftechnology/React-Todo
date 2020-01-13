@@ -1,0 +1,9 @@
+.completed {
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
+.not-completed {
+    text-decoration: none;
+    cursor: pointer;
+}
