@@ -1,8 +1,9 @@
 import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import "./components/TodoComponents/Todo.css";
 
-const toDos = [
+const toDoItems = [
   {
     task: "Test1",
     id: "1",
@@ -15,13 +16,13 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoList: toDos,
+      toDoList: toDoItems,
     };
   }
 
   // Method that will strike out the ToDos. It will change Completed to TRUE, thereby changing the CSS style, marking it out
   toggleItem = id => {
-    const newTodoList = this.state.todoList.map(item => {
+    const newToDoList = this.state.toDoList.map(item => {
       if (item.id === id) {
         return {
           ...item,
@@ -31,9 +32,8 @@ class App extends React.Component {
         return item;
       }
     });
-
     this.setState({
-      toDos: newTodoList,
+      toDoList: newToDoList,
     });
   };
 
@@ -45,7 +45,7 @@ class App extends React.Component {
       completed: false,
     };
     this.setState({
-      toDoList: [...this.state.todoList, newItem],
+      toDoList: [...this.state.toDoList, newItem],
     });
   };
 
@@ -53,7 +53,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todoList={this.state.todoList} toggleItem={this.toggleItem} />
+        <TodoList toDoList={this.state.toDoList} toggleItem={this.toggleItem} />
 
         <TodoForm addItem={this.addItem} />
       </div>
