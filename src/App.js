@@ -40,7 +40,7 @@ class App extends React.Component {
 
   addItem = itemName => {
     const newItem = {
-      id: toDoList.length,
+      id: Date.now(),
       todoitem: itemName,
       isDone: false
     }
@@ -49,6 +49,7 @@ class App extends React.Component {
       toDoList: [...this.state.toDoList, newItem]
     });
   }
+
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
