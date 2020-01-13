@@ -1,0 +1,18 @@
+* {
+    text-align: center;
+  
+}
+
+h1 {
+    font-size: 24px;
+    font-family: cursive;
+}
+
+h2{
+    font-size: 20px;
+}
+.App {
+    box-shadow: 5px 10px grey;
+    border: 1px solid black;
+    width: 50%
+}
