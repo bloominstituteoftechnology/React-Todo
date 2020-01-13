@@ -3,25 +3,40 @@ import React from "react";
 
 class TodoForm extends React.Component {
   constructor() {
-    super(); 
+    super();
     this.state = {
-      text:  ''
-    }
+      text: ''
+    };
   }
 
   // const handleSubmit = e => {
   //   this.state.text = e.target.value;
   // }
+
+    handleChanges = e => {
+      this.setState({
+       text: e.target.value
+      })
+    }
+
+    handleSubmit = e => {
+      e.preventDefault();
+      // console.log(e.target.value);
+      this.props.addItem(this.state.text)
+      // console.log(this.state.text)
+    };
+
+
   render() {
     return (
-      <form>
-        <label for="newtodo">
+      <form onSubmit={this.handleSubmit}>
+        <label htmlFor="newtodo">
           {" "}
           Enter your to do here!
           {/* assign onSubmit to handleSubmit i think */}
-          <input id="newtodo" type="text"  />
+          <input id="newtodo" type="text" value={this.state.text} onChange={this.handleChanges}/>
         </label>
-        <button onClick ='handleclickfunction'>Submit!</button>
+        <button onClick={this.handleSubmit}>Submit!</button>
       </form>
       // <Form>
       //   <Field type="text" name="NewToDo" placeholder="Type New To Do Here"/>

@@ -1,18 +1,13 @@
 import React from "react";
 
-class ToDoItem extends React.Component {
-  constructor() {
-    super();
-  }
-  render() {
-    //
-    return (
-      <div>
-        "<div className="title">name of task goes here"</div>
-        <input type="checkbox" />
-      </div>
-    );
-  }
+const TodoItem = props => {
+  return (
+    <div onClick={()=> props.toggleItem(props.item.id)} className={`item${props.item.completed ? 'completed' : ''}`}>
+      <p>
+        {props.item.name}
+      </p>
+    </div>
+  )
 }
 
-export default ToDoItem;
+export default TodoItem;

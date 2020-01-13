@@ -2,15 +2,18 @@
 // feel free to change this component.js into TodoList.js
 
 import React from "react";
+import TodoItem from "./TodoItem"
 
-class TodoList extends React.Component {
-  constructor() {
-    super();
-  }
-  render() {
-      //need to display all todos as they are created
-    return <div>TodoList</div>
-  }
+const TodoList = props => {
+  return (
+    <div>
+      {
+        props.todoList.map(item => {
+          return <TodoItem key={item.id}toggleItem={props.toggleItem} item={item}/>
+        })
+      }
+    </div>
+  )
 }
 
 export default TodoList;
