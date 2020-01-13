@@ -1,14 +1,11 @@
-//<Todo /> is a component that takes in the todo data and displays the task to the screen.
-const data = [
-    {
-      task: 'Study Class Components',
-      id: 0,
-      done: false
-    },
-    {
-      task: 'Eat Dinner',
-      id: 1,
-      done: false
-    }
-  ];
-export default data;
+import React from "react";
+
+
+const Todo = props => {
+    return(
+        <div style={props.todo.completed ? {textDecoration: 'line-through'} : null} onClick = {() => props.handleComplete(props.todo.id)}>
+           {props.todo.task} 
+        </div>
+    )
+}
+export default Todo
