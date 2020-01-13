@@ -5,13 +5,28 @@ import ToDoForm from "./components/TodoComponents/TodoForm";
 
 const list = [
   {
-    task: "Organize Garage",
+    task: "Organize garage",
     id: 1528817077286,
     completed: false
   },
   {
-    task: "Bake Cookies",
+    task: "Bake cookies",
     id: 1528817084358,
+    completed: false
+  },
+  {
+    task: "Pay bills",
+    id: 1528817084332,
+    completed: false
+  },
+  {
+    task: "Go to market",
+    id: 152881708433908,
+    completed: false
+  },
+  {
+    task: "Call mom",
+    id: 152881708435908,
     completed: false
   }
 ];
@@ -54,12 +69,22 @@ class App extends React.Component {
     this.setState({ toDoList: [...this.state.toDoList, newTask] });
   };
 
+  clearCompleted = () => {
+    const clearedToDoList = this.state.toDoList.filter(item => {
+      return item.completed === false;
+    });
+    this.setState({
+      toDoList: clearedToDoList
+    });
+  };
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <h3>Tasks:</h3>
         <ToDoList list={this.state.toDoList} toggleItem={this.toggleItem} />
-        <ToDoForm addTask={this.addTask} />
+        <ToDoForm addTask={this.addTask} clearCompleted={this.clearCompleted} />
       </div>
     );
   }
