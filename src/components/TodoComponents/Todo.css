@@ -1,0 +1,19 @@
+body {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.item {
+  margin: 0 auto;
+  background-color: gray;
+  cursor: pointer;
+  width: 20%;
+  text-align: center;
+  color: white;
+  border-radius: 8px;
+}
+
+.item.completed {
+  background-color: rgb(173, 173, 173);
+  text-decoration: line-through;
+}
