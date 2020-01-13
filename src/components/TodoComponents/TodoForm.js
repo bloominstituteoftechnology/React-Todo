@@ -5,12 +5,15 @@ import React from "react";
 
 class TodoForm extends React.Component{
 render(){
-    <form>
-        <label>Add Task:
-            <input type="text"></input>
-        </label>
-        <button>Submit Task</button>
-        <button>Clear Finished Task</button>
-    </form>
+    return(
+        <form>
+            <label>Add Task:
+                <input onChange={this.props.handleInput} type="text"></input>
+            </label>
+            <button onClick={this.props.addTask}>Submit Task</button>
+            <button onClick={this.props.clearFinished}>Clear Finished Task</button>
+        </form>
+    )
 }
 }
+export default TodoForm;
