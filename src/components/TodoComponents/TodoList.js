@@ -3,7 +3,6 @@
 
 import React from 'react';
 //import Item from './Todo';
-import TodoForm from './TodoForm';
 import Todo from './Todo';
 
 const TodoList = props => {
@@ -13,7 +12,6 @@ const TodoList = props => {
         {props.todo.map(item => (
             <Todo key={item.id} item={item} toggleItem={props.toggleItem} />
         ))}
-        <TodoForm AddTodo={props.AddTodo} />
         </div>
     );
 };
