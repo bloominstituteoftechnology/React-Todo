@@ -1,13 +1,20 @@
 import React from 'react';
+import { todoStyle } from '../../Styles/FormStyles';
 
-const Todo = props => {
+import Todo from './Todo';
+
+const TodoList = props => {
   return (
-    <div
-      onClick={() => props.handleToggleComplete(props.todo.id)}
-    >
-      {props.todos.task}
+    <div className="todos" style={ todoStyle }>
+      {props.todos.map(todo => (
+        <Todo
+          handleToggleComplete={props.handleToggleComplete}
+          key={todo.id}
+          todo={todo}
+        />
+      ))}
     </div>
   );
 };
 
-export default Todo;
+export default TodoList;
