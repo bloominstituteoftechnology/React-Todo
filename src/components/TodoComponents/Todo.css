@@ -1,0 +1,16 @@
+.item{
+    width: 45%;
+    margin:4px 0;
+    padding-left: 8px;
+    cursor: pointer;
+
+}
+
+.completed{
+    text-decoration: line-through;
+}
+
+.not-completed{
+   
+
+}
