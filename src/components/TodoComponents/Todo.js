@@ -1,7 +1,7 @@
 import React from "react";
 
 const Todo = props => {
-  console.log("Props on Todo.js: ", props);
+  // console.log("Props on Todo.js: ", props);
   return (
     <div
       className={`item${props.item.completed ? " completed" : ""}`}
