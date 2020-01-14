@@ -6,7 +6,7 @@ import './components/TodoComponents/Todo.css';
 
 let toDoList = [
   {
-    id: 0,
+    id: Date.now(),
     todoitem : 'Write up diary',
     isDone : false
   }
@@ -50,6 +50,18 @@ class App extends React.Component {
     });
   }
 
+  clearCompleted = () => {
+    const newTodoList = this.state.toDoList.filter(item => {
+      if (item.isDone === false) {
+        return item;
+      }
+    })
+
+    this.setState({
+      toDoList: newTodoList
+    })
+  }
+
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
@@ -58,6 +70,7 @@ class App extends React.Component {
         <h2>Todo List: MVP</h2>
         <TodoList todo={this.state.toDoList} toggleItem={this.toggleItem} />
         <TodoForm addItem={this.addItem} />
+        <button onClick={this.clearCompleted}>Clear Completed</button>
       </div>
     );
   }
