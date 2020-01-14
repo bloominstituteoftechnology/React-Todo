@@ -1,6 +1,6 @@
 import React from 'react';
-import TodoForm from "./components/TodoComponents/TodoForm";
-import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm.js";
+import TodoList from "./components/TodoComponents/TodoList.js";
 
 const tasks = [
   {
@@ -20,38 +20,10 @@ const tasks = [
   },
 ];
 
-
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      todoList: tasks,
-    };
-  }
-
-  addItem = itemName => {
-    const newItem = {
-      name: itemName,
-      id: Date.now(),
-      done: false
-    };
-    this.setState({
-      todoList: [...this.state.todoList, newItem]
-    });
-  };
-
+export default class App extends React.Component {
   render() {
     return (
-      <div>
-        <h2>My Todo List</h2>
-        <TodoList 
-          addItem = {this.state.tasks} 
-          toggleItem = {this.toggleItem}/>
-        <TodoForm 
-          addItem = {this.AddItem}/>
-      </div>
+      <TodoList/>
     );
   }
 }
-
-export default App;
