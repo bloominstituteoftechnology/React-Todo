@@ -1,0 +1,18 @@
+body * {
+    border: solid red 1px;
+    background-image: url('../../chris.adamus-_aNFQ_7RxNc-unspalsh.jpg')
+}
+
+
+.App {
+    width: 50%;
+    margin: auto;
+}
+
+.task {
+    background-color: white
+}
+.completed > p {
+    text-decoration: line-through black;
+    
+}
