@@ -5,12 +5,12 @@ import "./App.css"
 
 const data = [
   {
-    task: "Organize Garage!",
+    task: "Learn class components!",
     id: 1,
     completed: false
   },
   {
-    task: "Bake Cookies!",
+    task: "Dont forget class components!",
     id: 2,
     completed: false
   }
@@ -25,6 +25,7 @@ class App extends React.Component {
     super();
     this.state = {
       things: data // there is a property called things that has an initial state of data
+  
     };
   }
   addItem = name => {

@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./Todo.css"
+
 class TodoForm extends React.Component {
   // Constructor with state
   // add a state property called "newItem"
@@ -38,6 +40,7 @@ class TodoForm extends React.Component {
           {/* This is an uncontrolled component We want it to be controlled by state */}
           <label htmlFor="item">New Task: </label>
           <input
+            className="input"
             type="text"
             placeholder="...todo task here"
             name="item"
@@ -45,7 +48,7 @@ class TodoForm extends React.Component {
             value={this.state.newItem}
             onChange={this.handleChanges}
           />
-          <button>Add Todo</button>
+          <button className="add">Add Todo</button>
           <button className="clear" onClick={this.props.clearDone}>
             Clear Completed
           </button>

@@ -1,13 +1,13 @@
-* {
-    text-align: center;
-}
+
   
 body {
-    background-image: url("./background.jpg");
-    height: 2000px;
-    width: 1000px;
+   
+    background-image: url("./background.jpeg");
+    background-repeat: no-repeat;
     
-
+    background-attachment: fixed;
+    background-size: 100em;
+    
 }
 
 h1 {
@@ -22,5 +22,12 @@ h2{
     box-shadow: 5px 10px grey;
     border: 1px solid black;
     width: 50%;
+    text-align: center;
+    margin-left: 20em;
+    margin-top: 10em;
     background-image: url("https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80")
+}
+.todo-list {
+  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
