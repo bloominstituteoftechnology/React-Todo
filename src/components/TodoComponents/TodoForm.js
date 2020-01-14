@@ -1,9 +1,10 @@
 import React from "react";
 import shortid from "shortid";
-export default class TodoForm extends React.component {
+
+class TodoForm extends React.Component {
     state = {
         text: ""
-    };
+    }
 
     handleChange = (event) => {
         this.setState({
@@ -18,6 +19,9 @@ export default class TodoForm extends React.component {
             id: shortid.generate(),
             complete: false
         })
+        this.setState({
+            text: ""
+        });
     }
 
     render() {
@@ -28,8 +32,12 @@ export default class TodoForm extends React.component {
                     value={this.state.text}
                     onChange={this.handleChange}
                     placeholder="todo..."
-                />              
+                />       
+                <button onClick={this.handleSubmit}>submit</button>
             </form>
+
         );
     }
 }
+
+export default TodoForm;
