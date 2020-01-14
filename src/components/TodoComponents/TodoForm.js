@@ -33,7 +33,7 @@ class TodoForm extends React.Component {
                     onChange={this.handleChange}
                     placeholder="todo..."
                 />       
-                <button onClick={this.handleSubmit}>submit</button>
+                <button onClick={this.handleSubmit}>Add Todo</button>
             </form>
 
         );
