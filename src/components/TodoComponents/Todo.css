@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
+.App {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 80vh;
+}
+
+body {
+	background-image: url('./../../images/dark-matter.png');
+	background-color: white;
+	font-family: 'Courgette';
+	color: #098b54;
+}
+
+h1 {
+	color: #003e21;
+	font-size: 3em;
+	margin: 0;
+}
+
+.completed {
+	text-decoration: line-through;
+}
+
+p {
+	cursor: pointer;
+	border: 2px solid white;
+}
+
+input[type='text'] {
+	text-decoration: none;
+	border: none;
+	border-bottom: 2px solid #003e21;
+	width: 70%;
+	margin-right: 4%;
+	margin-left: 4%;
+	margin-bottom: 5%;
+	background: none;
+
+	padding: 3px 0px 3px 3px;
+	margin: 5px 1px 3px 0px;
+}
+
+input :focus {
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+	padding: 3px 0px 3px 3px;
+	margin: 5px 1px 3px 0px;
+	border: 1px solid rgba(81, 203, 238, 1);
+}
+
+form {
+	width: 45%;
+	margin-left: 4%;
+}
+
+button {
+	background-color: #098b54;
+	color: white;
+	padding: 5px 10px;
+	border-radius: 20px;
+	border: none;
+	font-size: 1.2em;
+	margin-top: 5px;
+	margin-right: 3%;
+}
+
+clear-btn {
+	margin-top: 55px;
+}

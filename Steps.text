@@ -1,0 +1,17 @@
+* Set up components, the parent (APP) is a class component to hold the state, change handlers - for that: build the constructor and super.
+
+* The App renders the TodosList, set the state and other functions/methods, pass the props, 'todos={todos}'
+
+*In the TodoList, map over the todos: 
+
+    {props.todos.map(todo => (
+		<Todo key={todo.id} todo={todo} />
+	))}
+
+and pass down the necessary props, id, and the todo object.
+
+* Create the Todo component and set the class of the div like this:
+
+    className={`todo${props.todo.completed ? 'completed' : ''}`}
+
+and finally, the todo: <p>{props.todo.task}</p>
