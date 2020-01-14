@@ -1,0 +1,22 @@
+
+.App {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.button {
+    color: rgb(3, 32, 15);
+    background-color: rgb(160, 160, 160);
+    border-color: #2E4C80;
+    width: 200px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.completedTask {
+    text-decoration: line-through;
+}
+
+h2 {
+    color: purple;
+}
+
