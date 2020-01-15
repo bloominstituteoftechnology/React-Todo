@@ -15,11 +15,15 @@ class App extends React.Component {
     };
   }
 
+  toggleTodo = todoId => {
+    // console.log("id: ", todoId);
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} toggleTodo={this.toggleTodo} />
       </div>
     );
   }
