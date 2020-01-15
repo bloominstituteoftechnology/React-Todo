@@ -2,6 +2,7 @@ import React from 'react';
 
 import { todos } from './data';
 import TodoList from './components/TodoComponents/TodoList';
+import "./components/TodoComponents/Todo.css";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -17,6 +18,18 @@ class App extends React.Component {
 
   toggleTodo = todoId => {
     // console.log("id: ", todoId);
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todoId === todo.id) {
+          // console.log({ ...todo });
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        }
+        return todo;
+      })
+    })
   }
 
   render() {
