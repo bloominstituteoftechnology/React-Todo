@@ -1,0 +1,6 @@
+p.Confirmed {
+    text-decoration: line-through;
+}
+p.List {
+    text-decoration: none;
+}
