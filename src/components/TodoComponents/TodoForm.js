@@ -28,8 +28,14 @@ class TodoForm extends React.Component {
                     />
                     <button className='btn-add'>Add</button>                    
                 </form>
+                <button className='btn-clear' onClick={this.props.saveData}>
+                    Save
+                </button>
+                <button className='btn-clear' onClick={this.props.loadData}>
+                    Load
+                </button>
                 <button className='btn-clear' onClick={this.props.clearCompleted}>
-                    Clear Completed
+                    Delete Selected
                 </button>
             </div>
         )

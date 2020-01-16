@@ -4,7 +4,7 @@ import TodoList from './components/TodoComponents/TodoList';
 
 import './App.css'
 
-const tasks = [];
+let tasks = [];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -26,6 +26,7 @@ class App extends React.Component {
       ]
     };
     this.setState(newState);
+    // window.localStorage.setItem('tasks', JSON.stringify(newState));
   };
 
   toggleCompleted = id => {
@@ -54,6 +55,16 @@ class App extends React.Component {
     this.setState(newState);
   };
 
+  saveData = () => {
+    localStorage.setItem('tasks', JSON.stringify(this.state));
+  }
+
+  loadData = () => {
+    let savedList = JSON.parse(localStorage.getItem('tasks'));
+    this.setState(savedList);
+
+  }
+
   render() {
     return (
       <div className='app'>
@@ -63,10 +74,11 @@ class App extends React.Component {
         <section>
           <TodoForm 
             addNewTask={this.addNewTask}
-            clearCompleted={this.clearCompleted} 
+            clearCompleted={this.clearCompleted}
+            saveData={this.saveData}
+            loadData={this.loadData}
           />
         </section>
-
         <section>
           <TodoList 
             todoList={this.state.todoList}
