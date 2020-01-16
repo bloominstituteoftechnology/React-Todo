@@ -31,9 +31,15 @@ class App extends Component {
 
   componentWillMount(){
     let stringData = localStorage.getItem('data');
-    let data = JSON.parse(stringData);
-    console.log(data);
-    this.setState({data: data.data})
+    if(stringData != null){
+      let data = JSON.parse(stringData);
+      console.log(data);
+      this.setState({data: data.data})
+    }
+    else{
+      return;
+    }
+    
   }
 
   generateTodo(){
