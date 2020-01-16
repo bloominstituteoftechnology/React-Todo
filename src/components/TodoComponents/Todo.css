@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color:white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span {
+  color: white;
+  font-family: 'Oswald', sans-serif;
+}
+
+.App {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    color: whitesmoke;
+
+  }
+
+  .header {
+   
+    color:black;
+    font-size: 55px;
+  }
+  h1 {
+    text-align: center;
+    color:black;
+  }
+  
+  .todo-list {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+
+.item {
+    background-color:grey;
+    text-align: center;
+    font-size: 3rem;
+    width: 100vw;
+    margin: 10px;
+    padding: 20px;
+    cursor: pointer;
+  }
+  
+  .itemchecked {
+    background-color: black;
+    text-decoration: line-through;
+    text-align: center;
+    font-size: 3rem;
+    width: 100vw;
+    margin: 10px;
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+    
+  }
+    input {
+    background-color:white;
+    font-size: 5rem;
+    display: block;
+    color: black;
+    border-bottom: 1px solid #e64944;
+    padding: 10px;
+   margin: 0 auto;
+    font-family: 'Oswald', sans-serif;
+   
+  }
+
+  .form{
+      background-color: whitesmoke;
+      display: inline;
+      flex-direction: column;
+  }
+
+    .add-button {
+    background-color: #e64944;
+    color: white;
+    font-size: 5rem;
+    padding: .5rem 1.5rem;
+    font-family: 'Oswald', sans-serif;
+    
+   
+  }
+  .clear-button{
+    background-color: #e64944;
+    color: white;
+    display: flex;
+    font-family: 'Oswald', sans-serif;
+    font-size: 5rem;
+    padding: .5rem 1.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+
+ 
