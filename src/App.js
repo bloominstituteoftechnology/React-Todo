@@ -1,5 +1,7 @@
 import React from 'react';
-//  import TodoForm from "./components/TodoComponents/TodoForm"
+import TodoForm from "./components/TodoComponents/TodoForm"
+import TodoList from "./components/TodoComponents/TodoList"
+import Todo from "./components/TodoComponents/Todo"
 
 
 
@@ -17,57 +19,86 @@ const items=[
 ];
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-
- 
+  //constructor with a state 
   constructor(){
     super()
     this.state={
-       itemsList:""
-     
-      
-      
-    }
+       itemsList:items ,//state as on object with a key of itemsList
+       /*Example as a Hook State
+       const [itemsList, setItemsList]=useState(items);
+       */
+     }
   }
 
-  // addItems =newItem=>{
-  //  this.setState({
-  //    itemsList:[newItem]
-  //  })
-  // }
+  //Class Method to update State 
+  toggleCompleted=id=>{
     
-  
-  
-
-  handleInputChange=event=>{
-  this.setState({itemsList:event.target.value})
+    const newState={
+      ...this.state, 
+      itemsList : this.state.itemsList.map(item=>{
+        if(item.id===id){
+        return {
+          ...item, 
+          completed: !item.completed
+        }
+      }
+      return item
+      })
+    };
+    this.setState(newState)
   }
 
-  handleSubmit=e=>{
-    e.preventDefault()
-    this.state.addItems(this.state.itemsList)
-
+  addNewItem=newToDo=>{
+    const newState={
+      ...this.state, 
+      itemsList :[
+        ...this.state.itemsList, 
+        {task:newToDo, 
+          completed: false,
+           id: Date.now()}]
+        };
+        this.setState(newState)
   }
+  
+
+  clearTodo=()=>{
+    const newState={
+      ...this.state,
+      itemsList :this.state.itemsList.filter(item=>{
+        return !item.completed
+      })
+    }
+    this.setState(newState)
+  }
+  
+
+  // handleInputChange=event=>{
+  // this.setState({itemsList:event.target.value})
+  // }
+
+  // handleSubmit=e=>{
+  //   e.preventDefault()
+  //   this.state.addItems(this.state.itemsList)
+
+  // }
 
   
   render() {
     
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h2>{this.state.itemsList}</h2>
-        <input 
-        type="text" 
-        placeholder="..todo"
-        value={this.state.itemsList} 
-        onChange={this.handleInputChange}/>
-        <button onClick={this.handleInputChange}> Add To do</button>
-        <button onClick={this.handleInputChange}> Remove To do</button>
-        {/* <TodoForm addNewItem={this.addItems}/> */}
+      <div className="App">
+        <div className="header">
+          <h1>My First React ToDo List</h1>
+          <TodoForm addNewItem={this.addNewItem}/>
+        </div>
+        <TodoList 
+        items={this.state.itemsList} 
+        toggleCompleted={this.toggleCompleted}
+          clearTodo={this.clearTodo}
+        /> 
+        {/* Hooking up The TodoList component with a props (items) which is a list of items that is a part of this state   */}
 
-        
-      </form>
+      </div>
     );
   }
 }
