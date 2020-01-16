@@ -2,9 +2,11 @@ import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
 
+import './App.css'
+
 const tasks = [
   {
-    name: "Program",
+    task: "Program",
     id: 1,
     completed: false
   }
@@ -18,7 +20,7 @@ class App extends React.Component {
     todoList: tasks
   };
 
-  addTaskItem = newTaskName => {
+  addNewTask = newTaskName => {
     const newState = {
       ...this.state, 
       todoList: [
