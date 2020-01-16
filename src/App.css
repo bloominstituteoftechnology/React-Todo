@@ -1,5 +1,64 @@
-.completed {
+.app {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
+h1 {
+    margin: 0;
+    text-align: center;
+    margin-bottom: 2rem;
+    background-color: rgb(14, 77, 119);
+    color: white;
+    padding: 2rem;
+}
+
+.form-todo {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px black;
+}
+
+.btn-add, .btn-clear {
+    background-color: rgb(35, 165, 182); /* Green */
+    border: none;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.1rem;
+}
+
+input[type=text] {
+    padding: 12px 20px;
+    margin: 0 1rem;
+    box-sizing: border-box;
+}
+
+.todo-list {
+    max-width: 800px;
+    margin: 5rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.task {
+    background-color: #35934C;
+    border: none;
+    color: white;
+    padding: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 1rem;
+    max-width: 35%;
+    overflow-wrap: break-word;
+}
+
+.completed {
     text-decoration: line-through;
+    background-color: rgb(66, 66, 66);
 }
 

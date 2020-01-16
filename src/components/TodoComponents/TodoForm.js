@@ -6,15 +6,13 @@ class TodoForm extends React.Component {
     };
 
     handleChanges = e => {
-        this.setState({
-            ...this.state,
-            newTask: e.target.value
-        });
+        this.setState({...this.state, newTask: e.target.value});
     };
 
     handleSubmit = e => {
         e.preventDefault();
         this.props.addNewTask(this.state.newTask);
+        this.setState({...this.state, newTask: ''});
     };
 
     render() {
@@ -26,8 +24,9 @@ class TodoForm extends React.Component {
                         type='text'
                         name='task'
                         value={this.state.newTask}
+                        maxLength='200'
                     />
-                    <button>Add</button>                    
+                    <button className='btn-add'>Add</button>                    
                 </form>
                 <button className='btn-clear' onClick={this.props.clearCompleted}>
                     Clear Completed

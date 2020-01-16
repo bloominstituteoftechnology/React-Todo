@@ -4,13 +4,7 @@ import TodoList from './components/TodoComponents/TodoList';
 
 import './App.css'
 
-const tasks = [
-  {
-    task: "Program",
-    id: 1,
-    completed: false
-  }
-];
+const tasks = [];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -62,14 +56,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='app'>
         <header>
-          <h2>Welcome to your Todo App!</h2>
+          <h1>Welcome to your Todo App!</h1>
+        </header>
+        <section>
           <TodoForm 
             addNewTask={this.addNewTask}
             clearCompleted={this.clearCompleted} 
           />
-        </header>
+        </section>
+
         <section>
           <TodoList 
             todoList={this.state.todoList}
