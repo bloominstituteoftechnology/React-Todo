@@ -1,16 +1,27 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm';
+import './components/TodoComponents/Todo.css'
 
 const tasks =[
   {
-    task: 'Organize Garage',
+    name: 'Organize Garage',
     id: 1528817077286,
     completed: false
   },
   {
-    task: 'Bake Cookies',
+    name: 'Bake Cookies',
     id: 1528817084358,
+    completed: false
+  },
+  {
+    name: 'Do grocery shopping',
+    id: 1528817084348,
+    completed: false
+  },
+  {
+    name: 'Wash Car',
+    id: 15288170444358,
     completed: false
   }
 ];
@@ -21,6 +32,43 @@ class App extends React.Component {
       tasksList:tasks
     };
   }
+  addNewTask = newTaskName =>{
+    const newState = {
+      ...this.state,
+      tasksList:[
+        ...this.state.tasksList,
+        {name:newTaskName, completed:false, id:Date.now()}
+      ]
+    };
+    this.setState(newState);
+  };
+
+  toggleDone = id =>{
+    const newState = {
+      ...this.state,
+      tasksList: this.state.tasksList.map(task =>{
+        if(task.id === id){
+          return{
+            ...task,
+            completed: !task.completed
+          };
+        }
+        return task;
+      })
+    };
+    this.setState(newState);
+  };
+
+  clearTask = () => {
+    const newState = {
+      ...this.state,
+      tasksList: this.state.tasksList.filter(item => {
+        return !item.completed; 
+      })
+    };
+    this.setState(newState);
+  };
+
 
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -28,8 +76,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-       <TodoList/>
-       <TodoForm/>
+       <TodoList 
+       tasks={this.state.tasksList}
+       toggleDone={this.toggleDone}
+       clearTask={this.clearTask}
+       />
+       <TodoForm addNewTask={this.addNewTask}/>
       </div>
     );
   }

@@ -7,8 +7,15 @@ import Todo from './Todo'
      return (
          <div>
              <h3>TO DO LIST</h3>
-             <Todo/>
+             {props.tasks.map(task => (
+             <Todo
+                key={task.id}
+                task={task}
+                toggleDone={props.toggleDone}
+             />
+            ))}
+             <button onClick={props.clearTask}>DONE</button>
          </div>
-     )
- }
+     );
+ };
  export default TodoList;
