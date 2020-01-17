@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  background-color: #2d2d37;
+  background-color: #464159;
 }
 
 h1,
@@ -39,5 +39,30 @@ span {
 }
 h1 {
   text-align: left;
+  margin-left: 30%;
 }
 
+form > input {
+  background-color : #464159;
+  border: 0;
+  padding: 6px 0;
+  font-size: 1rem;
+  width: 240px;
+  outline: 0;
+  color: white;
+  border-bottom: 1px solid white;
+  margin-right: 8px;
+}
+
+button {
+  background-color: #6c7b95;
+  border: 2px solid #C7F0DB;
+  color: white;
+  font-size: 16px;
+  padding: 6px 14px;
+}
+
+.id.completed {
+  color: black;
+  text-decoration: line-through;
+}

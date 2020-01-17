@@ -29,11 +29,12 @@ class TodoForm extends React.Component{
                 name="ToDo"
                 value={this.state.newText}
                 />
+                
+                
+                <button > Add</button>
                 <button 
             ClassName="clear-btn"
             onClick={this.props.clearTodo}> Clear Todo </button>
-                
-                <button > Add</button>
                 </form>
                 
 
