@@ -1,9 +1,7 @@
 import React from 'react';
 import TodoForm from "./components/TodoComponents/TodoForm"
 import TodoList from "./components/TodoComponents/TodoList"
-import Todo from "./components/TodoComponents/Todo"
-
-
+import "./styles.css"
 
 const items=[
   {
@@ -23,7 +21,7 @@ class App extends React.Component {
   constructor(){
     super()
     this.state={
-       itemsList:items ,//state as on object with a key of itemsList
+       itemsList: items ,//state as on object with a key of itemsList
        /*Example as a Hook State
        const [itemsList, setItemsList]=useState(items);
        */
@@ -32,6 +30,7 @@ class App extends React.Component {
 
   //Class Method to update State 
   toggleCompleted=id=>{
+    console.log("ID", id)
     
     const newState={
       ...this.state, 
@@ -47,11 +46,12 @@ class App extends React.Component {
     };
     this.setState(newState)
   }
+  
 
   addNewItem=newToDo=>{
     const newState={
       ...this.state, 
-      itemsList :[
+      itemsList:[
         ...this.state.itemsList, 
         {task:newToDo, 
           completed: false,
@@ -64,23 +64,15 @@ class App extends React.Component {
   clearTodo=()=>{
     const newState={
       ...this.state,
-      itemsList :this.state.itemsList.filter(item=>{
-        return !item.completed
+      itemsList: this.state.itemsList.filter(item=>{
+        return !item.completed;
       })
     }
     this.setState(newState)
   }
   
 
-  // handleInputChange=event=>{
-  // this.setState({itemsList:event.target.value})
-  // }
-
-  // handleSubmit=e=>{
-  //   e.preventDefault()
-  //   this.state.addItems(this.state.itemsList)
-
-  // }
+  
 
   
   render() {
@@ -89,12 +81,17 @@ class App extends React.Component {
       <div className="App">
         <div className="header">
           <h1>My First React ToDo List</h1>
-          <TodoForm addNewItem={this.addNewItem}/>
+          
         </div>
+        <TodoForm addNewItem={this.addNewItem}
+          clearTodo={this.clearTodo}
+          
+        />
         <TodoList 
         items={this.state.itemsList} 
         toggleCompleted={this.toggleCompleted}
-          clearTodo={this.clearTodo}
+     
+          
         /> 
         {/* Hooking up The TodoList component with a props (items) which is a list of items that is a part of this state   */}
 
