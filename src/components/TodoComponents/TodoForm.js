@@ -1,40 +1,41 @@
-import React from "react";
+import React from 'react'
 
 class TodoForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      taskName: ""
+      todoName: ""
     };
   }
 
-  handleChanges = e => {
+  handleChanges = event => {
     this.setState({
-      taskName: e.target.value
+      todoName: event.target.value
     });
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    if (this.state.taskName !== "") {
-      this.props.addTask(this.state.taskName);
-      this.setState({
-        taskName: ""
-      });
+  handleSubmit = event => {
+    event.preventDefault();
+    if (this.state.todoName !== "") {
+      console.log(this.state.todoName)
+      this.state.addTodo(this.state.todoName);
+      this.state({
+        itemName: ""
+      })
     }
   };
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input
-          onChange={this.handleChanges}
-          placeholder="...todo"
-          type="text"
-          name="task"
-          value={this.state.taskName}
+        <input 
+          onChange ={this.handleChanges}
+          type='text' 
+          name='task' 
+          value={this.state.todoName}
         />
-        <button>Add</button>
+        <button onClick={this.addTodo}>Add Todo</button>
+        <button onClick={clearList}>Clear Todo</button>
       </form>
     );
   }
