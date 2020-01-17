@@ -1,46 +1,72 @@
-import React from 'react';
-import TodoForm from './Components/TodoComponents/TodoForm'
+import React from "react";
 
-const data = [];
+import TodoForm from "./components/components/TodoForm";
+import TodoList from "./components/components/TodoList";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-
   constructor() {
     super();
     this.state = {
-      task: data,
+      tasks: "",
+      id: Date.now(),
       completed: false
-    }
+    };
   }
 
-  toggleTodo(Todo) {
-    console.log(Todo);
-  }
-
-  addTodo = todoName => {
-    // event.preventDefault();
-    this.state([
-      
-    ])
-  }
-
-  cosnt clearDoneTodo = () => {
-    console.log("Clear Todo")
-    this.state( {
-      task: this.state.task.filter(item => {
-        return !item.completed
+  toggleTask = taskId => {
+    this.setState({
+      tasks: this.state.tasks.map(task => {
+        if (task.id === taskId) {
+          return {
+            ...task,
+            done: !task.done
+          };
+        }
+        return task;
       })
     });
-  }
+  };
+
+  clearDone = () => {
+    this.setState({
+      tasks: this.state.tasks.filter(task => {
+        return !task.done;
+      })
+    });
+  };
+
+  addTask = taskName => {
+    this.setState({
+      tasks: [
+        ...this.state.tasks,
+        {
+          tasks: taskName,
+          id: Date.now(),
+          completed: false
+        }
+      ]
+    });
+  };
 
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm todo={this.state.task} addTodo={this.addTodo} />
+        <div className="header">
+          <>
+            <h2>Welcome to your Todo App!</h2>
+          </>
+          <>
+            <TodoForm addTask={this.addTask} />
+          </>
+        </div>
+        <TodoList
+          tasks={this.state.tasks}
+          toggleTask={this.toggleTask}
+          clearTask={this.clearTask}
+        />
       </div>
     );
   }
