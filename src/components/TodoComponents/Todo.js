@@ -9,7 +9,7 @@ class App extends React.Component {
 
   completedStyle(){
     if(this.props.task.completed){
-        return "finished";
+        return 'finished'
     }
 
     return "is my new task";

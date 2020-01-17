@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todo.css';
 
 class App extends React.Component {
 
@@ -26,14 +27,14 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='form-list'>
                 <form>
                     <label>
-                        <input type="text" value={this.state.task} placeholder="new task..." onChange={(event) => {console.log("SETTING STATE TASK TO ", event.target.value); this.setState({task: event.target.value})}}/>
+                        <input type="text" value={this.state.task} placeholder="What you gotta do...." onChange={(event) => {console.log("SETTING STATE TASK TO ", event.target.value); this.setState({task: event.target.value})}}/>
                     </label>
                 </form>
-                <button onClick={(event) => { event.preventDefault(); this.props.newTodo(this.submit()) }}>Submit</button>
-                <button onClick={(event) => { event.preventDefault(); this.props.clearCompleted()}}>Clear Completed</button>
+                <button className='button-a' onClick={(event) => { event.preventDefault(); this.props.newTodo(this.submit()) }}>Submit</button>
+                <button className='button-b' onClick={(event) => { event.preventDefault(); this.props.clearCompleted()}}>Clear Completed</button>
             </div>
         );
     }

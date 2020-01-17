@@ -1,0 +1,22 @@
+.form-list {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    background-color: slategrey;
+    border: 1px solid black;
+}
+
+.form-list button {
+    background-color: white;
+    border: 1px solid black;
+}
+
+.button-a:hover {
+    background-color: darkgreen;
+    color: white;
+}
+
+.button-b:hover {
+    background: red;
+    color: white;
+}
