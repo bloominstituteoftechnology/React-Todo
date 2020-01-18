@@ -1,8 +1,8 @@
-@media (max-width: 800px) {
+@media (min-width: 800px) {
 .App {
     margin-left: 2% auto;
     border: 1px solid black;
-    margin: 0% 35% 0 35%;
+    margin: 0% 45% 0 45%;
     padding-bottom: 2%;
     border-radius: 5%;
     background-color: lightgreen;
@@ -65,6 +65,42 @@ p {
     }
 }
 @media (min-width: 400px) {
+    .App {
+        margin-left: 5% auto;
+        border: 1px solid black;
+        margin: 40% 20% 0 20%;
+        padding-bottom: 2%;
+        border-radius: 5%;
+        background-color: lightgreen;
+        padding-top: 5%;
+        box-shadow: 0 5px 5px 0;
+        
+    }
+    .todo-list {
+        display: block;
+        text-align: center;
+        
+    }
+    
+    .header {
+        text-align: center;
+        padding: 0 3% 0 3%;
+        
+    }
+    p {
+        border: 1px solid black;
+        margin: 10% 30% 10% 30%;
+        border-radius: 5%;
+           
+    }
+    .toggle-completed {
+        text-decoration: line-through;
+    }  
+    h4 {
+        padding: 0 3% 0 3%;
+    }
+}
+@media (min-width: 300px) {
     .App {
         margin-left: 5% auto;
         border: 1px solid black;
