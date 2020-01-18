@@ -6,7 +6,7 @@ import TodoForm from './components/TodoComponents/TodoForm';
 
 let todos = [
   {
-    task: 'Go to Doctors appt.',
+    task: 'Go to Doctors appt',
     id: 1235665321,
     completed: false,
     
