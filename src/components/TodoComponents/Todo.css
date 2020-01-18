@@ -1,0 +1,30 @@
+.App {
+    margin-left: 2% auto;
+    border: 1px solid black;
+    margin: 35% 35% 0 35%;
+    padding-bottom: 2%;
+    border-radius: 5%;
+    background-color: lightgreen;
+    padding-top: 5%;
+    box-shadow: 0 5px 5px 0;
+    
+}
+.todo-list {
+    display: block;
+    text-align: center;
+    
+}
+
+.header {
+    text-align: center;
+    
+}
+p {
+    border: 1px solid black;
+    margin: 10% 30% 10% 30%;
+    border-radius: 5%;
+       
+}
+.toggle-completed {
+    text-decoration: line-through;
+}
