@@ -53,9 +53,11 @@ class App extends React.Component {
   //handlers go in here
   addTodo = e => {
     e.preventDefault();
-    const newTodo = { task: this.state.todo, completed: false, id: Date.now() };
+    const newTodo = { task: this.state.todo, completed: false,
+       id: Date.now() };
+       console.log(newTodo)
     this.setState({ 
-      todos: [...this.state.todos, newTodo], 
+      TodoList: [...this.state.TodoList, newTodo], 
       todo: '' 
     });
   };
@@ -63,7 +65,8 @@ class App extends React.Component {
   changeTodo = e => this.setState({ [e.target.name]: e.target.value });
 
   toggleTodoComplete = id => {
-    let todos = this.state.todos.slice();
+
+    let todos = this.state.TodoList.slice();
     todos = todos.map(todo => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
@@ -77,7 +80,7 @@ class App extends React.Component {
 
   clearCompletedTodos = e => {
     e.preventDefault();
-    let todos = this.state.todos.filter(todo => !todo.completed);
+    let todos = this.state.TodoList.filter(todo => !todo.completed);
     this.setState({ todos });
   };
 
@@ -86,7 +89,7 @@ class App extends React.Component {
       <div>
         <TodoList
           handleToggleComplete={this.toggleTodoComplete}
-          todos={this.state.todos}
+          todos={this.state.TodoList}
         />
         <TodoForm
           value={this.state.todo}
