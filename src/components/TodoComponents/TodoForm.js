@@ -1,4 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Button = styled.button`
+width: 50px;
+height: 23px;
+border: 1px solid black;
+`
 
 
 class TodoForm extends React.Component {
@@ -27,7 +34,7 @@ constructor(props) {
                     value={this.state.itemText}
                     onChange={this.changeHandler}
                 />
-                <button type="submit"> Add </button>
+                <Button type="submit"> Add </Button>
 
             </form>
         );
