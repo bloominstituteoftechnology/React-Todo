@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  main {
+    width: 60vw;
+    min-height: 80vh;
+    max-width: 1024px;
+    margin: 35px auto;
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  }
+  .container{
+     width:400px
+  }
+  .addTaskInput{
+      margin-bottom: 10px;
+  }

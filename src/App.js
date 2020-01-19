@@ -95,8 +95,8 @@ class App extends React.Component {
   render() {
     
     return (
-      <div>
-        <h3>TO DO LIST</h3>
+      <div className="container">
+        <h3>My ToDo List</h3>
         <SearchForm tasks={tasks}
          SearchArray={this.setSearchArray}/>
         <TodoForm 
