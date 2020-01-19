@@ -1,7 +1,8 @@
 import React from 'react';
-import TodoList from './components/TodoComponents/TodoList'
+import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import './components/TodoComponents/Todo.css'
+import './components/TodoComponents/Todo.css';
+import SearchForm from './components/TodoComponents/SearhForm.js'
 
 
 const tasks =[
@@ -31,8 +32,12 @@ class App extends React.Component {
     super();
     
     this.state = {
-      tasksList : localStorage.getItem('tasksList') ? JSON.parse(localStorage.getItem('tasksList')) : tasks
-    };
+      tasksList: tasks
+    }
+    //Add new imputs to local storage
+    // this.state = {
+    //   tasksList : window.localStorage.getItem('tasksList') ? JSON.parse(window.localStorage.getItem('tasksList')) : tasks
+    // };
   }
 
 
@@ -45,7 +50,7 @@ class App extends React.Component {
       ]
     };
   
-    localStorage.setItem('tasksList',JSON.stringify(newState));
+   // window.localStorage.setItem('tasksList',JSON.stringify(newState));
     this.setState(newState);
   };
 
@@ -78,7 +83,12 @@ class App extends React.Component {
     this.setState(newState);
   };
 
-
+  setSearchArray = someString => {
+    const items = tasks.filter(term =>
+      term.name.toLowerCase().includes(someString.toLowerCase())
+    );
+    this.setState(items);
+  };
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -86,13 +96,17 @@ class App extends React.Component {
     
     return (
       <div>
-       <TodoList 
-       tasks={this.state.tasksList}
-       toggleDone={this.toggleDone}
-       clearTask={this.clearTask}
-       />
-       <TodoForm addNewTask={this.addNewTask}/>
-      </div>
+        <h3>TO DO LIST</h3>
+        <SearchForm tasks={tasks}
+         SearchArray={this.setSearchArray}/>
+        <TodoForm 
+          addNewTask={this.addNewTask}/>
+        <TodoList 
+          tasks={this.state.tasksList}
+          toggleDone={this.toggleDone}
+          clearTask={this.clearTask}
+        />
+      </div> 
     );
   }
 }

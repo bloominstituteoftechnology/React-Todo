@@ -2,11 +2,11 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react';
 import Todo from './Todo'
+import { Button } from 'reactstrap';
 
  const TodoList = props =>{
      return (
          <div>
-             <h3>TO DO LIST</h3>
              {props.tasks.map(task => (
              <Todo
                 key={task.id}
@@ -14,7 +14,7 @@ import Todo from './Todo'
                 toggleDone={props.toggleDone}
              />
             ))}
-             <button onClick={props.clearTask}>DONE</button>
+             <Button onClick={props.clearTask}>DONE</Button>
          </div>
      );
  };
