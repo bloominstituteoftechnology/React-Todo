@@ -3,6 +3,7 @@ import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm';
 import './components/TodoComponents/Todo.css'
 
+
 const tasks =[
   {
     name: 'Organize Garage',
@@ -26,12 +27,15 @@ const tasks =[
   }
 ];
 class App extends React.Component {
-  constructor(props){
+  constructor(){
     super();
-    this.state={
-      tasksList:tasks
+    
+    this.state = {
+      tasksList : localStorage.getItem('tasksList') ? JSON.parse(localStorage.getItem('tasksList')) : tasks
     };
   }
+
+
   addNewTask = newTaskName =>{
     const newState = {
       ...this.state,
@@ -40,9 +44,12 @@ class App extends React.Component {
         {name:newTaskName, completed:false, id:Date.now()}
       ]
     };
+  
+    localStorage.setItem('tasksList',JSON.stringify(newState));
     this.setState(newState);
   };
 
+ 
   toggleDone = id =>{
     const newState = {
       ...this.state,
@@ -56,6 +63,7 @@ class App extends React.Component {
         return task;
       })
     };
+ 
     this.setState(newState);
   };
 
@@ -66,6 +74,7 @@ class App extends React.Component {
         return !item.completed; 
       })
     };
+   
     this.setState(newState);
   };
 
@@ -74,6 +83,7 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
+    
     return (
       <div>
        <TodoList 

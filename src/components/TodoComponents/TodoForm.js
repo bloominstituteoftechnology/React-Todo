@@ -1,12 +1,14 @@
 import React from "react";
 
 class TodoForm extends React.Component {
+    
     constructor(){
         super();
         this.state = {
             newTask: ""
         };
     }
+    
     handleChanges = e =>{
         this.setState({ ...this.state, newTask: e.target.value})
     };
