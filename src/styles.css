@@ -46,7 +46,7 @@ form > input {
   background-color : #464159;
   border: 0;
   padding: 6px 0;
-  font-size: 1rem;
+  font-size: 2rem;
   width: 240px;
   outline: 0;
   color: white;
@@ -57,12 +57,13 @@ form > input {
 button {
   background-color: #6c7b95;
   border: 2px solid #C7F0DB;
+  border-radius: 10px;
   color: white;
   font-size: 16px;
   padding: 6px 14px;
 }
 
-.id.completed {
-  color: black;
+ .completed {
+  color:white;
   text-decoration: line-through;
 }
