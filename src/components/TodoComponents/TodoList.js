@@ -13,33 +13,12 @@ class TodoList extends React.Component {
         });
     }
 
-    toggleComplete = (id) => {
-        this.setState({
-            todos: this.state.todos.map(todo => {
-                if (todo.id === id) {
-                    return{
-                        ...todo,
-                        complete: !todo.complete
-                    };
-                } else{
-                    return todo;
-                }
-            })
-        })
-    }
-
     render() {
         return (
             <div>
                 <TodoForm onSubmit={this.addTodo}/>
                 {this.state.todos.map(todo => (
-                    <Todo 
-                        key={todo.id} 
-                        toggleComplete={
-                            () => this.toggleComplete(todo.id)
-                        }
-                        todo={todo}
-                    />
+                    <Todo key={todo.id} text={todo.text}/>
                 ))}
             </div>
         )
