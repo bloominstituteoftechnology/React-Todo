@@ -39,8 +39,12 @@ class TodoForm extends React.Component {
                     onChange={this.handleChange}
                     placeholder="todo..."
                 />       
+<<<<<<< HEAD
                 <button onClick={this.handleSubmit}>Add Todo</button>
                 <button onClick={this.handleCompleted}>Clear Completed</button>
+=======
+                <button onClick={this.handleSubmit}>submit</button>
+>>>>>>> parent of c54514c... strikethrough functionality
             </form>
 
         );
