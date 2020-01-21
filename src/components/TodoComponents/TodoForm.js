@@ -1,4 +1,5 @@
 import React from "react";
+import Todo from "./Todo.js";
 import shortid from "shortid";
 
 class TodoForm extends React.Component {
@@ -24,12 +25,6 @@ class TodoForm extends React.Component {
         });
     }
 
-    // handleCompleted = (event) => {
-    //     event.preventDefault();
-    //     let todos = this.state.todos.filter(todo => !todo.completed);
-    //     this.setState({todos})
-    // }
-
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
@@ -40,7 +35,7 @@ class TodoForm extends React.Component {
                     placeholder="todo..."
                 />       
                 <button onClick={this.handleSubmit}>Add Todo</button>
-                <button onClick={this.handleCompleted}>Clear Completed</button>
+                <button onClick={this.handleComplete}>Clear Completed</button>
             </form>
 
         );
