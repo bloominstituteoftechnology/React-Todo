@@ -24,12 +24,6 @@ class TodoForm extends React.Component {
         });
     }
 
-    // handleCompleted = (event) => {
-    //     event.preventDefault();
-    //     let todos = this.state.todos.filter(todo => !todo.completed);
-    //     this.setState({todos})
-    // }
-
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
@@ -40,7 +34,6 @@ class TodoForm extends React.Component {
                     placeholder="todo..."
                 />       
                 <button onClick={this.handleSubmit}>Add Todo</button>
-                <button onClick={this.handleCompleted}>Clear Completed</button>
             </form>
 
         );
