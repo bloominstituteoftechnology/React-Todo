@@ -10,12 +10,14 @@ const taskList = [
   {
     task: 'Organize Garage',
     id: 3216548345891,
-    completed: false
+    completed: false,
+    animate: false
   },
   {
     task: 'Finish Project',
     id: 1597531578144,
-    completed: false
+    completed: false,
+    animate: false
   },
 ];
 
@@ -34,9 +36,11 @@ class App extends React.Component {
     this.state = {
       taskList:taskList,
       error: error
+
     };
 
   }
+
 
   finishTask = id => {
     this.setState({
@@ -61,11 +65,14 @@ class App extends React.Component {
 
     if(testTask.length > 0){
       this.setState({error: 1}); //a repeat has been detected!
+    } else if(taskText.length < 1 || taskText.substr(0,1)=== ' '){
+      this.setState({error: 2});
     } else {
       const newTask = {
         task: taskText,
         completed: false,
-        id: Date.now()
+        id: Date.now(),
+        animate: false
       };
 
       this.setState({
@@ -77,15 +84,47 @@ class App extends React.Component {
 
   clearTask = id =>{
     this.setState({
-      taskList: this.state.taskList.filter(item => {
-        return item.completed===false;
+      taskList: this.state.taskList.map(item => {
+        if (item.completed === true){
+          return{
+            ...item,
+            animate: !item.animate //if the item is not completed complete it and vice versa
+          };
+        }
+        return item;
       })
-    })
+    });
+
+    let animation = document.querySelector('.animate');
+    console.log(animation);
+    console.log("state after clear:", this.state);
+    // animation.addEventListener('animationonend', ()=>{
+    //   this.setState({
+    //     taskList: this.state.taskList.filter(item => {
+    //       return item.completed===false;
+    //     })
+    //   })
+
+    // this.setState({
+    //     taskList: this.state.taskList.filter(item => {
+    //       return item.completed===false;
+    //     })
+    //
+    // });
 
 
   }
+  clearTask2 = () =>{
+    this.setState({
+        taskList: this.state.taskList.filter(item => {
+          return item.completed===false;
+        })
+
+    });
+  }
 
   render() {
+    console.log("state:", this.state);
 
     // console.log(error);
     console.log("error: ", this.state.error)
@@ -99,6 +138,7 @@ class App extends React.Component {
           <TodoList
             taskList = {this.state.taskList}
             finishTask = {this.finishTask}
+            clearTask2 = {this.clearTask2}
           />
           <br />
           <TodoForm
