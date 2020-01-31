@@ -3,6 +3,8 @@ import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import "./App.css"
 
+
+
 const data = [
   {
     task: "Learn class components!",
@@ -16,6 +18,7 @@ const data = [
   }
 ];
 
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -25,7 +28,7 @@ class App extends React.Component {
     super();
     this.state = {
       things: data // there is a property called things that has an initial state of data
-  
+   
     };
   }
   addItem = name => {
@@ -33,11 +36,14 @@ class App extends React.Component {
       task: name,
       id: Date.now(),
       done: false
-    }; // every time addItem is used it will create a new item that has the above properties
+    }; 
     this.setState({
       things: [...this.state.things, newItem]
     });
   };
+  
+
+
 
   toggleDone = id => {
     this.setState({
@@ -57,8 +63,11 @@ class App extends React.Component {
   clearDone = () => {
     this.setState({
       things: this.state.things.filter(task => !task.done)
+
+      
     });
   };
+
 
 
   render() {
