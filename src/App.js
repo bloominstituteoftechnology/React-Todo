@@ -88,6 +88,13 @@ class App extends React.Component {
     })
   }
 
+  onTodoAdd = event => {
+    console.log('adding todo');
+    this.setState(oldState => {
+      debugger
+    })
+  }
+
   render() {
     // where are the todos???????
     // the todos live inside this.state.todos // array of todos
@@ -121,6 +128,11 @@ class App extends React.Component {
             value={this.state.newTodoTitle}
             onChange={this.onNewTaskInputChange}
           />
+          <button
+            onClick={this.onTodoAdd}
+          >
+            Add new todo
+          </button>
         </div>
       </>
     );
