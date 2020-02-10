@@ -30,7 +30,9 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      
+      // what slices?
+      todos: [],
+      newTodoTitle: '',
     }
   }
 }
