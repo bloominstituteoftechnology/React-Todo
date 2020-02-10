@@ -110,6 +110,7 @@ class App extends React.Component {
         todos: oldState.todos.map(todo => {
           // if not the id we are interested in, just return todo unchanged
           // otherwise return a todo, identical but with a completed of true
+          return todo;
         })
       }
     })
