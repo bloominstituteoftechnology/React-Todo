@@ -104,6 +104,17 @@ class App extends React.Component {
     })
   }
 
+  markCompleted = id => {
+    this.setState(oldState => {
+      return {
+        todos: oldState.map(todo => {
+          // if not the id we are interested in, just return todo unchanged
+          // otherwise return a todo, identical but with a completed of true
+        })
+      }
+    })
+  }
+
   render() {
     // where are the todos???????
     // the todos live inside this.state.todos // array of todos
@@ -126,6 +137,11 @@ class App extends React.Component {
                   key={todo.id}
                 >
                   {todo.task}
+                  <button
+                    onClick={event => this.markCompleted(todo.id)}
+                  >
+                    mark completed
+                  </button>
                 </div>
               );
             })
