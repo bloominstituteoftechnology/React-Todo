@@ -7,12 +7,12 @@ We're going to practice building a stateful class component with this project. E
 -x `Fork and clone` this project and cd into your cloned version.
 -x `npm install` or `yarn install` will pull in all the node_modules you need.
 - x`npm start` or `yarn start` will start a development server on your `http://localhost:3000`.
-  - If npm or yarn asks you to select different port with some error message, just confirm and it will pull it up on port 3001. This simply means you have a development server up and running on that port already.
+  -x If npm or yarn asks you to select different port with some error message, just confirm and it will pull it up on port 3001. This simply means you have a development server up and running on that port already.
 
 ## Instructions
 
-- Your job is to write the components to complete the Todo List application.
-- Your todo list should be fully functional and you should design it however you'd like. Feel free to get creative here. I have supplied a gif for you to see what the MVP functionality is.
+- xYour job is to write the components to complete the Todo List application.
+-x Your todo list should be fully functional and you should design it however you'd like. Feel free to get creative here. I have supplied a gif for you to see what the MVP functionality is.
 
 ![Todo App MVP](todo.gif)
 
