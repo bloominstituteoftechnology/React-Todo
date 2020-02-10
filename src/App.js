@@ -13,7 +13,7 @@ const initialTodos = [
   {
     task: 'Organize Garage',
     id: uuid(),
-    completed: false
+    completed: true
   },
   {
     task: 'Bake Cookies',
@@ -118,8 +118,10 @@ class App extends React.Component {
             // how do we iterate and render each todo?
             this.state.todos.map(todo => {
               // { completed: false, id: "1234", task: "make dinner" }
+              const color = todo.completed ? 'green' : 'red'
               return (
                 <div
+                  style={{ color }}
                   className="Todo"
                   key={todo.id}
                 >
