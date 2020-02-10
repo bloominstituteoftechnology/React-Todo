@@ -1,10 +1,11 @@
 import React from 'react';
 
 export const inputStyle = {
-    padding: '35rem',
+    padding: '.6rem',
     fontSize: '20px',
     display: 'block',
     border: '1px solid #ccc',
+    borderRadius: '5px',
     width: '90%',
     backgroundColor: 'transparent',
     display: 'block',
