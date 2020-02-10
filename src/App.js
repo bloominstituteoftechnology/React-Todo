@@ -1,13 +1,12 @@
 import React from 'react';
 import uuid from 'uuid';
 
-// we have used several things from "this"
-// this.state
-// this.state.newTodoTitle
-// this.state.todos // on this one, we used this.state.todos.map()
-// this.setState // to change any slice, takes a callback, which takes "oldState"
-// this.onNewTaskInputChange
-// this.props.player // we access props using this.props
+// we have used several things from "this":
+//   this.state.newTodoTitle
+//   this.state.todos    // on this one, we used this.state.todos.map()
+//   this.setState       // to change any slice, takes a callback, which takes "oldState"
+//   this.props.player   // we access props using this.props
+//   this.onNewTaskInputChange
 
 // we need some initial data
 const initialTodos = [
@@ -44,7 +43,7 @@ class App extends React.Component {
       // const [newTodoTitle, setNewTodoTitle] = useState('')
       todos: [],
       newTodoTitle: '',
-      player: props.player,
+      player: props.player, // usually bad idea to init state from props
     }
   }
 
@@ -64,7 +63,7 @@ class App extends React.Component {
             // newTodoTitle: 'lady gaga', commented out because the other slice is fine
           }
         })
-        // with hooks we'd do:
+        // with hooks we'd simply do:
         // useEffect(() => {
         //   fakeTodosEndpoint()
         //     .then(todos => setTodos(todos))
@@ -74,14 +73,15 @@ class App extends React.Component {
 
   onNewTaskInputChange = event => {
     // use fat arrow syntax for your
-    // custom methods (like our state updaters)
+    // custom methods (like our state updaters) !!!!! IMPORTANT
     // we need to update a slice of state
     // this.setState can either take an object OR a callback
     const newValue = event.target.value;
     console.log('the newValue of the input', newValue);
+
     this.setState(oldState => {
       return {
-        // overrides to the state
+        // overrides to the state, as many as we need
         newTodoTitle: newValue,
         player: 'Dimos', // this is silly
       }
@@ -91,6 +91,7 @@ class App extends React.Component {
   render() {
     // where are the todos???????
     // the todos live inside this.state.todos // array of todos
+
     // where is the input value??????
     // the current value of the input is held inside this.state.newTodoTitle
     return (
