@@ -28,6 +28,10 @@ class App extends React.Component {
     // components are initialized with props
     // do not forget to call the parent constructor
     super(props);
+
+    this.state = {
+      
+    }
   }
 }
 
