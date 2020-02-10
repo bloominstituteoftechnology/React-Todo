@@ -75,7 +75,17 @@ class App extends React.Component {
   onNewTaskInputChange = event => {
     // use fat arrow syntax for your
     // custom methods (like our state updaters)
-    console.log('keystroke!!!');
+    // we need to update a slice of state
+    // this.setState can either take an object OR a callback
+    const newValue = event.target.value;
+    console.log('the newValue of the input', newValue);
+    this.setState(oldState => {
+      return {
+        // overrides to the state
+        newTodoTitle: newValue,
+        player: 'Dimos',
+      }
+    })
   }
 
   render() {
