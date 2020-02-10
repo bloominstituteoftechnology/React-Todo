@@ -64,6 +64,10 @@ class App extends React.Component {
   }
 
   render() {
+    // where are the todos???????
+    // the todos live inside this.state.todos // array of todos
+    // where is the input value??????
+    // the current value of the input is held inside this.state.newTodoTitle
     return (
       <div>Welcome to my todos app</div>
     );
