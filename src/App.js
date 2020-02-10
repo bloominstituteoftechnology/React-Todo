@@ -91,7 +91,16 @@ class App extends React.Component {
   onTodoAdd = event => {
     console.log('adding todo');
     this.setState(oldState => {
-      debugger
+      return {
+        // DO NOT FORGET
+        // return an object with our overrides! (which slice)
+        newTodoTitle: '',
+        todos: oldState.todos.concat({
+          completed: false,
+          id: uuid(),
+          task: oldState.newTodoTitle
+        })
+      }
     })
   }
 
