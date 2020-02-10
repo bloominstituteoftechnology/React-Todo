@@ -35,8 +35,20 @@ class App extends React.Component {
       newTodoTitle: '',
     }
 
+    componentDidMount() {
+      // whatever code we put in here
+      // will run only after initial render
+      // good place to fetch data
+      // 1- we fetch the data
+      // 2- we put the data in the right slice of state
+    }
+
     // const [todos, setTodos] = useState([])
     // const [newTodoTitle, setNewTodoTitle] = useState('')
+    // useEffect(() => {
+    //   fakeTodosEndpoint()
+    //     .then(todos => setTodos(todos))
+    // }, [])
   }
 
   render() {
