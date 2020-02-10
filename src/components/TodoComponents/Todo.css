@@ -1,0 +1,16 @@
+.task {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: #e64944;
+    font-size: 18px;
+    width: 150px;
+    height: 52px;
+    margin: 4px auto;
+    padding-left: 8px;
+  }
+  
+  .task.completed {
+    background-color: #d17d7c;
+    text-decoration: line-through;
+  }
