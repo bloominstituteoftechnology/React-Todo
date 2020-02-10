@@ -1,14 +1,16 @@
 import React from 'react';
+import uuid from 'uuid';
+
 // we need some initial data
 const initialTodos = [
   {
     task: 'Organize Garage',
-    id: 1528817077286,
+    id: uuid(),
     completed: false
   },
   {
     task: 'Bake Cookies',
-    id: 1528817084358,
+    id: uuid(),
     completed: false
   }
 ];
