@@ -31,6 +31,9 @@ class App extends React.Component {
 
     this.state = {
       // what slices?
+      // with hooks we'd do:
+      // const [todos, setTodos] = useState([])
+      // const [newTodoTitle, setNewTodoTitle] = useState('')
       todos: [],
       newTodoTitle: '',
     }
@@ -52,13 +55,12 @@ class App extends React.Component {
           }
         })
       })
+    // with hooks we'd do:
+    // useEffect(() => {
+    //   fakeTodosEndpoint()
+    //     .then(todos => setTodos(todos))
+    // }, [])
   }
-  // const [todos, setTodos] = useState([])
-  // const [newTodoTitle, setNewTodoTitle] = useState('')
-  // useEffect(() => {
-  //   fakeTodosEndpoint()
-  //     .then(todos => setTodos(todos))
-  // }, [])
 
   render() {
     return (
