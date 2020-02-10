@@ -83,7 +83,7 @@ class App extends React.Component {
       return {
         // overrides to the state
         newTodoTitle: newValue,
-        player: 'Dimos',
+        player: 'Dimos', // this is silly
       }
     })
   }
