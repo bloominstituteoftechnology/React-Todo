@@ -34,6 +34,15 @@ class App extends React.Component {
       todos: [],
       newTodoTitle: '',
     }
+
+    // const [todos, setTodos] = useState([])
+    // const [newTodoTitle, setNewTodoTitle] = useState('')
+  }
+
+  render() {
+    return (
+      <div>Welcome to my todos app</div>
+    );
   }
 }
 
