@@ -95,7 +95,7 @@ class App extends React.Component {
     // the current value of the input is held inside this.state.newTodoTitle
     return (
       <>
-        <h3>The player is {this.props.player}</h3>
+        <h3>The player is {this.state.player}</h3>
         <div className='TodoList'>
           {
             // how do we iterate and render each todo?
