@@ -8,8 +8,6 @@ import {
 import Todo from './Todo';
 
 const TodoList = props => {
-//   const tasks = props.tasks;
-//   const toggleComplete = props.toggleComplete;
 
   return (
     <div>

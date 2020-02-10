@@ -1,8 +1,12 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+//import './styles.css';
+
+
 
 class App extends React.Component {
+ 
   constructor() {
     super();
     this.state = {
@@ -21,8 +25,8 @@ class App extends React.Component {
       todo: ''
     };
   }
-  
-  addTodo = e => {
+
+addTodo = e => {
     e.preventDefault();
     const newTodo = { task: this.state.todo, completed: false, id: Date.now() };
     this.setState({ 
@@ -51,11 +55,12 @@ class App extends React.Component {
     let todos = this.state.todos.filter(todo => !todo.completed);
     this.setState({ todos });
   };
-
   render() {
+    console.log('rendering...');
     return (
-      <div>
-        <h2>Things To Do List</h2>
+      <div className="App">
+        <div>
+        <h1>Things To Do List</h1>
         <TodoList
           handleToggleComplete={this.toggleTodoComplete}
           todos={this.state.todos}
@@ -66,9 +71,14 @@ class App extends React.Component {
           handleAddTodo={this.addTodo}
           handleClearTodos={this.clearCompletedTodos}
         />
+        </div>
       </div>
     );
   }
 }
+  
+  
+
+
 
 export default App;
