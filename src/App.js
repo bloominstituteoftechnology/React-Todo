@@ -15,6 +15,11 @@ const initialTodos = [
   }
 ];
 
+// make a function that behaves like axios.get("todosURL")
+const fakeTodosEndpoint = () => {
+  return Promise.resolve(initialTodos);
+};
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
