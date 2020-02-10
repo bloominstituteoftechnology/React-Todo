@@ -51,7 +51,8 @@ class App extends React.Component {
           return {
             // return object with the slices that need update
             // only care about the slices that change
-            todos: oldState.todos.concat(todos)
+            todos,
+            // newTodoTitle: 'lady gaga', commented out because the other slice is fine
           }
         })
       })
