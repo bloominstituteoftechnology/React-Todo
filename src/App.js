@@ -107,7 +107,7 @@ class App extends React.Component {
   markCompleted = id => {
     this.setState(oldState => {
       return {
-        todos: oldState.map(todo => {
+        todos: oldState.todos.map(todo => {
           // if not the id we are interested in, just return todo unchanged
           // otherwise return a todo, identical but with a completed of true
         })
