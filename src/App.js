@@ -69,7 +69,22 @@ class App extends React.Component {
     // where is the input value??????
     // the current value of the input is held inside this.state.newTodoTitle
     return (
-      <div>Welcome to my todos app</div>
+      <div className='TodoList'>
+        {
+          // how do we iterate and render each todo?
+          this.state.todos.map(todo => {
+            // { completed: false, id: "1234", task: "make dinner" }
+            return (
+              <div
+                className="Todo"
+                key={todo.id}
+              >
+                {todo.task}
+              </div>
+            );
+          })
+        }
+      </div>
     );
   }
 }
