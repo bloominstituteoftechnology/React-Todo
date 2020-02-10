@@ -21,10 +21,14 @@ const fakeTodosEndpoint = () => {
 };
 
 // imagine hooks are not a thing
-// and we need state *****
-// class component it is, baby
+// and we need state
+// class component it is!
 class App extends React.Component {
-  
+  constructor(props) {
+    // components are initialized with props
+    // do not forget to call the parent constructor
+    super(props);
+  }
 }
 
 export default App;
