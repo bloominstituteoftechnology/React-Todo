@@ -35,7 +35,7 @@ class App extends React.Component {
       // const [todos, setTodos] = useState([])
       // const [newTodoTitle, setNewTodoTitle] = useState('')
       todos: [],
-      newTodoTitle: 'Lady Gaga',
+      newTodoTitle: '',
       player: props.player,
     }
   }
@@ -56,12 +56,18 @@ class App extends React.Component {
             // newTodoTitle: 'lady gaga', commented out because the other slice is fine
           }
         })
+        // with hooks we'd do:
+        // useEffect(() => {
+        //   fakeTodosEndpoint()
+        //     .then(todos => setTodos(todos))
+        // }, [])
       })
-    // with hooks we'd do:
-    // useEffect(() => {
-    //   fakeTodosEndpoint()
-    //     .then(todos => setTodos(todos))
-    // }, [])
+  }
+
+  onNewTaskInputChange = event => {
+    // use fat arrow syntax for your
+    // custom methods (like our state updaters)
+    console.log('keystroke!!!');
   }
 
   render() {
@@ -93,6 +99,7 @@ class App extends React.Component {
             type="text"
             placeholder='type the task!'
             value={this.state.newTodoTitle}
+            onChange={this.onNewTaskInputChange}
           />
         </div>
       </>
