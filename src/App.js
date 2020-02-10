@@ -35,7 +35,7 @@ class App extends React.Component {
       // const [todos, setTodos] = useState([])
       // const [newTodoTitle, setNewTodoTitle] = useState('')
       todos: [],
-      newTodoTitle: '',
+      newTodoTitle: 'Lady Gaga',
       player: props.player,
     }
   }
@@ -92,6 +92,7 @@ class App extends React.Component {
           <input
             type="text"
             placeholder='type the task!'
+            value={this.state.newTodoTitle}
           />
         </div>
       </>
