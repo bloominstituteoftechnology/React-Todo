@@ -34,22 +34,31 @@ class App extends React.Component {
       todos: [],
       newTodoTitle: '',
     }
-
-    componentDidMount() {
-      // whatever code we put in here
-      // will run only after initial render
-      // good place to fetch data
-      // 1- we fetch the data
-      // 2- we put the data in the right slice of state
-    }
-
-    // const [todos, setTodos] = useState([])
-    // const [newTodoTitle, setNewTodoTitle] = useState('')
-    // useEffect(() => {
-    //   fakeTodosEndpoint()
-    //     .then(todos => setTodos(todos))
-    // }, [])
   }
+
+  componentDidMount() {
+    // whatever code we put in here
+    // will run only after initial render
+    // good place to fetch data
+    // 1- we fetch the data
+    // 2- we put the data in the right slice of state
+    fakeTodosEndpoint()
+      .then(todos => {
+        this.setState(oldState => { // oldState is the "current" this.state
+          return {
+            // return object with the slices that need update
+            // only care about the slices that change
+            todos: oldState.todos.concat(todos)
+          }
+        })
+      })
+  }
+  // const [todos, setTodos] = useState([])
+  // const [newTodoTitle, setNewTodoTitle] = useState('')
+  // useEffect(() => {
+  //   fakeTodosEndpoint()
+  //     .then(todos => setTodos(todos))
+  // }, [])
 
   render() {
     return (
