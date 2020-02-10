@@ -33,8 +33,9 @@ class TodoForm extends React.Component {
                     type="text"
                     name="task"
                     value={this.state.todoName}
+                    placeholder="New Task"
                  />
-                <button>Add</button>
+                <button>Add Task</button>
             </form>
         )
     }

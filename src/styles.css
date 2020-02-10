@@ -1,0 +1,9 @@
+body{
+    width: 900px;
+    margin: 0 auto;
+}
+
+.todo.complete{
+    color: red;
+    text-decoration: line-through;
+}
