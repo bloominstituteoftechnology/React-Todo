@@ -1,6 +1,14 @@
 import React from 'react';
 import uuid from 'uuid';
 
+// we have used several things from "this"
+// this.state
+// this.state.newTodoTitle
+// this.state.todos // on this one, we used this.state.todos.map()
+// this.setState // to change any slice, takes a callback, which takes "oldState"
+// this.onNewTaskInputChange
+// this.props.player // we access props using this.props
+
 // we need some initial data
 const initialTodos = [
   {
@@ -77,6 +85,7 @@ class App extends React.Component {
     // the current value of the input is held inside this.state.newTodoTitle
     return (
       <>
+        <h3>The player is {this.props.player}</h3>
         <div className='TodoList'>
           {
             // how do we iterate and render each todo?
