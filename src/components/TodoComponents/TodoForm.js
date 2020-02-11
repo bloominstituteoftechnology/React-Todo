@@ -4,7 +4,7 @@ class TodoForm extends Component {
     constructor() {
         super();
         this.state = {
-            newItem: '',
+            newItem: ""
         }
     }
 
@@ -18,7 +18,7 @@ class TodoForm extends Component {
     
     handleChange = e => {
         this.setState({
-            newItem: [ ...e.target.value ]
+            newItem: e.target.value 
         })
     }
 

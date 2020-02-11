@@ -54,11 +54,9 @@ class App extends React.Component {
  removeCompletedTodo = () => {
    
    const notCompleted = this.state.todoLIst.filter(item => !item.done )
-
-    console.log('overhere',notCompleted)
-   
+    console.log('overhere',notCompleted)   
    this.setState({
-     todoLIst: notCompleted,
+     todoList: notCompleted,
    })
   }
 
