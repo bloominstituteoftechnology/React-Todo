@@ -16,6 +16,7 @@ class TodoForm extends Component {
         })
     }
     
+    
     handleChange = e => {
         this.setState({
             newItem: e.target.value 

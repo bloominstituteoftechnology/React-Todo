@@ -1,20 +1,7 @@
 import React from 'react';
-// import Todo from './components/TodoComponents/Todo';
+
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
-
-
-// const todo = [{
-//   task: 'default Task',
-//   id: 1,
-//   done: false
-// },
-// {
-//   task: 'default Task 2',
-//   id: 124,
-//   done: false
-// },
-// ]
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -37,6 +24,7 @@ class App extends React.Component {
      }
   }
   
+  
   //adds a new object to todoList array
   addNewTodo = param => {
     const newTodo = {
@@ -51,10 +39,9 @@ class App extends React.Component {
   }
 
   //removes tasks that have toggled to completed
- removeCompletedTodo = () => {
-   
-   const notCompleted = this.state.todoLIst.filter(item => !item.done )
-    console.log('overhere',notCompleted)   
+  removeCompletedTodo = () => {   
+   const notCompleted = this.state.todoList.filter(item => !item.done )
+    // console.log('overhere',notCompleted)   
    this.setState({
      todoList: notCompleted,
    })
@@ -62,19 +49,15 @@ class App extends React.Component {
 
    //method allows user to toggle list items to True/False
    toggleTodo = paramId =>{
-     console.log('id is', paramId);
+    //  console.log('id is', paramId);
      const toggledTodo = this.state.todoList.map(item => item.id === paramId ? {...item, done: !item.done} : item );
      this.setState({
-       todoLIst: toggledTodo,
+       todoList: toggledTodo,
      })
    }
 
- 
-
-
   render() {
-    return (
-      
+    return (      
       <div>
         <header>
           <h2>Welcome to your Todo App!</h2>
