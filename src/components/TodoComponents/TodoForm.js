@@ -10,7 +10,7 @@ const TodoForm = props => {
         type="text"
         name="todo"
         value={props.value}
-        placeholder="...To Do List"
+        placeholder="            ...To Do List"
       />
       <button style={buttonStyle} onClick={props.handleAddTodo}>Add Todo</button>
       <button style={buttonStyle} onClick={props.handleClearTodos}>Clear Completed</button>

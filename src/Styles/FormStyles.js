@@ -6,9 +6,9 @@ export const inputStyle = {
     display: 'block',
     border: '1px solid #ccc',
     borderRadius: '5px',
-    width: '90%',
+    width: '92%',
     backgroundColor: 'transparent',
-    display: 'block',
+    display: 'block'
 }
 
 export const containerStyle = {
@@ -16,10 +16,12 @@ export const containerStyle = {
     flexFlow: 'row wrap',
     justifyContent: 'center',
     width: '100%',
+    maxWidth: '300px',
+    flexDirection: 'column-reverse'
 }
 
 export const buttonStyle = {
-    background: 'rgb(152, 136, 136)',
+    background: 'rgb(15, 136, 136)',
     borderRadius: '5px',
     color: 'white',
     border: 'none',
@@ -31,5 +33,6 @@ export const buttonStyle = {
 
 export const todoStyle = {
     fontWeight: 'bold',
-    display: 'block'    
+    display: 'flex ',
+    flexDirection: 'column-reverse'
 }
