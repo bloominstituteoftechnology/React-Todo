@@ -1,19 +1,23 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
-import Todo from './components/TodoComponents/Todo';
+import TodoList from './components/TodoComponents/TodoList';
+
 
 const todo = [
   {
     id: 111,
     name: 'Walk the Dog',
+    completed: false
   },
   {
     id: 222,
     name: 'Take out trash',
+    completed: false
   },
   {
     id: 333,
-    name: 'Was dishes',
+    name: 'Wash dishes',
+    completed: false
   }
 ];
 
@@ -29,12 +33,45 @@ class App extends React.Component {
       };
   };
  
+  toggleItem = clickedId => {
+    const newTodo = this.state.todo.map(item => {
+      if (item.id === clickedId) {
+        return {
+          ...item,
+          completed: !item.completed
+        };
+      } else {
+        return item;
+      };
+    });
+
+    this.setState({
+      todo: newTodo
+    });
+  };
+
+  addNewItem = itemText => {
+    const newTodo = {
+      id: Date.now(),
+      name: itemText,
+      completed: false
+    };
+    this.setState({
+      todo: [...this.state.todo, newTodo]
+    });
+  };
+
   render() {
+    console.log('rendering...');
     return (
       <div>
         <h2>Todo List!</h2>
-        <Todo todo={this.state.todo}/>
-        <TodoForm />
+        
+        <TodoList
+        todo={this.state.todo} 
+        toggleTodo={this.toggleTodo}
+        />
+        <TodoForm addNewItem={this.addNewItem}/>
       </div>
     );
   }
