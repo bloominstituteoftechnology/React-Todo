@@ -12,8 +12,10 @@ class TodoForm extends React.Component {
         };
     }
     handleChanges = e => {
-        this.setState({[e.target.name]:e.target.value})
+     this.setState({[e.target.name]:e.target.value})
     };
+
+
 
     //addTask passing n props this.state.input as argument
     //To create new item in App's state
@@ -23,20 +25,35 @@ class TodoForm extends React.Component {
         this.setState({input: ''})
     }
 
+    onClickClear = () => {
+        this.props.removeCompleted(this.props.id)
+        console.log(this.props)
+
+    }
+  
+
     render() {
 
         return(
+
+            <div className='cta-wrap'>
+            <div className='form-warp'>
     <form onSubmit={this.handleSubmit}>
-        <input 
+        <input  
         type='text'
         name='input'
         id='new-task'
+        placeholder='Enter Task'
         value={this.state.input}
         onChange={this.handleChanges}
         />
         <button type='submit'>Add Task</button>
+        
     </form>
 
+    </div>
+    <button onClick={this.onClickClear}>Clear Task</button>
+    </div>
         )
 }
 }
