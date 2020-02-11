@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css?family=Sriracha&display=swap" );
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Sriracha', sans-serif;
+  background-color: #19e0ee;
+  display: flex;
+  justify-content: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span {
+  color: blue;
+  font-family: 'Sriracha', sans-serif;
+}
+
+.App {
+  font-family: Sriracha;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.item {
+  background-color: #ddf509;
+  width: 45%;
+  text-align: left;
+  margin: 10px 0;
+  padding-left: 20px;
+  
+}
+
+.item.completed {
+  background-color: black;
+  text-decoration: line-through;
+}
+form {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+form > input {
+  background-color:white;
+  border: 0;
+  padding: 10px 0;
+  font-size: 1rem;
+  width: 400px;
+  outline: 0;
+  color: orange;
+  margin-right: 8px;
+}
+
+button {
+  background-color: pink;
+  border: 1px solid black;
+  color:blue;
+  font-size: 16px;
+  padding: 6px 14px;
+  height: 100px;
+  width: 200px;
+  border-radius: 10px;
+}
+
+
+
+
+.clear-btn {
+  margin-top: 16px;
+  height: 70px;
+  border-radius: 10px;
+}
