@@ -14,6 +14,9 @@ const TodoList = props => {
 
         return <Todo item={item} key={item.id} toggleTask={props.toggleTask} />;
       })}
+      <button className="clear-btn" onClick={props.clearTask}>
+        Clear Task
+      </button>
     </div>
   );
 };
