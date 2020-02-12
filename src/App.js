@@ -1,89 +1,27 @@
-import React from "react";
-import TodoList from "./components/TodoComponents/TodoList";
-import Todo from "./components/TodoComponents/Todo";
-import TodoForm from "./components/TodoComponents/TodoForm";
+import React from 'react';
+// import './index.css';
+import TodoList from './components/TodoComponents/TodoList';
 
-const data = [
-  {
-    task: "Early work!",
-    id: 1,
-    done: false
-  },
-  {
-    task: "Daily paperwork!",
-    id: 2,
-    done: false
-  }
-];
+
+
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-  constructor() {
-    super();
-    this.state = {
-      things: data // there's a property called things that has an initial state of data
-    };
+  constructor(props){
+    super(props);
+
   }
-
-  addItem = name => {
-    const newItem = {
-      task: name,
-      id: Date.now(),
-      done: false
-    }; // every time we use addItem it will create a new item that has the above properties
-    this.setState({
-      things: [...this.state.things, newItem]
-    });
-  };
-
-  toggleDone = id => {
-    this.setState({
-      things: this.state.things.map(item => {
-        if (item.id === id) {
-          return {
-            ...item,
-            done: !item.done
-          };
-        } else {
-          return item;
-        }
-      })
-    });
-  };
 
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm addItem={this.addItem} />
-        <div className="header">
-          <h1>Todo List</h1>
-        </div>
-        <TodoList toggleDone={this.toggleDone} things={this.state.things} />
+        <h2>My Todo App!</h2>
+        <TodoList />
+
       </div>
     );
   }
 }
-  export default App;
-
-
-
-
-// import React from 'react';
-
-// class App extends React.Component {
-//   // you will need a place to store your state in this component.
-//   // design `App` to be the parent component of your application.
-//   // this component is going to take care of state, and any change handlers you need to work with your state
-//   render() {
-//     return (
-//       <div>
-//         <h2>Welcome to your Todo App!</h2>
-//       </div>
-//     );
-//   }
-// }
-
-// export default App
+export default App;

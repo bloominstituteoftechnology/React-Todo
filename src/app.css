@@ -1,0 +1,6 @@
+.flexRow{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 40%;
+    justify-content: center;
+} 

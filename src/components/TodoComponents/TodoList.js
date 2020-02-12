@@ -1,3 +1,7 @@
+// your components will all go in this `component` directory.
+// feel free to change this component.js into TodoList.js
+
+
 import React, { Component } from "react";
 import Todo from "./Todo";
 import "./Todo.css";
@@ -31,7 +35,6 @@ export default class TodoList extends Component {
     }
 
     this._inputElement.value = "";
-
 
     e.preventDefault();
   }
@@ -75,28 +78,3 @@ export default class TodoList extends Component {
     );
   }
 }
-
-
-
-
-// import React from "react";
-// import Todo from "./Todo";
-
-// const TodoList = props => {
-//   return (
-//     <div className="todo-list">
-//       {props.things.map(item => (
-//         <Todo key={item.id} item={item} toggleDone={props.toggleDone} />
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default TodoList;
-
-
-
-
-// your components will all go in this `component` directory.
-// feel free to change this component.js into TodoList.js
-
