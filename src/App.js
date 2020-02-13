@@ -98,11 +98,12 @@ class App extends React.Component {
         <h2>Welcome to my Todo App!</h2>
         <TodoForm
           addItem={this.addItem}
+          clearPurchased={this.clearPurchased}
         />
         <TodoList
           todoItems ={this.state.todoItems}
           toggleItem={this.toggleItem}
-          clearPurchased={this.clearPurchased}
+         
 
         />
 
