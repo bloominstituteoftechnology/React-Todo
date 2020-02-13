@@ -118,7 +118,7 @@ class App extends React.Component {
 
         />
 
-
+        <p className="copyright">Copyright {new Date().getFullYear()} - Luis Abellan</p>
 
 
 
