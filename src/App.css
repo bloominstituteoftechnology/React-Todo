@@ -1,0 +1,8 @@
+.item {
+  cursor: pointer;
+}
+
+.item.purchased {
+  text-decoration: line-through;
+}
+/*# sourceMappingURL=App.css.map */

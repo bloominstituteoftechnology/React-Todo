@@ -1,27 +1,15 @@
-import React from 'react'
+import React from "react";
 
-
-class Todo extends React.Component{
-
-    constructor(){
-
-        super()
-        this.state = {
-            todoItem: "buy bread"
-        }
-    }
-
-    render(props) {
-        return (
-
-            <div className="todo-wrapper">
-                <li>{this.state.todoItem}</li>
-            </div>
-        )
-    }
-
-
-
+const Todo = props => {
+    console.log(props)
+  return (
+    <div
+      className={`item${props.item.purchased ? " purchased" : ""}`}
+      onClick={() => props.toggleItem(props.item.id)}
+    >
+      <p>{props.item.name}</p>
+    </div>
+  )
 }
 
 export default Todo

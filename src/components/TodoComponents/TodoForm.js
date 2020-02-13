@@ -1,91 +1,43 @@
-import React from 'react'
-
+import React from "react";
 
 class TodoForm extends React.Component {
-
-    constructor() {
-
-        super()
-        this.state = {
-            item1: ""
-
-        }
-    }
-
-     // Class methods to update state
-  addItem = (e, item) => {
-    e.preventDefault();
-
-    const newItem = {
-      name: item,
-      id: Date.now(),
-      purchased: false
+  constructor() {
+    super();
+    this.state = {
+      todoItem1: ""
     };
+  }
 
-    this.setState({
-      todoItems: [...this.state.todoItems, newItem]
-    });
+  handleChanges = e => {
+    // update state with each keystroke
+    // console.log(e)
+    this.setState({ [e.target.name]: e.target.value });
+    // console.log(this.state);
   };
 
-  // this is a method of App
-  toggleItem = itemId => {
-    console.log(itemId);
-
-    this.setState({
-      todoItems: this.state.todoItems.map(item => {
-        console.log(item);
-        if (itemId === item.id) {
-          return {
-            ...item,
-            purchased: !item.purchased
-          };
-        }
-
-        return item;
-      })
-    });
+  // class property to submit form
+  submitItem = e => {
+    e.preventDefault()
+    console.log(this.props)
+    this.props.addItem(e, this.state.todoItem)
+    // this.setState({ todoItem: "" })
   };
 
-  clearPurchased = e => {
-    e.preventDefault();
-    console.log(this.state.todoItems);
-    this.setState({
-      // returns the items that haven't been purchased and purges
-      // the ones that have been purchased
-      todoItems: this.state.todoItems.filter(item => item.purchased === false)
-    });
-    console.log(this.state.todoItems);
-  };
-
-
-    render(props) {
-
-       
-        return (
-
-            <div className="form">
-
-                <h2>Welcome to my Todo App!</h2>
-                <form onSubmit={this.submitItem}>
-                    <input type="text" placeholder="Add new task here" name="item" onChange={this.handleChanges}></input>
-                    <button>Add Todo</button>
-                    <button>Clear completed</button>
-                </form>
-
-            </div>
-        )
-
-
-    }
-
-
-
+  render() {
+    console.log("rendering form", this.state.todoItem);
+    
+    return (
+      <form onSubmit={this.submitItem}>
+        <input
+          type="text"
+          placeholder="Add new task here"
+          name="todoItem"
+          onChange={this.handleChanges}
+        ></input>
+        <button>Add Todo</button>
+      </form>
+    );
+  }
 }
 
-
-
-export default TodoForm
-
-
-
-
+export default TodoForm;

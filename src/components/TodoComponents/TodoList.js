@@ -1,56 +1,18 @@
-import React from 'react'
+import React from "react";
+import Todo from "./Todo";
 
-const items = [
-    {
-        name: "go for a stroll",
-        id: "1",
-        purchased: false
+const TodoList = props => {
+  return (
+    <div className="todolist-wrapper">
+      {props.todoItems.map(item => (
+        <Todo key={item.id} item={item} toggleItem={props.toggleItem} />
+      ))}
 
-    },
-    {
-        name: "buy bread",
-        id: "2",
-        purchased: false
+      <button className="clear-btn" onClick={props.clearPurchased}>
+        Clear Purchased
+      </button>
+    </div>
+  );
+};
 
-    },
-    {
-        name: "go home",
-        id: "3",
-        purchased: false
-
-    },
-
-]
-class TodoList extends React.Component {
-
-    constructor() {
-
-        super()
-        this.state = {
-            items // we can also use "items" when the key and the value are identical instead of "items: items"
-        }
-    }
-
-    render(props) {
-        return (
-
-            <div className="todolist-wrapper">
-                <ul>
-                    <li>delete this item later</li>
-                    {
-                        this.state.items.map(item => <li key={item.id}>{item.name}</li>)
-
-                    }
-
-
-
-                </ul>
-            </div>
-        )
-    }
-
-
-
-}
-
-export default TodoList
+export default TodoList;
