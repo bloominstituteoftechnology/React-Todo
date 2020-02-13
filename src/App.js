@@ -14,7 +14,7 @@ class App extends React.Component {
           <button type="submit">Clear completed</button>
         </form>
 
-        {/* Add a List.js component here
+        {/* Add a TodoList.js component here
           * it will return a <ul> of todo items*/}
        
       </div>
