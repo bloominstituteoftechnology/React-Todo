@@ -5,17 +5,16 @@ import styled from 'styled-components';
 const ListStyle= styled.div`
  display:flex;
  flex-direction: column;
- width: 300px;
- padding: 20px;
- margin: 20px;
+ width: 40%;
+ margin-left: 30%;
  background: #0fbfff;
  color: #ffffff;
  font-size: 150%;
  font-weight: 700;
- border-radius:5px;
+ border-top-radius:5px;
  align-items:center;
 
- [type=text]{
+ [type="text"]{
     ul {
         background: #cce5ff;
         margin: 5px;

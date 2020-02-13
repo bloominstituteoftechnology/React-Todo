@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import './components/TodoComponents/Todo.css';
+
 // import TodoSearch from './components/TodoComponents/TodoSearch';
 
 class App extends React.Component {
@@ -54,7 +54,7 @@ class App extends React.Component {
           value={this.state.todo}
           handleUpdate={this.changeTodo}
           handleAdd={this.addTodo}
-          handleClearTodos={this.clearCompletedTodos}
+          handleClear={this.clearCompletedTodos}
         />
       </div>
     );
