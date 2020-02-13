@@ -39,7 +39,7 @@ class TodoForm extends React.Component {
         Clear Purchased
       </button>
       </form>
-    );
+    )
   }
 }
 
