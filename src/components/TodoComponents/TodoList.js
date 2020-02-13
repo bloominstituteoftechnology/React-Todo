@@ -27,7 +27,7 @@ class TodoList extends React.Component {
 
         super()
         this.state = {
-            items: items
+            items // we can also use "items" when the key and the value are identical instead of "items: items"
         }
     }
 

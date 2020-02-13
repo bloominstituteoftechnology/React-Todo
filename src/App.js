@@ -14,7 +14,7 @@ class App extends React.Component {
 
     super()
     this.state = {
-    
+      
 
     }
   }
@@ -24,9 +24,11 @@ class App extends React.Component {
       <div className="app-wrapper">
       
         <TodoForm />
-        <TodoList>
-          <Todo propToDo={this.state.todoItem} />
-        </TodoList>
+        <TodoList
+          todoItems ={this.state.todoItems}
+          toggleItem={this.toggleItem}
+          clearPurchased={this.clearPurchased}
+        />
 
 
 
