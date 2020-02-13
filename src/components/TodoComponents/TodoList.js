@@ -16,7 +16,7 @@ class TodoList extends React.Component{
 
             <div className="list-wrapper">
                 <ul>
-                    
+
                 </ul>
             </div>
         )
@@ -26,3 +26,4 @@ class TodoList extends React.Component{
 
 }
 
+export default TodoList
