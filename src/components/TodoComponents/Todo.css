@@ -1,0 +1,15 @@
+.App {
+    text-align: center;
+}
+
+.item {
+    width       : 45%;
+    text-align  : left;
+    margin      : 4px 0;
+    padding-left: 8px;
+    cursor      : pointer;
+}
+
+.item.completed {
+    text-decoration: line-through;
+}
