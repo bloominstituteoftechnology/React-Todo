@@ -1,8 +1,191 @@
-.item {
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  background-color: #bce6ab;
+}
+
+html .app-wrapper {
+  background-color: #bce6ab;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+html .app-wrapper h2 {
+  color: #1d8a5d;
+  font-size: 2rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+html .app-wrapper form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+html .app-wrapper form input {
+  height: 5vh;
+  width: 20rem;
+  text-align: center;
+  font-size: 1.5rem;
+  background-color: #b5f5a5;
+  color: #1d8a5d;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+html .app-wrapper form button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  height: 5vh;
+  width: 100%;
+  background-color: rgba(6, 92, 72, 0.863);
+  color: #bce6ab;
+  font-size: 1.2rem;
+}
+
+html .app-wrapper form button.add-to-do-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-top: 2rem;
+}
+
+html .app-wrapper form button.add-to-do-btn span {
+  margin: 0 auto;
+}
+
+html .app-wrapper form button.clear-btn {
+  margin-top: 1rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+html .app-wrapper form button.clear-btn span {
+  margin: 0 auto;
+}
+
+html .app-wrapper .todolist-wrapper {
+  background-color: #1d8a5d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 63.5%;
+  max-width: 20rem;
+  margin-top: 2rem;
+}
+
+html .app-wrapper .todolist-wrapper p {
+  font-size: 1.3rem;
+  color: #e9ac84;
+  font-weight: 600;
+  height: 5vh;
+  margin: 0 auto;
+  text-align: center;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0.5rem 2rem;
+}
+
+html .app-wrapper .item {
   cursor: pointer;
 }
 
-.item.purchased {
+html .app-wrapper .item.purchased {
   text-decoration: line-through;
+  color: red;
 }
 /*# sourceMappingURL=App.css.map */

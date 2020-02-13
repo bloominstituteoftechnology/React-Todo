@@ -1,13 +1,150 @@
-.item {
-   
-    cursor: pointer;
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
-  
-.item.purchased {
-   
-    text-decoration: line-through;
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-.clear-btn{
-    
+html {
+  background-color: #bce6ab;
+  .app-wrapper {
+    background-color: #bce6ab;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+
+    h2 {
+      color: rgb(29, 138, 93);
+      font-size: 2rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        input {
+            height: 5vh;
+            width: 20rem;
+            text-align: center;
+            font-size: 1.5rem;
+            background-color: #b5f5a5;
+            color: rgb(29, 138, 93);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+
+      }
+      
+      button {
+        display: flex;
+        align-items: center;
+        align-self: center;
+
+        height: 5vh;
+        width: 100%;
+
+        background-color: rgba(6, 92, 72, 0.863);
+        color: #bce6ab;
+        font-size: 1.2rem;
+      }
+
+      button.add-to-do-btn {
+        display: flex;
+        align-items: center;
+        align-self: center;
+        margin-top: 2rem;
+
+
+        span {
+          margin: 0 auto;
+        }
+      }
+
+      button.clear-btn {
+        margin-top: 1rem;
+        align-self: center;
+        span {
+          margin: 0 auto;
+        }
+      }
+    }
+
+    .todolist-wrapper {
+        background-color: rgb(29, 138, 93);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        width: 63.5%;
+        max-width: 20rem;
+        margin-top: 2rem;
+
+      p {
+        font-size: 1.3rem;
+        color: #e9ac84;
+        font-weight: 600;
+        height: 5vh;
+        margin: 0 auto;
+        text-align: center;
+        
+        margin: 0 auto;
+        text-align: center;
+        padding: 0.5rem 2rem;
+      }
+    }
+    .item {
+      cursor: pointer;
+    }
+
+    .item.purchased {
+      text-decoration: line-through;
+      color: red;
+    }
+  }
 }
