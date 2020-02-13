@@ -170,7 +170,7 @@ html .app-wrapper .todolist-wrapper {
 
 html .app-wrapper .todolist-wrapper p {
   font-size: 1.3rem;
-  color: #e9ac84;
+  color: #f8faf8;
   font-weight: 600;
   height: 5vh;
   margin: 0 auto;
@@ -185,8 +185,8 @@ html .app-wrapper .item {
 }
 
 html .app-wrapper .item.purchased {
-  text-decoration: line-through;
-  color: red;
+  -webkit-text-decoration: solid line-through red 0.2rem;
+          text-decoration: solid line-through red 0.2rem;
 }
 
 html .app-wrapper .copyright {

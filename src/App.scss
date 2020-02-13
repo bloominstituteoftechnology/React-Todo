@@ -127,7 +127,7 @@ html {
 
       p {
         font-size: 1.3rem;
-        color: #e9ac84;
+        color: #f8faf8;
         font-weight: 600;
         height: 5vh;
         margin: 0 auto;
@@ -143,8 +143,8 @@ html {
     }
 
     .item.purchased {
-      text-decoration: line-through;
-      color: red;
+      text-decoration: solid line-through red 0.2rem;
+
     }
     .copyright {
                 color: rgba(6, 92, 72, 0.863);
