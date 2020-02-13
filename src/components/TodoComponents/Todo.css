@@ -84,6 +84,7 @@ button {
   color: white;
   font-size: 16px;
   padding: 6px 14px;
+  margin-left: 3%;
 }
 
 input::placeholder {
@@ -93,4 +94,15 @@ input::placeholder {
 
 .clear-btn {
   margin-top: 16px;
+}
+
+.clear-button {
+
+  background-color: #c044e6;
+  border: 1px solid #c044e6;
+  color: white;
+  font-size: 16px;
+  padding: 6px 20px;
+  margin-left: 48%;
+
 }

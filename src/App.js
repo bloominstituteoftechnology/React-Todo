@@ -2,6 +2,7 @@ import React from 'react';
 import { chores } from './data';
 import TodoList from '../src/components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import ClearForm from './components/TodoComponents/ClearForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -47,6 +48,20 @@ class App extends React.Component {
       })
     });
 
+  clearCompleted = completed => {
+     
+      this.setState({
+      chores: this.state.chores.map(item => {
+        if(completed === item.completed) {
+          return {
+            ...item
+          };
+        }
+        return item;
+      })
+    });
+    }
+
  };
 
   render() {
@@ -58,6 +73,9 @@ class App extends React.Component {
           <TodoList 
           toggleItem={this.toggleItem}
           chores={this.state.chores}/>
+          <br></br>
+          <ClearForm 
+          clearCompleted={this.state.clearCompleted}/>
       </div>
     );
   }
