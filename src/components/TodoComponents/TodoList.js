@@ -7,16 +7,23 @@ class TodoList extends React.Component{
 
         super()
         this.state = {
-
+            items: ["dog", "cat", "elephant"]
         }
     }
 
-    render() {
+    render(props) {
         return (
 
-            <div className="list-wrapper">
+            <div className="todolist-wrapper">
                 <ul>
+                    <li>delete this item later</li>
+                    { 
+                    this.state.items.map(item => <li>{item}</li>)
+                                        
+                    }
+                   
 
+                    
                 </ul>
             </div>
         )
