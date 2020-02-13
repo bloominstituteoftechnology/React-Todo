@@ -1,104 +1,27 @@
 import React from 'react';
 
-class FormToDo extends React.Component {
-    constructor() {
-        super();
-
-        this.state = {
-            value: ""
-        }
-    }
-
-    handleChange = (event) => {
-        this.setState({
-            value: event.target.value
-        })
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault()
-
-        this.props.addItem(event, this.state.value)
-
-        this.setState({
-            value: ""
-        })
-    }
-
+class TodoForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input 
-                    type="text"
-                    placeholder="Add Task"
-                    value={this.state.value}
-                    onChange={this.handleChange}>
-                </input>
-                <button>Add To List</button>
+            <div className='taskAdder'>
+            <form onSubmit={this.props.formSubmitHandler}>
+                <input
+                type="text"
+                placeholder="Write New Task Here"
+                value={this.props.task}
+                name="task"
+                onChange={this.props.inputChangeHandler}
+                />
+                <button type="submit">Add Task</button>
             </form>
+            </div>
         );
     }
-}
+};
 
-export default FormToDo; 
-
-
+export default TodoForm 
 
 
-// import React from "react";
 
-// class TodoForm extends React.Component {
-//   // Constructor with state
-//   // add a state property called "newItem"
-//   // set the value of "this.state.newItem" to an empty string
-//   constructor() {
-//     super();
-//     // const [newItem, setNewItem] = useState('');
-//     this.state = {
-//       newItem: ""
-//     };
 
-//     // // explicit binding
-//     // this.handleChanges = this.handleChanges.bind(this);
-//   }
-
-//   handleChanges = e => {
-//     // update state with each keystroke
-//     // setNewItem(e.target.value)
-//     this.setState({
-//       newItem: e.target.value
-//     });
-//   };
-
-//   // class method to submit form
-//   handleSubmit = e => {
-//     e.preventDefault();
-
-//     // add our typed in item to the grocery list!
-//     this.props.addItem(this.state.newItem);
-//     this.setState({ newItem: "" });
-//     console.log("it's working!");
-//   };
-
-//   render() {
-//     console.log("rendering form");
-//     return (
-//       <form onSubmit={this.handleSubmit}>
-//         {/* This is an uncontrolled component 😬 We want it to be controlled by state */}
-//         <label htmlFor="item">New Item</label>
-//         <input
-//           type="text"
-//           name="item"
-//           id="item"
-//           value={this.state.newItem}
-//           onChange={this.handleChanges}
-//         />
-//         <button>Add</button>
-//         <button>Clear</button>
-//       </form>
-//     );
-//   }
-// }
-
-// export default TodoForm;

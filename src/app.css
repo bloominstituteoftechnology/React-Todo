@@ -1,6 +1,32 @@
-.flexRow{
+.app {
+    border: 1px solid black;
+    background-image: url('https://i.stack.imgur.com/yJedC.jpg');
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.topSection {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    background: #b9f0f4;
+    margin: 45px;
+    padding: 45px;
+    width: 700px;
+    /* border: 2px solid black; */
+    border: 8px ridge rgb(41,255,219);
+        border-radius: 20px;
+} 
+
+
+
+
+/* .flexRow{
     display: flex;
     flex-flow: row nowrap;
     width: 40%;
     justify-content: center;
-} 
+}  */

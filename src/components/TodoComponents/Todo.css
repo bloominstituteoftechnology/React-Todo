@@ -1,63 +1,76 @@
-body {
-    display: flex;
-    justify-content: center;
-    padding: 50px;
-    background-color: #66CCFF;
-    font-family: sans-serif;
+h1 {
+    padding: 1px 50px;
+    margin: 20px 0;
 }
 
-#root {
-    display:flex;
-    justify-content: flex;
+.header {
+    margin: 0 0 50px 0;
+    border: 3px solid black;
+    border-radius: 50px;
+    background: #44e788;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: 28px;
+}
+
+input {
+    border: 1px solid white;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    font-size: 20px;
+}
+
+button {
+    background: white;
+    border: 1px solid white;
+    border-bottom: 1px solid black;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.taskAdder {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+}
+.todoForm {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.todoList {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    margin-left: 10px;
+}
+
+.task {
+    padding: 0 15px;
+    background: white;
+    border: 5px ridge rgb(232,19,54); 
+    border-radius: 5px;
+    color: black;
+    margin: 25px;
+    text-align: center;
+}
+
+p {
+    font-size: 16px;
+    color: black;
+    border-bottom: 1px solid black;
 } 
 
 
 
-.todoListMain .header input {
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #fff;
-    width: 165px;
-  }
-  
-  .todoListMain .header button {
-    padding: 10px;
-    font-size: 16px;
-    margin: 10px;
-    margin-right: 0px;
-    background-color: #0066ff;
-    color: white;
-    border: 2px solid black;
-  }
-  
-  .todoListMain .header button:hover {
-      background-color: red;
-      border: 2px solid #003399;
-      cursor: pointer;
 
-  }
-  
-  .todoListMain .theList li {
-      color: #333;
-      background-color: #44e788;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      border: solid 1px black;
-      list-style: none;
-     transition: background-color .2s ease-out;
-  }
-  
-  
-  .todoListMain .theList li:hover {
-      background-color: pink;
-      cursor: pointer;
-      border-radius: 10px;
-       
-  }
-  
-  ul.theList {
-      padding: 0;
-  }
-  
-  
