@@ -17,9 +17,22 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      tasks: tasks // can be shorthanded by a single "tasks"
+      tasks // can be shorthanded by a single "tasks"
     };
   }
+
+  // functionality creating new tasks and adds to exisiting task list
+  addItem = itemText => {
+    const newItem = {
+      taskName: itemText,
+      id: Date.now(),
+      completed: false
+    };
+
+    this.setState({
+      tasks: [...this.state.tasks, newItem]
+    });
+  };
 
   // strikethrough & reset functionality
   toggleTask = itemId => {
@@ -34,19 +47,6 @@ class App extends React.Component {
         }
         return item;
       })
-    });
-  };
-
-  // functionality creating new tasks and adds to exisiting task list
-  addItem = itemText => {
-    const newItem = {
-      taskName: itemText,
-      id: Date.now(),
-      completed: false
-    };
-
-    this.setState({
-      tasks: [...this.state.tasks, newItem]
     });
   };
 

@@ -1,20 +1,20 @@
 import React from "react";
 
 class TodoForm extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       itemText: ""
     };
   }
 
   changeHandler = event => {
-    this.setState({ itemText: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   submitHandler = event => {
     event.preventDefault();
-    this.props.addItem(this.state.itemText);
+    this.props.addItem(this.state.itemText, event);
     this.setState({ itemText: "" });
   };
 
@@ -27,7 +27,7 @@ class TodoForm extends React.Component {
           value={this.state.itemText}
           onChange={this.changeHandler}
         />
-        <button type="submit">Add Task</button>
+        <button>Add Task</button>
       </form>
     );
   }
