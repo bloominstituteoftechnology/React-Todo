@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 class TodoForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      itemText: localStorage.getItem('itemText', props.itemText)
+      itemText: localStorage.getItem("itemText", props.itemText)
     };
     console.log(localStorage);
   }
@@ -17,15 +17,20 @@ class TodoForm extends React.Component {
   submitHandler = event => {
     event.preventDefault();
     this.props.addItem(this.state.itemText);
-    localStorage.setItem('task', this.state.itemText);
-    this.setState({ itemText: '' });
+    localStorage.setItem("itemText", this.state.itemText);
+    this.setState({ itemText: "" });
   };
 
   render() {
     return (
       <form onSubmit={this.submitHandler}>
-        <input type='text' name='itemText' value={this.state.value} onChange={this.changeHandler} />
-        <button type='submit'>Add</button>
+        <input
+          type="text"
+          name="itemText"
+          value={this.state.value}
+          onChange={this.changeHandler}
+        />
+        <button type="submit">Add</button>
       </form>
     );
   }
