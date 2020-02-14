@@ -4,7 +4,7 @@ h1 {
 }
 
 .header {
-    margin: 0 0 50px 0;
+    margin: 0 0 30px 0;
     border: 3px solid black;
     border-radius: 50px;
     background: #44e788;
@@ -12,7 +12,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-self: center;
-    font-size: 28px;
+    font-size: 24px;
 }
 
 input {
@@ -57,16 +57,24 @@ button {
 
 .task {
     padding: 0 15px;
+    font-weight: 900;
+    font-size: 16px;
     background: white;
-    border: 5px ridge rgb(232,19,54); 
+    border: 8px ridge rgb(232,19,54); 
     border-radius: 5px;
     color: black;
     margin: 25px;
     text-align: center;
 }
 
+.task :hover {
+    background-color: #FF45F3;
+    cursor: pointer;
+   
+}
+
 p {
-    font-size: 16px;
+    font-size: 18px;
     color: black;
     border-bottom: 1px solid black;
 } 
