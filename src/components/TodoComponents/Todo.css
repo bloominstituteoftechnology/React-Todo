@@ -1,0 +1,10 @@
+.item.completed{
+    background-color:blue;
+    color: white;
+    width: 250px;
+}
+.item{
+    background-color:skyblue;
+    color: black;
+    width: 250px;
+}
