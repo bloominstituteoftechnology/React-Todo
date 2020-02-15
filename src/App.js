@@ -2,7 +2,6 @@ import React from 'react';
 import { chores } from './data';
 import TodoList from '../src/components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import ClearForm from './components/TodoComponents/ClearForm';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -47,35 +46,30 @@ class App extends React.Component {
         return item;
       })
     });
+  }
 
-  clearCompleted = completed => {
-     
+  clearCompleted = (e) => {
+
+     e.preventDefault();
       this.setState({
-      chores: this.state.chores.map(item => {
-        if(completed === item.completed) {
-          return {
-            ...item
-          };
-        }
-        return item;
-      })
+         chores: this.state.chores.filter(chore => chore.completed === false)
     });
+      console.log(this.state.chores);
     }
 
- };
 
   render() {
     return (
       <div>
         <h1>Chores List</h1>
-          <TodoForm addItem={this.addItem}/>
+          <TodoForm 
+          addItem={this.addItem}/>
           <br/>
           <TodoList 
           toggleItem={this.toggleItem}
-          chores={this.state.chores}/>
+          chores={this.state.chores}
+          clearCompleted={this.clearCompleted}/>
           <br></br>
-          <ClearForm 
-          clearCompleted={this.state.clearCompleted}/>
       </div>
     );
   }

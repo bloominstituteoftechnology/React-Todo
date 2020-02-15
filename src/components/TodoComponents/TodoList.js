@@ -1,5 +1,5 @@
 import React from 'react';
-import Todo from "../TodoComponents/Todo";
+import Todo from "./Todo";
 
 const TodoList = props => {
 
@@ -7,8 +7,9 @@ const TodoList = props => {
         return (
           <div>
             {props.chores.map(item => {
-              return <Todo chores={item} toggleItem={props.toggleItem}/>
+              return <Todo key={item.id} chores={item} toggleItem={props.toggleItem}/>
             })}
+            <button className="clear-button" onClick={props.clearCompleted}>Clear Form</button>
           </div>
         );
 

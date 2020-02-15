@@ -25,6 +25,7 @@ class TodoForm extends React.Component {
 
       render() {
         return (
+          <div>
           <form onSubmit={this.sumbitHandler}>
             <input
                type="text"
@@ -33,7 +34,9 @@ class TodoForm extends React.Component {
                onChange={this.changeHandler}
             />
             <button type="submit">Add</button>
-          </form>
+           </form>
+            <br/>
+           </div>
         );
       }
 
