@@ -1,164 +1,174 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0;
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
 }
 
-body {
-    background-color: rgb(54, 53, 53);
-    display: flex;
-    justify-content: center;
-    align-content: center;
+#root {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-h1, h2, h3, h4, h5, h6, div, p, span {
-    color: #000000;
-    font-family: 'Roboto', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span {
+  color: #000000;
+  font-family: "Roboto", sans-serif;
 }
 
 .App {
+  background-image: url("./assets/background1.png");
+  background-size: cover;
+  text-align: center;
+  background-color: rgb(80, 72, 72);
+  width: 70%;
+  height: 85%;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  justify-content: center;
+  border: 2px solid #000000;
+  border-radius: 10px;
+}
 
-    text-align: center;
-    background-color: rgb(107, 100, 100);
-    width: 900px;
-    height: 80%;
-    display: flex;
-    flex-flow: column wrap;
-    align-content: center;
-    justify-content: center;
-    border: 2px solid #000000;
-    border-radius: 10px;
+h1 {
+  color: #54eff5;
 }
 
 .header {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .todo-list {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 2rem auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2rem auto;
 }
 
 .item {
-    background-color: #e64944;
-    color: #000000;
-    width: 45%;
-    text-align: left;
-    margin: 1rem 0;
-    padding: 20px;
-    cursor: pointer;
+  background-color: #290035;
+  color: #000000;
+  width: 45%;
+  text-align: left;
+  margin: 1rem 0;
+  padding-left: 8px;
+  cursor: pointer;
 }
 
 .item.completed {
-    background-color: #d17d7c;
-    text-decoration: line-through;
+  background-color: #d17d7c;
+  text-decoration: line-through;
 }
 
 form {
-    width: 60%;
-    display: flex;
-    justify-items: center;
-    align-items: center;
-flex-flow: column nowrap;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  color: #000000;
 }
 
-
-form>input {
-    background-color: #2d2d37;
-    border: 0;
-    font-size: 1rem;
-    width: 50%;
-    outline: 0;
-    padding: 1rem;
-    color: white;
-    border-bottom: 1px solid #e64944;
-    margin-right: 8px;
+form > input {
+  border: 0;
+  font-size: 1rem;
+  width: 190%;
+  height: auto;
+  outline: 0;
+  padding: 0.3rem;
+  border-bottom: 1px solid #e64944;
 }
 
 button {
-    background-color: #e64944;
-    border: 2px solid #cfc6c6;
-    color: white;
-    font-size: 16px;
-    padding: 1rem 3rem;
-    margin-top: 2rem;
+  background-color: #e64944;
+  border: 2px solid #cfc6c6;
+  color: white;
+  font-size: 16px;
+  padding: 1rem 3rem;
+  margin-top: 2rem;
 }
 
 input::placeholder {
-    color: #443b3b;
-    opacity: 1;
+  color: #443b3b;
+  opacity: 1;
 }
 
 .clear-button {
-    margin-top: 16px;
+  margin-top: 16px;
 }
 
 @media screen and (max-width: 550px) {
-
-.App {
-
+  .App {
     text-align: center;
     background-color: rgb(107, 100, 100);
     /* width: 100%; */
-    height:100%;
+    height: 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-items: center;
     border: 2px solid #000000;
     border-radius: 10px;
-}
+  }
 
-.header {
+  .header {
     display: flex;
     flex-flow: column wrap;
     justify-content: space-evenly;
     align-items: center;
-}
+  }
 
-.todo-list {
+  .todo-list {
     display: flex;
     flex-flow: column wrap;
     justify-items: center;
     align-items: center;
     width: 100%;
     margin: 2rem auto;
-}
+  }
 
-.item {
+  .item {
     background-color: #e64944;
     color: #000000;
     width: 45%;
     text-align: center;
-    margin: .1rem 0;
+    margin: 0.1rem 0;
     padding: 30px;
     cursor: pointer;
-}
+  }
 
-.item.completed {
+  .item.completed {
     background-color: #d17d7c;
     text-decoration: line-through;
-}
+  }
 
-form {
+  form {
     width: 60%;
     display: flex;
     justify-items: center;
     align-items: center;
-flex-flow: column nowrap;
-}
+    flex-flow: column nowrap;
+  }
 
-
-form>input {
+  form > input {
     background-color: #2d2d37;
     border: 0;
     font-size: 1rem;
@@ -168,23 +178,22 @@ form>input {
     color: white;
     border-bottom: 1px solid #e64944;
     margin-right: 8px;
-}
+  }
 
-button {
+  button {
     background-color: #e64944;
     border: 2px solid #cfc6c6;
     color: white;
     font-size: 16px;
     padding: 1rem 3rem;
-}
+  }
 
-input::placeholder {
+  input::placeholder {
     color: #443b3b;
     opacity: 1;
-}
+  }
 
-.clear-button {
-    margin-top: .1rem;
-}
-
+  .clear-button {
+    margin-top: 0.1rem;
+  }
 }
