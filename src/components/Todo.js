@@ -9,7 +9,6 @@ const Todo = props => {
   const handleClick = () => {
     props.toggleItem(props.id)
   }
-
   return (
     <div className={verboseClassName} onClick={handleClick}>
       <p>{props.task}</p>

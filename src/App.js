@@ -1,5 +1,6 @@
 import React from 'react'
 
+import SearchForm from './components/SearchForm'
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
 
@@ -11,13 +12,7 @@ class App extends React.Component {
   constructor () {
     super()
     this.state = {
-      todoList: [
-        {
-          task: '',
-          id: Date.now(),
-          completed: false
-        }
-      ]
+      todoList: []
     }
     console.log(this.state)
   }
@@ -56,17 +51,31 @@ class App extends React.Component {
     })
   }
 
+  searchResultDisplay = search => {
+    console.log(search)
+    let searchResults = this.state.todoList.filter(
+      item => item.task.toLowerCase() === search.toLowerCase()
+    )
+    this.setState({
+      todoList: searchResults
+    })
+  }
+
   render () {
     return (
       <div className='App'>
         <h1>Hutch's TODO List:</h1>
         <div className='todo-wrapper'>
           <TodoForm
+            task={this.state.todoList.task}
             addItem={this.addItem}
             clearCompleted={this.clearCompleted}
           />
         </div>
         <TodoList todoList={this.state.todoList} toggleItem={this.toggleItem} />
+        <div className='search'>
+          <SearchForm search={this.searchResultDisplay} />
+        </div>
       </div>
     )
   }

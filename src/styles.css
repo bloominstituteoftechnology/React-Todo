@@ -68,7 +68,7 @@ h1 {
   margin: 4px 0;
   width: 45%;
   color: #ffffff;
-  background-color: #14397e7c;
+  background-color: #2585d3c9;
   text-decoration: line-through;
 }
 
@@ -90,21 +90,18 @@ form>input {
 }
 
 button {
-  background-color: #e64944;
+  background-color: #ad14a1;
   border: 2px solid #cfc6c6;
   color: white;
   font-size: 16px;
-  padding: 1rem 3rem;
-  margin-top: 2rem;
+  width: 5rem;
+  padding: .7rem 0;
+  margin: 10px;
 }
 
 input::placeholder {
   color: #443b3b;
   opacity: 1;
-}
-
-.clear-button {
-  margin-top: 16px;
 }
 
 @media screen and (max-width: 550px) {
@@ -182,8 +179,5 @@ input::placeholder {
   input::placeholder {
     color: #443b3b;
     opacity: 1;
-  }
-  .clear-button {
-    margin-top: 16px;
   }
 }

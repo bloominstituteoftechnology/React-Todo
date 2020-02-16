@@ -1,8 +1,8 @@
 import React from 'react'
 
 class TodoForm extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       task: ''
     }
@@ -16,12 +16,11 @@ class TodoForm extends React.Component {
 
   submitHandler = e => {
     e.preventDefault()
-    if (this.state.task !== '') {
-      this.props.addItem(this.state.task)
-      this.setState({
-        task: ''
-      })
-    }
+    console.log(this.props)
+    this.props.addItem(this.state.task)
+    this.setState({
+      task: ''
+    })
   }
 
   render () {
@@ -30,8 +29,9 @@ class TodoForm extends React.Component {
         <input
           type='text'
           name='task'
-          value={this.state.name}
+          value={this.state.task}
           onChange={this.changeHandler}
+          placeholder='Add ToDo'
         />
         <button type='submit'>Add</button>
         <button onClick={this.props.clearCompleted}>Clear</button>
