@@ -1,11 +1,20 @@
-import React from "react";
+import React from 'react'
 
 const Todo = props => {
+  let verboseClassName = 'item'
+  if (props.completed) {
+    verboseClassName = verboseClassName + '-completed'
+  }
+
+  const handleClick = () => {
+    props.toggleItem(props.id)
+  }
+
   return (
-    <div>
+    <div className={verboseClassName} onClick={handleClick}>
       <p>{props.task}</p>
     </div>
-  );
-};
+  )
+}
 
-export default Todo;
+export default Todo
