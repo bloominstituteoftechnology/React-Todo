@@ -16,7 +16,7 @@ class App extends React.Component {
     }
     handler = (itemID) =>{
       this.setState({ TodoData : this.state.TodoData.map(item =>{
-      if(itemID === TodoData.id){
+      if(itemID === item.id){
         return {
          ...item,
          completed : !item.completed
@@ -25,14 +25,31 @@ class App extends React.Component {
     return item;
   })})
 }
-
+  onSub = e =>{
+    e.preventDefault();
+  }
+  
+  addItem = (itemText) =>{
+    const newItem = {
+      task: itemText,
+      completed: false,
+      id: Date.now()
+    }
+    this.setState({TodoData: [...this.state.TodoData, newItem]})
+  }
+  onClear = (e) =>{
+    e.preventDefault();
+    this.setState({TodoData: [...this.state.TodoData.filter(item => item.completed === false)]});
+  }
 
   render() {
-    return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+    return(
+      <div className="container">
+        <div className="borderlands">
+        <h2>The To-do's</h2>
         <TodoList  data = {this.state.TodoData} toggleCompleted = {this.handler}/>
-        <TodoForm />
+        <TodoForm addItem = {this.addItem} onClear={this.onClear}/>
+        </div>
       </div>
     );
   }

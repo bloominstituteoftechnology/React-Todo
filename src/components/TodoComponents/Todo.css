@@ -1,10 +1,41 @@
 .item.completed{
     background-color:blue;
     color: white;
+    text-decoration: line-through;
     width: 250px;
 }
 .item{
     background-color:skyblue;
     color: black;
     width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.borderlands{
+    border: solid 3px black;
+    background-color: fuchsia;
+    padding: 10px;
+}
+input{
+    margin: 10px;
+}
+button{
+    margin: 10px;
+}
+h2{
+    color:white;
+    text-align:
+}
+body{
+    background-image: url('./img/bg.png');
+    position: cover;
 }
