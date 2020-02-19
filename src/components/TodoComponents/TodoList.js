@@ -3,13 +3,14 @@ import Todo from "./Todo";
 
 const TodoList = props => {
 
+       {console.log(props.chores)}
         
         return (
           <div>
             {props.chores.map(item => {
               return <Todo key={item.id} chores={item} toggleItem={props.toggleItem}/>
             })}
-            <button className="clear-button" onClick={props.clearCompleted}>Clear Form</button>
+            {!props.changed && <button className="clear-button" onClick={props.clearCompleted}>Clear Form</button>}
           </div>
         );
 

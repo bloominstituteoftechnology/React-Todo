@@ -2,6 +2,8 @@ import React from 'react';
 import { chores } from './data';
 import TodoList from '../src/components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import SearchForm from './components/SearchForm';
+import ls from 'local-storage';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -21,7 +23,8 @@ class App extends React.Component {
     const newItem = {
       name : itemText,
       completed : false,
-      id: Date.now()
+      id: Date.now(),
+      changed: false
     };
 
     // why is calling this okay in this context?
@@ -68,7 +71,14 @@ class App extends React.Component {
           <TodoList 
           toggleItem={this.toggleItem}
           chores={this.state.chores}
+          changed={this.state.changed}
           clearCompleted={this.clearCompleted}/>
+          <SearchForm 
+          toggleItem={this.toggleItem}
+          chores={this.state.chores}
+          changed={this.state.changed}
+          clearCompleted={this.clearCompleted}/>
+          <br/>
           <br></br>
       </div>
     );
