@@ -7,34 +7,9 @@ import './components/TodoComponents/Todo.css';
 
 const todos = [
 	{
-		task: 'Meet Tilde',
+		task: 'Living Life',
 		id: 152817077286,
 		completed: true
-	},
-	{
-		task: 'Kiss Tilde',
-		id: 152881784358,
-		completed: true
-	},
-	{
-		task: 'Live with Tilde',
-		id: 152881708358,
-		completed: false
-	},
-	{
-		task: 'Marry Tilde',
-		id: 152887084358,
-		completed: false
-	},
-	{
-		task: 'Have babies with Tilde',
-		id: 152881084358,
-		completed: false
-	},
-	{
-		task: 'Live happy life with Tilde',
-		id: 152817084358,
-		completed: false
 	}
 ];
 
