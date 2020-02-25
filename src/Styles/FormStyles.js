@@ -1,38 +1,33 @@
-import React from 'react';
-
-export const inputStyle = {
-    padding: '.6rem',
-    fontSize: '20px',
+export const input = {
+    padding: '.5rem',
+    fontSize: '16px',
     display: 'block',
+    borderRadius: '4px',
     border: '1px solid #ccc',
-    borderRadius: '5px',
-    width: '92%',
-    backgroundColor: 'transparent',
-    display: 'block'
+    marginBottom: '.5rem'
+}
+
+export const button = {
+    background: '#555c73',
+    borderRadius: '4px',
+    color: 'white',
+    border: 'none',
+    padding: '.5rem'
+}
+
+export const formStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'left',
+    justifyContent: 'center',
+    width: '100%',
+    margin: '20px',
+    maxWidth: '375px'
 }
 
 export const containerStyle = {
     display: 'flex',
     flexFlow: 'row wrap',
     justifyContent: 'center',
-    width: '100%',
-    maxWidth: '300px',
-    flexDirection: 'column-reverse'
-}
-
-export const buttonStyle = {
-    background: 'rgb(15, 136, 136)',
-    borderRadius: '5px',
-    color: 'white',
-    border: 'none',
-    padding: '.5rem',
-    display: 'block',
-    width: '100%',
-    margin: '1rem 0rem'
-}
-
-export const todoStyle = {
-    fontWeight: 'bold',
-    display: 'flex ',
-    flexDirection: 'column-reverse'
+    width: '100%'
 }

@@ -1,67 +1,25 @@
-import React from 'react';
-import TodoList from './components/TodoComponents/TodoList';
-import TodoForm from './components/TodoComponents/TodoForm';
-import { containerStyle } from './Styles/FormStyles'
+import React, { useReducer } from 'react';
+import './App.css';
 
-class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+//components
+import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
 
-  constructor() {
-    super();
-    this.state = {
-      todos: [],
-      todo: ''
-    };
-  }
+//reducers
+import { initialState, todoReducer } from './reducers/reducer';
 
-  addTodo = e => {
-    e.preventDefault();
-    const newTodo = { task: this.state.todo, completed: false, id: Date.now() };
-    this.setState({ 
-      todos: [...this.state.todos, newTodo], 
-      todo: '' 
-    });
-  };
+function App() {
 
-  changeTodo = e => this.setState({ [e.target.name]: e.target.value });
+  const [state, dispatch] = useReducer(todoReducer, initialState);
+  console.log('use reducer state: ', state)
 
-  toggleTodoComplete = id => {
-    let todos = this.state.todos.slice();
-    todos = todos.map(todo => {
-      if (todo.id === id) {
-        todo.completed = !todo.completed;
-        return todo;
-      } else {
-        return todo;
-      }
-    });
-    this.setState({ todos });
-  };
-
-  clearCompletedTodos = e => {
-    e.preventDefault();
-    let todos = this.state.todos.filter(todo => !todo.completed);
-    this.setState({ todos });
-  };
-
-  render() {
-    return (
-      <div className="container" style = { containerStyle }>
-        <TodoList
-          handleToggleComplete={this.toggleTodoComplete}
-          todos={this.state.todos}
-        />
-        <TodoForm
-          value={this.state.todo}
-          handleTodoChange={this.changeTodo}
-          handleAddTodo={this.addTodo}
-          handleClearTodos={this.clearCompletedTodos}
-        />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <h1>Reducer Todo</h1>
+      <TodoForm dispatch={dispatch} />
+      <TodoList state={state} dispatch={dispatch} />
+    </div>
+  );
 }
 
 export default App;

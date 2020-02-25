@@ -1,20 +1,36 @@
-// your components will all go in this `component` directory.
-// feel free to change this component.js into TodoList.js
-import React from 'react';
-import { todoStyle } from '../../Styles/FormStyles';
-
-import Todo from './Todo';
+import React from "react";
+import { button } from '../styles/styles';
 
 const TodoList = props => {
   return (
-    <div className="todos" style={ todoStyle }>
-      {props.todos.map(todo => (
-        <Todo
-          handleToggleComplete={props.handleToggleComplete}
-          key={todo.id}
-          todo={todo}
-        />
-      ))}
+    <div>
+      {props.state.todos.map(item => {
+        return (
+          <div onClick={() => {
+            props.dispatch({
+              type: "TOGGLE_COMPLETED",
+              payload: item.id
+            })
+          }}>
+            <p key={item.id}>{item.item}</p>
+            {
+              item.completed ?
+                <p className="completedTaskConfirm">COMPLETED!</p>
+                :
+                <p className="completedTaskConfirm">not completed</p>
+            }
+          </div>
+        );
+      })}
+      <button style={button}
+        onClick={() => {
+          props.dispatch({
+            type: "REMOVE_COMPLETED"
+          });
+        }}
+      >
+        Remove Completed
+      </button>
     </div>
   );
 };

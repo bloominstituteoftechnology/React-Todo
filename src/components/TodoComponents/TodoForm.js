@@ -1,21 +1,42 @@
-import React from 'react';
-import { buttonStyle } from '../../Styles/FormStyles';
-import { inputStyle } from '../../Styles/FormStyles';
+import React, { useState } from 'react';
+import { input, button, formStyle, containerStyle } from '../styles/styles';
 
-const TodoForm = props => {
+
+const TodoForm = ({ dispatch }) => {
+
+  const [taskInput, setTaskInput] = useState('')
+
+  const handleChanges = e => {
+    setTaskInput(e.target.value)
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    setTaskInput('')
+  }
+
   return (
-    <form>
-      <input style= { inputStyle }
-        onChange={props.handleTodoChange}
-        type="text"
-        name="todo"
-        value={props.value}
-        placeholder="            ...To Do List"
-      />
-      <button style={buttonStyle} onClick={props.handleAddTodo}>Add Todo</button>
-      <button style={buttonStyle} onClick={props.handleClearTodos}>Clear Completed</button>
-    </form>
-  );
-};
+    <div style={containerStyle}>
+      <form style={formStyle} 
+      onSubmit={handleSubmit}>
+        <input style={input}
+          type="text"
+          placeholder="add a task here"
+          name="addTask"
+          value={taskInput}
+          onChange={handleChanges}
+        />
 
-export default TodoForm;
+        <button style={button}
+        onClick={() => {
+          dispatch({ 
+            type: 'ADD_TASK',
+            payload: taskInput 
+          })
+        }}>Add</button>
+      </form>
+    </div>
+  )
+}
+
+export default TodoForm
