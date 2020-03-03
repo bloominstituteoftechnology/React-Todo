@@ -5,9 +5,9 @@ We're going to practice building a stateful class component with this project. E
 ## Initializing the project.
 
 - `Fork and clone` this project and cd into your cloned version.
-- `npm install` or `yarn install` will pull in all the node_modules you need.
-- `npm start` or `yarn start` will start a development server on your `http://localhost:3000`.
-  - If npm or yarn asks you to select different port with some error message, just confirm and it will pull it up on port 3001. This simply means you have a development server up and running on that port already.
+- `npm install` will pull in all the node_modules you need.
+- `npm start` will start a development server on your `http://localhost:3000`.
+  - If npm asks you to select different port with some error message, just confirm and it will pull it up on port 3001. This simply means you have a development server up and running on that port already.
 
 ## Instructions
 
