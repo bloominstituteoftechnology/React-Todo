@@ -44,9 +44,7 @@ class App extends React.Component {
     this.setState({
       tasks: this.state.tasks.filter(item => { 
         if (item.completed === true) { return false; }
-         else {
-          return true;
-        }
+         else { return true; }
       })
     })
   }

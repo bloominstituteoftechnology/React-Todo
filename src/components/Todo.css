@@ -1,3 +1,43 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(255, 183, 49);
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
 .item.completed {    
     text-decoration: line-through;
+  }
+
+  form {    
+    display: flex;
+    justify-content: center;
+  }
+
+  .todo-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.7rem;
+  }
+
+  button {
+    background-color: #2dd473;    
+    color: white;
+    font-size: 16px;
+    padding: 6px 14px;  
+  }
+
+  .clear-btn {
+    margin: 20px 45%;
   }
