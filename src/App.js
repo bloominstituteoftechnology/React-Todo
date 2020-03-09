@@ -45,6 +45,13 @@ class App extends React.Component {
       chores: [...this.state.chores, newItem]
     })
   }
+
+  clearCompleted = () => {
+    this.setState({
+      chores: this.state.chores.filter(item => !item.completed)
+    })
+    console.log("removed item")
+}
   
   render() {
     return (
@@ -57,6 +64,7 @@ class App extends React.Component {
         <TodoList 
           chores={this.state.chores}
           toggleCompleted={this.toggleCompleted}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );
