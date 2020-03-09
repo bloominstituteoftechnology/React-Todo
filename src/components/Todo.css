@@ -1,0 +1,8 @@
+.item.completed {
+    text-decoration: line-through;
+    background-color: red;
+}
+
+.item {
+    border: 1px red solid;
+}
