@@ -1,0 +1,20 @@
+body{
+	background-color: black;
+}
+
+.Container{
+	width: 500px;
+	margin: 15px auto;
+	padding: 25px 0px;
+	text-align: center;
+	background-color: rgba(255,255,255,0.8);
+	border: 2px purple solid;
+	border-radius: 50px;
+	
+}
+
+.Task {
+	cursor: pointer;
+	width: 50%;
+	margin: 0px auto;
+}
