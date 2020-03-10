@@ -21,12 +21,12 @@ We're going to practice building a stateful class component with this project. E
 ```js
 [
   {
-    task: 'Organize Garage',
+    task: "Organize Garage",
     id: 1528817077286,
     completed: false
   },
   {
-    task: 'Bake Cookies',
+    task: "Bake Cookies",
     id: 1528817084358,
     completed: false
   }
@@ -40,16 +40,16 @@ We're going to practice building a stateful class component with this project. E
 #### Instructions
 
 - **Don't focus on styling yet**. We want you to worry about function over form today.
-- Your todo list should display a list of todos, an input field, a submit button, and a clear all button.
-- Be sure to use the given files for building out these components.
-- `<App />` will hold all the data needed for this project. It will also be the container for your Todo Components.
-  - All of your application data will be stored here on `<App />`.
+- [x] Your todo list should display a list of todos, an input field, a submit button, and a clear all button.
+- [x] Be sure to use the given files for building out these components.
+- [x] `<App />` will hold all the data needed for this project. It will also be the container for your Todo Components.
+  - [x] All of your application data will be stored here on `<App />`.
   - All of your `handler` functions should live here on `<App />`.
-- `<TodoList />` receives your Todos array and iterates over the list generating a new `<Todo />` for each element in the array.
-- `<Todo />` is a component that takes in the `todo` data and displays the task to the screen.
-- `<TodoForm>` will hold your input field and your `Add Todo` and `Clear Completed` buttons.
-  - Your input field should take in user input, and allow a user to press `Enter` or click on the `Submit Button` to add a todo to your list.
-  - Once a todo is submitted, the Todo List should re-render and show the added todo.
+- [x] `<TodoList />` receives your Todos array and iterates over the list generating a new `<Todo />` for each element in the array.
+- [x] `<Todo />` is a component that takes in the `todo` data and displays the task to the screen.
+- [x] `<TodoForm>` will hold your input field and your `Add Todo` and `Clear Completed` buttons.
+  - [x] Your input field should take in user input, and allow a user to press `Enter` or click on the `Submit Button` to add a todo to your list.
+  - [x] Once a todo is submitted, the Todo List should re-render and show the added todo.
 
 ---
 
