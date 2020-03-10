@@ -1,0 +1,77 @@
+.todos{
+    cursor: pointer;
+    width: 5vw;
+    text-align: center;
+    vertical-align: middle;
+    padding: 20px;
+    border: 3px solid dodgerblue;
+    color: rgb(255, 255, 255);
+    background-color: dodgerblue;
+    border: 3px solid rgb(255, 255, 255);
+    position: relative;
+    left: 39%;
+
+}
+
+.clear-btn{
+    padding: 20px;
+    position: relative;
+    right: 3%;
+    color: dodgerblue;
+    border-radius: 15px;
+    border: 3px solid white;
+
+}
+.clear-btn:hover{
+    background-color: dodgerblue;
+    border: 3px solid white;
+    cursor: pointer;
+    color: whitesmoke;
+}
+.addbutton{
+    color: dodgerblue;
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 15px;
+
+}
+.addbutton:hover{
+    background-color: dodgerblue;
+    border: 3px solid white;
+    cursor: pointer;
+    color: whitesmoke; 
+}
+input{
+    height: 2vh;
+    margin: 10px;
+    border: 3px solid rgb(255, 255, 255);
+
+    padding: 10px;
+}
+input:focus{
+    color:dodgerblue;
+    border: 3px solid rgb(0, 0, 0);
+}
+.todos:hover{
+    background-color: rgb(255, 255, 255);
+    color: dodgerblue;
+    border: 3px solid dodgerblue;
+}
+.App{
+    position: relative;
+    left: 15%;
+    background-color: dodgerblue;
+    width: 50vw;
+    text-align: center;
+    padding: 100px;
+    padding-left: 140px;
+    
+    border: 1px solid;
+    padding: 10px;
+    left: 20%;
+    box-shadow: 5px 10px 18px rgb(0, 0, 0);      
+}
+h1{
+    color: white;
+}
