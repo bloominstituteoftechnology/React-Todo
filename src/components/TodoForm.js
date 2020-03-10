@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class TodoForm extends Component {
+export class TodoForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,7 +9,6 @@ class TodoForm extends Component {
   }
 
   handleChanges = e => {
-    console.log(e.target.value);
     this.setState({
       task: e.target.value
     });
@@ -17,7 +16,7 @@ class TodoForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.addTodo(this.state.task);
+    this.props.addItem(this.state.task);
     this.setState({
       task: ""
     });
@@ -29,11 +28,16 @@ class TodoForm extends Component {
         <input
           type="text"
           name="task"
-          onChange={this.handleChanges}
           value={this.state.task}
+          onChange={this.handleChanges}
         />
         <button type="submit">Add</button>
-        {/* <button type="submit">Clear</button> */}
+        <button
+          type="button"
+          onClick={this.props.clearForm}
+        >
+          Clear
+        </button>
       </form>
     );
   }
