@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoForm from './components/TodoForm'
+import TodoList from './components/TodoList'
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -17,7 +18,8 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     },
-    {task: 'practice code',
+    {
+      task: 'practice code',
      id: Date.now(),
      completed: false
   },
@@ -50,11 +52,17 @@ class App extends React.Component {
     })
   }
 
+  handleChanges = e => {
+    this.setState({
+      task: e.target.value
+    })
+  }
+
   constructor(){
     super()
     this.state = {
-      todos,
-      task: '',
+      todos: todos,
+      task: ''
       }
   }
   render() {
