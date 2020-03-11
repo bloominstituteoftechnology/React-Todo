@@ -16,8 +16,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const localStorage = window.localStorage.getItem("todos")
-    
-    if (localStorage !== "null" || localStorage !== null) {
+    if (localStorage !== null && localStorage !== "null") {
       this.setState({ todos: JSON.parse(localStorage) })
     }
   }
@@ -53,7 +52,6 @@ class App extends React.Component {
   }
   render() {
     const searchRes = this.state.todos.length === 0 ? this.state.todos.filter(todo => todo.desc.toLowerCase().includes(this.state.searchTerm.toLowerCase())) : this.state.todos
-    console.log(searchRes)
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
