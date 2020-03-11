@@ -25,6 +25,23 @@ class App extends React.Component {
       ToDos
     };
   }
+
+  toggleCompleted = itemId => {
+    console.log("toggleCompleted in app", ItemId);
+    this.setState({
+      ToDos: this.state.ToDos.map(item => {
+        if (item.id === itemId) {
+          return {
+            ...item,
+            completed: !item.completed
+          };
+        }
+        return item;
+      })
+    });
+  };
+
+  //still need to add item and clear purchased and work on render
   render() {
     return (
       <div>
