@@ -1,9 +1,30 @@
-import React from 'react';
+import React from "react";
+
+const ToDos = [
+  {
+    todo: "pet cats",
+    id: 12,
+    completed: false
+  },
+  {
+    todo: "study the TK",
+    id: 13,
+    completed: false
+  },
+  {
+    todo: "go eat a pizza",
+    id: 14,
+    completed: false
+  }
+];
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  constructor() {
+    super();
+    this.state = {
+      ToDos
+    };
+  }
   render() {
     return (
       <div>
