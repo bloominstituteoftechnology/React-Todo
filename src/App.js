@@ -52,7 +52,8 @@ class App extends React.Component {
     this.setState({ searchTerm: e.target.value })
   }
   render() {
-    const searchRes = this.state.todos !== [] && this.state.todos.filter(todo => todo.desc.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+    const searchRes = this.state.todos.length === 0 ? this.state.todos.filter(todo => todo.desc.toLowerCase().includes(this.state.searchTerm.toLowerCase())) : this.state.todos
+    console.log(searchRes)
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
