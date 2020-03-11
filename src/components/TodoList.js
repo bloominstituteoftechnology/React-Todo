@@ -5,7 +5,7 @@ import Todo from './Todo';
 const ToDoList = ({ todos, handleMarkCompleted, handleClearCompleted }) => {
     return (
         <ul>
-            {todos.map(todo => <Todo key={todo.id} {...todo} handleMarkCompleted={handleMarkCompleted}/>)}
+            {todos && todos.map(todo => <Todo key={todo.id} {...todo} handleMarkCompleted={handleMarkCompleted}/>)}
             <button onClick={() => handleClearCompleted()}>Clear Completed</button>
         </ul>
     )

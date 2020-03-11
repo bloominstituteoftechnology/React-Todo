@@ -2,18 +2,34 @@ import React from 'react';
 
 import TodoForm from './components/TodoForm';
 import TodoList from "./components/TodoList";
+import TodoSearch from "./components/TodoSearch";
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      todos: [{ desc: "code", id: Date.now(), completed: false }]
+      todos: [],
+      searchTerm: ""
     }
   }
 
+  componentDidMount() {
+    const localStorage = window.localStorage.getItem("todos")
+    localStorage !== "null" && this.setState({ todos: JSON.parse(localStorage) })
+  }
+
+  componentDidUpdate() {
+    window.localStorage.setItem("todos", JSON.stringify(this.state.todos))
+  }
+
   handleAddTodo = (desc) => {
-    this.setState({ todos: [...this.state.todos, { desc, id: Date.now(), completed: false }]})
+    const newTodo =  { desc, id: Date.now(), completed: false }
+    if (this.state.todos === []) {
+      this.setState({ todos: [newTodo]})
+      return
+    }
+    this.setState({ todos: [...this.state.todos, newTodo ]})
   }
 
   handleMarkCompleted = (id) => {
@@ -28,12 +44,18 @@ class App extends React.Component {
     this.setState({ todos: updatedState })
   }
 
+  setSearchTerm = (e) => {
+    e.preventDefault()
+    this.setState({ searchTerm: e.target.value })
+  }
   render() {
+    const searchRes = this.state.todos.filter(todo => todo.desc.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos} handleMarkCompleted={this.handleMarkCompleted} handleClearCompleted={this.handleClearCompleted}/>
+        <TodoList todos={searchRes} handleMarkCompleted={this.handleMarkCompleted} handleClearCompleted={this.handleClearCompleted}/>
         <TodoForm handleAddTodo={this.handleAddTodo} />
+        <TodoSearch setSearchTerm={this.setSearchTerm} searchTerm={this.state.searchTerm}/>
       </div>
     );
   }
