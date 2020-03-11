@@ -16,7 +16,10 @@ class App extends React.Component {
 
   componentDidMount() {
     const localStorage = window.localStorage.getItem("todos")
-    localStorage !== "null" && this.setState({ todos: JSON.parse(localStorage) })
+    
+    if (localStorage !== "null" || localStorage !== null) {
+      this.setState({ todos: JSON.parse(localStorage) })
+    }
   }
 
   componentDidUpdate() {
