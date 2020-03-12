@@ -41,6 +41,27 @@ class App extends React.Component {
     });
   };
 
+  addItem = itemName => {
+    this.setState({
+      ToDos: [
+        ...this.state.ToDos,
+        {
+          todo: itemName,
+          completed: false,
+          id: (Math.random() * Math.random()).toString(9).substr(2, 9)
+        }
+      ]
+    });
+  };
+
+  clearCompleted = () => {
+    console.log("clear completed");
+    this.setState({
+      ToDos: this.state.ToDos.filter(item => {
+        return !item.completed;
+      })
+    });
+  };
   //still need to add item and clear purchased and work on render
   render() {
     return (
@@ -50,5 +71,5 @@ class App extends React.Component {
     );
   }
 }
-
+//still need to add components and state ^
 export default App;
