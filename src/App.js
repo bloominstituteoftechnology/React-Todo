@@ -15,11 +15,11 @@ class App extends React.Component {
 	// design `App` to be the parent component of your application.
 	// this component is going to take care of state, and any change handlers you need to work with your state
 
-	// handleChanges = e => {
-	// 	this.setState({
-	// 		task: e.target.value
-	// 	});
-	// };
+	handleChanges = e => {
+		this.setState({
+			task: e.target.value
+		});
+	};
 
 	addTask = task => {
 		this.setState({
@@ -31,6 +31,15 @@ class App extends React.Component {
 					completed: false
 				}
 			]
+		});
+	};
+
+	handleAddTask = e => {
+		e.preventDefault();
+		e.stopPropagation();
+		this.addTask(this.state.task);
+		this.setState({
+			task: ''
 		});
 	};
 
@@ -60,8 +69,11 @@ class App extends React.Component {
 			<div>
 				<h2>Welcome to your Todo App!</h2>
 				<TodoForm
+					handleChanges={this.handleChanges}
 					addTask={this.addTask}
+					handleAddTask={this.handleAddTask}
 					tasks={this.state.tasks}
+					task={this.state.task}
 					clearCompleted={this.clearCompleted}
 				/>
 				<TodoList tasks={this.state.tasks} toggleCompleted={this.toggleCompleted} />
