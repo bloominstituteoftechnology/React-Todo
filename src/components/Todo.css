@@ -1,0 +1,18 @@
+html{
+    font-size: 100%;
+}
+
+.item{
+    margin: 1em;
+padding: 0.25em 0.85em;
+font-size: 1.3em;
+border: 2px solid palevioletred;
+border-radius: 10px;
+background:  #e64944;
+width: 20%;
+}
+
+.item .completed{
+    background: white;
+    text-decoration: none;
+}
