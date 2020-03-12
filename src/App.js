@@ -1,5 +1,7 @@
 import React from "react";
-
+import ToDoList from "./components/TodoList";
+import ToDoForm from "./components/TodoForm";
+import "./components/Todo.css";
 const ToDos = [
   {
     todo: "pet cats",
@@ -27,7 +29,7 @@ class App extends React.Component {
   }
 
   toggleCompleted = itemId => {
-    console.log("toggleCompleted in app", ItemId);
+    console.log("toggleCompleted in app", itemId);
     this.setState({
       ToDos: this.state.ToDos.map(item => {
         if (item.id === itemId) {
@@ -48,7 +50,7 @@ class App extends React.Component {
         {
           todo: itemName,
           completed: false,
-          id: (Math.random() * Math.random()).toString(9).substr(2, 9)
+          id: Date.now()
         }
       ]
     });
@@ -66,7 +68,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <div className="header">
+          <h2>Welcome to your Todo App!</h2>
+          <ToDoForm addItem={this.addItem} />
+        </div>
+        <ToDoList
+          ToDos={this.state.ToDos}
+          toggleCompleted={this.toggleCompleted}
+          clearCompleted={this.clearCompleted}
+        />
       </div>
     );
   }

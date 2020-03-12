@@ -1,5 +1,4 @@
 import React from "react";
-
 class ToDoForm extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +21,7 @@ class ToDoForm extends React.Component {
           type="text"
           name="item"
           value={this.state.itemName}
-          OnChange={this.handleChanges}
+          onChange={this.handleChanges}
         />
         <button>Add ToDo</button>
       </form>
