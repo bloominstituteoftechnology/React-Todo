@@ -44,7 +44,7 @@ class App extends React.Component {
     // this.toggleCompleted = this.toggleCompleted.bind(this);
   }
   toggleCompleted = itemId => {
-    console.log('dg: app.js: App: togglePurchased: itemId:', itemId);
+    console.log('dg: app.js: App: toggleCompleted: itemId:', itemId);
     this.setState({
       tasks: this.state.tasks.map(item => {
         if (item.id === itemId) {
