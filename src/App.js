@@ -10,9 +10,11 @@ class App extends React.Component {
     this.state = {
       todos: [
         { id: 1,
-          description: 'Initial todo'},
+          description: 'Initial todo',
+          completed: true},
         { id: 2,
-          description: 'another todo'},
+          description: 'another todo',
+          completed: false},
       ]
     }
   }
@@ -21,8 +23,30 @@ class App extends React.Component {
     this.setState({
       todos: [...this.state.todos, {
         id: (Math.random() * Math.random()).toString(9).substr(2, 9),
-        description: todoDescription
+        description: todoDescription,
+        completed: false
       }]
+    });
+  }
+
+  toggleCompleted = todoId => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === todoId) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        } else {
+          return todo;
+        }
+      })
+    });
+  }
+
+  clearCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => !todo.completed)
     });
   }
 
@@ -30,7 +54,11 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos} />
+        <TodoList
+          todos={this.state.todos}
+          toggleCompleted={this.toggleCompleted}
+          clearCompleted={this.clearCompleted}
+        />
         <TodoForm addTodo={this.addTodo}/>
       </div>
     );

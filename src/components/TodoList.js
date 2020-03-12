@@ -4,20 +4,20 @@ import Todo from './Todo'
 
 class TodoList extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     todos: props.todos
-  //   };
-  // }
-
   render() {
     return (
-      <ul>
-        {this.props.todos.map(todo => (
-          <Todo key={todo.id} todo={todo} />
-        ))}
-      </ul>
+      <div className='todo-list'>
+        <button onClick={this.props.clearCompleted}>Clear completed</button>
+        <ul>
+          {this.props.todos.map(todo => (
+            <Todo
+              key={todo.id}
+              todo={todo}
+              toggleCompleted={this.props.toggleCompleted}
+            />
+          ))}
+        </ul>
+      </div>
     );
   }
 }
