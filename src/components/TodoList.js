@@ -4,11 +4,11 @@ import styled from "styled-components";
 
 
 
-const TodoList = ({list}) =>{
+const TodoList = ({list, togglePurchased}) =>{
     return(
       <ItemWrap>
      {list.map(i=>
-      <Todo key={i.id} task={i.task} completed={i.completed}/> 
+      <Todo key={i.id} task={i.task} completed={i.completed}  togglePurchased={togglePurchased} /> 
       
      )}
      </ItemWrap>

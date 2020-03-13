@@ -12,8 +12,14 @@ class App extends React.Component {
         data: [{
           task: 'Learn Python',
           id: Date.now(),
-          completed: true
-           }]
+          completed: false
+           }, 
+           {
+            task: 'Study JS',
+            id: Date.now(),
+            completed: false
+             }, 
+          ]
       }
     };
 
@@ -25,11 +31,35 @@ class App extends React.Component {
            task : taskName,
            id: Date.now(),
            completed: false
-        }]})
-       
-       
-    };
+        }]});
 
+    
+
+    };
+    
+    togglePurchased = itemId => {
+      
+      this.setState({
+        groceries: this.state.data.map(item => {
+          if (item.id === itemId) {
+            return {
+              ...item,
+              completed: !item.completed
+            };
+          }
+          return item;
+        })
+      });
+
+     const clearPurchased = () => {
+        this.setState({
+          groceries: this.state.groceries.filter(item => {
+            return !item.purchased;
+          })
+        });
+      };
+    
+    };
   
 
 
@@ -37,8 +67,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <TodoList list={this.state.data}/>
-      <TodoForm handleChange={this.handleChange}   />
+      <TodoList list={this.state.data} toggle={this.toggleChange} togglePurchased={this.togglePurchased}/>
+      <TodoForm handleChange={this.handleChange}   
+          clearPurchased={this.clearPurchased} />
       </div>
     );
   }
