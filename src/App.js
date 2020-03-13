@@ -8,16 +8,38 @@ class App extends React.Component {
 		super();
 		this.state = {
 			tasks: [],
-			task: ''
+			task: '',
+			search: ''
 		};
 	}
-	// you will need a place to store your state in this component.
-	// design `App` to be the parent component of your application.
-	// this component is going to take care of state, and any change handlers you need to work with your state
 
 	handleChanges = e => {
 		this.setState({
 			task: e.target.value
+		});
+	};
+
+	handleSearch = e => {
+		this.setState({
+			search: e.target.value
+		});
+	};
+
+	searchTask = e => {
+		e.preventDefault();
+		e.stopPropagation();
+
+		let searchResult = this.state.tasks.filter(
+			task => task.name.indexOf(this.state.search) !== -1
+		);
+
+		if (searchResult.length > 0) {
+			this.setState({
+				tasks: searchResult
+			});
+		}
+		this.setState({
+			search: ''
 		});
 	};
 
@@ -74,6 +96,9 @@ class App extends React.Component {
 					tasks={this.state.tasks}
 					task={this.state.task}
 					clearCompleted={this.clearCompleted}
+					handleSearch={this.handleSearch}
+					searchTask={this.searchTask}
+					search={this.state.search}
 				/>
 				<TodoList tasks={this.state.tasks} toggleCompleted={this.toggleCompleted} />
 			</main>

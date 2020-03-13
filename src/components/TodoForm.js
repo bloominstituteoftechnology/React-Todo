@@ -3,6 +3,16 @@ import React from 'react';
 const TodoForm = props => {
 	return (
 		<div className="form-wrapper">
+			<form onSubmit={props.searchTask}>
+				<input
+					type="text"
+					name="search"
+					onChange={props.handleSearch}
+					placeholder="Search..."
+					value={props.search}
+				/>
+				<button>Search</button>
+			</form>
 			<form onSubmit={props.handleAddTask}>
 				<input
 					type="text"
