@@ -1,17 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
 
-import TodoList from './components/TodoList';
-import TodoForm from './components/TodoForm';
-
-const originalToDoList = [
+let taskListArray = [
   {
-    task: 'Take out garbage',
+    name: "Take out garbage",
     id: 2365346756,
     completed: false
   },
   {
-    task: 'Find the keys',
+    name: "Find the keys",
     id: 82456475456,
     completed: false
   }
@@ -25,60 +23,77 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      toDoList: originalToDoList
+      tasks: taskListArray,
+      task: '',
     };
   }
 
-  toggleCompleted = taskId => {
-    console.log("Task completed!");
-    this.setState({
-      toDoList: this.state.toDoList.map(task => {
-        // return task.id === taskId ? {...task, completed: !task.completed} : task
-        if (task.id === taskId) {
-          return {
-            ...task,
-            purchased: !task.purchased
-          };
-        }
-        return task;
-      })
-    });
+  handleChanges = e => {
+    this.setState({ task: e.target.value });
   };
 
-  addTask = taskName => {
+  addTask = task => {
+		this.setState({
+			tasks: [
+				...this.state.tasks,
+				{
+					name: task,
+					id: Date.now(),
+					completed: false
+				}
+			]
+		});
+  };
+  
+  handleAddTask = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    this.addTask(this.state.task);
+    this.setState({task: ''});
+  };
+
+  toggleCompleted = tID => {
+    console.log("Task completed!");
     this.setState({
-      toDoList: [
-        ...this.state.toDoList,
-        {
-          task: taskName,
-          id: Date.now(),
-          completed: false
+      tasks: this.state.tasks.map(taskItem => {
+        // return task.id === taskId ? {...task, completed: !task.completed} : task
+        if (taskItem.id === tID) {
+          return {
+            ...taskItem,
+            completed: !taskItem.completed
+          };
+        } else {
+          return taskItem;
         }
-      ]
+      })
     });
   };
 
   clearCompleted = () => {
-    console.log("task cleared");
+   
     this.setState({
-      toDoList: this.state.toDoList.filter(task => {
-        return !task.completed
-      })
-    })
+      tasks: this.state.tasks.filter(taskItem => !taskItem.completed)
+    });
   };
 
   render() {
     return (
       <div>
         <div>
-          <h2>Todo App!</h2>
-          <TodoForm addTask={this.addTask}/>
+          
+          <TodoList
+            tasks={this.state.tasks}
+            toggleCompleted={this.toggleCompleted}
+          />
         </div>
         <div>
-          <TodoList
-          toDoList={this.state.toDoList}
-          toggleCompleted={this.toggleCompleted}
-          clearCompleted={this.clearCompleted}
+          <TodoForm
+            handleChanges={this.handleChanges}
+            addTask={this.addTask}
+            handleAddTask={this.handleAddTask}
+            tasks={this.state.tasks}
+            task={this.state.task}
+            clearCompleted={this.clearCompleted}
           />
         </div>
       </div>
