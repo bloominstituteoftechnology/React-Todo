@@ -29,6 +29,8 @@ class TodoForm extends React.Component {
           name="item"
           value={this.state.itemName}
           onChange={this.handleChanges}
+          type="reset          "
+          defaultValue="Reset"
         />
         <button>Add</button>
       </form>
