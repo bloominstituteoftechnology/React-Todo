@@ -8,7 +8,7 @@ const TodoList = props => {
 
     return (
         <div>
-            <h1>Things I need to do</h1>
+            
 
             {props.tasks.map(task => (
                 <Todo 
