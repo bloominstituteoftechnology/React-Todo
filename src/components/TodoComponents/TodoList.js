@@ -39,7 +39,6 @@ class TodoList extends React.Component {
                             () => this.toggleComplete(todo.id)
                         }
                         todo={todo}
-
                     />
                 ))}
             </div>
