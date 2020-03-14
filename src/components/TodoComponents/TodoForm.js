@@ -3,8 +3,11 @@ import Todo from "./Todo.js";
 import shortid from "shortid";
 
 class TodoForm extends React.Component {
-    state = {
-        text: ""
+    constructor() {
+		super();
+		this.state = {
+			text: "",
+		};
     }
 
     handleChange = event => {
