@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import TodoList from './components/TodoList'
-import TodoForm from './components/TodoForm'
+import React, { Component } from "react";
+import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
 
 class App extends Component {
   constructor(props) {
@@ -8,37 +8,45 @@ class App extends Component {
     this.state = {
       todo: [],
       complete: false,
-      input: '',
-    }
+      input: ""
+    };
   }
 
-
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.setState({
-      todo: [...this.state.todo, { input: this.state.input, complete: this.state.complete, id: Date.now() }],
-      input: ''
+      todo: [
+        ...this.state.todo,
+        {
+          input: this.state.input,
+          complete: this.state.complete,
+          id: Date.now()
+        }
+      ],
+      input: ""
     });
-  }
+  };
 
-  handleChange = (e) => {
-    this.setState({ input: e.target.value })
-  }
+  handleChange = e => {
+    this.setState({ input: e.target.value });
+  };
 
   handleClear = () => {
-    this.setState(state => state.todo = this.state.todo.filter(filter => {
-      return filter.complete === false;
-    }))
-  }
+    this.setState(
+      state =>
+        (state.todo = this.state.todo.filter(filter => {
+          return filter.complete === false;
+        }))
+    );
+  };
 
-  handleComplete = (e) => {
-    const found = this.state.todo.filter((list) => {
-      return list.id == e.target.id ? list.complete = true : false;
-    })
+  handleComplete = e => {
+    this.state.todo.filter(list => {
+      return (list.complete =
+        Number(list.id) === Number(e.target.id) ? true : false);
+    });
     console.log(e.target.id);
-    console.log(found);
-
-  }
+  };
 
   render() {
     const { input, id, complete } = this.state;
