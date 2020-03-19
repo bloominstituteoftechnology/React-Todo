@@ -8,9 +8,10 @@ class App extends Component {
     this.state = {
       todo: [],
       complete: false,
-      input: ''
+      input: '',
     }
   }
+
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -21,19 +22,26 @@ class App extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({ input: e.target.value, complete: false })
+    this.setState({ input: e.target.value })
   }
 
-  handleClear = (e) => {
-    console.log("something to clear");
+  handleClear = () => {
+    this.setState(state => state.todo = this.state.todo.filter(filter => {
+      return filter.complete === false;
+    }))
   }
 
   handleComplete = (e) => {
-    console.log(e.target);
+    const found = this.state.todo.filter((list) => {
+      return list.id == e.target.id ? list.complete = true : false;
+    })
+    console.log(e.target.id);
+    console.log(found);
+
   }
 
   render() {
-    const { todo, input } = this.state;
+    const { input, id, complete } = this.state;
     return (
       <div>
         <TodoForm
@@ -43,6 +51,8 @@ class App extends Component {
           handleClear={this.handleClear}
         />
         <TodoList
+          id={id}
+          complete={complete}
           todo={this.state.todo}
           handleComplete={this.handleComplete}
         />

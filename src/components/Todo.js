@@ -5,13 +5,11 @@ const Todo = (props) => {
   console.log('todo', todo);
   return (
     <div className="todo">
-      {/* {todo.map(list => {
+      {todo.map(list => {
         return (
-          <div onClick={e => props.handleComplete(e)}>
-            <p >{list}</p>
-          </div>
+          <p id={list.id} complete={props.complete} onClick={e => props.handleComplete(e)}>{list.input}</p>
         )
-      })} */}
+      })}
     </div>
   )
 }
