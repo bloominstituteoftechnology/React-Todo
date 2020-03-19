@@ -12,6 +12,7 @@ class App extends Component {
     };
   }
 
+  // submits the task and renders to list
   handleSubmit = e => {
     e.preventDefault();
     this.setState({
@@ -27,10 +28,12 @@ class App extends Component {
     });
   };
 
+  // keeps track of change happening in input
   handleChange = e => {
     this.setState({ input: e.target.value });
   };
 
+  // clear lists with a true bool
   handleClear = () => {
     this.setState(
       state =>
@@ -40,12 +43,14 @@ class App extends Component {
     );
   };
 
+  // handles event when task is clicked
   handleComplete = e => {
-    this.state.todo.filter(list => {
+    this.state.todo.map(list => {
       return (list.complete =
-        Number(list.id) === Number(e.target.id) ? true : false);
-    });
-    console.log(e.target.id);
+        Number(list.id) === Number(e.target.id) ? !list.complete : list.complete);
+    })
+
+    console.log(this.state.todo);
   };
 
   render() {
