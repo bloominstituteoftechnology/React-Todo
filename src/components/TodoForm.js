@@ -11,6 +11,7 @@ const TodoForm = (props) => {
         onChange={e => props.handleChange(e)}
       />
       <button>Submit</button>
+      <button onClick={e => props.handleClear(e)}>Clear Completed</button>
     </form>
   )
 }

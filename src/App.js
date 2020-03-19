@@ -24,6 +24,14 @@ class App extends Component {
     this.setState({ input: e.target.value })
   }
 
+  handleClear = (e) => {
+    console.log("something to clear");
+  }
+
+  handleComplete = (e) => {
+    console.log(e.target);
+  }
+
   render() {
     const { todo, input } = this.state;
     return (
@@ -32,8 +40,12 @@ class App extends Component {
           input={input}
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
+          handleClear={this.handleClear}
         />
-        <TodoList todo={this.state.todo} />
+        <TodoList
+          todo={this.state.todo}
+          handleComplete={this.handleComplete}
+        />
       </div>
     );
   }
