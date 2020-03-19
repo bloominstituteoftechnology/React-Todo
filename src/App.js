@@ -7,21 +7,21 @@ class App extends Component {
     super(props);
     this.state = {
       todo: [],
+      complete: false,
       input: ''
     }
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.setState(state => {
-      return (state.todo.push(state.input),
-        state.input = ''
-      )
+    this.setState({
+      todo: [...this.state.todo, { input: this.state.input, complete: this.state.complete, id: Date.now() }],
+      input: ''
     });
   }
 
   handleChange = (e) => {
-    this.setState({ input: e.target.value })
+    this.setState({ input: e.target.value, complete: false })
   }
 
   handleClear = (e) => {
