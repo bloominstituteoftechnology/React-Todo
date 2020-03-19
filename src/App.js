@@ -8,7 +8,8 @@ class App extends Component {
     this.state = {
       todo: [],
       complete: false,
-      input: ""
+      input: "",
+      style: { textDecoration: "none" }
     };
   }
 
@@ -47,14 +48,27 @@ class App extends Component {
   handleComplete = e => {
     this.state.todo.map(list => {
       return (list.complete =
-        Number(list.id) === Number(e.target.id) ? !list.complete : list.complete);
-    })
+        Number(list.id) === Number(e.target.id)
+          ? !list.complete
+          : list.complete);
+    });
+
+    this.setState(state => {
+      state.todo.forEach(strike => {
+        strike.style =
+          strike.complete === true
+            ? { textDecoration: "line-through" }
+            : { textDecoration: "" };
+      });
+    });
+    console.log("inside", this.state.style);
 
     console.log(this.state.todo);
+    return this.state.todo;
   };
 
   render() {
-    const { input, id, complete } = this.state;
+    const { input, id, complete, style } = this.state;
     return (
       <div>
         <TodoForm
@@ -65,6 +79,7 @@ class App extends Component {
         />
         <TodoList
           id={id}
+          style={style}
           complete={complete}
           todo={this.state.todo}
           handleComplete={this.handleComplete}
