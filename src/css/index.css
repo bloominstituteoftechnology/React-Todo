@@ -1,0 +1,19 @@
+.todoForm {
+  display: flex;
+}
+
+#input {
+  width: 800px;
+  padding: 4px 20px;
+}
+
+.todoCard {
+  border: 1px solid #ccc;
+  padding: 0 20px;
+  border-radius: 8px;
+}
+
+
+.todoCard:hover {
+  cursor: pointer;
+}

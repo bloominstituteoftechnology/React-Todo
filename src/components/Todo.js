@@ -2,7 +2,7 @@ import React from "react";
 
 const Todo = props => {
   return (
-    <div className="todo">
+    <div className="todoCard">
       <h3
         id={props.id}
         style={props.style}

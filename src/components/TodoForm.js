@@ -1,20 +1,22 @@
 import React from 'react';
+import { Input, Button } from '@material-ui/core';
 
 const TodoForm = (props) => {
   console.log(props);
   return (
-    <div>
+    <div className="todoForm">
       <form onSubmit={props.handleSubmit}>
-        <input
+        <Input
+          id="input"
           type="text"
           name="task"
           placeholder="What is your task?"
           value={props.input}
           onChange={e => props.handleChange(e)}
         />
-        <button>Submit</button>
+        <Button onClick={props.handleSubmit}>Submit</Button>
       </form>
-      <button onClick={props.handleClear}>Clear Completed</button>
+      <Button onClick={props.handleClear}>Clear Completed</Button>
     </div>
   )
 }
