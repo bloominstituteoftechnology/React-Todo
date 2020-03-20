@@ -9,7 +9,7 @@ class App extends Component {
       todo: [],
       complete: false,
       input: "",
-      style: { textDecoration: "none" }
+      style: { textDecoration: 'none' }
     };
   }
 
@@ -53,19 +53,12 @@ class App extends Component {
           : list.complete);
     });
 
-    this.setState(state => {
-      state.todo.forEach(strike => {
-        strike.style =
-          strike.complete === true
-            ? { textDecoration: "line-through" }
-            : { textDecoration: "" };
-      });
-    });
-    console.log("inside", this.state.style);
-
-    console.log(this.state.todo);
     return this.state.todo;
   };
+
+  handleStyle = e => {
+
+  }
 
   render() {
     const { input, id, complete, style } = this.state;
@@ -78,9 +71,7 @@ class App extends Component {
           handleClear={this.handleClear}
         />
         <TodoList
-          id={id}
-          style={style}
-          complete={complete}
+          style={this.handleStyle}
           todo={this.state.todo}
           handleComplete={this.handleComplete}
         />
