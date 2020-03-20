@@ -4,7 +4,7 @@ import { Input, Button } from '@material-ui/core';
 const TodoForm = (props) => {
   console.log(props);
   return (
-    <div className="todoForm">
+    <div className="todoForm" onClick={props.handleComplete}>
       <form onSubmit={props.handleSubmit}>
         <Input
           id="input"
