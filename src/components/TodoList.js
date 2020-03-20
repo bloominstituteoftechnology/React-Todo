@@ -3,17 +3,19 @@ import Todo from "./Todo";
 
 const TodoList = props => {
   return (
-    <div className='todoListContainer'>
-      {
-        props.todo.map(task =>
+    <div className="todoListContainer">
+      {props.todo.map(task => (
+        <>
+          {console.log(task.className)}
           <Todo
-            style={task.style}
+            className={task.className}
             id={task.id}
             todo={task}
             complete={props.complete}
             handleComplete={props.handleComplete}
-          />)
-      }
+          />
+        </>
+      ))}
     </div>
   );
 };

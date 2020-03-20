@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
-import './css/index.css'
+import "./css/index.css";
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +10,8 @@ class App extends Component {
       todo: [],
       complete: false,
       input: "",
-      style: { textDecoration: 'none' }
+      style: { textDecoration: "none" },
+      className: "todoCard"
     };
   }
 
@@ -23,7 +24,8 @@ class App extends Component {
         {
           input: this.state.input,
           complete: this.state.complete,
-          id: Date.now()
+          id: Date.now(),
+          className: this.state.className
         }
       ],
       input: ""
@@ -54,12 +56,12 @@ class App extends Component {
           : list.complete);
     });
 
-    const strike = this.state.todo.map(list => {
-      return list.style = list.complete === true ? { textDecoration: 'line-through' } : { textDecoration: 'none' }
-    })
-    this.setState({ style: strike })
+    const completedClass = this.state.todo.map(list => {
+      return (list.className =
+        list.complete === true ? "todoCard completed" : "todoCard");
+    });
+    this.setState({ className: completedClass });
   };
-
 
   render() {
     const { input, id, complete, style } = this.state;
