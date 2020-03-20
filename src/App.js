@@ -53,12 +53,12 @@ class App extends Component {
           : list.complete);
     });
 
-    return this.state.todo;
+    const strike = this.state.todo.map(list => {
+      return list.style = list.complete === true ? { textDecoration: 'line-through' } : { textDecoration: 'none' }
+    })
+    this.setState({ style: strike })
   };
 
-  handleStyle = e => {
-
-  }
 
   render() {
     const { input, id, complete, style } = this.state;
@@ -71,8 +71,8 @@ class App extends Component {
           handleClear={this.handleClear}
         />
         <TodoList
-          style={this.handleStyle}
           todo={this.state.todo}
+          complete={this.state.complete}
           handleComplete={this.handleComplete}
         />
       </div>

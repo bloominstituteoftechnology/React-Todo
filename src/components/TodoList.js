@@ -7,9 +7,10 @@ const TodoList = props => {
       {
         props.todo.map(task =>
           <Todo
-            style={props.handleStyle}
+            style={task.style}
             id={task.id}
             todo={task}
+            complete={props.complete}
             handleComplete={props.handleComplete}
           />)
       }
