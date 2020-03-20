@@ -1,9 +1,20 @@
+*, html, body {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 40px 10%;
+  width: 100%;
+}
+
 .todoForm {
   display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
 #input {
-  width: 800px;
+  width: 50vw;
   padding: 4px 20px;
 }
 
@@ -12,7 +23,7 @@
   height: 50px;
   width: 100%;
   padding: 0 20px;
-  margin: 4px 0;
+  margin: 10px 0;
   display: flex;
   align-items: center;
 }

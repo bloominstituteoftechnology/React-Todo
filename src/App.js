@@ -64,7 +64,7 @@ class App extends Component {
   render() {
     const { input, id, complete, style } = this.state;
     return (
-      <div>
+      <div className="container">
         <TodoForm
           input={input}
           handleSubmit={this.handleSubmit}
