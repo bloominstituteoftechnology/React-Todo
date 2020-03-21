@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
-import ls from "local-storage";
 import "./css/index.css";
 
 class App extends Component {
@@ -12,7 +11,6 @@ class App extends Component {
       todo: this.todoData || [],
       complete: false,
       input: "",
-      style: { textDecoration: "none" },
       className: "todoCard"
     };
   }
@@ -56,6 +54,7 @@ class App extends Component {
           ? !list.complete
           : list.complete);
     });
+
     const completedClass = this.state.todo.map(list => {
       return (list.className =
         list.complete === true ? "todoCard completed" : "todoCard");
