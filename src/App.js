@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo: [],
+      todo: this.todoData || [],
       complete: false,
       input: "",
       style: { textDecoration: "none" },
@@ -41,12 +41,11 @@ class App extends Component {
 
   // clear lists with a true bool
   handleClear = () => {
-    this.setState(
-      state =>
-        (state.todo = this.state.todo.filter(filter => {
-          return filter.complete === false;
-        }))
-    );
+    this.setState({
+      todo: this.state.todo.filter(filter => {
+        return filter.complete === false;
+      })
+    });
   };
 
   // handles event when task is clicked
@@ -57,27 +56,18 @@ class App extends Component {
           ? !list.complete
           : list.complete);
     });
-
     const completedClass = this.state.todo.map(list => {
       return (list.className =
         list.complete === true ? "todoCard completed" : "todoCard");
     });
-    this.setState({ className: completedClass });
+    return this.setState({ className: completedClass });
   };
 
   componentDidMount() {
     this.todoData = JSON.parse(localStorage.getItem("todo"));
     if (localStorage.getItem("todo")) {
       this.setState({
-        todo: [
-          ...this.todoData.todo,
-          {
-            input: this.todoData.input,
-            complete: this.todoData.complete,
-            id: Date.now(),
-            className: this.todoData.className
-          }
-        ]
+        todo: [...this.todoData.todo]
       });
     } else {
       console.log("nothing");
