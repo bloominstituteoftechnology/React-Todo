@@ -1,7 +1,7 @@
-import React from 'react';
-import { Input, Button } from '@material-ui/core';
+import React from "react";
+import { Input, Button } from "@material-ui/core";
 
-const TodoForm = (props) => {
+const TodoForm = props => {
   console.log(props);
   return (
     <div className="todoForm" onClick={props.handleComplete}>
@@ -14,11 +14,11 @@ const TodoForm = (props) => {
           value={props.input}
           onChange={e => props.handleChange(e)}
         />
-        <Button onClick={props.handleSubmit}>Submit</Button>
+        <Button type="submit">Submit</Button>
       </form>
       <Button onClick={props.handleClear}>Clear Completed</Button>
     </div>
-  )
-}
+  );
+};
 
 export default TodoForm;

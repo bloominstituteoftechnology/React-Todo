@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
+import ls from "local-storage";
 import "./css/index.css";
 
 class App extends Component {
+  todoData;
   constructor(props) {
     super(props);
     this.state = {
@@ -62,6 +64,29 @@ class App extends Component {
     });
     this.setState({ className: completedClass });
   };
+
+  componentDidMount() {
+    this.todoData = JSON.parse(localStorage.getItem("todo"));
+    if (localStorage.getItem("todo")) {
+      this.setState({
+        todo: [
+          ...this.todoData.todo,
+          {
+            input: this.todoData.input,
+            complete: this.todoData.complete,
+            id: Date.now(),
+            className: this.todoData.className
+          }
+        ]
+      });
+    } else {
+      console.log("nothing");
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem("todo", JSON.stringify(nextState));
+  }
 
   render() {
     const { input, id, complete, style } = this.state;
