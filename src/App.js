@@ -25,9 +25,9 @@ class App extends Component {
         ...this.state.todo,
         {
           input: this.state.input,
-          complete: this.state.complete,
+          complete: false,
           id: Date.now(),
-          className: this.state.className
+          className: "todoCard"
         }
       ],
       input: ""
