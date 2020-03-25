@@ -85,6 +85,12 @@ class App extends React.Component {
 		});
 	};
 
+	removerItem = task => {
+		const tasks = [...this.state.tasks];
+		let tasksToDo = tasks.filter(t => t.id !== task.id);
+		this.setState({ tasks: tasksToDo });
+	};
+
 	render() {
 		return (
 			<main>
@@ -100,7 +106,11 @@ class App extends React.Component {
 					searchTask={this.searchTask}
 					search={this.state.search}
 				/>
-				<TodoList tasks={this.state.tasks} toggleCompleted={this.toggleCompleted} />
+				<TodoList
+					tasks={this.state.tasks}
+					toggleCompleted={this.toggleCompleted}
+					removerItem={this.removerItem}
+				/>
 			</main>
 		);
 	}

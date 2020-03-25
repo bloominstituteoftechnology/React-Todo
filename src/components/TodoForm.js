@@ -1,29 +1,37 @@
 import React from 'react';
 
-const TodoForm = props => {
+const TodoForm = ({
+	searchTask,
+	handleSearch,
+	search,
+	handleAddTask,
+	handleChanges,
+	task,
+	clearCompleted
+}) => {
 	return (
 		<div className="form-wrapper">
-			<form onSubmit={props.searchTask}>
+			<form onSubmit={searchTask}>
 				<input
 					type="text"
 					name="search"
-					onChange={props.handleSearch}
+					onChange={handleSearch}
 					placeholder="Search..."
-					value={props.search}
+					value={search}
 				/>
 				<button>Search</button>
 			</form>
-			<form onSubmit={props.handleAddTask}>
+			<form onSubmit={handleAddTask}>
 				<input
 					type="text"
 					name="item"
-					onChange={props.handleChanges}
+					onChange={handleChanges}
 					placeholder="Add todo..."
-					value={props.task}
+					value={task}
 				/>
 				<button>Add</button>
 			</form>
-			<button className="clean" onClick={props.clearCompleted}>
+			<button className="clean" onClick={clearCompleted}>
 				Clear Completed
 			</button>
 		</div>
