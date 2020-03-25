@@ -185,8 +185,8 @@ html .app-wrapper .item {
 }
 
 html .app-wrapper .item.purchased {
-  -webkit-text-decoration: solid line-through red 0.2rem;
-          text-decoration: solid line-through red 0.2rem;
+  -webkit-text-decoration: solid line-through red;
+          text-decoration: solid line-through red;
 }
 
 html .app-wrapper .copyright {
