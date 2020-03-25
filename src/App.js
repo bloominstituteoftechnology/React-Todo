@@ -106,7 +106,7 @@ class App extends React.Component {
 
     return (
       <div className="app-wrapper">
-        <h2>Welcome to my Todo App!</h2>
+        <h2>Welcome to My Todo App!</h2>
         <TodoForm
           addItem={this.addItem}
           clearPurchased={this.clearPurchased}

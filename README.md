@@ -1,5 +1,3 @@
-
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/3f6d3295-6600-427d-b083-fc770d2bb4c9/deploy-status)](https://app.netlify.com/sites/todoapp-squarerobin/deploys)
 
 Deployed here: https://todoapp-squarerobin.netlify.com/
