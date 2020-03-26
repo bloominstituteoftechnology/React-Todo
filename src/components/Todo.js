@@ -1,15 +1,13 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckSquare, faSquare } from '@fortawesome/free-solid-svg-icons';
 
 const Todo = ({ task, toggleCompleted, removerItem }) => {
 	return (
 		<li className={`task${task.completed ? ' completed' : ''}`}>
-			<span onClick={e => toggleCompleted(task.id)}>
+			<span onClick={() => toggleCompleted(task.id)}>
 				{task.completed ? (
-					<FontAwesomeIcon icon={faCheckSquare} />
+					<i className="fa fa-check-square-o" aria-hidden="true" />
 				) : (
-					<FontAwesomeIcon icon={faSquare} />
+					<i className="fa fa-square-o" aria-hidden="true" />
 				)}
 			</span>
 			<span>{task.name}</span>

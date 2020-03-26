@@ -3,7 +3,7 @@ import Todo from './Todo';
 
 const TodoList = ({ tasks, toggleCompleted, removerItem }) => {
 	return (
-		<div>
+		<div className="todo-wrapper">
 			<h3>My To-Do List</h3>
 			<hr />
 			<ul>

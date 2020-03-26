@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import ClearCompleted from './components/ClearCompleted';
 import './styles.css';
 
 class App extends React.Component {
@@ -8,20 +9,48 @@ class App extends React.Component {
 		super();
 		this.state = {
 			tasks: [],
-			task: '',
-			search: ''
+			currentTask: '',
+			searchInput: ''
 		};
 	}
 
+	// ADDING TODOs //
+
+	// capture current input and assign it to 'currentTask'
+
 	handleChanges = e => {
 		this.setState({
-			task: e.target.value
+			currentTask: e.target.value
 		});
 	};
 
+	// copy of tasks array and add current task object setting id and completed property to false //
+	// reset value in the input field on form submition//
+
+	handleAddTask = e => {
+		e.preventDefault();
+		e.stopPropagation();
+
+		this.setState({
+			tasks: [
+				...this.state.tasks,
+				{
+					name: this.state.currentTask,
+					id: Date.now(),
+					completed: false
+				}
+			],
+			currentTask: ''
+		});
+	};
+
+	// SEARCH TO-DO LIST  //
+
+	// capture current search input and assign it to 'searchInput' //
+
 	handleSearch = e => {
 		this.setState({
-			search: e.target.value
+			searchInput: e.target.value
 		});
 	};
 
@@ -29,41 +58,30 @@ class App extends React.Component {
 		e.preventDefault();
 		e.stopPropagation();
 
-		let searchResult = this.state.tasks.filter(
-			task => task.name.indexOf(this.state.search) !== -1
+		// filter list of tasks with searchInput value
+
+		const searchResult = this.state.tasks.filter(
+			task => task.name.indexOf(this.state.searchInput) !== -1
 		);
+
+		// only if there is a search result state is changed
 
 		if (searchResult.length > 0) {
 			this.setState({
 				tasks: searchResult
 			});
 		}
+
+		// reset value in the search field on form submition //
+
 		this.setState({
-			search: ''
+			searchInput: ''
 		});
 	};
 
-	addTask = task => {
-		this.setState({
-			tasks: [
-				...this.state.tasks,
-				{
-					name: task,
-					id: Date.now(),
-					completed: false
-				}
-			]
-		});
-	};
+	// TOGGLE TODOs //
 
-	handleAddTask = e => {
-		e.preventDefault();
-		e.stopPropagation();
-		this.addTask(this.state.task);
-		this.setState({
-			task: ''
-		});
-	};
+	// map over list of tasks and if the one selected is not completed set its value to true
 
 	toggleCompleted = taskID => {
 		this.setState({
@@ -78,6 +96,8 @@ class App extends React.Component {
 			})
 		});
 	};
+
+	// CLEAR COMPLETED TODOs //
 
 	clearCompleted = () => {
 		this.setState({
@@ -100,8 +120,7 @@ class App extends React.Component {
 					addTask={this.addTask}
 					handleAddTask={this.handleAddTask}
 					tasks={this.state.tasks}
-					task={this.state.task}
-					clearCompleted={this.clearCompleted}
+					task={this.state.currentTask}
 					handleSearch={this.handleSearch}
 					searchTask={this.searchTask}
 					search={this.state.search}
@@ -111,6 +130,7 @@ class App extends React.Component {
 					toggleCompleted={this.toggleCompleted}
 					removerItem={this.removerItem}
 				/>
+				<ClearCompleted clearCompleted={this.clearCompleted} />
 			</main>
 		);
 	}

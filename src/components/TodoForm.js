@@ -31,9 +31,6 @@ const TodoForm = ({
 				/>
 				<button>Add</button>
 			</form>
-			<button className="clean" onClick={clearCompleted}>
-				Clear Completed
-			</button>
 		</div>
 	);
 };
