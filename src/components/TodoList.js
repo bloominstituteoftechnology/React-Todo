@@ -7,14 +7,16 @@ const TodoList = ({ tasks, toggleCompleted, removerItem }) => {
 			<h3>My To-Do List</h3>
 			<hr />
 			<ul>
-				{tasks.map(task => (
-					<Todo
-						key={task.id}
-						task={task}
-						toggleCompleted={toggleCompleted}
-						removerItem={removerItem}
-					/>
-				))}
+				{tasks.length > 0
+					? tasks.map(task => (
+							<Todo
+								key={task.id}
+								task={task}
+								toggleCompleted={toggleCompleted}
+								removerItem={removerItem}
+							/>
+					  ))
+					: null}
 			</ul>
 		</div>
 	);

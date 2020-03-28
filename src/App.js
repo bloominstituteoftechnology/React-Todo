@@ -8,10 +8,16 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			tasks: [],
+			tasks: window.localStorage.getItem('todos')
+				? JSON.parse(window.localStorage.getItem('todos'))
+				: [],
 			currentTask: '',
 			searchInput: ''
 		};
+	}
+
+	componentDidUpdate() {
+		window.localStorage.setItem('todos', JSON.stringify(this.state.tasks));
 	}
 
 	// ADDING TODOs //
