@@ -32,6 +32,7 @@ class App extends Component {
       todos: [...this.state.todos, obj],
     });
 
+    //setting data to localStorage
     window.localStorage.setItem("todos", JSON.stringify(todos));
   };
 
