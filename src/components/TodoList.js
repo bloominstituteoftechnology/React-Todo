@@ -3,15 +3,21 @@
 import React from 'react';
 import Item from './Item.js';
 export default function TodoList(props) {
+  // const task = props.task.map((item) => {
+  //   console.log(item.task);
+  // });
+  console.log(props.task);
   return (
-    <section className='listWrap'>
-      <h2>ToDo:</h2>
-      {props.task.map((item) => (
-        <Item key={item.id} item={item} toggleItem={props.toggleComplete} />
-      ))}
-      <button className='clearBtn' onClick={props.clearComplete}>
+    <div className='list'>
+      <h2 className='todo'>ToDo:</h2>
+      <section className='listWrap'>
+        {props.task.map((item) => (
+          <Item key={item.id} item={item} toggleItem={props.toggleComplete} />
+        ))}
+      </section>
+      <button className='clearBtn btn' onClick={props.clear}>
         Clear Completed Tasks
       </button>
-    </section>
+    </div>
   );
 }
