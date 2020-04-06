@@ -10,7 +10,6 @@ button {
 }
 
 body {
-  //   border: 1px solid blue;
   width: 60%;
   margin: 3rem auto;
   text-transform: capitalize;
@@ -26,18 +25,18 @@ h2 {
 .form {
   width: 30%;
   margin: 0 auto 5rem;
-  //   border: 1px solid red;
 
   input {
     width: 100%;
     display: block;
     padding: 0.3rem;
     font-size: 1.1rem;
+    border: 1px solid rgb(184, 178, 178);
+    border-radius: 5px;
   }
 
   button {
     display: block;
-    //  width: 100px;
     margin: 1rem auto;
     font-size: 1rem;
     padding: 0.3rem 2rem;
@@ -67,7 +66,6 @@ h2 {
       border: 1px solid rgb(184, 178, 178);
       border-radius: 5px;
       font-size: 1.1rem;
-      //  width: 300px;
     }
   }
 }

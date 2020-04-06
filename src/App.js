@@ -8,7 +8,7 @@ class App extends Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
-    this.state = { todos: [{ task: "hello", id: "11", completed: false }] };
+    this.state = { todos: [] };
   }
 
   addNewItem = (task) => {

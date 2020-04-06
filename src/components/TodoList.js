@@ -14,9 +14,14 @@ const TodoList = ({ data, toggleTask, removeCompleted }) => {
           toggleTask={() => toggleTask(todo.id)}
         />
       ))}
-      <button onClick={removeCompleted} className="clear-task">
-        clear completed
-      </button>
+
+      {data.length !== 0 ? (
+        <button onClick={removeCompleted} className="clear-task">
+          clear completed
+        </button>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
