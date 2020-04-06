@@ -11,7 +11,17 @@ class App extends Component {
     this.state = { todos: [] };
   }
 
+  componentDidMount() {
+    const todoData = JSON.parse(localStorage.getItem("todos"));
+    if (todoData) {
+      this.setState({
+        todos: todoData,
+      });
+    }
+  }
+
   addNewItem = (task) => {
+    const { todos } = this.state;
     const obj = {
       task,
       id: Date(),
@@ -21,6 +31,8 @@ class App extends Component {
     this.setState({
       todos: [...this.state.todos, obj],
     });
+
+    localStorage.setItem("todos", JSON.stringify(todos));
   };
 
   toggleTask = (task) => {
