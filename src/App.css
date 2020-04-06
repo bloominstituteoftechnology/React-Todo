@@ -1,7 +1,9 @@
+body {
+	margin: 0;
+}
 .completed {
 	color: #444444;
 	text-decoration: line-through;
-
 }
 .todoApp {
 	max-width: 600px;
