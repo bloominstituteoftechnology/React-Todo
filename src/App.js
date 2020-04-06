@@ -32,7 +32,7 @@ class App extends Component {
       todos: [...this.state.todos, obj],
     });
 
-    localStorage.setItem("todos", JSON.stringify(todos));
+    window.localStorage.setItem("todos", JSON.stringify(todos));
   };
 
   toggleTask = (task) => {
