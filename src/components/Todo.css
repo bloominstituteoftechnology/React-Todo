@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.task {
+  border: 1px solid red;
+  cursor: pointer;
+  margin: 0.3rem 0;
+  padding: 0.3rem;
+  width: auto;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: red;
+}
