@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
-import "./components/Todo.css";
 
 class App extends Component {
   // you will need a place to store your state in this component.
@@ -9,7 +8,7 @@ class App extends Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
-    this.state = { todos: [{ task: "hello", id: "11", completed: true }] };
+    this.state = { todos: [{ task: "hello", id: "11", completed: false }] };
   }
 
   addNewItem = (task) => {
@@ -36,14 +35,25 @@ class App extends Component {
         return item;
       }),
     });
-    //  console.log(this.state.todos);
   };
+
+  removeCompleted = () => {
+    const filtered = this.state.todos.filter((todo) => todo.completed !== true);
+    this.setState({
+      todos: filtered,
+    });
+  };
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm addNewItem={this.addNewItem} />
-        <TodoList data={this.state.todos} toggleTask={this.toggleTask} />
+        <TodoList
+          data={this.state.todos}
+          toggleTask={this.toggleTask}
+          removeCompleted={this.removeCompleted}
+        />
       </div>
     );
   }

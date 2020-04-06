@@ -18,7 +18,7 @@ class TodoForm extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="form">
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="item">
             <input

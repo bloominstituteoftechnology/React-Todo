@@ -4,9 +4,9 @@
 import React from "react";
 import Todo from "./Todo";
 
-const TodoList = ({ data, toggleTask }) => {
+const TodoList = ({ data, toggleTask, removeCompleted }) => {
   return (
-    <div>
+    <div className="todo-list">
       {data.map((todo) => (
         <Todo
           key={todo.id}
@@ -14,7 +14,9 @@ const TodoList = ({ data, toggleTask }) => {
           toggleTask={() => toggleTask(todo.id)}
         />
       ))}
-      <button>clear all</button>
+      <button onClick={removeCompleted} className="clear-task">
+        clear completed
+      </button>
     </div>
   );
 };

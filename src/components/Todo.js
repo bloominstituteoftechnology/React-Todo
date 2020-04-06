@@ -2,10 +2,12 @@ import React from "react";
 
 const Todo = ({ todo, toggleTask }) => {
   const toggleClass = todo.completed ? "task completed" : "task";
-  console.log(todo);
+  //   console.log(todo);
   return (
-    <div onClick={toggleTask} className={toggleClass}>
-      <p>{todo.task}</p>
+    <div className="todo-container">
+      <div onClick={toggleTask} className={toggleClass}>
+        <p>{todo.task}</p>
+      </div>
     </div>
   );
 };
