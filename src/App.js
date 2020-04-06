@@ -5,7 +5,7 @@ const task = [
   {
     task: 'Mop Floor',
     id: `Mop Floor/${Date.now()}`,
-    complete: false
+    complete: false,
   },
 ];
 
@@ -20,53 +20,54 @@ class App extends React.Component {
 
   // Add Items to state:
   addItem = (e, item) => {
-    e.preventDefault()
+    e.preventDefault();
     const newTask = {
-    task: item,
-    id = `${item}/${Date.now()}`,
-    complete: false
+      task: item,
+      id: `${item}/${Date.now()}`,
+      complete: false,
     };
     this.setState({
-      task: [...this.state.task, newTask]
+      task: [...this.state.task, newTask],
     });
-  }
-
+  };
 
   //toggle Completed:
-  toggleComplete = itemId => {
+  toggleComplete = (itemId) => {
     // Sets the State
     this.setState({
       // Maps The Array
-      task: this.state.task.map(item => {
-          // If ItemId is equal to the Id given, Then return the item as complete or incomplete based on state
-        if (itemId === item.id){
+      task: this.state.task.map((item) => {
+        // If ItemId is equal to the Id given, Then return the item as complete or incomplete based on state
+        if (itemId === item.id) {
           return {
             ...item,
-            complete: !item.complete
+            complete: !item.complete,
           };
-        };
+        }
         return item;
-      })
+      }),
     });
   };
 
   // Clear Completed Tasks:
-  clearComplete = e => {
+  clearComplete = (e) => {
     e.preventDefault();
     this.setState({
-      task: this.state.task.filter(item => !item.complete)
+      task: this.state.task.filter((item) => !item.complete),
     });
-  }
-
-
-
+  };
 
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
       <div className='appWrap'>
-        <Todo add={this.addItem} clear={this.clearComplete} toggle={this.toggleComplete}/>
+        <Todo
+          add={this.addItem}
+          clear={this.clearComplete}
+          toggle={this.toggleComplete}
+          task={this.state.task}
+        />
       </div>
     );
   }

@@ -1,0 +1,8 @@
+.complete {
+  cursor: pointer;
+  text-decoration: line-through;
+  transition: 0.2s ease-in-out;
+}
+.item {
+  cursor: pointer;
+}

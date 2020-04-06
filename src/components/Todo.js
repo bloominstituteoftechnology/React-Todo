@@ -1,8 +1,9 @@
 import React from 'react';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
+import './Todo.css';
 
-class Todo extends React.Component {
+export default class Todo extends React.Component {
   render() {
     return (
       <>
@@ -10,7 +11,11 @@ class Todo extends React.Component {
           <TodoForm add={this.props.add} />
         </section>
         <section className='listWrap'>
-          <TodoList />
+          <TodoList
+            toggleComplete={this.props.toggle}
+            clearComplete={this.props.clearComplete}
+            task={this.props.task}
+          />
         </section>
       </>
     );

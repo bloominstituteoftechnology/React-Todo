@@ -1,6 +1,6 @@
 import React from 'react';
-
-class TodoForm extends React.Component {
+// import { item } from './domSelector/domSelector';
+export default class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +18,7 @@ class TodoForm extends React.Component {
   submitTask = (e) => {
     e.preventDefault();
     this.setState({ task: '' });
-    this.props.add(e, this.state.item);
+    this.props.add(e, this.state.task);
   };
 
   render() {
@@ -27,9 +27,11 @@ class TodoForm extends React.Component {
         <form className='form' onSubmit={this.submitTask}>
           <input
             type='text'
+            className='task'
             name='task'
             value={this.state.task}
             onChange={this.handleChange}
+            placeholder='Add Task: '
           />
           <button className='subBtn' type='submit'>
             Add
