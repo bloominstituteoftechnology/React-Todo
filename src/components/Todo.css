@@ -4,5 +4,10 @@
 }
 
 .item {
-    border: 1px black solid;
+    border: 1px blue solid;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-left: 2%;
+    border-radius: 10px;
+    background-color: lightsteelblue;
 }

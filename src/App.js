@@ -30,7 +30,7 @@ class App extends React.Component {
     this.setState ({
       tasks: this.state.tasks.filter(el =>{
         return (el.completed !== true)
-    })
+      })
     })
 
   };
