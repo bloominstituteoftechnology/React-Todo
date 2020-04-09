@@ -1,0 +1,27 @@
+.app {
+    margin: 0 auto;
+}
+
+.notepad {
+	border: 1px solid black;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	background-image: url('https://img.freepik.com/free-vector/classic-blue-background-with-memphis-effect_23-2148428988.jpg?size=626&ext=jpg');
+	margin: 0 100px;
+}
+
+.topSection {
+    display: flex;
+	flex-direction: column;
+	align-self: center;
+	background: white;
+	margin: 100px;
+	padding: 50px;
+	height: 200px;
+	width: 700px;
+	border: 2px solid black;
+	border-radius: 20px;
+	position: relative;
+}
