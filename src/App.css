@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task {
+    border: 1px solid black;
+    padding-left: 5px;
+    margin: 5px;
+    width: 25%;
+}
+
+.task.completed {
+    text-decoration: line-through;
+}
+
+button {
+    border: 1px solid black;
+}
+
+.add-task {
+    margin: 0px 10px;
+}
+
+.todoform {
+    display: flex;
+    flex-direction: row;
+}
