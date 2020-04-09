@@ -1,0 +1,14 @@
+.container {
+  max-width: 350px;
+  margin: 10% auto;
+}
+
+.inCart {
+  text-decoration: line-through;
+  color: dimgray;
+}
+
+.checkedOff {
+  font-size: 10px;
+  color: dimgray;
+}
