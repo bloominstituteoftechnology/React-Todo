@@ -118,6 +118,7 @@ class App extends React.Component {
 	};
 
 	render() {
+		const { tasks, currentTask, search } = this.state;
 		return (
 			<main>
 				<h2>Welcome to your Todo App!</h2>
@@ -125,11 +126,11 @@ class App extends React.Component {
 					handleChanges={this.handleChanges}
 					addTask={this.addTask}
 					handleAddTask={this.handleAddTask}
-					tasks={this.state.tasks}
-					task={this.state.currentTask}
+					tasks={tasks}
+					task={currentTask}
 					handleSearch={this.handleSearch}
 					searchTask={this.searchTask}
-					search={this.state.search}
+					search={search}
 				/>
 				<TodoList
 					tasks={this.state.tasks}
