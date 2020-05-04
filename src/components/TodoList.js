@@ -11,7 +11,11 @@ class TodoList extends React.Component {
 		return (
 			<div>
 				<h2>Placeholder</h2>
-				<Todo />
+				{
+					this.props.taskList.map(taskData => {
+						return <Todo key={taskData.id} taskData={taskData}/>
+					})
+				}
 			</div>
 		);
 	}

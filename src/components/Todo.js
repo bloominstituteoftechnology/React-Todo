@@ -7,7 +7,9 @@ class Todo extends React.Component {
 
 	render() {
 		return (
-			<h3>Placeholder</h3>
+			<ul>
+				<li>{this.props.taskData.task}</li>
+			</ul>
 		);
 	}
 }
