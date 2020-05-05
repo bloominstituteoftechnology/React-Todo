@@ -6,6 +6,7 @@ import TodoForm from "./components/TodoForm";
 
 import "./components/Todo.css";
 
+// const todoItems = [];
 const todoItems = [
   {
     task: "wake up",
@@ -57,7 +58,22 @@ class App extends React.Component {
     });
   };
 
-  toggleItem = () => {};
+  toggleItem = clickedId => {
+    //clickedId is passed as a parameter when function is invoked
+    const myToDoList = this.state.todoItems.map(item => {
+      if (item.id === clickedId) {
+        return {
+          //when we find the one we clicked on, we return a new obj
+          ...item,
+          completed: !item.completed
+        };
+      } else {
+        // otherwise
+        return item; //return the item untoggled or untouched }
+      }
+    });
+    this.setState({ todoItems: myToDoList });
+  };
 
   clearList = () => {
     this.setState({
