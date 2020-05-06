@@ -1,8 +1,11 @@
 import React from 'react';
 
 const Todo = (props) => {
-  console.log(props);
-  return <p>{props.task}</p>;
+  const handleClick = e => {
+    props.toggleCompleted(props.todo.id);
+  }
+
+  return <div onClick={handleClick}>{props.todo.task}</div>;
 }
 
 export default Todo;
