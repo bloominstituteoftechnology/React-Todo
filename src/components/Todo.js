@@ -6,7 +6,14 @@ const Todo = (props) => {
     props.toggleCompleted(props.todo.id);
   }
 
-  return <div onClick={handleClick} className={`${props.todo.completed ? "completed" : ""}`}>{props.todo.task}</div>;
+  return (
+    <div 
+      onClick={handleClick} 
+      className={`${props.todo.completed ? "completed" : ""}`}
+    >
+      {props.todo.task}
+    </div>
+  );
 }
 
 export default Todo;
