@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
 
 class App extends React.Component {
   constructor() {
@@ -15,12 +16,28 @@ class App extends React.Component {
       completed: false
     }] };
   }
+
+  addNewTodo = task => {
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        { task, id: Date.now(), completed: false }
+      ]
+    });
+  }
+
+  clearCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => !todo.completed)
+    });
+  }
   
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todos} />
+        <TodoForm addNewTodo={this.addNewTodo} clearCompleted={this.clearCompleted} />
       </div>
     );
   }
