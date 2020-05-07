@@ -1,6 +1,6 @@
 import React from "react";
 
-class todoForm extends React.Component {
+class TodoForm extends React.Component {
     constructor(){
         super();
         this.state={
@@ -25,7 +25,7 @@ class todoForm extends React.Component {
             <form onSubmit = {this.handleSubmit}>
                 <input
                     type ="text"
-                    name = "item"
+                    name = "task"
                     value = {this.state.newItemName}
                     onChange = {this.handleChanges}
                 />
@@ -33,3 +33,5 @@ class todoForm extends React.Component {
         );
     }
 }
+
+export default TodoForm;
