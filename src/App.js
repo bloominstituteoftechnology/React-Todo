@@ -1,20 +1,9 @@
-import React from 'react';
+import React from "react";
+import data from './components/data/data'
+import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
+import './scss/index.scss';
 
-import TodoList from './components/TodoList';
-import TodoForm from './components/TodoForm';
-
-const data = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
-];
 
 class App extends React.Component {
   constructor() {
@@ -26,27 +15,27 @@ class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-   // Class methods to update state
-   toggleItemDone = itemId => {
-   // console.log("bk: index.js: App: toggleItemDone: itemId: ", itemId);
+  // Class methods to update state
+  toggleItemDone = (itemId) => {
+    // console.log("bk: index.js: App: toggleItemDone: itemId: ", itemId);
     this.setState({
-      data: this.state.data.map(item => {
+      data: this.state.data.map((item) => {
         if (itemId === item.id) {
           return {
             ...item,
-            completed: !item.completed
+            completed: !item.completed,
           };
         }
         return item;
-      })
+      }),
     });
   };
 
-  addItem = item => {
+  addItem = (item) => {
     const newItem = {
       task: item,
       id: Date.now(),
-      completed: false
+      completed: false,
     };
     this.setState({ data: [...this.state.data, newItem] });
   };
@@ -55,18 +44,18 @@ class App extends React.Component {
     console.log("bk: index.js: clearDone");
     this.setState({
       data: [
-        ...this.state.data.filter(item => {
+        ...this.state.data.filter((item) => {
           return !item.completed;
-        })
-      ]
+        }),
+      ],
     });
   };
 
   render() {
     return (
       <div className="App">
-          <div className="header">
-          <h2>ToDo List</h2>
+        <div className="header">
+          <h1>ToDo List</h1>
           <TodoForm addItem={this.addItem} />
         </div>
         <TodoList
