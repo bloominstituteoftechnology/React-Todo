@@ -1,14 +1,26 @@
 import React from 'react';
-import data from './components/data/data';
+
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
+
+const data = [
+  {
+    task: 'Organize Garage',
+    id: 1528817077286,
+    completed: false
+  },
+  {
+    task: 'Bake Cookies',
+    id: 1528817084358,
+    completed: false
+  }
+];
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       data, // same as data: data
-      otherData: ""
     };
   }
   // you will need a place to store your state in this component.
@@ -16,9 +28,9 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
    // Class methods to update state
    toggleItemDone = itemId => {
- //   console.log("bk: index.js: App: toggleItemDone: itemId: ", itemId);
+   // console.log("bk: index.js: App: toggleItemDone: itemId: ", itemId);
     this.setState({
-      data: this.state.d.map(item => {
+      data: this.state.data.map(item => {
         if (itemId === item.id) {
           return {
             ...item,
@@ -32,7 +44,7 @@ class App extends React.Component {
 
   addItem = item => {
     const newItem = {
-      name: item,
+      task: item,
       id: Date.now(),
       completed: false
     };
@@ -40,7 +52,7 @@ class App extends React.Component {
   };
 
   clearDone = () => {
-   // console.log("bk: index.js: clearDone");
+    console.log("bk: index.js: clearDone");
     this.setState({
       data: [
         ...this.state.data.filter(item => {

@@ -3,13 +3,14 @@
 
 import React from "react";
 
-import Item from "./Item";
+import Todo from "./Todo";
 
 const TodoList = props => {
+
   return (
     <div className="todo-list">
       {props.data.map(item => (
-        <Item
+        <Todo
           toggleItemDone={props.toggleItemDone}
           key={item.id}
           item={item}

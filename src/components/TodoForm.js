@@ -27,7 +27,7 @@ class TodoForm extends React.Component {
         {/* This is an uncontrolled component 😬 We want it to be controlled by state */}
         <input
           type="text"
-          name="item"
+          task="item"
           value={this.state.newItemText}
           onChange={this.handleChanges}
         />
