@@ -4,7 +4,8 @@ We're going to practice building a stateful class component with this project. E
 
 ## Initializing the project.
 
-- Fork and clone this project and cd into your cloned version.
+[X]- Fork and clone this project and cd into your cloned version.
+
 - `npm install` will pull in all the node_modules you need.
 - `npm start` will start a development server on your `http://localhost:3000`.
   - If npm asks you to select different port with some error message, just confirm and it will pull it up on port 3001. This simply means you have a development server up and running on that port already.
@@ -20,16 +21,16 @@ We're going to practice building a stateful class component with this project. E
 
 ```js
 [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
+	{
+		task: 'Organize Garage',
+		id: 1528817077286,
+		completed: false,
+	},
+	{
+		task: 'Bake Cookies',
+		id: 1528817084358,
+		completed: false,
+	},
 ];
 ```
 
