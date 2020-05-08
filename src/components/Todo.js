@@ -15,7 +15,7 @@ return (
     className={`list${props.list.completed ? " completed" : ""}`}
     >
 
-<p>{props.list.name}</p>
+<p>{props.list.task}</p>
 
     </div>
 )

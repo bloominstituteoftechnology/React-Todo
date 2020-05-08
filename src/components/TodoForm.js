@@ -24,6 +24,15 @@ class TodoForm extends React.Component {
             });
     };
 
+    handleSubmit = e => {
+
+        e.preventDefault();
+      
+
+this.props.addNewList(this.state.newListName);
+        };
+   
+
 
     render() {
 
