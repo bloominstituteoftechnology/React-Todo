@@ -41,14 +41,14 @@ h1 {
   text-align: left;
 }
 
-.shopping-list {
+.todo-list {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   width: 100%;
   margin: 0 auto;
 }
-.item {
+.task {
   background-color: #e64944;
   width: 45%;
   text-align: left;

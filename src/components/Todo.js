@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 
 const Todo = props => {
-    const handleClick = e => {
-        props.toggleTask(props.todo.id);
-    };
-    return (
-        <div
-        onClick={handleClick}
-        className={`task${props.task.completed ? "completed" : ""}`}
-        >
-            <p>{props.task.name}</p>
-        </div>
-    );
+  const handleClick = e => {
+    props.toggleTaskCompleted(props.task.id);
+  };
+  return (
+    <div
+      onClick={handleClick}
+      className={`task${props.task.completed ? " completed" : ""}`}
+    >
+      <p>{props.task.task}</p>
+    </div>
+  );
 };
 
 export default Todo;
