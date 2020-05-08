@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDom from "react-dom";
-
-import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import "./components/Todo.css";
 
 const todo = [
   {
@@ -19,7 +19,23 @@ const todo = [
     task: 'Go Back and do stretches on assignments and sprints',
     id: 3,
     completed: false
-  }
+  },
+  {
+    task: 'Study Notion Notes',
+    id: 4,
+    completed: false
+  },
+  {
+    task: 'Practice',
+    id: 5,
+    completed: false
+  },
+  {
+    task: 'Do Hack Challenges',
+    id: 6,
+    completed: false
+  },
+
 ];
 
 class App extends React.Component {
@@ -69,9 +85,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>To-Do List!</h2>
+      <div className="list">
+           <h2>To-Do List!</h2>
+      <div className="todoform">
         <TodoForm addTask={this.addTask} />
+      </div>
         <TodoList
           toggleItemCompleted={this.toggleItemCompleted}
           todo = {this.state.todo}

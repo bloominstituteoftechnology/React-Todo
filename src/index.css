@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url('./Images/coding.jpg');
+    background-size: cover;
+  }
+
+  .task.completed {
+    text-decoration: line-through;
+    background-color: #d17d7c;
+}
