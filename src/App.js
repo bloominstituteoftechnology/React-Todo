@@ -61,8 +61,8 @@ class App extends React.Component {
       <div className='App'>
         <div className='header'>
           <h2>Todo List</h2>
-          <TodoForm addNewTodo={this.addNewTodo} />
         </div>
+        <TodoForm addNewTodo={this.addNewTodo} />
         <TodoList
           toggleTodoDone={this.toggleTodoDone}
           plan={this.state.plan}

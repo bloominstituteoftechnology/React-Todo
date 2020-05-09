@@ -62,7 +62,7 @@ h1 {
   text-decoration: line-through;
 }
 form {
-  width: 50%;
+  width: 75%;
   display: flex;
   justify-content: flex-end;
 }
@@ -71,7 +71,7 @@ form > input {
   border: 0;
   padding: 6px 0;
   font-size: 1rem;
-  width: 240px;
+  width: 75%;
   outline: 0;
   color: white;
   border-bottom: 1px solid orange;
@@ -84,6 +84,16 @@ button {
   color: white;
   font-size: 16px;
   padding: 6px 14px;
+}
+
+.add {
+    background-color: orangered;
+    border: 2px solid orange;
+    border-radius: 10px;
+    width: 150px;
+    color: white;
+    font-size: 16px;
+    padding: 6px 14px;
 }
 
 input::placeholder {

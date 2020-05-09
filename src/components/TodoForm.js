@@ -32,7 +32,7 @@ class TodoForm extends React.Component {
                     value={this.state.newTodoName}
                     onChange={this.handleChanges}
                 />
-                <button>Add</button>
+                <button className='add'>Add to List</button>
             </form>
         );
     }
