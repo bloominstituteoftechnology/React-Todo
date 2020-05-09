@@ -2,14 +2,15 @@ import React from 'react';
 // import ReactDOM from 'react-dom';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
+import './components/Todo.css'
 
-// const plan = [
-//   {
-//     name: 'todo',
-//     id: 1,
-//     done: false
-//   }
-// ]
+const plan = [
+  {
+    name: '',
+    id: 1,
+    done: false
+  }
+]
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -17,14 +18,14 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      plan: ''
+      plan,
     }
   }
 
   toggleTodoDone = todoId => {
     console.log('aw: App.js: App: toggleTodoDone: todoId: ', todoId);
     this.setState({
-      plan: this.state.plan.localeCompare(todo => {
+      plan: this.state.plan.map(todo => {
         if (todoId === todo.id) {
           return {
             ...todo,
@@ -40,7 +41,7 @@ class App extends React.Component {
     console.log('aw: App.js: App: addNewTodo: todoName: ', todoName);
     this.setState({
       plan: [
-        ...this.state.plane,
+        ...this.state.plan,
         {name: todoName, done: false, id: Date.now()}
       ]
     })
@@ -57,8 +58,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div className='App'>
+        <div className='header'>
           <h2>Todo List</h2>
           <TodoForm addNewTodo={this.addNewTodo} />
         </div>

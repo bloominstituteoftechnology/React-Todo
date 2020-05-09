@@ -4,7 +4,7 @@ import Todo from "./Todo";
 
 const TodoList = props => {
     return (
-        <div>
+        <div className='shopping-list'>
         {props.plan.map(todo => (
             <Todo
             toggleTodoDone={props.toggleTodoDone}
