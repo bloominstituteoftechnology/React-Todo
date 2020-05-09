@@ -4,7 +4,6 @@ import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 import './scss/index.scss';
 
-
 class App extends React.Component {
   constructor() {
     super();
@@ -17,7 +16,7 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   // Class methods to update state
   toggleItemDone = (itemId) => {
-    // console.log("bk: index.js: App: toggleItemDone: itemId: ", itemId);
+    // console.log("ea: index.js: App: toggleItemDone: itemId: ", itemId);
     this.setState({
       data: this.state.data.map((item) => {
         if (itemId === item.id) {
@@ -41,7 +40,7 @@ class App extends React.Component {
   };
 
   clearDone = () => {
-    console.log("bk: index.js: clearDone");
+   //console.log("ea: index.js: clearDone");
     this.setState({
       data: [
         ...this.state.data.filter((item) => {
