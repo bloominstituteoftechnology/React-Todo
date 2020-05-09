@@ -10,36 +10,57 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo: ''
+      plan: ''
     }
   }
 
-  handleChanges = e => {
-    e.preventDefault();
+  toggleTodoDone = todoId => {
+    console.log('aw: App.js: App: toggleTodoDone: todoId: ', todoId);
     this.setState({
-      todo: e.target.value
+      plan: this.state.plan.localeCompare(todo => {
+        if (todoId === todo.id) {
+          return {
+            ...todo,
+            done: !todo.done
+          }
+        }
+        return todo;
+      })
     })
   }
 
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.addNewTodo(this.state.newTodo);
+  addNewTodo = todoName => {
+    console.log('aw: App.js: App: addNewTodo: todoName: ', todoName);
+    this.setState({
+      plan: [
+        ...this.state.plane,
+        {name: todoName, done: false, id: Date.now()}
+      ]
+    })
+  }
+
+  clearDone = () => {
+    console.log('aw: App.js: App: clearDone: ');
+    this.setState({
+      plan: this.state.plan.filter(todo => {
+        return !todo.done;
+      })
+    })
   }
 
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-      </div>
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type='text'
-          name='item'
-          value={this.state.newTodo}
-          onChange={this.handleChanges}
+        <div>
+          <h2>Todo List</h2>
+          <TodoForm addNewTodo={this.addNewTodo} />
+        </div>
+        <TodoList
+          toggleTodoDone={this.toggleTodoDone}
+          plan={this.state.plan}
+          clearDone={this.clearDone}
         />
-        <button>Add Todo</button>
-      </form>
+      </div>
     );
   }
 }
