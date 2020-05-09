@@ -6,7 +6,7 @@ import './components/Todo.css'
 
 const plan = [
   {
-    name: '',
+    name: 'Take Shower',
     id: 1,
     done: false
   }
