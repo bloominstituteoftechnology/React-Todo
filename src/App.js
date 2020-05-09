@@ -93,9 +93,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="w3-brown">
         <nav>
-        <h2>To Do List</h2>
+        <h2 className="w3-green">To Do List</h2>
         <TodoForm addNewList={this.addNewList} />
         </nav>
         <TodoList

@@ -39,7 +39,7 @@ this.props.addNewList(this.state.newListName);
         return(
 
 
-            <form onSubmit={this.handleSubmit}>
+            <form className="w3-card" onSubmit={this.handleSubmit}>
 
                 <input
                 type="text"
@@ -48,7 +48,7 @@ this.props.addNewList(this.state.newListName);
                 onChange={this.handleChanges}
             />
 
-            <button>Add</button>
+            <button className="w3-button w3-green">Add</button>
 
             </form>
 

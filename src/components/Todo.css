@@ -1,0 +1,10 @@
+.list {
+
+    cursor: pointer;
+}
+
+.list.completed {
+
+    text-decoration: line-through;
+
+}

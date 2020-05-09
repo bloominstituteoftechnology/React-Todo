@@ -9,11 +9,11 @@ const TodoList = props => {
 
     return (
 
-        <div>
+        <div className="w3-card">
 
             {props.todo.map(list => (
 
-                    <List
+                    <List 
                     toggleToDo={props.toggleToDo}
                     key={list.id}
                     list={list}
@@ -21,7 +21,7 @@ const TodoList = props => {
 
             ))}
 
-            <button onClick={props.clearCompleted} >Clear Completed</button>
+            <button className="w3-button  w3-green" onClick={props.clearCompleted} >Clear Completed</button>
 
         </div>
     );

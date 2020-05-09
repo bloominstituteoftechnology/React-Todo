@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const List = props => {
 
 const handleClick = e => {
@@ -15,7 +16,7 @@ return (
     className={`list${props.list.completed ? " completed" : ""}`}
     >
 
-<p>{props.list.task}</p>
+<p className="w3-border w3-orange " >{props.list.task}</p>
 
     </div>
 )
