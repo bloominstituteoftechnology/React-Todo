@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  background-color: #2d2d37;
+  background-color: white;
 }
 
 h1,
@@ -20,7 +20,7 @@ h6,
 div,
 p,
 span {
-  color: white;
+  color: black;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -43,14 +43,14 @@ h1 {
 
 .shopping-list {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: space-between;
   width: 100%;
   margin: 0 auto;
 }
 .todo {
-  background-color: #e64944;
-  width: 45%;
+  background-color: orange;
+  width: 100%;
   text-align: left;
   margin: 4px 0;
   padding-left: 8px;
@@ -58,7 +58,7 @@ h1 {
 }
 
 .todo.done {
-  background-color: #d17d7c;
+  background-color: orangered;
   text-decoration: line-through;
 }
 form {
@@ -74,20 +74,20 @@ form > input {
   width: 240px;
   outline: 0;
   color: white;
-  border-bottom: 1px solid #e64944;
+  border-bottom: 1px solid orange;
   margin-right: 8px;
 }
 
 button {
-  background-color: #e64944;
-  border: 1px solid #e64944;
+  background-color: orangered;
+  border: 1px solid orangered;
   color: white;
   font-size: 16px;
   padding: 6px 14px;
 }
 
 input::placeholder {
-  color: #e64944;
+  color: orangered;
   opacity: 1;
 }
 
