@@ -15,7 +15,7 @@ tasks
     });
   };
 
-handleAddItem = e => {
+handleAddTasks = e => {
   e.preventDefault();
   this.props.addItem(this.state.itemName);
 };

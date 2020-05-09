@@ -4,40 +4,43 @@ import React from 'react';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm';
 
-const originalTasks = [
-  {
-    name: 'Bathroom',
-    id: Date.now(),
-    finished: false
-  },
-  {
-    name: 'Living Room',
-    id: Date.now(),
-    finished: false
-  },
-  {
-    name: 'Bedroom',
-    id: Date.now(),
-    finished: false
-  },
-  {
-    name: 'Bathe Dogs',
-    id: Date.now(),
-    finished: false
-  },
-  {
-    name: 'Dust',
-    id: Date.now(),
-    finished: false
-  },
-];
+// const originalTasks = [
+//   {
+//     name: 'Bathroom',
+//     id: Date.now(),
+//     finished: false
+//   },
+//   {
+//     name: 'Living Room',
+//     id: Date.now(),
+//     finished: false
+//   },
+//   {
+//     name: 'Bedroom',
+//     id: Date.now(),
+//     finished: false
+//   },
+//   {
+//     name: 'Bathe Dogs',
+//     id: Date.now(),
+//     finished: false
+//   },
+//   {
+//     name: 'Dust',
+//     id: Date.now(),
+//     finished: false
+//   },
+// ];
 
 class App extends React.Component {
 
   constructor() {
     super();
     this.state = {
-      tasks: originalTasks
+      todo: "",
+      tasks: [{name: 'Dust',
+      id: Date.now(),
+      finished: false}]
     };
 
     // we don't need this if we use arrow functions 🎉
