@@ -1,36 +1,13 @@
 .appDiv {
-	width: 90%;
+	width: 70%;
 	text-align: left;
 	margin: 0 auto;
 	padding: 1%;
-	background: rgba(3, 134, 112, 0.1);
+	background: rgba(17, 29, 204, 0.1);
 	border-radius: 5%;
-	border: groove 5px silver;
+	border: groove 5px rgb(226, 28, 28);
 }
 
-.paper {
-	width: 60%;
-	height: 700px;
-	position: relative;
-	margin: 2% auto;
-	padding-top: 4%;
-	padding-bottom: 4%;
-	background: white;
-	box-shadow: 0px 0px 5px 0px #888;
-}
-.paper::before {
-	content: '';
-	width: 2px;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 40px;
-	background-color: rgba(255, 0, 0, 0.6);
-}
-.pattern {
-	height: 100%;
-	background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
-}
 .notes {
 	padding-top: 6px;
 	padding-left: 56px;
@@ -87,27 +64,4 @@ li {
 .btn2 {
 	width: 20%;
 	margin: 0 auto;
-}
-
-.formGoLeft {
-	background: linear-gradient(
-		darkcyan,
-		darkcyan,
-		darkcyan,
-		darkcyan,
-		darkcyan,
-		darkcyan,
-		silver,
-		silver,
-		silver,
-		silver,
-		silver,
-		darkcyan,
-		darkcyan
-	);
-	width: 50%;
-	margin: 0 auto;
-	padding-bottom: 2%;
-	margin-top: 5%;
-	border-radius: 5%;
 }
