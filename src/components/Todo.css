@@ -1,0 +1,56 @@
+.item {
+  font-weight: bold;
+  font-size: 20px;
+  width: 300px;
+}
+
+.completed {
+  opacity: 0.75;
+}
+
+.completed::after {
+  content:  '✓' 
+}
+
+body {
+  text-align: center;
+  background: #010038;
+  color: #f39422;
+}
+
+.title {
+  padding: 100px 0 20px 0;
+}
+
+.clearButton {
+  margin-top: 100px;
+  margin-left: 10px;
+}
+
+.form {
+  margin-bottom: 50px;
+}
+
+.field {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.directions {
+  color: #537ec5;
+}
+
+.listCont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.search {
+  float: right;
+  margin-right: 50px;
+  margin-top: 20px;
+}

@@ -1,45 +1,47 @@
-import React from "react";
+import React, {Component} from 'react';
 
-// tasks
-// 1. add constructor with state that has itemName
-// 2. on input add avalue attribute and pass new state property
-// 3. build a handleChanges action handler that will update the new state
-// 4. add onChange
+class TodoForm extends Component {
+    constructor() {
+        super();
+        this.state = {
+            task: ''
+        }
+    }
 
-class TodoForm extends React.Component {
-  // constructor with state
-  constructor() {
-    super();
-    this.state = {
-      itemName: ""
-    };
-  }
-  handleChanges = e => {
-    // update state with eack keystroke
-    this.setState({ itemName: e.target.value});
-    console.log(this.state.itemName);
-  };
+    handleChanges = e => {
+        this.setState({
+            task: e.target.value
+        })
+    }
 
-  handleSubmit = e => {
-    
-  };
+    handleSubmit = e => {
+        e.preventDefault();
+        if (this.state.task !== '') {
+            this.props.addItem(this.state.task);
+            this.setState({
+                task:''
+            });
+        }
+    }
 
-  render() {
-    console.log("rendering form");
-    return (
-      <form>
-        {/* This is an uncontrolled component and we want it to be controlled by state */}
-        <input
-        type="text"
-        task="item"
-        value={this.state.itemName}
-        onChange={this.handleChanges}
-        />
-        <button>Add</button>
-      </form>
-    );
-  }
+    render() {
+        return(
+            <div className='form'>
+                <form onSubmit={this.handleSubmit}>
+                    <input
+                        onChange={this.handleChanges}
+                        type='text'
+                        name='item'
+                        value={this.state.task}
+                        className='field'
+                        placeholder='Task'
+                    />
+                    <button className='field'>Add to List</button>
+                </form>
+                <p className='directions'>Click on the task to check as completed</p>
+            </div>
+        )
+    }
 }
-
 
 export default TodoForm;
