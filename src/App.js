@@ -5,7 +5,7 @@ import './components/Todo.css';
 
 const data = [
   {
-    task: 'Make a to do list',
+    task: 'Make todo list',
     id: 1234,
     completed: false
   }
