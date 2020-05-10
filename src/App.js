@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
-import Todo from './components/Todo.css';
+import './components/Todo.css';
 
 const data = [
   {
@@ -97,6 +97,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log('rendering...')
     return (
       <div className='App'>
         <div className='search'>

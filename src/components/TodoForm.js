@@ -25,6 +25,7 @@ class TodoForm extends Component {
     }
 
     render() {
+        console.log('rendering form')
         return(
             <div className='form'>
                 <form onSubmit={this.handleSubmit}>
