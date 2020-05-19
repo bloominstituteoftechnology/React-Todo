@@ -22,7 +22,7 @@ class App extends React.Component {
         };
         this.handleFormChange = this.handleFormChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
-
+        this.handleTaskCompletion = this.handleTaskCompletion.bind(this);
     }
 
     /***************
@@ -35,14 +35,22 @@ class App extends React.Component {
                 task: event.target.value
             }
         }))
+        console.log(this.state.tasks);
     }
 
     //left off working on this...need to change state of the specific task so that completed is true.
-    /*    handleTaskCompletion(event) {
-            this.setState(state => ({
-                tasks: [...state.tasks, state.newTask],
-            }))
-        }*/
+
+    handleTaskCompletion(event) {
+        let incompleteTask = this.state.tasks.find(task => task.task === event.target.id);
+        let index = this.state.tasks.indexOf(incompleteTask);
+        let completedTask = {};
+
+        Object.assign(completedTask, incompleteTask);
+        completedTask.completed = !completedTask.completed;
+        console.log(completedTask);
+
+        this.setState(this.state.tasks[index] = completedTask)
+    }
 
     handleFormSubmit(event) {
         event.preventDefault();
@@ -59,7 +67,7 @@ class App extends React.Component {
         return (
             <div>
                 <h2>Welcome to your Todo App!</h2>
-                <TodoList taskData={this.state.tasks}/>
+                <TodoList taskData={this.state.tasks} handleTaskCompletion={this.handleTaskCompletion}/>
                 <TodoForm handleFormChange={this.handleFormChange} handleFormSubmit={this.handleFormSubmit}
                           newTask={this.state.newTask}/>
             </div>
