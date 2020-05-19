@@ -21,6 +21,7 @@ class App extends React.Component {
             newTask: {task: '', id: Math.random() * 100, completed: false},
         };
         this.handleFormChange = this.handleFormChange.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
 
     }
 
@@ -34,16 +35,21 @@ class App extends React.Component {
                 task: event.target.value
             }
         }))
-        console.log(this.state.newTask.task);
     }
 
-    handleFormSubmit = (event) => {
+    //left off working on this...need to change state of the specific task so that completed is true.
+    /*    handleTaskCompletion(event) {
+            this.setState(state => ({
+                tasks: [...state.tasks, state.newTask],
+            }))
+        }*/
+
+    handleFormSubmit(event) {
         event.preventDefault();
-        this.setState({
-            ...this.state,
-            tasks: this.state.tasks.push(this.state.newTask),
+        this.setState(state => ({
+            tasks: [...state.tasks, state.newTask],
             newTask: {task: '', id: Math.random() * 100, completed: false}
-        })
+        }))
     }
 
     /***************
