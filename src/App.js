@@ -1,16 +1,30 @@
+/***************
+ LIBRARIES
+ ***************/
 import React from 'react';
 
+/***************
+ COMPONENTS
+ ***************/
+import taskData from './taskData';
+import TodoList from './components/TodoList';
+
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-  render() {
-    return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-      </div>
-    );
-  }
+    constructor() {
+        super();
+        this.state = {
+            tasks: taskData
+        };
+    }
+
+    render() {
+        return (
+            <div>
+                <h2>Welcome to your Todo App!</h2>
+                <TodoList taskData={this.state.tasks}/>
+            </div>
+        );
+    }
 }
 
 export default App;
