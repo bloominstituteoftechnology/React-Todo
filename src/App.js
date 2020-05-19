@@ -38,8 +38,6 @@ class App extends React.Component {
         console.log(this.state.tasks);
     }
 
-    //left off working on this...need to change state of the specific task so that completed is true.
-
     handleTaskCompletion(event) {
         let incompleteTask = this.state.tasks.find(task => task.task === event.target.id);
         let index = this.state.tasks.indexOf(incompleteTask);
