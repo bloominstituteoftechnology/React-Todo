@@ -23,6 +23,7 @@ class App extends React.Component {
         this.handleFormChange = this.handleFormChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.handleTaskCompletion = this.handleTaskCompletion.bind(this);
+        this.handleTaskClear = this.handleTaskClear.bind(this);
     }
 
     /***************
@@ -58,6 +59,11 @@ class App extends React.Component {
         }))
     }
 
+    handleTaskClear(event) {
+        let incompleteTasks = this.state.tasks.filter(task => task.completed === false);
+        this.setState(this.state.tasks = incompleteTasks);
+    }
+
     /***************
      COMPONENT
      ***************/
@@ -68,6 +74,7 @@ class App extends React.Component {
                 <TodoList taskData={this.state.tasks} handleTaskCompletion={this.handleTaskCompletion}/>
                 <TodoForm handleFormChange={this.handleFormChange} handleFormSubmit={this.handleFormSubmit}
                           newTask={this.state.newTask}/>
+                <button onClick={this.handleTaskClear}>Clear Completed Tasks</button>
             </div>
         );
     }
