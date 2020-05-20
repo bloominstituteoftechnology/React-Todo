@@ -5,7 +5,7 @@ class TodoForm extends React.Component {
         super();
         this.state = {
             task: "add an item"
-        };
+        }; 
     }
 
     handleChanges = event => {
