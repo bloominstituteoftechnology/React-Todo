@@ -3,6 +3,12 @@ import React from 'react';
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 import "./components/Todo.css";
+import styled from "styled-components";
+
+const StyledH2 = styled.h2`
+  text-align: center;
+  font-family: Roboto;
+`;
 
 const test = [
   {name: "yes",
@@ -60,7 +66,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <StyledH2>Welcome to your Todo App!</StyledH2>
         <TodoForm addTodo={this.addTodo} />
         <TodoList toggleTodo={this.toggleTodo} todos={this.state.todos} clearCompleted={this.clearCompleted}/>
       </div>
