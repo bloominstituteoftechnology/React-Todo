@@ -2,6 +2,7 @@ import React from 'react';
 // import ReactDOM from 'react-dom'
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
+import './components/Todo.css'
 
 
 // ARRAY OF TASKS TODO
@@ -53,7 +54,8 @@ class App extends React.Component {
   toggleTask = clickedId => {
     const newTaskList = this.state.task.map(item => {
       if(item.id === clickedId) {
-        return {...item,
+        return {
+          ...item,
         completed: !item.completed
       };
       }else{
@@ -63,6 +65,7 @@ class App extends React.Component {
     this.setState({
       task: newTaskList
     })
+    console.log(clickedId)
     };
     // this.setState({
     //   task: this.state.task.map(item => {
@@ -81,12 +84,19 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
+    clearCompleted = e => {
+      e.preventDefault()
+      this.setState({
+        task: this.state.task.filter(item => !item.completed)
+      })
+    }
+
 // ADD A NEW TASK TO LIST
   addTask = taskName => {
     const newTask = {
       task: taskName,
-      id: new Date(),
-      completed: false,
+      id: Date.now(),
+      completed: false
     }
     this.setState({
       task: [...this.state.task, newTask]
@@ -100,14 +110,15 @@ class App extends React.Component {
 
         <div className="header">
           <h2>Nates AWESOME Todo App!</h2>
-          <TodoForm addTask={this.addTask}/>
+          <TodoForm addTask={this.addTask}
+          clearCompleted={this.clearCompleted}
+          />
         </div>
 
         <TodoList 
-        toggleTask={this.toggleTask}
         todo={this.state.task}
+        toggleTask={this.toggleTask}
         />
-
       </div>
     );
   }
