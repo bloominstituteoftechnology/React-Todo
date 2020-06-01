@@ -1,3 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.App{
+    background-color: rgb(145, 144, 132);
+    opacity: .8;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px;
+    margin-top: 12%;
+    border-radius: 15px;
+}
+
+body{
+    background-image: url('./kelly-sikkema--1_RZL8BGBM-unsplash.jpg') ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center
+}
+
+.header{
+    /* background-color: rgb(145, 144, 132); */
+    opacity: .8;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 15px;
+}
 .completed{
     text-decoration: line-through
+}
+h2{
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.todo-form{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+p{
+    font-family: 'Roboto', sans-serif;
+}
+button{
+    margin:5%
+}
+.todo-list{
+    color: 
+    
 }
