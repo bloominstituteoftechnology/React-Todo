@@ -1,10 +1,12 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm'
+import './components/Todo.css'
+
 
 const todos = [
   {
-    task: 'Finish',
+    task: 'Test 1',
     id: 123,
     completed: false
   },
@@ -57,25 +59,23 @@ class App extends React.Component {
       })
     })
   }
-  // clearCompleted = () => {
-  //   this.setState({
-  //     todos: this.state.todos.filter( todo => {
-  //       if (todo.completd === true) {
-
-  //       }
-  //     }
-
-  //     )
-  //   })
-  // }
-  
+  clearCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => todo.completed === false )
+    })
+  }
+ 
 
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <header>
+         <h2>Welcome to your Todo App!</h2>
+        </header>
+        <div id='todos'>
+        <TodoForm addTask={this.addTask} clearCompleted={this.clearCompleted}  />
         <TodoList todos={this.state.todos} toggleComplete={this.toggleComplete}/>
-        <TodoForm addTask={this.addTask}  />
+        </div>
       </div>
     );
   }

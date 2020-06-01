@@ -1,3 +1,55 @@
 .todo.completed {
-    text-decoration: line-through;
-  }
+  text-decoration: line-through red;
+}
+
+h2 {
+  width: 65%;
+  font-size: 2.5rem;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: "ariel";
+  text-align: center;
+  border-radius: 2.5rem;
+  background-color: lightgray;
+  margin-bottom: 1rem;
+}
+h3{
+    width: 65%;
+    font-size: 2.5rem;
+    margin: 0 auto;
+    padding: 1rem;  
+    text-align: center;
+}
+p{
+    width: 85%;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    padding: 1rem;  
+    text-align: center;
+    background-color: gray;
+    border-radius: 2rem;
+    margin-bottom:1rem;
+    margin-top:1rem;
+    color:white;
+}
+input{
+    margin-bottom:1rem;
+}
+
+body {
+  background-image: url("../todo.jpg");
+  background-position: top;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 70rem;
+}
+#todos{
+    width: 70%;
+    margin:0 auto;
+    border-radius: 2.5rem;
+    background-color: lightgray;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
