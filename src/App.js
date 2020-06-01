@@ -38,10 +38,11 @@ class App extends React.Component {
         <h1>What you must do:</h1>
         <TodoForm addTask={this.addTask} />
         </div>
-        
+        {console.log(this.state)}
         <TodoList
+        
           toggleTask={this.toggleTask}
-          tasks= {this.state.tasks}
+          tasks= {this.state}
           />
       </div>
     );
