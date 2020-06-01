@@ -50,9 +50,7 @@ class App extends React.Component {
   clearCompleted = () => {
     // console.log("bk: index.js: clearCompleted");
     this.setState({
-      tasks: this.state.tasks.map((task) => {
-        return { ...task, complete: !task.complete };
-      }),
+      tasks: this.state.tasks.filter((task) => task.complete),
     });
   };
 
