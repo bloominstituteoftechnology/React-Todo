@@ -6,19 +6,18 @@ import Item from "./Item";
 
 
 const TodoList = props => {
-    const [task, id, purchased] = props.todoList;
-    console.log(props.todoList)
+   console.log(props.todoList)
     
 
 
     return (
        
         <div className="todo-list">
-            {props.todoList.map(item => (<ul>
-                <li><Item toggleItem={props.toggleItem} key={item.id} item={item.task} /></li>
-            </ul>
+            {props.todoList.map(item => (
+                <Item toggleItem={props.toggleItem} key={item.id} todoList={item}  />
+            
             ))} 
-            <button className="clear-btn" onClick={() => !purchased(id)} style={{"textDecoration": "line-through"}}>
+            <button className="clear-btn">
                 Strike out Purchased
             </button>
        </div>
