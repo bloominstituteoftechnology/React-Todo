@@ -9,17 +9,20 @@ import Item from './components/Item';
   {
     task: 'Organize Garage',
      id: uuidv4() ,
-    completed: false
+    completed: false,
+     purchased: false
   },
   {
     task: 'Bake Cookies',
     id: uuidv4(),
-    completed: false
+    completed: false,
+    purchased: false
   },
   {
     task: 'Walk the Cat',
     id: uuidv4(),
-    completed: false
+    completed: false,
+    purchased: false
   }
 ];
 
@@ -40,7 +43,8 @@ class App extends React.Component {
     const newItem = {
       task: item,
       completed: false,
-      id: Date.now()
+      id: uuidv4(),
+      purchased: false
     };
 
     this.setState({

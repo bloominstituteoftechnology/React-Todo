@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 class TodoForm extends Component {
 constructor(props) {
@@ -25,11 +26,11 @@ constructor(props) {
     };
 
     render() {
-        console.log("render form")
+       
         return (
             <form onSubmit={this.handleSubmit}>
                 <input 
-                    id={Date.now()}
+                    id={uuidv4()}
                     type="text"
                     name="item"
                     value={this.state.item}

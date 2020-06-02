@@ -6,7 +6,7 @@ import Item from "./Item";
 
 
 const TodoList = props => {
-    const [task, id] = props.todoList;
+    const [task, id, purchased] = props.todoList;
     console.log(props.todoList)
     
 
@@ -14,13 +14,13 @@ const TodoList = props => {
     return (
        
         <div className="todo-list">
-            {props.todoList.map(item => (
-                <Item toggleItem={props.toggleItem} key={item.id} item={item.task} />
-                
-            ))}
-            <button className="clear-btn" onClick={props.clearPurchased}>
-                Clear Purchased
-      </button>
+            {props.todoList.map(item => (<ul>
+                <li><Item toggleItem={props.toggleItem} key={item.id} item={item.task} /></li>
+            </ul>
+            ))} 
+            <button className="clear-btn" onClick={() => !purchased(id)} style={{"textDecoration": "line-through"}}>
+                Strike out Purchased
+            </button>
        </div>
             );
     
