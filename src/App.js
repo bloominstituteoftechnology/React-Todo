@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoList from "./components/TodoList";
 
 const items = [
   {
@@ -17,7 +18,7 @@ class App extends React.Component {
   constructor() {
   super();
   this.state = {
-    items
+    items: items
   };
 }
 
@@ -30,7 +31,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList items={this.state.items}/>
+        <TodoList item={this.state.items}/>
       </div>
     );
   }
