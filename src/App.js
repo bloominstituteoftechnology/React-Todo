@@ -23,6 +23,24 @@ class App extends React.Component {
   };
 }
 
+addItem = (event, item) => {
+  event.preventDefault();
+  const newItem = {
+    name: item,
+    id: Date.now(),
+    completed: false
+  };
+  this.setState({
+    items: [...this.state.items, newItem]
+  })
+}
+
+clearItem = (event) => {
+  event.preventDefault();
+  this.setState({...this.state.items.filter(item => (
+    item.completed === true
+  ))})
+}
 
 
   // you will need a place to store your state in this component.
@@ -32,7 +50,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm />
+        <TodoForm addItem={this.addItem} clearItem={this.clearItem} />
         <TodoList item={this.state.items}/>
       </div>
     );
