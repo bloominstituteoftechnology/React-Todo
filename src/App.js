@@ -56,6 +56,19 @@ class App extends React.Component {
     });
   };
 
+  // handle changes here also
+  handleChanges = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  // submit item
+  submitItem = e => {
+    e.preventDefault(); // also saw this on app.js clear purchased, why?
+    this.setState({ item: '' });
+    this.props.addItem(e, this.state.item);
+  };
+
+
   render() {
     console.log('rendering...')
     return (
