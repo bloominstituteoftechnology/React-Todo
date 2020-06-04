@@ -1,13 +1,73 @@
 import React from 'react';
+import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
+
+const taskItems = [
+  {
+    name: 'Give Simba a bath',
+    id: 123,
+    completed: false
+  }
+];
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+
+  constructor() {
+    super();
+    this.state = {
+      taskItems // supposed to be taskItems: taskItems
+    };
+  }
+
+  
+  addItem = (e, item) => {
+    // why is prevent default on add item vs only on submit?
+    e.preventDefault(); 
+    
+    const newItem = {
+      name: item,
+      id: Date.now(), 
+    };
+   
+    this.setState({
+      taskItems: [...this.state.taskItems, newItem]
+    });
+  };
+
+  
+  toggleItem = itemId => {
+    console.log("toggle, item ID", itemId);
+    this.setState({
+      taskItems: this.state.taskItems.map(item => {
+        if (itemId === item.id) {
+          return {
+            ...item, completed: !item.completed
+          };
+        }
+        return item;
+      })
+    });
+  };
+
+  clearCompleted = e => {
+    e.preventDefault();
+    this.setState({
+      taskItems: this.state.taskItems.filter(item => !item.completed)
+    });
+  };
+
   render() {
+    console.log('rendering...')
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="App">
+        <div className="header">
+            <h2>~ Too-dah List! ~</h2>
+            <TodoForm addItem={this.addItem} />
+        </div>
+        <TodoList
+              taskItems={this.state.taskItems}
+              toggleItem={this.toggleItem}
+              clearCompleted={this.clearCompleted} />
       </div>
     );
   }
