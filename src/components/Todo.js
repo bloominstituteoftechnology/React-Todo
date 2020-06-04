@@ -1,6 +1,7 @@
 import React from 'react';
+import "./Todo.css"
 
-const Item = props => {
+const Todo = props => {
   return (
     <div
       className={`item${props.item.completed ? ' completed' : ''}`}
@@ -8,7 +9,8 @@ const Item = props => {
     >
       <p>{props.item.name}</p>
     </div>
+
   );
 };
 
-export default Item;
+export default Todo;

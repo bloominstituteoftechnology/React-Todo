@@ -2,39 +2,25 @@ import React from 'react';
 
 class TodoForm extends React.Component {
     
-    constructor(props) {
-      super(props);
-      this.state = {
-        item: ''
-      };
-    }
-    
-    // handle changes here also
-    handleChanges = e => {
-      this.setState({ [e.target.name]: e.target.value });
-    };
-
-    // submit item
-    submitItem = e => {
-      e.preventDefault(); // also saw this on app.js clear purchased, why?
-      this.setState({ item: '' });
-      this.props.addItem(e, this.state.item);
-    };
-  
     render() {
       console.log('rendering...');
+
       return (
-        <form onSubmit={this.submitItem}>
+        <form onSubmit={this.props.onSubmit}>
         <label htmlFor='addTask'>Add task:</label>
-          <input
-            type='text'
-            id='addTask'
-            name='item'
-            placeholder='Add a new task...'
-            value={this.state.item}
-            onChange={this.handleChanges}
-          />
+            <input
+                type='text'
+                id='addTask'
+                name='name'
+                placeholder='Add a new task...'
+                value={this.props.formState.name}  // this.state.form on app.js
+                onChange={this.props.onChange}
+            />
           <button type='submit' className='submitTask'>Add task to list</button>
+
+          <button className="clear-btn" onClick={this.props.clearCompleted}>
+            Clear Completed
+          </button>
         </form>
       );
     }

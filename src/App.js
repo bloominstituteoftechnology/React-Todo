@@ -2,41 +2,40 @@ import React from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
-const taskItems = [
-  {
-    name: 'Give Simba a bath',
-    id: 123,
-    completed: false
-  }
-];
+// const taskItems = [
+//   {
+//     name: 'Give Simba a bath',
+//     id: 123,
+//     completed: false
+//   }
+// ];
 
 class App extends React.Component {
 
   constructor() {
     super();
     this.state = {
-      taskItems // supposed to be taskItems: taskItems
+      taskItems: [{ name: 'Wash Simba', id: 123, completed: false }], form: { name: '' }
     };
   }
 
-  
+
   addItem = (e, item) => {
     // why is prevent default on add item vs only on submit?
-    e.preventDefault(); 
-    
+    e.preventDefault();
     const newItem = {
-      name: item,
-      id: Date.now(), 
+      name: item.name,
+      id: Date.now(),
+      completed: false
     };
-   
     this.setState({
       taskItems: [...this.state.taskItems, newItem]
     });
   };
 
-  
+
   toggleItem = itemId => {
-    console.log("toggle, item ID", itemId);
+    console.log("toggle item completed, item ID:", itemId);
     this.setState({
       taskItems: this.state.taskItems.map(item => {
         if (itemId === item.id) {
@@ -56,16 +55,15 @@ class App extends React.Component {
     });
   };
 
-  // handle changes here also
   handleChanges = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ ...this.state, form: { ...this.state.form, [e.target.name]: e.target.value } });
   };
 
   // submit item
   submitItem = e => {
     e.preventDefault(); // also saw this on app.js clear purchased, why?
-    this.setState({ item: '' });
-    this.props.addItem(e, this.state.item);
+    // this.setState({ item: '' });
+    this.addItem(e, this.state.form);
   };
 
 
@@ -74,13 +72,19 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="header">
-            <h2>~ Too-dah List! ~</h2>
-            <TodoForm addItem={this.addItem} />
+          <h2>~ Too-dah List! ~</h2>
+          <TodoForm
+            addItem={this.addItem}
+            formState={this.state.form} // form state and handlechanges are the only ones that need formState
+            onChange={this.handleChanges}
+            clearCompleted={this.clearCompleted}
+            onSubmit={this.submitItem}
+          />
         </div>
         <TodoList
-              taskItems={this.state.taskItems}
-              toggleItem={this.toggleItem}
-              clearCompleted={this.clearCompleted} />
+          taskItems={this.state.taskItems}
+          toggleItem={this.toggleItem}
+        />
       </div>
     );
   }
