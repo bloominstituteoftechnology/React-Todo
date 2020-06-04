@@ -1,11 +1,12 @@
 import React from "react";
+import { render } from "@testing-library/react";
 
-const itemList = props => {
+const Todo = props => {
 return (
-<div className="items">
+<div className="items-list">
     <p>{props.item.task}</p>
 </div>
 )
 }
 
-export default itemList;
+export default Todo;

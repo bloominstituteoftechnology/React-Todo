@@ -23,8 +23,8 @@ class App extends React.Component {
   };
 }
 
-addItem = (event, item) => {
-  event.preventDefault();
+addItem = (item) => {
+  console.log(item)
   const newItem = {
     name: item,
     id: Date.now(),
@@ -50,7 +50,7 @@ clearItem = (event) => {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm addItem={this.addItem} clearItem={this.clearItem} />
+        <TodoForm addItem={this.addItem} clearItem={this.clearItem}/>
         <TodoList item={this.state.items}/>
       </div>
     );
