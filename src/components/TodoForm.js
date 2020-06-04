@@ -1,4 +1,5 @@
 import React from 'react';
+// import ls from 'local-storage'
 
 class TodoForm extends React.Component {
     constructor() {
@@ -8,21 +9,22 @@ class TodoForm extends React.Component {
         };
     }
 
-    handleChanges = event => {
+
+    handleChanges = e => {
         // update state with each keystroke
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({ [e.target.name]: e.target.value });
     };
 
     // class property to submit form
-    submitItem = event => {
-        event.preventDefault();
+    submitItem = e => {
+        e.preventDefault();
 
         this.setState({ task: "" });
-        this.props.addTodo(event, this.state.task);
+        this.props.addTodo(e, this.state.task);
+        // ls.set('task', this.state.task)
     };
 
     render() {
-        // console.log('TodoForm.js', this.props.clearCompleted)
 
         return (
             <div className='todoform'>

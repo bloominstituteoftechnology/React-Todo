@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ls from 'local-storage'
 
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
@@ -24,6 +24,15 @@ class App extends React.Component {
       todo
     };
   }
+
+  componentDidMount() {
+    if (ls.get('task')) {
+      this.setState({
+        todo: ls.get('task')
+      })
+    }
+  }
+
   addTodo = (event, task) => {
     event.preventDefault();
 
@@ -36,6 +45,7 @@ class App extends React.Component {
     this.setState({
       todo: [...this.state.todo, newTodo]
     })
+    localStorage.setItem('task', this.state.todo)
   }
 
   toggleItem = todoId => {
@@ -59,11 +69,12 @@ class App extends React.Component {
     this.setState({
       todo: this.state.todo.filter(todo => !todo.completed)
     })
+    ls.set('task', this.state.todo)
   }
 
   render() {
     return (
-      <div className='App'>
+      <div className='app'>
         <div className='header'>
           <h2>List of things to do.</h2>
         </div>
