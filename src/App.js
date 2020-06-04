@@ -26,7 +26,7 @@ class App extends React.Component {
 addItem = (item) => {
   console.log(item)
   const newItem = {
-    name: item,
+    task: item,
     id: Date.now(),
     completed: false
   };
@@ -42,6 +42,21 @@ clearItem = (event) => {
   ))})
 }
 
+toggleCompleted = item => {
+  console.log(item);
+  this.setState({
+    items: this.state.items.map(tasks => {
+      if (item ===item.id) {
+        return {
+          ...tasks,
+          completed: !item.completed
+        };
+      }
+      return item;
+    })
+  })
+}
+
 
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -51,7 +66,7 @@ clearItem = (event) => {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm addItem={this.addItem} clearItem={this.clearItem}/>
-        <TodoList item={this.state.items}/>
+        <TodoList item={this.state.items} toggleCompleted={this.toggleCompleted}/>
       </div>
     );
   }
