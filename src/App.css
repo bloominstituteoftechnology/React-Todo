@@ -1,4 +1,11 @@
-* {
-    background: rgb(61, 60, 60);
-    color: white;
+.item.finished
+{
+   text-decoration: #536271 double line-through;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
