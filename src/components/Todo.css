@@ -1,0 +1,72 @@
+html {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(47, 75, 181, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  font-size: 62.6%;
+}
+
+.task {
+  text-align: center;
+  margin: 8px 0;
+  padding: 3rem 2rem;
+  cursor: pointer;
+  font-size: 2rem;
+  width: 19%;
+  color: white;
+  background-color: red;
+  opacity: 0.75;
+  border-radius: 5px;
+}
+.task:hover {
+  background-color: rgb(2, 0, 36);
+}
+
+.task.completed {
+  text-decoration: line-through;
+  opacity: 0.25;
+  font-style: italic;
+}
+
+.form {
+  text-align: center;
+  width: 100%;
+  border-bottom: 2px solid black;
+  padding: 4rem 0;
+}
+.form input {
+  height: 4rem;
+  border: 0;
+  width: 25%;
+  margin-right: 1rem;
+  font-size: 2rem;
+  border-radius: 5px;
+}
+
+.form button {
+  border: 0;
+  margin: 0 1rem;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  background-color: red;
+  color: white;
+  opacity: 0.8;
+}
+.form button:hover {
+  background-color: rgb(2, 0, 36);
+  opacity: 0.9;
+}
+
+h2 {
+  text-align: center;
+  font-size: 4rem;
+  color: rgb(2, 0, 36);
+}
+
+.list {
+  background-color: red;
+}
