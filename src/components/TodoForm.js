@@ -1,5 +1,5 @@
 import React from "react";
-
+import doing from "../assets/doing.mp3"
 
 
 
@@ -13,7 +13,7 @@ class TodoForm extends React.Component {
       
     };
   }
-
+  
   
   handleChanges = e => {
     this.setState({
@@ -29,7 +29,7 @@ class TodoForm extends React.Component {
     });
   };
   render() {
-    const audio = new Audio('../assets/doing.mp3')
+    const audio = new Audio(doing)
     return (
       <form onSubmit={this.handleSubmit}>
         <input

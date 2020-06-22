@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm'
-
+import jobsDone from './assets/JobsDone.mp3'
 
 const todo = [
   {
@@ -42,6 +42,7 @@ class App extends React.Component {
   }
 
   addTask = taskName => {
+    
     const newTask = {
       task: taskName,
       id: new Date(),
@@ -53,6 +54,8 @@ class App extends React.Component {
   }
 
   jobsDone = () => {
+    const audio = new Audio(jobsDone)
+    audio.play()
     this.setState({
       todo: this.state.todo.filter( e => e.completed !== true)
     })
@@ -62,6 +65,7 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
+    
     return (
       <div>
         <h1>Job Need Doing?</h1>
