@@ -102,6 +102,12 @@ body {
     color: #f6d01b;
     cursor: url(./assets/gam372.cur), auto;
 }
+
+body:after{
+    display:none;
+    content: url(./assets/buttonpressed.png) url(./assets/hover.png) url(./assets/hoverpressed.png);
+   }
+
 .fix {
     padding: 0;
 }
