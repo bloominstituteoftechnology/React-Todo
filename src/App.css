@@ -18,10 +18,6 @@
     animation-timing-function: cubic-bezier(.8, 1.1, 0.4, 1);
     animation-fill-mode: forwards;
     animation-delay: 0.5s;
-
-
-
-
     background-image: url(./assets/board.png);
     max-width: 563px;
     margin-top: 0%;
@@ -33,7 +29,6 @@
     flex-direction: column;
     font-family:'Friz Quadrata Std';
     font-size: 20px;
-   
 }
 
 .title {
@@ -80,7 +75,7 @@
 
 .video {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -90,8 +85,8 @@
 }
 
 video {
-    min-width: 110vh;
-    min-height: 80rem;
+    min-width: 100vw;
+    min-height: 100vh;
 }
 
 .background {
