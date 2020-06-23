@@ -12,5 +12,6 @@
 
 .friz {
     font-family:'Friz Quadrata Std';
+    -moz-font-family: 'Friz Quadrata Std';
     font-size: 20px;
 }

@@ -53,6 +53,7 @@
 }
 .button:hover {
         background-image: url(./assets/hover.png);
+        cursor: url(./assets/gam375.cur), auto;
     
 }
 .pressed {
@@ -73,7 +74,8 @@
 }
 
 .pressed:hover {
-    background-image: url(./assets/hoverpressed.png)
+    background-image: url(./assets/hoverpressed.png);
+    cursor: url(./assets/gam375.cur), auto;
 }
 
 .video {
@@ -103,6 +105,7 @@ video {
 body {
     background-color: black; 
     color: #f6d01b;
+    cursor: url(./assets/gam372.cur), auto;
 }
 .fix {
     padding: 0;
