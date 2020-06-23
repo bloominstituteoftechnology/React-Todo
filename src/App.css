@@ -5,7 +5,13 @@
      100% { transform: translate( 0, -3%); }
       
   }
-
+@font-face {
+    font-family: 'Friz Quadrata Std';
+    src:
+    url(./assets/FrizQuadrataStdBold.otf),
+    format('opentype');
+    font-display: swap;
+}
 
 
 
@@ -62,6 +68,7 @@
     align-items: center;
     list-style-type:none;
     text-transform: uppercase;
+    text-decoration: line-through;
 }
 .textpressed {
     padding-left: 8px;
@@ -103,11 +110,8 @@ body {
     cursor: url(./assets/gam372.cur), auto;
 }
 
-body:after{
-    display:none;
-    content: url(./assets/buttonpressed.png) url(./assets/hover.png) url(./assets/hoverpressed.png);
-   }
 
 .fix {
     padding: 0;
 }
+
