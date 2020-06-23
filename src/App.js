@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm'
 import jobsDone from './assets/JobsDone.mp3'
+import backgroundVid from './assets/videoplayback.mp4'
 
 const todo = [
   {
@@ -67,16 +68,24 @@ class App extends React.Component {
   render() {
     
     return (
-      <div>
-        <h1>Job Need Doing?</h1>
-        <div>
+      <div className='background'>
+        <div className="video">
+        <video autoPlay loop playsInline muted>
+          <source src={backgroundVid} />
+        </video>
+        </div>
+      <div className='board'>
+        <h1 className='title'>CHORECRAFT III</h1>
+        <div >
         <TodoList todo={this.state.todo} toggleCompleted={this.toggleCompleted}/>
+        </div>
         </div>
         <div>
         <TodoForm addTask={this.addTask} />
         </div>
 
         <button onClick={ () => this.jobsDone()}>Jobs done?</button>
+      
       </div>
     );
   }

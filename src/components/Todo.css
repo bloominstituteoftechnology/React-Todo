@@ -1,3 +1,16 @@
 .completed {
     text-decoration: line-through;
 }
+
+@font-face {
+    font-family: 'Friz Quadrata Std';
+    src:
+    url(../assets/FrizQuadrataStdBold.otf),
+    format('opentype')
+}
+
+
+.friz {
+    font-family:'Friz Quadrata Std';
+    font-size: 20px;
+}
