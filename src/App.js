@@ -3,7 +3,7 @@ import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm'
 import jobsDone from './assets/JobsDone.mp3'
 import backgroundVid from './assets/videoplayback.mp4'
-
+import title from './assets/TITLE.png'
 const todo = [
   {
     task: 'Organize Garage',
@@ -30,7 +30,6 @@ class App extends React.Component {
     this.setState({
       todo: this.state.todo.map( taskClicked => {
         if (taskClicked.id === clickedTask) {
-          // console.log(taskClicked.id)
           return {
             ...taskClicked,
             completed: !taskClicked.completed
@@ -62,9 +61,7 @@ class App extends React.Component {
     })
   }
   
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  
   render() {
     
     return (
@@ -74,15 +71,20 @@ class App extends React.Component {
           <source src={backgroundVid} />
         </video>
         </div>
-      <div className='board'>
-        <h1 className='title'>CHORECRAFT III</h1>
-        <div >
-        <TodoList todo={this.state.todo} toggleCompleted={this.toggleCompleted}/>
-        </div>
+        <div className='board'>
+          <div className='title'>
+          {/* <h1 className=''>CHORECRAFT III</h1> */}
+          <img src={title} />
+          </div>
+          <div className='middle'>
+            <TodoList todo={this.state.todo} toggleCompleted={this.toggleCompleted}/>
+          </div>
+          <div className='bottom' />
         </div>
         <div>
-        <TodoForm addTask={this.addTask} />
+         <TodoForm addTask={this.addTask} />
         </div>
+        
 
         <button onClick={ () => this.jobsDone()}>Jobs done?</button>
       

@@ -1,4 +1,4 @@
-@keyframes moveInL {
+@keyframes moveInTop {
     
      0%   {  transform: translate(0, -1000%); }
    
@@ -18,30 +18,55 @@
 .board {
     transform: translate(0, -1000%);
     display: flex;
-    animation-name: moveInL;
+    animation-name: moveInTop;
     animation-duration: 3s;
     animation-iteration-count: 1;
     animation-timing-function: cubic-bezier(.8, 1.1, 0.4, 1);
     animation-fill-mode: forwards;
     animation-delay: 0.5s;
-    background-image: url(./assets/board.png);
+    /* background-image: url(./assets/board.png); */
     max-width: 563px;
     margin-top: 0%;
     padding-top: 0;
     margin-left: 10%;
     min-height: 924px;
     align-items: center;
-    
     flex-direction: column;
     font-family:'Friz Quadrata Std';
     font-size: 20px;
 }
+.middle {
+    display: block;
+    background-image: url(./assets/board-mig.png);
+    /* background-position: center; */
+    background-repeat: repeat-y;
+    min-height: 300px;
+    width: 100%;
+}
+.bottom {
+    background-image: url(./assets/board-bot.png);
+    min-height: 289px;
+    width:100%;
+
+}
 
 .title {
-    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    min-height: 373px;
+    /* min-width: 600px; */
+    width: 100%;
+    background-image: url(./assets/board-top.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    margin-bottom: 0%;
 }
 .button {
     background-image: url(./assets/button.png);
+    background-repeat: no-repeat;
+    background-position: center;
     min-width: 394px;
     min-height: 80px;
     text-align: center;
@@ -55,10 +80,11 @@
 .button:hover {
         background-image: url(./assets/hover.png);
         cursor: url(./assets/gam375.cur), auto;
-    
 }
 .pressed {
     background-image: url(./assets/buttonpressed.png);
+    background-repeat: no-repeat;
+    background-position: center;
     min-width: 394px;
     min-height: 80px;
     text-align: center;
@@ -108,6 +134,7 @@ body {
     background-color: black; 
     color: #f6d01b;
     cursor: url(./assets/gam372.cur), auto;
+    min-width: 600px;
 }
 
 
