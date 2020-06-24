@@ -74,7 +74,7 @@ class App extends React.Component {
         <div className='board'>
           <div className='title'>
           {/* <h1 className=''>CHORECRAFT III</h1> */}
-          <img src={title} />
+          <img src={title} alt='CHORECRAFT III'/>
           </div>
           <div className='middle'>
             <TodoList todo={this.state.todo} toggleCompleted={this.toggleCompleted}/>
