@@ -58,12 +58,14 @@ class App extends React.Component {
     
     const newTask = {
       task: taskName,
-      id: this.state.num++,
+      id: this.state.num + 1,
       completed: false
     }
     this.setState({
+      num: this.state.num + 1,
       todo: [...this.state.todo, newTask]
     })
+
   }
 
   jobsDone = () => {
