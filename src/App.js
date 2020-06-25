@@ -80,7 +80,8 @@ class App extends React.Component {
       } else {
         curBut.classList.add("swingRight")
       }
-    }})
+    }
+    return e})
     setTimeout(() => {this.setState({
       todo: this.state.todo.filter( e => e.completed !== true)
     })}, 3000)
