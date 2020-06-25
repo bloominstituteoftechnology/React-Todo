@@ -33,13 +33,14 @@ class TodoForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <input
+          className='entry'
           type="text"
           name="thingTodo"
           value={this.state.thingTodo}
           onChange={this.handleChanges}
-          placeholder='what to do?'
+          placeholder='Job need doing?'
         />
-        <button onClick={() => audio.play()}>To-Do</button>
+        <button className='button todo' onClick={() => audio.play()}>Add Job</button>
       </form>
     );
   }

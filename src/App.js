@@ -6,15 +6,27 @@ import backgroundVid from './assets/videoplayback.mp4'
 import title from './assets/TITLE.png'
 const todo = [
   {
-    task: 'Organize Garage',
-    id: 1528817077286,
+    id: 100,
+    task: "Click jobs",
     completed: false
   },
   {
-    task: 'Bake Cookies',
-    id: 1528817084358,
+    id: 101,
+    task: "to Mark Complete",
     completed: false
-  }
+  },
+  {
+    id: 102,
+    task: "Press 'Jobs Done?'",
+    completed: false
+  },
+  {
+    id: 103,
+    task: "to remove jobs",
+    completed: false
+  },
+
+ 
 ]
 
 class App extends React.Component {
@@ -22,6 +34,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      num : 0,
       todo
     }
   }
@@ -40,12 +53,12 @@ class App extends React.Component {
       })
     })
   }
-
   addTask = taskName => {
+    
     
     const newTask = {
       task: taskName,
-      id: new Date(),
+      id: this.state.num++,
       completed: false
     }
     this.setState({
@@ -56,9 +69,20 @@ class App extends React.Component {
   jobsDone = () => {
     const audio = new Audio(jobsDone)
     audio.play()
-    this.setState({
+    this.state.todo.map( e =>
+      {if(e.completed === true){ 
+        const curBut = document.getElementById(e.id)
+     
+      if(e.id % 2 === 0) {
+        curBut.classList.add("swingLeft")
+      } else {
+        curBut.classList.add("swingRight")
+      }
+    }})
+    setTimeout(() => {this.setState({
       todo: this.state.todo.filter( e => e.completed !== true)
-    })
+    })}, 3000)
+    
   }
   
   
@@ -81,13 +105,14 @@ class App extends React.Component {
           </div>
           <div className='bottom' />
         </div>
+        <div className='menu'>
         <div>
          <TodoForm addTask={this.addTask} />
         </div>
         
 
-        <button onClick={ () => this.jobsDone()}>Jobs done?</button>
-      
+        <span className='button'onClick={ () => this.jobsDone()}>Jobs done?</span>
+        </div>
       </div>
     );
   }
