@@ -1,6 +1,7 @@
 import React from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
+import './components/Todo.css'
 
 // you will need a place to store your state in this component.
 // design `App` to be the parent component of your application.
@@ -44,7 +45,7 @@ class App extends React.Component {
         {/* <TodoList propsTodoList={this.state.task}/>
         <TodoForm propsAddItem={this.addItem}/> */}
         <TodoForm addTodoFn={this.addTodo} />
-        <TodoList todos={this.state.todos} />
+        <TodoList updateTodoFn={this.updateTodo} todos={this.state.todos} />
       </div>
     );
   }
@@ -72,6 +73,20 @@ class App extends React.Component {
       localStorage.setItem("todos", JSON.stringify(this.state.todos));
       console.log(localStorage.getItem("todos"));
     };
+
+    updateTodo = async (todo) => {
+      const newTodos = this.state.todos.map(_todo => {
+        if(todo === _todo)
+        return{
+          text: todo.text,
+          completed: !todo.completed //this means it will return true or false depending if it is set to true or false
+        }
+        else
+        return _todo
+      })
+      await this.setState({todos: newTodos})
+      localStorage.setItem('todos', JSON.stringify(this.state.todos))
+    }
 }
 
 //to delete local storage in Chrome: Inspect/Application/LocalStorage/ClearStorage/ClearSiteData
