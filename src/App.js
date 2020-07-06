@@ -50,14 +50,27 @@ toggleItem = itemId => {
   })
 }
 
+clearCompleted = e => {
+  e.preventDefault()
+  this.setState({
+    todo: this.state.todo.filter( i => {
+      return i.completed === false
+    })
+  })
+}
+
   render() {
     return (
       <div>
-        <h2>Todo App - MVP</h2>
+        <h2>Todo App</h2>
+        <br/>
+        <br/>
         <TodoList 
           todo={this.state.todo}
           toggleItem={this.toggleItem}
+          clearCompleted={this.clearCompleted}
         />
+     
         <TodoForm addItem={this.addItem} />
       </div>
     );
