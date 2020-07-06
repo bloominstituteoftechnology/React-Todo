@@ -1,47 +1,50 @@
 import React from "react";
 
 class TodoForm extends React.Component {
-
-   
-  constructor() {
-    super();
-    this.state = {
-      todo: "",
+    constructor() {
+      super();
+      //manage state of inputs here. Make sure to add value/onChange to input attr
+      this.state = {
+        todo: ""
+      };
+    }
+  
+    //Todo Form Handlers
+    handleChanges = (e) => {
+      //update state with each keystroke
+      this.setState({
+        todo: e.target.value,
+      });
     };
-  }
-
-  render() { 
-      
-    const { clearTodoFn } = this.props
-
-    return (
-      <div className="todoFormContainer">
-        <form onSubmit={(e) => this.submitTodo(e)}>
-          <input id='addTodoInput' onChange={(e) => this.updateInput(e)}  type="text"></input>
-          <button type="submit">Add Todo</button>
-          <button onClick={clearTodoFn}type='reset' >Clear Completed</button>
+  
+    handleSubmit = (e) => {
+      e.preventDefault();
+      this.props.addTaskFn(this.state.todo);
+  
+      //to clear input after add
+      this.setState({
+        todo: "",
+      });
+    };
+  
+    render() {
+  
+      const { clearTodoFn } = this.props
+      return (
+          <div className="form-div">
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            name="todo"
+            value={this.state.todo}
+            onChange={this.handleChanges}
+          />
+          <button type="submit">Add</button>
+          <button onClick={clearTodoFn}>Clear</button>
         </form>
-      </div>
-    );
+        </div>
+      );
+    }
   }
-
- // 
-  updateInput = (e) => {
-    // console.log(e);
-    this.setState({ todo: e.target.value });
-  };
-
-  submitTodo = (e) => {
-    e.preventDefault();
-    // console.log('submit', this.state)
-    this.props.addTodoFn(this.state.todo);
-    //this will empty input after submit
-    document.getElementById('addTodoInput').value= '';
-  };
-
-}
-
-
-
-
-export default TodoForm;
+  export default TodoForm;
+  

@@ -1,15 +1,82 @@
-.todoItem {
-  margin: 10px;
-  cursor: pointer;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.completed {
-  text-decoration: line-through;
-}
-
-.mainContainer {
+body {
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+h1,
+div,
+p {
+  color:  #302b63 ;
+  font-family: "Roboto", sans-serif;
+}
+
+p {
+  cursor: pointer;
+  background-color: white;
+  border-radius: 2%;
+  box-shadow: 1px 1px 2px 2px black;
+  height: 2rem;
+  padding: 5px;
+
+}
+
+.appContainer {
+  text-align: center;
+ 
+}
+
+.header {
+  display: flex;
+  justify-content: center;
   flex-direction: column;
+  align-items: center;
+  background-color: white;
+  max-width: 600px;
+  padding: 1.5rem 2rem ;
+  border-radius: 2%;
+  box-shadow: 1px 1px 4px 5px black;
+}
+
+.form-div {
+    padding: 25px 0;
+}
+
+input{
+    height: 1.5rem;
+}
+
+button{
+    padding: .5rem;
+    border-radius: 10%;
+    border: none;
+    background-color: #302b63;
+    color: white;
+    margin: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #0f0c29;
+}
+
+.todo.completed {
+ 
+  text-decoration: line-through;
+}
+
+.task-todo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
