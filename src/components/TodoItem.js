@@ -11,6 +11,8 @@ class TodoItem extends React.Component {
   toggleTodo = () => {
     this.props.updateTodoFn(this.props.todo)
   }
+
+
 }
 
 export default TodoItem;

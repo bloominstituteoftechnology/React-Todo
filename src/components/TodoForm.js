@@ -1,6 +1,8 @@
 import React from "react";
 
 class TodoForm extends React.Component {
+
+   
   constructor() {
     super();
     this.state = {
@@ -8,17 +10,22 @@ class TodoForm extends React.Component {
     };
   }
 
-  render() {
+  render() { 
+      
+    const { clearTodoFn } = this.props
+
     return (
       <div className="todoFormContainer">
         <form onSubmit={(e) => this.submitTodo(e)}>
-          <input id='addTodoInput'onChange={(e) => this.updateInput(e)} type="text"></input>
+          <input id='addTodoInput' onChange={(e) => this.updateInput(e)}  type="text"></input>
           <button type="submit">Add Todo</button>
+          <button onClick={clearTodoFn}type='reset' >Clear Completed</button>
         </form>
       </div>
     );
   }
 
+ // 
   updateInput = (e) => {
     // console.log(e);
     this.setState({ todo: e.target.value });
@@ -31,14 +38,10 @@ class TodoForm extends React.Component {
     //this will empty input after submit
     document.getElementById('addTodoInput').value= '';
   };
+
 }
 
-// const TodoForm = props =>
-// <form onSubmit={props.propsAddItem}>
-//     {/* if you ever want to access what is being entered on the input element the "ref" will allow this */}
-//     <input type="text" placeholder="Enter New Task"></input>
-//     <button type="submit">Add Task</button>
-//     <button type="reset">Clear Task</button>
-// </form>
+
+
 
 export default TodoForm;

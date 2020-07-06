@@ -13,38 +13,12 @@ class App extends React.Component {
     this.state = {
       todos: [],
     };
-
-    // this.addItem = this.addItem.bind(this)
   }
-
-  // addItem(e){
-  //   if(this.target.value !== ""){
-  //     var newItem ={
-  //       text: this.target.value,
-  //       key: Date.now()
-  //     }
-
-  //     //prevState gives a value of state obj just before the particular moment in time has happened
-  //     this.setState((prevState) => {
-  //       return {
-  //         items: prevState.items.concat(newItem)
-  //       }
-  //     })
-  //   }
-  // //clears out the input
-  //   this.target.value = ""
-
-  //   console.log(this.state.items)
-
-  //   e.preventDefault()
-  // }
 
   render() {
     return (
-      <div>
-        {/* <TodoList propsTodoList={this.state.task}/>
-        <TodoForm propsAddItem={this.addItem}/> */}
-        <TodoForm addTodoFn={this.addTodo} />
+      <div className='mainContainer'>
+        <TodoForm addTodoFn={this.addTodo} clearTodoFn={this.clearTodo}  />
         <TodoList updateTodoFn={this.updateTodo} todos={this.state.todos} />
       </div>
     );
@@ -67,12 +41,22 @@ class App extends React.Component {
     {
       //Async + await: since this is asynchronus await will wait for this line to execute
       await this.setState({
-        todos: [...this.state.todos, { text: todo, completed: false }],
+        todos: [...this.state.todos, { text: todo, id: Date.now(), completed: false }],
       });
       //when it is done it will save all the todos into the local storage
       localStorage.setItem("todos", JSON.stringify(this.state.todos));
       console.log(localStorage.getItem("todos"));
     };
+
+    clearTodo = e => {
+      e.preventDefault()
+      let todos = this.state.todos.filter(todo => !todo.completed)
+
+      this.setState({todos})
+    }
+  
+
+  
 
     updateTodo = async (todo) => {
       const newTodos = this.state.todos.map(_todo => {
@@ -92,3 +76,4 @@ class App extends React.Component {
 //to delete local storage in Chrome: Inspect/Application/LocalStorage/ClearStorage/ClearSiteData
 
 export default App;
+
