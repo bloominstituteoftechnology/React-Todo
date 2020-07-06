@@ -79,7 +79,6 @@ class App extends React.Component {
           toggleTodo={this.toggleTodo}
           clearPurchased={this.clearPurchased}
         />
-
       </div>
     );
   }
