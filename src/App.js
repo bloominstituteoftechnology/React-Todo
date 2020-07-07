@@ -59,6 +59,20 @@ clearCompleted = e => {
   })
 }
 
+handleSubmit = e => {
+  e.preventDefault();
+  this.addItem(this.state.item);
+  this.setState({
+      item: ""
+  })
+}
+
+handleChanges = e => {
+  this.setState({
+      item: e.target.value
+  });
+}
+
   render() {
     return (
       <div>
@@ -71,7 +85,11 @@ clearCompleted = e => {
           clearCompleted={this.clearCompleted}
         />
      
-        <TodoForm addItem={this.addItem} />
+        <TodoForm 
+        addItem={this.addItem}
+        handleSubmit={this.handleSubmit}
+        handleChanges={this.handleChanges}
+         />
       </div>
     );
   }
