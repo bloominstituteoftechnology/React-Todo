@@ -20,7 +20,8 @@ class App extends React.Component {
     super();
 
     this.state = {
-      todo: todo
+      todo: todo,
+      item: ""
     }
   }
 
@@ -31,7 +32,9 @@ addItem = itemName => {
     completed: false 
   };
   this.setState({
-    todo: [...this.state.todo, newItem]
+   
+    todo: [...this.state.todo, newItem],
+    item: ""
   })
 }
 
@@ -64,7 +67,7 @@ handleSubmit = e => {
   this.addItem(this.state.item);
   this.setState({
       item: ""
-  })
+  });
 }
 
 handleChanges = e => {
@@ -86,6 +89,7 @@ handleChanges = e => {
         />
      
         <TodoForm 
+        item={this.state.item}
         addItem={this.addItem}
         handleSubmit={this.handleSubmit}
         handleChanges={this.handleChanges}

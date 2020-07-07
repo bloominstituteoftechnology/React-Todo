@@ -8,6 +8,7 @@ const TodoForm = props => {
 
               <form className="form" onSubmit={props.handleSubmit}>
                   <input
+                    value={props.item}
                     type="text"
                     name="item"
                     placeholder="todo..."
