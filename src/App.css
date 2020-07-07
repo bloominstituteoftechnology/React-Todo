@@ -1,0 +1,60 @@
+.App{
+    width: 95%;
+    margin: 0 2.5%;
+    font-size: 2rem;
+    text-align: center;
+    background-color: powderblue;
+}
+
+.task-div{
+    display: flex;
+    flex-wrap: row wrap;
+    margin: 2%;
+    width: 45%;
+    justify-content: space-evenly;
+    border: 5px double white;
+    border-radius: 15px;
+    background-color: pink;
+    cursor: pointer;
+}
+.todo.completed{
+    width: 100%;
+    display: flex;
+    flex-wrap: row wrap;
+    background-color: rgb(248, 225, 228);
+    text-decoration: line-through;   
+    border-radius: 5px;
+   
+}
+.task-name{
+    width: 100%;
+    font-size: 1.5rem;
+}
+.todo-list{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap; 
+}
+.form-component{
+    margin: 0 2.5%;
+    width: 95%;
+    display: flex;
+    flex-wrap:row wrap;
+
+}
+form{
+    width: 70%;
+}
+input{
+    font-size: 1.7rem;
+    width: 100%;
+    padding: 1%;
+    text-decoration: none;
+    border: solid pink;
+}
+button{    
+    width: 15%;
+    background-color: white;
+    border: 5px solid pink;
+    padding: 1%;
+}
