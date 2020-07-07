@@ -1,0 +1,7 @@
+.item.done{
+  text-decoration: line-through;
+}
+
+.TodoList button{
+  margin-top: 20px;
+}
