@@ -1,24 +1,16 @@
 *  {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-h2 {
+  margin: 30px;
   text-align: center;
+  font-family: monospace;
 }
 
-.shopping-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 40%;
-  margin: 10px auto;
-}
 .item {
-  background-color: #12b92e8e;
-  margin: 10px auto;
-  width: 35%;
+  background-color: #05ff2ff8;
   cursor: pointer;
-  text-align: center;
+  width: 20%;
+  border: 1px solid black;
+  margin: 10px auto;
+  padding: .1rem;
 }
 
 .item.completed {
@@ -32,19 +24,3 @@ input::placeholder {
   opacity: 1;
 }
 
-.clear-btn {
-  margin: 10px auto;
-  width: 25%;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  width: 15%;
-  margin: 20px auto;
-}
-
-.add-btn {
-  width: 20%;
-  margin: 10px auto;
-}
