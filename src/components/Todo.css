@@ -1,0 +1,16 @@
+div {
+    background-color: rgba(0, 162, 255, 1);
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+div p {
+    color: black;
+    font-weight: bold;
+}
+
+.completed div p{
+    color:darkgray;
+    text-decoration: line-through;
+}
