@@ -1,6 +1,8 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 
+const image = require('./components/checks.png');
+
 const tasks = [
   {
     task: 'Review Lesson of the Day',
@@ -37,7 +39,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App! :-)</h2>
+        <h2>Welcome to your Todo App! <img src={image} alt='' /></h2>
         <TodoList tasks={this.state.tasks} />
       </div>
     );
