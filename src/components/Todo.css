@@ -11,7 +11,7 @@
 }
 
 div {
-    background-color: rgba(0, 162, 255, 1);
+    background-image:linear-gradient(to bottom right, #00a2ff,#000066, whitesmoke);
     width: 80%;
     margin: 0 auto;
     text-align: center;
@@ -21,14 +21,16 @@ div {
 }
 
 div p {
-    color: black;
+    color: whitesmoke;
     font-weight: bold;
 }
 .parent div {
-    border: none
+    border: none;
+    
 }
 
 .completed div p{
+    background-color: rgba(0, 162, 255, 0.561);
     color:darkgray;
     text-decoration: line-through;
 }

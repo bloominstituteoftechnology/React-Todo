@@ -1,5 +1,4 @@
 import React from 'react';
-import './Todo.css';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
@@ -42,7 +41,7 @@ class App extends React.Component {
       tasks: [
         ...this.state.tasks,
         {
-          name: taskName,
+          task: taskName,
           id: Date.now(),
           completed: false
         }
@@ -56,7 +55,7 @@ class App extends React.Component {
         if (task.id === taskId) {
           return {
             ...taskId,
-            completed: !completed
+            completed: !task.completed
           };
         }
         return task;
