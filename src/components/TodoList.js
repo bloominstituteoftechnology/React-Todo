@@ -5,10 +5,12 @@ import Task from './Todo';
 import './Todo.css';
 
 const TodoList = props =>{
-    
+    console.log(props.tasks)
     return(
+        
         <div className = "todolist">
-            {props.tasks.Tasks.map(task => (
+            {props.tasks.map(task => (
+            
             <Task toggleItem={props.toggleTask} key={task.id}  task={task}     />
             ))}
             <button className="clear-btn" onClick={props.handleSubmit}>

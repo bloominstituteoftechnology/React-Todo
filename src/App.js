@@ -2,48 +2,49 @@ import React from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
-const tasks = ['dummy task 1', 'dummy] task 2', 'dummy task3'];
+let tasks = ['dummy task 1', 'dummy task 2', 'dummy task 3'];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-    constructor(){
-      super();
-      this.state = {
-        Tasks: tasks
-      }
+  constructor() {
+    super();
+    this.state = {
+      tasks: tasks
     }
+  }
 
 
-    addTask = taskName => {
-      const newTask = {
-        name: taskName,
-        id: new Date(),
-        iscomplete:false
+  addTask = (taskName) => {
+   // e.preventDefault();
+    const newTask = {
+      name: taskName,
+      id: new Date(),
+      iscomplete: false
 
 
-      };
-      this.setState({
-        tasks: [...this.state.tasks, newTask]
-      });
     };
+    this.setState({
+      tasks: [...this.state.tasks, newTask]
+    });
+  };
 
 
   render() {
     
     return (
-      <div className ="App">
+      <div className="App">
         <div className="header">
-        <h1>What you must do:</h1>
-        <TodoForm addTask={this.addTask} />
+          <h1>What you must do:</h1>
+          <TodoForm addTask={this.addTask} />
         </div>
-        {console.log(this.state)}
-        <TodoList
         
+        <TodoList
+
           toggleTask={this.toggleTask}
-          tasks= {this.state}
-          />
+          tasks={this.state.tasks}
+        />
       </div>
     );
   }
