@@ -1,5 +1,6 @@
-div {
+.app div {
     background-color: rgba(0, 162, 255, 1);
+    border: 3px ridge black;
     width: 80%;
     margin: 0 auto;
     text-align: center;
@@ -9,12 +10,28 @@ div {
 
 }
 
+div {
+    background-color: rgba(0, 162, 255, 1);
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 div p {
     color: black;
     font-weight: bold;
+}
+.parent div {
+    border: none
 }
 
 .completed div p{
     color:darkgray;
     text-decoration: line-through;
+}
+h2 {
+    background-color: whitesmoke;
 }

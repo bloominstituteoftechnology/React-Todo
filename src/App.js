@@ -1,8 +1,10 @@
 import React from 'react';
+import './Todo.css';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
 const image = require('./components/checks.png');
+const image2 = require('./components/checks2.png');
 
 const tasks = [
   {
@@ -54,7 +56,7 @@ class App extends React.Component {
         if (task.id === taskId) {
           return {
             ...taskId,
-            completed: !task.completed
+            completed: !completed
           };
         }
         return task;
@@ -73,8 +75,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2><img src={image} alt='' />Welcome to your Todo App! <img src={image} alt='' /></h2>
+      <div className='app'>
+        <h2><img src={image} alt='' />Welcome to your Todo App! <img src={image2} alt='' /></h2>
         <TodoList tasks={this.state.tasks}
           toggleCompleted={this.toggleCompleted} />
         <TodoForm
