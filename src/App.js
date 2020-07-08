@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
 
 const image = require('./components/checks.png');
 
@@ -32,15 +33,53 @@ class App extends React.Component {
     this.state = {
       tasks: tasks
     };
-  }
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  };
+
+  addTask = taskName => {
+    this.setState({
+      tasks: [
+        ...this.state.tasks,
+        {
+          name: taskName,
+          id: Date.now(),
+          completed: false
+        }
+      ]
+    });
+  };
+
+  toggleCompleted = taskId => {
+    this.setState({
+      tasks: this.state.tasks.map(task => {
+        if (task.id === taskId) {
+          return {
+            ...taskId,
+            completed: !task.completed
+          };
+        }
+        return task;
+      })
+    });
+  };
+
+  clearCompleted = () => {
+    this.setState({
+      tasks: this.state.tasks.filter(task => {
+        return !task.completed;
+      })
+    });
+  };
+
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App! <img src={image} alt='' /></h2>
-        <TodoList tasks={this.state.tasks} />
+        <h2><img src={image} alt='' />Welcome to your Todo App! <img src={image} alt='' /></h2>
+        <TodoList tasks={this.state.tasks}
+          toggleCompleted={this.toggleCompleted} />
+        <TodoForm
+          addTask={this.addTask}
+          clearCompleted={this.clearCompleted} />
       </div>
     );
   }
