@@ -34,15 +34,28 @@ class App extends React.Component {
     };
   }
 
+  componentWillMount() {
+    localStorage.getItem("todos") &&
+      this.setState({
+        todos: JSON.parse(localStorage.getItem("todos")),
+        isLoading: false,
+      });
+  }
+
+  componentDidMount() {
+    this.setState({
+      todos: todos,
+    });
+  }
+
   addItem = (item) => {
     const newtask = {
       task: item,
       id: Date.now(),
       completed: false,
-    }
-    this.setState({
-      todos: [...this.state.todos, newtask],
-    });
+    };
+    this.setState({ todos: [...this.state.todos, newtask] });
+    console.log(todos);
   };
 
   toogleCompleted = (itemId) => {
@@ -66,6 +79,11 @@ class App extends React.Component {
       }),
     });
   };
+
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem("todos", JSON.stringify(nextState.todos));
+    localStorage.setItem("todosDate", Date.now());
+  }
 
   render() {
     return (

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Todo = (props) => {
-  const handleClick = (e) => {
+  const handleClick = () => {
     props.toogleCompleted(props.item.id);
   };
 
