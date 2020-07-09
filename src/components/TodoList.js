@@ -10,6 +10,7 @@ const TodoList = (props) => (
       <Todo 
         key={item.id}
         item={item}
+        toogleCompleted={props.toogleCompleted}
       />
     ))}
     <button>Clear All Completed Tasks</button>
