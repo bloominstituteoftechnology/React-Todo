@@ -42,11 +42,11 @@ class App extends React.Component {
       });
   }
 
-  componentDidMount() {
-    this.setState({
-      todos: todos,
-    });
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     todos: todos
+  //   })
+  // }
 
   addItem = (item) => {
     const newtask = {
