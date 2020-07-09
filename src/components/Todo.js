@@ -1,7 +1,7 @@
 import React from "react";
 
 const Todo = (props) => (
-  <div>
+  <div className="item completed">
     <p>{props.item.name}</p>
   </div>
 );

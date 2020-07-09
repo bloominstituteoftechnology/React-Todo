@@ -36,8 +36,8 @@ h1 {
   cursor: pointer;
 }
 
-.item.purchased {
-  background-color: #d17d7c;
+.item.completed {
+  background-color: #4096EE;
   text-decoration: line-through;
 }
 form {
