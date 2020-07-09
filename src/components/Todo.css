@@ -1,0 +1,35 @@
+body{
+    background: #07031a;
+    color: #fbd46d;
+}
+.task{
+    width: 225px;
+    height: 75px;
+    color: #fbd46d;
+    background-color: #4f8a8b;
+    margin: 50px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.task:hover{
+    cursor: pointer;
+}
+.task.purchased{
+    text-decoration: line-through;
+    background-color: #326262;
+}
+.clear-btn{
+    color: white;
+    background-color: #438a5e;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px; 
+    cursor: pointer;
+    font-size: 20px;
+}
+.clear-btn:hover{
+    background-color: #46bb73;
+}
