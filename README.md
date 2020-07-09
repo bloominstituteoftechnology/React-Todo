@@ -1,9 +1,9 @@
 # React-Todo
-
+ 
 We're going to practice building a stateful class component with this project. Even though hooks are gaining popularity among react developers, class components are going to be around for a long time. It's imperative that you get use to class components, and feel comfortable working with class components since you'll most likely need to work with them if you are hired to work on a React app.
 
 ## Initializing the project.
-
+>
 - Fork and clone this project and cd into your cloned version.
 - `npm install` will pull in all the node_modules you need.
 - `npm start` will start a development server on your `http://localhost:3000`.
