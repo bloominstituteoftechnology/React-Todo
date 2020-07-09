@@ -29,7 +29,7 @@ div p {
     
 }
 
-.completed div p{
+.completed {
     background-color: rgba(0, 162, 255, 0.561);
     color:darkgray;
     text-decoration: line-through;

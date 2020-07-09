@@ -5,7 +5,7 @@ const Todo = props => {
     console.log('from Todo', props);
     return (
 
-        <div>
+        <div className={props.completed === true ? 'completed' : ''} onClick={() => { props.toggleCompleted(props.id) }}>
             <p>{props.task}</p>
         </div>
     )

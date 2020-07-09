@@ -54,9 +54,12 @@ class App extends React.Component {
       tasks: this.state.tasks.map(task => {
         if (task.id === taskId) {
           return {
-            ...taskId,
+            ...task,
             completed: !task.completed
           };
+
+        } else {
+          console.log('from else', task)
         }
         return task;
       })
