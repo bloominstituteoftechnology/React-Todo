@@ -1,0 +1,15 @@
+.item {
+    background-color: #2ECC71;
+    border-radius: 6px;
+    border-bottom: solid 5px #239B56;
+    text-align: center;
+    padding: 10px 0px;
+    margin: 1% 25%;
+    cursor: pointer;
+}
+
+.item.completed{
+    text-decoration: line-through;
+    background-color: #28B463;
+}
+
