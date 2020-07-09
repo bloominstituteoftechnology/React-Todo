@@ -34,16 +34,14 @@ class App extends React.Component {
     };
   }
 
-  addItem = () => {
+  addItem = (item) => {
+    const newtask = {
+      task: item,
+      id: Date.now(),
+      completed: false,
+    }
     this.setState({
-      todos: [
-        ...this.state.todos,
-        {
-          name: "",
-          id: Date.now(),
-          completed: false,
-        },
-      ],
+      todos: [...this.state.todos, newtask],
     });
   };
 
@@ -61,15 +59,24 @@ class App extends React.Component {
     });
   };
 
+  clearCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter((item) => {
+        return !item.completed;
+      }),
+    });
+  };
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm addItem={this.addItem} />
+        <h2>What do you have to do today?</h2>
         <TodoList
           todos={this.state.todos}
           toogleCompleted={this.toogleCompleted}
+          clearCompleted={this.clearCompleted}
         />
+        <TodoForm addItem={this.addItem} />
       </div>
     );
   }

@@ -29,6 +29,8 @@ h1 {
 }
 .item {
   background-color: #4096EE;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
   width: 45%;
   text-align: left;
   margin: 4px 0;
@@ -41,18 +43,17 @@ h1 {
   text-decoration: line-through;
 }
 form {
-  width: 50%;
   display: flex;
   justify-content: flex-end;
+  margin-top: 60px;
 }
 form > input {
   background-color: #fff;
   border: 0;
   padding: 6px 0;
   font-size: 1rem;
-  width: 240px;
+  width: 300px;
   outline: 0;
-  color: white;
   border-bottom: 1px solid #4096EE;
   margin-right: 8px;
 }
