@@ -17,13 +17,13 @@ class TodoForm extends Component {
     //prevent default refresh
     e.preventDefault();
     this.props.addTodo(this.state.todo)
+    this.setState({ todo: "" });
   }
   
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          {/* clear input after 'enter' */}
           <input 
             type="text" 
             name="todo" 
@@ -34,12 +34,10 @@ class TodoForm extends Component {
           <button>
             Add todo
           </button>
-          <button
-            onClick={this.props.clearCompleted}
-          >
-            Clear Completed
-          </button>
         </form>
+        <button onClick={this.props.clearCompleted}>
+          Clear Completed
+        </button>
       </div>
     )
   }
