@@ -52,20 +52,18 @@ class App extends Component {
   clearCompleted = () => {
     this.setState({
       todos: this.state.todos.filter(todo => {
-        return !todo.completed;
+        return !todo.completed;  
       })
     });
   }
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="todoApp">
+        <h1 className="title">Todo</h1>
         <TodoList 
           todos={this.state.todos}
-          // had a bug bc we had this.state.toggleCompleted
           toggleCompleted={this.toggleCompleted}
-          // clearCompleted={this.clearCompleted}
         />
         <TodoForm 
           addTodo={this.addTodo}

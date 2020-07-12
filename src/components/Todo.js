@@ -8,9 +8,10 @@ export default function Todo({toggleCompleted, todo}) {
   }
   console.log(todo.id)
   return (
-    <div>
+    <div className="todo-container">
       <p
         onClick={handleClick}
+        className="todo"
         className={`todo${todo.completed ? ` completed` : ''}`}
       >
         {todo.task}

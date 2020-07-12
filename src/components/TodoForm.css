@@ -1,0 +1,21 @@
+button {
+  background-color: red;
+}
+
+.input {
+  margin-bottom: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* border: 2px solid black; */
+  width: 300px;
+}

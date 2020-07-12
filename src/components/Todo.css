@@ -1,3 +1,21 @@
 .completed {
   text-decoration: line-through;
 }
+
+.todoApp {
+  margin: 0 auto;
+  width: 33%;
+}
+
+.title {
+  font-family: "Satisfy", cursive;
+  font-size: 3rem;
+  color: red;
+  text-decoration: underline black;
+  text-align: center;
+}
+
+.todo-container {
+  margin: 0 10px;
+}
+
