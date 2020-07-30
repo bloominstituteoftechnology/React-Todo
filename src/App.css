@@ -70,7 +70,7 @@
     animation-fill-mode: forwards;
     animation-delay: 0.5s;
     /* background-image: url(./assets/board.png); */
-    max-width: 563px;
+    min-width: 563px;
     margin-top: 0%;
     padding-top: 0;
     margin-left: 10%;
@@ -192,9 +192,7 @@ body {
 .menu {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    bottom:40%;
-    right: 40%;
+    margin-left: 5%;
     font-family:'Friz Quadrata Std';
     font-size: 20px;
     

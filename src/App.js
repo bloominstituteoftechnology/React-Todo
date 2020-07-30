@@ -98,23 +98,25 @@ class App extends React.Component {
           <source src={backgroundVid} />
         </video>
         </div>
-        <div className='board'>
-          <div className='title'>
-          {/* <h1 className=''>CHORECRAFT III</h1> */}
-          <img src={title} alt='CHORECRAFT III'/>
+        <div style={{display:'flex'}}>
+          <div className='board'>
+            <div className='title'>
+            {/* <h1 className=''>CHORECRAFT III</h1> */}
+            <img src={title} alt='CHORECRAFT III'/>
+            </div>
+            <div className='middle'>
+              <TodoList todo={this.state.todo} toggleCompleted={this.toggleCompleted}/>
+            </div>
+            <div className='bottom' />
           </div>
-          <div className='middle'>
-            <TodoList todo={this.state.todo} toggleCompleted={this.toggleCompleted}/>
+          <div className='menu board'>
+            <div className='title'>
+              <TodoForm addTask={this.addTask} />
+            </div>
+            <div className='bottom'>
+              <span className='button'onClick={ () => this.jobsDone()}>Jobs done?</span>
+            </div>
           </div>
-          <div className='bottom' />
-        </div>
-        <div className='menu'>
-        <div>
-         <TodoForm addTask={this.addTask} />
-        </div>
-        
-
-        <span className='button'onClick={ () => this.jobsDone()}>Jobs done?</span>
         </div>
       </div>
     );
