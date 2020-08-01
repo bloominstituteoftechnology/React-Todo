@@ -4,14 +4,13 @@ import React from 'react'
 import Todo from './Todo'
 
 const ToDoList = ({ taskList, handleTodoDbClick }) => {
-    debugger
     return (
-         taskList.map(todo => {
-             debugger
+         taskList.map((todo, index) => {
                 return (
                     <Todo
                         todo={todo}
                         handleTodoDbClick={handleTodoDbClick}
+                        index={index}
                     />
                 )
             })

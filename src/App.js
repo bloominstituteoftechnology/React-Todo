@@ -18,7 +18,11 @@ class App extends React.Component {
     super()
     this.state = {
       buildingTask: initTodoValue,
-      taskList: [initTaskListValue]
+      taskList: [{
+        task: 'My todos go here',
+        id: Date.now(),
+        completed: false,
+      }]
     }
   }
 
@@ -39,13 +43,36 @@ class App extends React.Component {
     //reset building task state for a new entry
     this.setState({ ...this.state, buildingTask: initTodoValue })
     //add new task to the state for displaying
-    this.setState({ ...this.state, taskList: [...this.state.taskList ,newTask] })
+    this.setState({ ...this.state, taskList: [...this.state.taskList, newTask] })
   }
   handleClearCompleted = event => {
 
   }
-  handleTodoDbClick = event => {
+  handleTodoDbClick = (event, todo, completed) => {
+    debugger
+    //toggle completed state true or false
+    //how to you put the state? How do update a key value pair of an react class constructor state of array object [{}] 
+    this.setState({...todo, completed: !completed})
+    
+    
+    // this.setState(
+    //   {
+    //     //layer 1-2. the state and taskList
+    //     ...this.state, taskList: [...this.state.taskList, 
+    //       //layer3 the [ ] array 
+    //       [index]: 'testing']
 
+    //     // [index]: { ...this.state.taskList[index] },
+    //     // //layer 4 the key value pair of completed
+    //     // completed: !this.state.taskList[index].completed
+    //   }
+    // )
+
+    //when the  completed state is true add a line trough text
+    const isItCompleted = completed
+    if (isItCompleted) {
+      event.target.className = 'completed-task'
+    }
   }
   render() {
     return (
