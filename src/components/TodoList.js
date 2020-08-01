@@ -4,7 +4,7 @@ import React from 'react'
 import Todo from './Todo'
 
 const ToDoList = ({ taskList, handleTodoDbClick }) => {
-    debugger
+    // debugger
     return (
          taskList.map(todo => {
                 return (

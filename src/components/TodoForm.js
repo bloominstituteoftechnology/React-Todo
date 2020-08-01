@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ToDoForm = ({handleOnChange, handleAddTodo, handleClearCompleted, buildingTask}) => {
+const ToDoForm = ({handleOnChange, handleAddTodo, handleClearCompleted}) => {
     return (
         <div class="form-container">
             <input type='text' placeholder='...todo' onChange={handleOnChange} name='buildingTask'/>

@@ -23,25 +23,23 @@ class App extends React.Component {
   }
 
   handleOnChange = event => {
-    debugger
-    const {name, value} = event.target
-    
-    this.setState({...this.State, [name]: value})
-    console.log(this.state)
-    debugger
+    //get the name, and value on input
+    const { name, value } = event.target
+
+    //store user value on state
+    this.setState({ ...this.State, [name]: value })
   }
-  handleAddTodo = event => {
+  handleAddTodo = () => {
     //accomodate all date for entry
-    const newTask = {
+    const newTask = [{
       task: this.state.buildingTask,
       id: Date.now(),
       completed: false,
-    }
+    }]
     //reset building task state for a new entry
-    this.setState(...this.state, initTodoValue)
+    this.setState({ ...this.state, buildingTask: initTodoValue })
     //add new task to the state for displaying
-    this.setState(...this.state.taskList, newTask)
-    console.log(this.state + 'taskList should be an array of objects')
+    this.setState({ ...this.state, taskList: [...this.state.taskList ,newTask] })
   }
   handleClearCompleted = event => {
 
@@ -59,9 +57,8 @@ class App extends React.Component {
         />
         <TodoForm
           handleOnChange={this.handleOnChange}
-          handleOnClick={this.handleOnClick}
+          handleAddTodo={this.handleAddTodo}
           handleClearCompleted={this.handleClearCompleted}
-          buildingTask={this.state.buildingTask}
         />
       </div>
     );
