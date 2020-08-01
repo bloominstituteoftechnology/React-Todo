@@ -31,11 +31,11 @@ class App extends React.Component {
   }
   handleAddTodo = () => {
     //accomodate all date for entry
-    const newTask = [{
+    const newTask = {
       task: this.state.buildingTask,
       id: Date.now(),
       completed: false,
-    }]
+    }
     //reset building task state for a new entry
     this.setState({ ...this.state, buildingTask: initTodoValue })
     //add new task to the state for displaying
