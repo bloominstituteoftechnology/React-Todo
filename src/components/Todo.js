@@ -1,12 +1,18 @@
 import React from 'react'
+import styled from 'styled-components'
 
- const ToDo = ({todo, handleTodoDbClick, index}) => {
-    const {task, id, completed} = todo
-    function handleDbClick(event){
+const P = styled.p`
+.completed-task{
+    text-decoration: line-through;
+}
+`
+const ToDo = ({ todo, handleTodoDbClick, index }) => {
+    const { task, id, completed } = todo
+    function handleDbClick(event) {
         handleTodoDbClick(event, todo, completed, index)
     }
-    return(
-            <p onDoubleClick={handleDbClick} key={id}>{task}</p>
+    return (
+            <P onDoubleClick={handleDbClick} key={id}>{task}</P>
     )
 }
 export default ToDo
