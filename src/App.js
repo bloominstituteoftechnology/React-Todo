@@ -19,7 +19,7 @@ class App extends React.Component {
     this.state = {
       buildingTask: initTodoValue,
       taskList: todos
-    }
+    } 
   }
 
   handleOnChange = event => {
