@@ -3,14 +3,14 @@
 import React from 'react'
 import Todo from './Todo'
 
-const ToDoList = ({ taskList, handleTodoDbClick }) => {
+const ToDoList = ({ taskList, handleTodoDbClick, clearCompletedTodos }) => {
     return (
-         taskList.map((todo, index) => {
+         taskList.map((todo) => {
                 return (
                     <Todo
                         todo={todo}
                         handleTodoDbClick={handleTodoDbClick}
-                        index={index}
+                        clearCompletedTodos={clearCompletedTodos}
                     />
                 )
             })
