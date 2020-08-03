@@ -24,19 +24,20 @@ class TodoList extends React.Component {
         )
         return(
             <div className='todo-list'>
-                <input type="text" className="input" value={this.state.search} onChange={this.handleChange.bind(this)} />
+                <input type="text" className="input" placeholder='search...' value={this.state.search} onChange={this.handleChange.bind(this)} />
 
-            {filteredTodos.map(item => (
-                <Todo 
-                key={item.id} 
-                todo={item}
-                toggleTodo={this.props.toggleTodo}
-                />
+                {filteredTodos.map(item => (
+                    <Todo 
+                    key={item.id} 
+                    todo={item}
+                    toggleTodo={this.props.toggleTodo}
+                    />
                 ))}
-            <button className='clear-button' onClick={this.props.clearPurchased}>
-                Clear Completed Tasks
-            </button>
-        </div>
+                <button className='clear-button' onClick={this.props.clearPurchased}>
+                    Clear Completed Tasks
+                </button>
+
+            </div>
     )
 }
 }

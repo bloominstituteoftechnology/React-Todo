@@ -30,6 +30,8 @@ span {
   padding: 0 36px;
   max-width: 665px;
   margin: 0 auto;
+  display:flex;
+  flex-direction: column;
 }
 
 .header {
@@ -43,7 +45,7 @@ h1 {
 
 .todo-list {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: space-between;
   width: 100%;
   margin: 0 auto;
@@ -70,7 +72,7 @@ form {
   display: flex;
   justify-content: flex-end;
 }
-form > input {
+input {
   background-color: #2d2d37;
   border: 0;
   padding: 6px 0;
@@ -97,6 +99,11 @@ input::placeholder {
 
 .clear-button, .add-button {
   margin-top: 16px;
-  background-color: #236663
+  background-color: #236663;
+  width: 45%;
+  text-align: left;
+  margin: 4px 0;
+  padding-left: 8px;
+  cursor: pointer;
 }
 

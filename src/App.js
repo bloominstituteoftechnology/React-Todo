@@ -4,20 +4,10 @@ import TodoForm from './components/TodoForm'
 
 const todos = [
   {
-    task: 'Replace alternator in Camry',
+    task: 'Click a task to cross it off the list',
     id: 1528817077286,
     completed: false
   },
-  {
-    task: 'Replace differential fluid in 4runner',
-    id: 1528817084358,
-    completed: false
-  },
-  {
-    task: 'CHILL THE EFF OUT',
-    id: 1528817084462,
-    completed: false
-  }
 ]
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -69,15 +59,15 @@ class App extends React.Component {
     return (
       <div className='App'>
         <div className='Header'>
-          <h2>Welcome to your Todo App!</h2>
+          <h2>Welcome to the Todo App!</h2>
         </div>
+        <TodoForm 
+          addTodo={this.addTodo}
+        />
         <TodoList
           todos={this.state.todos}
           toggleTodo={this.toggleTodo}
           clearPurchased={this.clearPurchased}
-        />
-        <TodoForm 
-          addTodo={this.addTodo}
         />
       </div>
     );
