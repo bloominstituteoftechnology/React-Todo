@@ -68,7 +68,7 @@ h1 {
 
 }
 form {
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
 }
