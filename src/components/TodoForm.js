@@ -9,10 +9,30 @@ class TodoForm extends React.Component {
     };
   }
 
+  handleChanges = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.addTodo(this.state.todoText);
+    this.setState({
+      todoText: "",
+    });
+  };
+
   render() {
+    console.log(this.state.todoText);
     return (
-      <form>
-        <input type="text" name="todoText" value={this.state.todoText} />
+      <form onSubmit={this.handleSubmit}>
+        <input
+          type="text"
+          name="todoText"
+          value={this.state.todoText}
+          onChange={this.handleChanges}
+        />
         <button>+Add</button>
       </form>
     );

@@ -5,7 +5,7 @@ import React from "react";
 const Todo = (props) => {
   return (
     <div
-      onClick={() => props.toggelItem(props.item.id)}
+      // onClick={() => props.toggelItem(props.item.id)}
       className={`Todo${props.item.completed ? " completed" : ""}`}
     >
       <p>{props.item.task}</p>
