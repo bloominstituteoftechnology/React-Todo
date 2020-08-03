@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #2d2d37;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 0 36px;
+  max-width: 665px;
+  margin: 0 auto;
+  display:flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h1 {
+  text-align: left;
+}
+
+.todo-list {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+.todo {
+  background-color: #256623;
+  width: 45%;
+  text-align: left;
+  margin: 4px 0;
+  padding-left: 8px;
+  cursor: pointer;
+}
+
+.todo.completed {
+  background-color: gray;
+  text-decoration: line-through;
+}
+.todo.completed p {
+    color: #256623;
+
+}
+form {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+input {
+  background-color: #2d2d37;
+  border: 0;
+  padding: 6px 0;
+  font-size: 1rem;
+  width: 240px;
+  outline: 0;
+  color: white;
+  border-bottom: 1px solid #256623;
+  margin-right: 8px;
+}
+
+button {
+  background-color: #256623;
+  border: 1px solid #256623;
+  color: white;
+  font-size: 16px;
+  padding: 6px 14px;
+}
+
+input::placeholder {
+  color: #256623;
+  opacity: 1;
+}
+
+.clear-button, .add-button {
+  margin-top: 16px;
+  background-color: #236663;
+  width: 45%;
+  text-align: left;
+  margin: 4px 0;
+  padding-left: 8px;
+  cursor: pointer;
+}
+
