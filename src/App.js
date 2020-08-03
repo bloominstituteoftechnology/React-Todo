@@ -39,7 +39,7 @@ class App extends React.Component {
     this.state={todos};
   }
   //add toggle functionality on todo items 
-  toggleTask = id => {
+  toggleTask = (id) => {
     this.setState({
       todos: this.state.todos.map(item => {
         if(item.id === id) {
@@ -65,6 +65,13 @@ class App extends React.Component {
     });
   };
 
+  handleRemove = () => {
+    const newTodos = this.state.todos.filter((item) => !item.completed);
+    this.setState({
+      todos: newTodos
+    });
+  };
+
   render() {
     return (
       <div>
@@ -74,7 +81,9 @@ class App extends React.Component {
         </div>
         <TodoList
         toggleTask={this.toggleTask} 
-        todos={this.state.todos}/>   
+        todos={this.state.todos}
+        handleRemove={this.handleRemove}
+        />   
       </div>
     );
   }
