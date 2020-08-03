@@ -12,9 +12,8 @@ const Todo = props => {
   return (
     <StyledDiv
       onClick={() => props.toggleTask(props.task.id)}
-      className={`task.${props.task.completed ? true : ''} `}
+      className={`task${props.task.completed ? ' completed' : ''} `}
     >
-      {console.log(props.task)}
       <p>{props.task.task}</p>
     </StyledDiv>
   )

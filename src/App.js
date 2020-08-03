@@ -19,7 +19,10 @@ class App extends React.Component {
   // you will need a place to store your state in this component.
   constructor() {
     super();
-    this.state = { list }
+    this.state = {
+      list,
+      taskText: ''
+    }
   }
 
   toggleTask = id => {
@@ -51,8 +54,16 @@ class App extends React.Component {
 
   handleChanges = e => {
     this.setState({
-      
+      taskText: e.target.value
     })
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.addTask(this.state.taskText);
+    this.setState({
+      taskText: ''
+    });
   }
 
   // design `App` to be the parent component of your application.
@@ -62,7 +73,12 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <p onClick={() => this.setState({})}>List</p>
-        {/* <TodoForm addTask={this.addTask} /> */}
+        <TodoForm 
+          taskText={this.taskText}
+          addTask={this.addTask}
+          handleChanges={this.handleChanges}
+          handleSubmit={this.handleSubmit}
+        />
         <TodoList 
           toggleTask={this.toggleTask}
           list={this.state.list}
