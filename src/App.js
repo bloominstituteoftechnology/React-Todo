@@ -66,15 +66,15 @@ class App extends React.Component {
     });
   }
 
-  // clearButton = () => {
-  //   this.setState({
-  //     list: this.state.list.filter(task => !task.completed)
-  //   })
-  // }
+  clearButton = () => {
+    this.setState({
+      list: this.state.list.filter(task => !task.completed)
+    })
+  }
 
-  // handleClear = e => {
-  //   this.clearButton(this.state.taskText)
-  // }
+  handleClear = e => {
+    this.clearButton(this.state.taskText)
+  }
 
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
