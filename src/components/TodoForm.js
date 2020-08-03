@@ -5,11 +5,12 @@ const TodoForm = (props) => {
       <form onSubmit={props.handleSubmit}>
         <input
           type='text'
-          task='taskText'
+          name='taskText'
           value={props.taskText}
           onChange={props.handleChanges}
         />
         <button>Add</button>
+        <button onClick={props.handleClear}>Clear</button>
       </form>
     )
   }
