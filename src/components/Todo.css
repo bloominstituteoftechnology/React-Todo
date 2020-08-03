@@ -58,8 +58,12 @@ h1 {
 }
 
 .todo.completed {
-  background-color: #d17d7c;
+  background-color: gray;
   text-decoration: line-through;
+}
+.todo.completed p {
+    color: #256623;
+
 }
 form {
   width: 50%;
@@ -91,6 +95,8 @@ input::placeholder {
   opacity: 1;
 }
 
-.clear-btn {
+.clear-button, .add-button {
   margin-top: 16px;
+  background-color: #236663
 }
+

@@ -70,14 +70,14 @@ class App extends React.Component {
       <div className='App'>
         <div className='Header'>
           <h2>Welcome to your Todo App!</h2>
-          <TodoForm 
-            addTodo={this.addTodo}
-          />
         </div>
         <TodoList
           todos={this.state.todos}
           toggleTodo={this.toggleTodo}
           clearPurchased={this.clearPurchased}
+        />
+        <TodoForm 
+          addTodo={this.addTodo}
         />
       </div>
     );
