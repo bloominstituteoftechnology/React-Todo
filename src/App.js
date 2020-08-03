@@ -2,7 +2,20 @@ import React from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
-let tasks = ['dummy task 1', 'dummy task 2', 'dummy task 3'];
+let tasks = [{
+  task: 'Do the thing',
+  id: '11',
+  completed: false
+},{
+  task: 'Do the next thing',
+  id: '12',
+  completed: false
+},  
+{
+  task: 'Do the other thing',
+  id: '31',
+  completed: false
+},];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -19,7 +32,7 @@ class App extends React.Component {
   addTask = (taskName) => {
    // e.preventDefault();
     const newTask = {
-      name: taskName,
+      task: taskName,
       id: new Date(),
       iscomplete: false
 
@@ -29,6 +42,32 @@ class App extends React.Component {
       tasks: [...this.state.tasks, newTask]
     });
   };
+  toggleTask = taskId => {
+    console.log(taskId);
+    // map over array
+    // when we find the item we clicked, toggle the purchased field
+    // otherwise return the item untouched
+    this.setState({
+      tasks: this.state.tasks.map(task => {
+        if (taskId === task.id) {
+          return {
+            ...task,
+            iscomplete: !task.iscomplete
+          };
+        }
+        return task;
+      })
+    });
+  };
+  
+  clearTasks = () =>{
+    this.setState({
+      ...this,
+      tasks: ({})
+    })
+
+  }
+
 
 
   render() {

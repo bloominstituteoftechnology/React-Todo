@@ -1,0 +1,15 @@
+body{
+    display:flex;
+    justify-content: center;
+    text-align:center;
+    background-color: bisque;
+}
+.Task{
+    align-self: center;
+    background-color: antiquewhite;
+}
+
+.Taskiscomplete{ 
+    text-decoration: line-through;
+    background-color: white;
+}
