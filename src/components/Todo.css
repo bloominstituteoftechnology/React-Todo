@@ -1,0 +1,41 @@
+body {
+    background-image: url('https://images.unsplash.com/photo-1564510714747-69c3bc1fab41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+.App {
+    margin: 18rem 60rem 10rem 20rem;
+    background: white;
+    height: 50rem;
+    width: 30rem;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    border-radius: 3px;
+}
+h2 {
+    font-weight: 200;
+    font-size: 3rem;
+    padding: 10% 0 1% 0;
+}
+
+li {
+    text-align: left;
+    padding-left: 2.7rem;
+    margin: 1.5rem 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+}
+
+
+
+
+.todo.completed {
+    text-decoration: line-through;
+}
+
+button {
+    font-family: inherit;
+    margin: 3%;
+}
