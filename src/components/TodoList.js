@@ -1,9 +1,10 @@
 import React from 'react'; 
 import Todo from './Todo'; 
+import { Button, List, Icon } from 'semantic-ui-react'; 
 
 const TodoList = (props) => {
     return(
-        <div className='todoList'>
+        <List animated verticalAlign='middle'>
             {props.todos.map(todo => (
                 <Todo 
                 key={todo.id} 
@@ -11,9 +12,15 @@ const TodoList = (props) => {
                 toggleTask={props.toggleTask}
                 />
             ))}
-            <button onClick={props.handleRemove}>Clear Completed</button>
-        </div>
+            <Button animated onClick={props.handleRemove}>
+                <Button.Content visible>Clear Completed</Button.Content>
+                <Button.Content hidden>
+                    <Icon name="arrow right" />
+                </Button.Content>
+            </Button>
+            </List> 
     );
 };
 
 export default TodoList; 
+

@@ -1,7 +1,9 @@
 import React from 'react';
 import TodoForm from './components/TodoForm'; 
 import TodoList from './components/TodoList'; 
+import { Card, Header, Icon } from 'semantic-ui-react'; 
 import './components/Todo.css'
+import 'semantic-ui-css/semantic.min.css'; 
 
 // In this file we are going to set up: State management to contain the items on the to do list, and render the list items, form to add items and a way to toggle or otherwise manipulate the list 
 
@@ -38,6 +40,7 @@ class App extends React.Component {
     super(); 
     this.state={todos};
   }
+
   //add toggle functionality on todo items 
   toggleTask = (id) => {
     this.setState({
@@ -74,16 +77,25 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <h2>Your To-Do List</h2>
+      <div className='appBody'>
+      <Card>
+        <Card.Content>
+          <Header color='pink' as='h2'>
+            <Icon color='pink' name='edit outline'/>
+            To-Do-ist
+          </Header>
+        </Card.Content>
+        <Card.Content>
           <TodoForm addItem={this.addItem}/>
-        </div>
-        <TodoList
-        toggleTask={this.toggleTask} 
-        todos={this.state.todos}
-        handleRemove={this.handleRemove}
-        />   
+        </Card.Content>
+        <Card.Content>
+          <TodoList
+          toggleTask={this.toggleTask} 
+          todos={this.state.todos}
+          handleRemove={this.handleRemove}
+          />
+        </Card.Content>   
+      </Card>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React from 'react'; 
+import { Button, Input, Icon } from 'semantic-ui-react'; 
 
 class TodoForm extends React.Component {
     constructor(props) {
@@ -26,14 +27,19 @@ class TodoForm extends React.Component {
     render() {
         return (
                 <form onSubmit={this.onSubmit}>
-                    <input 
+                    <Input
+                    label={{ icon: 'asterisk' }}
+                    labelPosition='left corner'
                     type='text'
-                    name='taskText'
-                    placeholder='add a new to do!'
+                    name='taskText'  
+                    placeholder='add a new to do'
                     value={this.state.taskText}
                     onChange={this.onChange}
                     />
-                    <button>Add Todo</button>
+                    <Button compact size='mini' floated='right' animated='fade'>
+                        <Button.Content visible>Add</Button.Content>
+                        <Button.Content hidden><Icon name='paper plane outline'/></Button.Content>
+                    </Button>
                 </form>
         )
     }
