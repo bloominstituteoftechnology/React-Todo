@@ -8,6 +8,7 @@ class TodoForm extends React.Component {
 
     return(
         <form>
+            <div>
             <input onSubmit={this.props.handleSubmit}
             type="text"
             name="itemText"
@@ -15,9 +16,15 @@ class TodoForm extends React.Component {
             onChange={this.props.handleChanges}
             />
 
+            <div className="forButtons">
             <button onClick={this.props.handleSubmit}>Add Task</button>
+         
+            </div>
+            </div>
+        <div className="forButtons">
             <button onClick={this.props.handleComplete}>Clear Completed</button>
-
+            </div>
+    
         </form>
     )
    }

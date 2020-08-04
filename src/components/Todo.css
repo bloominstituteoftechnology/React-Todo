@@ -1,3 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+html {
+    font-family: 'Staatliches', cursive;
+}
+
 .completed {
     text-decoration:line-through;
+}
+
+.styledDiv {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background-color:mediumturquoise;
+    margin:5% auto;
+    padding:10px;
+    width:50%;
+}
+
+
+
+.boxedDiv {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border:2px solid mediumturquoise;
+    border-radius:10px;
+    margin:5% auto;
+    padding:10px;
+    width:50%;
+}
+
+header, footer {
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    min-height: 10vh;
+    background-color:mediumturquoise;
+    margin:0;
+}
+
+
+button {
+    background-color:white;
+    border-radius:10px;
+    border:2px solid black;
+    padding:10px;
+    width:75%;
+    margin:5%;
+    font-family: 'Staatliches', cursive;
+}
+
+.forButtons {
+    display:flex;
+    justify-content:center;
+    align-items:space-around;
+    margin:1%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }

@@ -16,7 +16,7 @@ render(){
         <div onClick={() => this.props.toggleItem(this.props.task.id)}
         
             className={
-                `task${this.props.task.completed ? this.props.task.completed : !this.props.task.completed}`
+               this.props.task.completed ? "completed" : true
             }
             >
         

@@ -84,14 +84,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <p className="completed">This is a test for syling</p>
-        <h1>Welcome to your Todo App!</h1>
+        <header><a href="#">Home</a>
+        <a href="#">Portfolio</a>
+       </header>
+       <div className="styledDiv"><h1>Welcome to your Todo App!</h1></div>
 {/*mystuff*/}
-        <div>
-          <h2 onClick={ () => this.setState({})}>To Do List:</h2>
+        <div className="styledDiv">
+         <div><h2 onClick={ () => this.setState({})}>To Do List:</h2></div> 
           <TodoForm handleSubmit={this.handleSubmit} handleChanges={this.handleChanges} itemText={this.state.itemText} handleComplete={this.handleComplete} />
         </div>
-          <TodoList toggleItem={this.toggleItem} task={this.state.todoData}/>
+          <div className="boxedDiv"><TodoList toggleItem={this.toggleItem} task={this.state.todoData}/></div>
+          <footer><a href="#">Contact</a></footer>
       </div>
     );
   }
