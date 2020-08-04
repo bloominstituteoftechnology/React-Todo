@@ -56,15 +56,6 @@ class App extends React.Component {
   };
 
   clearTodo = itemName => {
-    const clearItems = {
-      task: '',
-      id: new Date(),
-      completed: true
-    };
-
-    this.setState({
-      todo: [clearItems]
-    });
   }
   
   render() {
