@@ -40,7 +40,8 @@ class App extends React.Component {
           return item;
         }
       })
-    })
+    })//do this in order to see state change
+    console.log(this.state.todo)
   }
 
   addItem = itemName => {
@@ -54,7 +55,10 @@ class App extends React.Component {
       todo: [...this.state.todo, newItem]
     });
   };
-
+//connect clear to clear button- you will have to pass clearTodo down 
+//function should loop though the TodoList
+//should remove any todo that equals true
+//should take new array of removed
   clearTodo = itemName => {
   }
   
