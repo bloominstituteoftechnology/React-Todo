@@ -9,6 +9,7 @@ const TodoList = (props) => {
 
   return (
     <div className="App">
+      {console.log("I am props.toggleItem in TodoList.js", props.toggleItem)}
       {props.todos.map((item) => {
         return <Todo key={item.id} item={item} toggleItem={props.toggleItem} />;
       })}

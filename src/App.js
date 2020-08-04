@@ -2,6 +2,7 @@ import React from "react";
 
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
+import "./App.css";
 
 const todos = [
   { task: "Organize Garage", id: 1528817077286, completed: false },
@@ -24,6 +25,21 @@ class App extends React.Component {
     };
   }
 
+  toggleItem = (id) => {
+    this.setState({
+      todos: this.state.todos.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            completed: !item.completed,
+          };
+        } else {
+          return item;
+        }
+      }),
+    });
+  };
+
   addTodo = (i) => {
     const newTodo = {
       task: i,
@@ -42,7 +58,7 @@ class App extends React.Component {
         <div className="App">
           {console.log("I am todo", todos)}
           <h2>Welcome to your Todo App!</h2>
-          <TodoList todos={this.state.todos} />
+          <TodoList todos={this.state.todos} toggleItem={this.toggleItem} />
           <TodoForm addTodo={this.addTodo} />
         </div>
       </div>
