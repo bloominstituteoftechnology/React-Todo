@@ -25,6 +25,14 @@ class App extends React.Component {
     };
   }
 
+  deleteCompleted = (id) => {
+    this.setState({
+      todos: this.state.todos.filter((item) => {
+        return item.completed === false;
+      }),
+    });
+  };
+
   toggleItem = (id) => {
     this.setState({
       todos: this.state.todos.map((item) => {
@@ -58,7 +66,11 @@ class App extends React.Component {
         <div className="App">
           {console.log("I am todo", todos)}
           <h2>Welcome to your Todo App!</h2>
-          <TodoList todos={this.state.todos} toggleItem={this.toggleItem} />
+          <TodoList
+            todos={this.state.todos}
+            toggleItem={this.toggleItem}
+            deleteCompleted={this.deleteCompleted}
+          />
           <TodoForm addTodo={this.addTodo} />
         </div>
       </div>
