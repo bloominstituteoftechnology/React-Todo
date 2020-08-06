@@ -5,6 +5,34 @@ import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 import Todo from './components/Todo.css';
 
+const tasks = [
+  {
+    task: 'Wake Up';
+    id: Date.now();
+    completed: false;
+  }
+  {
+    task: 'Kiss Nena';
+    id: Date.now();
+    completed: false;
+  }
+  {
+    task: 'Apply for that job';
+    id: Date.now();
+    completed: false;
+  }
+  {
+    task: 'Feed the dogs';
+    id: Date.now();
+    completed: false;
+  }
+  {
+    task: 'Cook dinner';
+    id: Date.now();
+    completed: false;
+  }
+]
+
 
 
 class App extends React.Component {
