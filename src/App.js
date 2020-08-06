@@ -2,33 +2,33 @@ import React from 'react';
 
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
-import Todo from './components/Todo.css';
+//import Todo from './components/Todo.css';
 
 const tasks = [
   {
-    item: 'Wake Up';
-    id: 1
-    completed: false;
-  }
+    item: 'Wake Up',
+    id: 1,
+    completed: false
+  },
   {
-    item: 'Kiss Nena';
-    id: 2
-    completed: false;
-  }
+    item: 'Kiss Nena',
+    id: 2,
+    completed: false
+  },
   {
-    item: 'Apply for that job';
-    id: 3
-    completed: false;
-  }
+    item: 'Apply for that job',
+    id: 3,
+    completed: false
+  },
   {
-    item: 'Feed the dogs';
-    id: 4
-    completed: false;
-  }
+    item: 'Feed the dogs',
+    id: 4,
+    completed: false
+  },
   {
-    item: 'Cook dinner';
-    id: 5
-    completed: false;
+    item: 'Cook dinner',
+    id: 5,
+    completed: false
   }
 ]
 
@@ -78,7 +78,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+     <>
+     <div>
         <h2>To-Do List: MVP</h2>
         <TodoForm addItem={this.addItem} />
       </div>
@@ -87,6 +88,7 @@ class App extends React.Component {
         toggleItem={this.toggleItem}
         clearPurchased={this.clearPurchased}
       />
+    </>
     );
   }
 }
