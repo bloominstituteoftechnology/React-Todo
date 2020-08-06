@@ -22,6 +22,18 @@ class TodoForm extends React.Component {
         this.setState({ item: "" });
     };
 
-    render()
-
+    render() {
+        return (
+            <form onSubmit={this.submitItem}>
+                <input
+                    type="text"
+                    name="item"
+                    value={this.state.item}
+                    onChange={this.handleChanges}
+                />
+            </form>
+        );
+    }
 }
+
+export default TodoForm;
