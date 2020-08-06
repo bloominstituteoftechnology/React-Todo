@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from "react-dom";
 
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
@@ -66,7 +65,16 @@ class App extends React.Component {
   };
 
   //class method to add a grocery item
-
+  addItem = item => {
+    const newItem = {
+      name: item,
+      id: Date.now(),
+      completed: false
+    };
+    this.setState({
+      tasks: [...this.state.groceries. newItem]
+    });
+  };
 
   render() {
     return (
