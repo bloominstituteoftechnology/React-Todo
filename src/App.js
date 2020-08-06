@@ -58,8 +58,13 @@ class App extends React.Component {
 //connect clear to clear button- you will have to pass clearTodo down 
 //function should loop though the TodoList
 //should remove any todo that equals true
-//should take new array of removed
-  clearTodo = itemName => {
+//should take new array that has 
+  clearTodo = e => {
+    this.setState({
+      todo: this.state.todo.filter(task => {
+        return !task.completed
+      })
+    })
   }
   
   render() {
@@ -72,6 +77,7 @@ class App extends React.Component {
         <TodoList
           toggleItem={this.toggleItem}
           todo={this.state.todo}
+          clearTodo={this.clearTodo}
         />
       </div>
     );
