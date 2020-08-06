@@ -2,7 +2,7 @@ import React from 'react';
 
 import Todo from './Todo';
 
-const TaskList = props => {
+const TodoList = props => {
     return (
         <div className="task-list">
             {props.tasks.map(item => (

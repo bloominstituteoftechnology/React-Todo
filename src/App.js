@@ -6,27 +6,27 @@ import Todo from './components/Todo.css';
 
 const tasks = [
   {
-    task: 'Wake Up';
+    item: 'Wake Up';
     id: 1
     completed: false;
   }
   {
-    task: 'Kiss Nena';
+    item: 'Kiss Nena';
     id: 2
     completed: false;
   }
   {
-    task: 'Apply for that job';
+    item: 'Apply for that job';
     id: 3
     completed: false;
   }
   {
-    task: 'Feed the dogs';
+    item: 'Feed the dogs';
     id: 4
     completed: false;
   }
   {
-    task: 'Cook dinner';
+    item: 'Cook dinner';
     id: 5
     completed: false;
   }
