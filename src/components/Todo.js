@@ -1,7 +1,11 @@
 import React from "react";
 
-const Todo=()=>{
-  
+const Todo=props=>{
+  return(
+      <div>
+          <p>{props.chore.task}</p>
+      </div>
+  )
 };
 
 export default Todo;
