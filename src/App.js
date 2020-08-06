@@ -40,6 +40,17 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
+  constructor() {
+    super();
+    this.state = {
+      tasks // same as tasks: tasks
+    };
+  }
+
+  toggleItem = toggleId => {
+    console.log(itemId);
+
+  }
 
 
   render() {
