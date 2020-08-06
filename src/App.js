@@ -8,27 +8,27 @@ import Todo from './components/Todo.css';
 const tasks = [
   {
     task: 'Wake Up';
-    id: Date.now();
+    id: 1
     completed: false;
   }
   {
     task: 'Kiss Nena';
-    id: Date.now();
+    id: 2
     completed: false;
   }
   {
     task: 'Apply for that job';
-    id: Date.now();
+    id: 3
     completed: false;
   }
   {
     task: 'Feed the dogs';
-    id: Date.now();
+    id: 4
     completed: false;
   }
   {
     task: 'Cook dinner';
-    id: Date.now();
+    id: 5
     completed: false;
   }
 ]
@@ -50,7 +50,22 @@ class App extends React.Component {
   toggleItem = toggleId => {
     console.log(itemId);
 
-  }
+    this.setState({
+      //building a new state object each time
+      tasks: this.state.tasks.map(item => {
+        if (itemId === item.id) {
+          return {
+            ...item,
+            completed: !item.completed
+          };
+        }
+        return item;
+      })
+    });
+
+  };
+
+  //class method to add a grocery item
 
 
   render() {
