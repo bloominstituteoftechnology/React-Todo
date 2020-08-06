@@ -1,0 +1,99 @@
+html {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100%;
+    margin: auto;
+    width: 400px;
+    background-image: url(./Bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;    
+    justify-content:center;
+    align-items: center;
+    margin: auto; 
+    align-self: center;
+    background-color: black;
+}
+
+body{
+    display: flex;
+    margin: auto;
+    text-align: center;
+    width: inherit;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50%;
+}
+
+h2{
+    transition: 0.5s;
+}
+h2:hover{
+    color: #04ff64;
+    font-size: 30px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.my-app{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100%;
+    align-content: space-between;
+    color: white;
+    font-weight: bold;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    justify-content:center;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 400px;
+    align-content: space-between;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+}
+
+.item{
+    color: #04ff64;
+    transition: 0.5s;
+}
+
+.item:hover{
+    color: red;
+    text-shadow: -1px 0 rgb(255, 255, 255), 0 1px white, 1px 0 white, 0 -1px white;
+
+}
+
+.item.completed {
+    text-decoration: line-through;
+}
+
+button {
+    opacity: 0.7;
+    color: black;
+    border: solid #04ff64;
+    border-radius: 12px;
+    transition: 0.8s;
+    background-color: rgb(102, 102, 101);
+}
+button:hover {
+    opacity: 1;
+    color: black;
+    border: solid #04ff64;
+    border-radius: 12px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-weight: bold;
+}
