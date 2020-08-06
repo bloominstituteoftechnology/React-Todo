@@ -80,7 +80,13 @@ class App extends React.Component {
     return (
       <div>
         <h2>To-Do List: MVP</h2>
+        <TodoForm addItem={this.addItem} />
       </div>
+      <TodoList
+        tasks={this.state.tasks}
+        toggleItem={this.toggleItem}
+        clearPurchased={this.clearPurchased}
+      />
     );
   }
 }
