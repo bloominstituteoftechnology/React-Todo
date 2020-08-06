@@ -12,7 +12,13 @@ class Todo extends React.Component {
 
     render() {
         return (
-            <li id={this.props.id} onClick={this.handleClick}>{this.props.task}</li>
+                <li
+                    id={this.props.id}
+                    onClick={this.handleClick}
+                    className={this.props.completed ? 'completed' : ''}
+                >
+                    {this.props.task}
+                </li>
         )
     }
 }
