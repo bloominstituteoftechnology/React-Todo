@@ -1,0 +1,61 @@
+body {
+    background-color: rgb(5, 5, 5);
+   
+}
+.appDiv {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px 20px 90px 15px;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0.725071225071225) 5%, rgba(121,9,99,0.8632478632478633) 37%, rgb(230,230,250) 79%);
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+}
+
+
+.item {
+    background-color: lightseagreen;
+    width: 20%;
+    height: 40px;
+    text-align: center;  
+    font-size: larger;
+    border: 2px solid black;
+    margin: 4px;
+}
+
+p {
+    color: white;
+    text-align: center;
+}
+
+.removeBtn {
+    width: 30%;
+    height: 30px;
+    align-items: center;
+    margin: 4px;
+    background-color: lavender;
+}
+
+.listDiv {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addBtn {
+   background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 4px;
+}
+
+input {
+    background-color: lavenderblush;
+    padding: 10px;
+}

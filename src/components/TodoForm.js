@@ -29,7 +29,7 @@ export class TodoForm extends React.Component {
                     onChange={this.handleChanges}
                     placeholder="Add To Do"
                 />
-                <button>Add</button>
+                <button className="addBtn">Add</button>
             </form>
         )
     }
