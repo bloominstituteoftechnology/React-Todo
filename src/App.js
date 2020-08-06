@@ -29,7 +29,7 @@ class App extends React.Component {
     this.setState({
       // Build a new state object each time
       tasks: this.state.tasks.map((todo) => {
-        if (todoId == todo.id) {
+        if (todoId === todo.id) {
           return {
             // return the todo with completed field toggled
             ...todo,
@@ -44,7 +44,7 @@ class App extends React.Component {
   // Class method to add a todo task
   addTodo = (todo) => {
     const newTodo = {
-      name: "",
+      name: todo,
       id: Date.now(),
       completed: false,
     };
@@ -53,7 +53,7 @@ class App extends React.Component {
     });
   };
 
-  clearPurchased = () => {
+  clearCompleted = () => {
     this.setState({
       ...this.state,
       tasks: this.state.tasks.filter((todo) => todo.completed === false),
@@ -65,7 +65,11 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm addTodo={this.addTodo} />
-        <TodoList tasks={this.state.tasks} toggleTodo={this.toggleTodo} />
+        <TodoList
+          clearCompleted={this.clearCompleted}
+          tasks={this.state.tasks}
+          toggleTodo={this.toggleTodo}
+        />
       </div>
     );
   }
