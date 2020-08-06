@@ -1,0 +1,24 @@
+html{
+    background-color: #008B8B;
+}
+
+.app-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tasks-list{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.task {
+    background-color:#E0FFFF;
+    width:50%;
+}
+
+.task.completed {
+    text-decoration: line-through;
+}
