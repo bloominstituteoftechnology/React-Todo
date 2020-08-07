@@ -1,59 +1,60 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
+import "./components/Todo.css";
 
 
-  let todoData=[
-    {
-      task: 'Laundry',
-      id: Date.now(),
-      completed: false
-    },
-    {
-      task: 'Mow the lawn',
-      id: Date.now(),
-      completed: false
-    },
-    {
-      task: 'Wash Dishes',
-      id: Date.now(),
-      completed: false
-    },
-    {
-      task: 'Tske out the trash',
-      id: Date.now(),
-      completed: false
-    },
-    {
-      task: 'Clean the bathroom',
-      id: Date.now(),
-      completed: false
-    },
-    {
-      task: 'Mop',
-      id: Date.now(),
-      completed: false
-    },
-    {
-      task: 'Get Groceries',
-      id: Date.now(),
-      completed: false
-    },
-    {
-      task: 'Pay rent',
-      id: Date.now(),
-      completed: false
-    },
-    {
-      task: 'Dust the vents',
-      id: Date.now(),
-      completed: false
-    }, 
-    {
-      task: 'Wash the dog',
-      id: Date.now(),
-      completed: false
-    }
+  let todos=[
+    // {
+    //   task: 'Laundry',
+    //   id: 1,
+    //   completed: false
+    // },
+    // {
+    //   task: 'Mow the lawn',
+    //   id: 2,
+    //   completed: false
+    // },
+    // {
+    //   task: 'Wash Dishes',
+    //   id: 3,
+    //   completed: false
+    // },
+    // {
+    //   task: 'Take out the trash',
+    //   id: 4,
+    //   completed: false
+    // },
+    // {
+    //   task: 'Clean the bathroom',
+    //   id: 5,
+    //   completed: false
+    // },
+    // {
+    //   task: 'Mop',
+    //   id: 6,
+    //   completed: false
+    // },
+    // {
+    //   task: 'Get Groceries',
+    //   id: 7,
+    //   completed: false
+    // },
+    // {
+    //   task: 'Pay rent',
+    //   id: 8,
+    //   completed: false
+    // },
+    // {
+    //   task: 'Dust the vents',
+    //   id: 9,
+    //   completed: false
+    // }, 
+    // {
+    //   task: 'Wash the dog',
+    //   id: 10,
+    //   completed: false
+    // }
   ]
 ;
 
@@ -66,15 +67,55 @@ class App extends React.Component {
   constructor(){
     super();
     this.state={
-      todoData
+      todos
     }
   }
+
+  toggleTask=taskID=>{
+    // console.log(!task.completed)
+    this.setState({
+      todos:this.state.todos.map(task=>{
+        if(taskID===task.id){
+          return{
+            ...task,
+            completed:!task.completed
+          };
+        }
+        // console.log(task.completed)
+        return task;
+      })
+    });
+  };
+
+  addTask= taskName=>{
+    const newTask ={
+      task:taskName,
+      id: Date.now(),
+      completed: false
+    };
+    this.setState({
+      todos: [...this.state.todos,newTask]
+    });
+  };
+
+  clearCompleted=e=>{
+    e.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(choreStatus=>!choreStatus.completed)
+    });
+  };
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm/>
-        <TodoList todoData={todoData}/>
+        <h2>Oh boy my day off todo list...</h2>
+        <TodoList 
+        todos={this.state.todos} 
+        toggleTask={this.toggleTask}
+        // clearCompleted={this.clearCompleted}
+        />
+        <TodoForm addTask={this.addTask} clearCompleted={this.clearCompleted}/>
+        
       </div>
     );
   }
