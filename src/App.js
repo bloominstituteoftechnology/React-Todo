@@ -3,6 +3,8 @@ import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
+import './css/Todo.css';
+import Todo from './components/Todo';
 
 const tasks = [
   {
@@ -61,10 +63,9 @@ class App extends React.Component {
         return item;
       })
     });
-
   };
 
-  //class method to add a grocery item
+  //class method to add a task item
   addItem = item => {
     const newItem = {
       name: item,
@@ -83,11 +84,18 @@ class App extends React.Component {
     })
   }
 
+  
+
   render() {
+    localStorage.setItem ("item", "item");
+    localStorage.getItem ("item", "");
     return (
      <>
-     <div>
-        <h2>To-Do List: MVP</h2>
+     <div className="project">
+        <h2 style={{marginTop: 0}}>Stephen Goodrick's To-Do List</h2>
+        <div>
+    <input type="text" className="input" placeholder="Search..." />
+      </div>  
         <TodoForm addItem={this.addItem} />
       </div>
       <TodoList
@@ -95,6 +103,7 @@ class App extends React.Component {
         toggleItem={this.toggleItem}
         clearCompleted={this.clearCompleted}
       />
+      
     </>
     );
   }
