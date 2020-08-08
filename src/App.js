@@ -4,7 +4,6 @@ import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
 import './css/Todo.css';
-import Todo from './components/Todo';
 
 const tasks = [
   {

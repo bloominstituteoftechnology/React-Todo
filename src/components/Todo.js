@@ -1,5 +1,4 @@
 import React from 'react';
-import TodoList from './TodoList';
 
 const Todo = props => {
     localStorage.setItem(`TodoItem, ${props.item.id}`, props.item.item);

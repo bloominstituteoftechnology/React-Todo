@@ -24,7 +24,7 @@ class TodoForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.submitItem}>
+            <form onSubmit={this.submitItem} className="formStyle">
                 <input
                     type="text"
                     name="item"
