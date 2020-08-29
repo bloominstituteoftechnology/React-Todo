@@ -1,0 +1,4 @@
+.item.done {
+    color: blueviolet;
+    text-decoration: line-through;
+  }
