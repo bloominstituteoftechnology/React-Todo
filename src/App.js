@@ -46,9 +46,10 @@ class App extends React.Component {
   }
 
   markComplete = (markedItem) => {
-    console.log(markedItem)
+    console.log(markedItem.id)
     this.setState({
       todos: this.state.todos.map(item => {
+
         if (item.id === markedItem.id) {
           return {
             ...item,
@@ -62,6 +63,19 @@ class App extends React.Component {
     })
   }
 
+  clearAll = () => {
+
+    this.setState({
+      todos: this.state.todos.map(item => {
+        return { ...item, completed: true }
+      })
+    })
+  }
+
+
+
+
+
   render() {
 
     return (
@@ -73,7 +87,7 @@ class App extends React.Component {
           changeHandler={this.changeHandler}
 
         />
-        <TodoList todos={this.state.todos} markComplete={this.markComplete} />
+        <TodoList todos={this.state.todos} markComplete={this.markComplete} clearAll={this.clearAll} />
       </div>
     );
   }

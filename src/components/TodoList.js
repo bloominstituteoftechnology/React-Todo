@@ -8,9 +8,9 @@ export default class TodoList extends Component {
   render() {
     return (
       <div>
-        <h1>Todos</h1> <button>Clear all</button>
+        <h1>Todos</h1> <button onClick={this.props.clearAll}>Clear all</button>
         <p>
-          {this.props.todos.map(todo => <Todo todo={todo} markComplete={this.props.markComplete} />)}
+          {this.props.todos.map(todo => <Todo todo={todo} key={todo.id} markComplete={this.props.markComplete} />)}
         </p>
       </div>
     )
