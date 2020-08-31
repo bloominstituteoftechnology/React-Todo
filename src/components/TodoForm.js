@@ -4,6 +4,25 @@ import React from "react";
 
 class TodoForm extends React.Component {
 
+    constructor() {
+        super();
+        this.state = {
+            todo: ""
+        }
+    }
+    
+    
+    handleChange = event => {
+        this.setState({
+            todo: event.target.value
+        });
+    };
+    
+    onSubmit = event => {
+        event.preventDefault();
+        this.props.addTodo(this.state.todo);
+    }
+
 
 
     render() {
@@ -12,8 +31,9 @@ class TodoForm extends React.Component {
                 <form onSubmit={this.onSubmit}>
                 <input 
                 type="text"
-                name="todoInput"
+                name="todo"
                 placeholder="...todo"
+                value={this.state.todo}
                 onChange={this.handleChange}
                 />
                 <button>Add Todo</button>
