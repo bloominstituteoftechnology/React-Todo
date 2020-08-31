@@ -18,39 +18,41 @@ class App extends React.Component {
         {
           task: 'Bake Cookies',
           id: 1528817084358,
-          completed: false
+          completed: true
         }
       ],
+      inputValue: '',
     }
   }
 
   changeHandler = (event) => {
     this.setState({
-      todo: event.target.value
+      inputValue: event.target.value
     })
-    console.log(this.state.todo)
+    console.log(this.state.inputValue)
   }
 
   submitHander = (event) => {
     event.preventDefault();
     const newItem = {
-      task: this.state.todo,
+      task: this.state.inputValue,
       id: Date.now(),
       completed: false
     }
     this.setState({
       todos: [...this.state.todos, newItem],
-      todo: ''
+      inputValue: ''
     })
   }
 
   markComplete = (markedItem) => {
+    console.log(markedItem)
     this.setState({
       todos: this.state.todos.map(item => {
         if (item.id === markedItem.id) {
           return {
             ...item,
-            completed: !item.completed
+            completed: true
           }
         }
         else {
@@ -67,7 +69,7 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         <TodoForm
           submitHander={this.submitHander}
-          todo={this.state.todo}
+          inputValue={this.state.inputValue}
           changeHandler={this.changeHandler}
 
         />
