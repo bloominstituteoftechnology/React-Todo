@@ -1,5 +1,40 @@
 import React from 'react';
 import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+
+const todoData = [
+  {
+    name: "Get Bananas",
+    id: Math.round(Math.random() * 1000),
+    completed: false
+  },
+  {
+    name: "Pick Up Laundry",
+    id: Math.round(Math.random() * 1000),
+    completed: false
+  },
+  {
+    name: "Pick up Son from Basketball Practice",
+    id: Math.round(Math.random() * 1000),
+    completed: false
+  },
+  {
+    name: "Doctor's Appointment",
+    id: Math.round(Math.random() * 1000),
+    completed: false
+  },
+  {
+    name: "Pick Up Daughter from Clarinet Practice",
+    id: Math.round(Math.random() * 1000),
+    completed: false
+  },
+  {
+    name: "Cook Dinner",
+    id: Math.round(Math.random() * 1000),
+    completed: false
+  }
+];
+
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -9,7 +44,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: "",
+      todos: todoData,
       toggleCompleted: () => {},
       name: ""
     }
@@ -36,7 +71,7 @@ class App extends React.Component {
   addTodo = todoName => {
     const newTodo = {
       name: todoName,
-      id: new Date(),
+      id: Math.round(Math.random() * 1000),
       completed: false
     }
     this.setState({
@@ -49,6 +84,10 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm addTodo={this.addTodo}/>
+        <TodoList 
+          todos={this.state.todos}
+          toggleCompleted={this.toggleCompleted}
+        />
       </div>
     );
   }
