@@ -85,9 +85,9 @@ class App extends React.Component {
           submitHander={this.submitHander}
           inputValue={this.state.inputValue}
           changeHandler={this.changeHandler}
-
+          clearAll={this.clearAll}
         />
-        <TodoList todos={this.state.todos} markComplete={this.markComplete} clearAll={this.clearAll} />
+        <TodoList todos={this.state.todos} markComplete={this.markComplete} />
       </div>
     );
   }
