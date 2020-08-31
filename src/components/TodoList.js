@@ -5,6 +5,7 @@ import React from "react";
 import Todo from "./Todo";
 
 const TodoList = props => {
+
     return (
         <div className="todo-list">
             {props.todos.map(todo => (
@@ -14,7 +15,7 @@ const TodoList = props => {
                 toggleCompleted={props.toggleCompleted}
                 />
         ))}
-        <button className="clear-button" onClick={props.clearTodos}> Clear Completed</button>
+        <button className="clear-button" onClick={props.clearCompleted}> Clear Completed</button>
         </div>
     )
 }
