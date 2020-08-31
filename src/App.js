@@ -46,11 +46,11 @@ class App extends React.Component {
   }
 
   markComplete = (markedItem) => {
-    console.log(markedItem.id)
+    console.log(markedItem)
     this.setState({
       todos: this.state.todos.map(item => {
 
-        if (item.id === markedItem.id) {
+        if (item.id === markedItem) {
           return {
             ...item,
             completed: true
