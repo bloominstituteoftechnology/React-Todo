@@ -66,10 +66,10 @@ class App extends React.Component {
   clearAll = () => {
 
     this.setState({
-      todos: this.state.todos.map(item => {
-        return { ...item, completed: true }
-      })
+      todos: this.state.todos.filter(todo => todo.completed === false)
     })
+
+
   }
 
 

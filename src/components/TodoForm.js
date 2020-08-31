@@ -13,7 +13,7 @@ export default class TodoForm extends Component {
             Add todo
         </button>
         </form>
-        <button onClick={this.props.clearAll}>Clear all</button>
+        <button onClick={this.props.clearAll}>Clear Completed</button>
       </>
     )
   }
