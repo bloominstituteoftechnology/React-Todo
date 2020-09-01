@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import "./components/Todo.css";
 
 const todoData = [
   {
@@ -53,14 +54,14 @@ class App extends React.Component {
 
   toggleCompleted = clickedTodoId => {
     this.setState({
-      todos: this.state.todos.map(todos => {
-        if(todos.id === clickedTodoId) {
+      todos: this.state.todos.map(todo => {
+        if(todo.id === clickedTodoId) {
           return {
-            ...todos,
-            completed: !todos.completed
+            ...todo,
+            completed: !todo.completed
           };
         } else {
-          return todos;
+          return todo;
         }
       })
     })
@@ -79,9 +80,13 @@ class App extends React.Component {
     })
   }
 
-  clearCompleted = () => {
+  clearCompleted = todos => {
     this.setState({
-      todos: []
+      todos: this.state.todos.filter(todo => {
+        if(todo.completed === false) {
+          return todo;
+        }
+      })
     })
   }
 
