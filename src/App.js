@@ -49,9 +49,18 @@ class App extends React.Component {
   }
 
 
-  removeTask = () => {
-    this.setState({todoList: this.state.todoList.filter(todo => !todo.completed)})
-}
+  removeTask = (e) => {
+    e.preventDefault();
+    return this.setState({
+      todoList: this.state.todoList.filter((todo) => {
+        if (todo.completed === true) {
+          return (todo = undefined)
+        } else {
+          return todo
+        }
+      })
+    })
+  }
 
 
   render() {

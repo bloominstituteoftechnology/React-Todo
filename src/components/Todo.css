@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  background-color: #2d2d37;
+  background-color: #bbbbca;
 }
 
 h1,
@@ -32,14 +32,19 @@ span {
   margin: 0 auto;
 }
 
+h2 {
+  align-self: flex-start;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
 }
 h1 {
   text-align: left;
 }
+
 
 .todo-list {
   display: flex;
@@ -51,7 +56,7 @@ h1 {
 }
 
 .todo {
-  background-color: #e64944;
+  background-color: #626a77;
   width: 45%;
   text-align: left;
   margin: 4px 0;
@@ -59,8 +64,8 @@ h1 {
   cursor: pointer;
 }
 
-.item.completed {
-  background-color: #d17d7c;
+.todo.completed {
+  background-color: #8f8a8a;
   text-decoration: line-through;
 }
 form {
@@ -69,30 +74,46 @@ form {
   justify-content: flex-end;
 }
 form > input {
-  background-color: #2d2d37;
+  background-color: #363649;
   border: 0;
   padding: 6px 0;
   font-size: 1rem;
-  width: 240px;
+  width: 23rem;
+  height: 2rem;
   outline: 0;
   color: white;
-  border-bottom: 1px solid #e64944;
+  border-bottom: 1px solid #1a1919;
   margin-right: 8px;
+  margin-top: 1rem;
 }
 
-button {
-  background-color: #e64944;
-  border: 1px solid #e64944;
+.add-btn {
+  background-color: #4c5669;
+  border: 1px solid #020202;
+  color: white;
+  font-size: 16px;
+  padding: 6px 14px;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  width: 8rem;
+  height: 2.79rem;
+}
+
+.clear-btn {
+  background-color: #4c5669;
+  border: 1px solid #020202;
   color: white;
   font-size: 16px;
   padding: 6px 14px;
 }
 
 input::placeholder {
-  color: #e64944;
+  color: #d1cece;
   opacity: 1;
 }
 
 .clear-btn {
-  margin-top: 16px;
+  margin-top: 1rem;
+  width: 8rem;
+  height: 2.79rem;
 }
