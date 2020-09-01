@@ -1,12 +1,14 @@
-//The p tags of todo in props should go here
-import React from 'react'
+import React from "react";
 
- const Todo = (props) => {
+const Todo = props => {
   return (
-    <div>
-  <p> {props.todo.task} </p>
-  </div>
+    <div
+      onClick={() => props.toggleTodo(props.todo.id)}
+      className={`todo${props.todo.completed ? " completed" : ""}`}
+    >
+      <p>{props.todo.task}</p>
+    </div>
   );
 };
 
-export default Todo
+export default Todo;

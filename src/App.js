@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from '../src/components/TodoForm'
-import {TodoList} from '../src/components/TodoList'
+import TodoList from '../src/components/TodoList'
+import "./styles.css";
 
 const todoList = 
 [
@@ -59,6 +60,11 @@ addTodo = taskName => {
   })
 }
 
+  clear = (todoId) => {
+    this.setState({
+      todoList: this.state.todoList.filter(todo => !todo.completed)
+    })
+  }
 
 
 
@@ -71,7 +77,7 @@ addTodo = taskName => {
       <div>
         <h2>Welcome to your Todo App!</h2>
     <TodoForm addTodo = {this.addTodo}/>
-    <TodoList todoList = {this.state.todoList} toggleTodo= {this.toggleTodo}/>
+    <TodoList todoList = {this.state.todoList} toggleTodo= {this.toggleTodo} clear={this.clear}/>
       </div>
     );
   }
