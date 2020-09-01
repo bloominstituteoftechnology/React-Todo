@@ -6,32 +6,32 @@ import "./components/Todo.css";
 const todoData = [
   {
     name: "Get Bananas",
-    id: Math.round(Math.random() * 1000),
+    id: 1,
     completed: false
   },
   {
     name: "Pick Up Laundry",
-    id: Math.round(Math.random() * 1000),
+    id: 2,
     completed: false
   },
   {
     name: "Pick up Son from Basketball Practice",
-    id: Math.round(Math.random() * 1000),
+    id: 3,
     completed: false
   },
   {
     name: "Doctor's Appointment",
-    id: Math.round(Math.random() * 1000),
+    id: 4,
     completed: false
   },
   {
     name: "Pick Up Daughter from Clarinet Practice",
-    id: Math.round(Math.random() * 1000),
+    id: 5,
     completed: false
   },
   {
     name: "Cook Dinner",
-    id: Math.round(Math.random() * 1000),
+    id: 6,
     completed: false
   }
 ];
