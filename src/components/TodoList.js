@@ -14,11 +14,6 @@ const TodoList = (props) => (
                 todo={todo}
                 toggleTask={props.toggleTask} />
         ))}
-
-        <button className="clear-btn" onClick={props.removeTask}>
-            Clear Todo List
-        </button>
-
     </div>
 )
 
