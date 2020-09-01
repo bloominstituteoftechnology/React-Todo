@@ -66,8 +66,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <h2>Tasks To Complete:</h2>
         <div className="header">
-        <h2>Welcome to your Todo App!</h2>
+        <br></br>
         <TodoForm addTask={this.addTask} removeTask={this.removeTask} />
         </div>
         <TodoList
