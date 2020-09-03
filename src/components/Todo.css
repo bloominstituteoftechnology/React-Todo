@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  background-color: #5e5e8a;
+  background-color: gray;
 }
 
 h1,
@@ -28,7 +28,7 @@ span {
   font-family: sans-serif;
   text-align: center;
   padding: 0 36px;
-  max-width: 665px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -50,9 +50,9 @@ h1 {
 }
 .item {
   background-color: #183366;
-  width: 35%;
+  width: 40%;
   text-align: left;
-  margin: 4px 0;
+  margin: 20px 0;
   padding-left: 8px;
   cursor: pointer;
 }
@@ -83,7 +83,7 @@ button {
   border: 2px solid #8d5fd8;
   color: rgb(210, 138, 228);
   font-size: 16px;
-  padding: 6px 14px;
+  padding: 6px 10px;
 }
 
 input::placeholder {
@@ -92,5 +92,8 @@ input::placeholder {
 }
 
 .clear-btn {
-  margin-top: 16px;
+  display:flex;
+  align-self: flex-start;
+  margin-top: 10px;
 }
+
