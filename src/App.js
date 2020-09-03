@@ -2,6 +2,7 @@ import React from "react";
 
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import "./components/Todo.css";
 
 const list = [
   {
@@ -30,44 +31,37 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      list: list,
+      list,
     };
   }
 
   //   checking item completed
 
   toggleItem = (itemId) => {
-    console.log(itemId);
+    console.log("TodoForm: toggleItem: itemId:", itemId);
     this.setState({
-      list: this.state.list.map((item) => {
-        if (item.id === itemId) {
-          return {
-            ...item,
-            completed: !item.completed,
-          };
-        }
-        return item;
-      }),
+      list: this.state.list.map((item) =>
+        itemId === item.id ? { ...item, completed: !item.completed } : item
+      ),
     });
   };
 
   //   Clearing Completed Items
 
-  clearCompleted = () => {
-    this.state({
-      list: this.state.list.filter((item) => {
-        return !item.completed;
-      }),
+  clearCompleted = (e) => {
+    //
+    this.setState({
+      list: this.state.list.filter((item) => !item.completed),
     });
   };
 
   //   Adding new tasks to the list
 
-  addItem = (itemName) => {
+  addItem = (itemId) => {
     this.setState({
       list: [
         ...this.state.list,
-        { id: Date.now(), name: itemName, completed: false },
+        { id: Date.now(), name: itemId, completed: false },
       ],
     });
   };
