@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "./components/Todo.css";
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
@@ -54,7 +54,7 @@ class App extends React.Component {
     });
   };
 
-  additem = (itemName) => {
+  addItem = (itemName) => {
     console.log("bk:index.js; App: itemName:", itemName);
     this.setState({
       todo: [
@@ -68,7 +68,7 @@ class App extends React.Component {
       <div className="App">
         <div className="header">
           <h1>To Do List</h1>
-          <TodoForm additem={this.addItem}/>
+          <TodoForm addItem={this.addItem}/>
         </div>
         <TodoList
         todo={this.state.todo}
