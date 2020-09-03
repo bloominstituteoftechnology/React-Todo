@@ -3,8 +3,6 @@ import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 
 const todoArray = [
-  // { activity: "", id: Date.now(), completed: false },
-  // ,
   { activity: "Morning Workout", id: 1232456453244, completed: false },
   { activity: "Face Wash", id: 89786756434543, completed: false },
   { activity: "Piano Practice", id: 23456787435567, completed: false },
@@ -48,7 +46,7 @@ class App extends React.Component {
     this.setState({
       todoArray: [
         ...this.state.todoArray,
-        { activity: activityName, id: Date.now(), completed: false },
+        { id: Date.now(), activity: activityName, completed: false },
       ],
     });
   };

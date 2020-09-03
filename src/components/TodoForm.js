@@ -2,28 +2,30 @@ import React from "react";
 
 class TodoForm extends React.Component {
   state = {
-    activity: "",
+    stateKey: "",
   };
 
   handleChanges = (e) => {
     this.setState({
-      activity: e.target.value,
+      stateKey: e.target.value,
     });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addActivity(this.state.activity);
+    this.props.addActivity(this.state.stateKey);
   };
 
   render() {
+    console.log(this.state);
     return (
       <form onSubmit={this.handleSubmit}>
         <input
           type="text"
           name="activity"
-          value={this.state.activity}
+          value={this.state.stateKey}
           onChange={this.handleChanges}
+          placeholder="what do you need to do?"
         />
         <button>Add Activity</button>
       </form>

@@ -3,10 +3,10 @@ import React from "react";
 const Todo = (props) => {
   return (
     <div
-      onClick={() => props.toggleActivity(props.activity.key)}
+      onClick={() => props.toggleActivity(props.activity.id)}
       //   className={`activity ${props.activity.completed ? "completed!" : ""}`}
     >
-      <p>{props.activity.name}</p>
+      <p>{props.activity.activity}</p>
     </div>
   );
 };
