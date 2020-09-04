@@ -55,7 +55,7 @@ class App extends React.Component {
   };
 
   addItem = (itemName) => {
-    console.log("bk:index.js; App: itemName:", itemName);
+    
     this.setState({
       todo: [
         ...this.state.todo,
