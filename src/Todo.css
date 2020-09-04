@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  
+  background-image: url("https://images.unsplash.com/photo-1532916697008-5bc24f95592a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=981&q=80");
+  width:100%;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 0 36px;
+  max-width: 665px;
+  margin: 0 auto;
+  background-image: url("https://pbs.twimg.com/media/DlCit9XWwAAsnxm.jpg");
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20px;
+  font-weight: bolder;
+}
+h1 {
+  text-align: left;
+}
+
+.todo-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+.task {
+  background-color: peachpuff;
+  width: 45%;
+  text-align: center;
+  margin: 4px 0;
+  padding-left: 8px;
+  cursor: pointer;
+ 
+}
+
+.task.completed {
+  background-color: #d17d7c;
+  text-decoration: line-through;
+}
+form {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+form > input {
+  background-color: #2d2d37;
+  border: 0;
+  padding: 6px 0;
+  font-size: 1rem;
+  width: 240px;
+  outline: 0;
+  color: white;
+  border-bottom: 1px solid #e64944;
+  margin-right: 8px;
+
+}
+
+button {
+  background-color: #e64944;
+  border: 1px solid #e64944;
+  color: white;
+  font-size: 16px;
+  padding: 6px 14px;
+}
+
+input::placeholder {
+  color: #ed817d;
+  opacity: 5;
+}
+
+.clear-btn {
+  margin-top: 16px;
+}
