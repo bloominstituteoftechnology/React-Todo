@@ -14,7 +14,7 @@ body {
 
 }
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -26,7 +26,7 @@ span {
   color: white;
   font-family: 'Roboto', sans-serif;
   
-}
+} */
 
 .App {
   font-family: sans-serif;
@@ -54,20 +54,36 @@ h1 {
   justify-content: space-between;
   width: 100%;
   margin: 0 auto;
+  margin-bottom: 4rem;
 }
 .task {
   background-color: peachpuff;
-  width: 45%;
+  width: 35%;
   text-align: center;
   margin: 4px 0;
   padding-left: 8px;
   cursor: pointer;
- 
+  margin-left: 6rem;
+  box-shadow:inset 0px 1px 0px 0px #fac8c3;
+	background:linear-gradient(to bottom, #fc8d83 5%, #faaaa5 100%);
+	background-color:#fc8d83;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Georgia;
+	font-size:21px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
 }
 
 .task.completed {
-  background-color: #d17d7c;
+  background-color: #000000;
   text-decoration: line-through;
+  
 }
 form {
   width: 50%;
@@ -101,5 +117,37 @@ input::placeholder {
 }
 
 .clear-btn {
+  margin-top: 6rempx;
+  background-color: teal;
+  color:peachpuff;
+  align-items: center;
+
+}
+p{
+  color:purple;
+  font-family: "Courier New", Courier, monospace;
+
+}
+button {
   margin-top: 16px;
+  background-color: teal;
+  color:peachpuff;
+  box-shadow: 3px 4px 0px 0px #8a2a21;
+	border-radius:18px;
+	border:1px solid #d02718;
+	display:inline-block;
+	cursor:pointer;
+	font-family:Georgia;
+	font-size:21px;
+	font-weight:bold;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #810e05;
+
+}
+h1{
+  font-family: "Courier New", Courier, monospace;
+  color:white;
+  font-weight: bold;
+  font-size: 2rem;
 }
