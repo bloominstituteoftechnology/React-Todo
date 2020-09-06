@@ -1,12 +1,14 @@
 import React from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
+// import styled from "styled-Component";
+import "./components/Todo.css";
 
 const todoArray = [
   { activity: "Morning Workout", id: 1232456453244, completed: false },
   { activity: "Face Wash", id: 89786756434543, completed: false },
   { activity: "Piano Practice", id: 23456787435567, completed: false },
-  { activity: "Lambda Assignment", id: 235565869857, completed: false },
+  { activity: "Lambda Work", id: 235565869857, completed: false },
 ];
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -35,8 +37,8 @@ class App extends React.Component {
 
   clearCompleted = () => {
     this.setState({
-      todoArray: this.state.todoArray.filter((activity) => {
-        return !activity.completed;
+      todoArray: this.state.todoArray.filter((done) => {
+        return !done.completed;
       }),
     });
   };
@@ -54,13 +56,17 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Todo List</h1>
+        <header>
+          <h1>Todo List</h1>
+        </header>
         <TodoForm addActivity={this.addActivity} />
-        <TodoList
-          todoArray={this.state.todoArray}
-          toggleActivity={this.state.toggleActivity}
-          clearCompleted={this.state.clearCompleted}
-        />
+        <div className="body">
+          <TodoList
+            todoArray={this.state.todoArray}
+            toggleActivity={this.toggleActivity}
+            clearCompleted={this.clearCompleted}
+          />
+        </div>
       </div>
     );
   }

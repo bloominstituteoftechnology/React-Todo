@@ -3,20 +3,23 @@
 
 import React from "react";
 import Todo from "./Todo";
+import "./Todo.css";
 
 const TodoList = (props) => {
   return (
     <div className="todo_list">
-      {props.todoArray.map((activity) => (
+      {props.todoArray.map((activities) => (
         <Todo
-          key={activity.id}
-          activity={activity}
+          key={activities.id}
+          activity={activities}
           toggleActivity={props.toggleActivity}
         />
       ))}
-      <button className="clear" onClick={props.clearCompleted}>
-        Clear Completed
-      </button>
+      <div className="clear">
+        <button className="buttons" onClick={props.clearCompleted}>
+          Clear Completed
+        </button>
+      </div>
     </div>
   );
 };
