@@ -2,6 +2,7 @@ import React from 'react';
 
 // Importing COMPONENTS
 import TodoList from './components/TodoList.js';
+import Todo from './components/Todo.js';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -10,7 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Todo:  [
+      Todos:  [
         {
           task: 'Organize Garage',
           id: 1528817077286,
@@ -29,7 +30,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoList todo={this.state.Todo} />
+        <h1>Todo List</h1>
+        <TodoList todo={this.state.Todos} />
+        <Todo />
       </div>
     );
   }
