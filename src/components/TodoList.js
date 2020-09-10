@@ -1,15 +1,13 @@
 import React from 'react';
 
-function TodoList(props) {
-  const todos = props.todo;
-  console.log(todos);
-
-  const listTodos = todos.map((todo) =>
-  <li>{todo}</li>
-  );
-  return (
-      <ul>{listTodos}</ul>
-  );
+class TodoList extends React.Component {
+  render() {
+    return (
+      <div>
+        TodoList
+      </div>
+    );
+  }
 }
 
 export default TodoList;

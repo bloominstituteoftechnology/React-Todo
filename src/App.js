@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Todos:  [
+      todos:  [
         {
           task: 'Organize Garage',
           id: 1528817077286,
@@ -31,7 +31,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Todo List</h1>
-        <TodoList todo={this.state.Todos} />
+        <TodoList todo={this.state.todos} />
         <Todo />
       </div>
     );
