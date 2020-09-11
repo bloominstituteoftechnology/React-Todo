@@ -5,7 +5,7 @@ class TodoForm extends React.Component {
     render() {
         return (
             <div>
-                <h1>Hello World</h1>
+                <h1>TodoForm</h1>
             </div>
         )
     }
