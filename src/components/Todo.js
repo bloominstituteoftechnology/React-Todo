@@ -1,12 +1,12 @@
 import React from 'react';
 
+// Importing COMPONENTS
+
 class Todos extends React.Component {
   render() {
-    return (
-      <div className="todo">
-        <input type="search" placeholder="Add Todo..." />
-      </div>
-    );
+    return this.props.todo.map((todo) => (
+      <li>{todo.task}</li>
+    ));
   }
 }
 
