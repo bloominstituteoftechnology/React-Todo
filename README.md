@@ -32,19 +32,24 @@ We're going to practice building a stateful class component with this project. E
 
 ## Instructions
 
-### Task 1: Set-up
+### Task 1: Project Set Up
 
-- Fork and clone this project and cd into your cloned version.
-- Create a new branch to work on
+- [ ] Create a forked copy of this project.
+- [ ] Clone your OWN version of the repository in your terminal
+- [ ] Use CRA to create a new React app in this repository
+- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [ ] Push commits: git push origin `<firstName-lastName>`.
+
+Follow these steps for completing your project.
+
+- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into main (student's Repository). **Please don't merge your own pull request**
+- [ ] From the home page of your repo, make sure you have your branch selected
+- [ ] Copy the URL and paste it into Canvas
+
 - `npm install` will pull in all the node_modules you need.
 - `npm start` will start a development server on your `http://localhost:3000`.
   - If npm asks you to select different port with some error message, just confirm and it will pull it up on port 3001. This simply means you have a development server up and running on that port already.
-  
-- To turn in your project:
-  - Go to the repo in GitHub
-  - Make sure you are looking at base of the repo, and that the branch is set to your development branch
-  - Copy the url
-  - Paste the url into Canvas
 
 ### Task 2a: MVP
 
