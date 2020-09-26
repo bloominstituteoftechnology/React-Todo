@@ -51,7 +51,7 @@ Follow these steps for completing your project.
 - `npm start` will start a development server on your `http://localhost:3000`.
   - If npm asks you to select different port with some error message, just confirm and it will pull it up on port 3001. This simply means you have a development server up and running on that port already.
 
-### Task 2a: MVP
+### Task 2: MVP
 
 - **Don't focus on styling yet**. We want you to worry about function over form today.
 - Your todo list should display a list of todos, an input field, a submit button, and a clear all button.
@@ -83,5 +83,3 @@ Follow these steps for completing your project.
 ## Submission Format
 
 - [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
-- [ ] From the home page of your repo, make sure you have your branch selected
-- [ ] Copy the URL and paste it into Canvas to submit your project
