@@ -43,6 +43,7 @@ class App extends React.Component {
   }
 
   addTodo = (e, item) => {
+    //functioning
     e.preventDefault();
     const newTodo = {
       name: item,
@@ -69,7 +70,7 @@ class App extends React.Component {
     });
   };
 
-  clearDone = (e) => {
+  clearTodo = (e) => {
     e.preventDefault();
     this.setState({
       todos: this.state.todos.filter((todo) => !todo.done),

@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+html,
+body {
+}
+
+body {
+  background-color: rgb(16, 145, 44);
+}
+
+h1,
+h2,
+div,
+p,
+span {
+  color: plum;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  padding: 0 36px;
+  max-width: 665px;
+  margin: 0 auto;
+  line-height: 200%;
+}
+
+.todo {
+  background-color: rgb(16, 145, 44);
+  width: 45%;
+  text-align: center;
+  padding: 0 36px;
+  max-width: 665px;
+  margin: 0 auto;
+  line-height: 200%;
+}
+
+.todo.done {
+  background-color: red;
+  text-decoration: line-through;
+}
