@@ -21,11 +21,20 @@ class App extends React.Component {
     this.state.todoList.push(newTask);
     this.setState(newTask);
   };
+  markTodoDone = (id) => {
+    const updatedList = this.state.todoList.map((item) => {
+      if (item.id === id) {
+        item.completed = true;
+      }
+    });
+
+    this.setState(updatedList);
+  };
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList list={this.state.todoList} />
+        <TodoList list={this.state.todoList} markTodoDone={this.markTodoDone} />
         <TodoForm addNewTodo={this.addNewTodo} />
       </div>
     );

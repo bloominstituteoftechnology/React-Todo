@@ -1,7 +1,17 @@
 import React from "react";
 
 const Todo = (props) => {
-  return <div>{props.data.task}</div>;
+  const onItemClick = () => {
+    props.markTodoDone(props.data.id);
+  };
+  return (
+    <div
+      onClick={onItemClick}
+      style={{ textDecoration: props.data.completed ? "line-through" : "none" }}
+    >
+      {props.data.task}
+    </div>
+  );
 };
 
 export default Todo;

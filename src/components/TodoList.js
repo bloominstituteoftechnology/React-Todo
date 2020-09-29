@@ -4,11 +4,10 @@ import React from "react";
 import Todo from "./Todo";
 
 const TodoList = (props) => {
-  //   const todos = props.list.map((item, i) => <Todo key={i} data={item} />);
   return (
     <div>
       {props.list.map((item, i) => (
-        <Todo key={i} data={item} />
+        <Todo key={i} data={item} markTodoDone={props.markTodoDone} />
       ))}
     </div>
   );
