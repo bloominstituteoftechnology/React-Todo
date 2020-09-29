@@ -5,8 +5,10 @@ const TodoForm = (props) => {
   const onInputChange = (e) => {
     setInputVal(e.target.value);
   };
-  const handleSubmit = () => {
-    console.log(inputVal);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.addNewTodo(inputVal);
+    setInputVal("");
   };
   return (
     <div>

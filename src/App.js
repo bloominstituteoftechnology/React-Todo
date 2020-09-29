@@ -9,15 +9,24 @@ class App extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      todoList: [1, 2],
+      todoList: [],
     };
   }
+  addNewTodo = (data) => {
+    const newTask = {
+      task: data,
+      id: Date.now(),
+      completed: false,
+    };
+    this.state.todoList.push(newTask);
+    this.setState(newTask);
+  };
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList list={this.state.todoList} />
-        <TodoForm />
+        <TodoForm addNewTodo={this.addNewTodo} />
       </div>
     );
   }
