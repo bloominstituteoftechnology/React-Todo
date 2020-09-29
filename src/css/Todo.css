@@ -1,0 +1,11 @@
+
+body {
+   background-image: url('https://www.goodfreephotos.com/albums/south-africa/other-south-africa/black-and-white-shoreline-landscape-of-south-africa.jpg');
+
+}
+
+
+.project {
+    display: flex;
+    flex-direction: column;
+}
