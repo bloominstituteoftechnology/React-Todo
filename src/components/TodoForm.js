@@ -10,6 +10,9 @@ const TodoForm = (props) => {
     props.addNewTodo(inputVal);
     setInputVal("");
   };
+  const onClearClick = (e) => {
+    props.clearCompleted();
+  };
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -21,7 +24,7 @@ const TodoForm = (props) => {
           onChange={onInputChange}
         />
         <button>Add Todo</button>
-        <button>Clear Completed</button>
+        <button onClick={onClearClick}>Clear Completed</button>
       </form>
     </div>
   );

@@ -13,29 +13,40 @@ class App extends React.Component {
     };
   }
   addNewTodo = (data) => {
+    const todoList = this.state.todoList;
     const newTask = {
       task: data,
       id: Date.now(),
       completed: false,
     };
-    this.state.todoList.push(newTask);
-    this.setState(newTask);
+    todoList.push(newTask);
+    this.setState({ todoList });
   };
   markTodoDone = (id) => {
     const updatedList = this.state.todoList.map((item) => {
       if (item.id === id) {
         item.completed = true;
       }
+      return item;
     });
 
-    this.setState(updatedList);
+    this.setState({ todoList: updatedList });
+  };
+  clearCompleted = () => {
+    const result = this.state.todoList.filter(
+      (task) => task.completed === false
+    );
+    this.setState({ todoList: result });
   };
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList list={this.state.todoList} markTodoDone={this.markTodoDone} />
-        <TodoForm addNewTodo={this.addNewTodo} />
+        <TodoForm
+          addNewTodo={this.addNewTodo}
+          clearCompleted={this.clearCompleted}
+        />
       </div>
     );
   }
