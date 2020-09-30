@@ -33,7 +33,7 @@ addTodo = (todoTask) => {
     completed: false
   };
   this.setState({
-    todoData: [...todoData, newTodo]
+    todoData: [...this.state.todoData, newTodo]
   });
 };
 
@@ -42,7 +42,7 @@ addTodo = (todoTask) => {
       <div>
         <h1>ToDo List</h1>
         <TodoForm addTodo={this.addTodo}/>
-        <TodoList todos={todoData}/>
+        <TodoList todos={this.state.todoData}/>
       </div>
     );
   }

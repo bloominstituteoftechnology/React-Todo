@@ -10,7 +10,11 @@ class TodoForm extends React.Component {
 
   submit = e => {
     e.preventDefault();
-    this.props.addTodo("Stuff");
+    this.props.addTodo(this.state.newTodo);
+    this.setState({
+      ...this.state,
+      newTodo: ""
+    })
   }
 
   onChange = e => {
