@@ -25,12 +25,17 @@ class App extends React.Component {
   }
 
   //change handlers
-  
+
 
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h1>ToDo List</h1>
+        <form>
+          <input type="text"/>
+          <button>Add ToDo</button>
+          <button>Clear Completed</button>
+        </form>
       </div>
     );
   }
