@@ -38,8 +38,8 @@ addTodo = (todoTask) => {
 };
 
 toggleItem = todoId => {
-  console.log("Toggling Todo", todoId)
-  this.state({
+  console.log("Toggling Todo", todoId);
+  this.setState({
     todoData: this.state.todoData.map(todo => {
       if (todoId === todo.id) {
         return {

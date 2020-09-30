@@ -1,0 +1,11 @@
+.todo {
+  background-color: aqua;
+  padding: 10px;
+  border: 1px solid dodgerblue;
+  width: 150px;
+}
+
+.todo.completed {
+  text-decoration: line-through;
+  background-color: aquamarine;
+}
