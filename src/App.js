@@ -1,5 +1,8 @@
 import React from 'react';
 
+import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
+
 const todoData = [
   {
     task: "Organize Garage",
@@ -31,11 +34,8 @@ class App extends React.Component {
     return (
       <div>
         <h1>ToDo List</h1>
-        <form>
-          <input type="text"/>
-          <button>Add ToDo</button>
-          <button>Clear Completed</button>
-        </form>
+        <TodoForm />
+        <TodoList todos={todoData}/>
       </div>
     );
   }
