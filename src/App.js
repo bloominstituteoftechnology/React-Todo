@@ -39,6 +39,18 @@ addTodo = (todoTask) => {
 
 toggleItem = todoId => {
   console.log("Toggling Todo", todoId)
+  this.state({
+    todoData: this.state.todoData.map(todo => {
+      if (todoId === todo.id) {
+        return {
+          ...todo,
+          completed: !todo.completed
+        };
+      } else {
+        return todo;
+      }
+    })
+  })
 }
 
   render() {
