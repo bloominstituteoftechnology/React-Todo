@@ -21,20 +21,27 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      task: "",
-      id: Date.now(),
-      completed: false
-    }
-  }
+      todoData
+    };
+  };
 
   //change handlers
-
+addTodo = (todoTask) => {
+  const newTodo = {
+    task: todoTask,
+    id: Date.now(),
+    completed: false
+  };
+  this.setState({
+    todoData: [...todoData, newTodo]
+  });
+};
 
   render() {
     return (
       <div>
         <h1>ToDo List</h1>
-        <TodoForm />
+        <TodoForm addTodo={this.addTodo}/>
         <TodoList todos={todoData}/>
       </div>
     );
