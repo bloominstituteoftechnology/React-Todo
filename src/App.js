@@ -1,15 +1,16 @@
 import React from 'react';
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
+import "./Todo.css"
 
 const tasks = [
   {
-    task: 'Organize Garage',
+    task: 'Read Course Material',
     id: 1528817077286,
     completed: false
   },
   {
-    task: 'Bake Cookies',
+    task: 'Complete Follow Along Exercise',
     id: 1528817084358,
     completed: false
   }
@@ -41,7 +42,7 @@ class App extends React.Component {
 
   addTodo = (todoName) => {
     const newTodo = {
-      name: todoName,
+      task: todoName,
       id: Date.now(),
       completed: false
     };
@@ -62,7 +63,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="header">
-        <h1>Todo List: MVP</h1>
+        <h1>TOGGLE TODO</h1>
         <TodoForm
           addTodo={this.addTodo}
          />

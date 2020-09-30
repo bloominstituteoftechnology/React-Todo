@@ -1,0 +1,101 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 0 36px;
+    max-width: 665px;
+    height: 665px;
+    margin: 0 auto;
+    margin-top: 5%;
+    background-image: url("https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-repeat: no-repeat;
+    background-position: center; 
+    box-shadow: 2px 2px 5px black;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+    text-align: left;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+    font-size: 2.5rem;
+  }
+
+  .todo-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+
+  }
+  
+
+  .todo {
+    background-color: #ffca3a;
+    width: 45%;
+    text-align: left;
+    margin: 4px 0;
+    margin-top: 5%;
+    padding-left: 8px;
+    cursor: pointer;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    font-size: 1.5rem;
+    box-shadow: 2px 2px 8px black;
+    
+  }
+
+  .todo.completed  {
+    background-color: #0470dc;
+    text-decoration: line-through;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    font-size: 1.5rem;
+    box-shadow: 2px 2px 8px black;
+  }
+
+  form {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  form > input {
+    background-color: white;
+    border: 0;
+    padding: 6px 0;
+    font-size: 1rem;
+    width: 175px;
+    outline: 0;
+    color: black;
+    margin-right: 8px;
+    box-shadow: 1px 1px 3px black;
+  }
+
+  button {
+    background-color: #057af0;
+    border: 1px solid #0470dc;
+    color: white;
+    font-size: 16px;
+    padding: 6px 14px;
+    text-shadow: 1px 1px 3px black;
+    box-shadow: 1px 1px 5px black;
+  }
+
+  input::placeholder {
+    color: black;
+    opacity: 1;
+    
+    
+  }
+  
+  .clear-btn {
+    margin-top: 16px;
+  }
+  
