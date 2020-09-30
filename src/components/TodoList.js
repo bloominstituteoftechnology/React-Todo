@@ -8,12 +8,9 @@ const TodoList = (props) => {
             {props.tasks.map((todo) => (
                 <Todo key={todo.id} todo={todo} toggleItem={props.toggleItem} />
             ))}
-         <button className="clear-btn">Clear Task</button>
+         <button className="clear-btn" onClick={props.clearTodo}>Clear Task</button>
         </div>
     )
 
 }
-
-
-
 export default TodoList;
