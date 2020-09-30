@@ -37,12 +37,16 @@ addTodo = (todoTask) => {
   });
 };
 
+toggleItem = todoId => {
+  console.log("Toggling Todo", todoId)
+}
+
   render() {
     return (
       <div>
         <h1>ToDo List</h1>
         <TodoForm addTodo={this.addTodo}/>
-        <TodoList todos={this.state.todoData}/>
+        <TodoList todos={this.state.todoData} toggleItem={this.toggleItem}/>
       </div>
     );
   }

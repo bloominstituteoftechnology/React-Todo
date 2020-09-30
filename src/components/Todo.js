@@ -4,7 +4,7 @@ const Todo = (props) => {
 
   // render(props) {
   return(
-  <div>
+  <div onClick={() => props.toggleItem(props.todo.id)}>
     <p>{props.todo.task}</p>
   </div>
   )
