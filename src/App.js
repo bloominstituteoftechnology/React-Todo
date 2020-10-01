@@ -15,7 +15,7 @@ class App extends React.Component {
     };
   };
 
-  toggleItem = (taskId) => {
+  toggleTask = (taskId) => {
     console.log("Item", taskId);
     this.setState({
       todoList: this.state.todoList.map((task) => {
@@ -39,6 +39,14 @@ class App extends React.Component {
     this.setState({
       ...this.state, 
       todoList: [ ...this.state.todoList, newTask]
+    });
+  };
+
+  clearCompleted = (e) => {
+    e.preventDefault();
+    this.setState({
+      ...this.state,
+      todoList: this.state.todoList.filter(task => !task.completed)
     });
   };
 
