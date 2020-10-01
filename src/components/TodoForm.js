@@ -1,5 +1,8 @@
 import React from 'react';
 
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
 class TodoForm extends React.Component {
   constructor() {
     super();
@@ -28,14 +31,17 @@ class TodoForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.submit}>
-        <input 
-        type="text"
-        name="todo" 
-        placeholder="Add New Task Here" 
-        value={this.state.newTodo}
-        onChange={this.onChange}
+        <TextField
+          id="standard-basic"
+          label="Add New Task Here"
+          type="text"
+          name="todo"
+          value={this.state.newTodo}
+          onChange={this.onChange}
         />
-        <button>Add Todo</button>
+        <Button variant="contained" color="primary">
+          Add Todo
+        </Button>
       </form>
     );
   }

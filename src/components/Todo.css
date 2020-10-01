@@ -1,7 +1,8 @@
 .todo {
-  background-color: aqua;
-  padding: 10px;
-  border: 1px solid dodgerblue;
+  background-color:steelblue;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid steelblue;
   width: 150px;
 }
 
