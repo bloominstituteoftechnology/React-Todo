@@ -51,7 +51,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="header">
-          <h2>To Do List</h2>
+          <h2>Todo List</h2>
           <TodoForm addTask={this.addTask} />
         </div>
         <ToDoList
