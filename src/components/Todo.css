@@ -1,0 +1,74 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 0 36px;
+    max-width: 665px;
+    margin: 0 auto;
+    color:white;
+    
+  }
+  body{
+      background-color: #2d2d37;
+      /* background-image: url("download (1).jpg"); */
+  }
+  h1 {
+    /* text-align: center; */
+    padding: 2rem;
+  }
+  .todo-list {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    width: 50%;
+    margin: 2rem;
+  }
+  .item {
+    background-color: #e64944;
+    width: 45%;
+    text-align: left;
+    margin: 4px 0;
+    padding-left: 8px;
+    cursor: pointer;
+    color: white;
+  }
+  .item.completed {
+    background-color: #d17d7c;
+    text-decoration: line-through;
+  }
+  form {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+  form > input {
+    background-color: #2d2d37;
+    border: 0;
+    padding: 6px 0;
+    font-size: 1rem;
+    width: 240px;
+    outline: 0;
+    color: white;
+    border-bottom: 1px solid #e64944;
+    margin-right: 8px;
+  }
+  .header{
+      background-color: #e64944;
+      height: 10rem;
+      text-align: center;
+      color: white;
+  }
+  button{
+      background-color: #C0C0C0;
+      border: 1px solid;
+  color: black;
+  font-size: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  width: 100px;
+  }
+  input::placeholder {
+    color: #e64944;
+    opacity: 1;
+  }
+
