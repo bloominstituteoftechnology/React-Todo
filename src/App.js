@@ -29,32 +29,32 @@ class App extends React.Component {
   }
 
   // Class methods to update state
-  toggleTodo = (todoId) => {
-    console.log("Toggling item", todoId);
+  toggleTask = (taskId) => {
+    console.log("Toggling item", taskId);
     this.setState({
       // Find the item in the todos array, and toggle its purchased flag
-      todos: this.state.todos.map((todo) => {
-        if (todoId === todos.id) {
+      todos: this.state.todos.map((task) => {
+        if (taskId === task.id) {
           return {
             // Return the item with purchased flag toggled
-            ...todo,
-            completed: !todo.completed
+            ...task,
+            completed: !task.completed
           };
         }
-        return todo;
+        return task;
       })
     });
   };
 
-  addTodo = (todoTask) => {
-    const newTodo = {
-      task: todoTask,
+  addTask = (taskName) => {
+    const newTask = {
+      task: taskName,
       id: Date.now(),
       completed: false
     };
     this.setState({
       ...this.state,
-      todos: [...this.state.todos, newTodo]
+      todos: [...this.state.todos, newTask]
     });
   };
 
@@ -62,7 +62,7 @@ class App extends React.Component {
     e.preventDefault();
     this.setState({
       ...this.state,
-      todos: this.state.todos.filter((todo) => !todo.completed)
+      todos: this.state.todos.filter((task) => !task.completed)
     });
   };
 
@@ -75,11 +75,11 @@ class App extends React.Component {
         
       </div>
       <TodoList
-        toggleTodo={this.toggleTodo}
+        toggleTask={this.toggleTask}
         todos={this.state.todos}
         clearCompleted={this.clearCompleted}
       />
-      <TodoForm addTodo={this.addTodo} />
+      <TodoForm addTask={this.addTask} />
     </div>
     );
   }

@@ -8,8 +8,8 @@ const TodoList = (props) => {
   // const sortedList = props.groceries.sort((a, b) => a.purchased - b.purchased);
   return (
     <div className="todo-list">
-      {props.todos.map((todo) => (
-        <Todo key={todo.id} todo={todo} toggleTodo={props.toggleTodo} />
+      {props.todos.map((task) => (
+        <Todo key={task.id} task={task} toggleTask={props.toggleTask} />
       ))}
       <button className="clear-btn" onClick={props.clearCompleted}>
         Clear Completed
