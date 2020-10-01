@@ -39,7 +39,7 @@ class TodoForm extends React.Component {
           value={this.state.newTodo}
           onChange={this.onChange}
         />
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" onClick={this.submit}>
           Add Todo
         </Button>
       </form>

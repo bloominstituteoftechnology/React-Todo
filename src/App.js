@@ -2,6 +2,7 @@ import React from 'react';
 
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import Container from '@material-ui/core/Container';
 
 const todoData = [
   {
@@ -63,7 +64,7 @@ toggleItem = todoId => {
 
   render() {
     return (
-      <div>
+      <Container maxWidth="xs">
         <h1>ToDo List</h1>
         <TodoForm addTodo={this.addTodo}/>
         <TodoList 
@@ -71,7 +72,7 @@ toggleItem = todoId => {
         toggleItem={this.toggleItem}
         clearCompleted={this.clearCompleted}
         />
-      </div>
+      </Container>
     );
   }
 }
