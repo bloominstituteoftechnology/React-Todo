@@ -23,7 +23,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo
+      todo,
+      newTask: ""
     };
   };
 
@@ -58,9 +59,24 @@ class App extends React.Component {
     e.preventDefault();
     console.log("cleared");
     this.setState({
-      ...this.state,
+      ...this.state.todo,
       todoList: this.state.todo.filter(task => !task.completed)
     });
+  };
+
+  handleChange = (e) => {
+    console.log(e.target.name, e.target.value);
+    this.setState({
+    ...this.state,
+    newTask: e.target.value
+    });
+  };
+
+  submitTask = (e) => {
+    e.preventDefault();
+    console.log("submitted");
+    this.addTask(this.state.newTask);
+    this.setState({ ...this.state.todo,  newTask: "" });
   };
 
 
@@ -82,6 +98,9 @@ class App extends React.Component {
 
         <TodoForm
           addTask={this.addTask}
+          handleChange={this.handleChange}
+          clearCompleted={this.clearCompleted}
+          submitTask={this.submitTask}
         />
 
       </div>
