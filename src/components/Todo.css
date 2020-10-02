@@ -1,0 +1,10 @@
+.clearButton {
+    margin-top: 16px;
+    color: goldenrod;
+    background: lightseagreen;
+  }
+
+  .task.completed{
+    background-color: #d17d7c;
+    text-decoration: line-through;
+  }
