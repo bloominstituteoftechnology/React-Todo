@@ -1,13 +1,56 @@
+body {
+    background-color: grey;
+    margin: 100px;
+}
+
 .task {
-    background-color: #e64944;
+    background-color: cyan;
     width: 45%;
-    text-align: left;
+    text-align: center;
     margin: 4px 0;
     padding-left: 8px;
     cursor: pointer;
+    margin: 0 40px;
   }
   
-  .task.completed {
+.task.completed {
     background-color: #d17d7c;
     text-decoration: line-through;
-  }
+}
+
+.todolist {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.todoForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    padding: 50px;
+    color: black;
+    font-size: 50px;
+}
+
+.formButtons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 20px;
+
+}

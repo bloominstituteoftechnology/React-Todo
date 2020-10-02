@@ -31,7 +31,7 @@ class App extends React.Component {
   toggleTask = (taskId) => {
     console.log("Item", taskId);
     this.setState({
-      todoList: this.state.todo.map((task) => {
+      todo: this.state.todo.map((task) => {
         if(taskId === task.id) {
           return {
             ...task,
@@ -59,13 +59,13 @@ class App extends React.Component {
     e.preventDefault();
     console.log("cleared");
     this.setState({
-      ...this.state.todo,
-      todoList: this.state.todo.filter(task => !task.completed)
+      ...this.state,
+      todo: this.state.todo.filter(item => !item.completed)
     });
   };
 
   handleChange = (e) => {
-    console.log(e.target.name, e.target.value);
+    console.log(e.target.value);
     this.setState({
     ...this.state,
     newTask: e.target.value
