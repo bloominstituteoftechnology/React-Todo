@@ -1,5 +1,4 @@
 import React from 'react';
-import Todo from './components/Todo'
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm'
 
@@ -69,8 +68,8 @@ class App extends React.Component {
   render() {
     return (
 
-      <div classtask="App">
-      <div classtask="header">
+      <div className="App">
+      <div className="header">
         <h1>Todo List</h1>
         
       </div>
