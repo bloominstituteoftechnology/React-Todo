@@ -34,8 +34,8 @@ We're going to practice building a stateful class component with this project. E
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project.
-- [ ] Clone your OWN version of the repository in your terminal
+- [X] Create a forked copy of this project.
+- [X] Clone your OWN version of the repository in your terminal
 - [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
 - [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
 - [ ] Push commits: git push origin `<firstName-lastName>`.
