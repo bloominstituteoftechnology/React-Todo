@@ -1,30 +1,34 @@
 import React from 'react';
 import FormInput from './components/TodoForm';
-import ToDo from './components/Todo';
+import BookList from './components/TodoList';
 
 
 const books = [
   {
-    name: "The Everything Box by Richard Kadrey",
+    title: "The Everything Box by Richard Kadrey",
     id: 1,
     completed: false 
   },
   {
-    name: "The Taster by V.S Alexander",
+    title: "The Taster by V.S Alexander",
     id: 2,
     completed: false
   },
   {
-    name: "The Ten Thousands Doors of January",
+    title: "The Ten Thousands Doors of January",
     id: 3,
     completed: false
   },
   {
-    name: "Dear Haiti, Love Alaine by Maika Moulite, Maritza Moulite",
+    title: "Dear Haiti, Love Alaine by Maika Moulite, Maritza Moulite",
     id: 4,
     completed: false
   }
 ]
+
+
+
+
 
 
 class App extends React.Component {
@@ -35,6 +39,26 @@ class App extends React.Component {
     };
   }
 
+  handleChanges = (event) => {
+    this.setState(
+      { ...this.state, title: event.target.value}
+      );
+  }
+
+  // addNewBook = (book) => {
+  //   const newBook = {
+  //     title: book.title,
+  //     id: Date.now(),
+  //     completed: false
+  //   }
+  //   this.state.title(...books, this.newBook)
+  // }
+
+  onSubmit = (event) => {
+    event.preventDefault();
+    this.props.addItem(this.state.books)
+    // this.setState({...this.state, })
+  }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -42,8 +66,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <FormInput />
-        <ToDo books={books}/>
+        <FormInput handleChanges={this.handleChanges} submit={this.onSubmit}/>
+        <BookList books={books}/>
       </div>
     );
   }
