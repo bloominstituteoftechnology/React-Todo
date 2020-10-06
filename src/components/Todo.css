@@ -7,7 +7,7 @@
 }
 
 .completed  {
-    background-color: #d17d7c;
+    background-color: #414141;
     text-decoration: line-through;
   }
 
@@ -42,6 +42,8 @@
     text-transform: uppercase;
     width: 15rem;
     margin: 1rem;
+    background-color: #d4a218;
+    border-radius: 10px;
   }
   
   input[type=text], input[type=email], select, textarea {
