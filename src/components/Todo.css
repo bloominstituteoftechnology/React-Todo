@@ -1,0 +1,32 @@
+
+.completed{
+    text-decoration: line-through;
+    background: rgb(44, 116, 71);
+    width: 40%;
+    height: 50px;
+    color: white;
+    margin: 0 auto;
+    font-family: serif;
+    padding-top: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.incomplete{
+    background: black;
+    width: 40%;
+    height: 50px;
+    color: white;
+    margin: 0 auto;
+    font-family: serif;
+    padding-top: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.Items{
+    display: flex;
+    flex-wrap: wrap;
+}
