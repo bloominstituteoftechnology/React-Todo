@@ -1,0 +1,64 @@
+.App {
+    margin: auto;
+    text-align: center;
+    width: 40%;
+    background-image: url(../glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg);
+    background-size: cover;
+    box-shadow: #d4a218 .5rem 0.0313rem 1rem;
+}
+
+.completed  {
+    background-color: #414141;
+    text-decoration: line-through;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+  }
+
+  .header h1{
+    font-size: 3rem;
+    font-family: 'Permanent Marker', cursive;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: #d4a218 0.0625rem 0.0313rem 0;
+  }
+
+  .todo p{
+    font-family: 'Bubblegum Sans', cursive;
+    margin: auto;
+    color: #414141;
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    text-shadow: #d4a218 0.0625rem 0.0313rem 0;
+    
+
+  }
+
+  button{
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    font-size: .8rem;
+    font-weight: 100;
+    line-height: 1.8rem;
+    max-width: 20rem;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 15rem;
+    margin: 1rem;
+    background-color: #d4a218;
+    border-radius: 10px;
+  }
+  
+  input[type=text], input[type=email], select, textarea {
+    width: 80%;
+    padding: 0.75rem;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.25rem; 
+    box-sizing: content-box;
+    margin-top: 0.375rem;
+    margin-bottom: 1rem; 
+    resize: vertical;
+    font-size: .8rem; 
+  }
