@@ -4,11 +4,15 @@
     width: 40%;
     background-image: url(../glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg);
     background-size: cover;
+    box-shadow: #d4a218 .5rem 0.0313rem 1rem;
 }
 
 .completed  {
     background-color: #414141;
     text-decoration: line-through;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
   }
 
   .header h1{
@@ -27,6 +31,7 @@
     font-size: 1.6rem;
     line-height: 2.5rem;
     text-shadow: #d4a218 0.0625rem 0.0313rem 0;
+    
 
   }
 
