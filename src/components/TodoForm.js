@@ -23,7 +23,7 @@ class TodoForm extends React.Component {
 
     onClear = (event) => {
         event.preventDefault()
-        console.log(this.state)
+        // console.log(this.state)
         this.props.handleClear()
     }
 

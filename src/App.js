@@ -15,9 +15,12 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
-  handleClear = (id) => {
-    console.log(id)
-    console.log(this.state.tasks)
+  handleClear = () => {
+    // console.log(id)
+    // console.log(this.state.tasks)
+    this.setState({
+      tasks: this.state.tasks.filter(task => task.completed === false)
+    })
   }
 
   handleSubmit = (taskName) => {
