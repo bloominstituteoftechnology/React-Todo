@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  background-color: gray;
+  background-color: blueviolet;
 }
 
 h1,
@@ -20,7 +20,7 @@ h6,
 div,
 p,
 span {
-  color: rgb(118, 190, 223);
+  color: turquoise;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -28,7 +28,7 @@ span {
   font-family: sans-serif;
   text-align: center;
   padding: 0 36px;
-  max-width: 700px;
+  max-width: 665px;
   margin: 0 auto;
 }
 
@@ -49,16 +49,16 @@ h1 {
   margin: 0 auto;
 }
 .item {
-  background-color: #183366;
-  width: 40%;
+  background-color: mintcream;
+  width: 45%;
   text-align: left;
-  margin: 20px 0;
+  margin: 4px 0;
   padding-left: 8px;
   cursor: pointer;
 }
 
 .item.completed {
-  background-color: #480774;
+  background-color: mistyrose;
   text-decoration: line-through;
 }
 form {
@@ -67,33 +67,29 @@ form {
   justify-content: flex-end;
 }
 form > input {
-  background-color: #5e5ecf;
+  background-color: mintcream;
   border: 0;
   padding: 6px 0;
   font-size: 1rem;
   width: 240px;
   outline: 0;
-  color: white;
-  border: 2px solid #7e07ad;
+  color: turquoise;
   margin-right: 8px;
 }
 
 button {
-  background-color: #6408af;
-  border: 2px solid #8d5fd8;
-  color: rgb(210, 138, 228);
+  background-color: mintcream;
+  color: turquoise;
   font-size: 16px;
-  padding: 6px 10px;
+  padding: 6px 14px;
 }
 
 input::placeholder {
-  color: #4008c4;
+  color:turquoise;
   opacity: 1;
 }
 
 .clear-btn {
-  display:flex;
-  align-self: flex-start;
-  margin-top: 10px;
+  margin-top: 16px;
 }
 

@@ -5,22 +5,17 @@ import TodoForm from './components/TodoForm';
 
 const todo = [
   {
-    name: "To Do Project",
-    id: 12,
+    name: " Organize Garage ",
+    id: 1528817077286,
     completed: false,
   },
 
   {
-    name: "Sorting Hat Project",
-    id: 13,
+    name: "Bake Cookies",
+    id: 1528817084358,
     completed: false,
   },
 
-  {
-    name: "Careers Project",
-    id: 14,
-    completed: false,
-  }
 ]
 
 class App extends React.Component {
@@ -73,8 +68,9 @@ class App extends React.Component {
         <TodoList
         todo={this.state.todo}
         toggleItem={this.toggleItem}
-         clearCompleted={this.clearCompleted}/> 
-        </div>
+        clearCompleted={this.clearCompleted}/> 
+        
+      </div>
       
     );
   }
