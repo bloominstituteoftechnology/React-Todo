@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
-
+//Preset Task List
 const list = [
   {
     name: 'Wakeup',
@@ -38,6 +38,7 @@ class App extends React.Component {
     }
   }
 
+  //Toggle Tasks
   handleToggleItem = (taskID)=>{
     this.setState({
       list: this.state.list.map(task=>{
@@ -53,7 +54,7 @@ class App extends React.Component {
     })
   }
 
-  //Add taks to list
+  //Add Tasks to list
   handleAddItem = (name) =>{
     this.setState({
       list:[...this.state.list, {
@@ -64,7 +65,7 @@ class App extends React.Component {
     })
   }
 
-  //Clear List
+  //Clear List of selected
   clearItems = () =>{
     this.setState({
       list:this.state.list.filter(task=>(!task.complete))
