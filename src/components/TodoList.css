@@ -1,0 +1,9 @@
+.to-do-list {
+    margin-top: 3rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 3px solid rgb(200,200,200);
+}
+.to-do-list h2 {
+    color: rgb(100,100,100);
+}
