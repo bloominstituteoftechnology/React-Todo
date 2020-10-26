@@ -12,6 +12,7 @@ class TodoList extends React.Component {
             <h2>Welcome to your Todo App!</h2>
             <Todo 
             tdList={this.props.tdList}
+            handleClick={this.props.handleClick}
             />
             <TodoForm 
             handleClear={this.props.handleClear}

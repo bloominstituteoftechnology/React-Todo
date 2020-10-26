@@ -2,27 +2,50 @@ import React from 'react';
 
 import TodoList from './components/TodoList'
 
+const tasks = []
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   constructor(){
     super()
-    this.state = [
-      {
-        task: '',
-        id:'',
-        completed: '',
-      }
-    ]
+    this.state = {
+      tasks:tasks
+    }
   }
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
-  handleClear = () => {
-
+  handleClear = (id) => {
+    console.log(id)
+    console.log(this.state.tasks)
   }
 
-  handleSubmit = () => {
-    console.log(this.state)
+  handleSubmit = (taskName) => {
+    // console.log(this.state.tasks)
+    // console.log(typeof this.state)
+    this.setState({
+      tasks: [...this.state.tasks, {
+        task:taskName,
+        id: this.state.tasks.length,
+        completed: false
+      }]
+    })
+  }
+
+  handleClick = (id) => {
+    this.setState({
+      tasks: this.state.tasks.map(task => {
+        if (task.id === id) {
+          return {
+            ...task,
+            completed: !task.completed
+          }
+        }
+        else {
+          return task
+        }
+      })
+    })
   }
 
   handleAdd = () => {
@@ -33,7 +56,8 @@ class App extends React.Component {
     return (
       <div>
         <TodoList
-        tdList={this.state}
+        tdList={this.state.tasks}
+        handleClick={this.handleClick}
         handleClear={this.handleClear}
         handleSubmit={this.handleSubmit}
         handleAdd={this.handleAdd}
