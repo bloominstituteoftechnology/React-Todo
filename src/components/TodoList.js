@@ -2,13 +2,14 @@ import React from 'react'
 
 import Todo from './Todo'
 import TodoForm from './TodoForm'
+import './TodoList.css'
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
 
 class TodoList extends React.Component {
     render() {
         return (
-            <>
+            <div className="to-do-list container">
             <h2>Welcome to your Todo App!</h2>
             <Todo 
             tdList={this.props.tdList}
@@ -19,7 +20,7 @@ class TodoList extends React.Component {
             handleSubmit={this.props.handleSubmit}
             handleAdd={this.props.handleAdd}
             />
-            </>
+            </div>
         )
     }
 }
