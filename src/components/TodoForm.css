@@ -10,3 +10,17 @@ form {
     justify-content: center;
     align-items: center;
 }
+
+.btn button {
+    font-family: 'Comfortaa', cursive;
+    color: rgb (200,200,200);
+    border-radius: 1rem;
+    border: none;
+    padding: .5rem .7rem;
+    outline: none;
+}
+.btn button:hover {
+    background-color: rgb(255, 205, 112);
+    color: white;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
