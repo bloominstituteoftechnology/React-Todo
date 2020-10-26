@@ -29,7 +29,7 @@ class App extends React.Component {
     this.setState({
       tasks: [...this.state.tasks, {
         task:taskName,
-        id: this.state.tasks.length,
+        id: Date.now(),
         completed: false
       }]
     })
