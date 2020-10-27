@@ -2,7 +2,7 @@ import React from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 
-const toDo = [
+const tasks = [
 	{
 		task: "Organize Garage",
 		id: 1528817077286,
@@ -18,7 +18,7 @@ const toDo = [
 class App extends React.Component {
 	constructor() {
 		super();
-		this.state = { toDo: toDo };
+		this.state = { toDo: tasks };
 	}
 
 	completeItem = (itemID) => {
