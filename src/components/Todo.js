@@ -2,7 +2,7 @@ import React from "react";
 
 const Todo = (props) => {
   const handleClick = () => {
-    props.togglePurchased(props.item.id);
+    props.toggleDone(props.item.id);
   };
 
   return (

@@ -29,10 +29,11 @@ class TodoForm extends React.Component {
     this.setState({
       itemName: ''
     })
- 
-
-
   }
+
+
+
+
   // class property to submit form
 
   render() {
@@ -42,9 +43,7 @@ class TodoForm extends React.Component {
           {/* This is an uncontrolled component 😬 We want it to be controlled by state */}
           <input value={this.state.itemName} onChange={this.handleChanges} type="text" name="item" />
           <button >Add</button>
-          <button className="clear-btn" >
-          Clear All Todos
-        </button>
+          
         </form>
       </div>
     );

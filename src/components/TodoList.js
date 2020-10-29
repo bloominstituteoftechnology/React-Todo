@@ -15,9 +15,13 @@ const TodoList = (props) => {
         <Todo
           key={item.id}
           item={item}
-          togglePurchased={props.togglePurchased}
+          toggleDone={props.toggleDone}
+          clearTodos={props.clearTodos}
         />
       ))}
+      <button onClick={props.clearTodos}className="clear-btn" >
+          Clear All Todos
+        </button>
 
     </div>
   );

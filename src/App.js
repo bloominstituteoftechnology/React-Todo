@@ -34,7 +34,7 @@ class App extends React.Component {
   //    because this is a reminder that classes
   //    in javascript were gleemed on as an ugly hack
   // }
-  togglePurchased = (itemId) => {
+  toggleDone = (itemId) => {
     console.log("bk: index.js: App: togglePurchased: itemId: ", itemId);
     // update state
     // this.state.groceries[id].purchased = false;
@@ -52,6 +52,11 @@ class App extends React.Component {
     });
   };
 
+  clearTodos = () => {
+    this.setState({
+     todolist: this.state.todolist.filter((task) => task.completed)
+    })
+  }
   addItem = itemName => {
     console.log("NAL: index.js: App: addItem: itemName: ", itemName);
     this.setState({
@@ -66,8 +71,9 @@ class App extends React.Component {
           <h1>Todo List</h1>
         <TodoList
           todolist={this.state.todolist}
-          togglePurchased={this.togglePurchased}
+          toggleDone={this.toggleDone}
           addItem={this.addItem}
+          clearTodos={this.clearTodos} 
         />
       </div>
       <TodoForm addItem={this.addItem}/>
