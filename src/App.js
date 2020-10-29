@@ -31,34 +31,31 @@ const toDo = [
 ]
 
 class App extends React.Component {
-  // Constructor with state
   constructor (){
     super();
     this.state = ({toDo: toDo})
   }
-  
-  // Class methods to update state
-  completeItem = (itemID) => {
-  
-    // update state
-  this.setState({
-    toDo: this.state.toDo.map(item => {
-      if(item.id === itemID) {
-        return {
-          ...item,
-          completed: !item.completed
-        };
-      }
-        return item;
-    })
-  });
-};
 
-  addToDo = (toDoItem) => {
+  completeItem = (itemID) => {
+    this.setState({
+      toDo: this.state.toDo.map(item => {
+        if(item.id === itemID) {
+          return {
+            ...item,
+            completed: !item.completed
+          }
+        } else {
+          return item;
+        }
+      })
+    })
+  }
+
+  addToDo = (name) => {
 
     this.setState({
       toDo: [...this.state.toDo, {
-        task: toDoItem,
+        task: name,
         id: this.state.toDo.length,
         completed: false
       }]
@@ -67,25 +64,19 @@ class App extends React.Component {
 
   clearCompleted = () => {
       this.setState({
-        toDo: this.state.toDo.filter((item) => !item.completed)
+        toDo: this.state.toDo.filter(item=>(!item.completed))
       });
-  };
-  
+  }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
+    console.log(this.state)
     return (
-      <div className="App">
-        <div className="header">
-        <h1>Todo List:</h1>
-        <TodoForm addItem={this.addItem} />
-        </div>
-        <TodoList
-        toDo={this.state.toDo}
-        completeItem={this.completeItem}
-        clearCompleted={this.clearCompleted}
-        />
+      <div>
+        <h2>Todo List: MVP!</h2>
+        <TodoList item={this.state.toDo} completeItem={this.completeItem} clearItem={this.clearCompleted} />
+        <TodoForm  submitHandler={this.addToDo}/>
       </div>
     );
   }
