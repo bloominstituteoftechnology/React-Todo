@@ -1,0 +1,23 @@
+.todo-list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo{
+  background-image: linear-gradient(50deg, #ff0088 0%, #ff2288 30%, #ff4488 60%, #ff8888 100%);
+  width: 20%;
+  padding: 20px;
+  margin: 20px 0;
+  color: #fefefe;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.todo.completed{
+  background-image: linear-gradient(50deg, #979797 0%, #adabac 30%, #d3d2d2 60%, #f3f0f0 100%);
+}
+
+button.add-todo{
+  margin-left: 20px;
+}
