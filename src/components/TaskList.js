@@ -10,11 +10,12 @@ handleClick = (e) =>{
     this.props.markComplete(e.target.id);
 }
  
+
   render() {
       
     return (
       <div>
-         {this.props.tasks.map(a => <div id = {a.id} key = {a.id} className = {a.completed ? 'completed' : 'not'} onClick = {this.handleClick}>{a.task}</div>)}
+         {this.props.tasks.filter(a => a.task.includes(this.props.search)).map(a => <div id = {a.id} key = {a.id} className = {a.completed ? 'completed' : 'not'} onClick = {this.handleClick}>{a.task}</div>)}
       </div>
       
     );
