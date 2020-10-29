@@ -1,0 +1,11 @@
+.completed {
+    text-decoration: line-through;
+  }
+.not {
+    color: green;
+}
+
+body{
+    background-color: lightblue;
+    font-size: 40px;
+}
