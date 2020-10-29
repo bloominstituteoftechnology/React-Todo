@@ -1,40 +1,20 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
-import GroceryList from "./components/GroceryList";
+import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 import "./Styles.css";
 
-const groceries = [
+const todolist = [
   {
-    name: "Bananas",
-    id: 123,
-    purchased: false
+    task: 'Organize Garage',
+    id: 1528817077286,
+    completed: false
   },
   {
-    name: "Torillas",
-    id: 124,
-    purchased: false
-  },
-  {
-    name: "Milk",
-    id: 1235,
-    purchased: false
-  },
-  {
-    name: "Pizza Sauce",
-    id: 1246,
-    purchased: false
-  },
-  {
-    name: "Raw Honey",
-    id: 1237,
-    purchased: false
-  },
-  {
-    name: "Granola",
-    id: 1248,
-    purchased: false
+    task: 'Bake Cookies',
+    id: 1528817084358,
+    completed: false
   }
 ];
 
@@ -44,7 +24,7 @@ class App extends React.Component {
     super();
     this.state = {
       // groceries: groceries
-      groceries
+      todolist
     };
   }
 
@@ -52,7 +32,7 @@ class App extends React.Component {
   // function togglePurchased(itemId) {
   //    avoid creating functions like this
   //    because this is a reminder that classes
-  //    in javascript were glomed on as an ugly hack
+  //    in javascript were gleemed on as an ugly hack
   // }
   togglePurchased = (itemId) => {
     console.log("bk: index.js: App: togglePurchased: itemId: ", itemId);
@@ -60,11 +40,11 @@ class App extends React.Component {
     // this.state.groceries[id].purchased = false;
     this.setState({
       ...this.state,
-      groceries: this.state.groceries.map((item) => {
+      todolist: this.state.todolist.map((item) => {
         if (item.id === itemId) {
           return {
             ...item,
-            purchased: !item.purchased
+            completed: !item.completed
           };
         }
         return item;
@@ -76,13 +56,13 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="header">
-          <h1>Shopping List</h1>
-          <TodoForm />
-        </div>
-        <GroceryList
-          groceries={this.state.groceries}
+          <h1>Todo List</h1>
+        <TodoList
+          todolist={this.state.todolist}
           togglePurchased={this.togglePurchased}
         />
+      </div>
+      <TodoForm />
       </div>
     );
   }
