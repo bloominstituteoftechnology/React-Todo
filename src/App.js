@@ -52,6 +52,13 @@ class App extends React.Component {
     });
   };
 
+  addItem = itemName => {
+    console.log("NAL: index.js: App: addItem: itemName: ", itemName);
+    this.setState({
+      todolist: [...this.state.todolist, {id: Date.now(), task: itemName, completed: false}]
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -60,9 +67,10 @@ class App extends React.Component {
         <TodoList
           todolist={this.state.todolist}
           togglePurchased={this.togglePurchased}
+          addItem={this.addItem}
         />
       </div>
-      <TodoForm />
+      <TodoForm addItem={this.addItem}/>
       </div>
     );
   }

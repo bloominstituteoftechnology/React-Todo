@@ -14,11 +14,11 @@ const Todo = (props) => {
       <p>{props.item.task}</p>
     </div>
 
-<button className="clear-btn" 
-onClick={props.clearPurchased}>
-  Clear Todo
-</button>
-</>
+      <button className="clear-btn" 
+      onClick={props.clearTodo}>
+        Clear Todo
+      </button>
+    </>
    
   );
 };

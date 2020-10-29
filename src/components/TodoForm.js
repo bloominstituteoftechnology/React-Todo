@@ -22,15 +22,31 @@ class TodoForm extends React.Component {
     });
   };
 
+  handleAdd = (e) =>{
+
+   e.preventDefault();
+    this.props.addItem(this.state.itemName)
+    this.setState({
+      itemName: ''
+    })
+ 
+
+
+  }
   // class property to submit form
 
   render() {
     return (
-      <form>
-        {/* This is an uncontrolled component 😬 We want it to be controlled by state */}
-        <input type="text" name="item" />
-        <button onClick={this.handleChanges}>Add</button>
-      </form>
+      <div className="App">
+          <form className='FormApp' onSubmit={this.handleAdd}>
+          {/* This is an uncontrolled component 😬 We want it to be controlled by state */}
+          <input value={this.state.itemName} onChange={this.handleChanges} type="text" name="item" />
+          <button >Add</button>
+          <button className="clear-btn" >
+          Clear All Todos
+        </button>
+        </form>
+      </div>
     );
   }
 }
