@@ -7,12 +7,12 @@ import "./Styles.css";
 
 const todolist = [
   {
-    task: 'Organize Garage',
+    task: 'Edit Individual Todos',
     id: 1528817077286,
     completed: false
   },
   {
-    task: 'Bake Cookies',
+    task: 'Brush Teeth',
     id: 1528817084358,
     completed: false
   }
@@ -54,13 +54,14 @@ class App extends React.Component {
 
   clearTodos = () => {
     this.setState({
-     todolist: this.state.todolist.filter((task) => task.completed)
+     todolist: this.state.todolist.filter((task) => !task.completed)
     })
   }
   addItem = itemName => {
-    console.log("NAL: index.js: App: addItem: itemName: ", itemName);
+    console.log("NAL: App.js: App: addItem: itemName: ", itemName);
     this.setState({
-      todolist: [...this.state.todolist, {id: Date.now(), task: itemName, completed: false}]
+      todolist: [...this.state.todolist, 
+        {id: Date.now(), task: itemName, completed: false}]
     })
   }
 
@@ -68,7 +69,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="header">
-          <h1>Todo List</h1>
+          <h1>Todo List as an MVP</h1>
         <TodoList
           todolist={this.state.todolist}
           toggleDone={this.toggleDone}

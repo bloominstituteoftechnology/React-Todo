@@ -20,7 +20,7 @@ const TodoList = (props) => {
         />
       ))}
       <button onClick={props.clearTodos}className="clear-btn" >
-          Clear All Todos
+          Clear All Finished Todos
         </button>
 
     </div>

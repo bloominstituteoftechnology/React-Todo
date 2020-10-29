@@ -15,8 +15,8 @@ const Todo = (props) => {
     </div>
 
       <button className="clear-btn" 
-      onClick={props.clearTodo}>
-        Clear Todo
+      onClick={props.editTodo}>
+        Edit Todo
       </button>
     </>
    
