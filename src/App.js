@@ -63,6 +63,15 @@ class App extends React.Component {
     })
   }
 
+  clearCompleted = () => {
+    //set state to clear purchased items
+    this.setState( {
+       todo: this.state.todo.filter(item => {
+         return !item.completed;
+       })
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -70,7 +79,10 @@ class App extends React.Component {
           <h1>Todo App</h1>
           <TodoForm addItem={this.addItem} />
         </div>
-        <TodoList todo={this.state.todo} toggleCompleted={this.toggleCompleted} />
+        <TodoList
+         todo={this.state.todo} 
+         toggleCompleted={this.toggleCompleted}
+         clearCompleted={this.clearCompleted} />
       </div>
     );
   }
