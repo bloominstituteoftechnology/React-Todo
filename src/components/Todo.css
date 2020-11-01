@@ -24,6 +24,11 @@ span {
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  background-image: url("https://images.unsplash.com/photo-1543880624-c2c89de9d25e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60");
+  background-size: cover;
+}
+
 .App {
   font-family: sans-serif;
   text-align: center;
@@ -39,6 +44,7 @@ span {
 }
 h1 {
   text-align: left;
+  color: sienna;
 }
 
 .todo-list {
@@ -49,16 +55,17 @@ h1 {
   margin: 0 auto;
 }
 .item {
-  background-color: teal;
+  background-color: saddlebrown;
   width: 45%;
   text-align: left;
+  border-radius: 10px;
   margin: 4px 0;
   padding-left: 8px;
   cursor: pointer;
 }
 
 .item.completed {
-  background-color: slategray;
+  background-color: burlywood;
   text-decoration: line-through;
 }
 form {
@@ -73,21 +80,23 @@ form > input {
   font-size: 1rem;
   width: 240px;
   outline: 0;
-  color: white;
-  border-bottom: 1px solid teal;
+  color: burlywood;
+  border-bottom: 1px solid saddlebrown;
+  border-radius: 10px;
   margin-right: 8px;
 }
 
 button {
-  background-color: teal;
-  border: 1px solid teal;
-  color: white;
+  background-color: saddlebrown;
+  border: 1px solid saddlebrown;
+  border-radius: 10px;
+  color: burlywood;
   font-size: 16px;
   padding: 6px 14px;
 }
 
 input::placeholder {
-  color: teal;
+  color: saddlebrown;
   opacity: 1;
 }
 
