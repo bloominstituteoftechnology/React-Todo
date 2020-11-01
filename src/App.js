@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoForm from "./components/TodoForm"
+import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList"
 
 const toDO = [
@@ -23,9 +23,26 @@ class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      toDo: toDo
+      toDO
     }
   }
+
+  toggleList = (itemId) => {
+    console.log("AL: index.js: App: togglePurchased: itemId: ", itemId);
+  this.setState({
+    ...this.state,
+    toDO: this.state.toDO.map((item) => {
+      if (item.id === itemId) {
+        return {
+          ...item,
+          done: !item.done
+        };
+      }
+      return item;
+    })
+  });
+};
+
   
   render() {
     return (
@@ -34,7 +51,8 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         <TodoForm />
       </div>
-      <TodoList />
+      <TodoList toDO = {this.state.toDO}
+                toggleList= {this.toggleList}/>
       </div>
 
 

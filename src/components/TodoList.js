@@ -3,19 +3,20 @@
 import React from "react";
 import ToDo from './Todo'
 
+
 const ToDoList = (props) => {
     return(
         <div>
-            {props.ToDo.map((item) =>(
-                <ToDo 
-                key={item.name}
+            {props.toDO.map(item =>{
+            return <ToDo 
+                key={item.id}
                 item={item}
                 toggleList={props.toggleList}
                 />
-            ))}
-            <button onClick={props.clearList}>Clear List</button>
+                })}
+            <button>Clear List</button>
         </div>
     )
 }
-
+// onClick={props.clearList}
 export default ToDoList
