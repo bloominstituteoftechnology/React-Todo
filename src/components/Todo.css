@@ -48,7 +48,7 @@ h1 {
   width: 100%;
   margin: 0 auto;
 }
-.todo {
+.item {
   background-color: teal;
   width: 45%;
   text-align: left;
@@ -57,7 +57,7 @@ h1 {
   cursor: pointer;
 }
 
-.todo.completed {
+.item.completed {
   background-color: slategray;
   text-decoration: line-through;
 }
@@ -87,7 +87,7 @@ button {
 }
 
 input::placeholder {
-  color: #e64944;
+  color: teal;
   opacity: 1;
 }
 

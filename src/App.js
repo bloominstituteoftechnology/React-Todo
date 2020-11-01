@@ -6,6 +6,7 @@ import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
 
 import './components/Todo.css'
+import { createPortal } from 'react-dom';
 
 const todo = [
   {
@@ -40,15 +41,34 @@ class App extends React.Component {
 
   toggleCompleted = todoId =>{
     console.log("SV: app.js: app: toggleCompleted: itemId", todoId)
+    this.setState( {
+      ...this.state,
+      todo: this.state.todo.map(todo => {
+        if (todo.id === todoId) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        }
+        return todo;
+      })
+    })
   }
 
+  addItem = (itemName) => {
+    this.setState( {
+      todo: [
+        ...this.state.todo, 
+        {name: itemName, completed: false, id: Date.now() }]
+    })
+  }
 
   render() {
     return (
       <div className="App">
         <div className="header">
           <h1>Todo App</h1>
-          <TodoForm />
+          <TodoForm addItem={this.addItem} />
         </div>
         <TodoList todo={this.state.todo} toggleCompleted={this.toggleCompleted} />
       </div>
