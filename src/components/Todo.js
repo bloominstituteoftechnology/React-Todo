@@ -8,8 +8,9 @@ const Todo = (props) => {
     }
 
     return(
-        <div onClick={handleClick}
-        className={`item${props.item.purchased ? " purchased" : ""}`}
+        <div 
+        onClick={handleClick}
+        className={`item${props.item.completed ? " purchased" : ""}`}
     >
         <p>{props.item.task} </p>
         </div>
