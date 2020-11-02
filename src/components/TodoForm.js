@@ -22,6 +22,7 @@ handleSubmit = (e) => {
     this.props.addTask(this.state.taskName)
     this.setState({taskName: ""})
 }
+
 render(){
     return(
         <form onSubmit={this.handleSubmit}>

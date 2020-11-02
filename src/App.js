@@ -35,7 +35,7 @@ class App extends React.Component {
       if (item.id === itemId) {
         return {
           ...item,
-          done: !item.done
+          completed: !item.completed
         };
       }
       return item;
@@ -52,6 +52,11 @@ addTask = (taskName) => {
   })
 }
 
+clearList = () => {
+  this.setState({
+    toDO: this.state.toDO.filter((item) => !item.completed)
+  })
+}
 
   
   render() {
@@ -62,7 +67,9 @@ addTask = (taskName) => {
         <TodoForm addTask={this.addTask}/>
       </div>
       <TodoList toDO = {this.state.toDO}
-                toggleList= {this.toggleList}/>
+                toggleList= {this.toggleList}
+                clearList= {this.clearList}
+                />
       </div>
 
 
