@@ -1,10 +1,10 @@
 import React from "react"
 
 class TodoForm extends React.Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
-            listname: ""
+            taskName: ""
         }
     }
 
@@ -12,15 +12,15 @@ class TodoForm extends React.Component {
 
     handleChanges = (e) => {
         this.setState({
-            listname: e.target.value
+            taskName: e.target.value
         })
     }
 
 
 handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addItem(this.state.itemName)
-    this.setState({itemName: ""})
+    this.props.addTask(this.state.taskName)
+    this.setState({taskName: ""})
 }
 render(){
     return(
@@ -29,7 +29,7 @@ render(){
             type="text"
             name=""
             onChange={this.handleChanges}
-            value={this.state.itemName}
+            value={this.state.taskName}
             />
             <button>Add</button>
         </form>
