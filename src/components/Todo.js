@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Todo.css";
 
 const Todo = (props) => {
 
@@ -8,7 +8,9 @@ const Todo = (props) => {
     }
 
     return(
-        <div onClick={handleClick}>
+        <div onClick={handleClick}
+        className={`item${props.item.purchased ? " purchased" : ""}`}
+    >
         <p>{props.item.task} </p>
         </div>
     )
