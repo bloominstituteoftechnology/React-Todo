@@ -3,7 +3,7 @@ import React from "react";
 class TodoForm extends React.Component {
 
     constructor(props) {
-        super(props);
+        super();
         
         this.state = {
             itemName: " "
@@ -11,7 +11,7 @@ class TodoForm extends React.Component {
     }
 
     //handleChanges
-    handleChange = (e) => {
+    handleChanges = (e) => {
         this.setState({
             itemName: e.target.value
         })
@@ -27,11 +27,11 @@ class TodoForm extends React.Component {
 
     render(){
         return(
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <input 
                 type="text"
                 name="item"
-                onChange={this.handleChange}
+                onChange={this.handleChanges}
                 value={this.state.itemName}
                 />
                 <button>Add Task</button>

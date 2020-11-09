@@ -1,7 +1,6 @@
 import React from "react";
-import TodoForm from "./TodoForm";
 
-const Item = (props) => {
+const Todo = (props) => {
     const handleClick = () => {
         props.toggleCompleted(props.item.id)
     }
@@ -17,4 +16,4 @@ const Item = (props) => {
     )
 }
 
-export default TodoForm;
+export default Todo;
