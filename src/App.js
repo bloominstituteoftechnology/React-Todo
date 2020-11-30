@@ -43,12 +43,31 @@ class App extends React.Component {
     });
   };
 
+  handleToggle = itemId => {
+    const newTodos = this.state.todos.map(item => {
+      if (itemId === item.id) {
+        return { ...item, done: !item.done };
+      } else {
+        return item;
+      }
+    });
+    this.setState({ todos: newTodos });
+  };
+
+  handleDone = () => {
+    this.setState({ todos: this.state.todos.filter(item => !item.done) });
+  };
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm handleAdd={this.handleAdd} />
-        <TodoList handleDone={this.handleToggle} todos={this.state.todos} />
+        <TodoList
+          handleDone={this.handleDone}
+          todos={this.state.todos}
+          handleToggle={this.handleToggle}
+        />
       </div>
     );
   }
