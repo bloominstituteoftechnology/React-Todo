@@ -5,7 +5,7 @@ import TodoList from './TodoList';
 //Preset Task List
 const list = [
   {
-    name: 'Wakeup',
+    name: 'Take shower',
     id:'100',
     complete:false
   },
