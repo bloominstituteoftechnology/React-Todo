@@ -1,0 +1,26 @@
+
+html{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:3%;
+}
+
+p {
+font-size: 25px;
+}
+
+.completed{
+    text-decoration: line-through black;
+    color: red;
+} 
+
+button {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 1px black solid;
+    padding: 2% 5% 2% 5%;
+   
+    margin: 8% 4% 0% 4%;
+}
