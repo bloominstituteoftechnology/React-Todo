@@ -1,16 +1,46 @@
-import React from 'react';
+import React, { Component } from "react";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
 
-class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+export default class App extends Component {
+  state = {
+    items: [],
+    id: 0,
+    item: "",
+    editItem: false,
+  };
+  handleChange = (e) => {
+    this.setState({
+      item: e.target.value,
+    });
+  };
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newItem = {
+      id: this.state.id,
+      item: this.state.item,
+    };
+    const updatedItems = [...this.state.items, newItem];
+    console.log(newItem);
+    this.setState({
+      items: updatedItems,
+      item: "",
+      id: Date.now(),
+      editItem: false,
+    });
+  };
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        hello from main App
+        <TodoForm
+          item={this.state.item}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
+        <TodoList items={this.state.items}/>
       </div>
     );
   }
 }
-
-export default App;
