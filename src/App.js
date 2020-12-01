@@ -14,7 +14,7 @@ const todoData = [
     completed: false
   },
   {
-    task: 'Eat up Martha',
+    task: 'Make Dinner',
     id: 1528817084358,
     completed: false
   }
@@ -67,8 +67,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>ToDo List</h1>
-        <TodoList toggleItem={this.toggleItem} list={this.state.list}/>
         <TodoForm addItem={this.addItem} clearItems={this.clearItems}/>
+        <TodoList toggleItem={this.toggleItem} list={this.state.list}/>
       </div>
     );
   }

@@ -1,4 +1,27 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const StyledForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    border: black 3px solid;
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 1rem;
+    width: auto;
+
+    input {
+        width: 75%;
+    }
+
+    .inputbox{
+        margin-top: 1rem;
+    }
+    button {
+        margin-left: 1rem;
+    }
+
+`
 
 export default class TodoForm extends React.Component {
     constructor(){
@@ -28,11 +51,19 @@ export default class TodoForm extends React.Component {
 
     render(){
         return(
-            <form onSubmit={this.handleSubmit}>
-                <input onChange={this.handleChanges} value={this.state.newItem} />
-                <button>Add</button>
-                <button onClick={this.handleClear}>Clear</button>
-            </form>
+            <StyledForm onSubmit={this.handleSubmit}>
+                <div>
+                <input onChange={this.handleChanges} value={this.state.newItem} placeholder='What do you want to do?'/>
+                </div>
+                <div className='inputbox'>
+                    <button>Add</button>
+                    <button onClick={this.handleClear}>Clear</button>
+                </div>
+                
+                
+                
+                
+            </StyledForm>
         )
     }
 };
