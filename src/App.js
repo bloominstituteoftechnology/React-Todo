@@ -65,7 +65,7 @@ class App extends React.Component {
       <div className='App'>
 
         <div className='header'>
-          <h1>GIT EM DONE</h1>
+          <h1>Things To Do</h1>
             <TodoForm addTask={this.addTask}/>
         </div>
 
@@ -80,10 +80,4 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-
-
-
-
 
