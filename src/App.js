@@ -1,11 +1,13 @@
 import React from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import "./components/Todo.css";
+
 const initialList = [
   {
     task: "example: Do Laundry",
     id: 1528817077286,
-    completed: false,
+    completed: true,
   },
   {
     task: "example: empty dishwasher",
@@ -14,52 +16,55 @@ const initialList = [
   },
 ];
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-  //CCS
   constructor() {
     super();
     this.state = {
-      list: initialList
-    }
+      list: initialList,
+    };
   }
 
-  handleToggle = (itemId) => {
+  handleComplete = (id) => {
     this.setState({
-      list: this.state.list.map(item => {
-        if(item.id === itemId){
+      list: this.state.list.map((item) => {
+        if (item.id === id) {
           return {
-            ... item,
-            completed: !item.completed
-          }
+            ...item,
+            completed: !item.completed,
+          };
         } else {
-          return item
+          return item;
         }
-      })
-    })
-  }
+      }),
+    });
+  };
 
   handleAddItem = (newItem) => {
     this.setState({
-      list:[...this.state.list, {
-        task: newItem,
-        id: Date.now(),
-        completed: false
-      }]
-    })
-  }
+      list: [
+        ...this.state.list,
+        {
+          task: newItem,
+          id: Date.now(),
+          completed: false,
+        },
+      ],
+    });
+  };
 
   clearItem = () => {
     this.setState({
-      list: this.state.list.filter(item=>(!item.completed))
-    })
-  }
+      list: this.state.list.filter((item) => !item.completed),
+    });
+  };
   render() {
     return (
       <div className="app">
+        <h1>To-Do App</h1>
+        <TodoForm
+          handleAddItem={this.handleAddItem}
+          clearItems={this.clearItems}
+        />
         <TodoList handleToggleItem={this.handleToggle} list={this.state.list} />
-        <TodoForm handleAddItem={this.handleAddItem} clearItems={this.clearItems} />
       </div>
     );
   }
