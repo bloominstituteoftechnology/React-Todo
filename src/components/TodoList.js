@@ -7,7 +7,7 @@ export default class TodoList extends Component {
             <div className='todoList'>
                 {this.props.list.map(item => {
                     return <Todo toggleItem={this.props.toggleItem} key={item.id} item={item} />
-                })};
+                })}
             </div>
         )
     };
