@@ -6,6 +6,7 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
 
   //and here we get started on yesterday's homework. 
+  //tomorrow is going to be a mad productive day!
   render() {
     return (
       <div>
