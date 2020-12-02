@@ -10,7 +10,7 @@ export default class TodoList extends Component {
         {this.props.list.map((item) => {
           return (
             <Todo
-              handleComplete={this.props.handleComplete}
+              onClick={this.props.handleComplete}
               key={item.id}
               item={item}
             />

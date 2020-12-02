@@ -25,6 +25,7 @@ class App extends React.Component {
 
   handleComplete = (itemId) => {
     this.setState({
+      ...this.state,
       list: this.state.list.map((item) => {
         if (itemId === item.id) {
           return {
