@@ -23,10 +23,10 @@ class App extends React.Component {
     };
   }
 
-  handleComplete = (id) => {
+  handleComplete = (itemId) => {
     this.setState({
       list: this.state.list.map((item) => {
-        if (item.id === id) {
+        if (itemId === item.id) {
           return {
             ...item,
             completed: !item.completed,
@@ -51,8 +51,9 @@ class App extends React.Component {
     });
   };
 
-  clearItem = () => {
+  clearItems = (e) => {
     this.setState({
+      ...this.state,
       list: this.state.list.filter((item) => !item.completed),
     });
   };
@@ -64,7 +65,7 @@ class App extends React.Component {
           handleAddItem={this.handleAddItem}
           clearItems={this.clearItems}
         />
-        <TodoList handleToggleItem={this.handleToggle} list={this.state.list} />
+        <TodoList handleComplete={this.handleComplete} list={this.state.list} />
       </div>
     );
   }

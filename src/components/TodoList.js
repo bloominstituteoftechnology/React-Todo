@@ -10,7 +10,7 @@ export default class TodoList extends Component {
         {this.props.list.map((item) => {
           return (
             <Todo
-              handleToggleItem={this.props.handleToggleItem}
+              handleComplete={this.props.handleComplete}
               key={item.id}
               item={item}
             />
