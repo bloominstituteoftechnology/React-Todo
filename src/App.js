@@ -10,21 +10,25 @@ const toDo = [
     id: 1,
     completed: false,
   },
+  {
+    task: "Fix ToDo List",
+    id: 2,
+    completed: false,
+  },
 ];
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = { toDo };
+    console.log("todo", toDo);
   }
 
-  addToDo = (e, task) => {
+  addToDo = (e, todo) => {
     e.preventDefault();
-    const listCopy = [...this.state];
-    const findLastId = listCopy.pop();
     const newTask = {
-      name: task,
-      id: findLastId.id + 1,
+      task: todo,
+      id: this.state.toDo[this.state.toDo.length - 1].id + 1,
       completed: false,
     };
     this.setState({
@@ -60,13 +64,15 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <h2>Todo App</h2>
-        <TodoForm addToDo={this.state.addToDo} />
+        <div className="header">
+          <h2>Todo App</h2>
+          <TodoForm addToDo={this.addToDo} />
+        </div>
         <div className="app__Container">
           <TodoList
             toDo={this.state.toDo}
-            toggleCompleted={this.state.toggleCompleted}
-            clearCompletedTasks={this.state.clearCompletedTasks}
+            toggleCompleted={this.toggleCompleted}
+            clearCompletedTasks={this.clearCompletedTasks}
           />
         </div>
       </div>

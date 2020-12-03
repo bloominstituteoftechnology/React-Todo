@@ -11,6 +11,7 @@ class TodoForm extends React.Component {
       ...this.state,
       newTask: e.target.value,
     });
+    console.log(this.state);
   };
 
   submitNewTask = (e) => {
@@ -25,7 +26,7 @@ class TodoForm extends React.Component {
         <form onSubmit={this.submitNewTask}>
           <input
             value={this.state.newTask}
-            onChange={this.state.handleChange}
+            onChange={this.handleChange}
             type="text"
             name="task"
             placeholder="Enter New Task"
