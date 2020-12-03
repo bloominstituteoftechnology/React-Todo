@@ -1,3 +1,7 @@
-.header {
-	border:2px solir red;
+.completed {
+	text-decoration: line-through;
+}
+
+.App {
+	background-color: bisque;
 }

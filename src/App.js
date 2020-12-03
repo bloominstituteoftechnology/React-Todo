@@ -3,6 +3,8 @@ import TodoForm from './components/TodoForm'
 import TodoList from "./components/TodoList"
 import styled from "styled-components"
 
+import './components/Todo.css'
+
 const todoArr = [
   {
     task: 'Organize Garage',
@@ -21,6 +23,11 @@ border:2px solid red;
 display:flex;
 flex-direction:column;
 align-items:center;
+background-color:green;
+color: white;
+font-weight: bold;
+text-align: center;
+
 `
 
 
