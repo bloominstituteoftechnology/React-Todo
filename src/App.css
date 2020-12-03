@@ -1,0 +1,54 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	background: rgb(24, 50, 98);
+}
+
+.input__container {
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.input__container h2 {
+	margin: 2rem;
+	padding-right: 1rem;
+	font-size: 2rem;
+}
+
+input {
+	padding: 0.5rem;
+	background-color: rgb(24, 50, 98);
+	border: none;
+	border-bottom: 2px solid #fff;
+	margin-right: 0.5rem;
+}
+
+input:focus {
+	background: #fff;
+	outline: none;
+}
+
+form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+button {
+	padding: 0.49rem 1rem;
+	background-color: #fff;
+	border: none;
+	border-radius: 2px;
+	font-size: 1rem;
+}
+
+.clear__btn {
+	margin: 1rem;
+}

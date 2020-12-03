@@ -1,0 +1,11 @@
+.task {
+	background: #fff;
+	padding: 0.8rem 1rem;
+	margin: 1rem;
+}
+
+.completed {
+	text-decoration: line-through;
+	background: rgba(255, 255, 255, 0.3);
+	color: rgba(255, 255, 255, 0.3);
+}
