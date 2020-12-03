@@ -2,6 +2,7 @@ import React from 'react';
 
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import "./components/Todo.css"
 
 const initialTodo = [
   {
@@ -89,8 +90,8 @@ class App extends React.Component {
         </div>
         <TodoList
           initialTodo={this.state.initialTodo}
-          toggleItem={this.state.initialTodo}
-          clearCompleted={this.state.initialTodo}
+          toggleItem={this.toggleItem}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );
