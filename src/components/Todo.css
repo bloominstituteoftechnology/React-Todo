@@ -1,8 +1,31 @@
+
 .initial{
-    color:green
+    color:green;
 }
 
 .completed{
     color: red;
     text-decoration: line-through;
+}
+
+.container{
+    margin: 0 auto;
+    text-align: center;
+}
+.taskHolder{
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+    width: 65%;
+    align-content: center;
+}
+.taskItem{
+    display: flex;
+    width: 100%;
+    align-content: center;
+}
+.operators{
+    margin: 0 auto;
+    justify-content: center;
+    width: 65%;
 }

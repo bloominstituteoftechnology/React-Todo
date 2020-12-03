@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
 import "./components/Todo.css"
+import { Jumbotron, Container } from 'reactstrap';
 
 const totalList = [
   {
@@ -122,8 +123,14 @@ deleteTask = (e) => {
   render() {
     return (
     <>
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="container">
+      <Jumbotron fluid>
+        <Container fluid>
+          <h1 className="display-3">Honey-Do List</h1>
+          <p className="lead">Welcome to your Todo App!.</p>
+        </Container>
+      </Jumbotron>
+        <h2></h2>
         <TodoForm 
           addTask={this.addTask} />
 
