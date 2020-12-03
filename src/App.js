@@ -12,7 +12,7 @@ const initialList = [
   {
     task: "example: empty dishwasher",
     id: 1528817084358,
-    completed: false,
+    completed: true,
   },
 ];
 class App extends React.Component {
@@ -24,6 +24,7 @@ class App extends React.Component {
   }
 
   handleComplete = (itemId) => {
+    console.log("toggling item", itemId)
     this.setState({
       ...this.state,
       list: this.state.list.map((item) => {
