@@ -1,8 +1,8 @@
-.task.initial{
-color:green
+.initial{
+    color:green
 }
 
-.task.completed{
+.completed{
     color: red;
     text-decoration: line-through;
 }

@@ -1,14 +1,23 @@
 import React from 'react';
+import TodoList from './components/TodoList'
+import TodoForm from './components/TodoForm'
+import "./components/Todo.css"
 
-const toDoList = [
+const totalList = [
   {
-    toDo: "Create your first task",
+    task: "Create your first task.",
     id: 987,
     completed: false
   },
   {
-    toDo: "Clear your first task",
+    task: "Click on your first task.",
     id: 654,
+    completed: false
+  },
+  {
+    task: "Clear your first task.",
+    id: 321,
+    completed: false
   }
 ]
 
@@ -22,7 +31,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      toDoList
+      totalList
     }
   }
 
@@ -32,22 +41,23 @@ addTask = (e, item) => {
   console.log(" Add Task" ,e)
   e.preventDefault();
   const newTask = {
-    name: item,
-    purchase: false,
-    id: Date.now()
+    task: item,
+    id: Date.now(),
+    completed: false,
+    
   }
   this.setState({
     ...this.state,
-    toDoList: [...this.state.toDoList, newTask]
+    totalList: [...this.state.totalList, newTask]
   });
 };
 
 //handler to TOGGLE TASK
 toggleTask = (taskId) => {
-  console.log(" Toggle Task")
+  console.log(" Toggle Task", taskId)
   this.setState({
     ...this.state,
-    toDoList: this.state.toDoList.map((task) =>{
+    totalList: this.state.totalList.map((task) =>{
       if(taskId === task.id){
         return{
           ...task,
@@ -60,13 +70,50 @@ toggleTask = (taskId) => {
 
   });
 };
+//Test environment begin
+// toggleTask2 = (taskId) => {
+//   console.log(" Toggle Task", taskId)
+//   this.setState({
+//     ...this.state,
+//     totalList: this.state.totalList.filter((task) => !task.completed )
+
+//   });
+// };
+
+
+
+
+
+// //test environment end
+
+
+
+//handler to RESET TASKS
+toggleTask = (taskId) => {
+  console.log(" Toggle Task", taskId)
+  this.setState({
+    ...this.state,
+    totalList: this.state.totalList.map((task) =>{
+      if(taskId === task.id){
+        return{
+          ...task,
+          completed: !task.completed
+        };
+      } else {
+        return task;
+      }
+    })
+
+  });
+};
+
 //handler to DELETE TASK
 deleteTask = (e) => {
   e.preventDefault();
   console.log(" Delete Task" , e)
   this.setState({
     ...this.state,
-    toDoList: this.state.toDoList.filter((task)=> !task.completed)
+    totalList: this.state.totalList.filter((task)=> !task.completed)
   });
 };
 
@@ -74,10 +121,21 @@ deleteTask = (e) => {
 
   render() {
     return (
+    <>
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <TodoForm 
+          addTask={this.addTask} />
+
+        </div>
+      
+        <TodoList 
+          totalList = {this.state.totalList}
+          toggleTask = {this.toggleTask}
+          deleteTask = {this.deleteTask} />
         
-      </div>
+      
+      </>
     );
   }
 }
