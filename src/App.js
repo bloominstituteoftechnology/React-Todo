@@ -8,10 +8,20 @@ const toDo = [
   {
     task: "Make ToDo List",
     id: 1,
-    completed: false,
+    completed: true,
   },
   {
     task: "Fix ToDo List",
+    id: 2,
+    completed: true,
+  },
+  {
+    task: "Style ToDo List",
+    id: 2,
+    completed: true,
+  },
+  {
+    task: "Eat Food",
     id: 2,
     completed: false,
   },
