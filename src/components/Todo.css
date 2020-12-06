@@ -1,0 +1,14 @@
+.task {
+    color:blue;
+}
+
+.completed {
+    color: purple;
+    text-decoration: line-through;
+}
+.main{
+    display: flex;
+    justify-content: center;
+
+
+}
