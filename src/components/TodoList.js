@@ -7,11 +7,12 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = (props) => {
-  console.log("Props", props)
+  // console.log("Props", props)
       return (
-        <div>
-            {/* <Todo />           */}
-        </div>
+        props.tasks.map((task) => (
+          <Todo key={task.id} task={task}/>
+        )
+      )
       )
     }
 
