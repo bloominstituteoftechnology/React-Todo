@@ -6,30 +6,27 @@ class TodoForm extends React.Component {
         super();
         this.state = {
             task: ""
-        };
+        }
     }
 
     handleChanges = (event) => {
         this.setState({task:event.target.value}) 
-        console.log(this.state);
     }
 
-    initialState = {
-        task: ""
-    }
-
-    submitForm = (event) => {
+    submitTask = (event) => {
         event.preventDefault()
-        this.setState(this.initialState)
+        this.props.addTask(this.state.task)
     }
 
+    
     render() {
         return (
-            <form>
+            <form onSubmit={this.submitTask}>
                 <label htmlFor='task'>Task</label>
                 <input 
                     id='task'
                     type='text'
+                    value={this.state.task}
                     onChange={this.handleChanges}
                 />
                 <button>Add Todo</button>
@@ -38,5 +35,6 @@ class TodoForm extends React.Component {
         )
     }
 }
+
 
 export default TodoForm;
