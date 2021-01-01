@@ -1,15 +1,21 @@
 import React from 'react';
 
 
+
 const Todo = (props) => {
-    // console.log("Props", props)
+    
     return(
-        <div>
+        <div
+            className={`${props.task.completed ? "strike" : ""}`}
+            onClick={() => props.toggleTask(props.task.id)}
+        >
             <h4>{props.task.task}</h4>
-            <p>{props.task.completed}</p>
         </div>
     )
 }
 
 
 export default Todo;
+
+
+// onClick make font style strike-through

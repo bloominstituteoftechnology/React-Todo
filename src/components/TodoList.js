@@ -4,14 +4,16 @@ import React from 'react';
 
 // `<TodoList />` receives your Todos array and iterates over the list generating a new `<Todo />` for each element in the array.
 //- `<Todo />` is a component that takes in the `todo` data and displays the task to the screen.
-import React from 'react';
 import Todo from './Todo';
 
+
+
+
 const TodoList = (props) => {
-  // console.log("Props", props)
+    console.log("Props", props)
       return (
         props.tasks.map((task) => (
-          <Todo key={task.id} task={task}/>
+          <Todo key={task.id} task={task} toggleTask={props.toggleTask}/>
         )
       )
       )
