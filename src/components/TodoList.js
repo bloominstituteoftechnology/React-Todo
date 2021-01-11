@@ -1,5 +1,3 @@
-// your components will all go in this `component` directory.
-// feel free to change this component.js into TodoList.js
 
 import React from 'react';
 import Todo from './Todo';
@@ -7,11 +5,11 @@ import Todo from './Todo';
 class ToDoList extends React.Component{
     
     render(){
-        // console.log(this.props.todosArray)
+        // console.log(this.props)
         return(
             <ul>
             {this.props.todosArray.map((item)=>{
-                return <Todo todoName={item.todoName}/>
+                return <Todo todoName={item.todoName} handleTodoToggle={this.props.handleTodoToggle} key={item.id} item={item}/>
             })}
             </ul>
         )
