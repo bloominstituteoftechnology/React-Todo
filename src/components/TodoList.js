@@ -6,10 +6,11 @@ const TodoList = props =>{
         <div>
             <h3> still todo: </h3>
             <ul>
-            <li>{props.tasks.map(item=>(
+                {props.tasks.map(item=>(
+            <li>
                 <Todo key={item.id} item={item}/>
-            ))}
             </li>
+            ))}
             </ul>
             <button>
                 Clear Completed 

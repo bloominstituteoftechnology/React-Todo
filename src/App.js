@@ -21,12 +21,48 @@ constructor(){
   }
 }
 
+handleItemToggle = (itemId) =>{
+  this.setState({
+    tasks: this.state.tasks.map(item=>{
+      if(item.id === itemId){
+        return {
+          ...item,
+          completed: !item.completed
+        }
+      }
+      return(item)
+    })
+  })
+}
+
+handleItemAdd = (itemName) =>{
+  const item = {
+    name: itemName,
+    id: this.state.tasks.length,
+    completed: false
+  }
+  const newTasks = [...this.state.tasks, item]
+
+  this.setState({
+    tasks: newTasks
+  })
+}
+
+handleItemClear = () =>{
+  const newTasks = this.state.tasks.filter(item=>{
+    return (!item.completed)
+  })
+  this.setState({
+    tasks: newTasks
+  })
+}
+
   render() {
     return (
       <div>
         <h2>Will's Todo App!</h2>
-        <TodoForm/>
-        <TodoList tasks={this.state.tasks}/>
+        <TodoForm handleItemAdd={this.handleItemAdd}/>
+        <TodoList tasks={this.state.tasks} handleItemClear={this.handleItemClear} handleItemToggle={this.handleItemToggle}/>
       </div>
     );
   }
