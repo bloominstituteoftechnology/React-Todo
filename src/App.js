@@ -1,8 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
-
+import Header from './components/Header';
+import Footer from './components/Footer';
 import data from './data';
 
 class App extends React.Component {
@@ -52,17 +54,41 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>2Du</h1>
-        <TodoForm addTodo={this.addTodoHandler} />
-        <TodoList
-          completionHandler={this.completionHandler}
-          toggleHandler={this.toggleHandler}
-          tasks={this.state.tasks}
-        />
-      </div>
+      <StyledDiv>
+        <Header />
+        <StyledContent>
+          <h1>New.Too.Do</h1>
+          <TodoForm addTodo={this.addTodoHandler} />
+          <TodoList
+            completionHandler={this.completionHandler}
+            toggleHandler={this.toggleHandler}
+            tasks={this.state.tasks}
+          />
+        </StyledContent>
+        <Footer />
+      </StyledDiv>
     );
   }
 }
 
 export default App;
+
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+`;
+
+const StyledContent = styled.div`
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  color: #8e8d8a;
+
+  h1 {
+    font-size: 8rem;
+    font-family: 'Cookie', cursive;
+    color: #e98074;
+  }
+`;

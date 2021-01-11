@@ -22,8 +22,16 @@ const Todo = (props) => {
 export default Todo;
 
 const StyledDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px;
   .todo {
     font-size: 2rem;
+    font-weight: bold;
+  }
+  p:hover {
+    transform: scale(1.1);
   }
   .completed {
     text-decoration: line-through;
