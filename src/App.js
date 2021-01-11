@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
 import './components/Todo.css'
+import './index.css'
 
 const init = [
   {
@@ -52,8 +53,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="container mx-auto p-10">
+        <h2 className="text-4xl">Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todos} toggleComplete={this.toggleComplete}/>
         <TodoForm addTodo={this.addTodo} clearTodos={this.clearTodos}/>
       </div>

@@ -9,13 +9,13 @@ class Todo extends React.Component {
   render() {
     return (
       <div>
-        <h3
+        <p
           id={this.state.id}
-          className={this.state.completed ? 'checked' : ''}
+          className={this.state.completed ? 'line-through' : ''}
           onClick={this.props.toggleComplete}
         >
           {this.state.task}
-        </h3>
+        </p>
       </div>
     );
   }

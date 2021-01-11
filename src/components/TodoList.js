@@ -5,7 +5,7 @@ class TodoList extends React.Component {
   render() {
     return (
       <div>
-        <h1>List of Todos</h1>
+        <h1 className="text-xl my-4">List of Todos</h1>
         {this.props.todos.map((todo) => (
           <Todo
             key={todo.id}
