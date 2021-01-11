@@ -25,14 +25,15 @@ class App extends Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-  handleItemAdd = (itemName) => {
+  handleItemAdd = (inputValue) => {
     const item = {
-      task: itemName,
+      task: inputValue,
       id: Date.now(),
       completed: false
     };
 
-    const newTasks = [...this.state.list, item];
+    const newTasks = [item, ...this.state.list];
+    // console.log(item.id);
 
     this.setState({
       list: newTasks,
@@ -54,11 +55,11 @@ class App extends Component {
   }
 
   handleItemCompleted = () => {
-    const newTasks = this.state.task.filter(item => {
+    const newTasks = this.state.list.filter(item => {
       return(!item.completed);
     });
     this.setState({
-      groceries: newTasks,
+      list: newTasks,
     })
   }
 
