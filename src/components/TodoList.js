@@ -5,16 +5,12 @@ import Todo from './Todo';
 
 const TodoList = props =>{
 
-    const handleClear = () =>{
-        props.handleClearCompleted();
-    }
 
     return(
         <div className='todo-list'>
             {props.toDoList.map(todo =>(
                 <Todo handleTodoToggle={props.handleTodoToggle} key={todo.id} todo={todo} />
             ))}
-            <button onClick={handleClear} >Clear Completed</button>
         </div>
     )
 };

@@ -47,7 +47,7 @@ class App extends React.Component {
     const todo ={
       task: todoName,
       id:this.state.todo.length,
-      purchased: false
+      completed: false
     }
 
     const newTodo = [...this.state.todo, todo];
@@ -72,8 +72,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Todo List:</h2>
-        <TodoList toDoList={this.state.todo} handleTodoToggle={this.handleTodoToggle} handleClearCompleted={this.handleClearCompleted} />
-        <TodoForm handleAddTodo={this.handleAddTodo} />
+        <TodoList toDoList={this.state.todo} handleTodoToggle={this.handleTodoToggle}  />
+        <TodoForm handleAddTodo={this.handleAddTodo} handleClearCompleted={this.handleClearCompleted}/>
       </div>
     );
   }
