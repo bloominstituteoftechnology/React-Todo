@@ -1,0 +1,8 @@
+.task {
+  border-top: 1px solid;
+    width: 250px;
+    text-align: center;
+}
+.completed h3 {
+    text-decoration: line-through;
+}
