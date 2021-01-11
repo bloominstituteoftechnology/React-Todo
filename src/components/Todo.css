@@ -1,5 +1,7 @@
-.completed{
-    background-color: black;
-    color:white;
+body{
     font-size: larger;
+}
+
+.completed{
+    text-decoration: line-through;
 }
