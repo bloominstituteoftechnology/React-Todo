@@ -42,12 +42,24 @@ class App extends React.Component {
     });
   };
 
+  completionHandler = () => {
+    const newTasks = this.state.tasks.filter((todo) => {
+      return !todo.completed;
+    });
+
+    this.setState({ tasks: newTasks });
+  };
+
   render() {
     return (
       <div>
         <h1>2Du</h1>
         <TodoForm addTodo={this.addTodoHandler} />
-        <TodoList toggleHandler={this.toggleHandler} tasks={this.state.tasks} />
+        <TodoList
+          completionHandler={this.completionHandler}
+          toggleHandler={this.toggleHandler}
+          tasks={this.state.tasks}
+        />
       </div>
     );
   }
