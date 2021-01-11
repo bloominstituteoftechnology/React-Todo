@@ -16,7 +16,7 @@ class App extends React.Component {
     };
   }
 
-  addTodo = (todoName) => {
+  addTodoHandler = (todoName) => {
     const todo = {
       name: todoName,
       id: this.state.tasks.length,
@@ -28,12 +28,26 @@ class App extends React.Component {
     this.setState({ tasks: newTasks });
   };
 
+  toggleHandler = (todoId) => {
+    this.setState({
+      tasks: this.state.tasks.map((todo) => {
+        if (todo.id === todoId) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
+        }
+        return todo;
+      }),
+    });
+  };
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm addTodo={this.addTodo} />
-        <TodoList tasks={this.state.tasks} />
+        <h1>2Du</h1>
+        <TodoForm addTodo={this.addTodoHandler} />
+        <TodoList toggleHandler={this.toggleHandler} tasks={this.state.tasks} />
       </div>
     );
   }
