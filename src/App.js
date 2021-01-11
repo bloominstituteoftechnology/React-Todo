@@ -11,6 +11,7 @@ class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
+
   constructor() {
     super();
     this.state = {
@@ -87,8 +88,25 @@ const StyledContent = styled.div`
   color: #8e8d8a;
 
   h1 {
-    font-size: 8rem;
+    font-size: 9rem;
     font-family: 'Cookie', cursive;
     color: #e98074;
+    transition: 0.3s;
+  }
+
+  h1:hover {
+    cursor: default;
+  }
+
+  @media (max-width: 800px) {
+    h1 {
+      font-size: 6rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 4rem;
+    }
   }
 `;

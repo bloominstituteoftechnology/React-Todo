@@ -11,12 +11,12 @@ const Header = () => {
 
 const StyledHeader = styled.header`
   background-color: #e85a4f;
-  height: 70px;
+  height: 90px;
   display: flex;
   align-items: center;
 
   h2 {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     font-family: 'Cookie', cursive;
     color: #f7f9fb;
     padding: 10px;

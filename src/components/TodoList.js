@@ -7,6 +7,7 @@ const TodoList = (props) => {
   const clickHandler = () => {
     props.completionHandler();
   };
+
   return (
     <div>
       <StyledDiv>
@@ -15,9 +16,13 @@ const TodoList = (props) => {
         ))}
       </StyledDiv>
       <StyledButtonDiv>
-        <button onClick={clickHandler} className='clear-butt'>
-          Clear Completed Tasks
-        </button>
+        {props.tasks.length < 1 ? (
+          <div />
+        ) : (
+          <button onClick={clickHandler} className='clear-butt'>
+            Clear Completed Tasks
+          </button>
+        )}
       </StyledButtonDiv>
     </div>
   );
@@ -28,7 +33,7 @@ export default TodoList;
 const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
-  width: 80%;
+  flex-wrap: wrap;
   margin: 0 auto;
 `;
 
