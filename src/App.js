@@ -37,25 +37,25 @@ const todos = [
 ];
 
 class App extends React.Component {
-           Constructor(){
-             
+           constructor(){
+             super();
             
-              debugger
+            
        this.state = {todos:todos}
 
 
 
 }
-handleItemToggle = (todoId)=> {
+handleItemToggle = (itemId)=> {
   this.setState({
-    todos: this.state.todos.map(todo=>{
-      if(todo.id === todoId) {
+    todos: this.state.todos.map(item=>{
+      if(item.id === itemId) {
         return {
-          ...todo,
-          completed: !todo.completed
+          ...item,
+          completed: !item.completed
         }
       }
-      return(todo);
+      return(item);
     })
   });
 }
@@ -93,7 +93,7 @@ handleItemCompleted = () => {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm  handleItemAdd ={this.handleItemAdd}/>
-         {/* <TodoList todos={this.state.todos} handleItemCompleted={this.handleItemCompleted} />  */}
+         <TodoList todos={this.state.todos} handleItemCompleted={this.handleItemCompleted} /> 
       </div>
     );
   }
