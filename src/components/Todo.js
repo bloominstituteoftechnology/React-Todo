@@ -2,7 +2,7 @@ import React from 'react'
 
 const Todo = props =>{
 
-    const handleToggle = props =>{
+    const handleToggle = () =>{
         props.handleItemToggle(props.item.id);
     }
 

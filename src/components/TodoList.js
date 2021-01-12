@@ -3,7 +3,7 @@ import Todo from './Todo'
 
 const TodoList = props =>{
 
-    const handleClear = props =>{
+    const handleClear = () =>{
         props.handleItemClear();
     }
 
