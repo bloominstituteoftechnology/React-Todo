@@ -30,7 +30,11 @@ export default class Add extends React.Component {
           <input type='text' placeholder='Add a new item' onChange={this.handleInput} value={this.state.inputValue}></input>
           <input type='submit' value='Add'></input>
         </form>
+        <button id='clear' onClick={this.props.clearCompleted}>
+          Delete Completed Items
+        </button>
       </div>
+      
     )
   }
 }

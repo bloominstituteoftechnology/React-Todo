@@ -37,14 +37,14 @@ We're going to practice building a stateful class component with this project. E
 - [x] Create a forked copy of this project.
 - [x] Clone your OWN version of the repository in your terminal
 - [x] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [x] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into main (student's Repository). **Please don't merge your own pull request**
-- [ ] From the home page of your repo, make sure you have your branch selected
-- [ ] Copy the URL and paste it into Canvas
+- [x] Submit a Pull-Request to merge <firstName-lastName> Branch into main (student's Repository). **Please don't merge your own pull request**
+- [x] From the home page of your repo, make sure you have your branch selected
+- [x] Copy the URL and paste it into Canvas
 
 ### Task 2: MVP
 
@@ -77,6 +77,6 @@ Follow these steps for completing your project.
 
 ## Submission Format
 
-- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
-- [ ] From the home page of your repo, make sure you have your branch selected
-- [ ] Copy the URL and paste it into Canvas to submit your assignment
+- [x] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
+- [x] From the home page of your repo, make sure you have your branch selected
+- [x] Copy the URL and paste it into Canvas to submit your assignment

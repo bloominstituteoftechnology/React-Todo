@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Item from './Item';
+import Todo from './Todo';
 import './styles.css'
 
 export default class List extends Component {
@@ -9,7 +9,7 @@ export default class List extends Component {
       <div>
         <div className='list-container'>
           {this.props.items.map(item => (
-            <Item toggleCompleted={this.props.toggleCompleted} key={item.id} item={item} />
+            <Todo toggleCompleted={this.props.toggleCompleted} key={item.id} item={item} />
           ))}
         </div>
 

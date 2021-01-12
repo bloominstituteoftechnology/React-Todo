@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import List from './List.js';
-import Add from './Add';
+import TodoList from './TodoList.js';
+import TodoForm from './TodoForm';
 
 const initialListItems = [
   {
@@ -53,7 +53,12 @@ class App extends React.Component {
   }
 
   clearCompleted = e => {
-    return;
+    const newItems = this.state.listItems.filter(item=> {
+      return !item.completed;
+    })
+    this.setState({
+      listItems: newItems
+    })
   }
 
   render() {
@@ -62,11 +67,8 @@ class App extends React.Component {
         <div className='header'>
           <h1>To-Do List</h1>
         </div>
-        <List items={this.state.listItems} toggleCompleted={this.toggleCompleted}/>
-        <Add handleItemAdd={this.handleItemAdd} />
-        <button id='clear' onClick={this.clearCompleted}>
-          Delete Completed Items
-        </button>
+        <TodoList items={this.state.listItems} toggleCompleted={this.toggleCompleted}/>
+        <TodoForm handleItemAdd={this.handleItemAdd} clearCompleted={this.clearCompleted}/>
       </div>
     );
   }
