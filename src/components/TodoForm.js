@@ -40,7 +40,7 @@ class TodoForm extends React.Component {
                     </button>
                 </form>
                 <button 
-                    onclick={this.props.clearCompleted}
+                    onClick={this.props.clearCompleted}
                 >
                     Clear
                 </button>

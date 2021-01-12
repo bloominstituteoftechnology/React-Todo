@@ -1,5 +1,4 @@
 import React from "react"
-import TodoForm from "./TodoForm"
 
 function Todo({ todo, toggleCompleted }) {
     return(
