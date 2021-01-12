@@ -2,17 +2,23 @@ import React from 'react'
 import Todo from './Todo'
 
 const TodoList = props =>{
+
+    const handleClear = props =>{
+        props.handleItemClear();
+    }
+
+
     return(
         <div>
             <h3> still todo: </h3>
             <ul>
                 {props.tasks.map(item=>(
             <li>
-                <Todo key={item.id} item={item}/>
+                <Todo handleItemToggle={props.handleItemToggle} key={item.id} item={item}/>
             </li>
             ))}
             </ul>
-            <button>
+            <button onClick={handleClear}>
                 Clear Completed 
             </button>
         </div>
