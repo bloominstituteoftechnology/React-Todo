@@ -13,7 +13,7 @@ const ToDoList = props => {
                 <ToDo handleTaskToggle ={props.handleTaskToggle} key={task.id} task={task} />
             ))}
             <button onClick={handleClick} className="clear-button">
-                Clear list
+                Clear List
             </button>
         </div>
     );

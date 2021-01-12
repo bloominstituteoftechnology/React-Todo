@@ -4,8 +4,8 @@ import ToDoForm from "./components/TodoForm"
 
 const tasks = [
   {
-    task: "",
-    id: "",
+    task: "Get over Imposter Syndrome",
+    id: Date.now(),
     completed: false
   }
 ];
@@ -38,7 +38,7 @@ class App extends React.Component {
 
   handleTaskAdd = (taskName) => {
     const task = {
-      name: taskName,
+      task: taskName,
       id: Date.now(),
       completed: false
     };
@@ -46,7 +46,7 @@ class App extends React.Component {
 
     this.setState({
       tasks: newTasks
-    })
+    });
   }
 
   handleTaskCompleted = () => {
