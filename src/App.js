@@ -51,6 +51,7 @@ class App extends React.Component {
     })
   }
 
+  //delete all completed items
   clearCompleted = () => {
     const newItems = this.state.listItems.filter(item=> {
       return !item.completed;
@@ -60,13 +61,17 @@ class App extends React.Component {
     })
   }
 
+  //individual delete item button
   deleteItem = (itemId) => {
-    const newItems = this.state.listItems.filter(item => {
-      return itemId !== item.id;
-    })
-    console.log(newItems);
+    // const keptItems = this.state.listItems.filter(item => {
+    //   return itemId !== item.id;
+    // })
+    // console.log(keptItems);
+    // this.setState({
+    //   listItems: keptItems
+    // })
     this.setState({
-      listItems: newItems
+      listItems: this.state.listItems.filter(i => itemId !== i.id)
     })
   }
 

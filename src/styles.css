@@ -49,7 +49,7 @@ table {
   display: flex;
   flex-direction: column;
 }
-.item {
+.itemContainer {
   background-color: white;
   width: 300px;
   margin: 5px;
@@ -60,7 +60,7 @@ table {
   box-shadow: 2px 2px 2px gray;
   border: 1px solid transparent;
 }
-.item:hover {
+.itemContainer:hover {
   border: 1px solid lightgray;
 }
 .item p {
@@ -85,7 +85,7 @@ table {
 .invisible {
   color: transparent;
 }
-.item:hover .deleteItem{
+.itemContainer:hover .deleteItem{
   color: gray;
   text-decoration: none;
 }
@@ -97,4 +97,10 @@ input {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid black;
+}
+input:focus {
+  outline: none;
+}
+button:focus {
+  outline: 1px solid lightgray;
 }

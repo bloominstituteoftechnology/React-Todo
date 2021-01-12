@@ -11,8 +11,10 @@ export default function Item(props) {
   }
   
   return (
-    <div className={`item${props.item.completed ? ' completed' : ''}`} onClick={handleClick}>
-      <p>{props.item.task}</p>
+    <div className='itemContainer'>
+      <div className={`item${props.item.completed ? ' completed' : ''}`} onClick={handleClick}>
+        <p>{props.item.task}</p>
+      </div>
       <button className='deleteItem invisible' onClick={handleDeleteClick}>x</button>
     </div>
   )
