@@ -8,7 +8,8 @@ class App extends React.Component{
             items:[],
             currentItem:{
                 text: '',
-                key: ''
+                key: '',
+                completed: false
             }
         }
         this.handleInput = this.handleInput.bind(this)
@@ -24,7 +25,7 @@ class App extends React.Component{
             }
         })
     }
-    addItem= (e) => {
+    addItem = (e) => {
         e.preventDefault();
         const newItem = this.state.currentItem
         console.log(newItem)
@@ -35,6 +36,7 @@ class App extends React.Component{
                 currentItem:{
                     text: '',
                     key:''
+                   
                 }
             })
         }
@@ -46,6 +48,16 @@ class App extends React.Component{
                 items:filteredItems
             })
     }
+    toggleCompleted = (e) => {
+        const currentCompleted = this.state.currentItem.completed
+       
+        this.setState({
+            currentItem:{
+                completed: !currentCompleted
+            }
+        })
+       
+    }
     render() {
         return(
             <>
@@ -54,7 +66,8 @@ class App extends React.Component{
            <input type="text" placeholder="Enter Text" onChange={this.handleInput}/>
            <button type="submit">Add</button>
            <TodoList items={this.state.items}
-           deleteItem={this.deleteItem}
+           deleteItem={this.deleteItem} 
+           toggleComplete={this.toggleCompleted}
            />
            </form>
            </>
