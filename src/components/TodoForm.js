@@ -23,7 +23,8 @@ class TodoForm extends React.Component{
         })
     }
 
-    handleClear = () =>{
+    handleClear = (evt) =>{
+        evt.preventDefault();
         this.props.handleClearCompleted();
     }
 

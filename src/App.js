@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoList';
-import Todo from './components/Todo';
 import TodoForm from './components/TodoForm';
+import TodoCSS from './components/Todo.css';
 
 
 
@@ -29,6 +29,8 @@ class App extends React.Component {
     }
   }
 
+
+  //handle whether the completed for the todo is false or true when clicked on
    handleTodoToggle = (todoId)=>{
     this.setState({
       todo: this.state.todo.map(todo=>{
@@ -43,10 +45,12 @@ class App extends React.Component {
     })
   }
 
+
+  //Will add to do to list when form is filled out
   handleAddTodo = (todoName) =>{
     const todo ={
       task: todoName,
-      id:this.state.todo.length,
+      id: this.state.todo.length,
       completed: false
     }
 
@@ -57,6 +61,7 @@ class App extends React.Component {
     })
   }
 
+  //Clear off the todos that were checked off
     handleClearCompleted = () =>{
       const newTodo = this.state.todo.filter(todo=>{
         return(!todo.completed);
