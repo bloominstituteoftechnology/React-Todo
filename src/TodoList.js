@@ -9,7 +9,7 @@ export default class List extends Component {
       <div>
         <div className='list-container'>
           {this.props.items.map(item => (
-            <Todo toggleCompleted={this.props.toggleCompleted} key={item.id} item={item} />
+            <Todo toggleCompleted={this.props.toggleCompleted} key={item.id} item={item} items={this.props.items} deleteItem={this.props.deleteItem}/>
           ))}
         </div>
 
