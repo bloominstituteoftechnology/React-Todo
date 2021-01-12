@@ -1,0 +1,49 @@
+*{
+    border: 1px black solid;
+}
+.main-container {
+    margin:50px auto;
+    background-color: teal;
+    width:500px;
+    border: 2px black solid;
+}
+h2{
+    color:white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+.form-container {
+    background-color:white;
+    display: flex;
+    justify-content: center;
+    width:100%;
+}
+.form-input{
+    width:250px;
+    height:30px;
+    border-radius: 10px;
+}
+.add-btn{
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+.new-item{
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 10px;
+    padding:10px;
+    width:30%;
+    color:white;
+    
+    text-transform: capitalize;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.completed{
+   border: 1px white solid; 
+}
