@@ -12,6 +12,22 @@ class App extends React.Component {
     todos: [],
   };
 
+  componentDidMount() {
+    const { todos } = JSON.parse(window.localStorage.getItem('todos'));
+    if (todos) {
+      this.setState({ ...this.state, todos });
+    } else {
+      window.localStorage.setItem('todos', []);
+    }
+  }
+
+  componentDidUpdate() {
+    window.localStorage.setItem(
+      'todos',
+      JSON.stringify({ todos: this.state.todos })
+    );
+  }
+
   addTodo = (todo) => {
     this.setState({
       ...this.state,
@@ -33,7 +49,7 @@ class App extends React.Component {
     e.preventDefault();
     this.setState({
       ...this.state,
-      todos: this.state.todos.filter((todo) => todo.completed === true),
+      todos: this.state.todos.filter((todo) => todo.completed !== true),
     });
   };
 
