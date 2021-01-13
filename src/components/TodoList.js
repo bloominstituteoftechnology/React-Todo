@@ -5,23 +5,20 @@ import React from "react";
 
 import Todo from "./Todo";
 
-const TodoList = props => {
-  console.log(props)
-  const handleClick = ()=> {
-    props.handleTaskCompleted();
-  }
+class TodoList extends React.Component  {
+      constructor(){
+        super();
+      }
 
+ render(){
   return (
     <div>
-       {props.todos.map(item=>  (
-        <Todo handleItemToggle={props.handleItemToggle} key={item.id} item={item} />
+       {this.props.todos.map(item=>  (
+        <Todo handleItemToggle={this.props.handleItemToggle} key={item.id} item={item} />
       ))}
 
-      <button onClick={handleClick}>
-        Clear Todo
-      </button>
     </div>
   );
 };
-
+}
 export default TodoList;

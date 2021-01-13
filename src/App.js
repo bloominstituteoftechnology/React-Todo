@@ -1,37 +1,37 @@
 import React from 'react';
 import TodoForm from "./components/TodoForm"
 import TodoList from "./components/TodoList"
-
+import "./components/css/Todo.css"
 
 const todos = [
   {
     task: 'Walk the Dog',
-    id: Date.now(),
+    id: 1,
     completed: false
   },
   {
     task: 'Feed the Dog',
-    id: Date.now(),
+    id: 2,
     completed: false
   },
   {
     task: 'WorkOut',
-    id: Date.now(),
+    id: 3,
     completed: false
   },
   {
     task: 'Get Groceries',
-    id: Date.now(),
+    id: 4,
     completed: false
   },
   {
     task: 'Get Gas',
-    id: Date.now(),
+    id: 5,
     completed: false
   },
   {
     task: 'Learn React',
-    id: Date.now(),
+    id: 6,
     completed: false
   }
 ];
@@ -41,12 +41,12 @@ class App extends React.Component {
              super();
             
             
-       this.state = {todos:todos}
+       this.state = {todos}
 
 
 
 }
-handleItemToggle = (itemId)=> {
+handleToggle = (itemId)=> {
   this.setState({
     todos: this.state.todos.map(item=>{
       if(item.id === itemId) {
@@ -54,8 +54,10 @@ handleItemToggle = (itemId)=> {
           ...item,
           completed: !item.completed
         }
-      }
+      
+      }else {
       return(item);
+    }
     })
   });
 }
@@ -80,7 +82,7 @@ handleItemCompleted = () => {
   const newTodos = this.state.todos.filter(todo=>{
     return(!todo.completed);
   });
-
+    
   this.setState({
     todos: newTodos,
   })
@@ -92,8 +94,8 @@ handleItemCompleted = () => {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm  handleItemAdd ={this.handleItemAdd}/>
-         <TodoList todos={this.state.todos} handleItemCompleted={this.handleItemCompleted} /> 
+        <TodoForm  handleItemAdd ={this.handleItemAdd} handleItemToggle={this.handleToggle} handleItemCompleted={this.handleItemCompleted}/>
+      <TodoList todos={this.state.todos} handleItemToggle={this.handleToggle} handleItemCompleted={this.handleItemCompleted} /> 
       </div>
     );
   }

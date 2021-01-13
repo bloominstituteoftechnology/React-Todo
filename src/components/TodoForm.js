@@ -3,19 +3,19 @@ import React from "react";
 class TodoForm extends React.Component {
   
   constructor() {
-    super()
+    super();
     this.state = {
       inputValue: ""
     }
   }
 
-  handleChanges = e => {
+  handleChange = e => {
     this.setState({
       inputValue: e.target.value
     });
   };
 
-  // class property to submit form
+  
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.handleItemAdd(this.state.inputValue);
@@ -23,12 +23,16 @@ class TodoForm extends React.Component {
       inputValue:""
     });
   }
+   handleClick = ()=> {
+   this.props.handleItemCompleted(this.props.todos);
+  }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input value={this.state.inputValue} onChange={this.handleChanges} type="text" name="item" />
+        <input value={this.state.inputValue} onChange={this.handleChange} type="text" name="item" />
         <button>Add Task</button>
+        <button onClick={this.handleClick}>Clear</button>
       </form>
     );
   }
