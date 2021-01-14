@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
+import SearchBar from './components/SearchBar';
 
 const todo = [
   {
@@ -24,7 +25,8 @@ class App extends React.Component {
     super();
     this.state = {
       todo,
-      newTask: ""
+      newTask: "",
+      search: ""
     };
   };
 
@@ -81,6 +83,13 @@ class App extends React.Component {
 
 
   render() {
+
+    const {todo, search} = this.state;
+
+    const filteredTasks = todo.filter(task => (
+      task.name.toLowerCase().includes(search.toLowerCase())
+    ))
+
     return (
       <div className="App" >
 
@@ -88,8 +97,10 @@ class App extends React.Component {
 
           <h2>Welcome to your Todo App!</h2>
 
+          <SearchBar handleChange={(e) => this.setState({search: e.target.value})} />
+
           <TodoList 
-            todo={this.state.todo}
+            todo={filteredTasks}
             toggleTask={this.toggleTask}
             clearCompleted={this.clearCompleted}
           />
