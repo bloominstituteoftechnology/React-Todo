@@ -4,7 +4,7 @@ const Todo = props => {
     
 
     return (
-        <div>
+        <div className={`todo${props.todo.completed ? ' purchased' : ''}`} >
             <p>{props.todo.name}</p>
         </div>
     )

@@ -3,7 +3,13 @@ import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
-const todo = [];
+const todo = [
+  {
+    name: 'Make Bed',
+    id: 1,
+    completed: false
+  }
+];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -20,6 +26,20 @@ class App extends React.Component {
   addTodo = todoName => {
     this.setState({
       todo: [...this.state.todo, {task: todoName, id: Date.now(), completed: false}]
+    });
+  };
+
+  toggleTodo = todoId => {
+    this.setState({
+      todo: this.state.todo.map(todo => {
+        if(todo.id === todoId){
+          return {
+            ...todo,
+            completed: todo.completed
+          };
+        };
+        return todo;
+      })
     });
   };
 
