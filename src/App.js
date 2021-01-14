@@ -43,6 +43,14 @@ class App extends React.Component {
     });
   };
 
+  clearPurchased = () => {
+    this.setState({
+      todo: this.state.todo.filter(todo => {
+        return !todo.purchased
+      })
+    });
+  };
+
   render() {
     return (
       <div>
