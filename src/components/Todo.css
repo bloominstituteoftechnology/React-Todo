@@ -1,0 +1,9 @@
+.task {
+    background-color: aquamarine;
+    width: 150px;
+    text-align: center;
+}
+.task.completed {
+    background-color: aqua;
+    text-decoration: line-through;
+}
