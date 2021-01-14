@@ -4,28 +4,53 @@ import TodoForm from "./components/TodoForm";
 
 const toDo = [
   {
-    task: "Learn Advanced React: Class Components",
+    task: "Develop a new feature for the web application",
     id: 1,
     completed: false,
   },
   {
-    task: "Read the Tool Kit",
+    task: "Buy a helmet for cycling",
     id: 2,
     completed: false,
   },
   {
-    task: "Prepare to watch the video clips ",
+    task: "Have lunch with Maria on Wednesday ",
     id: 3,
     completed: false,
   },
   {
-    task: "Learn to explain Class Components",
+    task: "Analyze the survey results",
     id: 4,
     completed: false,
   },
   {
-    task: "Complete the Guided Project",
+    task: "Deliver the company accounts on day 30",
     id: 5,
+    completed: false,
+  },
+  {
+    task: "Publish an article on Monday",
+    id: 6,
+    completed: false,
+  },
+  {
+    task: "Save a music CD to have in the car",
+    id: 7,
+    completed: false,
+  },
+  {
+    task: "Call dad for his birthday",
+    id: 8,
+    completed: false,
+  },
+  {
+    task: "I would like to visit New Zealand",
+    id: 9,
+    completed: false,
+  },
+  {
+    task: "Learn to use Sketch",
+    id: 10,
     completed: false,
   },
 ];
