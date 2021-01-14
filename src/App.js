@@ -16,6 +16,12 @@ class App extends React.Component {
     };
   };
 
+  addTodo = todoName => {
+    this.setState({
+      todo: [...this.state.todo, {task: todoName, id: Date.now(), completed: false}]
+    });
+  };
+
   render() {
     return (
       <div>
