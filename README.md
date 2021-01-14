@@ -34,17 +34,17 @@ We're going to practice building a stateful class component with this project. E
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project.
-- [ ] Clone your OWN version of the repository in your terminal
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [Done] Create a forked copy of this project.
+- [Done] Clone your OWN version of the repository in your terminal
+- [Done] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [Done] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [Done] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into main (student's Repository). **Please don't merge your own pull request**
-- [ ] From the home page of your repo, make sure you have your branch selected
-- [ ] Copy the URL and paste it into Canvas
+- [Done] Submit a Pull-Request to merge <firstName-lastName> Branch into main (student's Repository). **Please don't merge your own pull request**
+- [Done] From the home page of your repo, make sure you have your branch selected
+- [Done] Copy the URL and paste it into Canvas
 
 ### Task 2: MVP
 
@@ -67,13 +67,17 @@ Follow these steps for completing your project.
 - Add the ability to remove any todos that you have completed. `.filter` will be your best friend here. When a user clicks on the `Clear Completed` button call your handler function that will filter out any todos that have the completed flag toggled to `true`.
 - **Now is the time to style** Take your time to make this an app that you can be proud of.
 
+[Done]
+
 ### Task 3: Stretch Problems
 
 - **Persist your data** in `window.localStorage()` hint: you may have to pass your data to a stringifier to get it to live inside the `localStorage()` of the browser. This will cause it to persist past the page refresh.
 
 - **Search Functionality** Add a input bar that allows you to search through your tasks and only show the ones that match the search input.
+[Done]
 
 - **Hosting** Create a [Netlify Account](https://www.netlify.com/) and follow the tutorial on how to host your shiny new todo app on the world wide web.
+[Done] - https://elated-curran-2687e5.netlify.app/ 
 
 ## Submission Format
 
