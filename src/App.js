@@ -25,7 +25,7 @@ class App extends React.Component {
 
   addTodo = todoName => {
     this.setState({
-      todo: [...this.state.todo, {task: todoName, id: Date.now(), completed: false}]
+      todo: [...this.state.todo, {name: todoName, id: Date.now(), completed: false}]
     });
   };
 
@@ -55,7 +55,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>My Personal To-Do List</h2>
-        <TodoForm addTodo={this.addTodo} />
+        <TodoForm clearPurchased={this.clearPurchased} addTodo={this.addTodo} />
         <TodoList todo={this.state.todo} toggleTodo={this.toggleTodo} />
       </div>
     );
