@@ -76,6 +76,7 @@ Follow these steps for completing your project.
 - **Search Functionality** Add a input bar that allows you to search through your tasks and only show the ones that match the search input.
 
 - **Hosting** Create a [Netlify Account](https://www.netlify.com/) and follow the tutorial on how to host your shiny new todo app on the world wide web.
+[Done] - https://elated-curran-2687e5.netlify.app/ 
 
 ## Submission Format
 
