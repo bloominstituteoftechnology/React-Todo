@@ -16,13 +16,13 @@ We're going to practice building a stateful class component with this project. E
   {
     task: 'Organize Garage',
     id: 1528817077286,
-    completed: false
+    completed: false,
   },
   {
     task: 'Bake Cookies',
     id: 1528817084358,
-    completed: false
-  }
+    completed: false,
+  },
 ];
 ```
 
@@ -34,11 +34,11 @@ We're going to practice building a stateful class component with this project. E
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project.
-- [ ] Clone your OWN version of the repository in your terminal
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [x] Create a forked copy of this project.
+- [x] Clone your OWN version of the repository in your terminal
+- [x] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [x] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
@@ -77,6 +77,6 @@ Follow these steps for completing your project.
 
 ## Submission Format
 
-- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
+- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's Repo). **Please don't merge your own pull request**
 - [ ] From the home page of your repo, make sure you have your branch selected
 - [ ] Copy the URL and paste it into Canvas to submit your assignment

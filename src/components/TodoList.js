@@ -6,20 +6,24 @@ import Todo from './Todo';
 export default class TodoList extends Component {
   render() {
     return (
-      <div>
-        {this.props.todoList.length > 0 ? (
-          this.props.todoList.map((todo) => (
-            <Todo
-              key={todo.todo}
-              toggleTodo={this.props.toggleTodo}
-              todo={todo}
-            />
-          ))
-        ) : (
-          <div>
-            <p>There is nothing to do right now. Start adding todos!</p>
-          </div>
-        )}
+      <div className="flex p-4" style={{ minHeight: '50%' }}>
+        <div className="flex flex-1">
+          {this.props.todoList.length > 0 ? (
+            <div className="self-center flex-1 flex flex-col justify-evenly items-center">
+              {this.props.todoList.map((todo) => (
+                <Todo
+                  key={todo.todo}
+                  toggleTodo={this.props.toggleTodo}
+                  todo={todo}
+                />
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-5xl self-center">
+              There is nothing to do right now. Start adding todos!
+            </p>
+          )}
+        </div>
       </div>
     );
   }

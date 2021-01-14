@@ -55,9 +55,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm addTodo={this.addTodo} clearTodos={this.clearTodos} />
+      <div className="md:container md:mx-auto h-screen">
+        <div className="bg-gradient-to-r from-green-400 to-blue-500 h-1/2 w-full flex flex-col justify-center items-center shadow-md">
+          <div className="w-5/6 lg:w-4/6 flex flex-col justify-center md:text-left text-center">
+            <h2 className="text-5xl mb-4">Welcome to your Todo App!</h2>
+            <TodoForm addTodo={this.addTodo} clearTodos={this.clearTodos} />
+          </div>
+        </div>
         <TodoList todoList={this.state.todos} toggleTodo={this.toggleTodo} />
       </div>
     );
