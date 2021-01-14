@@ -1,0 +1,9 @@
+.item {
+    background-color: aquamarine;
+    width: 150px;
+    text-align: center;
+}
+.item.completed {
+    background-color: lightcoral;
+    text-decoration: line-through;
+}
