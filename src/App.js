@@ -10,6 +10,7 @@ class App extends React.Component {
 
   state = {
     todos: [],
+    searchInput: '',
   };
 
   componentDidMount() {
@@ -62,7 +63,18 @@ class App extends React.Component {
             <TodoForm addTodo={this.addTodo} clearTodos={this.clearTodos} />
           </div>
         </div>
-        <TodoList todoList={this.state.todos} toggleTodo={this.toggleTodo} />
+        <TodoList
+          todoList={this.state.todos.filter((todo) =>
+            this.state.searchInput
+              ? todo.todo.includes(this.state.searchInput)
+              : true
+          )}
+          toggleTodo={this.toggleTodo}
+          searchInput={this.state.searchInput}
+          updateSearchInput={(k) =>
+            this.setState({ ...this.state, searchInput: k })
+          }
+        />
       </div>
     );
   }
