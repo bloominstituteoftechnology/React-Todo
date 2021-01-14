@@ -14,8 +14,8 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    const { todos } = JSON.parse(window.localStorage.getItem('todos'));
-    if (todos) {
+    if (window.localStorage.getItem('todos')) {
+      const { todos } = JSON.parse(window.localStorage.getItem('todos'));
       this.setState({ ...this.state, todos });
     } else {
       window.localStorage.setItem('todos', []);
