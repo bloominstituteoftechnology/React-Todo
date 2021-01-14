@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
 
 const todo = [];
 
@@ -26,6 +27,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>My Personal To-Do List</h2>
+        <TodoForm addTodo={this.addTodo} />
         <TodoList todo={this.state.todo} />
       </div>
     );
