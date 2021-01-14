@@ -20,7 +20,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>My Personal To-Do List</h2>
-        <TodoList />
+        <TodoList todo={this.state.todo} />
       </div>
     );
   }
