@@ -40,7 +40,7 @@ class App extends React.Component {
         completed: false }]
     })
   }
-
+  //! return !item.completed =======> this means return or only display where item.completed is false, not completed <light green color>
   clearPurchased = () => {
     this.setState({
       list: this.state.list.filter(item => {
