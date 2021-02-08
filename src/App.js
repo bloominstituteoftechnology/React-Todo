@@ -14,12 +14,12 @@ class App extends React.Component {
     this.state = {
       list: [
         {
-          task: "Bake Cookies",
+          task: "Call Recruiter Back",
           id: 12121,
           completed: false
         },
         {
-          task: "Organize Closet",
+          task: "Organize Desk",
           id: 12130,
           completed: false
         },
