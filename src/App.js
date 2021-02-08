@@ -60,7 +60,11 @@ class App extends React.Component {
   }
 
   handleClear = () => {
+    const newTodoList = this.state.list.filter(item => !item.completed);
 
+    this.setState({
+      list: newTodoList
+    });
   }
 
   render() {

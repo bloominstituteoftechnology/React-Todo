@@ -22,7 +22,7 @@ class TodoForm extends React.Component {
   };
 
   handleTasksClear = () => {
-    
+    this.props.handleClear()
   };
 
   render() {
@@ -36,7 +36,7 @@ class TodoForm extends React.Component {
           onChange={this.handleTextInput}
         />
         <button onClick={this.handleTaskAdd}>Add Task</button>
-        <button onClick={this.props.handleClear}>Clear Completed</button>
+        <button onClick={this.handleTasksClear}>Clear Completed</button>
       </form>
     );
   };
