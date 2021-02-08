@@ -28,19 +28,27 @@ class App extends React.Component {
   }
 
   // Handler Functions:
-  handleAdd = () => {
+  handleAdd = (newTask) => {
+    const newItem = {
+      task: newTask,
+      id: this.state.list.length + 1,
+      completed: false
+    }
 
+    this.setState({
+      list: [...this.state.list, newItem]
+    })
   }
 
   handleClear = () => {
-    
+
   }
 
   render() {
     return (
       <div className="container">
         <TodoList list={this.state.list}/>
-        <TodoForm />
+        <TodoForm handleAdd={this.handleAdd} handleClear={this.handleClear}/>
       </div>
     );
   }
