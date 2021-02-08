@@ -40,6 +40,25 @@ class App extends React.Component {
     })
   }
 
+  handleComplete = (itemId) => {
+    const newTodoList = this.state.list.map(item => {
+      if (item.id === itemId) {
+        return {
+          ...item,
+          completed: !item.completed
+        };
+      } else {
+        return item;
+      };
+    });
+
+    console.log(newTodoList)
+    
+    this.setState({
+      list: newTodoList
+    });
+  }
+
   handleClear = () => {
 
   }
@@ -47,8 +66,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <TodoList list={this.state.list}/>
-        <TodoForm handleAdd={this.handleAdd} handleClear={this.handleClear}/>
+        <TodoList
+          list={this.state.list}
+          handleComplete={this.handleComplete}
+        />
+        <TodoForm
+          handleAdd={this.handleAdd}
+          handleClear={this.handleClear}
+        />
       </div>
     );
   }
