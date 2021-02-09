@@ -3,9 +3,16 @@ import React from 'react';
 
 class TodoForm extends React.Component {
     
+    constructor() {
+        super();
+        this.state = {
+          newTodo: "",
+        };
+      }
+
     handleChanges = (e) => {
-        this.setState((e) => {
-            newTodo: e.target.value
+        this.setState({
+            newTodo: e.target.value,
         })
     };
 

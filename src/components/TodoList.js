@@ -7,8 +7,13 @@ const TodoList = props => {
     return (
         <div className= "todo-list">
             {props.Todo.map((todo) => {
-                
+                <Todo 
+                task= {todo.task} 
+                key={todo.id} 
+                completed= {props.completed} />
             })}
         </div>
     )  
 }
+
+export default TodoList;
