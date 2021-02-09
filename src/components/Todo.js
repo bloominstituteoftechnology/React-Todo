@@ -1,9 +1,11 @@
 import React from "react";
 
 class Todo extends React.Component{
-    props = {
-        task: this.props.task
-    }
+
+    handleClick = () => {
+        console.log(this.props.completed);
+        this.props.strikeThroughToggle(this.props.id);
+      };
 
     render() {
 
@@ -12,7 +14,8 @@ class Todo extends React.Component{
                 <h1> Existing Task </h1> 
                 <p>{this.props.task}</p>
                 <p>{this.props.id}</p>
-                <p>{this.props.completed}</p>
+                <p onClick={this.handleClick}>{this.props.completed}</p>
+
             </div>
         )
     }
