@@ -4,11 +4,6 @@ import ToDoForm from './components/TodoForm'
 import './components/Todo.css'
 
 const toDos = [
-  {
-    task: 'Example Task',
-    id: 123,
-    completed: false,
-  },
 ]
 
 class App extends React.Component {
@@ -52,10 +47,11 @@ class App extends React.Component {
       id: Math.floor(Math.random() * 1000 + 1),
       completed: false,
     }
+    if (this.state.formText !== '') {
     this.setState({
       toDos: [...this.state.toDos, newItem],
       formText: '',
-    })
+    })}
   }
 
   clearComplete = (evt) => {
@@ -78,7 +74,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='container'>
         <h2>Welcome to your Todo App!</h2>
         <ToDoList toDos={this.state.toDos} toggleItem={this.toggleItem} />
         <ToDoForm

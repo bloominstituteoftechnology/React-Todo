@@ -2,7 +2,7 @@ import React from 'react'
 
 const ToDoForm = (props) => {
   return (
-    <div>
+    <div className='todo-form'>
       <input
         name="ToDoInput"
         value={props.formText}

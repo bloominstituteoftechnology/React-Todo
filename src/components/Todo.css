@@ -1,3 +1,68 @@
+*{
+    box-sizing: border-box;
+    font-family:monospace,'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    border:3px solid black;
+    border-radius: 25px;
+    flex-direction: column;
+    align-items: center;
+    background-color: antiquewhite;
+}
+
+.container h2 {
+    width: 100%;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.todo{
+    text-transform: capitalize;
+}
+
+.todo:hover, .todo-completed:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 .todo-completed {
     text-decoration:line-through;
+    text-transform: capitalize;
+
+}
+
+.todo-list {
+    display: flex;  
+    flex-flow: column nowrap;
+    align-items: space-around;
+    justify-content: flex-start;
+}
+
+.todo-form {
+    display: flex;
+    flex-flow: column nowrap;
+    border: 3px solid black;
+    border-radius: 25px;
+    padding: 2% 3%;
+    margin-bottom: 3%;
+    align-items: stretch;
+    background-color: whitesmoke;
+}
+
+.todo-form input {
+    border: 3px solid black;
+    border-radius: 25px;
+    padding-left: 4%;
+}
+
+.todo-form button {
+    margin: 5% auto 1%;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    background-color: antiquewhite;
+    border-radius: 25px;
 }
