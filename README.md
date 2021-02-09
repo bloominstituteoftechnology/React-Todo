@@ -11,20 +11,19 @@ We're going to practice building a stateful class component with this project. E
 
 - Your todo data should be an array of objects that look a lot like this:
 
-```js
+const todoData =
 [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
+{
+task: 'Organize Garage',
+id: 1528817077286,
+completed: false
+},
+{
+task: 'Bake Cookies',
+id: 1528817084358,
+completed: false
+}
 ];
-```
 
 - The `task` field is the todo title that will be shown to the user.
 - The `completed` field should default to `false` and will be the field that we toggle when we complete a todo.
@@ -77,6 +76,6 @@ Follow these steps for completing your project.
 
 ## Submission Format
 
-- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
+- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's Repo). **Please don't merge your own pull request**
 - [ ] From the home page of your repo, make sure you have your branch selected
 - [ ] Copy the URL and paste it into Canvas to submit your assignment
