@@ -53,12 +53,12 @@ class App extends React.Component {
     })
   }
 
-  handleItemDelete = () => {
-
-  }
-
   clearCompleted = () => {
-    
+    const updatedList = this.state.listItems.filter(todo => !todo.completed);
+    // filter returns items that pass the test, we want to return false completed
+    this.setState({
+      listItems:updatedList,
+    })
   }
 
   render() {
