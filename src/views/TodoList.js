@@ -3,22 +3,15 @@ import React from 'react';
 const TodoList = props => {
     return(
         <div>
-            <h2> {props.data.title}</h2>
+            <h1> {props.data.title}</h1>
             
-
-            <ul>
-                <li>
-                    Item 1
-                </li>
-
-                <li>
-                    Item 2
-                </li>
-
-                <li>
-                    Item 3
-                </li>
-            </ul>
+            <div>
+                <form>
+                    <input placeholder='Todo Task' />
+                    <button>Add Todo List</button>
+                    <button>Clear Todo List</button>
+                </form>
+            </div>
         </div>
     )
 }

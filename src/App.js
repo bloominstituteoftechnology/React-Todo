@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      title: 'Todo List App'
+      title: 'Todo List: MVP ',
     }
   }
 
