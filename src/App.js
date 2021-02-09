@@ -11,12 +11,11 @@ class App extends React.Component {
   }
 
   onChange = event => {
-    setState({ task: event.target.value })
+    this.setState({ task: event.target.value })
   }
 
-  addTask = event => {
-
-  }
+  addTask = () => this.state.task;
+  
 
   clearCompleted = event => {
 
@@ -29,10 +28,9 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        {this.state.task}
         <input placeholder='Write a To-Do!' onChange={this.onChange}/>
-        <button onClick={this.addTask}></button>
-        <button onClick={this.clearCompleted}></button>
+        <button onClick={this.addTask}>Add Task</button>
+        <button onClick={this.clearCompleted}>Clear Completed</button>
       </div>
     );
   }
