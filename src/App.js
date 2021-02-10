@@ -36,7 +36,7 @@ constructor() {
 handleChange =(event) => {
   let value = event.target.value;
   this.setState({
-    newTodo: {[event.target.name]: value, id: Date.now(), completed: false}
+    newTodo: {[event.target.name]: value, id: 0, completed: false}
   })
 }
 
