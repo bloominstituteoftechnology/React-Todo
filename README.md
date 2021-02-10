@@ -81,6 +81,5 @@ Follow these steps for completing your project.
 - [ ] From the home page of your repo, make sure you have your branch selected
 - [ ] Copy the URL and paste it into Canvas to submit your assignment
 
-
-
 https://welcometomylist.netlify.app/
+
