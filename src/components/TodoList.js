@@ -9,8 +9,8 @@ import Todo from './Todo'
 
 
 const TodoList = props => {
-    console.log(props)
-    
+    // console.log(props)
+    //returns a map of each todo item from todo array, on click clearCompleted is used to remove items.
     return (
         <div>
             {props.todo.map(item =>{

@@ -6,7 +6,7 @@ import TodoForm from './components/TodoForm'
 
 const todo = [
   {
-  task: "Bake Cookes",
+  task: "Bake Cookies",
   id: 1,
   completed: false,
 },
