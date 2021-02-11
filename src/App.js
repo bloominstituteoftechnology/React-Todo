@@ -1,11 +1,13 @@
 import React from 'react';
-
+import TodoForm from './components/TodoForm';
+import './components/Todo.css';
+import TaskList from './components/TodoList';
 
 
 
 const tasks = [
   {
-    name: 'Take out the garbage',
+    task: 'Take out the garbage',
     id: 4142,
     completed: false
   },
@@ -15,12 +17,12 @@ const tasks = [
     completed: false
   },
   {
-    name: 'Exercise for 30 minutes',
+    task: 'Exercise for 30 minutes',
     id: 4144,
     completed: false
   },
   {
-    name: 'Wash the car',
+    task: 'Wash the car',
     id: 4145,
     completed: false
   }
@@ -39,8 +41,8 @@ class App extends React.Component {
 }
 
 
-
   addTask = (taskName, e) => {
+    console.log(e);
     e.preventDefault();
     const newTask = {
       id: Date.now(),
@@ -54,10 +56,39 @@ class App extends React.Component {
   }
 
 
+  toggleCompleted = (taskId) => {
+    const newTasks = this.state.tasks.map(task => {
+      if (taskId === task.id) {
+        return {
+          ...task,
+          completed: !tasks.completed
+        }
+      }
+      else {return task}
+    })
+      this.setState({
+        ...this.state,
+        tasks: newTasks
+      })
+  }
+
+
+  clearCompleted = () => {
+    console.log('clearing completed tasks!')
+    this.setState({
+      ...this.state,
+      tasks: this.state.tasks.filter(task => !task.completed)
+    })
+  }
+
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <TaskList tasks={this.state.tasks} toggleCompleted={this.toggleCompleted} clearCompleted={this.clearCompleted}  />
+        <TodoForm tasks={this.state.tasks} addTask={this.addTask}/>
+        
       </div>
     );
   }
