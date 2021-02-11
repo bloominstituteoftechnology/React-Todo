@@ -1,9 +1,15 @@
+.body {
+    background-color: #FAF0E6;
+}
+
 .App {
     font-family: sans-serif;
     text-align: center;
     padding: 0 36px;
     max-width: 665px;
-    margin: 0 auto; 
+    margin: 5rem auto; 
+    background-color: #E9C2A6;
+    box-shadow: -.7rem -.7rem 1.5rem #362819	;
 }
 
 .complete {
@@ -12,3 +18,19 @@
     background-color: '#444';
     color: lime
 }
+
+.parallax-windows {
+    background-image: url('/src/mark.jpeg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.9
+}
+
+h1, h2, h3, h4, h5, h6, p, .space {
+    margin: 3rem auto; 
+    text-shadow: -.7rem -.7rem 1.5rem #362819;
+    padding: 1rem auto
+}
+

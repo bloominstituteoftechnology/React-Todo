@@ -1,22 +1,22 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
 
 class TodoForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      task: ""
-    }
+      task: "",
+    };
   }
-  changeHandler = e => {
-      console.log(e.target.value)
+  changeHandler = (e) => {
+    console.log(e.target.value);
     this.setState({ task: e.target.value });
   };
 
-  submitTask = e => {
+  submitTask = (e) => {
     e.preventDefault();
     this.props.addTodo(this.state.task);
     this.setState({ ...this.state, task: "" });
-    
   };
 
   render() {
@@ -27,8 +27,13 @@ class TodoForm extends React.Component {
           name="task"
           value={this.state.task}
           onChange={this.changeHandler}
+          placeholder="input your goal"
+          style={{ boxShadow: "-1rem -1rem 1rem #362819	", color: 'lightblue', backgroundColor: '#E38217	' }}
         />
-        <button type='submit'> + </button>
+        <button style={{ boxShadow: "-1rem -1rem 1rem #362819	" }} type="submit">
+          {" "}
+          +{" "}
+        </button>
       </form>
     );
   }
