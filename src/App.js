@@ -54,15 +54,40 @@ class App extends React.Component {
     })
   }
 
-  //
+  //add an item to the todo array
+
+  addItem = (taskName, e) => {
+    e.preventDefault();
+      const newItem ={
+        id: Date.now(),
+        task: taskName,
+        completed: false
+      }
+
+      this.setState({
+        ...this.state,
+        todo: [...this.state.todo, newItem]
+      })
+
+  }
+
+  clearCompleted = () => {
+   
+    console.log('Item has been cleared from Todo List')
+    // if item.completed is true, then filter it out of the this.state.todo array
+    this.setState({
+      ...this.state,
+      todo: this.state.todo.filter(item => !item.completed)
+    })
+  }
 
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList toggleCompleted={this.toggleCompleted} todo={this.state.todo}/>
-        <TodoForm/>
+        <TodoList  clearCompleted={this.clearCompleted} toggleCompleted={this.toggleCompleted} todo={this.state.todo}/>
+        <TodoForm addItem={this.addItem}/>
       </div>
     );
   }
