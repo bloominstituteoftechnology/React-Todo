@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import { Container, Nav, Img, Heading } from './components/Styles';
 
 const tasks = [
   {
@@ -55,14 +56,15 @@ class App extends React.Component {
     })
   }
 
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div className='App'>
+      <Container>
 
-        <h1>Welcome to your To Do App!</h1>
+        <Nav>
+          <Img src='https://cdn.pixabay.com/photo/2017/08/04/07/58/list-2579306_1280.jpg'/>
+        </Nav>
+
+        <Heading>Welcome to Your To Do App!</Heading>
 
         <TodoForm addTask={this.addTask} />
 
@@ -71,7 +73,7 @@ class App extends React.Component {
           toggleCompleted={this.toggleCompleted} 
           tasks={this.state.tasks} />
           
-      </div>
+      </Container>
     );
   }
 }

@@ -1,9 +1,10 @@
 import React from 'react';
-import Todo from './Todo'
+import Todo from './Todo';
+import { ListContainer, Button } from './Styles';
 
 const TodoList = props => {
     return(
-        <div className='todo-list'>
+        <ListContainer>
 
             {props.tasks.map(task => (
                 <Todo 
@@ -12,13 +13,11 @@ const TodoList = props => {
                     task={task} />
             ))}
 
-            <button 
-                onClick={() => props.clearCompleted()}
-                className='clear-btn'>
+            <Button onClick={() => props.clearCompleted()}>
                 Clear Completed
-            </button>
+            </Button>
 
-        </div>
+        </ListContainer>
     )
 }
 
