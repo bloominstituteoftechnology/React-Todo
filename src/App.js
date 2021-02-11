@@ -66,6 +66,7 @@ class App extends React.Component {
 
 
 
+
   clearCompleted = (event) => {
     event.preventDefault();
     this.setState({
