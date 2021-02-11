@@ -1,3 +1,12 @@
 .todo.completed {
-  text-decoration: line-through;
+  text-decoration: line-through 5px #b10707;
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  color: rgb(0, 0, 85);
+  text-align: center;
+  font-family: "Courier", Courier, monospace;
+  font-size: 2rem;
 }

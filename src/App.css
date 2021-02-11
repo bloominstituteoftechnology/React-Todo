@@ -1,0 +1,8 @@
+.App {
+  background: url("https://images.squarespace-cdn.com/content/v1/58fda4dfe6f2e1ad3fdc2e1b/1520351346184-TI0O1HBELFTN7DCJYK9V/ke17ZwdGBToddI8pDm48kPx25wW2-RVvoRgxIT6HShBZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpwGbtSA7WutlFA3XjmDXUDFwmxX_uEhqHOBUlPnU0mYmf1Qvd6diXKmxQIX-f1CXeo/How-to-Colour-Code-Your-To-Do-List-in-your-Bullet-Journal+2.jpg")
+    no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  color: rgb(253, 253, 107);
+}

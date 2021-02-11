@@ -1,6 +1,8 @@
 import React from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import styled from 'styled-components';
+import './App.css'
 
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -57,19 +59,49 @@ class App extends React.Component {
 
     render() {
         return (
-        <div>
-            <div>
-                <h1>My To-do App!</h1>
-                <TodoForm addTodo={this.addTodo} />
+            <div className="App">
+                <AppDiv>
+                    <div className="header">
+                        <h1>My To-do List!</h1>
+                        <TodoForm addTodo={this.addTodo} />
+                    </div>
+                    <TodoList 
+                        todo={this.state.todo} 
+                        clearCompleted={this.clearCompleted} 
+                        toggleCompleted={this.toggleCompleted}
+                    />
+                </AppDiv>
             </div>
-            <TodoList 
-                todo={this.state.todo} 
-                clearCompleted={this.clearCompleted} 
-                toggleCompleted={this.toggleCompleted}
-            />
-        </div>
+        
         );
     }
 }
+
+const AppDiv = styled.div`
+    font-family:Courier New;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    background: url('https://lh3.googleusercontent.com/proxy/FZ7hBMZtL5OcjYFv6egDAoq9nlmEbwGZlW6RA1Z8l986nCUmdmQ4F2vMNyR6NmG8RFAsrDbMg7yQrYr_2Bu3Jv0') no-repeat;
+    opacity: .85;
+    height: 100vh;
+    background-size: cover;
+    border: 20px solid rgb(253, 253, 107);
+    
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top:4vh;
+    }
+
+    h1 {
+        color: rgb(0, 0, 85);
+        font-size: 3rem;
+        text-shadow: 1px 1px 1px red;
+    }
+ 
+`
 
 export default App;
