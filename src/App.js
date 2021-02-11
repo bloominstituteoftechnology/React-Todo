@@ -7,8 +7,8 @@ import TaskList from './components/TodoList';
 
 const tasks = [
   {
-    task: 'Take out the garbage',
-    id: 4142,
+    name: 'Take out the garbage',
+    id: 4132,
     completed: false
   },
   {
@@ -17,13 +17,13 @@ const tasks = [
     completed: false
   },
   {
-    task: 'Exercise for 30 minutes',
-    id: 4144,
+    name: 'Exercise for 30 minutes',
+    id: 4146,
     completed: false
   },
   {
-    task: 'Wash the car',
-    id: 4145,
+    name: 'Wash the car',
+    id: 4149,
     completed: false
   }
 ];
@@ -36,7 +36,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-    tasks: tasks
+    tasks
   }
 }
 
@@ -84,10 +84,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className='container'>
+        <h2>Simple To-Do App</h2>
+        <TodoForm addTask={this.addTask}/>
         <TaskList tasks={this.state.tasks} toggleCompleted={this.toggleCompleted} clearCompleted={this.clearCompleted}  />
-        <TodoForm tasks={this.state.tasks} addTask={this.addTask}/>
         
       </div>
     );
