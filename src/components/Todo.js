@@ -1,14 +1,14 @@
 import React from 'react';
-import { TodoContainer } from './Styles';
+import { Task } from './Styles';
 
 const Todo = props => {
     console.log(props);
     return(
-        <TodoContainer
-            className={`task${props.task.completed ? ' completed' : ''}`}
+        <div
+            className={`${props.task.completed ? 'completed' : ''}`}
             onClick={() => props.toggleCompleted(props.task.id)} >
-                <p>{props.task.name}</p>
-        </TodoContainer>
+                <Task>{props.task.name}</Task>
+        </div>
     )
 }
 
