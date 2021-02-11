@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Objective = props => {
+const Todo = props => {
     return (
         <div className={`obj${props.obj.completed ? 'completed' : ''}`}
         onClick={() => props.toggleCompleted(props.obj.id)}
         >
-            <p>{props.completed.name}</p>
+            <p>{props.obj.name}</p>
         </div>
     );
 };
 
-export default Objective;
+export default Todo;
