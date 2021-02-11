@@ -12,8 +12,9 @@ class TodoForm extends React.Component {
 
     formSubmit = e => {
         e.preventDefault();
-        this.addTodo(this.state.task)
-        console.log("submitted")
+        this.addTodo(this.state.task);
+        this.setState({task: ""});
+        console.log("submitted");
     }
 
     handleChanges = e => {
@@ -22,17 +23,17 @@ class TodoForm extends React.Component {
    
     render() {
         return (
-            <form onSubmit={this.formSubmit}>
-                <input 
-                    type="text"
-                    name="task"
-                    id="task"
-                    onChange={this.handleChanges}
-                    value= {this.state.task}
-                />
-                <button>Add Task</button>
-            </form>
-            
+                <form onSubmit={this.formSubmit}>
+                    <input 
+                        type="text"
+                        name="task"
+                        id="task"
+                        onChange={this.handleChanges}
+                        value= {this.state.task}
+                    />
+                    <button>Add Task</button>
+                </form>
+    
         )
     }
 }

@@ -6,18 +6,7 @@ import TodoList from './components/TodoList';
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
-const initialTodo = [
-    {
-      task: 'Organize Garage',
-      id: 1528817077286,
-      completed: false
-    },
-    {
-      task: 'Bake Cookies',
-      id: 1528817084358,
-      completed: false
-    }
-  ];
+const initialTodo = [];
 
 class App extends React.Component {
     constructor () {
@@ -26,6 +15,24 @@ class App extends React.Component {
             todo: initialTodo,          //todo is the list of tasks that have been added
         }  
     }
+
+    toggleCompleted = (todoId) => {
+        // iterate through the todo array (this.state.todo) to toggle only the todo in question
+        const newTodo = this.state.todo.map(todo => {
+          if (todoId === todo.id) {
+            return {
+              ...todo,
+              completed: !todo.completed
+            }
+          }
+          else { return todo;}
+        })
+        // update "todo" state value to this new array
+        this.setState({
+          ...this.state,
+          todo: newTodo
+        })
+      }
 
     addTodo = (taskName) => {    
         const newTask={
@@ -36,20 +43,33 @@ class App extends React.Component {
         
         this.setState({
             ...this.state, todo: [...this.state.todo, newTask]
-        })
-      
-       
+        })  
     }
 
-  render() {
-    return (
-      <div>
-        <h1>My To-do App!</h1>
-        <TodoList todo={this.state.todo}/>
-        <TodoForm addTodo={this.addTodo}/>
-      </div>
-    );
-  }
+      clearCompleted = () => {
+        console.log('clearing purchased items');
+        // if todo.completed is true, then filter it out of the this.state.todo array
+        this.setState({
+          ...this.state,
+          todo: this.state.todo.filter(todo => !todo.completed)
+        })
+      }
+
+    render() {
+        return (
+        <div>
+            <div>
+                <h1>My To-do App!</h1>
+                <TodoForm addTodo={this.addTodo} />
+            </div>
+            <TodoList 
+                todo={this.state.todo} 
+                clearCompleted={this.clearCompleted} 
+                toggleCompleted={this.toggleCompleted}
+            />
+        </div>
+        );
+    }
 }
 
 export default App;
