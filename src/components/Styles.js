@@ -7,60 +7,57 @@ export const Container = styled.div`
     flex-direction: column;
 `
 
-export const Img = styled.img`
-    width: 8rem;
-`
-
 export const HeadingContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    height: 28rem;
+    background-image: url('https://cdn.pixabay.com/photo/2016/07/12/19/08/laptop-1512838_1280.png');
 `
 
 export const Heading = styled.h1`
-    padding: 2%;
-    align-self: center;
+    padding: 3%;
+    color: white;
+    text-shadow: -1px 1px 2px #000,
+				  1px 1px 2px #000,
+				  1px -1px 0 #000,
+				  -1px -1px 0 #000;
     font-size: 2.5rem;
 `
 
 export const ListContainer = styled.div`
-
+    width: 100%;
 `
 
 export const Button = styled.button`
-    font-size: 16px;
+    font-size: 20px;
     font-family: inherit;
-    margin-top: 10%;
     padding: 0.2rem;
 `
 
-export const FormContentContainer = styled.div`
-
-`
-
 export const Form = styled.form`
-    
+    width: 100%;
 `
 
 export const Input = styled.input`
     font-size: 20px;
     font-family: inherit;
     outline: none;
-    margin: 0 5% 5% 0;
+    margin: 5% 2% 0 0;
+    width: 60%;
     padding: 0.2rem;
 `
 
 export const TodoContainer = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: left;
-    width: 40%;
+    margin-left: 20%;
+    width: 100%;
 `
 
 export const Task = styled.p`
     font-size: 20px;
-    padding: 2%;
     &:hover {
         cursor: pointer;
         color: #177E89;

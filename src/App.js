@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
-import { Container, HeadingContainer, Img, Heading, TodoContainer } from './components/Styles';
+import { Container, HeadingContainer, Heading, TodoContainer } from './components/Styles';
 
 const tasks = [
   {
@@ -61,7 +61,6 @@ class App extends React.Component {
       <Container>
 
         <HeadingContainer>
-          <Img src='https://cdn.pixabay.com/photo/2017/08/04/07/58/list-2579306_1280.jpg'/>
           <Heading>Welcome to Your To Do App!</Heading>
         </HeadingContainer>
         
