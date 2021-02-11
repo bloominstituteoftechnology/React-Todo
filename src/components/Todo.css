@@ -1,0 +1,14 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 0 36px;
+    max-width: 665px;
+    margin: 0 auto; 
+}
+
+.complete {
+    text-decoration: line-through;
+    opacity: 0.4;
+    background-color: '#444';
+    color: lime
+}
