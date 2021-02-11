@@ -82,7 +82,7 @@ class App extends React.Component {
   render() {
     console.log(this.state)
     return (
-      <div className="App" >
+      <div className="App container d-flex justify-content-center" >
         <div className="space" style={{margin: '3rem auto'}}>
           <h2 className="display-3" style={{marginTop: '3rem'}}>Shadowbox</h2>
           <h4 style={{margin: '1.5rem'}}>Personal Goal Tracker</h4>
