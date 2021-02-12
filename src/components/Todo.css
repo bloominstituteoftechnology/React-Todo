@@ -1,0 +1,17 @@
+
+
+.todo {
+  background-color: #e64944;
+  width: 45%;
+  text-align: left;
+  margin: 4px 0;
+  padding-left: 8px;
+  cursor: pointer;
+}
+
+.todo.completed {
+
+  background-color: #d17d7c;
+  text-decoration: line-through;
+
+}
