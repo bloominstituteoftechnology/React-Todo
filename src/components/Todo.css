@@ -1,5 +1,5 @@
-.body {
-    background-color: #FAF0E6;
+body {
+    background: linear-gradient(35deg, #CDB38B , #E9C2A6)
 }
 
 .App {
@@ -8,7 +8,7 @@
     padding: 0 36px;
     max-width: 665px;
     margin: 5rem auto; 
-    background-color: #E9C2A6;
+    background: linear-gradient(35deg, #CDB38B , #E9C2A6);
     box-shadow: -.7rem -.7rem 1.5rem #362819	;
 }
 
