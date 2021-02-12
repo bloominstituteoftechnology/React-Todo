@@ -29,7 +29,7 @@ const TodoList = (props) => {
         </div>
       ))}
 
-      <button
+      {/* <button
         style={{
           margin: "1.5rem auto",
           boxShadow: "-1rem -1rem 1rem #362819	",
@@ -38,7 +38,8 @@ const TodoList = (props) => {
         onClick={() => props.clearTodo()}
       >
         -
-      </button>
+      </button> */}
+      <div id="btn" onClick={() => props.clearTodo()}><span class="noselect">Goal Accomplished! </span><div id="circle"></div></div>
     </div>
   );
 };
