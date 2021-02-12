@@ -4,7 +4,7 @@ import './Todo.css';
 
 
 const Todo = props => {
-  console.log("TODO: ", props.todo);
+  // console.log("TODO: ", props.todo);
 
   return (
     <div

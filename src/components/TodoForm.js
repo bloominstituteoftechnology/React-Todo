@@ -45,12 +45,12 @@ class TodoForm extends React.Component {
         <form onSubmit={this.submitTodo}>
 
             <TextField 
-              id="outlined-password-input"
+              id="outlined-input"
               label="Add todo"
               type="text"
               variant="outlined"
               color="primary"
-              name="todo" // necessary
+              name="todo" // dont need this
               value={this.state.todo}
               onChange={this.handleChanges}
             />

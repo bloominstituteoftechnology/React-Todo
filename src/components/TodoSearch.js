@@ -2,7 +2,6 @@ import React from 'react';
 import './Todo.css';
 // import Material UI components
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -30,7 +29,9 @@ class TodoSearch extends React.Component {
 
   handleChanges = e => {
     // update state with each keystroke
-    this.setState({todoSearch: e.target.value})
+    this.setState({searchTerm: e.target.value})
+    const searchTerm = e.target.value;
+    this.props.searchTodos(searchTerm);
   }
   
   // clearCompleted = () => {
@@ -47,25 +48,27 @@ class TodoSearch extends React.Component {
   return (
     <div className='form-container'>
       <form>
-        
-        <TextField 
-          id="outlined-password-input"
-          label="Search todos"
-          type="text"
-          autoComplete="current-password"
-          variant="outlined"
-          color="primary"
-          value={this.state.todoSearch} // ?
-          onChange={this.handleChanges} 
-        />
 
-        <Button 
+        <input
+                  id="outlined-password-input"
+                  label="Search todos"
+                  type="text"
+                  autoComplete="current-password"
+                  variant="outlined"
+                  color="primary"
+                  value={this.state.searchTerm} // ?
+                  onChange={this.handleChanges} 
+                  placeholder=" search"
+        >
+        </input>
+
+        {/* <Button 
           variant="outlined" 
           color="primary" 
-          onClick={() => this.props.searchTodos(this.props.todoSearch)}
+          onClick={() => this.props.searchTodos(this.props.searchTerm)}
         >
           Search
-        </Button>
+        </Button> */}
 
       </form>
     </div>

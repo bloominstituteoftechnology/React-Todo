@@ -7,12 +7,12 @@ import TodoForm from './components/TodoForm';
 // --------------------------- Initial States ---------------------------
 const todos = [
     {
-      task: 'Organize Garage',
+      name: 'Organize Garage',
       id: 1528817077286,
       completed: false
     },
     {
-      task: 'Bake Cookies',
+      name: 'Bake Cookies',
       id: 1528817084358,
       completed: false
     }
@@ -24,7 +24,8 @@ class App extends React.Component {
     super();
     this.state = {
       todos: todos,
-      todoSearch: ""
+      searchTerm: "",
+      filteredTodos: todos
     }
   }
 
@@ -36,10 +37,20 @@ addTodo = (todoName, e) => {
     name: todoName,
     completed: false
   }
+
+  const todos =  [...this.state.todos, newTodo]; // ADDITION
+  
   // add new todo to todos array
   this.setState({
     ...this.state,
-    todos: [...this.state.todos, newTodo]
+    todos: todos
+  })
+
+  const filteredTodos = todos.filter(todo => todo.name.includes(this.state.searchTerm)) // ADDITION
+
+  this.setState({
+    ...this.state,
+    filteredTodos: filteredTodos
   })
 } // adds a new todo to the todos array
 
@@ -73,9 +84,65 @@ clearCompleted = () => {
 }
 
 
-searchTodos = (todoSearch) => {
-  console.log("searchTodos has fired");
+searchTodos = (searchTerm) => {
+  console.log("searchTodos: ", searchTerm);
+  // this.setState({
+  //   ...this.state,
+  //   searchTerm: searchTerm
+  // });
+  if (searchTerm === "") {
+    this.setState({
+      ...this.state,
+      filteredTodos: todos
+  })
 }
+
+  const filteredTodos = todos.filter( todo => {
+    // console.log("boolean: ", (searchTerm.trim() === post.username) || 
+    // (searchTerm.toLowerCase() === post.username) || 
+    // (searchTerm === post.username))
+
+    const todoName = todo.name.toLowerCase();
+    const searchText = searchTerm.toLowerCase().trim();
+
+   // setPosts(filteredPosts); // cannot redefine posts within the filter, because you need it to filter the entire posts array
+    return (todoName.includes(searchText));
+
+  }); // end of filter
+
+console.log("searchTodos func is running. This is the searchTerm: ", searchTerm)
+console.log("filtered: ", filteredTodos)
+
+this.setState({
+  ...this.state,
+  filteredTodos: filteredTodos
+
+  // this.setState({ todo: '' }); // zero out
+})
+
+} // passes searchTerm, filters through posts array, creates filteredPosts array
+
+// const getFilteredPosts = (searchTerm) => {
+//   // filter function over posts array, return filtered array
+//     const filteredPosts = posts.filter( post => {
+//       // console.log("boolean: ", (searchTerm.trim() === post.username) || 
+//       // (searchTerm.toLowerCase() === post.username) || 
+//       // (searchTerm === post.username))
+
+//       const username = post.username.toLowerCase();
+//       const searchText = searchTerm.toLowerCase().trim();
+//      // setPosts(filteredPosts); // cannot redefine posts within the filter, because you need it to filter the entire posts array
+//       return (username.includes(searchText));
+
+//     }); // end of filter
+
+//   console.log("getFilteredPosts func is running")
+//   console.log("filtered: ", filteredPosts)
+
+//   setPosts(filteredPosts);
+
+// }  // passes searchTerm, filters through posts array, creates filteredPosts array
+
 // ----------------------------- Event Handlers -------------------------
 // handleClick = () => {
 //   this.setState({
@@ -90,9 +157,9 @@ searchTodos = (todoSearch) => {
 
         <h2>Welcome to your Todo App!</h2>
 
-        <TodoSearch todos={this.state.todos} todoSearch={this.todoSearch}/>
+        <TodoSearch todos={this.state.todos} searchTerm={this.state.searchTerm} searchTodos={this.searchTodos} filteredTodos={this.state.filteredTodos}/>
 
-        <TodoList toggleCompleted={this.toggleCompleted} todos={this.state.todos}/>
+        <TodoList toggleCompleted={this.toggleCompleted} filteredTodos={this.state.filteredTodos} todos={this.state.todos} searchTerm={this.state.searchTerm}/>
 
         <TodoForm addTodo={this.addTodo} clearCompleted={this.clearCompleted}/>
    
@@ -102,5 +169,3 @@ searchTodos = (todoSearch) => {
 }
 
 export default App;
-
-// todos={this.state.todos} 
