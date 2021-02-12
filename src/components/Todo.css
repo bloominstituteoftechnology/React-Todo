@@ -1,15 +1,22 @@
 body {
-    background: linear-gradient(35deg, #CDB38B , #E9C2A6)
+    background: linear-gradient(35deg, #CDB38B , #E9C2A6);
+    background-image: url('design.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .App {
+   
     font-family: sans-serif;
     text-align: center;
     padding: 0 36px;
     max-width: 665px;
     margin: 5rem auto; 
-    background: linear-gradient(35deg, #CDB38B , #E9C2A6);
+    background-color: white;
     box-shadow: -.7rem -.7rem 1.5rem #362819	;
+    opacity: 0.9
 }
 
 .complete {
@@ -20,17 +27,28 @@ body {
 }
 
 .parallax-windows {
-    background-image: url('/src/mark.jpeg');
+    background-image: url('design.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    opacity: 0.9
+    opacity: 0.9;
+   
 }
 
-h1, h2, h3, h4, h5, h6, p, .space {
+h1, h3, h5, h6, p, .space {
     margin: 3rem auto; 
     text-shadow: -.7rem -.7rem 1.5rem #362819;
-    padding: 1rem auto
+    padding: 1rem auto;
+    color: white
 }
 
+.space {
+
+    margin: 3rem 0;
+    color: black
+}
+
+h2 { 
+    font-family: 'Anton', sans-serif;  
+}

@@ -13,9 +13,6 @@ const  Todo = props =>  {
                 border: ".1rem solid black",
                 cursor: "pointer",
                 margin: "2rem 0",
-                textDecoration: props.list.complete && 'line-through',
-                backgroundColor: props.list.complete && 'black',
-                opacity: props.list.complete && '0.4',
                 boxShadow: props.list.complete && '0 0 1rem lime', 
                 borderRadius: '10px'
               }}

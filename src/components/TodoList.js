@@ -11,6 +11,7 @@ const TodoList = (props) => {
         
         
         <div
+          className='parallax-windows'
           onClick={() => props.toggleDone(props.list[idx].id)}
           key={idx}
           // if (this is true make the styler this way } else { make the style as below
@@ -18,7 +19,7 @@ const TodoList = (props) => {
             border: ".1rem solid black",
             cursor: "pointer",
             margin: "2rem 0",
-            backgroundColor: "#FF9955",
+            backgroundColor: "white",
             color: "#5E2605",
             boxShadow: "-1rem -1rem 1rem #362819	",
           }}
