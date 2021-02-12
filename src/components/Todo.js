@@ -3,9 +3,10 @@ import React from 'react'
 const  Todo = props =>  {
 
     return (
-        <div>
+        <div className='d-flex justify-content-center'>
         {props.list.map((item, idx) => (
             <div
+            className='d-flex justify-content-center'
               onClick={() => props.toggleDone(props.list[idx].id)}
               key={idx}
               style={{
@@ -15,7 +16,8 @@ const  Todo = props =>  {
                 textDecoration: props.list.complete && 'line-through',
                 backgroundColor: props.list.complete && 'black',
                 opacity: props.list.complete && '0.4',
-                boxShadow: props.list.complete && '0 0 1rem lime'
+                boxShadow: props.list.complete && '0 0 1rem lime', 
+                borderRadius: '10px'
               }}
             >
               <p>{props.list[idx].task}</p>

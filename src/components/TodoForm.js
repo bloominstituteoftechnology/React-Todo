@@ -28,9 +28,14 @@ class TodoForm extends React.Component {
           value={this.state.task}
           onChange={this.changeHandler}
           placeholder="input your goal"
-          style={{ boxShadow: "-1rem -1rem 1rem #362819	", color: 'lightblue', backgroundColor: '#E38217	' }}
+          style={{
+            boxShadow: "-1rem -1rem 1rem #362819	",
+            color: "lightblue",
+            backgroundColor: "#E38217	",
+            borderRadius: '10px'
+          }}
         />
-        <button style={{ boxShadow: "-1rem -1rem 1rem #362819	" }} type="submit">
+        <button style={{ boxShadow: "-1rem -1rem 1rem #362819	", borderRadius: '10px', margin: 'auto 1rem' }} type="submit">
           {" "}
           +{" "}
         </button>
