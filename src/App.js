@@ -82,7 +82,7 @@ const AppDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items:center;
-    background: url('https://lh3.googleusercontent.com/proxy/FZ7hBMZtL5OcjYFv6egDAoq9nlmEbwGZlW6RA1Z8l986nCUmdmQ4F2vMNyR6NmG8RFAsrDbMg7yQrYr_2Bu3Jv0') no-repeat;
+    background: rgba(255, 255, 240, .9);
     opacity: .85;
     height: 100vh;
     background-size: cover;
