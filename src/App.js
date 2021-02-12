@@ -2,31 +2,36 @@ import React from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList'
 
+
+const task = [
+  {
+    id:12,
+    name: 'go to work',
+    completed: false
+  }
+]
+
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      message: "This is a test"
+      task:task
     };
   }
 
-
-  updateStateMessage = (e)=> {
-    this.setState({message:e.target.value});
-  }
-
-  addTask = (itemName, e) => {
+  addTask = (taskName, e) => {
     e.preventDefault();
-    const newItem = {
+    const newTask = {
       id: Date.now(),
-      name: itemName,
-      purchased: false
+      name: taskName,
+      completed: false
     }
     this.setState({
       ...this.state,
-      message: [...this.state.message, newItem]
+      task: [...this.state.task, newTask]
     })
   }
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -34,7 +39,9 @@ class App extends React.Component {
     return (
       <div>
         <h2>Todo: APP</h2>
-        <TodoList message={this.state.message} />
+        <div>
+        <TodoList task={this.state.task} />
+        </div>
         <TodoForm addTask={this.addTask} />
       </div>
     );

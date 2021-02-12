@@ -5,25 +5,25 @@ class TodoForm extends React.Component {
     constructor() {
         super();
         this.state = {
-          message: ''
+          task: ''
         }
       }
 
       handleChanges = e => {
         // update state with each keystroke
-        this.setState({message: e.target.value})
+        this.setState({task: e.target.value})
       };
 
-submitItem = e => {
+submitTask = e => {
     e.preventDefault();
-    this.setState({message: ''});
-    this.props.addTask(this.state.message);
+    this.setState({ task: ''});
+    this.props.addTask(this.state.task, e);
 }
 
     render() {
     return (
-        <form onSubmit={this.submitItem}>
-        <input placeholder="...todo" value={this.state.message} onChange={this.handleChanges} />
+        <form onSubmit={this.submitTask}>
+        <input placeholder="...todo" name="task" value={this.state.task} onChange={this.handleChanges} />
         <button>Add task</button>
         </form>
     )
@@ -31,4 +31,4 @@ submitItem = e => {
 }
 
 
-export default TodoForm
+export default TodoForm;
