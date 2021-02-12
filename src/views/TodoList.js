@@ -10,7 +10,7 @@ const TodoList = props => {
             <div className="form-container">
 
                 {props.data.list.map((item) => 
-                    <div key={item.id}>
+                    <div className="list" key={item.id}>
                         <input onChange={props.checked} type="checkbox" />
                         <p>{item.task}</p>
                     </div>

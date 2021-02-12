@@ -24,7 +24,7 @@ class App extends React.Component {
   addTodoTask = event => {
 
     console.log(event.target.value)
-    
+    this.setState({list: [{task: event.target.value}]})
   } 
 
   checkTodo = event => {
