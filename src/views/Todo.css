@@ -1,0 +1,13 @@
+.container {
+    border: 5px solid red;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.form-container {
+    border: 2px solid blue;
+    width: 75%;
+    margin: 0 auto;
+}

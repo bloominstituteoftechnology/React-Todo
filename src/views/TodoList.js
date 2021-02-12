@@ -1,13 +1,24 @@
 import React from 'react';
+import './Todo.css';
 
 const TodoList = props => {
+
     return(
-        <div>
+        <div className="container">
             <h1> {props.data.title}</h1>
             
-            <div>
+            <div className="form-container">
+
+                {props.data.list.map((item) => 
+                    <div key={item.id}>
+                        <input onChange={props.checked} type="checkbox" />
+                        <p>{item.task}</p>
+                    </div>
+                )}
+
                 <form>
-                    <input placeholder='Todo Task' />
+                    {console.log(props.data.list)}
+                    <input placeholder='Todo Task' onChange={props.addTask} />
                     <button>Add Todo List</button>
                     <button>Clear Todo List</button>
                 </form>
