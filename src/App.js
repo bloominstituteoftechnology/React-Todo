@@ -1,5 +1,9 @@
 import React from 'react';
-import ReactDom from 'react-dom'
+// import Todo from './components/Todo';
+import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
+
+import './components/Todo.css'
 const todo = [
   [
     {
@@ -31,27 +35,36 @@ class App extends React.Component {
   toggleCompleted = (todoId) =>{
     //  iterate through the todo array and toggle only the item in question
     const newTodo = this.state.todo.map(todo => {
-      return (todoId === todo.id ? {...todo, completed: !todo.completed} : todo )
-
+      // return todoId === todo.id ? {...todo, completed: !todo.completed} : todo
+      if (todoId === todo.id) {
+        return {
+          ...todo,
+          completed: !todo.purchased
+        }
+      }
+      else { return todo;}
+      
     })
     // update 'todo' state value to this new array
     this.setState({
       ...this.state,
       todo: newTodo
     })
+  }
 // adds the new item to the todo list and creating a new object and appearing on the list
     addItem = (taskName, e) =>{
       e.preventDefault();
       const newItem = {
         id: Date.now(),
         name: taskName,
-        completed: false
+        completed: false,
 
       }
       this.setState({
         ...this.state,
         completed: [...this.state.todo, newItem]
       })
+      console.log('item added')
     }
 // if the task is complete it will filter it out of the array
     clearCompleted = () => {
@@ -61,14 +74,19 @@ class App extends React.Component {
         ...this.state.todo.filter(task => !task.completed)
       })
     }
-  }
+  
 
   render() {
     return (
       <div className='App'>
         <div className= 'header'>
-        <h1>Todo List!</h1>
+          <h1>Todo List!</h1>
+          <TodoForm addItem={this.addItem}/>
         </div>
+        <TodoList clearCompleted={this.clearCompleted} 
+        toggleCompleted={this.toggleCompleted} 
+        completed={this.state.todo}
+        />
       </div>
     );
   }

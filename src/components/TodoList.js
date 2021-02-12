@@ -8,13 +8,13 @@ const TodoList = props =>{
 
 return(
     <div className='todoList'>
-    {props.todo.map(item => (
-    <Todo toggleCompleted= {props.toggleCompleted} key = {todo.id} item={todo}/>
+    {props.completed.map( todo => (
+    <Todo toggleCompleted= {props.toggleCompleted} key = {todo.id} todo={todo}/>
     ))}
 
-    <button onClick={() => props.clearCompleted()} classname= 'clrBtn'>Clear task</button>
+    <button onClick={() => props.clearCompleted()} className= 'clrBtn'>Clear task</button>
     </div>
 )
 };
 
-export Default TodoList;
+export default TodoList;
