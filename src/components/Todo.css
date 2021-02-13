@@ -1,6 +1,6 @@
 body {
     background: linear-gradient(35deg, #CDB38B , #E9C2A6);
-    background-image: url('design.jpg');
+    background-image: url('drop.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -27,7 +27,7 @@ body {
 }
 
 .parallax-windows {
-    background-image: url('design.jpg');
+    background-image: url('drop.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -37,6 +37,7 @@ body {
 }
 
 h1, h3, h5, h6, p, .space {
+    font-family: 'Ultra', serif;
     margin: 3rem auto; 
     text-shadow: -.7rem -.7rem 1.5rem #362819;
     padding: 1rem auto;
@@ -54,22 +55,24 @@ h2 {
 }
 
 #btn {
-    background: #222;
+    background: #8B7765	;
     height: 50px;
     min-width: 150px;
+    max-width: 40%;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     color: #eee;
-    font-size: 40px;
-    font-family: 'Cookie', cursive;
+    font-size: 1.25rem;
+    font-family: 'Ultra', serif;
     position: relative;
-    transition: 1s;
+    transition: 2s;
     -webkit-tap-highlight-color: transparent;
+    box-shadow: -.7rem -.7rem 1.5rem #362819	;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    padding-top: 5px;
+    padding: .2rem 1rem;
   }
   
   #btn #circle {
@@ -102,5 +105,9 @@ h2 {
     width: 150px;
     left: 0;
     border-radius: 0;
-    border-bottom: 2px solid #eee;
+    border-bottom: 2px solid #CDB38B;
+  }
+
+  .todo-font {
+    font-family: 'Long Cang', cursive;
   }

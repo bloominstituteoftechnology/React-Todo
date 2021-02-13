@@ -3,7 +3,7 @@ import React from 'react'
 const  Todo = props =>  {
 
     return (
-        <div className='d-flex justify-content-center'>
+        <div className='d-flex justify-content-center todo-font'>
         {props.list.map((item, idx) => (
             <div
             className='d-flex justify-content-center'
@@ -14,10 +14,12 @@ const  Todo = props =>  {
                 cursor: "pointer",
                 margin: "2rem 0",
                 boxShadow: props.list.complete && '0 0 1rem lime', 
-                borderRadius: '10px'
+                borderRadius: '10px', 
+                
+                
               }}
             >
-              <p>{props.list[idx].task}</p>
+              <p style={{fontSize: '5rem'}}>{props.list[idx].task}</p>
             </div>
           ))}
       

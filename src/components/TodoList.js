@@ -5,13 +5,14 @@ import "bootstrap/dist/css/bootstrap.css";
 const TodoList = (props) => {
   console.log(props);
   return (
-    <div style={{ margin: "3rem 0" }}>
+    <div className="d-flex, justify-content-center flex-column"
+     style={{ margin: "3rem 0" }}>
       {props.list.map((item, idx) => (
         
         
         
         <div
-          className='parallax-windows'
+          className='parallax-windows d-flex justify-content-center'
           onClick={() => props.toggleDone(props.list[idx].id)}
           key={idx}
           // if (this is true make the styler this way } else { make the style as below
@@ -22,6 +23,7 @@ const TodoList = (props) => {
             backgroundColor: "white",
             color: "#5E2605",
             boxShadow: "-1rem -1rem 1rem #362819	",
+            borderRadius: '15px'
           }}
         >
           {/* <Todo key={item.id}  item={item}/>  */}
@@ -38,8 +40,8 @@ const TodoList = (props) => {
         onClick={() => props.clearTodo()}
       >
         -
-      </button> */}
-      <div id="btn" onClick={() => props.clearTodo()}><span class="noselect">Goal Accomplished! </span><div id="circle"></div></div>
+      </button> */}<div className='d-flex justify-content-center'>
+      <div className='d-flex justify-content-center' id="btn" onClick={() => props.clearTodo()}><span style={{alignSelf: 'center'}}className="noselect">Goal Accomplished! </span><div id="circle"></div></div> </div><p style={{padding: '1.5rem', fontSize: '1.25rem'}}>Make sure to celebrate your victories! </p>
     </div>
   );
 };

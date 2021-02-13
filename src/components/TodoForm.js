@@ -21,7 +21,7 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.submitTask}>
+      <form className='d-flex flex-column justify-content-center' onSubmit={this.submitTask}>
         <input
           type="text"
           name="task"
@@ -30,15 +30,19 @@ class TodoForm extends React.Component {
           placeholder="input your goal"
           style={{
             boxShadow: "-1rem -1rem 1rem #362819	",
-            color: "lightblue",
+            color: "white",
             backgroundColor: "black",
-            borderRadius: '10px'
+            borderRadius: '10px',
+            textAlign: 'center,',
+            padding: '1.5rem 0',
+            fontSize: '1.2rem'
           }}
         />
         <button className='btn' type="submit">
           {" "}
           +{" "}
         </button>
+        <span style={{padding: '3rem'}}>Touch your goal then press the goal accomplished button to clear it away</span>
       </form>
     );
   }
