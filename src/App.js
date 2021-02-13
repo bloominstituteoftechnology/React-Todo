@@ -84,7 +84,7 @@ class App extends React.Component {
     return (
       <div className="App container d-flex flex-column justify-content-center" style={{borderRadius: '10px'}} >
         <div className="space d-flex flex-column justify-content-center" style={{margin: '3rem auto'}}>
-          <h3 style={{marginTop: '3rem', fontSize: '5rem'}}>Shadowbox</h3>
+          <h3 style={{marginTop: '3rem', fontSize: '4rem'}}>Breathe</h3>
           <h4 style={{margin: '1.5rem'}}>Personal Goal Tracker</h4>
           <TodoForm addTodo={this.addTodo} />
         </div>
