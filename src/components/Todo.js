@@ -19,7 +19,7 @@ const  Todo = props =>  {
                 
               }}
             >
-              <p style={{fontSize: '5rem'}}>{props.list[idx].task}</p>
+              <p style={{fontSize: '5rem', padding: '1.5rem'}}>{props.list[idx].task}</p>
             </div>
           ))}
       

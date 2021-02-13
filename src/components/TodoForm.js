@@ -21,7 +21,7 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form className='d-flex flex-column justify-content-center' onSubmit={this.submitTask}>
+      <form className='d-flex flex-column justify-content-center' style={{maxWidth: '80%', alignSelf: 'center'}}onSubmit={this.submitTask}>
         <input
           type="text"
           name="task"
