@@ -1,4 +1,4 @@
-import React, { setState} from 'react';
+import React  from 'react';
 import TodoList from './views/TodoList.js';
 
 
@@ -43,6 +43,7 @@ class App extends React.Component {
     return (
       <div>
         <TodoList
+         getId={this.fetchId}
          checked={this.checkTodo}
          addTask={this.addTodoTask} 
          data={this.state}/>

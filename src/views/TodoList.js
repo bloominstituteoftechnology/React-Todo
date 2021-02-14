@@ -11,7 +11,11 @@ const TodoList = props => {
             <div className="form-container">
 
                 {props.data.list.map((item) => 
-                    <Todo key={item.id} checked={props.checked}  data={item}  />
+                    <Todo 
+                        key={item.id} 
+                        getId={props.getId}
+                        checked={props.checked}  
+                        data={item}  />
                 )}
 
                 <form>
