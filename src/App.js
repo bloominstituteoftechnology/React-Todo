@@ -1,13 +1,8 @@
 import React from 'react';
 import TodoList from './views/TodoList.js';
 
-class App extends React.Component {
-  // you will need a place to store your state in this component.
-  constructor(props){
-    super(props);
-    this.state = {
-      title: 'Todo List: MVP ',
-      list: [
+
+const list = [
         {
           task: 'Organize Garage',
           id: 1528817077286,
@@ -17,14 +12,20 @@ class App extends React.Component {
           task: 'Bake Cookies',
           id: 1528817084358,
           completed: false
-        }],
+        }]
+
+class App extends React.Component {
+  // you will need a place to store your state in this component.
+  constructor(props){
+    super(props);
+    this.state = {
+      list 
     }
   }
 
   addTodoTask = event => {
 
     console.log(event.target.value)
-    this.setState({list: [{task: event.target.value}]})
   } 
 
   checkTodo = event => {
