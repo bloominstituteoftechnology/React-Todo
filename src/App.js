@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { setState} from 'react';
 import TodoList from './views/TodoList.js';
 
 
@@ -30,6 +30,11 @@ class App extends React.Component {
 
   checkTodo = event => {
     console.log(event.target.checked)
+    
+  }
+
+  fetchId = id => {
+    console.log(id)
   }
 
   // design `App` to be the parent component of your application.
