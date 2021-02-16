@@ -34,7 +34,12 @@ class App extends React.Component {
   }
 
   fetchId = id => {
-    console.log(id)
+    console.log(id);
+    
+    this.setState({
+    
+    
+    })
   }
 
   // design `App` to be the parent component of your application.
