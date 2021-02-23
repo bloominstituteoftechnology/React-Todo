@@ -1,0 +1,91 @@
+import React from "react"
+import TodoForm from "./components/TodoForm"
+import Todo from "./components/Todo"
+
+const todoData = [
+  {
+    task: "clean my room",
+    id: 1,
+    completed: false,
+  },
+  {
+    task: "Start on my homework",
+    id: 2,
+    completed: false,
+  },
+  {
+    task: "wash the dishes",
+    id: 3,
+    completed: false,
+  },
+  {
+    task: "Go to store",
+    id: 4,
+    completed: false,
+  },
+  {
+    task: "watch the news",
+    id: 5,
+    completed: false,
+  },
+  {
+    task: "Take a shower",
+    id: 6,
+    completed: false,
+  },
+]
+
+class App extends React.Component {
+  // you will need a place to store your state in this component.
+  // design `App` to be the parent component of your application.
+  // this component is going to take care of state, and any change handlers you need to work with your state
+  constructor() {
+    super()
+    this.state = {
+      todoData: [],
+      todoInput: "",
+    }
+      this.add=this.add.bind.this
+      this.handleSubmit=this.handleSubmit.bind.this
+
+
+  }
+  add(event) {
+    this.setState({
+      todoInput: event.target.value
+    })
+    console.log("change here")
+  }
+    handleSubmit(){
+      this.setState(prev =>{
+        return{
+          todoInput:"",
+          todoData: prev.todoData.concat(prev.todoInput)
+        }
+      })
+    }
+
+  render() {
+    return (
+      <div>
+        <h2>Welcome to your Todo App!</h2>
+        <ul>
+          {this.state.todoData.map((todo, i) => (
+            <li>{todo}</li>
+          ))}
+        </ul>
+        <form>
+          <input type="text" placeholder=" Enter Here"  value={this.state.todoInput} ></input>
+          <button type="button" onClick={this.handleSubmit}>
+            Add Todo
+          </button>
+          <button type="button" onClick={this.delete}>
+            Clear Completed
+          </button>
+        </form> 
+      </div>
+    )
+  }
+}
+
+export default App
