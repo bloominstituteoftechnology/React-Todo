@@ -1,75 +1,74 @@
 import React from "react"
+import Form from "./components/TodoForm"
+import List from "./components/TodoList"
+
+const todolist = [
+  {
+    task: "do the thing",
+    id: 12345678,
+    completed: false,
+  },
+]
 
 class App extends React.Component {
+  constructor() {
+    super();
 
-  constructor(props) {
-      super();
-
-      this.state = {
-          item_input: '',
-          items: []
-      };
-
-      this.update = this.update.bind(this);
-      this.add = this.add.bind(this);
-      this.remove = this.remove.bind(this);
+    this.state = {
+      todolist: todolist,
+    }
+    this.onComplete = this.onComplete.bind(this)
   }
 
-  update(event) {
-      this.setState({
-          item_input: event.target.value
-      });
+  newTask = {
+    task:'',
+    id: Date.now(),
+    completed: false
+  };
+
+  onComplete = e => {
+    this.setState({ todolist: this.state.todolist.map(item => {
+      if(item.id === e){
+    return { ...item, completed: !item.completed
+    }
+  }
+    return item
+  })
+  });
+  };
+
+  onInputChange =e => this.newTask.task = e.target.value;
+
+  onSubmit = e => {
+     e.preventDefault();
+     this.setState({todolist:[...this.state.todolist, this.newTask]})
+     this.newTask = {
+       task:'',
+       id: Date.now(),
+       completed: false,
+     }
+document.querySelector('#newtask').value='';
+
   }
 
-  add() {
-      this.setState(prev => {
-          return {
-              item_input: '',
-              items: prev.items.concat(prev.item_input)
-          };
-      });
-  }
-
-  remove(key) {
-      this.setState(prev => {
-          let items = [...prev.items];
-
-          items.splice(key, 1);
-
-          return {
-              item_input: '',
-              items
-          };
-      });
+  onClear = e => {
+    e.preventDefault();
+    this.setState({ todolist:this.state.todolist.filter(item => {
+      return !item.completed
+    })
+  })
   }
 
   render() {
-      return (
-          <div>
-              <h4>todo list for Aaron ({this.state.items.length} items)</h4>
-              <ul>
-                  {
-                      this.state.items.map((item, i) => (
-                          <li key={i}>
-                              {item}
-                              {' '}
-                              <button
-                                  type="button"
-                                  onClick={() => this.remove(i)}>x</button>
-                          </li>
-                      ))
-                  }
-              </ul>
-              <input
-                  type="text"
-                  value={this.state.item_input}
-                  onChange={this.update}></input>
-              <button
-                  type="button"
-                  onClick={this.add}>add item</button>
-          </div>
-      )
+    return (
+      <div>
+        <h2>Welcome to your Todo App</h2>
+        <list state={this.state.todolist} onComplete={this.onComplete} />
+        <Form onClear={this.onClear} newtask={this.newTask} onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
+      </div>
+    )
   }
-
 }
 export default App
+
+
