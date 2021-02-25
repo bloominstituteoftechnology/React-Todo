@@ -6,9 +6,11 @@ import TodoItem from './TodoItem.js';
 const TodoList = (props) => {
 
     return(
-        <div className="todoItemContainer">
+        <div>
             {props.data.map((item) => (
-                <TodoItem key={item.id} data={item} />
+                
+                    <TodoItem key={item.id} data={item} />
+                
             ))}
         </div>
     )

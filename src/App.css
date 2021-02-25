@@ -10,6 +10,14 @@ html, body {
     text-align: center;
 }
 
+
 .todoItemContainer {
-    border:  2px soild orange;
+    font-size: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 35%;
+    border: 2px solid black;
+    margin-top: 20px;
 }
