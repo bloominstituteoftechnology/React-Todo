@@ -1,4 +1,4 @@
-import React  from 'react';
+import React, {useState}  from 'react';
 import TodoList from './views/TodoList.js';
 
 
@@ -31,35 +31,15 @@ class App extends React.Component {
     }
   }
 
-  addTodoTask = event => {
-
-    console.log(event.target.value)
-  } 
-
-  checkTodo = event => {
-    console.log(event.target.checked)
-    
+  checkBoxHandler = (id) => {
+    console.log(this.state.list.map(item => item.id === id))
   }
 
-  fetchId = id => {
-    console.log(id);
-    
-    this.setState({
-    
-    
-    })
-  }
 
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
       <div>
-        <TodoList
-         getId={this.fetchId}
-         checked={this.checkTodo}
-         addTask={this.addTodoTask} 
-         data={this.state}/>
+        <TodoList todoList={this.state.list} checked={this.checkBoxHandler}/>
       </div>
     );
   }

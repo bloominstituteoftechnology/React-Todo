@@ -10,19 +10,13 @@ const TodoList = props => {
             <h1> Todo List App </h1>
             
             <div className="form-container">
-
-                {props.data.list.map((item) => 
-                    <Todo 
-                        key={item.id} 
-                        getId={props.getId}
-                        checked={props.checked}  
-                        data={item}  />
+                {props.todoList.map(item => 
+                    <Todo key={item.id} checked={props.checked}>
+                        {item.task}
+                    </Todo>
                 )}
-
                 <form>
-                    {console.log(props.data.list)}
-
-                    <Controls />
+                    <Controls checked={props.checked}/>
                 </form>
             </div>
         </div>
