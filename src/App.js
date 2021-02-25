@@ -32,7 +32,7 @@ class App extends React.Component {
   }
 
   checkBoxHandler = (id) => {
-    console.log(this.state.list.map(item => item.id === id))
+    console.log(id)
   }
 
 

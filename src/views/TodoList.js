@@ -12,7 +12,13 @@ const TodoList = props => {
             <div className="form-container">
                 {props.todoList.map(item => 
                     <Todo key={item.id} checked={props.checked}>
-                        {item.task}
+                        <p>{item.task}</p>
+                        <input 
+                            className="todoCheckBox" 
+                            value={item.completed} 
+                            type='checkbox' 
+                            onClick={() => console.log('clicked', item.id)}
+                            />
                     </Todo>
                 )}
                 <form>
