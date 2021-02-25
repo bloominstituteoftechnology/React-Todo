@@ -1,4 +1,7 @@
-import React, {useState}  from 'react';
+import React  from 'react';
+import './App.css';
+
+// views
 import TodoList from './views/TodoList.js';
 
 
@@ -31,15 +34,14 @@ class App extends React.Component {
     }
   }
 
-  checkBoxHandler = (id) => {
-    console.log(id)
-  }
-
-
   render() {
     return (
-      <div>
-        <TodoList todoList={this.state.list} checked={this.checkBoxHandler}/>
+      <div className="app">
+        <h1 className="header">
+          Todo List App
+        </h1>
+
+        <TodoList data={this.state.list} />
       </div>
     );
   }

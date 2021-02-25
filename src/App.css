@@ -1,0 +1,15 @@
+html, body {
+    background-color: rgb(212, 93, 53);
+}
+
+.app {
+    background-color: rgb(161, 29, 29);
+}
+
+.header {
+    text-align: center;
+}
+
+.todoItemContainer {
+    border:  2px soild orange;
+}
