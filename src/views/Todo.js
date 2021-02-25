@@ -2,11 +2,11 @@ import React from 'react';
 
 const Todo = (props) => {
     return(
-        <div onClick={() => {
+        <div className="todo_item" onClick={() => {
             props.getId(props.data.id)
         }}>
-            {props.data.task}
-            <input onClick={props.checked} type="checkbox" />
+            <p>{props.data.task}</p>
+            <input className="todoCheckBox" onClick={props.checked} type="checkbox" />
         </div>
     )
 }

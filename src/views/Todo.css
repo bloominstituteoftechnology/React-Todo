@@ -3,11 +3,19 @@
     width: 50%;
     margin: 0 auto;
     text-align: center;
+    height: 100%;
+    padding-bottom: 30px;
+}
+
+.controls {
+    border: 1px solid orange;
+    margin: 10px;
+    display: flex;
 }
 
 
 .form-container {
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     width: 75%;
     margin: 0 auto;
 }
@@ -18,4 +26,20 @@
  align-items: center;
  width: 50%;
  margin: 0 auto;
+}
+
+.todo_item {
+    border: 2px solid green; 
+    width: 100%;
+    margin: 0 auto;
+    font-size: 25px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todoCheckBox {
+    height: 25px;
+    width: 25px;
 }

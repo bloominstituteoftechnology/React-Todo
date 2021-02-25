@@ -1,6 +1,7 @@
+import './Todo.css';
 import React from 'react';
 import Todo from './Todo.js';
-import './Todo.css';
+import Controls from './Controls.js'
 
 const TodoList = props => {
 
@@ -20,13 +21,12 @@ const TodoList = props => {
 
                 <form>
                     {console.log(props.data.list)}
-                    <input placeholder='Todo Task' onChange={props.addTask} />
-                    <button>Add Todo List</button>
-                    <button>Clear Todo List</button>
+
+                    <Controls />
                 </form>
             </div>
         </div>
     )
 }
 
-export default TodoList;
+export default TodoList; 

@@ -12,6 +12,14 @@ const list = [
           task: 'Bake Cookies',
           id: 1528817084358,
           completed: false
+        }, {
+          task: 'Take Out The Trash',
+          id: 1528817084258,
+          completed: false
+        }, {
+          task: 'Feed The Cats',
+          id: 1528815384358,
+          completed: false
         }]
 
 class App extends React.Component {
