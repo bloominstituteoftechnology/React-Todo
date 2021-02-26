@@ -49,6 +49,22 @@ class App extends React.Component {
        })
   }
 
+  handleInputChange = (e, newtask) => {
+    console.log(e.target.value);
+    e.preventDefault();
+    
+    const newTask = {
+      task: newtask,
+      id: Date.now(),
+      completed: false
+    };
+
+    this.setState({
+      list: [...this.state.list, newTask]
+    })
+
+  }
+
   render() {
     return (
       <div className="app">
@@ -58,6 +74,7 @@ class App extends React.Component {
 
         <TodoList 
           checkOff={this.handleComplete}
+          addTask={this.handleInputChange}
           data={this.state.list} />
       </div>
     );

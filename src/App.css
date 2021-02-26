@@ -23,3 +23,12 @@ html, body {
     margin: 0px auto;
     margin-top: 50px;
 }
+
+.TodoButtons {
+    width: 65%;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}

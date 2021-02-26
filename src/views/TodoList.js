@@ -1,6 +1,8 @@
 import React from 'react';
 import TodoItem from './TodoItem.js';
 
+import TodoForm from './TodoForm.js';
+
 
 
 const TodoList = (props) => {
@@ -13,6 +15,8 @@ const TodoList = (props) => {
                     checkOff={props.checkOff}
                     />
             ))}
+
+            <TodoForm addTask={props.addTask}/>
         </div>
     )
 }
