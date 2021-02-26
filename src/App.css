@@ -4,6 +4,7 @@ html, body {
 
 .app {
     background-color: rgb(161, 29, 29);
+    padding-bottom: 50px;
 }
 
 .header {
@@ -18,6 +19,7 @@ html, body {
     align-items: center;
     justify-content: space-between;
     width: 35%;
-    border: 2px solid black;
-    margin-top: 20px;
+    border: 5px solid black;
+    margin: 0px auto;
+    margin-top: 50px;
 }
