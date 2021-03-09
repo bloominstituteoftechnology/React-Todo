@@ -10,11 +10,13 @@ class TodoList extends Component {
     
         return (
     <div className="todo-list">
+      <h2>This is my TODOLIST component</h2>
         {this.props.todos.map((todo) => (
           <Todo
             key={todo.id}
             todo={this.props.todo}
             toggleCompleted={this.props.toggleCompleted}
+            removeTodo={this.removeTodo}
           />
         ))}
       </div>
