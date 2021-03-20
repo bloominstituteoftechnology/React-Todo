@@ -38,13 +38,14 @@ export const Button = styled.button`
 
 export const Form = styled.form`
     width: 100%;
+    padding: 0;
 `
 
 export const Input = styled.input`
     font-size: 20px;
     font-family: inherit;
     outline: none;
-    margin: 5% 2% 0 0;
+    margin: 5% 2% 2% 0;
     width: 60%;
     padding: 0.2rem;
 `
@@ -58,6 +59,8 @@ export const TodoContainer = styled.div`
 
 export const Task = styled.p`
     font-size: 20px;
+    padding: 0;
+    margin-bottom: 2%;
     &:hover {
         cursor: pointer;
         color: #177E89;

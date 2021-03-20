@@ -47,7 +47,6 @@ class App extends React.Component {
       tasks: [...this.state.tasks, newTask]
     })
   }
-  
 
   clearCompleted = () => {
     this.setState({
@@ -68,7 +67,7 @@ class App extends React.Component {
           <TodoForm addTask={this.addTask} />
           <TodoList 
             clearCompleted={this.clearCompleted} 
-            toggleCompleted={this.toggleCompleted} 
+            toggleCompleted={this.toggleCompleted}
             tasks={this.state.tasks} />
         </TodoContainer>   
 

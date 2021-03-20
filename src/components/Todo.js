@@ -2,7 +2,6 @@ import React from 'react';
 import { Task } from './Styles';
 
 const Todo = props => {
-    console.log(props);
     return(
         <div
             className={`${props.task.completed ? 'completed' : ''}`}

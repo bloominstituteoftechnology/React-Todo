@@ -3,6 +3,7 @@ import Todo from './Todo';
 import { ListContainer, Button } from './Styles';
 
 const TodoList = props => {
+    console.log(props)
     return(
         <ListContainer>
 
@@ -13,7 +14,8 @@ const TodoList = props => {
                     task={task} />
             ))}
 
-            <Button onClick={() => props.clearCompleted()}>
+            <Button 
+                onClick={() => props.clearCompleted()}>
                 Clear Completed
             </Button>
 
