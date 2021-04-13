@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
 
-export default class Todo extends Component {
-    constructor(props){
-        super(props)
-        console.log(props)
-    }
-
-
-    render() {
-        return (
-            <div className="todo" onClick={() => this.props.complete(this.props.todo.id)} >
-                <h3   style={ this.props.todo.completed ? {color: 'red'} : {color: 'blue'}} >{this.props.todo.task}</h3>
-            </div>
-        )
-    }
+class Todo extends Component {
+  render() {
+    return (
+      <div>
+        <input 
+          type="checkbox"
+          // checked={this.props.todos.completed}
+          onChange = {() => this.props.handleChange(this.props.todo.id)}
+        />
+        {/* {this.props.todos.task} */}
+        <button onClick={() => this.props.removeTodo(this.props.todo.id)}>
+          Remove
+        </button>
+      </div>
+    )
+  }
 }
+export default Todo
