@@ -1,10 +1,14 @@
 {
     "cSpell.words": [
+<<<<<<< HEAD
         "ewoks",
         "kanbate",
         "kawaii",
         "leia",
         "todolist",
         "uuidv"
+=======
+        "stringifier"
+>>>>>>> 5d52c623f0d15e4a8a8d99500c60f06a718d8e18
     ]
 }

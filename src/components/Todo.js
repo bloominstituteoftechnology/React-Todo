@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 
 const Todo = (props) => {
@@ -57,3 +58,35 @@ const Todo = (props) => {
 };
 
 export default Todo;
+=======
+import React from 'react'
+
+const  Todo = props =>  {
+
+    return (
+        <div className='d-flex justify-content-center todo-font'>
+        {props.list.map((item, idx) => (
+            <div
+            className='d-flex justify-content-center'
+              onClick={() => props.toggleDone(props.list[idx].id)}
+              key={idx}
+              style={{
+                border: ".1rem solid black",
+                cursor: "pointer",
+                margin: "2rem 0",
+                boxShadow: props.list.complete && '0 0 1rem lime', 
+                borderRadius: '10px', 
+                
+                
+              }}
+            >
+              <p style={{fontSize: '5rem', padding: '1.5rem'}}>{props.list[idx].task}</p>
+            </div>
+          ))}
+      
+        <p>{props.name}</p>
+      </div>)
+};
+
+export default Todo
+>>>>>>> 5d52c623f0d15e4a8a8d99500c60f06a718d8e18
