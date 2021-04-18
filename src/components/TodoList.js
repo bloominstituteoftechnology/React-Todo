@@ -1,24 +1,21 @@
 import React from "react";
 import useStyles from "../stylesheets/useStyles";
-
+import Todo from "./Todo";
 
 const TodoList = (props) => {
-    
-    const classes = useStyles()
+  const classes = useStyles();
 
-    console.log('Received props from TodoList', props)
-    console.log(classes)
-  
+  console.log("Received props from TodoList", props);
+  console.log(classes);
 
-    console.log('Received Props from Todolist Component', props)
+  return (
+    <div className='d-flex flex-column justify-content-center'>
+      <div className="d-flex justify-content-center" style={{justifySelf: 'center'}}>
+        <Todo props={props} />
+      </div>
+      );
+    </div>
+  );
+};
 
-    return (
-        <div>
-            <h4 className='display4'>This is the To do list component</h4>
- 
-        </div>
-    )
-}
-
-
-export default TodoList
+export default TodoList;

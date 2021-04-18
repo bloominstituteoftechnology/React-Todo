@@ -1,9 +1,8 @@
 import React from "react";
-import useStyles from "../stylesheets/useStyles";
 import { Button, TextField } from "@material-ui/core";
 
 class TodoForm extends React.Component {
-  
+
   constructor() {
     super();
     this.state = {
@@ -11,26 +10,52 @@ class TodoForm extends React.Component {
     };
   }
 
+  handleChange = (e) => {
+    console.log(e.target.value);
+    this.setState({
+      task: e.target.value,
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.addTodo(this.state.task);
+    this.setState({
+      ...this.state,
+      task: "",
+    });
+  };
+
   render() {
     return (
-      <div className="display-3">
-        <form>
-            <h1>Todo Form</h1>
+      <div>
+        <form
+          className="d-flex flex-row flex-wrap justify-content-center align-items-center"
+          onSubmit={this.handleSubmit}
+        >
           <TextField
             type="text"
             name="task"
-            value=""
-            // onChange={this.handleChange}
-            placeholder="Gotta Do It!"
-            color="primary"
+            value={this.state.task}
+            onChange={this.handleChange}
+            placeholder="Mission Entry"
+            variant='outlined'
+            label='Mission Entry'
+            style={{backgroundColor: '#AAA'}}
           />
-          <Button type="medium" size="medium" variant="outlined">
-            Fire!
+          <Button
+            className="btn"
+            type="medium"
+            size="medium"
+            variant="outlined"
+            style={{margin: '5vh 3vw', color: 'red', boxShadow: '0 0 2vh #660000'}}
+          >
+            Enter Assignment
           </Button>
         </form>
       </div>
     );
   }
-};
+}
 
 export default TodoForm;

@@ -8,12 +8,12 @@ const list = [
       completed: false,
     },
     {
-      task: "Recruit some ewoks",
+      task: "Recruit Some Ewoks",
       id: uuidv4(),
       completed: false,
     },
     {
-      task: "Swing the saber",
+      task: "Swing the Saber",
       id: uuidv4(),
       completed: false,
     },
