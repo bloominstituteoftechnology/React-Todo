@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Chango&display=swap');
+
+.wrapper {
+    background-image: url('../assets/firstorder.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.9;
+    min-height: 100vh
+}
+
+.cards {
+    margin: 5vh 10vw;
+    border: 2px solid #222;
+    box-shadow: 0 0 1.5rem #660000;
+    padding: 10vh 10vw;
+    text-align: center;
+    background-color: #000;
+    color: #CCC;
+    background-image: url('../assets/rey.jpg');
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.9;
+    width: 80%
+}
+
+p {
+    text-shadow: 0 0 2vh black;
+    cursor: pointer;
+}
+
+h2 {
+    font-family: 'Chango', cursive;
+    align-self: center;
+    color: #AAA;
+    padding: 2vh;
+    box-shadow: 0 0 1.5rem #660000;
+    margin: auto 5vw;
+    text-shadow: 0 0 .1rem red;
+}
+
+em {
+    text-shadow: 0 0 2vh black;
+    font-size: 1.25rem;
+    cursor: pointer;
+}

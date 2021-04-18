@@ -1,0 +1,113 @@
+body {
+    background: linear-gradient(35deg, #CDB38B , #E9C2A6);
+    background-image: url('drop.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.App {
+   
+    font-family: sans-serif;
+    text-align: center;
+    padding: 0 36px;
+    max-width: 665px;
+    margin: 5rem auto; 
+    background-color: white;
+    box-shadow: -.7rem -.7rem 1.5rem #362819	;
+    opacity: 0.9
+}
+
+.complete {
+    text-decoration: line-through;
+    opacity: 0.4;
+    background-color: '#444';
+    color: lime
+}
+
+.parallax-windows {
+    background-image: url('drop.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.9;
+   
+}
+
+h1, h3, h5, h6, p, .space {
+    font-family: 'Ultra', serif;
+    margin: 3rem auto; 
+    text-shadow: -.7rem -.7rem 1.5rem #362819;
+    padding: 1rem auto;
+    color: white
+}
+
+.space {
+
+    margin: 3rem 0;
+    color: black
+}
+
+h2 { 
+    font-family: 'Anton', sans-serif;  
+}
+
+#btn {
+    background: #8B7765	;
+    height: 75px;
+    min-width: 150px;
+    max-width: 75%;
+    border: none;
+    border-radius: 15px;
+    color: #eee;
+    font-size: 1.25rem;
+    font-family: 'Ultra', serif;
+    position: relative;
+    transition: 2s;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: -.7rem -.7rem 1.5rem #362819	;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: .7rem 1rem;
+  }
+  
+  #btn #circle {
+    width: 5px;
+    height: 5px;
+    background: transparent;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    overflow: hidden;
+    transition: 500ms;
+  }
+  
+  .noselect {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+  }
+  
+  #btn:hover {
+    background: transparent;
+  }
+  
+  #btn:hover #circle {
+    height: 50px;
+    width: 150px;
+    left: 0;
+    border-radius: 0;
+    border-bottom: 2px solid #CDB38B;
+  }
+
+  .todo-font {
+    font-family: 'Long Cang', cursive;
+  }
