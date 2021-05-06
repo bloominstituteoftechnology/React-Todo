@@ -6,16 +6,18 @@ class App extends React.Component {
     super();
     this.state = {
       todoListArray: [],
-      taskCompleted: false,
-      todoInput: ''
-
     };
   }
   updateListInput = event => {
     this.setState({todoInput: event.target.value});
   }
-  updateTodoListArray = event => {
-    this.setState({todoListArray: event.target.value});
+  updateTodoListArray = todo => {
+
+    this.setState({
+      ...this.state,
+      todoListArray: [...this.state.todoListArray, todo]
+
+    });
   }
   submitListItem = event => {
     this.setState()
