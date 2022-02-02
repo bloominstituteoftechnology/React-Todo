@@ -1,0 +1,20 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  border-top: 2px solid gray;
+  height: 50vh;
+}
+
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 2px solid gray;
+  padding: 2%;
+  height: 100;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+}

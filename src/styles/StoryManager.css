@@ -1,0 +1,65 @@
+.story-manager {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 80vh;
+  /* background: rgb(246, 227, 227); */
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-evenly;
+  height: 5vw;
+}
+
+.actionsButtons {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1vw;
+}
+
+.searchForm {
+  display: flex;
+  align-items: center;
+}
+
+.searchForm form {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.library {
+  border: 2px solid gray;
+  display: flex;
+  flex-direction: column;
+  margin: 2vw;
+  padding: 2vw;
+}
+
+.bottom-widgets {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.calendar {
+  border: 2px solid gray;
+  width: 100%;
+  margin: 2vw;
+}
+
+.placeholder-text {
+  border: 2px solid gray;
+  width: 100%;
+  margin: 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+}
+
+.review-checkboxes {
+  display: flex;
+  flex-direction: column;
+}

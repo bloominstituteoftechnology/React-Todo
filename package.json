@@ -3,12 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^1.9.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
+    "antd": "^4.18.5",
+    "axios": "^0.25.0",
+    "dotenv": "^14.3.2",
     "react": "^16.13.0",
+    "react-calendar": "^3.6.0",
     "react-dom": "^16.13.0",
+    "react-json-pretty": "^2.2.0",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.1",
     "react-scripts": "3.4.0",
+    "redux": "^4.1.2",
     "styled-components": "^5.2.1"
   },
   "scripts": {
@@ -31,5 +40,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.1"
   }
 }

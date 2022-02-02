@@ -1,0 +1,61 @@
+.qaReviewMain {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 80vh;
+  /* background: rgb(246, 227, 227); */
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-evenly;
+  height: 5vw;
+}
+
+.actionsButtons {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1vw;
+  /* border: 2px solid red; */
+  width: 50%;
+}
+
+.searchForm {
+  display: flex;
+  align-items: center;
+  padding: 1vw;
+  /* border: 2px solid red; */
+  width: 50%;
+}
+
+.review {
+  border: 2px solid gray;
+  display: flex;
+  flex-direction: column;
+  margin: 2vw;
+  padding: 2vw;
+}
+
+.reviewed {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.approved {
+  border: 2px solid gray;
+  width: 100%;
+  margin: 2vw;
+}
+
+.rejected {
+  border: 2px solid gray;
+  width: 100%;
+  margin: 2vw;
+}
+
+.review-checkboxes {
+  display: flex;
+  flex-direction: column;
+}
