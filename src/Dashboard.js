@@ -8,9 +8,6 @@ const Dashboard = () => {
     return (
         <div>
             <h2>Dashboard</h2>
-            <img src={user.picture} alt={user.name}/>
-            <h4>{user.name}</h4>
-            <p>{user.email}</p>
             <JSONPretty data={user} />
         </div>
     )

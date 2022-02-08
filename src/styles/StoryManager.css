@@ -1,65 +1,60 @@
 .story-manager {
   display: flex;
-  flex-direction: column;
-  text-align: center;
+  flex-direction: row;
   height: 80vh;
+  justify-content: space-evenly;
   /* background: rgb(246, 227, 227); */
-  width: 100%;
-}
-
-.actions {
-  display: flex;
-  justify-content: space-evenly;
-  height: 5vw;
-}
-
-.actionsButtons {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 1vw;
-}
-
-.searchForm {
-  display: flex;
-  align-items: center;
-}
-
-.searchForm form {
-  display: flex;
-  justify-content: space-evenly;
+  width: 93%;
 }
 
 .library {
   border: 2px solid gray;
   display: flex;
   flex-direction: column;
-  margin: 2vw;
+  width: 50%;
   padding: 2vw;
+  margin: 1%;
+  border-radius: 1vw;
 }
 
-.bottom-widgets {
+.checked {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-.calendar {
-  border: 2px solid gray;
-  width: 100%;
-  margin: 2vw;
-}
-
-.placeholder-text {
-  border: 2px solid gray;
-  width: 100%;
-  margin: 2vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: lightgray;
+  width: 50%;
+  flex-direction: column;
+  /* background: lightgreen; */
 }
 
 .review-checkboxes {
   display: flex;
   flex-direction: column;
+}
+
+.approved {
+  border: 2px solid gray;
+  width: 100%;
+  height: 50%;
+  padding: 2vw;
+  margin: 2%;
+  border-radius: 1vw;
+  /* background: lightgreen; */
+}
+
+.rejected {
+  border: 2px solid gray;
+  width: 100%;
+  height: 50%;
+  padding: 2vw;
+  margin: 2%;
+  border-radius: 1vw;
+  /* background: lightpink; */
+}
+
+h3 {
+  display: inline;
+}
+
+.library-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

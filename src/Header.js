@@ -1,7 +1,7 @@
 import React from "react"
 import { useAuth0 } from "@auth0/auth0-react";
 import "./styles/Header.css";
-import logo from "./pics/logo192.png";
+import logo from "./utils/logo192.png";
 import {useNavigate} from "react-router-dom";
 
 const Header = () => {
