@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 10vh;
+}
+
+.formdiv {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+input {
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(168, 87, 78);
+}
