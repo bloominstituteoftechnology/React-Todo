@@ -2,7 +2,6 @@ import React from 'react';
 import Todo from './Todo';
 
 function TodoList (props) {
-    console.log("TodoList props", props)
     return (
         <div>
         {props.todos.map(todo => 
