@@ -37,12 +37,14 @@ function App () {
               completed: false
           }]
       )
+      localStorage.setItem("todos", JSON.stringify(todos));
   }
 
   const clearCompleted = () => {
     setTodos(
           todos.filter(todo => !todo.completed)
       )
+    localStorage.setItem("todos", JSON.stringify(todos));
   }
     return (
       <div className="app">
