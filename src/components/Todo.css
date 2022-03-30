@@ -5,3 +5,9 @@
 .todo {
   color: rgb(0, 78, 78);
 }
+
+@media (max-width: 800px) {
+  h3 {
+    font-size: 10vw;
+  }
+}
