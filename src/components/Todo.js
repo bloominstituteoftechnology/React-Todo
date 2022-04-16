@@ -1,5 +1,5 @@
 import React from 'react'
-import './Todo.css';
+import '../styles/Todo.css';
 
 function Todo (props) {
         return (
