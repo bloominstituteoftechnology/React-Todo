@@ -1,0 +1,13 @@
+.todo.completed {
+  text-decoration: line-through red;
+}
+
+.todo {
+  color: rgb(0, 78, 78);
+}
+
+@media (max-width: 1000px) {
+  h3 {
+    font-size: 10vw;
+  }
+}

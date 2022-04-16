@@ -14,15 +14,15 @@ We're going to practice building a stateful class component with this project. E
 ```js
 [
   {
-    task: 'Organize Garage',
+    task: "Organize Garage",
     id: 1528817077286,
-    completed: false
+    completed: false,
   },
   {
-    task: 'Bake Cookies',
+    task: "Bake Cookies",
     id: 1528817084358,
-    completed: false
-  }
+    completed: false,
+  },
 ];
 ```
 
@@ -71,12 +71,12 @@ Follow these steps for completing your project.
 
 - **Persist your data** in `window.localStorage()` hint: you may have to pass your data to a stringifier to get it to live inside the `localStorage()` of the browser. This will cause it to persist past the page refresh.
 
-- **Search Functionality** Add a input bar that allows you to search through your tasks and only show the ones that match the search input.
+- **Search Functionality** Add an input bar that allows you to search through your tasks and only show the ones that match the search input.
 
 - **Hosting** Create a [Netlify Account](https://www.netlify.com/) and follow the tutorial on how to host your shiny new todo app on the world wide web.
 
 ## Submission Format
 
-- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
+- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's Repo). **Please don't merge your own pull request**
 - [ ] From the home page of your repo, make sure you have your branch selected
 - [ ] Copy the URL and paste it into Canvas to submit your assignment
