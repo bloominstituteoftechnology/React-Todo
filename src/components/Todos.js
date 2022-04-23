@@ -1,69 +1,84 @@
-import React,{useEffect,useState} from 'react'
-import Logout from './Logout'
-import TodoForm from "./TodoForm"
-import TodoList from "./TodoList"
+import React,{useEffect,useState} from 'react';
+import { connect } from 'react-redux';
+import Logout from './Logout';
+import {createTodo, getTodos} from "../actions/todosActions";
+import"../styles/Todos.css";
+import { useNavigate } from 'react-router-dom';
 
-const Todos = () => {
+const Todos = ({user_name, user_id, todos, getTodos, createTodo}) => {
+    const [ newTodo, setNewTodos ] = useState({
+        todo_name : "",
+        user_id : user_id
+    })
 
-      const [todos, setTodos] = useState(() => {
-    const savedTodos = localStorage.getItem("todos");
-    if(savedTodos) {
-        return JSON.parse(savedTodos)
-    } else {
-        return [];
-    }
-  })
+    const navigate = useNavigate()
 
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  },[todos])
+    useEffect(() => {
+        getTodos(user_id)
+    },[getTodos])
 
+    const textBoxChanges = e => {
+        e.persist();
+        setNewTodos({
+        ...newTodo,
+        [e.target.name]: e.target.value,
+        });
+    };
 
-  const toggleTodo = todoId => {
-      const updatedTodos = todos.map(todo => {
-          if(todoId === todo.id) {
-            return {...todo, completed : !todo.completed}
-          }
-          return todo
-      })
-      setTodos(updatedTodos)
+  const formSubmit = (e) => {
+      e.preventDefault();
+      createTodo(newTodo)
+      setNewTodos({...newTodo, todo_name: ""})
   }
 
-  const addTodo = newTodo => {
-      setTodos(
-          [...todos, {
-              task: newTodo.trim(),
-              id: Math.random(),
-              completed: false
-          }]
-      )
-      localStorage.setItem("todos", JSON.stringify(todos));
-  }
-
-  const clearCompleted = () => {
-    setTodos(
-          todos.filter(todo => !todo.completed)
-      )
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }
-    
-  return (
-      <div>
-            <Logout />
-            <div>
-                <h1>To-do List</h1>
-                <TodoForm 
-                    addTodo={addTodo}
-                    clearCompleted={clearCompleted}
-                    />
-                <TodoList 
-                    todos={todos} 
-                    toggleTodo={toggleTodo}
-                    />
+    return (
+        <div className='todos-outer-div'>
+            <div className='logout-div'>
+                <button
+                    onClick={() => navigate("/")}>Back
+                </button>
+                <Logout /> 
             </div>
-      </div>
-   
-  )
+            <div className='main-todos-div'>
+                <h2><b className='name'>{user_name}'s </b>2dos</h2>
+                <form 
+                    onSubmit={formSubmit} 
+                    className="add-todo-form"
+                >
+                    <input 
+                        type='text'
+                        name='todo_name'
+                        id='todo_name'
+                        value={newTodo.todo_name}
+                        onChange={textBoxChanges}
+                        placeholder='Add new list'
+                    />
+                    <button className='add-button'>Add</button>
+                </form>
+                <div className='todo-list'>
+                    {todos.map(todo => (
+                        <div 
+                            className='todo' 
+                            key={todo.todo_name}
+                            onClick={() => navigate(`/users/${user_id}/todos/${todo.todo_id}`)}
+                            >
+                            <p>{todo.todo_name}</p>
+                        </div>
+                    ))}
+                </div>                
+            </div>
+
+        </div>
+    
+    )
 }
 
-export default Todos
+const mapStateToProps = state => {
+    return {
+        user_name: state.userReducer.user_name,
+        user_id: state.userReducer.user_id,
+        todos: state.todosReducer.todos
+    }
+}
+
+export default connect(mapStateToProps, {getTodos, createTodo})(Todos)

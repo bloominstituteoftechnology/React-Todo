@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.26.1",
     "dotenv": "^16.0.0",
     "local-storage": "^2.0.0",
     "react": "^16.13.0",
@@ -16,7 +17,8 @@
     "react-scripts": "3.4.0",
     "redux": "^4.1.2",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.4.1"
+    "redux-thunk": "^2.4.1",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",

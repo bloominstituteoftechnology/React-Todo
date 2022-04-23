@@ -5,23 +5,14 @@ import  { createStore, applyMiddleware } from 'redux';
 import { rootReducer } from './reducers';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import {Auth0Provider} from "@auth0/auth0-react"
+import { Provider } from 'react-redux';
 
 
 const store= createStore(rootReducer, applyMiddleware(thunk, logger))
 
-const domain = process.env.REACT_APP_AUTH0_DOMAIN
-const clientId = process.env.REACT_APP_AUTH0_ID
-
 ReactDOM.render(
-    
-    <Auth0Provider 
-        domain = {domain}
-        clientId = {clientId}
-        redirectUri = {window.location.origin}
-        store={store}
-        >
+    <Provider store={store}>
         <App />
-    </Auth0Provider>
+    </Provider>
 ,document.getElementById('root')
 );

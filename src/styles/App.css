@@ -6,11 +6,13 @@ body {
 
 button {
   font-size: 1rem;
-  color: rgb(168, 87, 78);
+  color: rgb(164, 54, 42);
   background: rgb(255, 247, 244);
-  border-radius: 0.5rem;
+  border-radius: 1vw;
   border: 0.1px solid rgb(168, 87, 78);
-  padding: 10px;
+  height: 8vw;
+  width:30vw;
+  cursor: pointer;
 }
 
 .app {
@@ -18,8 +20,27 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  width:100%;
+  color: rgb(0,75,75)
 }
 
-h1 {
-  color: rgb(168, 87, 78);
+::placeholder {
+    color:rgba(114, 133, 133, 0.749);
+    font-size: .8rem;
+  }
+/* 
+@media(min-width: 400px){
+
 }
+@media(min-width: 600px){
+
+}
+@media(min-width: 800px){
+
+}
+@media(min-width: 1000px){
+
+}
+@media(min-width: 1200px){
+
+} */

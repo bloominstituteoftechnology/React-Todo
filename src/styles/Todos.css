@@ -1,0 +1,86 @@
+.todos-outer-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.logout-div{
+    display:flex;
+    justify-content: space-between;
+    width: 95vw;
+}
+
+.main-todos-div {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    width: 100%;
+}
+
+.name {
+    color: rgb(168, 87, 78);
+}
+
+.todo-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content: flex-start;
+    margin-top: 10vw;
+    /* background: blue; */
+    width:100%;
+}
+
+.todo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(239, 253, 253);
+    border: 0.1px solid rgba(0, 100, 100, 0.214);
+    padding: 0 2vw;
+    cursor: pointer;
+    /* border-radius: 1vw; */
+    width:28.8%;
+}
+
+.todo:hover {
+    box-shadow: 2px 2px rgb(0, 100, 100);
+}
+
+.add-todo-form {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.add-todo-form input{
+    background: rgb(255, 247, 244);
+    border:1px solid rgb(178, 203, 203);
+    border-radius: 1vw;
+    color: rgb(0, 100, 100);
+    padding: 1vw;
+}
+
+.add-button {
+    color:rgb(0, 100, 100);
+    border: 1px solid rgba(0, 100, 100, 0.658);
+    width: 20vw;
+}
+/* 
+@media(min-width: 400px){
+
+}
+@media(min-width: 600px){
+
+}
+@media(min-width: 800px){
+
+}
+@media(min-width: 1000px){
+
+}
+@media(min-width: 1200px){
+
+}
+ */

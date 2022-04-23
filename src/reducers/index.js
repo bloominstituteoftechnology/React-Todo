@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { todosReducer } from './todosReducer';
-// import { LeagueReducer } from './LeagueReducer';
+import { userReducer } from './userReducer';
+import { tasksReducer } from './tasksReducer';
 
-export const rootReducer = combineReducers({todosReducer
+export const rootReducer = combineReducers({todosReducer, userReducer, tasksReducer
 })

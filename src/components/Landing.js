@@ -1,34 +1,16 @@
-import { useAuth0 } from "@auth0/auth0-react"
-import React from "react"
-import Logout from "./Logout"
-import {useNavigate} from "react-router-dom"
+import React from "react";
+import Login from "./Login";
+import Signup from "./Signup";
+import "../styles/Landing.css";
 
-function Landing () {
-    const {loginWithRedirect, user } = useAuth0()
-console.log("useAuth0",useAuth0())
-    const navigate = useNavigate()
 
-    if (!user){           
+function Landing(){      
         return (
-            <div>
-                <button onClick={() => loginWithRedirect()}>
-                    Login
-                </button>
+            <div className="landing-outer">
+                <h1><b className="title2">2</b>do</h1>
+                <Login />
+                <Signup />
             </div>
         )
-    } else {
-        return (
-            <div>
-                <header>
-                  <Logout />  
-                </header>
-                <button onClick={() => navigate(`/users/${user.nickname}`)}>
-                    See Todos
-                </button>
-            </div>
-        )
-    }
-
 }
-
 export default Landing
