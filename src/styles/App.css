@@ -1,0 +1,46 @@
+body {
+  background: lightcyan;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+button {
+  font-size: 1rem;
+  color: rgb(164, 54, 42);
+  background: rgb(255, 247, 244);
+  border-radius: 1vw;
+  border: 0.1px solid rgb(168, 87, 78);
+  height: 8vw;
+  width:30vw;
+  cursor: pointer;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width:100%;
+  color: rgb(0,75,75)
+}
+
+::placeholder {
+    color:rgba(114, 133, 133, 0.749);
+    font-size: .8rem;
+  }
+/* 
+@media(min-width: 400px){
+
+}
+@media(min-width: 600px){
+
+}
+@media(min-width: 800px){
+
+}
+@media(min-width: 1000px){
+
+}
+@media(min-width: 1200px){
+
+} */

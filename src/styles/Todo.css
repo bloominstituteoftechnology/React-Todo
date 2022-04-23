@@ -1,0 +1,63 @@
+.todo-main-div{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todo-main-div h2 {
+    color: rgb(164, 54, 42);
+}
+
+.task.completed {
+  text-decoration: line-through red;
+  cursor: pointer;
+  text-align: center;
+}
+
+.task {
+  /* color: rgb(0, 78, 78); */
+  cursor: pointer;
+  text-align: center;
+}
+
+.delete-button {
+    background-color: brown;
+    color: rgb(255, 247, 244)
+}
+
+.delete-buttons-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vw;
+    width: 100%;
+}
+
+.clear {
+    width: 50%;
+    margin-bottom: 5vh;
+}
+
+.todo-main-div input{
+    background: rgb(255, 247, 244);
+    border:1px solid rgb(178, 203, 203);
+    border-radius: 1vw;
+    color: rgb(0, 100, 100);
+    padding: 1vw;
+}
+/* 
+@media(min-width: 400px){
+
+}
+@media(min-width: 600px){
+
+}
+@media(min-width: 800px){
+
+}
+@media(min-width: 1000px){
+
+}
+@media(min-width: 1200px){
+
+} */
