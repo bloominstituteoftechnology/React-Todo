@@ -38,7 +38,7 @@ function Login({login}) {
     formSchema.isValid(user).then(valid => {
       setButtonDisabled(!valid);
     });
-  }, [user]);
+  }, [formSchema,user]);
 
   const validate = e => {
     yup

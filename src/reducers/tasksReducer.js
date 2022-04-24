@@ -23,7 +23,7 @@ export const tasksReducer = (state = initialState, action) => {
         case TOGGLE_TASK:
             return {...state, tasks: action.payload};
         case DELETE_TASK_SUCCESS:
-            const filteredTasks = state.tasks.filter(task => task.task_id != action.payload.task_id)
+            const filteredTasks = state.tasks.filter(task => task.task_id !== action.payload.task_id)
             return {...state, tasks: filteredTasks}
         case USER_LOGOUT:
             return {...state, tasks: [], loading: false};
