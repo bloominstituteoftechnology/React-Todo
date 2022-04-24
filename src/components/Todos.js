@@ -15,7 +15,7 @@ const Todos = ({user_name, user_id, todos, getTodos, createTodo}) => {
 
     useEffect(() => {
         getTodos(user_id)
-    },[getTodos])
+    },[getTodos,user_id])
 
     const textBoxChanges = e => {
         e.persist();

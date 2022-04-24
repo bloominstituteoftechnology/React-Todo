@@ -40,7 +40,7 @@ function Signup ({createUser}) {
         formSchema.isValid(user).then(valid => {
             setButtonDisabled(!valid);
         });
-    }, [user]);
+    }, [formSchema,user]);
 
     const validate = e => {
         yup

@@ -29,7 +29,7 @@ function Todo ({user_name, todos, tasks, getTasks, createTask, toggleTask, delet
 
     useEffect(() => {
         getTasks(todo_id)
-    },[getTasks])
+    },[getTasks,todo_id])
 
     const formSubmit = e => {
         e.preventDefault();

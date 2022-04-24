@@ -23,7 +23,7 @@ export const todosReducer = (state = initialState, action) => {
         case DELETE_TODO_START:
             return {...state, loading:true};
         case DELETE_TODO_SUCCESS:
-            const filteredTodos = state.todos.filter(todo => todo.todo_id != action.payload.todo_id)
+            const filteredTodos = state.todos.filter(todo => todo.todo_id !== action.payload.todo_id)
             return {...state, todos: filteredTodos}
         case USER_LOGOUT:
             return {...state, todos: [], loading: false};
