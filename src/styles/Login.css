@@ -1,6 +1,6 @@
 .login-outer-div{
     width: 100%;
-    padding-bottom: 2vh;
+    padding-bottom: 6vh;
     border-bottom: 1px solid rgba(40, 121, 121, 0.486);
     border-top: 1px solid rgba(40, 121, 121, 0.486);
 
@@ -20,15 +20,16 @@
 
 .login-outer-div label{
     width: 100%;
+    margin-top: 8vw;
     /* color: rgb(0, 75, 75); */
 }
 
 .login-outer-div input{
     background: rgb(255, 247, 244);
     border:1px solid rgb(178, 203, 203);
-    border-radius: 1vw;
-    color: rgb(0, 100, 100);
-    padding: 1vw;
+    border-radius: 5vw;
+    color: rgb(0, 101, 101);
+    padding: 2vw;
     width:97%;
 }
 

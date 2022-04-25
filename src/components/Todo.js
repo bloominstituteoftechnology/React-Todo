@@ -56,12 +56,12 @@ function Todo ({user_name, todos, tasks, getTasks, createTask, toggleTask, delet
                     <form 
                         onSubmit={formSubmit}
                         className="add-todo-form"
-                    >
+                        autoComplete='off'>
                         <input 
                             type='text'
                             name="task_description"
                             id='task_description'
-                            placeholder='Add a task'
+                            placeholder='Add new item'
                             value={task.task_description}
                             onChange={textBoxChanges}
                         />

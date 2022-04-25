@@ -5,9 +5,14 @@
     width: 80vw;
 }
 
+.landing-outer h2 {
+    margin-bottom: 0;
+    font-size: 2rem;
+}
+
 .title2 {
     font-family: cursive;
-    font-size: 4rem;
+    font-size: 6rem;
     text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.385);
 }
 
@@ -15,6 +20,23 @@
 h1 {
     color: rgb(164, 54, 42);
     margin: 0;
+    padding:0;
+}
+
+.landing-signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.landing-signup p {
+    font-size: 1.5rem;
+    margin-top: 10vw;
+}
+
+.landing-signup button {
+    background: none;
 }
 /* 
 @media(min-width: 400px){
