@@ -84,8 +84,9 @@ function Signup ({createUser}) {
         <div className='signup-outer-div'>
             <form 
                 onSubmit={formSubmit}
-                className="form-container">
-                <h2>Signup</h2>
+                className="form-container"
+                autoComplete='off'>
+                <h2>Sign up</h2>
                 <label htmlFor="user_name">Username<br/>
                     <input 
                         name="user_name" 

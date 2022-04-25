@@ -44,6 +44,7 @@ const Todos = ({user_name, user_id, todos, getTodos, createTodo}) => {
                 <form 
                     onSubmit={formSubmit} 
                     className="add-todo-form"
+                    autoComplete='off'
                 >
                     <input 
                         type='text'

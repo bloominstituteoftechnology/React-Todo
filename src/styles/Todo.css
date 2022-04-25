@@ -34,14 +34,14 @@
 }
 
 .clear {
-    width: 50%;
+    /* width: 50%; */
     margin-bottom: 5vh;
 }
 
 .todo-main-div input{
     background: rgb(255, 247, 244);
     border:1px solid rgb(178, 203, 203);
-    border-radius: 1vw;
+    border-radius: 5vw;
     color: rgb(0, 100, 100);
     padding: 1vw;
 }

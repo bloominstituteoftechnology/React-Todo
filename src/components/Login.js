@@ -82,7 +82,8 @@ function Login({login}) {
       <div className='login-outer-div'>
          <form 
             onSubmit={formSubmit} 
-            className="form-container">
+            className="form-container"
+            autoComplete='off'>
             <h2>Login</h2>
             <label htmlFor="user_name">Username<br />
             <input

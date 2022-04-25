@@ -51,22 +51,24 @@
 .add-todo-form {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 90%;
 }
 
 .add-todo-form input{
     background: rgb(255, 247, 244);
     border:1px solid rgb(178, 203, 203);
-    border-radius: 1vw;
+    border-radius: 5vw;
     color: rgb(0, 100, 100);
     padding: 1vw;
+    width: 60%;
 }
 
 .add-button {
     color:rgb(0, 100, 100);
     border: 1px solid rgba(0, 100, 100, 0.658);
-    width: 20vw;
+    /* width: 20vw; */
 }
+
 /* 
 @media(min-width: 400px){
 
