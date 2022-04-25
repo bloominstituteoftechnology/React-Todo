@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Signup.css';
 
-function Signup ({createUser}) {
+function Signup ({createUser, error}) {
 
     const navigate = useNavigate()
 
@@ -20,6 +20,10 @@ function Signup ({createUser}) {
         password: '',
   
     });
+
+    const [signupError, setSignupError] = useState({
+        error : error
+    })
 
     console.log(errors)
   
@@ -97,8 +101,18 @@ function Signup ({createUser}) {
                 </label><br />
 
                 {errors.user_name.length > 0 ? (
-                    <p className="error">{errors.user_name}</p>
-                ) : null}    
+                    <p className="username-error">{errors.user_name}</p>
+                ) : null}
+                {signupError.error ? (
+                    <div className='signup-error'>
+                        <div className='signup-error-inner'>
+                           <p className="signup-error-text">{signupError.error}</p>
+                        <button 
+                        className='close-signup-error'
+                        onClick={() => setSignupError({error:""})}>X</button>  
+                        </div>
+                    </div> 
+                ) : null}      
 
                 <label htmlFor="password">Password<br/>
                     <input 
@@ -111,7 +125,7 @@ function Signup ({createUser}) {
                 </label><br /> 
 
                 {errors.password.length > 0 ? (
-                    <p className="error">{errors.password}</p>
+                    <p className="password-error">{errors.password}</p>
                 ) : null}
 
                 <div className='button-div'>
@@ -122,4 +136,10 @@ function Signup ({createUser}) {
     )
 }
 
-export default connect( null, { createUser } )(Signup)
+const mapStateToProps = state => {
+    return {
+        error : state.userReducer.error
+    }
+}
+
+export default connect( mapStateToProps, { createUser } )(Signup)

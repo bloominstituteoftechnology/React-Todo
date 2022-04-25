@@ -15,8 +15,11 @@ function Landing(){
                 {!existingUser? 
                     <div className="landing-signup">
                         <Signup />
-                        <p>Already signed up?</p>
-                        <button onClick={() => setExistingUser(true)}>Login</button>
+                        <div className="already-signedup">
+                           <p>Already signed up?</p>
+                            <button onClick={() => setExistingUser(true)}>Login</button> 
+                        </div>
+                        
                     </div> : <Login />}
                 
                 

@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: red; */
 }
 
 .logout-div{
@@ -28,7 +27,6 @@
     flex-direction:row;
     justify-content: flex-start;
     margin-top: 10vw;
-    /* background: blue; */
     width:100%;
 }
 
@@ -40,7 +38,6 @@
     border: 0.1px solid rgba(0, 100, 100, 0.214);
     padding: 0 2vw;
     cursor: pointer;
-    /* border-radius: 1vw; */
     width:28.8%;
 }
 
@@ -66,7 +63,6 @@
 .add-button {
     color:rgb(0, 100, 100);
     border: 1px solid rgba(0, 100, 100, 0.658);
-    /* width: 20vw; */
 }
 
 /* 

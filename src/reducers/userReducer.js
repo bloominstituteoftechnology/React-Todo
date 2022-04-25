@@ -4,7 +4,8 @@ import { CREATE_USER_FAILURE, CREATE_USER_START, CREATE_USER_SUCCESS, USER_LOGIN
 const user = {
     user_id : "",
     user_name : "",
-    loading: false
+    loading: false,
+    error: ""
 }
 
 export const userReducer = ( state = user, action ) => {
@@ -15,7 +16,7 @@ export const userReducer = ( state = user, action ) => {
             console.log(action.payload)
             return {...state, user_id:action.payload.user_id, user_name: action.payload.user_name, loading: false } 
         case CREATE_USER_FAILURE:
-            return {...state, loading: false }
+            return {...state, loading: false, error: action.payload }
         case USER_LOGIN_START:
             return {...state, loading: true };
         case USER_LOGIN_SUCCESS:

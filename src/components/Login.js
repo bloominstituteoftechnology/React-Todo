@@ -75,7 +75,7 @@ function Login({login}) {
   };
 
   const go = () => {
-    navigate('/user/todos')
+    navigate(`/user/todos`)
   }
 
   return (

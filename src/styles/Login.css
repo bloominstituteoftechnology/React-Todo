@@ -14,14 +14,9 @@
     height: 40vh;
 }
 
-/* .form-container h2{
-    color:rgb(0, 75, 75);
-} */
-
 .login-outer-div label{
     width: 100%;
     margin-top: 8vw;
-    /* color: rgb(0, 75, 75); */
 }
 
 .login-outer-div input{
@@ -31,12 +26,6 @@
     color: rgb(0, 101, 101);
     padding: 2vw;
     width:97%;
-}
-
-.form-container p {
-    color: rgba(170, 13, 13, 0.904);
-    font-size: .8rem;
-    margin:0;
 }
 
 /* @media(min-width: 400px){

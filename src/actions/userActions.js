@@ -29,9 +29,9 @@ export const createUser = (user, setUser) => dispatch => {
         })
         localStorage.setItem('token', res.data.token)
         dispatch({type: CREATE_USER_SUCCESS, payload: res.data.newUser})
-    }).catch(err => {
-        dispatch({type:CREATE_USER_FAILURE})
-        console.log(err)
+    }).catch((err) => {
+        console.log(err.response.data.message)
+        dispatch({type:CREATE_USER_FAILURE, payload: err.response.data.message})
     })
 }
 
