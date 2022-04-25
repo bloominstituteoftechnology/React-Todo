@@ -15,7 +15,6 @@
 }
 
 .task {
-  /* color: rgb(0, 78, 78); */
   cursor: pointer;
   text-align: center;
 }
@@ -34,7 +33,6 @@
 }
 
 .clear {
-    /* width: 50%; */
     margin-bottom: 5vh;
 }
 
@@ -45,6 +43,7 @@
     color: rgb(0, 100, 100);
     padding: 1vw;
 }
+
 /* 
 @media(min-width: 400px){
 
