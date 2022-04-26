@@ -3,19 +3,15 @@ import { connect } from 'react-redux';
 import Logout from './Logout';
 import {createTodo, getTodos} from "../actions/todosActions";
 import"../styles/Todos.css";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const Todos = ({user_name, todos, getTodos, createTodo}) => {
-    let {user_id} = useParams()
-
+const Todos = ({user_name, user_id, todos, getTodos, createTodo}) => {
     const [ newTodo, setNewTodos ] = useState({
         todo_name : "",
         user_id : user_id
     })
 
     const navigate = useNavigate()
-
-    
 
     useEffect(() => {
         getTodos(user_id)
@@ -81,7 +77,7 @@ const Todos = ({user_name, todos, getTodos, createTodo}) => {
 const mapStateToProps = state => {
     return {
         user_name: state.userReducer.user_name,
-        // user_id: state.userReducer.user_id,
+        user_id: state.userReducer.user_id,
         todos: state.todosReducer.todos
     }
 }

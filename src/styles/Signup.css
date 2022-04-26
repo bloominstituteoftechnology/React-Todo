@@ -2,7 +2,8 @@
     width: 100%;
     border-bottom: 1px solid rgba(40, 121, 121, 0.486);
     border-top: 1px solid rgba(40, 121, 121, 0.486);
-    padding-bottom: 3vh;
+    padding-top: 5vh;
+    height: 50vh;
 }
 
 .form-container {
@@ -15,7 +16,7 @@
 
 .signup-outer-div label{
     width: 100%;
-    margin-top: 4vw;
+    margin-top: 8%;
 }
 
 .signup-outer-div input{
@@ -24,29 +25,38 @@
     border-radius: 5vw;
     color: rgb(0, 101, 101);
     padding: 2vw;
-    width:97%;
+    width:94%;
 }
 
 .button-div {
-    margin-top: 3vh;
+    margin-top: 10%;
     background: rgb(255, 247, 244); 
     border-radius: 5vw;
 }
 
 .username-error {
-    color: rgba(150, 10, 10, 0.895);
-    position:fixed;
-    font-size: .8rem;
+    position:absolute;
     margin:0;
-    top: 52vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: .8rem;
+    color: rgba(150, 10, 10, 0.895);
 }   
 
+.username-error-p {
+    position:relative;
+}
+
 .password-error {
-    color: rgba(150, 10, 10, 0.895);
-    position: fixed;
-    font-size: .8rem;
+    position:absolute;
     margin:0;
-    top: 64vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: .8rem;
+    color: rgba(150, 10, 10, 0.895);
+}
+
+.password-error-p {
+    position:relative;
+    top:40vh;
 }
 
 .signup-error {
@@ -72,32 +82,55 @@
 
 .signup-error p {
     color: brown;
-    font-size: 1.2rem;
 }
 
 .close-signup-error {
-    font-size: 1.3rem;
-    width :10vw;
-    height: 10vw;
-    padding: 0;
+    font-size: 1.5rem;
+    padding:2vw 4vw;
+    border-radius: 10vw;
 }
 
 
 
-
-/* 
-@media(min-width: 400px){
-
+@media(min-width: 800px) and (orientation: landscape){
+    .close-signup-error {
+        font-size: 1.5rem;
+        padding:2vw 3vw;
+        border-radius: 5vw;
+    }
+    
 }
-@media(min-width: 600px){
 
-}
-@media(min-width: 800px){
+/* @media(min-width: 400px){
 
-}
-@media(min-width: 1000px){
+} */
+/* @media(min-width: 600px){
+    .signup-outer-div{
+        padding-top: 3vh;
+        padding-bottom: 5vh;
+    }
+} */
+/* @media(min-width: 800px){
 
-}
-@media(min-width: 1200px){
+} */
+/* @media(min-width: 1000px){
 
+} */
+/* @media(min-width: 1200px){
+    .form-container label{
+        display: flex;
+        flex-direction: column;
+        width:30vw;
+    }
+
+    .signup-outer-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .signup-outer-div input{
+        padding: 1vh;
+        width:96%;
+    } 
 } */

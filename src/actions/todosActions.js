@@ -46,7 +46,8 @@ export const deleteTodo = (todo_id) => dispatch => {
     axios.delete(`https://toodueapp.herokuapp.com/api/todos/${todo_id}`)
         .then(res => {
             dispatch({type: DELETE_TODO_SUCCESS, payload:res.data})
-        }).catch(err => {
+        })
+        .catch(err => {
             dispatch({type: DELETE_TODO_FAILURE})
         })
 }

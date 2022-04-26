@@ -44,6 +44,12 @@
     padding: 1vw;
 }
 
+@media(min-width: 800px) and (orientation: landscape){
+    .todo-main-div {
+        margin-bottom: 30vh;
+    }
+}
+
 /* 
 @media(min-width: 400px){
 

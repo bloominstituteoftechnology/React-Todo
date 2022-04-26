@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { createUser } from "../actions/userActions";
+import { createUser, clearSignupError } from "../actions/userActions";
 import { connect } from "react-redux";
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Signup.css';
 
-function Signup ({createUser, error}) {
-
+function Signup ({createUser, error, clearSignupError }) {
+    
     const navigate = useNavigate()
 
     const [user, setUser] = useState({
@@ -15,17 +15,9 @@ function Signup ({createUser, error}) {
     })
 
     const [errors, setErrors] = useState({
-  
         user_name: '',
         password: '',
-  
     });
-
-    const [signupError, setSignupError] = useState({
-        error : error
-    })
-
-    console.log(errors)
   
     const [buttonDisabled, setButtonDisabled] = useState(true);
 
@@ -57,7 +49,6 @@ function Signup ({createUser, error}) {
             });
           })
           .catch(err => {
-            console.log(err.message);
             setErrors({
               ...errors,
               [e.target.name]: err.message,
@@ -77,14 +68,14 @@ function Signup ({createUser, error}) {
     const formSubmit = e => {
         e.preventDefault();
         createUser(user, setUser);
-        setTimeout(go, 1000);
+        setTimeout(go, 2000);
     }
 
     const go = () => {
         navigate('/user/todos')
     }
 
-        return (
+    return (
         <div className='signup-outer-div'>
             <form 
                 onSubmit={formSubmit}
@@ -99,17 +90,19 @@ function Signup ({createUser, error}) {
                         placeholder="At least 3 characters long" 
                     />
                 </label><br />
-
-                {errors.user_name.length > 0 ? (
-                    <p className="username-error">{errors.user_name}</p>
-                ) : null}
-                {signupError.error ? (
+                <div className="username-error">
+                   {errors.user_name.length > 0 ? (
+                    <p className="username-error-p">{errors.user_name}</p>
+                    ) : ""} 
+                </div>
+                
+                {error ? (
                     <div className='signup-error'>
                         <div className='signup-error-inner'>
-                           <p className="signup-error-text">{signupError.error}</p>
+                           <p className="signup-error-text">{error}</p>
                         <button 
                         className='close-signup-error'
-                        onClick={() => setSignupError({error:""})}>X</button>  
+                        onClick={() => clearSignupError()}>X</button>  
                         </div>
                     </div> 
                 ) : null}      
@@ -123,11 +116,11 @@ function Signup ({createUser, error}) {
                         placeholder="At least 6 characters long" 
                     />
                 </label><br /> 
-
-                {errors.password.length > 0 ? (
-                    <p className="password-error">{errors.password}</p>
-                ) : null}
-
+                    <div className="password-error">
+                        {errors.password.length > 0 ? (
+                        <p className='password-error-p'>{errors.password}</p>
+                        ) : null}  
+                    </div>
                 <div className='button-div'>
                     <button disabled={buttonDisabled}>Signup</button> 
                 </div>
@@ -138,8 +131,8 @@ function Signup ({createUser, error}) {
 
 const mapStateToProps = state => {
     return {
-        error : state.userReducer.error
+        error : state.userReducer.signupError
     }
 }
 
-export default connect( mapStateToProps, { createUser } )(Signup)
+export default connect( mapStateToProps, { createUser, clearSignupError } )(Signup)

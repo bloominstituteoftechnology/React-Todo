@@ -12,6 +12,8 @@ export const USER_LOGIN_START="USER_LOGIN_START";
 export const USER_LOGIN_SUCCESS="USER_LOGIN_SUCCESS";
 export const USER_LOGIN_FAILURE="USER_LOGIN_FAILURE";
 
+export const CLEAR_SIGNUP_ERROR = "CLEAR_SIGNUP_ERROR";
+export const CLEAR_LOGIN_ERROR = "CLEAR_LOGIN_ERROR";
 export const USER_LOGOUT = "USER_LOGOUT";
 
 const headers = {
@@ -48,8 +50,7 @@ export const login = (user, setUser) => dispatch => {
             dispatch({type: USER_LOGIN_SUCCESS, payload: res.data.user})
         }
     ).catch(err => {
-        dispatch({type: USER_LOGIN_FAILURE})
-        console.log(err)
+        dispatch({type: USER_LOGIN_FAILURE, payload: err.response.data.message})
     })
 }
 
@@ -65,6 +66,15 @@ export const deleteUser = (user_id) => dispatch => {
         })
 }
 
+export const clearSignupError = () => dispatch => {
+    dispatch({type: CLEAR_SIGNUP_ERROR})
+}
+
+export const clearLoginError = () => dispatch => {
+    dispatch({type: CLEAR_LOGIN_ERROR})
+}
+
 export const userLogout = () => dispatch => {
     dispatch({ type: USER_LOGOUT })
 }
+

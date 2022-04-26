@@ -1,6 +1,6 @@
 body {
   background: lightcyan;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  font-family: Hug Me Tight,"Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
 
@@ -12,6 +12,7 @@ button {
   border: 0.1px solid rgb(168, 87, 78);
   padding: 2vw 8vw;
   cursor: pointer;
+  font-family: Hug Me Tight;
 }
 
 .app {
@@ -27,7 +28,7 @@ button {
     color:rgba(114, 133, 133, 0.749);
     font-size: .8rem;
   }
-  
+
 /* 
 @media(min-width: 400px){
 
@@ -44,3 +45,22 @@ button {
 @media(min-width: 1200px){
 
 } */
+
+
+@font-face {
+    font-family: 'Hug Me Tight';
+    src: url('../fonts/HugMeTight.woff2') format('woff2'),
+        url('../fonts/HugMeTight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hug Me Tight';
+    src: url('../fonts/HugMeTight.woff2') format('woff2'),
+        url('../fonts/HugMeTight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
