@@ -1,6 +1,6 @@
 body {
   background: lightcyan;
-  font-family: Hug Me Tight,"Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  font-family: "Hujan","Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
 
@@ -12,7 +12,7 @@ button {
   border: 0.1px solid rgb(168, 87, 78);
   padding: 2vw 8vw;
   cursor: pointer;
-  font-family: Hug Me Tight;
+  font-family: "Hujan";
 }
 
 .app {
@@ -49,8 +49,8 @@ button {
 
 @font-face {
     font-family: 'Hug Me Tight';
-    src: url('../fonts/HugMeTight.woff2') format('woff2'),
-        url('../fonts/HugMeTight.woff') format('woff');
+    src: url('../fonts/HugMeTight/HugMeTight.woff2') format('woff2'),
+        url('../fonts/HugMeTight/HugMeTight.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -58,9 +58,35 @@ button {
 
 @font-face {
     font-family: 'Hug Me Tight';
-    src: url('../fonts/HugMeTight.woff2') format('woff2'),
-        url('../fonts/HugMeTight.woff') format('woff');
+    src: url('../fonts/HugMeTight/HugMeTight.woff2') format('woff2'),
+        url('../fonts/HugMeTight/HugMeTight.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
+@font-face {
+    font-family: 'Hujan';
+    src: url('../fonts/Hujan/Hujan.eot');
+    src: url('../fonts/Hujan/Hujan.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Hujan/Hujan.woff2') format('woff2'),
+        url('../fonts/Hujan/Hujan.woff') format('woff'),
+        url('../fonts/Hujan/Hujan.ttf') format('truetype'),
+        url('../fonts/Hujan/Hujan.svg#Hujan') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hujan';
+    src: url('../fonts/Hujan/Hujan_1.eot');
+    src: url('../fonts/Hujan/Hujan_1.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Hujan/Hujan_1.woff2') format('woff2'),
+        url('../fonts/Hujan/Hujan_1.woff') format('woff'),
+        url('../fonts/Hujan/Hujan_1.ttf') format('truetype'),
+        url('../fonts/Hujan/Hujan_1.svg#Hujan') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
