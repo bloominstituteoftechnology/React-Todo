@@ -1,5 +1,6 @@
 .login-outer-div{
     width: 100%;
+    padding-top: 5vh;
     padding-bottom: 6vh;
     border-bottom: 1px solid rgba(40, 121, 121, 0.486);
     border-top: 1px solid rgba(40, 121, 121, 0.486);
@@ -11,12 +12,12 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    height: 40vh;
+    /* height: 40vh; */
 }
 
 .login-outer-div label{
     width: 100%;
-    margin-top: 8vw;
+    margin-top: 7vw;
 }
 
 .login-outer-div input{
@@ -25,8 +26,43 @@
     border-radius: 5vw;
     color: rgb(0, 101, 101);
     padding: 2vw;
-    width:97%;
+    width:94%;
 }
+
+.login-error {
+    background: rgba(33, 48, 48, 0.897);
+    position:fixed;
+    width: 100vw;
+    height: 100%;
+    top:0;
+    left:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-error-inner {
+    background: rgb(255, 247, 244); 
+    padding: 5vw;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}    
+
+.login-error p {
+    color: brown;
+    font-size: 1.2rem;
+}
+
+@media(min-width: 800px) and (orientation: landscape){
+    .login-outer-div {
+        margin-bottom: 10vh;
+    }
+}
+
+
+
 
 /* @media(min-width: 400px){
 

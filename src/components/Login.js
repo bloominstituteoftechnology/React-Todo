@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import '../styles/Login.css';
 import { connect } from 'react-redux';
-import { login } from "../actions/userActions";
+import { login, clearLoginError } from "../actions/userActions";
 import { useNavigate } from 'react-router-dom';
 
-
-function Login({login}) {
+function Login({login, clearLoginError, loginError}) {
     const navigate = useNavigate();
 
     const [user, setUser] = useState({
@@ -15,10 +14,8 @@ function Login({login}) {
     })
 
     const [errors, setErrors] = useState({
-
         user_name: '',
         password: '',
-
     });
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -61,7 +58,6 @@ function Login({login}) {
   const textBoxChanges = e => {
     e.persist();
     validate(e);
-
     setUser({
       ...user,
       [e.target.name]: e.target.value,
@@ -71,7 +67,7 @@ function Login({login}) {
   const formSubmit = e => {
     e.preventDefault();
     login(user, setUser)
-    setTimeout(go,1000) // to allow time for the token to be set 
+    setTimeout(go,2000) // to allow time for the token to be set 
   };
 
   const go = () => {
@@ -95,9 +91,22 @@ function Login({login}) {
                 placeholder="At least 3 characters long" 
             />
             </label><br />
-            {errors.user_name.length > 0 ? (
-                <p className="error">{errors.user_name}</p>
-            ) : null}
+            <div className="username-error">
+                {errors.user_name.length > 0 ? (
+                    <p className="username-error-p">{errors.user_name}</p>
+                ) : null}
+            </div >
+
+            {loginError ? (
+                <div className='login-error'>
+                    <div className='login-error-inner'>
+                        <p className="login-error-text">{loginError}</p>
+                    <button 
+                    className='close-login-error'
+                    onClick={() => clearLoginError()}>X</button>  
+                    </div>
+                </div> 
+            ) : null}  
 
             <label htmlFor="password">Password<br />
                 <input
@@ -109,16 +118,23 @@ function Login({login}) {
                     placeholder="At least 6 characters long" 
                 />
             </label><br />
-            {errors.password.length > 0 ? (
-                <p className="error">{errors.password}</p>
-            ) : null}
+            <div className="password-error">
+                {errors.password.length > 0 ? (
+                    <p className="password-error-p">{errors.password}</p>
+                ) : null}
+            </div>
             <div className='button-div'>
                <button disabled={buttonDisabled}>Login</button> 
             </div>
-            
         </form>
       </div>
   );
 }
 
-export default connect( null, { login } )( Login )
+const mapStateToProps = state => {
+    return {
+        loginError : state.userReducer.loginError
+    }
+}
+
+export default connect( mapStateToProps, { login, clearLoginError } )( Login )
