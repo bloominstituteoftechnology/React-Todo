@@ -11,7 +11,7 @@ function Landing(){
         return (
             <div className="landing-outer">
                 <div className="title">
-                    <h1 className="title2">toodue</h1> 
+                    <h1 className="title2">Toodue</h1> 
                 </div>
                 {!existingUser? 
                     <div className="landing-signup">

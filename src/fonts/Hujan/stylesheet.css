@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Hujan';
+    src: url('Hujan.eot');
+    src: url('Hujan.eot?#iefix') format('embedded-opentype'),
+        url('Hujan.woff2') format('woff2'),
+        url('Hujan.woff') format('woff'),
+        url('Hujan.ttf') format('truetype'),
+        url('Hujan.svg#Hujan') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hujan';
+    src: url('Hujan_1.eot');
+    src: url('Hujan_1.eot?#iefix') format('embedded-opentype'),
+        url('Hujan_1.woff2') format('woff2'),
+        url('Hujan_1.woff') format('woff'),
+        url('Hujan_1.ttf') format('truetype'),
+        url('Hujan_1.svg#Hujan') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
