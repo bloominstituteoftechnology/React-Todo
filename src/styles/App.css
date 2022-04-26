@@ -46,24 +46,6 @@ button {
 
 } */
 
-
-@font-face {
-    font-family: 'Hug Me Tight';
-    src: url('../fonts/HugMeTight/HugMeTight.woff2') format('woff2'),
-        url('../fonts/HugMeTight/HugMeTight.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Hug Me Tight';
-    src: url('../fonts/HugMeTight/HugMeTight.woff2') format('woff2'),
-        url('../fonts/HugMeTight/HugMeTight.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
 @font-face {
     font-family: 'Hujan';
     src: url('../fonts/Hujan/Hujan.eot');
