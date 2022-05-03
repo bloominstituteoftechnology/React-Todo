@@ -51,6 +51,21 @@
     padding: 3vw;
 }
 
+.delete-warning {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3vh;
+}
+
+.delete-warning h2 {
+    color: rgb(0, 100, 100);
+}
+
+.question-mark {
+    color:rgb(164, 54, 42)
+}
+
 @media(min-width:1200px){
     #task_description{
         padding: 0 2vh;
