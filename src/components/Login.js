@@ -67,11 +67,11 @@ function Login({login, clearLoginError, loginError}) {
   const formSubmit = e => {
     e.preventDefault();
     login(user, setUser)
-    setTimeout(go,2000) // to allow time for the token to be set 
+    setTimeout(go,1000) // to allow time for the token to be set 
   };
 
   const go = () => {
-    navigate(`/user/todos`)
+    navigate('/user/todos')
   }
 
   return (
@@ -96,18 +96,6 @@ function Login({login, clearLoginError, loginError}) {
                     <p className="username-error-p">{errors.user_name}</p>
                 ) : null}
             </div >
-
-            {loginError ? (
-                <div className='login-error'>
-                    <div className='login-error-inner'>
-                        <p className="login-error-text">{loginError}</p>
-                    <button 
-                    className='close-login-error'
-                    onClick={() => clearLoginError()}>X</button>  
-                    </div>
-                </div> 
-            ) : null}  
-
             <label htmlFor="password">Password<br />
                 <input
                     name="password"
@@ -124,9 +112,25 @@ function Login({login, clearLoginError, loginError}) {
                 ) : null}
             </div>
             <div className='button-div'>
-               <button disabled={buttonDisabled}>Login</button> 
+               <button 
+                    disabled={buttonDisabled}
+                    className={buttonDisabled?"disabled":""}>Login</button> 
             </div>
         </form>
+        <div className="already-signedup">
+            <p>Not a member?</p>
+            <button onClick={() => navigate("/signup")}>Signup</button> 
+        </div>
+        {loginError ? (
+                <div className='login-error'>
+                    <div className='login-error-inner'>
+                        <p className="login-error-text">{loginError}</p>
+                    <button 
+                    className='close-login-error'
+                    onClick={() => clearLoginError()}>X</button>  
+                    </div>
+                </div> 
+            ) : null}  
       </div>
   );
 }

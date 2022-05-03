@@ -45,7 +45,7 @@ function Todo ({user_name, todos, tasks, getTasks, createTask, toggleTask, delet
     }
 
         return (
-            <div>
+            <div className='todo-outer-div'>
                 <div className='logout-div'>
                     <button
                         onClick={() => navigate("/user/todos")}>Back</button>

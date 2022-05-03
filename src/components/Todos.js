@@ -40,7 +40,7 @@ const Todos = ({user_name, user_id, todos, getTodos, createTodo}) => {
                 <Logout /> 
             </div>
             <div className='main-todos-div'>
-                <h2><b className='name'>{user_name}'s </b>2dos</h2>
+                <h2><b className='name'>{user_name}'s </b>2do lists</h2>
                 <form 
                     onSubmit={formSubmit} 
                     className="add-todo-form"

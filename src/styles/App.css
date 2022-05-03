@@ -4,13 +4,23 @@ body {
     "Lucida Sans", Arial, sans-serif;
 }
 
+.title {
+    color:rgb(164, 54, 42);
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 300;
+    margin-top: 2vh;
+    border-bottom: 1px solid rgba(40, 121, 121, 0.486);
+    width: 100%;
+}
+
 button {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: rgb(164, 54, 42);
   background: rgb(255, 247, 244);
-  border-radius: 5vw;
+  border-radius: 10vw;
   border: 0.1px solid rgb(168, 87, 78);
-  padding: 2vw 8vw;
+  padding: 3vw 8vw;
   cursor: pointer;
   font-family: "Hujan";
 }
@@ -29,22 +39,13 @@ button {
     font-size: .8rem;
   }
 
-/* 
-@media(min-width: 400px){
 
-}
-@media(min-width: 600px){
-
-}
-@media(min-width: 800px){
-
-}
-@media(min-width: 1000px){
-
-}
 @media(min-width: 1200px){
-
-} */
+    button {
+        font-size: 1.5rem;
+        padding: 1vw 3vw;
+      }
+}
 
 @font-face {
     font-family: 'Hujan';

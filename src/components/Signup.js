@@ -68,7 +68,7 @@ function Signup ({createUser, error, clearSignupError }) {
     const formSubmit = e => {
         e.preventDefault();
         createUser(user, setUser);
-        setTimeout(go, 2000);
+        setTimeout(go, 1000);
     }
 
     const go = () => {
@@ -94,19 +94,7 @@ function Signup ({createUser, error, clearSignupError }) {
                    {errors.user_name.length > 0 ? (
                     <p className="username-error-p">{errors.user_name}</p>
                     ) : ""} 
-                </div>
-                
-                {error ? (
-                    <div className='signup-error'>
-                        <div className='signup-error-inner'>
-                           <p className="signup-error-text">{error}</p>
-                        <button 
-                        className='close-signup-error'
-                        onClick={() => clearSignupError()}>X</button>  
-                        </div>
-                    </div> 
-                ) : null}      
-
+                </div>   
                 <label htmlFor="password">Password<br/>
                     <input 
                         name="password" 
@@ -122,9 +110,26 @@ function Signup ({createUser, error, clearSignupError }) {
                         ) : null}  
                     </div>
                 <div className='button-div'>
-                    <button disabled={buttonDisabled}>Signup</button> 
+                    <button 
+                        disabled={buttonDisabled}
+                        className={buttonDisabled?"disabled":""}
+                        >Signup</button> 
                 </div>
             </form>
+            <div className="already-signedup">
+                <p>Already signed up?</p>
+                <button onClick={() => navigate("/login")}>Login</button> 
+            </div>
+            {error ? (
+                    <div className='signup-error'>
+                        <div className='signup-error-inner'>
+                           <p className="signup-error-text">{error}</p>
+                        <button 
+                        className='close-signup-error'
+                        onClick={() => clearSignupError()}>X</button>  
+                        </div>
+                    </div> 
+                ) : null}   
         </div>
     )
 }

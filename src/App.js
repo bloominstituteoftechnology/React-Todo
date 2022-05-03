@@ -5,16 +5,19 @@ import Landing from './components/Landing';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import PrivateRoute from './utils/PrivateRoute';
 import Todo from './components/Todo';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 function App () {
 
     return (
         <Router>
             <div className="app">
+                <h1 className="title">Toodue</h1> 
                 <Routes>
                     <Route exact path="/" element={<Landing />}/>
-                    {/* <Route exact path="/login" element={<Login />}/>
-                    <Route exact path="/signup" element={<Signup />}/> */}
+                    <Route path="/login" element={<Login />}/>
+                    <Route path="/signup" element={<Signup />}/>
                     <Route 
                         path="/user/todos" 
                         element={

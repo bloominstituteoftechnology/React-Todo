@@ -1,30 +1,18 @@
-import React, { useState } from "react";
-import Login from "./Login";
-import Signup from "./Signup";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Landing.css";
 
 
 function Landing(){    
-    
-    const [existingUser, setExistingUser] = useState(false);
 
+    const navigate = useNavigate()
+    
         return (
             <div className="landing-outer">
-                <div className="title">
-                    <h1 className="title2">Toodue</h1> 
-                </div>
-                {!existingUser? 
-                    <div className="landing-signup">
-                        <Signup />
-                        <div className="already-signedup">
-                           <p>Already signed up?</p>
-                            <button onClick={() => setExistingUser(true)}>Login</button> 
-                        </div>
-                        
-                    </div> : <Login />}
-                
-                
+                <button onClick={() => navigate("/signup")}>Signup</button>
+                <button onClick={() => navigate("/login")}>Login</button>
             </div>
         )
+        
 }
 export default Landing

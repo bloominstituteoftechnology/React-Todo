@@ -1,3 +1,7 @@
+.todo-outer-div {
+    margin-top: 2vh;
+}
+
 .todo-main-div{
     display:flex;
     flex-direction: column;
@@ -5,6 +9,7 @@
 }
 
 .todo-main-div h2 {
+    font-size: 2rem;
     color: rgb(164, 54, 42);
 }
 
@@ -12,11 +17,13 @@
   text-decoration: line-through red;
   cursor: pointer;
   text-align: center;
+  font-size: 1.3rem;
 }
 
 .task {
   cursor: pointer;
   text-align: center;
+  font-size: 1.3rem;
 }
 
 .delete-button {
@@ -39,30 +46,19 @@
 .todo-main-div input{
     background: rgb(255, 247, 244);
     border:1px solid rgb(178, 203, 203);
-    border-radius: 5vw;
+    border-radius: 10vw;
     color: rgb(0, 100, 100);
-    padding: 1vw;
+    padding: 3vw;
 }
 
-@media(min-width: 800px) and (orientation: landscape){
-    .todo-main-div {
-        margin-bottom: 30vh;
+@media(min-width:1200px){
+    #task_description{
+        padding: 0 2vh;
+        height: 5vh;
+        margin-right: 3vw;
     }
 }
 
-/* 
-@media(min-width: 400px){
+@media(min-width: 800px) and (orientation: landscape){
 
 }
-@media(min-width: 600px){
-
-}
-@media(min-width: 800px){
-
-}
-@media(min-width: 1000px){
-
-}
-@media(min-width: 1200px){
-
-} */
