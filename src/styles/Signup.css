@@ -1,9 +1,7 @@
 .signup-outer-div{
     width: 100%;
-    border-bottom: 1px solid rgba(40, 121, 121, 0.486);
-    border-top: 1px solid rgba(40, 121, 121, 0.486);
     padding-top: 5vh;
-    height: 50vh;
+    margin-bottom: 10vh;
 }
 
 .form-container {
@@ -16,7 +14,8 @@
 
 .signup-outer-div label{
     width: 100%;
-    margin-top: 8%;
+    margin-top: 3vh;
+    font-size: 1.5rem;
 }
 
 .signup-outer-div input{
@@ -26,21 +25,22 @@
     color: rgb(0, 101, 101);
     padding: 2vw;
     width:94%;
+    font-size: 1rem;
 }
 
 .button-div {
     margin-top: 10%;
     background: rgb(255, 247, 244); 
-    border-radius: 5vw;
+    border-radius: 10vw;
 }
 
-.username-error {
+.username-error {           
     position:absolute;
     margin:0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: .8rem;
+    font-size: 1rem;
     color: rgba(150, 10, 10, 0.895);
-}   
+}  
 
 .username-error-p {
     position:relative;
@@ -50,13 +50,13 @@
     position:absolute;
     margin:0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: .8rem;
+    font-size: 1rem;
     color: rgba(150, 10, 10, 0.895);
 }
 
 .password-error-p {
     position:relative;
-    top:14vh;
+    top:15vh;
 }
 
 .signup-error {
@@ -82,6 +82,7 @@
 
 .signup-error p {
     color: brown;
+    font-size: 1rem;
 }
 
 .close-signup-error {
@@ -90,47 +91,18 @@
     border-radius: 10vw;
 }
 
-
-
 @media(min-width: 800px) and (orientation: landscape){
-    .close-signup-error {
-        font-size: 1.5rem;
-        padding:2vw 3vw;
-        border-radius: 5vw;
-    }
-    
+
 }
 
-/* @media(min-width: 400px){
-
-} */
-/* @media(min-width: 600px){
-    .signup-outer-div{
-        padding-top: 3vh;
-        padding-bottom: 5vh;
-    }
-} */
-/* @media(min-width: 800px){
-
-} */
-/* @media(min-width: 1000px){
-
-} */
-/* @media(min-width: 1200px){
-    .form-container label{
-        display: flex;
-        flex-direction: column;
-        width:30vw;
-    }
-
+@media(min-width: 1200px){
     .signup-outer-div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        width: 50%;
     }
-
     .signup-outer-div input{
-        padding: 1vh;
-        width:96%;
-    } 
-} */
+        padding: 1vw;
+    }
+    .close-signup-error {
+        padding:2vh 3vh;
+    }
+}

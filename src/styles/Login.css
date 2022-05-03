@@ -1,10 +1,7 @@
 .login-outer-div{
     width: 100%;
     padding-top: 5vh;
-    padding-bottom: 6vh;
-    border-bottom: 1px solid rgba(40, 121, 121, 0.486);
-    border-top: 1px solid rgba(40, 121, 121, 0.486);
-
+    margin-bottom: 10vh;
 }
 
 .form-container {
@@ -15,9 +12,14 @@
     /* height: 40vh; */
 }
 
+.form-container h2 {
+    font-size: 2rem;
+}
+
 .login-outer-div label{
     width: 100%;
-    margin-top: 7vw;
+    font-size: 1.5rem;
+    margin-top: 3vh;
 }
 
 .login-outer-div input{
@@ -26,7 +28,8 @@
     border-radius: 5vw;
     color: rgb(0, 101, 101);
     padding: 2vw;
-    width:94%;
+    width:95%;
+    font-size: 1rem;
 }
 
 .login-error {
@@ -55,27 +58,44 @@
     font-size: 1.2rem;
 }
 
+.already-signedup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.already-signedup p {
+    font-size: 1.4rem;
+    padding-top: 5vh;
+}
+
+.already-signedup button {
+    background: none;
+}
+
+.close-login-error {
+    font-size: 1.5rem;
+    padding:2vw 4vw;
+    border-radius: 10vw;
+}
+
+.disabled {
+    background: rgb(233, 226, 223);
+}
+
 @media(min-width: 800px) and (orientation: landscape){
+
+}
+
+@media(min-width: 1200px) and (orientation: landscape){
     .login-outer-div {
-        margin-bottom: 10vh;
+        width: 50%;
+    }
+    .login-outer-div input{
+        padding: 1vw;
+    }
+    .close-login-error {
+        padding:2vh 3vh;
     }
 }
-
-
-
-
-/* @media(min-width: 400px){
-
-}
-@media(min-width: 600px){
-
-}
-@media(min-width: 800px){
-
-}
-@media(min-width: 1000px){
-
-}
-@media(min-width: 1200px){
-
-} */

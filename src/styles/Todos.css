@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 2vh;
 }
 
 .logout-div{
@@ -17,8 +18,12 @@
     width: 100%;
 }
 
+.main-todos-div {
+    font-size: 1.5rem;
+}
+
 .name {
-    color: rgb(168, 87, 78);
+    color:rgb(164, 54, 42);
 }
 
 .todo-list {
@@ -48,16 +53,18 @@
 .add-todo-form {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 90%;
 }
 
 .add-todo-form input{
     background: rgb(255, 247, 244);
     border:1px solid rgb(178, 203, 203);
-    border-radius: 5vw;
+    border-radius: 10vw;
     color: rgb(0, 100, 100);
-    padding: 1vw;
+    padding: 3vw;
     width: 60%;
+    margin-right: 2vw;
 }
 
 .add-button {
@@ -66,27 +73,16 @@
 }
 
 @media(min-width: 800px) and (orientation: landscape){
-    .todos-outer-div {
-        margin-bottom: 30vh;
+
+}
+
+@media(min-width: 1200px) {
+    .add-todo-form {
+        justify-content: center;
+    }
+    #todo_name{
+        padding: 0 2vh;
+        height: 5vh;
+        margin-right: 3vw;
     }
 }
-
-
-
-/* 
-@media(min-width: 400px){
-
-}
-@media(min-width: 600px){
-
-}
-@media(min-width: 800px){
-
-}
-@media(min-width: 1000px){
-
-}
-@media(min-width: 1200px){
-
-}
- */
