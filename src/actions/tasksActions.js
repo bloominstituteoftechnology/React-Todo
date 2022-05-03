@@ -21,7 +21,7 @@ const headers = {
 
 export const getTasks = (todo_id) => dispatch => {
     dispatch({type: FETCH_TASKS_START});
-    axios.get(`https://toodueapp.heroku.com/api/tasks/${todo_id}`, {headers})
+    axios.get(`https://toodueapp.herokuapp.com/api/tasks/${todo_id}`, {headers})
         .then(res => {
             dispatch({type: FETCH_TASKS_SUCCESS, payload: res.data})
         }
@@ -32,7 +32,7 @@ export const getTasks = (todo_id) => dispatch => {
 
 export const createTask = (task) => dispatch => {
     dispatch({type: CREATE_TASK_START});
-    axios.post("https://toodueapp.heroku.com/api/tasks", task)
+    axios.post("https://toodueapp.herokuapp.com/api/tasks", task)
         .then(res => {
             console.log(res)
             dispatch({type: CREATE_TASK_SUCCESS, payload: res.data})
@@ -57,7 +57,7 @@ export const deleteTasks = (tasks) => dispatch => {
     dispatch({type: DELETE_TASK_START})
     const tasksToDelete = tasks.filter(task => task.completed === true)
     tasksToDelete.forEach(task => {
-        axios.delete(`https://toodueapp.heroku.com/api/tasks/${task.task_id}`)
+        axios.delete(`https://toodueapp.herokuapp.com/api/tasks/${task.task_id}`)
             .then(res => {
                 console.log(res)
                 dispatch({type: DELETE_TASK_SUCCESS, payload: res.data})
