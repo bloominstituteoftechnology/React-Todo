@@ -92,8 +92,12 @@ function Todo ({user_name, todos, tasks, getTasks, createTask, toggleTask, delet
                     </div>
                     {deleteButton ? (
                         <div className='delete-warning'>
-                            <h2>U SHRRR?</h2>
-                            <button onClick={() => firstDelete()}>YUP</button>
+                            <h2>U SHRRR<b className='question-mark'>?</b></h2>
+                            <button 
+                                onClick={() => firstDelete()}
+                                className="delete-button">
+                                YUP
+                            </button>
                         </div>
                     ) : null}                    
                 </div>

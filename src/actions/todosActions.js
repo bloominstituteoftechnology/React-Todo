@@ -18,7 +18,7 @@ const headers = {
 
 export const getTodos = (user_id) => dispatch => {
     dispatch({type: FETCH_TODOS_START});
-    axios.get(`https://toodueapp.herokuapp.com/api/todos/${user_id}`, {headers})
+    axios.get(`https://toodueapp.heroku.com/api/todos/${user_id}`, {headers})
         .then(res => {
             dispatch({type: FETCH_TODOS_SUCCESS, payload: res.data})
         }
@@ -30,7 +30,7 @@ export const getTodos = (user_id) => dispatch => {
 export const createTodo = (todo) => dispatch => {
     dispatch({type: CREATE_TODO_START});
     console.log(todo)
-    axios.post("https://toodueapp.herokuapp.com/api/todos", todo)
+    axios.post("https://toodueapp.heroku.com/api/todos", todo)
         .then(res => {
             console.log(res)
             dispatch({type: CREATE_TODO_SUCCESS, payload: res.data})
@@ -43,7 +43,7 @@ export const createTodo = (todo) => dispatch => {
 
 export const deleteTodo = (todo_id) => dispatch => {
     dispatch({type: DELETE_TODO_START});
-    axios.delete(`https://toodueapp.herokuapp.com/api/todos/${todo_id}`)
+    axios.delete(`https://toodueapp.heroku.com/api/todos/${todo_id}`)
         .then(res => {
             dispatch({type: DELETE_TODO_SUCCESS, payload:res.data})
         })

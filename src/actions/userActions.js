@@ -23,7 +23,7 @@ const headers = {
 
 export const createUser = (user, setUser) => dispatch => {
     dispatch({type: CREATE_USER_START})
-    axios.post("https://toodueapp.herokuapp.com/api/users/signup/", user).then(res => {
+    axios.post("https://toodueapp.heroku.com/api/users/signup/", user).then(res => {
         console.log(res)
         setUser({
             user_name: "",
@@ -39,7 +39,7 @@ export const createUser = (user, setUser) => dispatch => {
 
 export const login = (user, setUser) => dispatch => {
     dispatch({ type: USER_LOGIN_START})
-    axios.post("https://toodueapp.herokuapp.com/api/users/login/", user).then(
+    axios.post("https://toodueapp.heroku.com/api/users/login/", user).then(
         res => {
             console.log(res.data.user)
             setUser({
@@ -56,7 +56,7 @@ export const login = (user, setUser) => dispatch => {
 
 export const deleteUser = (user_id) => dispatch => {
     dispatch({type: DELETE_USER_START})
-    axios.delete(`https://toodueapp.herokuapp.com/api/users/${user_id}`, {headers})
+    axios.delete(`https://toodueapp.heroku.com/api/users/${user_id}`, {headers})
         .then(res => {
             console.log(res)
             dispatch({type:DELETE_USER_SUCCESS})
